@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="TZE0rZyIqLl10trYu3BWBWa1Vmz6HFwhb2OcNEK4u-s" />
+     <link rel="shortcut icon" href= /img/favicon.ico >
+    <title>
+        凌云的个人博客
+    </title>
+    <meta name="description" content= Pipeline TD for VFX >
+    <meta name="keywords" content= 凌云,lingyunfx,TD,VFX,CG >
+    
+<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-home
+ replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            Nuke开发系列之节点操作
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
+        <h1 id="Nuke开发相关的文档"><a href="#Nuke开发相关的文档" class="headerlink" title="Nuke开发相关的文档"></a>Nuke开发相关的文档</h1><p><a target="_blank" rel="noopener" href="https://support.foundry.com/hc/zh-cn">Nuke官方技术支持论坛</a><br><a target="_blank" rel="noopener" href="https://learn.foundry.com/nuke/developers/11.2/pythondevguide/">Python开发文档</a><br><a target="_blank" rel="noopener" href="https://learn.foundry.com/nuke/developers/11.2/pythonreference/">Python API文档</a><br><a target="_blank" rel="noopener" href="https://www.yiibai.com/tcl">Nuke TCL教程</a></p>
+<h1 id="Nuke节点操作"><a href="#Nuke节点操作" class="headerlink" title="Nuke节点操作"></a>Nuke节点操作</h1><h3 id="获取节点"><a href="#获取节点" class="headerlink" title="获取节点"></a>获取节点</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> nuke</span><br><span class="line"></span><br><span class="line"><span class="comment"># 已知节点的名称，使用toNode函数获取，返回一个节点对象。</span></span><br><span class="line">nuke.toNode(<span class="string">&#x27;Text1&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取当前选择的单个节点，返回一个节点对象。</span></span><br><span class="line">nuke.selectedNode()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取当前选择的多个节点，返回一个列表。</span></span><br><span class="line">nuke.selectedNodes()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取工程所有节点</span></span><br><span class="line">all_nodes = nuke.allNodes()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取工程所有指定类型的节点</span></span><br><span class="line">all_dot_nodes = nuke.allNodes(<span class="string">&quot;Dot&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取，设置节点属性"><a href="#获取，设置节点属性" class="headerlink" title="获取，设置节点属性"></a>获取，设置节点属性</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取cliptype的值</span></span><br><span class="line">t = nuke.toNode(<span class="string">&#x27;Text1&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span> t[<span class="string">&#x27;cliptype&#x27;</span>].value()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">format</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 改变cliptype的值</span></span><br><span class="line">t[<span class="string">&#x27;cliptype&#x27;</span>].setValue(<span class="string">&#x27;bbox&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 因为这个值是一个下拉菜单，所以可以传index参数</span></span><br><span class="line">t[<span class="string">&#x27;cliptype&#x27;</span>].setValue(<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置Read文件路径,并自动set帧范围(对帧序列无效)</span></span><br><span class="line">read_node[<span class="string">&#x27;file&#x27;</span>].fromUserText(video_file)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="创建和删除节点"><a href="#创建和删除节点" class="headerlink" title="创建和删除节点"></a>创建和删除节点</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这种方式适合nuke界面打开的时候，代码执行后会跳转到节点的属性编辑窗。</span></span><br><span class="line">nuke.createNode(<span class="string">&#x27;Write&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这种方法适合没有打开nuke，在后台的一些操作。</span></span><br><span class="line">nuke.nodes.Write()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建节点，忽略弹出属性窗口</span></span><br><span class="line">nuke.createNode(<span class="string">&quot;Blur&quot;</span>, inpanel=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建节点的时候，设置节点属性</span></span><br><span class="line">nuke.nodes.Dot(xpos=<span class="number">100</span>, ypos=<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除节点</span></span><br><span class="line">nuke.delete(node)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除工程指定类型的节点</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> nuke.allNodes(<span class="string">&quot;Dot&quot;</span>):</span><br><span class="line">  nuke.delete(i)</span><br></pre></td></tr></table></figure>
+
+<h3 id="连接节点"><a href="#连接节点" class="headerlink" title="连接节点"></a>连接节点</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">t = nuke.toNode(<span class="string">&#x27;Text1&#x27;</span>)</span><br><span class="line">w = nuke.toNode(<span class="string">&#x27;Write1&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># setInput的第一个参数是输入编号</span></span><br><span class="line"><span class="comment"># 第二个参数是需要连接的上游节点</span></span><br><span class="line">w.setInput(<span class="number">0</span>, t)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 得到节点的input关系</span></span><br><span class="line">w.<span class="built_in">input</span>(<span class="number">0</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Result: &lt;Text1 at <span class="number">0x000000001073FF30</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="root操作"><a href="#root操作" class="headerlink" title="root操作"></a>root操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取nuke文件路径</span></span><br><span class="line">nuke.root().name()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取项目设置的起始帧</span></span><br><span class="line">nuke.root().firstFrame()</span><br></pre></td></tr></table></figure>
+
+<h3 id="使一个节点被选中"><a href="#使一个节点被选中" class="headerlink" title="使一个节点被选中"></a>使一个节点被选中</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使一个节点被选择状态</span></span><br><span class="line">node = nuke.toNode(<span class="string">&quot;Grade1&quot;</span>)</span><br><span class="line">node.setSelected(<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="渲染指定节点"><a href="#渲染指定节点" class="headerlink" title="渲染指定节点"></a>渲染指定节点</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 参数分别是Write节点名，渲染起始帧，渲染结束帧，步长。</span></span><br><span class="line"></span><br><span class="line">nuke.execute(<span class="string">&#x27;Write1&#x27;</span>, <span class="number">1001</span>, <span class="number">1010</span>, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取设置节点位置"><a href="#获取设置节点位置" class="headerlink" title="获取设置节点位置"></a>获取设置节点位置</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">node = nuke.toNode(<span class="string">&quot;Grade1&quot;</span>)</span><br><span class="line"><span class="built_in">print</span> node.xpos()</span><br><span class="line"><span class="built_in">print</span> node.ypos()</span><br><span class="line"></span><br><span class="line">node.setXpos(<span class="number">0</span>)</span><br><span class="line">node.setYpos(<span class="number">20</span>)</span><br><span class="line">node.setXYpos(<span class="number">0</span>, <span class="number">20</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="复制粘贴节点"><a href="#复制粘贴节点" class="headerlink" title="复制粘贴节点"></a>复制粘贴节点</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将选择的节点复制到粘贴板</span></span><br><span class="line">nuke.nodeCopy(<span class="string">&quot;%clipboard%&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将粘贴板的内容，粘贴到文件中</span></span><br><span class="line">nuke.nodePaste(<span class="string">&quot;%clipboard%&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="动画操作"><a href="#动画操作" class="headerlink" title="动画操作"></a>动画操作</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置为可key帧状态</span></span><br><span class="line">node = nuke.toNode(<span class="string">&quot;Blur1&quot;</span>)</span><br><span class="line">knob = node(<span class="string">&quot;size&quot;</span>)</span><br><span class="line">knob.setAnimated()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 给指定帧数key帧，第一个参数是数值，第二个参数是帧数</span></span><br><span class="line">knob.setValueAt(<span class="number">55</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 比如size属性，有x和y两个值的时候，使用第三个参数来控制</span></span><br><span class="line">knob.setValueAt(<span class="number">77</span>, <span class="number">100</span>, <span class="number">0</span>)</span><br><span class="line">knob.setValueAt(<span class="number">88</span>, <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断一个属性是否有关键帧</span></span><br><span class="line"><span class="built_in">print</span> knob.isAnimated()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取key帧动画</span></span><br><span class="line"><span class="built_in">print</span> knob.animations()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 只获取size属性中，h的动画</span></span><br><span class="line"><span class="built_in">print</span> knob.animations(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取size属性中，h的每一个关键帧和对应的数值</span></span><br><span class="line">animation = knob.animation(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> animation.keys():</span><br><span class="line">  <span class="built_in">print</span> key.x, key.y</span><br><span class="line">          <span class="comment"># x为关键帧， y为对应的数值</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取非关键帧的数值</span></span><br><span class="line"><span class="built_in">print</span> animation.evaluate(<span class="number">60</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拷贝动画</span></span><br><span class="line">nuke.toNode(<span class="string">&quot;Grade1&quot;</span>)[<span class="string">&quot;white&quot;</span>].copyAnimations(knob.animations())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除关键帧</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> knob.animations():</span><br><span class="line">  i.clear()</span><br><span class="line">  knob.deleteAnimation(i)</span><br></pre></td></tr></table></figure>
+
+<h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开一个nuke文件</span></span><br><span class="line">nuke.scriptOpen(<span class="string">&quot;$nuke_file_path&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开一个新的空文件</span></span><br><span class="line">nuke.scriptNew()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存文件，如果括号里没有参数，则相当于ctrl+s</span></span><br><span class="line">nuke.scriptSave(<span class="string">&quot;$nuke_file_path&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 另存为</span></span><br><span class="line">nuke.scriptSaveAs(<span class="string">&quot;$nuke_file_path&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭当前文件，回归到空文件状态</span></span><br><span class="line">nuke.scriptClose()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将选择的节点，输出为一个nk文件</span></span><br><span class="line">nuke.nodeCopy(<span class="string">&quot;$nuke_file_path&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将一个文件导入到当前工程</span></span><br><span class="line">nuke.nodePaste(<span class="string">&quot;$nuke_file_path&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+</div>
+    <div class="footer" id="footer">
+    <p><h4>Copyright © 2020 | Author: Lingyun Zhang | Theme By <a class="theme-author" target="_blank" rel="noopener" href="https://github.com/Xunzhuo/hexo-theme-coder" style="font-size:14px; color: #969696">Coder</a></h4>
+    
+    <label class="el-switch el-switch-blue el-switch-sm" style="vertical-align: sub;">
+        <input type="checkbox" name="switch" id="update_style">
+        <span class="el-switch-style"></span>
+    </label>
+
+    <!--         <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script> -->
+</p>
+</div>
+
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="NOsswOncKgc8HOxqo9oxIWlX-gzGzoHsz">
+<input type="hidden" id="valine_appKey" value="z1FihjWEbS8uIfUQdmCtK7zz">
+
+<script src="/libs/jquery.min.js"></script>
+
+
+<script src="/libs/highlight/highlight.pack.js"></script>
+
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+
+<script src="/js/js.js"></script>
+
+<style type="text/css">
+.v * {
+color: #698fca;
+}
+.v .vlist .vcard .vhead .vsys {
+color: #3a3e4a;
+}
+.v .vlist .vcard .vh .vmeta .vat {
+color: #638fd5;
+}
+.v .vlist .vcard .vhead .vnick {
+color: #6ba1ff;
+}
+.v a {
+color: #8696b1;
+}
+.v .vlist .vcard .vhead .vnick:hover {
+color: #669bfc;
+}
+</style>
+    <script type="text/javascript" color="173,174,173" opacity='1' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</body>
+</html>
