@@ -155,25 +155,24 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/10/30/nuke-nodes-intro/">Nuke开发系列之节点操作</a>
+        <a href="/2020/11/05/nuke-trn-lens-distort/">使用LensDistortion节点输出STMap</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/10/30/nuke-nodes-intro/">
+        <a href="/2020/11/05/nuke-trn-lens-distort/">
           
           
             
           
-          Nuke开发相关的文档Nuke官方技术支持论坛Python开发文档Python API文档Nuke TCL教程
-Nuke节点操作获取节点import nuke
+          前言通常在电影的前期拍摄中，Onset人员会拍摄摄像机不同焦段的畸变网格，因为在后期制作中，没有Distortion map会让摄像机反求变得困难得多。
+最左为枕形畸变，最右为桶形畸变。
 
-# 已知节点的名称，使用toNode函数获取，返回一个节点对象。
-nuke.toNode(&#x27;Text1&#x27;)
+通常我们会对一个棋盘格板进行拍摄，类似下图这样的。
 
-# 获取当前选择的单个节点，返回一个节点对象。
-nuke.selectedNode()
 
-# 获取当前选择的
+拍摄完会得到一张畸变网格，下面我们使用nuke对其进行矫正畸变，并输出stmap。
+
+矫正畸变1.导入畸变网格图，添加LensDistortion节点。这
         </a>
       </p>
 
@@ -181,8 +180,8 @@ nuke.selectedNode()
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-10-30 16:13" pubdate>
-              2020-10-30
+            <time datetime="2020-11-05 23:16" pubdate>
+              2020-11-05
             </time>
           </div>
         
@@ -193,6 +192,96 @@ nuke.selectedNode()
               <a href="/categories/DCC/">DCC</a>
             
               <a href="/categories/DCC/Nuke/">Nuke</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/11/05/whats-matchmoving/">电影视效制作中的Matchmove</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/11/05/whats-matchmoving/">
+          
+          
+            
+          
+          简述Matchmoving是后期视效制作中使用的一种技术，主要是对镜头画面进行摄像机反求和运动追踪。
+摄像机反求，通俗来说就是通过追踪的二维点解算，还原镜头拍摄时真实的三维像机路径。
+在实际工作中，matchmoving人员还会涉及到一点layout的工作。
+layout翻译过来是布局，在求得三维相机后，需根据空间比例，透视关系，进行拍摄场景的还原。即是将前期拍摄时的摄像机，被摄的人物与场景，在三
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-11-05 23:13" pubdate>
+              2020-11-05
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/CG/">CG</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/11/05/install-cgwire/">搭建电影视效流程管理系统CGWire</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/11/05/install-cgwire/">
+          
+          
+            
+          
+          前言国庆在家容易想些有的没的，想着万一以后自己开了一个小型视效工作室，该用什么来进行跟踪管理项目进度。
+首先是想到的当然是诸如Shotgun, FTrack, CGTeamWork等这些项目管理平台。但是价格上则让人却步，比如Shotgun收费标准是每人每月30刀。
+
+这对于小型低成本工作室，也算是一笔不小的开销。抱着能省则省的态度，在网上找到了开源免费的项目管理平台CGWire
+
+CGWire介
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-11-05 22:56" pubdate>
+              2020-11-05
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/CG/">CG</a>
             
           </div>
         

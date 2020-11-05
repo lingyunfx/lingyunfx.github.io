@@ -1,0 +1,668 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="关于电影视效的经验与分享">
+  <meta name="author" content="Lingyun Zhang">
+  <meta name="keywords" content="">
+  <title>搭建电影视效流程管理系统CGWire - 凌云的个人博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/hopscotch.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>凌云的个人博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Lingyun Zhang
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-11-05 22:56" pubdate>
+        2020年11月5日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      20
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">搭建电影视效流程管理系统CGWire</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>国庆在家容易想些有的没的，<br>想着万一以后自己开了一个小型视效工作室，<br>该用什么来进行跟踪管理项目进度。</p>
+<p>首先是想到的当然是诸如Shotgun, FTrack, CGTeamWork等这些项目管理平台。<br>但是价格上则让人却步，比如Shotgun收费标准是每人每月30刀。</p>
+<p><img src="https://i.loli.net/2020/10/06/2GrXAThoHx1iqZc.jpg" srcset="/img/loading.gif" alt="shotgun_pricing.jpg"></p>
+<p>这对于小型低成本工作室，也算是一笔不小的开销。<br>抱着能省则省的态度，在网上找到了<strong>开源免费</strong>的项目管理平台CGWire</p>
+<p><img src="https://i.loli.net/2020/10/06/byxBnZO1eKzmA4l.jpg" srcset="/img/loading.gif" alt="cg-wire.jpg"></p>
+<h1 id="CGWire介绍"><a href="#CGWire介绍" class="headerlink" title="CGWire介绍"></a>CGWire介绍</h1><p>文字不如视频直观，下面是官方的视频介绍，<br>可以说是麻雀虽小，该有的功能都有。</p>
+<p><a target="_blank" rel="noopener" href="https://youtu.be/EH3RbmHykrE">https://youtu.be/EH3RbmHykrE</a></p>
+<h1 id="CGWire搭建"><a href="#CGWire搭建" class="headerlink" title="CGWire搭建"></a>CGWire搭建</h1><p>接下来就是无趣的代码部分了。<br>我这里使用的是Ubuntu 16.04版本进行的测试。</p>
+<h2 id="安装软件依赖"><a href="#安装软件依赖" class="headerlink" title="安装软件依赖"></a>安装软件依赖</h2><div class="hljs"><pre><code class="hljs Shell">sudo apt-get update
+sudo apt-get install postgresql postgresql-client postgresql-server-dev-all
+sudo apt-get install redis-server
+sudo apt-get install python3 python3-pip
+sudo apt-get install git
+sudo apt-get install nginx
+sudo apt-get install ffmpeg</code></pre></div>
+
+<h2 id="获取资源"><a href="#获取资源" class="headerlink" title="获取资源"></a>获取资源</h2><p>创建一个zou用户</p>
+<div class="hljs"><pre><code class="hljs Shell">sudo useradd --home /opt/zou zou
+mkdir /opt/zou
+chown zou: /opt/zou</code></pre></div>
+
+<p>安装zou和其依赖</p>
+<div class="hljs"><pre><code class="hljs Shell">sudo pip3 install virtualenv
+cd /opt/zou
+sudo virtualenv zouenv
+. zouenv/bin/activate
+sudo zouenv/bin/pip3 install zou
+sudo chown -R zou:www-data .</code></pre></div>
+
+<p>创建存储预览的文件夹</p>
+<div class="hljs"><pre><code class="hljs Shell">sudo mkdir /opt/zou/previews
+sudo chown -R zou:www-data /opt/zou</code></pre></div>
+
+
+<h2 id="安装Postgres数据库"><a href="#安装Postgres数据库" class="headerlink" title="安装Postgres数据库"></a>安装Postgres数据库</h2><p>在postgres中创建Zou数据库</p>
+<div class="hljs"><pre><code class="hljs Shell">sudo su -l postgres
+psql -c &#x27;create database zoudb;&#x27; -U postgres</code></pre></div>
+
+<p>为postgres用户设置密码</p>
+<div class="hljs"><pre><code class="hljs Shell"><span class="hljs-meta">#</span><span class="bash"> 输入命令</span>
+psql
+
+<span class="hljs-meta">#</span><span class="bash"> 这里会进入postgres的交互模式</span>
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; psql (9.4.12)</span>
+<span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; Type <span class="hljs-string">&quot;help&quot;</span> <span class="hljs-keyword">for</span> <span class="hljs-built_in">help</span>.</span>
+
+<span class="hljs-meta">#</span><span class="bash"> 输入下面命令进行密码创建</span>
+postgres=# \password postgres
+Enter new password:
+Enter it again:
+
+<span class="hljs-meta">#</span><span class="bash"> 设置完成密码，退出交互模式</span>
+\q</code></pre></div>
+
+<p>如果不想使用交互式创建密码，可以用下面的方式。<br>如果已经创建了密码，跳过此步骤。</p>
+<div class="hljs"><pre><code class="hljs Shell">psql -U postgres -d postgres -c &quot;alter user postgres with password &#x27;mysecretpassword&#x27;;&quot;</code></pre></div>
+
+<p>最后，创建数据库表。<br>这里需注意已经退出了psql交互模式，并在zou虚拟环境下。</p>
+<div class="hljs"><pre><code class="hljs Shell"><span class="hljs-meta">#</span><span class="bash"> Run it <span class="hljs-keyword">in</span> your bash console.</span>
+DB_PASSWORD=yourdbpassword zou init_db</code></pre></div>
+
+<h2 id="准备键值存储"><a href="#准备键值存储" class="headerlink" title="准备键值存储"></a>准备键值存储</h2><div class="hljs"><pre><code class="hljs Shell">vim /etc/sysctl.conf</code></pre></div>
+<p>在这个文件末尾添加一行：<br><code>vm.overcommit_memory = 1</code></p>
+<h3 id="配置Gunicorn"><a href="#配置Gunicorn" class="headerlink" title="配置Gunicorn"></a>配置Gunicorn</h3><p>需要通过Gunicorn运行该应用程序，<br>Gunicorn是将zou作为守护程序运行的WSGI服务器。</p>
+<p>创建配置文件夹</p>
+<div class="hljs"><pre><code class="hljs Shell">sudo mkdir /etc/zou</code></pre></div>
+
+<p>创建Gunicorn配置文件<br>路径： /etc/zou/gunicorn.conf</p>
+<div class="hljs"><pre><code class="hljs ini"><span class="hljs-attr">accesslog</span> = <span class="hljs-string">&quot;/opt/zou/logs/gunicorn_access.log&quot;</span>
+<span class="hljs-attr">errorlog</span> = <span class="hljs-string">&quot;/opt/zou/logs/gunicorn_error.log&quot;</span>
+<span class="hljs-attr">workers</span> = <span class="hljs-number">3</span>
+<span class="hljs-attr">worker_class</span> = <span class="hljs-string">&quot;gevent&quot;</span></code></pre></div>
+
+<p>创建日志文件夹</p>
+<div class="hljs"><pre><code class="hljs Shell">sudo mkdir /opt/zou/logs
+sudo chown zou: /opt/zou/logs</code></pre></div>
+
+<p>创建进程守护的配置文件<br>路径: /etc/systemd/system/zou.service</p>
+<p>这里需要修改DB_PASSWORD和SECRET_KEY。<br>数据库的密码是之前设置的，而SECRET_KEY可以用pwgen来随机生成。</p>
+<div class="hljs"><pre><code class="hljs Shell">apt-get install pwgen
+pwgen 16</code></pre></div>
+
+<p>生成后可以复制其中一个给到SECRET_KEY</p>
+<div class="hljs"><pre><code class="hljs routeros">[Unit]
+<span class="hljs-attribute">Description</span>=Gunicorn<span class="hljs-built_in"> instance </span><span class="hljs-keyword">to</span> serve the Zou API
+<span class="hljs-attribute">After</span>=network.target
+
+[Service]
+<span class="hljs-attribute">User</span>=zou
+<span class="hljs-attribute">Group</span>=www-data
+<span class="hljs-attribute">WorkingDirectory</span>=/opt/zou
+<span class="hljs-comment"># Append DB_USERNAME=username DB_HOST=server when default values aren&#x27;t used</span>
+<span class="hljs-comment"># ffmpeg must be in PATH</span>
+<span class="hljs-attribute">Environment</span>=<span class="hljs-string">&quot;DB_PASSWORD=yourdbpassword&quot;</span>
+<span class="hljs-attribute">Environment</span>=<span class="hljs-string">&quot;SECRET_KEY=yourrandomsecretkey&quot;</span>
+<span class="hljs-attribute">Environment</span>=<span class="hljs-string">&quot;PATH=/opt/zou/zouenv/bin:/usr/bin&quot;</span>
+<span class="hljs-attribute">Environment</span>=<span class="hljs-string">&quot;PREVIEW_FOLDER=/opt/zou/previews&quot;</span>
+<span class="hljs-attribute">ExecStart</span>=/opt/zou/zouenv/bin/gunicorn  -c /etc/zou/gunicorn.conf -b 127.0.0.1:5000 zou.app:app
+
+[Install]
+<span class="hljs-attribute">WantedBy</span>=multi-user.target</code></pre></div>
+
+<p>创建事件流API服务器配置<br>路径: /etc/zou/gunicorn-events.conf</p>
+<div class="hljs"><pre><code class="hljs ini"><span class="hljs-attr">accesslog</span> = <span class="hljs-string">&quot;/opt/zou/logs/gunicorn_events_access.log&quot;</span>
+<span class="hljs-attr">errorlog</span> = <span class="hljs-string">&quot;/opt/zou/logs/gunicorn_events_error.log&quot;</span>
+<span class="hljs-attr">workers</span> = <span class="hljs-number">1</span>
+<span class="hljs-attr">worker_class</span> = <span class="hljs-string">&quot;geventwebsocket.gunicorn.workers.GeventWebSocketWorker&quot;</span></code></pre></div>
+
+<p>通过Systemd来守护事件流API服务进程<br>路径: /etc/systemd/system/zou-events.service</p>
+<div class="hljs"><pre><code class="hljs routeros">[Unit]
+<span class="hljs-attribute">Description</span>=Gunicorn<span class="hljs-built_in"> instance </span><span class="hljs-keyword">to</span> serve the Zou Events API
+<span class="hljs-attribute">After</span>=network.target
+
+[Service]
+<span class="hljs-attribute">User</span>=zou
+<span class="hljs-attribute">Group</span>=www-data
+<span class="hljs-attribute">WorkingDirectory</span>=/opt/zou
+<span class="hljs-comment"># Append DB_USERNAME=username DB_HOST=server when default values aren&#x27;t used</span>
+<span class="hljs-attribute">Environment</span>=<span class="hljs-string">&quot;PATH=/opt/zou/zouenv/bin&quot;</span>
+<span class="hljs-attribute">ExecStart</span>=/opt/zou/zouenv/bin/gunicorn -c /etc/zou/gunicorn-events.conf -b 127.0.0.1:5001 zou.event_stream:app
+
+[Install]
+<span class="hljs-attribute">WantedBy</span>=multi-user.target</code></pre></div>
+
+<h2 id="配置Nginx"><a href="#配置Nginx" class="headerlink" title="配置Nginx"></a>配置Nginx</h2><p>配置文件路径: /etc/nginx/sites-available/zou</p>
+<div class="hljs"><pre><code class="hljs Shell">server &#123;
+    listen 80;
+    server_name server_domain_or_IP;
+
+    location /api &#123;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_pass http://localhost:5000/;
+        client_max_body_size 500M;
+    proxy_connect_timeout 600s;
+        proxy_send_timeout 600s;
+        proxy_read_timeout 600s;
+        send_timeout 600s;
+    &#125;
+
+    location /socket.io &#123;
+    proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection &quot;Upgrade&quot;;
+        proxy_pass http://localhost:5001;
+    &#125;
+&#125;</code></pre></div>
+
+<p>启用nginx</p>
+<div class="hljs"><pre><code class="hljs Shell"><span class="hljs-meta">#</span><span class="bash"> 删除默认配置</span>
+sudo rm /etc/nginx/sites-enabled/default
+
+<span class="hljs-meta">#</span><span class="bash"> 创建文件链接</span>
+sudo ln -s /etc/nginx/sites-available/zou /etc/nginx/sites-enabled
+
+<span class="hljs-meta">#</span><span class="bash"> 重启nginx</span>
+sudo service zou start
+sudo service zou-events start
+sudo service nginx restart</code></pre></div>
+
+<h2 id="更新所有包"><a href="#更新所有包" class="headerlink" title="更新所有包"></a>更新所有包</h2><p>更新zou软件包</p>
+<div class="hljs"><pre><code class="hljs Shell">cd /opt/zou
+. zouenv/bin/activate
+sudo zouenv/bin/pip3 install --upgrade zou</code></pre></div>
+
+<p>更新数据路架构</p>
+<div class="hljs"><pre><code class="hljs Shell"><span class="hljs-meta">#</span><span class="bash"> 这里输入数据库的密码</span>
+DB_PASSWORD=yourdbpassword zou upgrade_db</code></pre></div>
+
+<p>重启zou服务</p>
+<div class="hljs"><pre><code class="hljs Shell">sudo chown -R zou:www-data .
+sudo service zou restart
+sudo service zou-events restart</code></pre></div>
+
+<h2 id="部署Kitsu"><a href="#部署Kitsu" class="headerlink" title="部署Kitsu"></a>部署Kitsu</h2><div class="hljs"><pre><code class="hljs Shell">cd /opt/
+sudo git clone -b build https://github.com/cgwire/kitsu
+cd kitsu
+sudo git checkout build
+sudo chown -R zou:www-data /opt/kitsu</code></pre></div>
+
+<p>部署完成后需要更新nginx的配置</p>
+<div class="hljs"><pre><code class="hljs Shell">server &#123;
+    listen 80;
+    server_name server_domain_or_IP;
+
+    location /api &#123;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header Host $host;
+        proxy_pass http://localhost:5000/;
+    &#125;
+
+    location /socket.io &#123;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection &quot;Upgrade&quot;;
+        proxy_pass http://localhost:5001;
+    &#125;
+
+    location / &#123;
+        autoindex on;
+        root  /opt/kitsu/dist;
+        try_files $uri $uri/ /index.html;
+
+    &#125;
+&#125;</code></pre></div>
+
+<p>重启nginx服务</p>
+<div class="hljs"><pre><code class="hljs Shell">sudo service nginx restart</code></pre></div>
+<p>到这一步就可以访问自己的ip或者域名来使用cgwire了。<br>当然，在此之前需要一个管理员账户来登陆cgwire。</p>
+<h2 id="创建cgwire管理员账户"><a href="#创建cgwire管理员账户" class="headerlink" title="创建cgwire管理员账户"></a>创建cgwire管理员账户</h2><div class="hljs"><pre><code class="hljs Shell"><span class="hljs-meta">#</span><span class="bash"> 首先进入zou环境</span>
+cd /opt/zou
+. zouenv/bin/activate
+
+<span class="hljs-meta">#</span><span class="bash"> 创建管理员账户 create_admin后的参数 为自己的登陆邮箱</span>
+DB_PASSWORD=yourdbpassword zou create_admin adminemail@yourstudio.com
+
+<span class="hljs-meta">#</span><span class="bash"> 初始化数据</span>
+DB_PASSWORD=yourdbpassword zou init_data</code></pre></div>
+
+<p>账户创建完成后，默认密码为default，第一次登陆后会强制让你修改密码。<br>最后请尽情的enjoy it。</p>
+<center>（完）
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/CG/">CG</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/11/05/whats-matchmoving/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">电影视效制作中的Matchmove</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "搭建电影视效流程管理系统CGWire&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
