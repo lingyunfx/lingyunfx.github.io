@@ -19,7 +19,7 @@
   <meta name="description" content="关于电影视效的经验与分享">
   <meta name="author" content="Lingyun Zhang">
   <meta name="keywords" content="">
-  <title>Pycharm引用maya command - 凌云的个人博客</title>
+  <title>PySide Event事件 - 凌云的个人博客</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -148,8 +148,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-11-21 17:37" pubdate>
-        2020年11月21日 下午
+      <time datetime="2020-11-22 22:53" pubdate>
+        2020年11月22日 晚上
       </time>
     </span>
   
@@ -160,7 +160,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      68 字
+      454 字
     </span>
   
 
@@ -170,7 +170,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      6
        分钟
     </span>
   
@@ -200,17 +200,136 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">Pycharm引用maya command</h1>
+            <h1 style="display: none">PySide Event事件</h1>
             
             <div class="markdown-body" id="post-body">
-              <p><strong>1.去这个maya的<a target="_blank" rel="noopener" href="https://www.autodesk.com/developer-network/platform-technologies/maya">官方支持</a>下载devkit包。</strong></p>
-<p>往下拉找到对应的maya版本：</p>
-<p><img src="https://i.loli.net/2020/11/21/yB3qR2DWJULatSN.png" srcset="/img/loading.gif" alt="Untitled.png"></p>
-<p><strong>2.解压后，复制 ..\Autodesk_Maya_2019_DEVKIT_Windows\devkitBase\devkit里的内容到：</strong></p>
-<p>C:\Program Files\Autodesk\Maya2019\devkit</p>
-<p><strong>3.在pycharm里环境变量中加入路径：</strong></p>
-<p>C:\Program Files\Autodesk\Maya2019\devkit\other\pymel\extras\completion\py</p>
-<p><img src="https://i.loli.net/2020/11/21/9TbABHFogmuKD8c.png" srcset="/img/loading.gif" alt="Untitled 1.png"></p>
+              <blockquote>
+<p>下面几个示例来说明事件的应用</p>
+</blockquote>
+<ul>
+<li>一些基本的事件注释  </li>
+</ul>
+<div class="hljs"><pre><code class="hljs Python"><span class="hljs-comment"># coding=utf-8</span>
+
+<span class="hljs-keyword">from</span> PySide2.QtWidgets <span class="hljs-keyword">import</span> *
+<span class="hljs-keyword">from</span> PySide2.QtGui <span class="hljs-keyword">import</span> *
+<span class="hljs-keyword">from</span> PySide2.QtCore <span class="hljs-keyword">import</span> *
+<span class="hljs-keyword">import</span> sys
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Window1</span>(<span class="hljs-params">QWidget</span>):</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self</span>):</span>
+        <span class="hljs-built_in">super</span>(Window1, self).__init__()
+
+        <span class="hljs-comment"># 追踪鼠标移动</span>
+        <span class="hljs-comment"># self.setMouseTracking(True)</span>
+
+    <span class="hljs-comment"># 鼠标点击事件</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mousePressEvent</span>(<span class="hljs-params">self, event</span>):</span>
+        <span class="hljs-comment"># 鼠标点击时，打印点击位置(相对于窗口)</span>
+        <span class="hljs-built_in">print</span> event.pos()
+
+        <span class="hljs-comment"># 鼠标点击时，打印点击位置(整个屏幕)</span>
+        <span class="hljs-built_in">print</span> event.globalPos() <span class="hljs-comment"># 可以在QMouseEvent里去寻找方法</span>
+
+        self.currentPos = self.pos()
+        self.mouseOriPos = event.globalPos()
+
+    <span class="hljs-comment"># 鼠标移动事件</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mouseMoveEvent</span>(<span class="hljs-params">self, event</span>):</span>
+
+        <span class="hljs-comment"># 实现点击按住移动窗口功能</span>
+        self.mouseDesPos = event.globalPos()
+        move = self.mouseDesPos - self.mouseOriPos
+        self.move(self.currentPos + move)
+
+    <span class="hljs-comment"># 鼠标释放事件</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mouseReleaseEvent</span>(<span class="hljs-params">self, event</span>):</span>
+        <span class="hljs-built_in">print</span> <span class="hljs-string">&#x27;mouse release&#x27;</span>
+
+    <span class="hljs-comment"># 鼠标双击事件</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mouseDoubleClickEvent</span>(<span class="hljs-params">self, event</span>):</span>
+        <span class="hljs-comment"># 双击放大或还原默认窗口</span>
+        <span class="hljs-keyword">if</span> self.isMaximized():
+            self.showNormal()
+        <span class="hljs-keyword">else</span>:
+            self.showMaximized()
+
+    <span class="hljs-comment"># 键盘按键事件</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">keyPressEvent</span>(<span class="hljs-params">self, event</span>):</span>
+        <span class="hljs-comment"># 获取按下按键的值</span>
+        <span class="hljs-built_in">print</span> event.text()
+
+        <span class="hljs-comment"># 设置按下ESC 关闭窗口</span>
+        <span class="hljs-keyword">if</span> event.key() == Qt.Key_Escape:
+            self.close()
+
+        <span class="hljs-comment"># 设置按下Ctrl + 回车键，发送消息</span>
+        <span class="hljs-keyword">if</span> event.modifiers() == Qt.ControlModifier <span class="hljs-keyword">and</span> event.key() == Qt.Key_Return:
+            <span class="hljs-built_in">print</span> <span class="hljs-string">&#x27;send message.&#x27;</span>
+
+    <span class="hljs-comment"># 释放键盘按键事件</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">keyReleaseEvent</span>(<span class="hljs-params">self, event</span>):</span>
+        <span class="hljs-built_in">print</span> <span class="hljs-string">&#x27;key release&#x27;</span>
+
+    <span class="hljs-comment"># 鼠标进入窗口事件</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">enterEvent</span>(<span class="hljs-params">self, event</span>):</span>
+        <span class="hljs-built_in">print</span> <span class="hljs-string">&#x27;enter&#x27;</span>
+
+    <span class="hljs-comment"># 鼠标离开窗口事件</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">leaveEvent</span>(<span class="hljs-params">self, event</span>):</span>
+        <span class="hljs-built_in">print</span> <span class="hljs-string">&#x27;leave&#x27;</span>
+
+    <span class="hljs-comment"># 窗口关闭事件</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">closeEvent</span>(<span class="hljs-params">self, event</span>):</span>
+        <span class="hljs-built_in">print</span> <span class="hljs-string">&#x27;close&#x27;</span>
+
+app = QApplication(sys.argv)
+widget = Window1()
+widget.show()
+app.exec_()
+</code></pre></div>
+
+<ul>
+<li>鼠标拖拽实例  </li>
+</ul>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-comment"># coding=utf-8</span>
+
+<span class="hljs-keyword">from</span> PySide2.QtWidgets <span class="hljs-keyword">import</span> *
+<span class="hljs-keyword">from</span> PySide2.QtGui <span class="hljs-keyword">import</span> *
+<span class="hljs-keyword">from</span> PySide2.QtCore <span class="hljs-keyword">import</span> *
+<span class="hljs-keyword">import</span> sys
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Window1</span>(<span class="hljs-params">QWidget</span>):</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self</span>):</span>
+        <span class="hljs-built_in">super</span>(Window1, self).__init__()
+        self.setAcceptDrops(<span class="hljs-literal">True</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">dragEnterEvent</span>(<span class="hljs-params">self, event</span>):</span>
+        mimeData = event.mimeData()
+
+        <span class="hljs-comment"># 获取拖拽的数据类型</span>
+        <span class="hljs-built_in">print</span> mimeData.formats()
+
+        <span class="hljs-comment"># 允许文件类型的拖拽</span>
+        <span class="hljs-keyword">if</span> mimeData.hasUrls():
+            event.accept()
+
+    <span class="hljs-comment"># 拖拽事件</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">dropEvent</span>(<span class="hljs-params">self, event</span>):</span>
+        <span class="hljs-built_in">print</span> event.mimeData().urls()
+
+        <span class="hljs-comment"># 打印出所有拖拽进窗口的文件</span>
+        <span class="hljs-keyword">for</span> url <span class="hljs-keyword">in</span> event.mimeData().urls():
+            <span class="hljs-built_in">print</span> url.toLocalFile()
+
+
+app = QApplication(sys.argv)
+widget = Window1()
+widget.show()
+app.exec_()</code></pre></div>
 
             </div>
             <hr>
@@ -220,9 +339,9 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Geek/">Geek</a>
+                      <a class="hover-with-bg" href="/categories/Python/">Python</a>
                     
-                      <a class="hover-with-bg" href="/categories/Geek/Pycharm/">Pycharm</a>
+                      <a class="hover-with-bg" href="/categories/Python/PyQt/">PyQt</a>
                     
                   </div>
                 
@@ -236,18 +355,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/11/21/pycharm-pyside-issue1/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【踩坑记录】Pycharm中无法使用QApplication类</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/11/21/unreal-add-custom-menus/">
-                        <span class="hidden-mobile">使用Python为UE4添加自定义菜单</span>
+                      <a href="/2020/11/21/pyqt-learning-001/">
+                        <span class="hidden-mobile">PyQt常用部件用法查询</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -383,7 +496,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Pycharm引用maya command&nbsp;",
+        "PySide Event事件&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

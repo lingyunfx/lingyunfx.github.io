@@ -19,7 +19,7 @@
   <meta name="description" content="关于电影视效的经验与分享">
   <meta name="author" content="Lingyun Zhang">
   <meta name="keywords" content="">
-  <title>Pycharm引用maya command - 凌云的个人博客</title>
+  <title>【踩坑记录】Pycharm中无法使用QApplication类 - 凌云的个人博客</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -148,8 +148,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-11-21 17:37" pubdate>
-        2020年11月21日 下午
+      <time datetime="2020-11-21 20:24" pubdate>
+        2020年11月21日 晚上
       </time>
     </span>
   
@@ -160,7 +160,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      68 字
+      226 字
     </span>
   
 
@@ -170,7 +170,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      2
        分钟
     </span>
   
@@ -200,17 +200,29 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">Pycharm引用maya command</h1>
+            <h1 style="display: none">【踩坑记录】Pycharm中无法使用QApplication类</h1>
             
             <div class="markdown-body" id="post-body">
-              <p><strong>1.去这个maya的<a target="_blank" rel="noopener" href="https://www.autodesk.com/developer-network/platform-technologies/maya">官方支持</a>下载devkit包。</strong></p>
-<p>往下拉找到对应的maya版本：</p>
-<p><img src="https://i.loli.net/2020/11/21/yB3qR2DWJULatSN.png" srcset="/img/loading.gif" alt="Untitled.png"></p>
-<p><strong>2.解压后，复制 ..\Autodesk_Maya_2019_DEVKIT_Windows\devkitBase\devkit里的内容到：</strong></p>
-<p>C:\Program Files\Autodesk\Maya2019\devkit</p>
-<p><strong>3.在pycharm里环境变量中加入路径：</strong></p>
-<p>C:\Program Files\Autodesk\Maya2019\devkit\other\pymel\extras\completion\py</p>
-<p><img src="https://i.loli.net/2020/11/21/9TbABHFogmuKD8c.png" srcset="/img/loading.gif" alt="Untitled 1.png"></p>
+              <p>前段时间想把PyQt系统的重新学学习一下，兴致勃勃的打开Pycharm，<br>运行起了下列这一串代码：</p>
+<div class="hljs"><pre><code class="hljs Python"><span class="hljs-keyword">from</span> PySide2 <span class="hljs-keyword">import</span> QtWidgets
+<span class="hljs-keyword">import</span> sys
+
+app = QtWidgets.QApplication(sys.argv)
+widget = QtWidgets.QWidget()
+widget.show()
+app.exec_()</code></pre></div>
+
+<p>很基础的一个生成UI窗口的代码，报错了…<br>下面是报错信息：</p>
+<div class="hljs"><pre><code class="hljs gradle"><span class="hljs-regexp">/usr/</span>bin<span class="hljs-regexp">/python2.7 /U</span>sers<span class="hljs-regexp">/mine/</span>PycharmProjects<span class="hljs-regexp">/pyqt_learning/</span>test01.py
+Traceback (most recent <span class="hljs-keyword">call</span> last):
+  <span class="hljs-keyword">File</span> <span class="hljs-string">&quot;/Users/mine/PycharmProjects/pyqt_learning/test01.py&quot;</span>, line <span class="hljs-number">6</span>, in &lt;module&gt;
+    app = QtWidgets.QApplication(sys.argv)
+TypeError: <span class="hljs-string">&#x27;NoneType&#x27;</span> object is not callable</code></pre></div>
+
+<p>百思不得其解，后来网上搜了半天，找到了答案。</p>
+<p><img src="https://i.loli.net/2020/11/21/kHSPTCoBWjNhGKe.jpg" srcset="/img/loading.gif" alt="Snipaste_2020-11-21_20-45-23.jpg"></p>
+<p>因为我之前在Pycharm里写Maya工具的时候，<br><strong>为了能让代码自动补全，加入了MayaDevKit环境</strong>。<br>而Maya的DevKit这个包里的模块会覆盖了QApplication这个类的返回值。<br><strong>解决方法</strong>就是把那条<strong>环境配置删掉</strong>就好了，见下图：<br>(关于MayaDevKit详情可见这篇文章<a target="_blank" rel="noopener" href="https://lingyunfx.github.io/2020/11/21/maya-command-with-pycharm/">Pycharm引用maya command</a>)</p>
+<p><img src="https://i.loli.net/2020/11/21/GhTQsbLmqSe6MZk.jpg" srcset="/img/loading.gif" alt="Snipaste_2020-11-21_20-47-42.jpg"></p>
 
             </div>
             <hr>
@@ -236,9 +248,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/11/21/pycharm-pyside-issue1/">
+                      <a href="/2020/11/21/pyqt-learning-001/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【踩坑记录】Pycharm中无法使用QApplication类</span>
+                        <span class="hidden-mobile">PyQt常用部件用法查询</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -246,8 +258,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/11/21/unreal-add-custom-menus/">
-                        <span class="hidden-mobile">使用Python为UE4添加自定义菜单</span>
+                      <a href="/2020/11/21/maya-command-with-pycharm/">
+                        <span class="hidden-mobile">Pycharm引用maya command</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -383,7 +395,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Pycharm引用maya command&nbsp;",
+        "【踩坑记录】Pycharm中无法使用QApplication类&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
