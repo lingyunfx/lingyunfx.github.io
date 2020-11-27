@@ -4,6 +4,27 @@
   
   
   <entry>
+    <title>使用Vive Tracker外设控制UE4里的摄像机</title>
+    <link href="/2020/11/27/unreal-vive-tracker-camera/"/>
+    <url>/2020/11/27/unreal-vive-tracker-camera/</url>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Vive Tracker是HTC VR系列产品的配件，<br>它可以通过绑定现实世界中的物体(配合定位器)，来追踪物体的位置。</p><p>使用这个特性，我们可以通过将Vive Tracker绑定到摄像机上，<br>来控制UE4里的虚拟相机运动。</p><p><img src="https://i.loli.net/2020/11/27/asf5DkmACxTPtQY.jpg" alt="vive-tracker-on-cam.jpg"></p><h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><p>首先需要下载SteamVR，进行与VR设备的连接配置。<br>下载安装完成后，将VR设备通过USB连接到电脑，<br>SteamVR会自动检测到设备，按照提示进行配置即可。<br>(这个步骤比较简单就跳过了。)</p><p><img src="https://i.loli.net/2020/11/27/iLHn41RTXhBK6N3.jpg" alt="SteamVR_Settings_Disable_01.jpg"></p><h1 id="进入UE4"><a href="#进入UE4" class="headerlink" title="进入UE4"></a>进入UE4</h1><p>SteamVR和设备配置完成后，<br>下面开始在UE4里将摄像机和VIVE追踪器进行关联。</p><h2 id="1-禁用Oculus-VR插件"><a href="#1-禁用Oculus-VR插件" class="headerlink" title="1.禁用Oculus VR插件"></a>1.禁用Oculus VR插件</h2><p><img src="https://i.loli.net/2020/11/27/wSXmkduQpTBcEsb.png" alt="Untitled.png"></p><h2 id="2-更改Play设置，勾选Viewport-Get-HMDControl"><a href="#2-更改Play设置，勾选Viewport-Get-HMDControl" class="headerlink" title="2.更改Play设置，勾选Viewport Get HMDControl"></a>2.更改Play设置，勾选Viewport Get HMDControl</h2><p>允许用户在视口中播放模式下使用头戴式显示器方向。</p><p><img src="https://i.loli.net/2020/11/27/AqJjXnETh2Yi9dx.png" alt="Untitled 1.png"></p><p><img src="https://i.loli.net/2020/11/27/QeDwxfPZsM4W673.png" alt="Untitled 2.png"></p><h2 id="3-新建一个Actor蓝图类，修改名称为TrackerCamera"><a href="#3-新建一个Actor蓝图类，修改名称为TrackerCamera" class="headerlink" title="3.新建一个Actor蓝图类，修改名称为TrackerCamera."></a>3.新建一个Actor蓝图类，修改名称为TrackerCamera.</h2><p><img src="https://i.loli.net/2020/11/27/c4dY9p8eOPXi3SV.png" alt="Untitled 3.png"></p><p><img src="https://i.loli.net/2020/11/27/7aJfV41udoQZRhD.png" alt="Untitled 4.png"></p><p><img src="https://i.loli.net/2020/11/27/BzYoK3iWEkqXFgN.png" alt="Untitled 5.png"></p><h2 id="4-进入TrackerCamera蓝图进行修改"><a href="#4-进入TrackerCamera蓝图进行修改" class="headerlink" title="4.进入TrackerCamera蓝图进行修改"></a>4.进入TrackerCamera蓝图进行修改</h2><p>(1.) 创建一个cube</p><p><img src="https://i.loli.net/2020/11/27/FGNns7PDHyM2jr5.png" alt="Untitled 6.png"></p><p>(2.)切换到Event Graph标签，创建以下两个节点，并按照图示连接</p><p><img src="https://i.loli.net/2020/11/27/NOBrvyfLjeJI6CU.png" alt="Untitled 7.png"></p><p><img src="https://i.loli.net/2020/11/27/msZv1jSFXpfKPUG.png" alt="Untitled 8.png"></p><p>（这里记得是Out Orientation连New Transform）</p><p>(3.) 这里输入正确的设备id号</p><p><img src="https://i.loli.net/2020/11/27/BuV3cakLsJ8HPIE.png" alt="Untitled 9.png"></p><p>默认是从0开始计序号，如图所示，比如需要用tracker设备，这里id号就是5。</p><p>（但是实测不是这样的）</p><p><img src="https://i.loli.net/2020/11/27/43QKEhUrO6nSfjo.png" alt="Untitled 10.png"></p><ul><li><p>获取id号的方法（点击展开）</p><p>  连接这样一套节点</p><p>  <img src="https://i.loli.net/2020/11/27/umdC1aGW7zFTJ6S.png" alt="Untitled 11.png"></p><p>  保存后去预览窗口播放，移动相应的设备，屏幕上即会print出对应的id号</p><p>  （测试了也没成功，最后是靠猜id）</p></li></ul><p>(4.) 创建一个摄像机放到Cube下</p><p><img src="https://i.loli.net/2020/11/27/uTeyMYvcn91xs75.png" alt="Untitled 12.png"></p><h2 id="5-添加动作映射"><a href="#5-添加动作映射" class="headerlink" title="5.添加动作映射"></a>5.添加动作映射</h2><p><img src="https://i.loli.net/2020/11/27/9KhLOlDijBvaYZH.png" alt="Untitled 13.png"></p><h2 id="6-打开关卡蓝图，进行修改（如图所示）"><a href="#6-打开关卡蓝图，进行修改（如图所示）" class="headerlink" title="6.打开关卡蓝图，进行修改（如图所示）"></a>6.打开关卡蓝图，进行修改（如图所示）</h2><p><img src="https://i.loli.net/2020/11/27/h97gbnHmIVBvzSE.png" alt="Untitled 14.png"></p><p><img src="https://i.loli.net/2020/11/27/prx4FXH7N6fvuLC.png" alt="Untitled 15.png"></p><p>（这里画圈的节点是ChangeCamera，创建Set View Target with Blend节点的时候，取消勾选Context Sensitive）</p><p>到这一步，将视图最小化，在视图中选择cube，再返回到节点视图。</p><p>右键创建：</p><p><img src="https://i.loli.net/2020/11/27/RVMJGC8mFQeoyLp.png" alt="Untitled 16.png"></p><p>再进行连接</p><p><img src="https://i.loli.net/2020/11/27/dNu6945xglfMkhH.png" alt="Untitled 17.png"></p><p>记得compile并save一下，关闭窗口。</p><h2 id="7-效果检查"><a href="#7-效果检查" class="headerlink" title="7.效果检查"></a>7.效果检查</h2><p>点击播放键，按下键盘的1切换到摄像机视图。<br>这个时候移动你的VIVE追踪器，UE4中的摄像机也会实时跟随移动。</p><center>（完）]]></content>
+    
+    
+    <categories>
+      
+      <category>DCC</category>
+      
+      <category>Unreal</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>PySide Event事件</title>
     <link href="/2020/11/22/pyqt-learning-event/"/>
     <url>/2020/11/22/pyqt-learning-event/</url>
