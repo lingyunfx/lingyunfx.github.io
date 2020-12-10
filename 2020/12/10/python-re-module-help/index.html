@@ -1,0 +1,624 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="关于电影视效的经验与分享">
+  <meta name="author" content="Lingyun Zhang">
+  <meta name="keywords" content="">
+  <title>Python的re模块学习 - 凌云的个人博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/hopscotch.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>凌云的个人博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Lingyun Zhang
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-12-10 15:54" pubdate>
+        2020年12月10日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      23
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Python的re模块学习</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><ul>
+<li><code>re.compile</code> 生成一个匹配器实例，用来匹配</li>
+<li><code>re.match</code> 从字符最前端开始匹配</li>
+<li><code>re.search</code> 从字符中搜索出第一个匹配结果</li>
+<li><code>re.findall</code> 从字符中找出所有匹配结果</li>
+<li><code>re.sub</code> 查询替换字符，返回替换结果</li>
+<li><code>re.subn</code> 查询替换字符，返回替换结果和替换次数</li>
+<li><code>re.split</code> 根据规则切分字符串</li>
+</ul>
+<h2 id="re-match案例"><a href="#re-match案例" class="headerlink" title="re.match案例"></a>re.match案例</h2><p>re.match返回的是一个<strong>实例对象</strong>，调用它的方法找到结果。</p>
+<p>假设我们需要匹配开头为”Ch_”的字符</p>
+<div class="hljs"><pre><code class="hljs Python"><span class="hljs-keyword">import</span> re
+
+<span class="hljs-comment"># 匹配成功返回一个实例对象</span>
+<span class="hljs-built_in">print</span> re.match(<span class="hljs-string">&#x27;Ch_&#x27;</span>, <span class="hljs-string">&#x27;Ch_dog_v001&#x27;</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>&lt;_sre.SRE_Match <span class="hljs-built_in">object</span> at <span class="hljs-number">0x0000000003ACA510</span>&gt;
+
+<span class="hljs-comment"># 如果匹配失败，是没有返回值的</span>
+<span class="hljs-built_in">print</span> re.match(<span class="hljs-string">&#x27;Ch_&#x27;</span>, <span class="hljs-string">&#x27;aCh_dog_v001&#x27;</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-literal">None</span></code></pre></div>
+
+<p>group方法：用于获得一个或多个分组匹配的字符串</p>
+<div class="hljs"><pre><code class="hljs Python">res = re.match(<span class="hljs-string">&#x27;Ch_&#x27;</span>, <span class="hljs-string">&#x27;Ch_dog_v001&#x27;</span>)
+<span class="hljs-built_in">print</span> res.group()
+<span class="hljs-meta">&gt;&gt;&gt; </span>Ch_</code></pre></div>
+
+<p>pos方法：找到匹配字符的index位置（好像这个方法永远都是返回0吧？）</p>
+<div class="hljs"><pre><code class="hljs Python">res = re.match(<span class="hljs-string">&#x27;Ch_&#x27;</span>, <span class="hljs-string">&#x27;Ch_dog_v001&#x27;</span>)
+<span class="hljs-built_in">print</span> res.pos
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">0</span></code></pre></div>
+
+<p>注意re.match是<strong>从字符串前端开始匹配</strong>，如下情况需要<strong>匹配的字符在字符串中间</strong>，就会返回空值。</p>
+<div class="hljs"><pre><code class="hljs Python">res = re.match(<span class="hljs-string">&#x27;Ch_&#x27;</span>, <span class="hljs-string">&#x27;HCH_Ch_dog_v001&#x27;</span>)
+<span class="hljs-built_in">print</span> res
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-literal">None</span></code></pre></div>
+
+<h2 id="re-search案例"><a href="#re-search案例" class="headerlink" title="re.search案例"></a>re.search案例</h2><p>search方法则是从字符串中搜索出第一个匹配的结果</p>
+<div class="hljs"><pre><code class="hljs Python">res = re.match(<span class="hljs-string">&#x27;Ch_&#x27;</span>, <span class="hljs-string">&#x27;HAH_Ch_dog_v001&#x27;</span>)
+
+<span class="hljs-comment"># 这里返回了实例，说明匹配成功</span>
+<span class="hljs-built_in">print</span> res
+<span class="hljs-meta">&gt;&gt;&gt; </span>&lt;_sre.SRE_Match <span class="hljs-built_in">object</span> at <span class="hljs-number">0x00000000031AA510</span>&gt;
+
+<span class="hljs-built_in">print</span> res.group()
+<span class="hljs-meta">&gt;&gt;&gt; </span>Ch_
+
+<span class="hljs-comment"># 匹配字符的起始index位置</span>
+<span class="hljs-built_in">print</span> res.start()
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">4</span>
+
+<span class="hljs-comment"># 匹配字符的结束index位置</span>
+<span class="hljs-built_in">print</span> res.end()
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">7</span></code></pre></div>
+<hr>
+<h2 id="模糊匹配"><a href="#模糊匹配" class="headerlink" title="模糊匹配"></a>模糊匹配</h2><p><strong>上面讲的是精确搜索，下面开始讲解模糊搜索。</strong></p>
+<ul>
+<li><p>使用<code>[]</code>找到中括号里的任意一个字母匹配。</p>
+<div class="hljs"><pre><code class="hljs Python">res = re.search(<span class="hljs-string">&#x27;d[aoes]g&#x27;</span>, <span class="hljs-string">&#x27;dog dag deg dsg&#x27;</span>)
+
+<span class="hljs-built_in">print</span> res
+<span class="hljs-meta">&gt;&gt;&gt; </span>&lt;_sre.SRE_Match <span class="hljs-built_in">object</span> at <span class="hljs-number">0x0000000002FDA510</span>&gt;
+
+<span class="hljs-built_in">print</span> res.group()
+<span class="hljs-meta">&gt;&gt;&gt; </span>dog</code></pre></div>
+<p>或者<code>[a-zA-Z0-9]</code>这样匹配所有的小写和大写字母与数字。</p>
+</li>
+<li><p>使用转义字符模糊搜索<br><code>\d</code> 匹配数字(0-9)<br><code>\w</code> 匹配字母，数字和下划线 (a-z A-Z 0-9 _)<br><code>\s</code> 匹配空格<br><code>\n</code> 匹配换行的地方<br><code>.</code>  匹配任何一个字符</p>
+<p>将<strong>转移字符大写</strong>，则是<strong>相反的效果</strong>，意思是匹配除去本义匹配的字符。<br><code>\D</code> 匹配除数字外的字符<br><code>\S</code> 匹配除空格外的字符<br>以此类推…</p>
+</li>
+</ul>
+<div class="hljs"><pre><code class="hljs Python">res = re.search(<span class="hljs-string">&#x27;a\dt&#x27;</span>, <span class="hljs-string">&#x27;a6t&#x27;</span>)
+<span class="hljs-built_in">print</span> res.group(), res.start(), res.end()
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>a6t <span class="hljs-number">0</span> <span class="hljs-number">3</span></code></pre></div>
+
+<ul>
+<li>匹配次数</li>
+</ul>
+<p><code>?</code> 表示匹配0-1次<br><code>+</code> 表示匹配1-无数次<br><code>*</code> 表示匹配0-无数次</p>
+<p>课堂小案例：</p>
+<div class="hljs"><pre><code class="hljs Python"><span class="hljs-comment"># 字符a和t之间有一个数字匹配成功</span>
+res = re.search(<span class="hljs-string">&#x27;a\d?t&#x27;</span>, <span class="hljs-string">&#x27;a6t&#x27;</span>)
+<span class="hljs-built_in">print</span> res.group(), res.start(), res.end()
+
+<span class="hljs-comment"># 字符a和t之间有多个数字匹配失败</span>
+res = re.search(<span class="hljs-string">&#x27;a\d?t&#x27;</span>, <span class="hljs-string">&#x27;a66666t&#x27;</span>)
+<span class="hljs-built_in">print</span> res
+
+<span class="hljs-comment"># 字符a和t之间没有数字匹配成功</span>
+res = re.search(<span class="hljs-string">&#x27;a\d?t&#x27;</span>, <span class="hljs-string">&#x27;at&#x27;</span>)
+<span class="hljs-built_in">print</span> res.group(), res.start(), res.end()
+
+<span class="hljs-comment"># 匹配条件：1开头，第二个数字是3，5，或者7，后面9位都是数字</span>
+res = re.search(<span class="hljs-string">&#x27;1[357]\d&#123;9&#125;&#x27;</span>, <span class="hljs-string">&#x27;13910733521-45648356489&#x27;</span>)
+<span class="hljs-built_in">print</span> res.group(), res.start(), res.end()
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">13910733521</span> <span class="hljs-number">0</span> <span class="hljs-number">11</span>
+
+<span class="hljs-comment"># 匹配3个以上的 a</span>
+res = re.search(<span class="hljs-string">&#x27;a&#123;3,&#125;&#x27;</span>, <span class="hljs-string">&#x27;abbaabbbaaabbbb&#x27;</span>)
+<span class="hljs-built_in">print</span> res.group(), res.start(), res.end()
+<span class="hljs-meta">&gt;&gt;&gt; </span>aaa <span class="hljs-number">8</span> <span class="hljs-number">11</span>
+
+<span class="hljs-comment"># 贪婪模式，匹配大于等于3个到小于等于9个 a，默认是往最大数量的找</span>
+<span class="hljs-string">&#x27;&#x27;&#x27;</span>
+<span class="hljs-string">这里因为用的search, 所以如果匹配对象为&#x27;baaabaaaaaaaaab&#x27;</span>
+<span class="hljs-string">则会返回3个a，search是返回第一个符合匹配条件的对象。</span>
+<span class="hljs-string">&#x27;&#x27;&#x27;</span>
+res = re.search(<span class="hljs-string">&#x27;a&#123;3,9&#125;&#x27;</span>, <span class="hljs-string">&#x27;aabaaaaaaaaaaaaaaab&#x27;</span>)
+<span class="hljs-built_in">print</span> res.group(), res.start(), res.end()
+<span class="hljs-meta">&gt;&gt;&gt; </span>aaaaaaaaa <span class="hljs-number">3</span> <span class="hljs-number">12</span>
+
+<span class="hljs-comment"># 非贪婪模式,加上?, 返回上面情况的最小数量</span>
+res = re.search(<span class="hljs-string">&#x27;a&#123;3,9&#125;?&#x27;</span>, <span class="hljs-string">&#x27;aabaaaaaaaaaaaaaaab&#x27;</span>)
+<span class="hljs-built_in">print</span> res.group(), res.start(), res.end()
+<span class="hljs-meta">&gt;&gt;&gt; </span>aaa <span class="hljs-number">3</span> <span class="hljs-number">6</span></code></pre></div>
+
+<p><code>?</code>号通常用于大区间匹配限制。<br><code>+?</code>: 在匹配1到无数次时，取最小数量。<br><code>*?</code>: 在匹配0到无数次时，取最小数量。<br><code>&#123;m,n&#125;</code>: 在匹配m到n次时，取最小数量。</p>
+<ul>
+<li>特殊符号</li>
+</ul>
+<p><code>^</code>: 表示匹配字符串开头。<br><code>$</code>: 表示匹配字符串结尾。<br><code>|</code>: 表示或，把正则表达式分为两段判断匹配。<br><code>()</code>: 表示编组，括号里面的表达式作为一个整体逻辑。<br><code>[^ABC]</code>: 匹配除去括号内字符以外的字符。<br><code>\</code>: 转义符，给一些特殊符号去除符号作用。</p>
+<p>课堂小案例：</p>
+<div class="hljs"><pre><code class="hljs Python"><span class="hljs-comment"># 匹配开头，这和match方法一样了。</span>
+res = re.search(<span class="hljs-string">&#x27;^zhangly&#x27;</span>, <span class="hljs-string">&#x27;zhanglyoooohhhh&#x27;</span>)
+<span class="hljs-built_in">print</span> res.group(), res.start(), res.end()
+<span class="hljs-meta">&gt;&gt;&gt; </span>zhangly <span class="hljs-number">0</span> <span class="hljs-number">7</span>
+
+<span class="hljs-comment"># 符号.表示匹配任何一个字符，这里用\去除它的作用</span>
+res = re.search(<span class="hljs-string">&#x27;HS-\d&#123;3&#125;\.avi&#x27;</span>, <span class="hljs-string">&#x27;this is lalala HS-009.avi lalala&#x27;</span>)
+<span class="hljs-built_in">print</span> res.group(), res.start(), res.end()
+<span class="hljs-meta">&gt;&gt;&gt; </span>HS<span class="hljs-number">-009.</span>avi <span class="hljs-number">15</span> <span class="hljs-number">25</span>
+
+<span class="hljs-comment"># 如果需要匹配多个， 使用findall()， 返回一个列表</span>
+res = re.findall(<span class="hljs-string">&#x27;HS-\d&#123;3&#125;\.avi&#x27;</span>, <span class="hljs-string">&#x27;HS-988.avi lalala HS-009.avi lalala&#x27;</span>)
+<span class="hljs-built_in">print</span> res
+<span class="hljs-meta">&gt;&gt;&gt; </span>[<span class="hljs-string">&#x27;HS-988.avi&#x27;</span>, <span class="hljs-string">&#x27;HS-009.avi&#x27;</span>]
+
+<span class="hljs-comment"># 符号()编组返回结果</span>
+res = re.search(<span class="hljs-string">&#x27;(?P&lt;zimu&gt;[a-zA-Z]+)(?P&lt;shuzi&gt;\d+)&#x27;</span>, <span class="hljs-string">&#x27;sgasgasg55648&#x27;</span>)
+<span class="hljs-built_in">print</span> res.groups()
+<span class="hljs-meta">&gt;&gt;&gt; </span>(<span class="hljs-string">&#x27;sgasgasg&#x27;</span>, <span class="hljs-string">&#x27;55648&#x27;</span>)
+<span class="hljs-built_in">print</span> res.groupdict()
+<span class="hljs-meta">&gt;&gt;&gt; </span>&#123;<span class="hljs-string">&#x27;zimu&#x27;</span>: <span class="hljs-string">&#x27;sgasgasg&#x27;</span>, <span class="hljs-string">&#x27;shuzi&#x27;</span>: <span class="hljs-string">&#x27;55648&#x27;</span>&#125;
+
+<span class="hljs-comment"># 使用符号 | 返回多个匹配条件</span>
+res = re.findall(<span class="hljs-string">&#x27;((aaa|bbb)\.txt)&#x27;</span>, <span class="hljs-string">&#x27;gasgaaa.txtgasgwghbbb.txt&#x27;</span>)
+<span class="hljs-built_in">print</span> res
+<span class="hljs-meta">&gt;&gt;&gt; </span>[(<span class="hljs-string">&#x27;aaa.txt&#x27;</span>, <span class="hljs-string">&#x27;aaa&#x27;</span>), (<span class="hljs-string">&#x27;bbb.txt&#x27;</span>, <span class="hljs-string">&#x27;bbb&#x27;</span>)]
+<span class="hljs-string">&#x27;&#x27;&#x27;</span>
+<span class="hljs-string">列表中元组的第一个元素，是满足整个匹配条件的字符。</span>
+<span class="hljs-string">第二个元素是里层括号&#x27;(aaa|bbb)&#x27;满足条件的字符。</span>
+<span class="hljs-string">&#x27;&#x27;&#x27;</span></code></pre></div>
+
+<ul>
+<li>逻辑判断<br><code>(?=abc)</code>: 判断字符后面包含abc<br><code>(?!abv)</code>: 判断字符后面不包含abc<br><code>(?&lt;abc)</code>: 判断字符前面包含abc<br><code>(?&lt;!abc)</code>: 判断字符前面不包含abc<br><code>(?#...)</code>: 注释</li>
+</ul>
+<p>课堂小案例：</p>
+<div class="hljs"><pre><code class="hljs Python"><span class="hljs-comment"># 比如只返回匹配.jpg前面的字符</span>
+res = re.search(<span class="hljs-string">&#x27;\w+(?=.jpg)&#x27;</span>, <span class="hljs-string">&#x27;image001.jpg&#x27;</span>)
+<span class="hljs-built_in">print</span> res.group()
+<span class="hljs-meta">&gt;&gt;&gt; </span>image001
+
+<span class="hljs-comment"># 判断条件：字符是数字，并且字符后面不是.jpg</span>
+res = re.search(<span class="hljs-string">&#x27;\d+(?!.jpg)&#x27;</span>, <span class="hljs-string">&#x27;image001.jpg&#x27;</span>)
+<span class="hljs-built_in">print</span> res.group()
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">00</span>
+
+<span class="hljs-comment"># 判断条件：字符是数字，并且字符前面是num</span>
+res = re.search(<span class="hljs-string">&#x27;(?&lt;=num)\d+&#x27;</span>, <span class="hljs-string">&#x27;123456num7890&#x27;</span>)
+<span class="hljs-built_in">print</span> res.group()
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">7890</span></code></pre></div>
+
+<p>课程推荐的一个检查正则表达式网站：<br><a target="_blank" rel="noopener" href="https://regex101.com/">https://regex101.com/</a></p>
+<p>这里的博客介绍也很详细，可以当作参考：<br><a target="_blank" rel="noopener" href="http://funhacks.net/2016/12/27/regular_expression/">http://funhacks.net/2016/12/27/regular_expression/</a></p>
+<center>(完)
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Python/">Python</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/12/10/pyqt-basis/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">PyQt介绍及入门学习</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/12/10/maya-faster-doc/">
+                        <span class="hidden-mobile">Maya faster 小技巧(持续更新)</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Python的re模块学习&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
