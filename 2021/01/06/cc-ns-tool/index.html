@@ -19,7 +19,7 @@
   <meta name="description" content="关于电影视效的经验与分享">
   <meta name="author" content="Lingyun Zhang">
   <meta name="keywords" content="">
-  <title>在不同跟踪软件之间的2D点转换工具 - 凌云的个人博客</title>
+  <title>CCNukeStudioTools 帮助文档 - 凌云的个人博客</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -148,8 +148,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-12-12 22:25" pubdate>
-        2020年12月12日 晚上
+      <time datetime="2021-01-06 16:22" pubdate>
+        2021年1月6日 下午
       </time>
     </span>
   
@@ -160,7 +160,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      897 字
+      6 字
     </span>
   
 
@@ -170,7 +170,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9
+      1
        分钟
     </span>
   
@@ -200,57 +200,22 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">在不同跟踪软件之间的2D点转换工具</h1>
+            <h1 style="display: none">CCNukeStudioTools 帮助文档</h1>
             
             <div class="markdown-body" id="post-body">
-              <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><img src="https://i.loli.net/2020/02/17/dWikueOco67D8lr.jpg" srcset="/img/loading.gif" alt="software_log.jpg"></p>
-<p>看过之前<a target="_blank" rel="noopener" href="https://lingyunfx.com/2020/11/05/whats-matchmoving/">电影视效制作中的Matchmove</a>这篇文章的朋友应该知道，<br><strong>跟踪</strong>最基本的步骤就是为匹配物或场景添加二维跟踪点。</p>
-<p>在进行摄像机反求的时候，可能单一软件的解算效果不是很理想，<br>通常我们切换到另一个软件进行尝试解算。<br>(比如对于变焦镜头来说，SynthEyes的变焦解算会稍好于3DEqualizer。)<br>而这些<strong>二维跟踪点</strong>，<strong>在跟踪软件之间是不互通的</strong>。</p>
-<p>当我们已经完成了二维点的添加工作，想要更换跟踪软件的时候。<br>就需要一个工具来进行点之间的转换。</p>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>为了得知不同软件之间导出二维点格式的区别，<br>我们可以在同一段素材的同一个位置，添加一个二维点。<br>然后导出：</p>
-<p><img src="https://i.loli.net/2020/12/13/7E2Lh6OteF4VwsG.gif" srcset="/img/loading.gif" alt="2020-12-13 12.01.57.gif"></p>
-<p>首先可以看到，点数据是以一个txt文本存储的，<br>里面记录了点的<strong>名称</strong>，<strong>帧数</strong>，和对应帧的x，y<strong>位置</strong>。</p>
-<p>其中除排序格式不一样之外，最重要的则是对二维点x，y位置描述上的不同。<br>像3DE，PFTrack和Boujou，是以图像像素为标尺。<br>而SynthEyes则要独树一帜些。</p>
-<p>以1920x1080的尺寸素材为例，我们可以为素材的四个角分别添加跟踪点，<br>观察点的x，y数值，这里用画图来表示结果：<br>(红线为X轴，绿线为Y轴)</p>
-<p><img src="https://i.loli.net/2020/12/13/BKduHriG9wlbQYV.jpg" srcset="/img/loading.gif" alt="pft_xy.jpeg"></p>
-<p><img src="https://i.loli.net/2020/12/13/5clihv8bKN6GVjR.jpg" srcset="/img/loading.gif" alt="3de_xy.jpeg"></p>
-<p>PFTrack和3DE是相同的，以二维点在图像像素中的位置来进行记录。<br>它们之间的二维点x，y数值可以直接进行copy，不需做更改。<br><code>x_position = x_position</code><br><code>y_position = y_position</code></p>
-<p><img src="https://i.loli.net/2020/12/13/4XfBzupYOrmblcA.jpg" srcset="/img/loading.gif" alt="bou_xy.jpeg"></p>
-<p>而Boujou的Y轴向和上述两款软件恰好相反。<br>在进行二维点转换的时候，只需要重新计算y的位置即可。<br><code>x_position = x_position</code><br><code>y_position = image_width - y_position</code></p>
-<p><img src="https://i.loli.net/2020/12/13/ps7TX9lwxdIW62Y.jpg" srcset="/img/loading.gif" alt="syn_xy.jpeg"></p>
-<p>SynthEyes则是以-1到1之间进行取值，所以在转换二维点的时候，<br>需要将图像尺寸套入公式进行换算。<br><code>x_position = x_position / image_width * 2 - 1</code><br><code>y_position = 1 - y_position / image_height * 2</code></p>
-<p>现在已经知道了二维点的x，y在不同软件之间如何进行换算，<br>剩下的就是每个软件的点数据排序格式，这个部分比较简单。<br>像Boujou和PFTrack已经用注释写明了每一行所表示的数据是什么。<br>这里就不再赘述了。</p>
-<p>有了思路，这些繁琐的步骤就交给脚本来实现吧。</p>
-<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><p>代码放到github上了：<br><a target="_blank" rel="noopener" href="https://github.com/lingyunfx/tracks2d_conversion">https://github.com/lingyunfx/tracks2d_conversion</a></p>
-<p>下载下来后打开终端，<br>使用<code>python conver_tracker.py --help</code>来查看(简陋的)帮助。</p>
-<p><img src="https://i.loli.net/2020/12/12/23my1gA4XeHx7vz.jpg" srcset="/img/loading.gif" alt="command_help.jpg"></p>
-<p>从上图可以看到<strong>有以下几个参数</strong></p>
-<ul>
-<li><code>-s</code> 指定来源二维点的类型</li>
-<li><code>-t</code> 指定目标二维点的类型</li>
-<li><code>-wh</code> 指定使用序列帧的尺寸</li>
-<li><code>-o</code> 设置偏移帧</li>
-</ul>
-<p>指定类型可以用的参数值有：<br>syntheyes, 3de, pftrack, boujou, syn</p>
-<p><strong>基本调用</strong><br><code>python conver_trakcer.py /Downloads/from_3de_point.txt</code><br>默认情况是不添加任何参数，<br>是将3DEqualizer二维点转换为SynthEyes。<br>图像尺寸为1920x1080，默认不偏移帧。</p>
-<p><strong>例子</strong></p>
-<div class="hljs"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 将Boujou的跟踪点转换为SynthEyes,指定尺寸2880x1550,偏移+1000帧</span>
-python conver_trakcer.py -s boujou -t syn -wh 2880x1550 -o 1000 /Downloads/2dtracks.txt</code></pre></div>
-
-<h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>这个是蹭着周六空闲临时写的一个工具，功能比较简单。<br>之后可能会加入nuke，blender等软件的支持。<br>也会添加对二维点的裁剪，镜像等操作。</p>
-<p>如果对工具有什么建议或反馈，可以私信我。<br>如果觉得有用的话可以关注一下这个公众号，谢谢。<br><img src="https://i.loli.net/2020/12/02/4DISGvYmLKuARd3.jpg" srcset="/img/loading.gif" width = "300" height = "300" alt="图片名称" align=center /></p>
-
+              <div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <div class="hbe-input-container">
+  <input type="password" id="hbePass" placeholder="" />
+    <label for="hbePass">Hey, password is required here.</label>
+    <div class="bottom-line"></div>
+  </div>
+  <script id="hbeData" type="hbeData" data-hmacdigest="70843df268ca68a1fb7c5012d653bee96993965aa294cd2e68eb63e96ea17cf5">d8290d7d6ef566d8e5a520298738a52b7498a44c3e41ed17455b51f910ab3a1a817d42c10239a2188901dd89f8e24fde896f5ac4caaff20e987bddf24c2b7e7d1863750c87d0b287c92101bafc295f9cc146fbe73d1e556e64a888ef0c18a81d16f0a8215fa7422ea5966a8e51fc6dbc241dfe6fa307c2c4e9fce10c41ec82835a7c085da76f2f1fe5e753871b342101ec6a5c701561fbf66fd1bcd03100df64363330c4964e938524f2b10b494f0febdf8b6e3860736aca9fe068c06e80aaa77f7fcaca4ab6d7c0e48daca8c3bf4b69f2aeb32a6b1ab15a0dfb870484e35c38f821e95714ed99a7d194d606ccbfbd4375db02eac248c77f25857338470eaa463cd612d0f83cc58fddede017120ac477c8e685f86f06a4caeb5a34170e01f3f62597fb10662b56075c9190e11e0473a885499f70a2df60c221ed5c5bd1c6dc3a13d97e702bceafb24dfa86f16debd81f876254535d859fc93aaceb962c33ec58a3e1b4aea80572219cd4af9023f393eefa3bca3cacc84ecec5419f3c6db8c8c624817e06bbbfbc6aa5dab70cef7ead3f0d0e6829abdaa2d7bd74024c1c6ab19a5f95b770986ab873641231e6005e26a38a19e0a4536a0fbe3bed9c5d8687b97d27b8dc026a7037a409fcc7517deeefc6c48cd0accf21490dcbbc748364fe21f9419db9800a3eb61b7a530b64a673fe3128bb73a461a76f468f947a0d085ceff817b1f34fd61e5dc15c08027ccb585d180918ea122dc15dc5e94343722ae8f8b7f2a0f4a4b5c395ebe00c2998288b90bd390398a149c9074229e787312ab550270e8c7a271ac76fe4f4f2c104106d8e4a29afa40fc44ebb2c5ae8e747bf26c8bbc490530a0700064dffcc650f786b1e02c3ab5f042dcbcd2c95c853325678c10ad0c70925ca549638b5d12f824267b8993c524e8b18379458476913f8a6e2d64e2229859daee7d2dee50345adb781bc14545d0bb6e6695c3067dcc10b37531b788375cbd83046b2811518dda46e50c89671fb965f4c40d799d21aafad19057a1fb9c4378f9f34e78568de40c04e329a3578ac8a7f99142b89161acce39de31c006d4f4283d797c970deaaeffe9f5ed827691048098901ebd25e75546f670526f77e8655f557a8118252d927942a013c6c7cf3b3b27f347a09bb437dcb8f0a74067126312523c5eee00004c1711456366f7d2b8aaeb6c6628ab1e88c1070567757b20dc4fbd61d819e3d8a78223961aca3b69edb00e37fc876501e7da812693260650c77267fa5c87c2645083e3d752be201b14b09712c7a4205ff6a48782db9c08adf6f972f555bb8373fb84a889bfc19707674875825ecd43d18c898584b97825c5c764dafbb25aa7c69db77d5a280ffdee4eab2ef4615a0d4d7019a225c5e923ea49c5811c886530f6c0e87da62d163e52963ffb6d86f3dc37d74fb67d65e586e6ccbcc0486445d80e160075e5413bb66344a45462263f11afa4285e2c5ae15ffff950e7f11474f217d25b2c9cffc945da3b5099b48a6e8dd7db7a6db723b2f573ded39b52e10390f89ff3150196b2520ff9640716ed23ecdbe084a0a1b939f54463598ea80c0d5e2e64168f0050620f5ff75e15e98a5bd01fdd4e00740608bb3df9db1a871d7b15513ba589c52ac092c44e0928633fc8b4addb20009e6f5a67f1463ef1ef4c2082a4bf3f2e774e57a04c112c78d2ca1949e153f7be04dfa00a22ed32e9d2a5552d52573698c2b1d9ee97ca6783f7b03bc393d9592eaa922fe688e021cec267bec165b7e57d830075164a51cff265fcc38f438f4f25bdb03cf48edadb2253c40c95cec4561949855e0b93a0c232eee15c798882dfa6597890a816d1ac6eee0f5d29bb98f49ae8803dafc657ed2d0490bde87b7ed4c0ec12c26af74e263904bce048ad8efd7ec3cb5d30292a683fc621f5f7475a6770e9268d34d1187ce27cf88404c8975b453b50f337041aca78adb7725d6661988cba83405e821cfa215713a08c1322ccf865e27012ae87349a6b0f4e903f72ac31f176cb7b744214bfbb5af9af13338439d45bc7bb9cbb595aba73565bbb7176c56dc21d924c552a2fab7ac8bc55c8da5903c49d935b874d0f5b1a27eba2c9ca740221f274a249d86095b7ebaea439a8eac121c5c11181dd76af4486a525c808b053a6b8ce9b57f25823a1c581c6fa65ed5f8d14784a1ffdb2dfb16bc4639662fb2aa730024ac56f9e140ad4d8f70708150ee40a73294b8c87777e26e17ba37509aa32df2850f2f783d09240bfc7b24861864bd9684ad44f6ff3935678792174a8a1f6ca8108caa5f1980eb46f8b741478e99ffe413349264f1ab79f560eef097ed740f25297eebfd9521834cb8bbd685a2d761c8219a8f79d8a9364ba23a4342374d14c27f397630ca7366e0bed8d91fb880ae298758cf193cc9d6e9500344be589283a934d745a133d22aabc2af0f64992cdc6cfacc17a06877cbc9c3c75e349001424343c0ac4352437c58d4f55d2eb12e6146f30f8f76df408c9bb5d511ed7b97c11e34ca2e9735d6ca640ad763d15bdb38df62a506d78422e737fddc0d34d0eaee2aac17a86c8f09ee1f8f540132cb7d7d3c2122cf3cd4baf28f5a34ca56b2a09f016dca97770e0847b5b0c4ac93d26b094b460a13f34f1bdcfa8caea7fa79f74bb45a2404f8f793cc482763a3b7a09d5723ab3347bd14fb17956b41133f744fdb2c7bc50a8df0f669114d77b006f400b5291da9c679804222f76ac9b436d226915034fa775988038827599561b65fd66215e97ae2a51980f03b0c5f05ea815927744a1a7b8f5bd6ef8dff4a71ba180005daddd9092e549b5243fe941b09df962ac6c713c5976e134c0e1d4bb8f122d0f973898e95498f538eebd37c7bc250c5b8a38ad29894b0d28304c565b629006c339d2fc35d56b5ccfa7e331b1dd9055f3e5fff22a379a9cc4de54a727d1a24b97e906b9dc8bd1be9295a69033e667a8bbe8c6c99da89fd27f83ec3ce65364ea9ce3570a488f8217ae6c975bb82342e30d8a2f4a6e7d35087b42b021fd95e968762715d1550d752b4e9e07e17c0ded7e22fef2a5faf1ed573a913ebd52d117d79012d04e814666876fc4f36dc3fb991d5d694f28f1b619c6b13b5ef57c1148c40a283eeed3022cae52d9284ae2a2111ca503824be706591e876ccb58652e1613085c781fe2f97be6bbf9b77b28be6ca3cda13f4f761e5fc955c28fffe6946647fec53048ecd3a7f54f6cb0eda2c8e90fe736ef4d77115a5eec40de662b3c81d322819f3ba22ed07eef68862b32ceb562a1f8f2fb1a8d8c37b68340506bd0d68fe2f5ec47320adb4784045195683e15cfe7c80e94debd90ef36366a1e3d5327f7af00db0163a7f1ade3f3b8af094ec7228ed616829a234dc1160400fd6d35044a4a4d4527db36984d6b8a55a7e2be7d083f2982e87585d8fd605e830f7fbdd4d9d273629125e755c02325cca57ea7259cf68abd7607f19cd538b8a9a9170f1b923f09838fb592267f3d1301232baf41a4bfdf32d5cbb0b92678176c4c3285c356cc5f81bcee2fc67af832eb3814f43caa17bfcad36a0a5fa3de32b67b7a9c4674e567a3dad654e47046b60c464565143db21a909fe9f3b2c318834453d661e0c6688b739b72c796804948f298d2b1e3b91c898932fe47e94131fdf552dde3b8271d14dbf10ed2188b39205f462caf8131208737cf930e8890f376007007a518977c6af1bbcc016342e6411ed7cebd31a429af798751174738f607469c70d79ed450601b3b8c2118e21c802ae6f33c9408f3c514ffed15dd9f12c024f9840fa5a6466688508df2698b970358434c82c76a509f83e5ed0127472d959faf7494664384dd96ab6abc693b06ae350d222ecbac552e67e15017e56107c1d0ecfe8ed3fac7936d281ffe94b213d30f867e0b07c568856ee08dd5cdedeacfb76e1eabc857b504482e93d18249ed6bb1425a992e53929b4e9043e28118abdec1866f23d2009a5dc5b703065a012db84a633e226236aa7a9e5e67ba952a50f5014467888fe895e84b57239466389a0ce53cd1461f5209903fd3ad1a1bd22ce0babc47d68c46a225be824952f62fcb0f3c9c0324a58ae93ba3edfa0ef280255266a354c3de4c0d8d69b689f2d91879c12273ed0a497d149700f523a8dbc1594a720a43ffcf2efb07cff7c2f4d2fbd96d9dd2dfd1e6276e0154563a44326011e97f97a31d6e5610f2b47fc6e64503dc1c69bee9448e4f7a45d983f7a3583002477c8a3f7e67f9db510dfc490270b3939e318ca98f25c480b46ec5fa5628c862dd16e4bd5dd686f86fa531bcd3c363e333afe9cec7878f4a3c51baeb9523ac8c3346483d1b8ed86eebd4be721482caf2da316b3c47c2556baa70e56f4e20152713da3282aa65399ca376bbb92fb72ab2ffe6f9e683327bacd8c8032ceff8d0cb6a0d2e45f5fc1919476fac617c9078d1497b13350551937b72f76aadf991b69310b0d3368e3f7797d997fda05608157668bf1ce36079ad7067675e8a1e1aad957af7e05ff8d94d67291810cb1d34dc4fd0bda807c790bc9d147c93385a9ea6d4af070fa3b6aec8875ef1090001276393aad264221bb3e965a20932ec478f7710c0bb16525fcb1e248fd9e551c3b1f102b6dfa65384897f4d0356d941946c2b8b740b9d540a6f056a4601c4edba764d2013791e13c9be180e2598ecf7bd75ffc9b567bbf97da976f6a5f55223abb9c9fa2fb3ebddfeca756ed2801bd05cee73231fe3fac79cc96f80df88ace8a8f1a5ea78132c45d35a1f5a5df36ef7b07ab7e14dc9064d1bc431517cc3c9369ed5180c42a50bb065377c1cf4497077fe726a03f5dadf7c34d31d33af3d5495a3231b0343dc233be04b64f5b5115b64149c8b75757ac5387461d375986dc32ce22b55fcbac2524fcdf474362e2e9c6e982fbbec1d1a74f4957dedbd84881235deb28e3929c99f33684e8075c3b3c9ba3be62bce22ee7df7ad7826fed4139be92d7f56b98b8d022850bb94bca0dcca5f47ea331e6091d8f7df80aa23b20a4d6f72a78aaf8e0b14f35f6622a2a93311c11454a793b41d2e97b1548bb2cc874ca382f488234c62724a59ff5f4a8dada70e96824ac44aa6cfc796a4ba3979133da7248c25c20c54c79faeb1cbe1df85d3feecf4ffb40fe4d97fafbf27f78b70ec37a52ee6b970057d0e0fc9ad10659232177a0e68efc0edf3230f1cd67ae90702d73dc7414095b98b2a4e95cc1ae12c86d3350048e659ef472e4124ba4dc0fa51bb515487ba906fc4c8d7984d79318043aa7ac39380b956715d95c382c7369a2940d11b92b233fc65cb84552eae09a0de68a5e8fe3262a9fa714c40cad4c6ea9775efd35cf1e44a47d51730cceab30ffdd5c20ee34499634884f7ee888251cf1686b133f9a904ac251aa314387582bd7eb741f08c4d1d951b15d050cf035091dfb0f9e357b1a34fc50ac228fb967d9197e4cca55d4c081134cf7bd1ce6a6d5a5d8eab187a811eb0be2019e61c9c3c56c45d57b1b144d5e586afe82a62a21f2fa102ddde7e63e3d844169a1bc151d1206af68e62b624ada61e9dc0a068cc3349f8d62c2eb79a129a8b58c304f275d8a1713a5f0ea64c674527bda29730e2e4ad6d6dd398ee32116bd3b93c04ae5a058c1abadd71ab5398284276c8efb6bc1379be62a9a35789f0815f8cdf02d7cc0eda01ed1accd981f99cb3b2675c3cfe76b392b5229dc352bc9d2bd87f44ff513b873471a1c2511903af0a03ebbbe04ab4bcfe1a07c8d30a93c188d4f0a2812ab4f563b85341ec54dfad17344bc46284958ca5c4f55aadde96df9c5b11a7cc8cdd7814b8a4f43a1fd1b53ba075853231b41d0d8aaaa21d8a538d689e221682e5a06d56b9fd3baaf3644a92cab83973e2c75</script>
+</div>
+<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/CG/">CG</a>
-                    
-                  </div>
                 
                 
               </div>
@@ -262,18 +227,12 @@ python conver_trakcer.py -s boujou -t syn -wh 2880x1550 -o 1000 /Downloads/2dtra
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/01/06/cc-ns-tool/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">CCNukeStudioTools 帮助文档</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/12/10/pyqt-basis/">
-                        <span class="hidden-mobile">PyQt介绍及入门学习</span>
+                      <a href="/2020/12/12/tracks-2d-tools/">
+                        <span class="hidden-mobile">在不同跟踪软件之间的2D点转换工具</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -409,7 +368,7 @@ python conver_trakcer.py -s boujou -t syn -wh 2880x1550 -o 1000 /Downloads/2dtra
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "在不同跟踪软件之间的2D点转换工具&nbsp;",
+        "CCNukeStudioTools 帮助文档&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
