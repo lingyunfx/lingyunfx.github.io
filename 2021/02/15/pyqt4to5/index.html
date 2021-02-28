@@ -19,7 +19,7 @@
   <meta name="description" content="关于电影视效的经验与分享">
   <meta name="author" content="Lingyun Zhang">
   <meta name="keywords" content="">
-  <title>Maya faster 小技巧(持续更新) - 凌云的个人博客</title>
+  <title>将PyQt4代码转到PyQt5 - 凌云的个人博客</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -148,8 +148,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-12-10 14:47" pubdate>
-        2020年12月10日 下午
+      <time datetime="2021-02-15 09:02" pubdate>
+        2021年2月15日 上午
       </time>
     </span>
   
@@ -160,7 +160,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      297 字
+      435 字
     </span>
   
 
@@ -170,7 +170,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      5
        分钟
     </span>
   
@@ -200,31 +200,46 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">Maya faster 小技巧(持续更新)</h1>
+            <h1 style="display: none">将PyQt4代码转到PyQt5</h1>
             
             <div class="markdown-body" id="post-body">
-              <p><strong>1.当在maya里播放卡顿的时候。</strong><br>尝试关闭视图的阴影，动态模糊开关等等。</p>
-<p><img src="https://vip1.loli.net/2019/12/16/rx3dJbenGOKZkTv.png" srcset="/img/loading.gif" alt="1.jpg"></p>
-<p>或者maya2019的新功能，playblast cache</p>
-<p><img src="https://vip1.loli.net/2019/12/16/WbMyDFXOEwrTK9I.png" srcset="/img/loading.gif" alt="2.jpg"></p>
-<p><strong>2.Hypershade窗口，操作节点的时候，拖动缓慢。</strong><br>因为上方的材质球过多，会一直处于实时刷新的状态。<br>左上角的按钮 OFF实时刷新。</p>
-<p><img src="https://vip1.loli.net/2019/12/16/tPNV2QYZqCibgO4.png" srcset="/img/loading.gif" alt="3.jpg"></p>
-<p>当实时刷新off时，想查看某个材质去预览效果，可以选择材质球<br>右键 - Refresh Swatch</p>
-<p><strong>3.全局预览暂停功能</strong></p>
-<p><img src="https://vip1.loli.net/2019/12/16/Iac1sJPAud5ZHmK.png" srcset="/img/loading.gif" alt="4.jpg"></p>
-<p>这个暂停按钮可以停止所有maya场景中的预览更新。<br>比如在操作大纲视图的时候，不需要maya实时更新。</p>
-<p><strong>4.关闭一些不用的插件，加快maya启动时间。</strong></p>
-<p>比如说不需要用到maya去做一些特效结算，就可以把它们off掉：</p>
-<p><img src="https://vip1.loli.net/2019/12/16/W9NzK8smZyevrkB.png" srcset="/img/loading.gif" alt="5.jpg"></p>
-<p><img src="https://vip1.loli.net/2019/12/16/frct8wHhs2XGMYC.png" srcset="/img/loading.gif" alt="6.jpg"></p>
-<p><strong>5.在摄像机背景序列播放预览时候，jpg会比png快一些。</strong></p>
-<p><strong>6.maya2019 playblast缓存确保这里的选项</strong></p>
-<p><img src="https://vip1.loli.net/2019/12/16/SDYLdkqBzMiH4bl.png" srcset="/img/loading.gif" alt="7.jpg"></p>
-<p><img src="https://vip1.loli.net/2019/12/16/nporsJ1TASM4OHg.png" srcset="/img/loading.gif" alt="8.jpg"></p>
-<p><strong>7.烘培动画，Maya总是会跑一遍时间轴。这里提供一个小脚本，跳过跑时间轴的过程。</strong></p>
-<div class="hljs"><pre><code class="hljs python">st_frame = <span class="hljs-built_in">int</span>(cmds.playbackOptions(q=<span class="hljs-literal">True</span>, minTime=<span class="hljs-literal">True</span>))
-ed_frame = <span class="hljs-built_in">int</span>(cmds.playbackOptions(q=<span class="hljs-literal">True</span>, maxTime=<span class="hljs-literal">True</span>))
-cmds.bakeResults(simulation=<span class="hljs-literal">False</span>, t=(st_frame, ed_frame))</code></pre></div>
+              <p>最近在读这本经典的GUI编程书《Python Qt GUI快速编程》。  </p>
+<img src="https://i.loli.net/2021/02/15/nomdt9WuNOcsZl5.png" srcset="/img/loading.gif" width = "210" height = "300" alt="图片名称" align=center />  
+
+<p>在这之前虽然已经写了很多的图形界面了，<br>但是一直没有系统的学过PyQt。<br>蹭着节假日期间，可以好好的咬咬这本书。  </p>
+<p>书中的代码示例是用的PyQt4，和即将淘汰的Python2。<br>而在学习的时候需要一点前瞻性，<br>需要考虑到今后对知识的使用，和它的时效。  </p>
+<p>SCP-079-TIP说：Python2已经停止维护了。<br>（而PyQt4也是会被淘汰的版本）<br><img src="https://i.loli.net/2021/02/15/cb8GDuj3fWVsOTi.png" srcset="/img/loading.gif" alt="py2.png"></p>
+<p>所以我们在看这本书的时候，就得把代码语法重写成Python3+PyQt5。  </p>
+<p>根据经验，一些常用的方法，可以直接从PyQt4转换到PyQt5.<br>比如在连接信号的时候：</p>
+<div class="hljs"><pre><code class="hljs Python"><span class="hljs-comment"># PyQt4</span>
+self.connect(self.lineedit,
+             SIGNAL(<span class="hljs-string">&quot;returnPressed()&quot;</span>),
+             self.updateUi)
+<span class="hljs-comment"># PyQt5</span>
+self.lineedit.returnPressed.connect(self.updateUi)</code></pre></div>
+
+<p>在发射信号的时候：</p>
+<div class="hljs"><pre><code class="hljs Python"><span class="hljs-comment"># PyQt4</span>
+self.emit(SIGNAL(<span class="hljs-string">&quot;acceptedList(QStringList)&quot;</span>), self.stringlist)
+
+<span class="hljs-comment"># PyQt5</span>
+self.acceptedList.emit(self.stringlist)</code></pre></div>
+
+<p>自定义信号的时候：</p>
+<div class="hljs"><pre><code class="hljs Python">self.zeros = <span class="hljs-number">0</span>
+
+<span class="hljs-comment"># PyQt4</span>
+self.emit(SIGNAL(<span class="hljs-string">&quot;atzero&quot;</span>), self.zeros)
+
+<span class="hljs-comment"># PyQt5</span>
+atzero = pyqtSignal()
+self.atzero.emit(self.zeros)</code></pre></div>
+
+<p>但是对于刚开始学习GUI编程的朋友，在进行重写转换的时候，<br>就会容易脑袋大，失去学习的动力。  </p>
+<p>为了解决重复的重写和给刚入门的新手指路，<br>这里在网上找到了一个可以直接进行版本转换的py代码。<br><a target="_blank" rel="noopener" href="http://www.vslcreations.com/2018/02/how-to-convert-pyqt4-code-to-pyqt5-code.html">http://www.vslcreations.com/2018/02/how-to-convert-pyqt4-code-to-pyqt5-code.html</a></p>
+<p>下载后，可以输入下面的命令将PyQt4的代码转换为PyQt5：<br><code>python pyqt4topyqt5.py source.py -o output.py</code></p>
+<p>这样就为我们省去了很多时间，在对照书里案例的时候，<br>可以不会为了这些琐事而消耗学习的专注度和兴趣。</p>
+<center>(完)
 
             </div>
             <hr>
@@ -234,9 +249,9 @@ cmds.bakeResults(simulation=<span class="hljs-literal">False</span>, t=(st_frame
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/DCC/">DCC</a>
+                      <a class="hover-with-bg" href="/categories/Python/">Python</a>
                     
-                      <a class="hover-with-bg" href="/categories/DCC/Maya/">Maya</a>
+                      <a class="hover-with-bg" href="/categories/Python/PyQt/">PyQt</a>
                     
                   </div>
                 
@@ -250,9 +265,9 @@ cmds.bakeResults(simulation=<span class="hljs-literal">False</span>, t=(st_frame
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/12/10/vim-help/">
+                      <a href="/2021/02/17/maya-tips-001/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">vim快捷键查询</span>
+                        <span class="hidden-mobile">Maya的效率使用和技巧（一）</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -260,8 +275,8 @@ cmds.bakeResults(simulation=<span class="hljs-literal">False</span>, t=(st_frame
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/12/10/meshlab-remove-face/">
-                        <span class="hidden-mobile">使用MeshLab为模型减面</span>
+                      <a href="/2021/01/29/py2app-used/">
+                        <span class="hidden-mobile">将Python程序打包成Mac App过程和排错</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -397,7 +412,7 @@ cmds.bakeResults(simulation=<span class="hljs-literal">False</span>, t=(st_frame
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Maya faster 小技巧(持续更新)&nbsp;",
+        "将PyQt4代码转到PyQt5&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

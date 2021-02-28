@@ -19,7 +19,7 @@
   <meta name="description" content="关于电影视效的经验与分享">
   <meta name="author" content="Lingyun Zhang">
   <meta name="keywords" content="">
-  <title>Nukestudio Python开发入门 - 凌云的个人博客</title>
+  <title>Maya的效率使用和技巧（一） - 凌云的个人博客</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -148,8 +148,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-11-01 22:25" pubdate>
-        2020年11月1日 晚上
+      <time datetime="2021-02-17 18:40" pubdate>
+        2021年2月17日 晚上
       </time>
     </span>
   
@@ -160,7 +160,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      596 字
+      798 字
     </span>
   
 
@@ -170,7 +170,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9
+      8
        分钟
     </span>
   
@@ -200,129 +200,44 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">Nukestudio Python开发入门</h1>
+            <h1 style="display: none">Maya的效率使用和技巧（一）</h1>
             
             <div class="markdown-body" id="post-body">
-              <h1 id="官方参考文档"><a href="#官方参考文档" class="headerlink" title="官方参考文档"></a>官方参考文档</h1><p>版本号请自行替换</p>
-<p><a target="_blank" rel="noopener" href="https://learn.foundry.com/hiero/developers/11.1/HieroPythonDevGuide/api/index.html">https://learn.foundry.com/hiero/developers/11.1/HieroPythonDevGuide/api/index.html</a></p>
-<h1 id="常用命令参考"><a href="#常用命令参考" class="headerlink" title="常用命令参考"></a>常用命令参考</h1><h2 id="获取项目"><a href="#获取项目" class="headerlink" title="获取项目"></a>获取项目</h2><p>关于preject类的用法，在下面的链接查看</p>
-<p><a target="_blank" rel="noopener" href="https://learn.foundry.com/hiero/developers/11.1/HieroPythonDevGuide/api/api_core.html#hiero.core.Project">Project类用法</a></p>
-<div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">import</span> hiero.core <span class="hljs-keyword">as</span> hc
-all_projects = hc.projects()
+              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>收集了一些Maya使用效率的技巧。<br>大致来源于一些博客，视频教程和平时使用的经验。<br>废话不多说，开始。</p>
+<h2 id="1-清理优化场景文件"><a href="#1-清理优化场景文件" class="headerlink" title="1.清理优化场景文件"></a>1.清理优化场景文件</h2><p>有时候我们拿到一个文件，明明场景里只有一个人物rig动画。<br>但是当我们对它进行调整，或是打开保存文件的时候，会异常的慢。<br>这有可能是场景中存在了很多未被使用的材质或动画曲线等一系列垃圾节点。  </p>
+<p>这个时候需要用到Maya自带的优化功能进行清理。  </p>
+<p><img src="https://i.loli.net/2021/02/17/rBeOA637tEaN2KG.jpg" srcset="/img/loading.gif"></p>
+<p>可以根据需要进行清理，不过在清理前最好先另存一下文件。  </p>
+<p><img src="https://i.loli.net/2021/02/17/AyHl7tv5ceqsUMB.png" srcset="/img/loading.gif"></p>
+<h2 id="2-让Maya启动快一些"><a href="#2-让Maya启动快一些" class="headerlink" title="2.让Maya启动快一些"></a>2.让Maya启动快一些</h2><p><strong>关闭不使用的插件。</strong><br>比如对于一个动画师来说，我们不需要用到Maya的特效解算模块。<br>所以可以在Plug-in Manager中把它们给off掉。</p>
+<p>流体解算：<br><img src="https://i.loli.net/2021/02/17/tXx7vTkiaSLyVZK.jpg" srcset="/img/loading.gif"></p>
+<p>毛发解算：<br><img src="https://i.loli.net/2021/02/17/JZPGdvKUFzqDyfr.jpg" srcset="/img/loading.gif"></p>
+<p>特效模拟：<br><img src="https://i.loli.net/2021/02/17/OdjgNf3A9ebpQMo.jpg" srcset="/img/loading.gif"></p>
+<p>把它们取消勾选后，基本可以节省10s的开启时间。</p>
+<p><strong>还有就是Maya在2016后的版本，会多出一个登录功能。</strong><br>每次启动也会占用时间进行网络验证。（下图可见）  </p>
+<p><img src="https://i.loli.net/2021/02/17/ErwWRkXFc8JBmfh.jpg" srcset="/img/loading.gif"></p>
+<p>可以通过添加一个环境变量禁止这个功能。</p>
+<p><img src="https://i.loli.net/2021/02/17/1XjVqGQ3zWkcPFi.jpg" srcset="/img/loading.gif">  </p>
+<p>设置完后记得注销重新登陆，再次打开Maya就会看到这个登陆框已经消失了。</p>
+<h2 id="3-开启远处物体低质渲染"><a href="#3-开启远处物体低质渲染" class="headerlink" title="3.开启远处物体低质渲染"></a>3.开启远处物体低质渲染</h2><p>比如在进行场景动画制作的时候，一些离摄像机远处的物体，<br>不需要很高的预览质量，开启这个功能就会很有作用。  </p>
+<p><img src="https://i.loli.net/2021/02/17/BtHukJvdVzWe8QX.jpg" srcset="/img/loading.gif"></p>
+<h2 id="4-批量修改多个物体的同一个属性"><a href="#4-批量修改多个物体的同一个属性" class="headerlink" title="4.批量修改多个物体的同一个属性"></a>4.批量修改多个物体的同一个属性</h2><p>之前公司一个灯光师有个需求是，把大概50多盏灯光的属性批量修改。<br>当时是写了一个工具给他，后来在交流群里问到，Maya有自带这个功能。  </p>
+<p><img src="https://i.loli.net/2021/02/17/Y2o7JOZbiujkL1G.jpg" srcset="/img/loading.gif"></p>
+<p><img src="https://i.loli.net/2021/02/17/eku76a1rAGP4izv.jpg" srcset="/img/loading.gif"></p>
+<p>在实际使用上，里面列出的属性也不是特别全。<br>不过能在里面找到的就不需要麻烦TD写一个工具了。  </p>
+<h2 id="5-暂停全局刷新"><a href="#5-暂停全局刷新" class="headerlink" title="5.暂停全局刷新"></a>5.暂停全局刷新</h2><p><img src="https://vip1.loli.net/2019/12/16/Iac1sJPAud5ZHmK.png" srcset="/img/loading.gif"></p>
+<p>这个按钮可以暂停Maya的图形更新，<br>在对大纲视图，材质编辑器，曲线编辑器等窗口操作的时候，<br>我们不希望Maya实时进行更新，则可以打开这个开关。  </p>
+<h2 id="6-快速烘培动画"><a href="#6-快速烘培动画" class="headerlink" title="6.快速烘培动画"></a>6.快速烘培动画</h2><p>通常我们在进行动画烘培（Bake Simulation）的时候，Maya都会逐帧跑一遍时间滑块。<br>能不能有一个方法可以跳过这个步骤，直接将动画烘培完成。<br>这里提供一个py小脚本，可以完成这件事。（几乎是秒烘培）  </p>
+<div class="hljs"><pre><code class="hljs Python"><span class="hljs-keyword">import</span> maya.cmds <span class="hljs-keyword">as</span> cmds
+st_frame = <span class="hljs-built_in">int</span>(cmds.playbackOptions(q=<span class="hljs-literal">True</span>, minTime=<span class="hljs-literal">True</span>))
+ed_frame = <span class="hljs-built_in">int</span>(cmds.playbackOptions(q=<span class="hljs-literal">True</span>, maxTime=<span class="hljs-literal">True</span>))
+cmds.bakeResults(simulation=<span class="hljs-literal">False</span>, t=(st_frame, ed_frame))</code></pre></div>
 
-<span class="hljs-comment"># 打印出所有项目名</span>
-<span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> all_projects:
-	<span class="hljs-built_in">print</span> p.name()
-
-<span class="hljs-comment"># 获取指定名称的项目</span>
-name = <span class="hljs-string">&#x27;test_project&#x27;</span>
-p = hc.project(name)</code></pre></div>
-
-<h2 id="创建Clip，放置到对应的Sequence或者Bin里"><a href="#创建Clip，放置到对应的Sequence或者Bin里" class="headerlink" title="创建Clip，放置到对应的Sequence或者Bin里"></a>创建Clip，放置到对应的Sequence或者Bin里</h2><div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">import</span> hiero.core <span class="hljs-keyword">as</span> hc
-file_path = <span class="hljs-string">r&#x27;D:\demo\shot001\shot001_v001.1001.exr&#x27;</span>
-
-<span class="hljs-comment"># 创建MediaSource对象</span>
-m = hc.MediaSource(file_path)
-
-<span class="hljs-comment"># 创建Clip对象</span>
-c = hc.Clip(m)
-
-<span class="hljs-comment"># 创建binItem对象</span>
-bi = hc.BinItem(c)
-
-<span class="hljs-comment"># 获取需要放置的bin路径对象，添加对象到Bin</span>
-p = hc.project(<span class="hljs-string">&#x27;test_project&#x27;</span>)
-bin1 = p.bins(<span class="hljs-string">&#x27;Bin 1&#x27;</span>)
-bin1.addItem(bin1)</code></pre></div>
-
-<p>关于Clip，MediaSource，binItem对象方法的文档：</p>
-<p><a target="_blank" rel="noopener" href="https://learn.foundry.com/hiero/developers/11.1/HieroPythonDevGuide/api/api_core.html#hiero.core.Clip">Clip</a><br><a target="_blank" rel="noopener" href="https://learn.foundry.com/hiero/developers/11.1/HieroPythonDevGuide/api/api_core.html#hiero.core.MediaSource">MediaSource</a><br><a target="_blank" rel="noopener" href="https://learn.foundry.com/hiero/developers/11.1/HieroPythonDevGuide/api/api_core.html#hiero.core.BinItem">BinItem</a></p>
-<h2 id="获取MediaSource对象的路径"><a href="#获取MediaSource对象的路径" class="headerlink" title="获取MediaSource对象的路径"></a>获取MediaSource对象的路径</h2><div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">import</span> hiero.core <span class="hljs-keyword">as</span> hc
-
-file_path = <span class="hljs-string">r&#x27;D:\demo\shot001\shot001_v001.1001.exr&#x27;</span>
-m = hc.MediaSource(file_path)
-m_infos = m.fileinfos()
-<span class="hljs-built_in">print</span> m_infos[<span class="hljs-number">0</span>].filename()</code></pre></div>
-
-<h2 id="在项目顶层文件夹创建Bin"><a href="#在项目顶层文件夹创建Bin" class="headerlink" title="在项目顶层文件夹创建Bin"></a>在项目顶层文件夹创建Bin</h2><div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">import</span> hiero.core <span class="hljs-keyword">as</span> hc
-p = hc.project(<span class="hljs-string">&#x27;test_project&#x27;</span>)
-bin1 = hc.bins(<span class="hljs-string">&#x27;test&#x27;</span>)[<span class="hljs-number">0</span>]
-
-p.clipsBin().addItem(bin1)</code></pre></div>
-
-<h2 id="将clip放置到时间线"><a href="#将clip放置到时间线" class="headerlink" title="将clip放置到时间线"></a>将clip放置到时间线</h2><div class="hljs"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span>
-<span class="hljs-string">设置源文件出入点</span>
-<span class="hljs-string">TrackItem.setSourceIn()</span>
-<span class="hljs-string">TrackItem.setSourceOut()</span>
-<span class="hljs-string"></span>
-<span class="hljs-string">设置时间线出入点</span>
-<span class="hljs-string">TrackItem.setTimelineIn()</span>
-<span class="hljs-string">TrackItem.setTimelineOut()</span>
-<span class="hljs-string">&quot;&quot;&quot;</span>
-
-<span class="hljs-keyword">import</span> hiero.core <span class="hljs-keyword">as</span> hc
-
-file_path = <span class="hljs-string">r&#x27;D:\demo\shot001\shot001_v001.1001.exr&#x27;</span>
-
-<span class="hljs-comment"># 获取project和bin，以及bin下面的sequence对象</span>
-p = hc.project(<span class="hljs-string">&#x27;test_project&#x27;</span>)
-bin1 = p.bins(<span class="hljs-string">&#x27;Bin 1&#x27;</span>)[<span class="hljs-number">0</span>]
-s = bin1.sequences()[<span class="hljs-number">0</span>]
-
-<span class="hljs-comment"># 创建MediaSource和Clip对象</span>
-m = hc.MediaSource(file_path)
-c = hc.Clip(m)
-
-<span class="hljs-comment"># 获取video1对象，并创建一个TrackItem对象</span>
-vt = s.activeItem().videoTrack(<span class="hljs-number">0</span>)
-t = s.activeItem().videoTrack(<span class="hljs-number">0</span>).createTrackItem(<span class="hljs-string">&#x27;shot001&#x27;</span>)
-
-<span class="hljs-comment"># 为trackItem对象设置来源clip，时间线起始帧结束帧</span>
-t.setSource(c)
-t.setTimelineIn(<span class="hljs-number">1</span>)
-t.setTimelineOut(<span class="hljs-number">22</span>)
-vt.addItem(t)
-</code></pre></div>
-
-<h3 id="添加在时间线右键触发事件"><a href="#添加在时间线右键触发事件" class="headerlink" title="添加在时间线右键触发事件"></a>添加在时间线右键触发事件</h3><div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">import</span> hiero.core <span class="hljs-keyword">as</span> hc
-
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add_print</span>(<span class="hljs-params">event</span>):</span>
-    event.menu.addAction(<span class="hljs-string">&#x27;print selected&#x27;</span>)
-    selection = event.sender.selection()
-    <span class="hljs-built_in">print</span> selection
-
-hc.events.registerInterest(<span class="hljs-string">&quot;kShowContextMenu/kTimeline&quot;</span>, add_print)</code></pre></div>
-
-<h3 id="获取选中的clip对象"><a href="#获取选中的clip对象" class="headerlink" title="获取选中的clip对象"></a>获取选中的clip对象</h3><div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">from</span> hiero.core <span class="hljs-keyword">import</span> TrackItem
-
-<span class="hljs-comment"># 获取激活的sequence对象</span>
-seq = hiero.ui.activeSequence()
-
-<span class="hljs-comment"># 获取TimelineEditor对象</span>
-te = hiero.ui.getTimelineEditor(seq)
-
-<span class="hljs-comment"># 得到所有选择的clip items</span>
-<span class="hljs-built_in">print</span> te.selection()</code></pre></div>
-
-<h3 id="直接在sequence添加clip"><a href="#直接在sequence添加clip" class="headerlink" title="直接在sequence添加clip"></a>直接在sequence添加clip</h3><div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">import</span> hiero.core <span class="hljs-keyword">as</span> hc
-
-file_path = <span class="hljs-string">r&#x27;D:\demo\shot006\BEN_0230_V001.1001.exr&#x27;</span>
-
-<span class="hljs-comment"># 获取project和bin，以及bin下面的sequence对象</span>
-p = hc.project(<span class="hljs-string">&#x27;test&#x27;</span>)
-
-s = p.sequences(<span class="hljs-string">&#x27;seq01&#x27;</span>)[<span class="hljs-number">0</span>]
-
-<span class="hljs-comment"># 创建MediaSource和Clip对象</span>
-m = hc.MediaSource(file_path)
-c = hc.Clip(m)
-s.addClip(c, time=<span class="hljs-number">1001</span>) <span class="hljs-comment"># time这里为起始时间</span></code></pre></div>
-
-<h3 id="获取clip的matadata信息"><a href="#获取clip的matadata信息" class="headerlink" title="获取clip的matadata信息"></a>获取clip的matadata信息</h3><div class="hljs"><pre><code class="hljs python">c.metadata().value(<span class="hljs-string">&#x27;foundry.timeline.duration&#x27;</span>)
-
-<span class="hljs-string">&quot;&quot;&quot;</span>
-<span class="hljs-string">hasKey, keys, setValue, value</span>
-<span class="hljs-string">&quot;&quot;&quot;</span></code></pre></div>
+<h2 id="7-替换Playblast后自动打开RV进行预览"><a href="#7-替换Playblast后自动打开RV进行预览" class="headerlink" title="7.替换Playblast后自动打开RV进行预览"></a>7.替换Playblast后自动打开RV进行预览</h2><p>在Playblast选项里勾选view，默认是会在拍屏后打开FCheck进行预览。<br>如果想替换成其它软件（比如RV），可以在Preferences窗口里进行更改。  </p>
+<p><img src="https://i.loli.net/2021/02/17/MqkBjthrSdEWumZ.jpg" srcset="/img/loading.gif" alt="playblast.jpg"></p>
+<hr>
+<p>大致就先分享这些使用技巧，如果文章对你有所帮助，<br>可以关注一下这个公众号。thx！</p>
+<img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/IMG_0583.JPG" srcset="/img/loading.gif" width="30%" height="30%" alt="" align=center />
 
             </div>
             <hr>
@@ -334,7 +249,7 @@ s.addClip(c, time=<span class="hljs-number">1001</span>) <span class="hljs-comme
                     
                       <a class="hover-with-bg" href="/categories/DCC/">DCC</a>
                     
-                      <a class="hover-with-bg" href="/categories/DCC/NukeStudio/">NukeStudio</a>
+                      <a class="hover-with-bg" href="/categories/DCC/Maya/">Maya</a>
                     
                   </div>
                 
@@ -343,6 +258,29 @@ s.addClip(c, time=<span class="hljs-number">1001</span>) <span class="hljs-comme
               
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/24/maya-tips-002/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Maya的效率使用和技巧（二）</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/15/pyqt4to5/">
+                        <span class="hidden-mobile">将PyQt4代码转到PyQt5</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
               
             </div>
 
@@ -472,7 +410,7 @@ s.addClip(c, time=<span class="hljs-number">1001</span>) <span class="hljs-comme
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Nukestudio Python开发入门&nbsp;",
+        "Maya的效率使用和技巧（一）&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

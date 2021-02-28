@@ -19,7 +19,7 @@
   <meta name="description" content="关于电影视效的经验与分享">
   <meta name="author" content="Lingyun Zhang">
   <meta name="keywords" content="">
-  <title>安装Katana过程记录 - 凌云的个人博客</title>
+  <title>Maya的效率使用和技巧（二） - 凌云的个人博客</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -148,8 +148,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-12-10 14:43" pubdate>
-        2020年12月10日 下午
+      <time datetime="2021-02-24 10:12" pubdate>
+        2021年2月24日 上午
       </time>
     </span>
   
@@ -160,7 +160,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      416 字
+      796 字
     </span>
   
 
@@ -170,7 +170,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      8
        分钟
     </span>
   
@@ -200,41 +200,92 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">安装Katana过程记录</h1>
+            <h1 style="display: none">Maya的效率使用和技巧（二）</h1>
             
             <div class="markdown-body" id="post-body">
-              <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Katana是一款视效流程中，灯光渲染的cg软件。由于其优秀的设计，超大型的场景也会瞬间打开，目前支持的渲染插件有3Dlight、Renderman、Arnold、Redshift、V-Ray，目前最新版本的Katana已经内置了3Dlight渲染插件。</p>
-<p>因为首次安装成功后，到下一次安装会间隔很长时间。<br>这里记录一下安装和破解的过程，以后就不用再去翻文档一步一步摸索了。<br>(虽然步骤很简单，不过拒绝重复劳动！)</p>
-<h1 id="安装和破解"><a href="#安装和破解" class="headerlink" title="安装和破解"></a>安装和破解</h1><p>这里使用的是Katana3.1v3版本，Crack文件夹里有文件如下几个文件：</p>
-<p><img src="https://vip1.loli.net/2019/12/22/cEFB7tS4RrJi5M3.jpg" srcset="/img/loading.gif" alt="snipaste_20191222_143248.jpg"></p>
-<p>下面其实就是将 Readme.txt 的内容图文化并翻译了一下：</p>
-<p>安装软件，直接点下一步然后再下一步就好了。</p>
-<p><img src="https://vip1.loli.net/2019/12/22/HtD1oW5TVP8ajem.jpg" srcset="/img/loading.gif" alt="snipaste_20191222_145604.jpg"></p>
-<p>安装完成后，在任务管理器 - 服务里停掉 Foundry License Server</p>
-<p><img src="https://vip1.loli.net/2019/12/22/L7v8iVRhBjSdMgf.jpg" srcset="/img/loading.gif" alt="snipaste_20191222_145809.jpg"></p>
-<p>将Crack目录下的rlm.foundry.exe复制到<br><code>C:\Program Files (x86)\The Foundry\LicensingTools7.0\bin\RLM</code><br>并替换原始的文件</p>
-<p><img src="https://vip1.loli.net/2019/12/22/imN2bvJMwltHqQY.jpg" srcset="/img/loading.gif" alt="snipaste_20191222_150054.jpg"></p>
-<p>在开始程序里，右键管理身份运行Foundry License Utility</p>
-<p><img src="https://vip1.loli.net/2019/12/22/ovbsrHYWnweVUqG.jpg" srcset="/img/loading.gif" alt="stlo"></p>
-<p>选择Diagnostics，点击Run Diagnostics。<br>等它运行完，复制Host name和System ID</p>
-<p><img src="https://vip1.loli.net/2019/12/22/ylVqgfGt4DpCKWB.jpg" srcset="/img/loading.gif" alt="snipaste_20191222_150358.jpg"></p>
-<p>用记事本或者文本编辑器打开xf_foundry.lic文件。<br>替换第一行的内容，保存它。<br>然后将 xf_foundry.lic 复制到<br><code>C:\Program Files (x86)\The Foundry\LicensingTools7.0\bin\RLM</code></p>
-<p><img src="https://vip1.loli.net/2019/12/22/u8k65bfWHPmIaAt.jpg" srcset="/img/loading.gif" alt="snipaste_20191222_150729.jpg"></p>
-<p>点击Start Server 开启许可证服务器</p>
-<p><img src="https://vip1.loli.net/2019/12/22/dUMLhf1cK7HQSuY.jpg" srcset="/img/loading.gif" alt="snipaste_20191222_151316.jpg"></p>
-<p>打开katana，在弹出的窗口中点击 Install License—Use Server<br>地址栏输入：端口号@ip地址<br>如果你没有指定端口，那么默认为<a href="mailto:&#x35;&#x30;&#53;&#51;&#x40;&#49;&#50;&#x37;&#x2e;&#48;&#46;&#48;&#x2e;&#49;">&#x35;&#x30;&#53;&#51;&#x40;&#49;&#50;&#x37;&#x2e;&#48;&#46;&#48;&#x2e;&#49;</a><br>到了这里就破解完成了，enjoy it！</p>
-<p><img src="https://vip1.loli.net/2019/12/22/H7RDdrOJthf2lLC.jpg" srcset="/img/loading.gif" alt="snipaste_20191222_142918.jpg"></p>
+              <h2 id="8-快速选择集"><a href="#8-快速选择集" class="headerlink" title="8.快速选择集"></a>8.快速选择集</h2><p>Maya的Create Quick Set可以创建快速选择集。<br>比如一个动画师在制作手部动画，需要每次对手上的十多个控制器一起key帧。<br>这里就可以创建快速选择集。  </p>
+<p>首先选择好手指上需要的控制器。<br><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/right_finger.jpg" srcset="/img/loading.gif"></p>
+<p>菜单栏 Create - Sets - Quick Select Set<br><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/create_quick_set.jpg" srcset="/img/loading.gif"></p>
+<p>给这个Set命名，点击Add to Shelf（将会创建一个按钮在当前的shelf上）。<br><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/create_set_dialog.jpg" srcset="/img/loading.gif"></p>
+<p>点击这个按钮就可以快速选择集里面的控制器。<br><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/click.gif" srcset="/img/loading.gif"></p>
+<h2 id="9-快捷键G-重复上一个操作"><a href="#9-快捷键G-重复上一个操作" class="headerlink" title="9.快捷键G 重复上一个操作"></a>9.快捷键G 重复上一个操作</h2><p>这是一个很实用的快捷键，假设这样一个场景：<br>需要将多个物体一起约束到同一个locator上，<br>这里不借助脚本的话，只能一个一个选择，<br>每次去点击parent界面按钮。  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/parent_one_by_one.gif" srcset="/img/loading.gif"></p>
+<p>在这样的情况下，就可以使用快捷键g来重复进行上一个操作，<br>如下图所示，选择好约束的目标，按下g。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/parent_g_hotkey.gif" srcset="/img/loading.gif"></p>
+<h2 id="10-撤销“一段”操作"><a href="#10-撤销“一段”操作" class="headerlink" title="10.撤销“一段”操作"></a>10.撤销“一段”操作</h2><p>crtl+z 可以撤销上一步操作。<br>而在一些特殊情况下，我们可能会需要撤销””一段”操作。<br>如下图所示：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/ctrl_z2_zip.gif" srcset="/img/loading.gif"></p>
+<p>通过上面的演示可以看到：<br>先是给了box细分，再进行了两次挤出。<br>执行undo后，撤销了刚刚的所有操作。</p>
+<p>这里借助了两个命令来实现这个功能。<br>我将它们放到了shelf自定义按钮中。  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/undo_record.jpg" srcset="/img/loading.gif"></p>
+<p>按钮on的命令  </p>
+<div class="hljs"><pre><code class="hljs Python"><span class="hljs-keyword">import</span> maya.cmds <span class="hljs-keyword">as</span> cmds
+cmds.undoInfo(openChunk=<span class="hljs-literal">True</span>)</code></pre></div>
+
+<p>按钮off的命令  </p>
+<div class="hljs"><pre><code class="hljs Python">cmds.undoInfo(closeChunk=<span class="hljs-literal">True</span>)</code></pre></div>
+
+<p>大概的操作步骤是：<br>1.点击按钮on，Maya会创建了一个记录步骤的“区块”。<br>2.对场景进行修改和操作。<br>3.然后在需要将刚刚的所有操作撤销的时候，<br>点击off按钮，再执行undo即可。  </p>
+<p><strong>注意：这个方法需谨慎使用。</strong><br>可能会出现一些问题导致无法撤销的情况。  </p>
+<h2 id="11-备份Maya预设"><a href="#11-备份Maya预设" class="headerlink" title="11.备份Maya预设"></a>11.备份Maya预设</h2><p>Maya在使用时间久了，或者打开了一些奇怪的文件。<br>软件可能抽风出现各种问题，通常解决办法是删除Maya的预设文件夹来重置Maya。<br>预设路径大概如下：<br><code>C:\Users\username\Documents\maya\2018</code>  </p>
+<p>每次重置后会丢失我们的使用习惯，比如自定义的快捷键，自定义的shelf按钮等。<br>所以备份设置好的预设文件，可以在下次删除预设的时候，<br>不需要再重复进行设置。</p>
+<h2 id="12-通过名称快速选择物体"><a href="#12-通过名称快速选择物体" class="headerlink" title="12.通过名称快速选择物体"></a>12.通过名称快速选择物体</h2><p>在渲染设置的按钮旁边，选择Select by name，</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/quick_select_by_name001.jpg" srcset="/img/loading.gif"></p>
+<p>然后输入（模糊）名称，按下回车键。  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/quick_select_by_name002.jpg" srcset="/img/loading.gif"></p>
+<p>可以看到匹配名称的物体被选择了。  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/quick_select_by_name003.jpg" srcset="/img/loading.gif"></p>
+<p><strong>注意：</strong> 这里输入的名称是通配形式，即模糊的名称部分用 * 号代替。</p>
+<h2 id="13-大纲视图的过滤操作"><a href="#13-大纲视图的过滤操作" class="headerlink" title="13.大纲视图的过滤操作"></a>13.大纲视图的过滤操作</h2><p>通过名称过滤：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/quick_select_by_name004.jpg" srcset="/img/loading.gif"></p>
+<p>通过类型过滤：<br>这里勾上Light  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/fast_filter_outline001.jpg" srcset="/img/loading.gif"></p>
+<p>大纲视图里就只显示灯光类型的物体了。  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/fast_filter_outline002.jpg" srcset="/img/loading.gif"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>大概心里能想到的提升效率的操作就这些了。（作者能力有限哈哈）<br>如果觉得文章还不错，可以分享或者关注这个公众号。  </p>
+<img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/IMG_0583.JPG" srcset="/img/loading.gif" width="30%" height="30%" alt="" align=center />
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/DCC/">DCC</a>
+                    
+                      <a class="hover-with-bg" href="/categories/DCC/Maya/">Maya</a>
+                    
+                  </div>
+                
                 
               </div>
               
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/28/cc-pmd-tool/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">CraftProducer v1.2 帮助文档</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/17/maya-tips-001/">
+                        <span class="hidden-mobile">Maya的效率使用和技巧（一）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
               
             </div>
 
@@ -364,7 +415,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "安装Katana过程记录&nbsp;",
+        "Maya的效率使用和技巧（二）&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
