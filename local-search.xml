@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>Rez中文文档</title>
+    <link href="/2021/03/15/rez-wiki-cn/"/>
+    <url>/2021/03/15/rez-wiki-cn/</url>
+    
+    <content type="html"><![CDATA[<p>这是一份Rez中文文档，供大家学习讨论。<br>作者能力有限，翻译也许有不当的地方，如果发现问题还望指出，感激不尽。<br>原项目地址：<a href="https://github.com/nerdvegas/rez">https://github.com/nerdvegas/rez</a></p><h2 id="入门"><a href="#入门" class="headerlink" title="入门"></a><strong>入门</strong></h2><p><a href="https://lingyunfx.com/2021/03/15/rez-home">主页 (Home)</a></p><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a><strong>介绍</strong></h2><p><a href="https://lingyunfx.com/2021/03/15/rez-install">安装 (Installation)</a><br><a href="https://lingyunfx.com/2021/03/15/rez-getting-started">入门 (Getting Started)</a><br><a href="https://lingyunfx.com/2021/03/15/rez-basic-concepts">基础概念 (Basic Concepts)</a><br><a href="https://lingyunfx.com/2021/03/15/rez-configuring">配置 (Configuring Rez)</a></p><h2 id="软件包"><a href="#软件包" class="headerlink" title="软件包"></a><strong>软件包</strong></h2><p><a href="https://lingyunfx.com/2021/03/15/rez-package-commands">软件包命令 (Package Commands)</a><br><a href="https://lingyunfx.com/2021/03/15/rez-package-definition-guide/">软件包定义指南 (Package Definition Guide)</a><br><a href="https://lingyunfx.com/2021/03/15/rez-variants">变体 (Variants)</a><br><a href="https://lingyunfx.com/2021/03/15/rez-ephemeral-packages">临时包 (Ephemeral Packages)</a></p><h2 id="Rez"><a href="#Rez" class="headerlink" title="Rez"></a><strong>Rez</strong></h2><p><a href="https://lingyunfx.com/2021/03/15/rez-contexts">Contexts</a><br><a href="https://lingyunfx.com/2021/03/15/rez-bundles/">Bundles</a><br><a href="https://lingyunfx.com/2021/03/15/rez-suites/">Suites</a><br><a href="https://lingyunfx.com/2021/03/15/rez-building-package/">Building Packages</a><br><a href="https://lingyunfx.com/2021/03/15/rez-copying-package/">Copying Packages</a><br><a href="https://lingyunfx.com/2021/03/15/rez-package-caching/">Package Caching</a><br><a href="https://lingyunfx.com/2021/03/15/rez-environment-variables/">Environment Variables</a></p><hr><p>如果文档有所帮助，可以关注这个公众号支持下作者thx！  </p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/IMG_0583.JPG" width="30%" height="30%" alt="" align=center />]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Maya 疑难杂症备忘录 Vol.1</title>
     <link href="/2021/03/09/maya-issue-vol1/"/>
     <url>/2021/03/09/maya-issue-vol1/</url>

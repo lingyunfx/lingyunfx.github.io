@@ -1,0 +1,534 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="关于电影视效的经验与分享">
+  <meta name="author" content="Lingyun Zhang">
+  <meta name="keywords" content="">
+  <title>Package Caching - 凌云的个人博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/hopscotch.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>凌云的个人博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Lingyun Zhang
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-15 19:02" pubdate>
+        2021年3月15日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      20
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Package Caching</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>软件包缓存（Package Caching）是一个将包复制到本地磁盘加快运行环境的功能。</p>
+<p>比如你发布的包通常是在共享服务器上，那么运行python进程时，就会从共享存储上获取所有源码。缓存的意义在于将这些内容复制到本地，节省访问网络的时间成本。</p>
+<h1 id="启用缓存"><a href="#启用缓存" class="headerlink" title="启用缓存"></a>启用缓存</h1><p>软件包缓存功能不是默认启用的。要启用它，需要配置<code>cache_packages_path</code>来指定缓存的路径。</p>
+<p>你也可以细致的控制哪些包是需要被缓存的，只需要在它的定义文件（package.py）设置<code>cachable = True</code> 。我们需要单独控制哪些包是可以被缓存的，因为某些编译后的包无法支持重定向（即缓存到本地会丢失作用）。</p>
+<p>还有一些配置会在包没有设置<code>cachable=True</code>的情况下缓存包。比如<code>dedefault_cachable</code>，<code>default_cachable_per_package</code> 和<code>default_cachable_per_repository</code>。</p>
+<p><strong>Notes</strong>：你也可以使用<code>rez-env --no-pkg-caching</code>来禁用包缓存。</p>
+<h1 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h1><p>当你解析一个环境后，可以通过<code>rez-context</code>输出的右侧栏中看到缓存标签，查看哪些变体已经被缓存。如下所示：</p>
+<div class="hljs"><pre><code class="hljs awk">]$ rez-env Flask
+
+You are now <span class="hljs-keyword">in</span> a rez-configured environment.
+
+requested packages:
+Flask
+~platform==linux   (implicit)
+~arch==x86_64      (implicit)
+~os==Ubuntu-<span class="hljs-number">16.04</span>  (implicit)
+
+resolved packages:
+Flask-<span class="hljs-number">1.1</span>.<span class="hljs-number">2</span>         <span class="hljs-regexp">/home/</span>ajohns<span class="hljs-regexp">/package_cache/</span>Flask<span class="hljs-regexp">/1.1.2/</span>d998/a                                     (cached)
+Jinja2-<span class="hljs-number">2.11</span>.<span class="hljs-number">2</span>       <span class="hljs-regexp">/home/</span>ajohns<span class="hljs-regexp">/package_cache/</span>Jinja2<span class="hljs-regexp">/2.11.2/</span><span class="hljs-number">6087</span>/a                                   (cached)
+MarkupSafe-<span class="hljs-number">1.1</span>.<span class="hljs-number">1</span>    <span class="hljs-regexp">/svr/</span>packages<span class="hljs-regexp">/MarkupSafe/</span><span class="hljs-number">1.1</span>.<span class="hljs-number">1</span>/d9e9d80193dcd9578844ec4c2c22c9366ef0b88a
+Werkzeug-<span class="hljs-number">1.0</span>.<span class="hljs-number">1</span>      <span class="hljs-regexp">/home/</span>ajohns<span class="hljs-regexp">/package_cache/</span>Werkzeug<span class="hljs-regexp">/1.0.1/</span>fe76/a                                  (cached)
+arch-x86_64         <span class="hljs-regexp">/home/</span>ajohns<span class="hljs-regexp">/package_cache/</span>arch<span class="hljs-regexp">/x86_64/</span><span class="hljs-number">6450</span>/a                                     (cached)
+click-<span class="hljs-number">7.1</span>.<span class="hljs-number">2</span>         <span class="hljs-regexp">/home/</span>ajohns<span class="hljs-regexp">/package_cache/</span>click<span class="hljs-regexp">/7.1.2/</span><span class="hljs-number">0</span>da2/a                                     (cached)
+itsdangerous-<span class="hljs-number">1.1</span>.<span class="hljs-number">0</span>  <span class="hljs-regexp">/home/</span>ajohns<span class="hljs-regexp">/package_cache/i</span>tsdangerous<span class="hljs-regexp">/1.1.0/</span>b23f/a                              (cached)
+platform-linux      <span class="hljs-regexp">/home/</span>ajohns<span class="hljs-regexp">/package_cache/</span>platform<span class="hljs-regexp">/linux/</span><span class="hljs-number">9</span>d4d/a                                  (cached)
+python-<span class="hljs-number">3.7</span>.<span class="hljs-number">4</span>        <span class="hljs-regexp">/home/</span>ajohns<span class="hljs-regexp">/package_cache/</span>python<span class="hljs-regexp">/3.7.4/</span>ce1c/a</code></pre></div>
+
+<p>对于引用，缓存的包也会将其原始的位置存储到一个环境变量中：</p>
+<div class="hljs"><pre><code class="hljs awk">]$ echo <span class="hljs-variable">$REZ_FLASK_ORIG_ROOT</span>
+<span class="hljs-regexp">/svr/</span>packages<span class="hljs-regexp">/Flask/</span><span class="hljs-number">1.1</span>.<span class="hljs-number">2</span>/<span class="hljs-number">88</span>a70aca30cb79a278872594adf043dc6c40af99</code></pre></div>
+
+<h1 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h1><p>包缓存实际上缓存的是变体，而不是整个包。当你执行环境解析的时候，或者source一些存在的context时，所需的变体会被异步复制到本地磁盘（如果它们是可缓存的），在一个单独的进程中，进程名为<code>rez-pkg-cache</code>。</p>
+<p>这意味着在第一次解析时，不一定会用到缓存的变体（因为进程还在持续运行中，完成缓存需要时间，这是一个缓慢的过程）。</p>
+<p>注意，包缓存不是一个包仓库，它只是一个变体存储，结构上可以将任何仓库中的变体存储到一个共享缓存中。</p>
+<p>被缓存的变体是不可变的，没法检查变体是否有发生变化。所以你不应该在包仓库中使用缓存，因为包可能会覆盖。正因如此，本地包的缓存默认是被禁用的。（参考<a target="_blank" rel="noopener" href="https://github.com/nerdvegas/rez/wiki/Configuring-Rez#package_cache_local">package_cache_local</a>）</p>
+<h1 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h1><h2 id="检验"><a href="#检验" class="headerlink" title="检验"></a>检验</h2><p>使用<code>rez-pkg-cache</code>来查看缓存的状态，并进行预加载和删除操作。</p>
+<div class="hljs"><pre><code class="hljs gradle">]$ rez-pkg-cache
+<span class="hljs-keyword">Package</span> cache at <span class="hljs-regexp">/home/</span>ajohns/package_cache:
+
+status   <span class="hljs-keyword">package</span>             variant uri                                             cache path
+------   -------             -----------                                             ----------
+cached   Flask-<span class="hljs-number">1.1</span>.<span class="hljs-number">2</span>         <span class="hljs-regexp">/svr/</span>packages<span class="hljs-regexp">/Flask/</span><span class="hljs-number">1.1</span>.<span class="hljs-number">2</span><span class="hljs-regexp">/package.py[0]         /</span>home<span class="hljs-regexp">/ajohns/</span>package_cache<span class="hljs-regexp">/Flask/</span><span class="hljs-number">1.1</span>.<span class="hljs-number">2</span><span class="hljs-regexp">/d998/</span>a
+cached   Jinja2-<span class="hljs-number">2.11</span>.<span class="hljs-number">2</span>       <span class="hljs-regexp">/svr/</span>packages<span class="hljs-regexp">/Jinja2/</span><span class="hljs-number">2.11</span>.<span class="hljs-number">2</span><span class="hljs-regexp">/package.py[0]       /</span>home<span class="hljs-regexp">/ajohns/</span>package_cache<span class="hljs-regexp">/Jinja2/</span><span class="hljs-number">2.11</span>.<span class="hljs-number">2</span><span class="hljs-regexp">/6087/</span>a
+cached   Werkzeug-<span class="hljs-number">1.0</span>.<span class="hljs-number">1</span>      <span class="hljs-regexp">/svr/</span>packages<span class="hljs-regexp">/Werkzeug/</span><span class="hljs-number">1.0</span>.<span class="hljs-number">1</span><span class="hljs-regexp">/package.py[0]      /</span>home<span class="hljs-regexp">/ajohns/</span>package_cache<span class="hljs-regexp">/Werkzeug/</span><span class="hljs-number">1.0</span>.<span class="hljs-number">1</span><span class="hljs-regexp">/fe76/</span>a
+cached   arch-x86_64         <span class="hljs-regexp">/svr/</span>packages<span class="hljs-regexp">/arch/</span>x86_64<span class="hljs-regexp">/package.py[]          /</span>home<span class="hljs-regexp">/ajohns/</span>package_cache<span class="hljs-regexp">/arch/</span>x86_64<span class="hljs-regexp">/6450/</span>a
+cached   click-<span class="hljs-number">7.1</span>.<span class="hljs-number">2</span>         <span class="hljs-regexp">/svr/</span>packages<span class="hljs-regexp">/click/</span><span class="hljs-number">7.1</span>.<span class="hljs-number">2</span><span class="hljs-regexp">/package.py[0]         /</span>home<span class="hljs-regexp">/ajohns/</span>package_cache<span class="hljs-regexp">/click/</span><span class="hljs-number">7.1</span>.<span class="hljs-number">2</span><span class="hljs-regexp">/0da2/</span>a
+cached   itsdangerous-<span class="hljs-number">1.1</span>.<span class="hljs-number">0</span>  <span class="hljs-regexp">/svr/</span>packages<span class="hljs-regexp">/itsdangerous/</span><span class="hljs-number">1.1</span>.<span class="hljs-number">0</span><span class="hljs-regexp">/package.py[0]  /</span>home<span class="hljs-regexp">/ajohns/</span>package_cache<span class="hljs-regexp">/itsdangerous/</span><span class="hljs-number">1.1</span>.<span class="hljs-number">0</span><span class="hljs-regexp">/b23f/</span>a
+cached   platform-linux      <span class="hljs-regexp">/svr/</span>packages<span class="hljs-regexp">/platform/</span>linux<span class="hljs-regexp">/package.py[]       /</span>home<span class="hljs-regexp">/ajohns/</span>package_cache<span class="hljs-regexp">/platform/</span>linux<span class="hljs-regexp">/9d4d/</span>a
+copying  python-<span class="hljs-number">3.7</span>.<span class="hljs-number">4</span>        <span class="hljs-regexp">/svr/</span>packages<span class="hljs-regexp">/python/</span><span class="hljs-number">3.7</span>.<span class="hljs-number">4</span><span class="hljs-regexp">/package.py[0]        /</span>home<span class="hljs-regexp">/ajohns/</span>package_cache<span class="hljs-regexp">/python/</span><span class="hljs-number">3.7</span>.<span class="hljs-number">4</span><span class="hljs-regexp">/ce1c/</span>a
+stalled  MarkupSafe-<span class="hljs-number">1.1</span>.<span class="hljs-number">1</span>    <span class="hljs-regexp">/svr/</span>packages<span class="hljs-regexp">/MarkupSafe/</span><span class="hljs-number">1.1</span>.<span class="hljs-number">1</span><span class="hljs-regexp">/package.py[1]    /</span>home<span class="hljs-regexp">/ajohns/</span>package_cache<span class="hljs-regexp">/MarkupSafe/</span><span class="hljs-number">1.1</span>.<span class="hljs-number">1</span><span class="hljs-regexp">/724c/</span>a</code></pre></div>
+
+<p>每个变体都被存储在一个目录中，这个目录是该变体唯一的标识符。</p>
+<p>软件包缓存是具有线程和多进程的，并在必要时使用文件锁来控制访问。</p>
+<p>缓存的变体在任何时候都有其中之一的状态：</p>
+<ul>
+<li>copying：这个变体正在被复制到缓存中，还不能使用。</li>
+<li>cached：该变体已经被缓存，可以使用。</li>
+<li>stalled：变体在复制中出现来点问题，缓存中只存在部分副本。</li>
+</ul>
+<h2 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h2><p>缓存操作存储在缓存目录下的日志文件中：</p>
+<div class="hljs"><pre><code class="hljs angelscript">]$ rez-pkg-cache --logs
+rez-pkg-cache <span class="hljs-number">2020</span><span class="hljs-number">-05</span><span class="hljs-number">-23</span> <span class="hljs-number">16</span>:<span class="hljs-number">17</span>:<span class="hljs-number">45</span>,<span class="hljs-number">194</span> PID<span class="hljs-number">-29827</span> INFO Started daemon
+rez-pkg-cache <span class="hljs-number">2020</span><span class="hljs-number">-05</span><span class="hljs-number">-23</span> <span class="hljs-number">16</span>:<span class="hljs-number">17</span>:<span class="hljs-number">45</span>,<span class="hljs-number">201</span> PID<span class="hljs-number">-29827</span> INFO Started caching of variant /home/ajohns/packages/Werkzeug/<span class="hljs-number">1.0</span><span class="hljs-number">.1</span>/package.py[<span class="hljs-number">0</span>]...
+rez-pkg-cache <span class="hljs-number">2020</span><span class="hljs-number">-05</span><span class="hljs-number">-23</span> <span class="hljs-number">16</span>:<span class="hljs-number">17</span>:<span class="hljs-number">45</span>,<span class="hljs-number">404</span> PID<span class="hljs-number">-29827</span> INFO Cached variant to /home/ajohns/package_cache/Werkzeug/<span class="hljs-number">1.0</span><span class="hljs-number">.1</span>/fe76/a <span class="hljs-keyword">in</span> <span class="hljs-number">0.202576</span> seconds
+rez-pkg-cache <span class="hljs-number">2020</span><span class="hljs-number">-05</span><span class="hljs-number">-23</span> <span class="hljs-number">16</span>:<span class="hljs-number">17</span>:<span class="hljs-number">45</span>,<span class="hljs-number">404</span> PID<span class="hljs-number">-29827</span> INFO Started caching of variant /home/ajohns/packages/python/<span class="hljs-number">3.7</span><span class="hljs-number">.4</span>/package.py[<span class="hljs-number">0</span>]...
+rez-pkg-cache <span class="hljs-number">2020</span><span class="hljs-number">-05</span><span class="hljs-number">-23</span> <span class="hljs-number">16</span>:<span class="hljs-number">17</span>:<span class="hljs-number">46</span>,<span class="hljs-number">006</span> PID<span class="hljs-number">-29827</span> INFO Cached variant to /home/ajohns/package_cache/python/<span class="hljs-number">3.7</span><span class="hljs-number">.4</span>/ce1c/a <span class="hljs-keyword">in</span> <span class="hljs-number">0.602037</span> seconds</code></pre></div>
+
+<h2 id="清理缓存"><a href="#清理缓存" class="headerlink" title="清理缓存"></a>清理缓存</h2><p>清理缓存是指删除停滞的或者不再使用的变体。由于我们无法知道一个变体是否在使用，所以有一个可配置的<code>package_cache_max_variant_days</code>设置，它将删除超过X天没有被使用的变体。</p>
+<p>你也可以使用<code>rez-pkg-cache -r</code>来手动删除缓存中的变体。需主要这样的操作只是使缓存不可用，但它仍然存储在磁盘上。执行<code>rez-pkg-cache --clean</code>来真正意义上从磁盘删除缓存。</p>
+<p>你可以使用package_cache_clean_limit 设置，在每次更新缓存时，异步的执行一些清理工作。如果你不想使用这个设置，建议你设置一个cron或其它形式的定时器来定期运行<code>rez-pkg-cache --clean</code>，否则你的缓存将越积越多。</p>
+<p>最后请注意，处于停滞状态的缓存不会尝试重新缓存，直到它被清理或移除操作。</p>
+<p>你需要运行<code>rez-pkg-cache --clean</code>来删除停滞的缓存。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <a href="http://beian.miit.gov.cn/" target="_blank"
+       rel="nofollow noopener">京ICP证123456号</a>
+    
+      <a
+        href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12345678"
+        rel="nofollow noopener"
+        class="beian-police"
+        target="_blank"
+      >
+        <span class="beian-police-sep">&nbsp;|&nbsp;</span>
+        
+          <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon" />
+        
+        <span>京公网安备12345678号</span>
+      </a>
+     
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Package Caching&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'G-M9TPSKV7NY# Google 统计的 Tracking ID，参见 https://analytics.google.com/analytics/web/', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+</body>
+</html>

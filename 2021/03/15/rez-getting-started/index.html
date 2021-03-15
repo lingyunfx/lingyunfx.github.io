@@ -1,0 +1,588 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="关于电影视效的经验与分享">
+  <meta name="author" content="Lingyun Zhang">
+  <meta name="keywords" content="">
+  <title>Getting Started - 凌云的个人博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/hopscotch.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>凌云的个人博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Lingyun Zhang
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-15 14:48" pubdate>
+        2021年3月15日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      924 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      15
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Getting Started</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="基本软件包"><a href="#基本软件包" class="headerlink" title="基本软件包"></a>基本软件包</h1><p>安装完成后，需要创建一些基本的Rez软件包。使用rez-bind工具进行创建，<br>这些软件包会引用系统上已经安装的软件。（—quickstart是以标准创建）</p>
+<div class="hljs"><pre><code class="hljs gradle">]$ rez-bind --quickstart
+Binding platform <span class="hljs-keyword">into</span> <span class="hljs-regexp">/home/</span>ajohns/packages...
+Binding arch <span class="hljs-keyword">into</span> <span class="hljs-regexp">/home/</span>ajohns/packages...
+Binding os <span class="hljs-keyword">into</span> <span class="hljs-regexp">/home/</span>ajohns/packages...
+Binding python <span class="hljs-keyword">into</span> <span class="hljs-regexp">/home/</span>ajohns/packages...
+Binding rez <span class="hljs-keyword">into</span> <span class="hljs-regexp">/home/</span>ajohns/packages...
+Binding rezgui <span class="hljs-keyword">into</span> <span class="hljs-regexp">/home/</span>ajohns/packages...
+Binding setuptools <span class="hljs-keyword">into</span> <span class="hljs-regexp">/home/</span>ajohns/packages...
+Binding pip <span class="hljs-keyword">into</span> <span class="hljs-regexp">/home/</span>ajohns/packages...
+
+Successfully converted the following software found on the current system <span class="hljs-keyword">into</span> Rez packages:
+
+<span class="hljs-keyword">PACKAGE</span>     URI
+-------     ---
+arch        <span class="hljs-regexp">/home/</span>ajohns<span class="hljs-regexp">/packages/</span>arch<span class="hljs-regexp">/x86_64/</span><span class="hljs-keyword">package</span>.py
+os          <span class="hljs-regexp">/home/</span>ajohns<span class="hljs-regexp">/packages/</span>os<span class="hljs-regexp">/osx-10.11.5/</span><span class="hljs-keyword">package</span>.py
+pip         <span class="hljs-regexp">/home/</span>ajohns<span class="hljs-regexp">/packages/</span>pip<span class="hljs-regexp">/8.0.2/</span><span class="hljs-keyword">package</span>.py
+platform    <span class="hljs-regexp">/home/</span>ajohns<span class="hljs-regexp">/packages/</span>platform<span class="hljs-regexp">/osx/</span><span class="hljs-keyword">package</span>.py
+python      <span class="hljs-regexp">/home/</span>ajohns<span class="hljs-regexp">/packages/</span>python<span class="hljs-regexp">/2.7.11/</span><span class="hljs-keyword">package</span>.py
+rez         <span class="hljs-regexp">/home/</span>ajohns<span class="hljs-regexp">/packages/</span>rez<span class="hljs-regexp">/2.0.rc1.44/</span><span class="hljs-keyword">package</span>.py
+rezgui      <span class="hljs-regexp">/home/</span>ajohns<span class="hljs-regexp">/packages/</span>rezgui<span class="hljs-regexp">/2.0.rc1.44/</span><span class="hljs-keyword">package</span>.py
+setuptools  <span class="hljs-regexp">/home/</span>ajohns<span class="hljs-regexp">/packages/</span>setuptools<span class="hljs-regexp">/19.4/</span><span class="hljs-keyword">package</span>.py</code></pre></div>
+
+<p>现在你应该可以创建一个包含Python的环境：</p>
+<div class="hljs"><pre><code class="hljs awk">]$ rez-env python -- which python
+<span class="hljs-regexp">/home/</span>ajohns<span class="hljs-regexp">/packages/</span>python-<span class="hljs-number">2.7</span>.<span class="hljs-number">8</span><span class="hljs-regexp">/platform-linux/</span>arch-x86_64<span class="hljs-regexp">/os-Ubuntu-12.04/</span>bin/python</code></pre></div>
+
+<h2 id="尝试创建第一个包"><a href="#尝试创建第一个包" class="headerlink" title="尝试创建第一个包"></a>尝试创建第一个包</h2><p>创建之前确保两件事</p>
+<ul>
+<li>%HOME/packages文件夹有可写权限（软件包都安装在这个路径）</li>
+<li>cmake工具是可用的</li>
+</ul>
+<p><code>rez-build</code>工具用于构建软件包并安装到packages中。<br>完成构建后就可以通过<code>rez-env</code>使用它们：</p>
+<div class="hljs"><pre><code class="hljs gradle">]$ cd example_packages/hello_world
+]$ rez-build --install
+
+--------------------------------------------------------------------------------
+Building hello_world-<span class="hljs-number">1.0</span>.<span class="hljs-number">0</span>...
+--------------------------------------------------------------------------------
+Resolving build environment: python
+resolved by ajohns@workstation.local, on Sun Jul <span class="hljs-number">31</span> <span class="hljs-number">14</span>:<span class="hljs-number">39</span>:<span class="hljs-number">33</span> <span class="hljs-number">2016</span>, using Rez v2.<span class="hljs-number">0</span>.rc1.<span class="hljs-number">44</span>
+
+requested packages:
+python
+~platform==osx    (implicit)
+~arch==x86_64     (implicit)
+~os==osx-<span class="hljs-number">10.11</span>.<span class="hljs-number">5</span>  (implicit)
+
+resolved packages:
+arch-x86_64     <span class="hljs-regexp">/home/</span>ajohns<span class="hljs-regexp">/packages/</span>arch/x86_64                                            (local)
+os-osx-<span class="hljs-number">10.11</span>.<span class="hljs-number">5</span>  <span class="hljs-regexp">/home/</span>ajohns<span class="hljs-regexp">/packages/</span>os/osx-<span class="hljs-number">10.11</span>.<span class="hljs-number">5</span>                                         (local)
+platform-osx    <span class="hljs-regexp">/home/</span>ajohns<span class="hljs-regexp">/packages/</span>platform/osx                                           (local)
+python-<span class="hljs-number">2.7</span>.<span class="hljs-number">11</span>   <span class="hljs-regexp">/home/</span>ajohns<span class="hljs-regexp">/packages/</span>python<span class="hljs-regexp">/2.7.11/</span>platform-osx<span class="hljs-regexp">/arch-x86_64/</span>os-osx-<span class="hljs-number">10.11</span>.<span class="hljs-number">5</span>  (local)
+
+Invoking cmake build system...
+Executing: <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/bin/</span>cmake -d <span class="hljs-regexp">/home/</span>ajohns<span class="hljs-regexp">/workspace/</span>rez<span class="hljs-regexp">/example_packages/</span>hello_world -Wno-dev -DCMAKE_ECLIPSE_GENERATE_SOURCE_PROJECT=<span class="hljs-keyword">TRUE</span> -D_ECLIPSE_VERSION=<span class="hljs-number">4.3</span> --no-warn-unused-cli -DCMAKE_INSTALL_PREFIX=<span class="hljs-regexp">/home/</span>ajohns<span class="hljs-regexp">/packages/</span>hello_world/<span class="hljs-number">1.0</span>.<span class="hljs-number">0</span> -DCMAKE_MODULE_PATH=$&#123;CMAKE_MODULE_PATH&#125; -DCMAKE_BUILD_TYPE=Release -DREZ_BUILD_TYPE=local -DREZ_BUILD_INSTALL=<span class="hljs-number">1</span> -G Unix Makefiles
+Not searching <span class="hljs-keyword">for</span> unused variables given on the command line.
+-- Could NOT <span class="hljs-keyword">find</span> PkgConfig (missing:  PKG_CONFIG_EXECUTABLE)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: <span class="hljs-regexp">/home/</span>ajohns<span class="hljs-regexp">/workspace/</span>rez<span class="hljs-regexp">/example_packages/</span>hello_world/build
+
+Executing: make -j4
+[<span class="hljs-number">100</span>%] Built target py
+
+Executing: make -j4 install
+[<span class="hljs-number">100</span>%] Built target py
+Install the <span class="hljs-keyword">project</span>...
+-- Install configuration: <span class="hljs-string">&quot;Release&quot;</span>
+-- Installing: <span class="hljs-regexp">/home/</span>ajohns<span class="hljs-regexp">/packages/</span>hello_world<span class="hljs-regexp">/1.0.0/</span>.<span class="hljs-regexp">/python/</span>hello_world.py
+-- Installing: <span class="hljs-regexp">/home/</span>ajohns<span class="hljs-regexp">/packages/</span>hello_world<span class="hljs-regexp">/1.0.0/</span>.<span class="hljs-regexp">/python/</span>hello_world.pyc
+-- Installing: <span class="hljs-regexp">/home/</span>ajohns<span class="hljs-regexp">/packages/</span>hello_world<span class="hljs-regexp">/1.0.0/</span>.<span class="hljs-regexp">/bin/</span>hello
+
+All <span class="hljs-number">1</span> build(s) were successful.</code></pre></div>
+
+<h1 id="测试你的包"><a href="#测试你的包" class="headerlink" title="测试你的包"></a>测试你的包</h1><p>你可以使用rez-env命令来请求一个（或多个）你已经安装的软件包环境。</p>
+<div class="hljs"><pre><code class="hljs fortran">]$ rez-env hello_world
+
+You are now <span class="hljs-keyword">in</span> a rez-configured environment<span class="hljs-number">.</span>
+
+resolved by ajohns@workstation<span class="hljs-number">.</span><span class="hljs-keyword">local</span>, on Sun Jul <span class="hljs-number">31</span> <span class="hljs-number">14</span>:<span class="hljs-number">43</span>:<span class="hljs-number">54</span> <span class="hljs-number">2016</span>, using Rez v2<span class="hljs-number">.0</span><span class="hljs-number">.</span>rc1<span class="hljs-number">.44</span>
+
+requested packages:
+hello_world
+~platform==osx    (<span class="hljs-keyword">implicit</span>)
+~arch==x86_64     (<span class="hljs-keyword">implicit</span>)
+~os==osx-<span class="hljs-number">10.11</span><span class="hljs-number">.5</span>  (<span class="hljs-keyword">implicit</span>)
+
+resolved packages:
+arch-x86_64        /home/ajohns/packages/arch/x86_64                                            (<span class="hljs-keyword">local</span>)
+hello_world-<span class="hljs-number">1.0</span><span class="hljs-number">.0</span>  /home/ajohns/packages/hello_world/<span class="hljs-number">1.0</span><span class="hljs-number">.0</span>                                      (<span class="hljs-keyword">local</span>)
+os-osx-<span class="hljs-number">10.11</span><span class="hljs-number">.5</span>     /home/ajohns/packages/os/osx-<span class="hljs-number">10.11</span><span class="hljs-number">.5</span>                                         (<span class="hljs-keyword">local</span>)
+platform-osx       /home/ajohns/packages/platform/osx                                           (<span class="hljs-keyword">local</span>)
+python-<span class="hljs-number">2.7</span><span class="hljs-number">.11</span>      /home/ajohns/packages/python/<span class="hljs-number">2.7</span><span class="hljs-number">.11</span>/platform-osx/arch-x86_64/os-osx-<span class="hljs-number">10.11</span><span class="hljs-number">.5</span>  (<span class="hljs-keyword">local</span>)
+
+&gt; ]$ █</code></pre></div>
+
+<p>现在已经处于配置的环境中，可以尝试运行hello_world包中的hello工具：</p>
+<div class="hljs"><pre><code class="hljs markdown"><span class="hljs-quote">&gt; ]$ hello</span>
+Hello world!</code></pre></div>
+
+<p>如果你已经在rez shell的配置环境中，并且忘记了当前可用的软件包列表。<br>可以使用<code>rez-context</code>工具查看：</p>
+<div class="hljs"><pre><code class="hljs fortran">&gt; ]$ rez-context
+resolved by ajohns@workstation<span class="hljs-number">.</span><span class="hljs-keyword">local</span>, on Sun Jul <span class="hljs-number">31</span> <span class="hljs-number">14</span>:<span class="hljs-number">43</span>:<span class="hljs-number">54</span> <span class="hljs-number">2016</span>, using Rez v2<span class="hljs-number">.0</span><span class="hljs-number">.</span>rc1<span class="hljs-number">.44</span>
+
+requested packages:
+hello_world
+~platform==osx    (<span class="hljs-keyword">implicit</span>)
+~arch==x86_64     (<span class="hljs-keyword">implicit</span>)
+~os==osx-<span class="hljs-number">10.11</span><span class="hljs-number">.5</span>  (<span class="hljs-keyword">implicit</span>)
+
+resolved packages:
+arch-x86_64        /home/ajohns/packages/arch/x86_64                                            (<span class="hljs-keyword">local</span>)
+hello_world-<span class="hljs-number">1.0</span><span class="hljs-number">.0</span>  /home/ajohns/packages/hello_world/<span class="hljs-number">1.0</span><span class="hljs-number">.0</span>                                      (<span class="hljs-keyword">local</span>)
+os-osx-<span class="hljs-number">10.11</span><span class="hljs-number">.5</span>     /home/ajohns/packages/os/osx-<span class="hljs-number">10.11</span><span class="hljs-number">.5</span>                                         (<span class="hljs-keyword">local</span>)
+platform-osx       /home/ajohns/packages/platform/osx                                           (<span class="hljs-keyword">local</span>)
+python-<span class="hljs-number">2.7</span><span class="hljs-number">.11</span>      /home/ajohns/packages/python/<span class="hljs-number">2.7</span><span class="hljs-number">.11</span>/platform-osx/arch-x86_64/os-osx-<span class="hljs-number">10.11</span><span class="hljs-number">.5</span>  (<span class="hljs-keyword">local</span>)</code></pre></div>
+
+<p>如果要退出这个环境，使用<code>exit</code>命令。</p>
+<div class="hljs"><pre><code class="hljs awk">&gt; ]$ <span class="hljs-keyword">exit</span>
+]$ █</code></pre></div>
+
+<p>你还可以快速的运行一个命令，当命令执行完成，则自动退出环境。</p>
+<div class="hljs"><pre><code class="hljs elixir">]<span class="hljs-variable">$ </span>rez-env hello_world -- hello
+Hello world!
+]<span class="hljs-variable">$ </span>█</code></pre></div>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <a href="http://beian.miit.gov.cn/" target="_blank"
+       rel="nofollow noopener">京ICP证123456号</a>
+    
+      <a
+        href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12345678"
+        rel="nofollow noopener"
+        class="beian-police"
+        target="_blank"
+      >
+        <span class="beian-police-sep">&nbsp;|&nbsp;</span>
+        
+          <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon" />
+        
+        <span>京公网安备12345678号</span>
+      </a>
+     
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Getting Started&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'G-M9TPSKV7NY# Google 统计的 Tracking ID，参见 https://analytics.google.com/analytics/web/', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+</body>
+</html>

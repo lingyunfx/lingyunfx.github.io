@@ -1,0 +1,547 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="关于电影视效的经验与分享">
+  <meta name="author" content="Lingyun Zhang">
+  <meta name="keywords" content="">
+  <title>Suites - 凌云的个人博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/hopscotch.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>凌云的个人博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Lingyun Zhang
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-15 19:01" pubdate>
+        2021年3月15日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      921 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      12
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Suites</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>假设你希望为你的用户提供一些不同的工具，尽管这些工具需要在不同的环境中运行。</p>
+<p>例如你希望工作室的艺术家能够从命令行运行maya和nuke，而不需要考虑它们的环境。</p>
+<p>为了达到这样的需求，你会创建两个context：maya.rxt和nuke.rxt。</p>
+<p>首先运行maya：</p>
+<div class="hljs"><pre><code class="hljs brainfuck"><span class="hljs-title">]</span><span class="hljs-comment">$</span> <span class="hljs-comment">rez</span><span class="hljs-literal">-</span><span class="hljs-comment">env</span> --<span class="hljs-comment">input</span> <span class="hljs-comment">maya</span><span class="hljs-string">.</span><span class="hljs-comment">rxt</span> -- <span class="hljs-comment">maya</span></code></pre></div>
+
+<p>然后你可以将这个命令包装在一个脚本中，而这个脚本被称为maya：</p>
+<div class="hljs"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span>
+rez-env --input maya.rxt -- maya $*</code></pre></div>
+
+<p>现在，你把它放在$PATH里，并对nuke也是同样的做法。</p>
+<p>那么这个是你的用户就可以从输入maya这个命令来运行这些应用程序，而不需要直到这背后发生来什么。<br>简而言之，这就是suites的意义，可以理解为包装，包含一组context以及运行工具的脚本。</p>
+<h1 id="rez-suite命令"><a href="#rez-suite命令" class="headerlink" title="rez-suite命令"></a>rez-suite命令</h1><p>同样还是上述的例子，这里使用rez-suite工具来完成。</p>
+<p>首先我们创建一个suite，命令将在当前工作目录下创建一个名为mysuite的文件夹。</p>
+<div class="hljs"><pre><code class="hljs ada">]$ rez-suite <span class="hljs-comment">--create mysuite</span></code></pre></div>
+
+<p>现在我们需要向我们的suite添加context，首先创建context：</p>
+<div class="hljs"><pre><code class="hljs ada">]$ rez-env maya-<span class="hljs-number">2016.2</span> <span class="hljs-comment">--output maya.rxt</span>
+]$ rez-env nuke <span class="hljs-comment">--output nuke.rxt</span></code></pre></div>
+
+<p>然后将这些context添加到suite里：（注意 <em>—context</em> 的参数只需要给予其名称）</p>
+<div class="hljs"><pre><code class="hljs brainfuck"><span class="hljs-title">]</span><span class="hljs-comment">$</span> <span class="hljs-comment">rez</span><span class="hljs-literal">-</span><span class="hljs-comment">suite</span> --<span class="hljs-comment">add</span> <span class="hljs-comment">maya</span><span class="hljs-string">.</span><span class="hljs-comment">rxt</span> --<span class="hljs-comment">context</span> <span class="hljs-comment">maya</span> <span class="hljs-comment">mysuite</span>
+<span class="hljs-comment"></span><span class="hljs-title">]</span><span class="hljs-comment">$</span> <span class="hljs-comment">rez</span><span class="hljs-literal">-</span><span class="hljs-comment">suite</span> --<span class="hljs-comment">add</span> <span class="hljs-comment">nuke</span><span class="hljs-string">.</span><span class="hljs-comment">rxt</span> --<span class="hljs-comment">context</span> <span class="hljs-comment">nuke</span> <span class="hljs-comment">mysuite</span></code></pre></div>
+
+<p>现在suite已经创建完成，下面将它添加到$PATH中：</p>
+<div class="hljs"><pre><code class="hljs powershell">]<span class="hljs-variable">$</span> export PATH=<span class="hljs-variable">$</span>(<span class="hljs-built_in">pwd</span>)/mysuite/bin:<span class="hljs-variable">$PATH</span></code></pre></div>
+
+<p>现在你可以看到它了：</p>
+<div class="hljs"><pre><code class="hljs awk">]$ which maya
+.<span class="hljs-regexp">/mysuite/</span>bin/maya
+
+]$ ls .<span class="hljs-regexp">/mysuite/</span>bin
+maya
+nuke</code></pre></div>
+
+<h1 id="Suite工具"><a href="#Suite工具" class="headerlink" title="Suite工具"></a>Suite工具</h1><p>Suite中context的工具由包的tools属性决定：</p>
+<div class="hljs"><pre><code class="hljs ini"><span class="hljs-comment"># in maya package.py</span>
+<span class="hljs-attr">tools</span> = [
+    <span class="hljs-string">&quot;maya&quot;</span>,
+    <span class="hljs-string">&quot;mayapy&quot;</span>,
+    <span class="hljs-string">&quot;fcheck&quot;</span>
+]</code></pre></div>
+
+<p>所有这些工具都在suite中使用（你可以使用 rez-suite —hide来隐藏某个项）。<br>只有在context请求中列出的包，且不是弱请求或有冲突的请求，工具才会暴露有效。</p>
+<p>而作为依赖关系拉进来的包则不会暴露。如果你需要控制一个不在请求中的软件包版本，<br>不用添加它的命令行工具，只需要将其添加到请求列表的弱引用。</p>
+<h2 id="工具别名"><a href="#工具别名" class="headerlink" title="工具别名"></a>工具别名</h2><p>工具可以使用别名，比如这里将一个新版本的maya添加到suite中。</p>
+<div class="hljs"><pre><code class="hljs bash">]$ rez-env maya-2017 --output maya2017.rxt
+]$ rez-suite --add maya2017.rxt --context maya2017 mysuite
+]$ rez-suite --suffix _beta --context maya2017 mysuite</code></pre></div>
+
+<h2 id="控制参数"><a href="#控制参数" class="headerlink" title="控制参数"></a>控制参数</h2><p>当使用suite里的工具时，所有参数都会按预期传递给底层工具。不过例外是，rez提供了一组控制参数，这些参数以+/++为前缀。这些是可感知套件参数。你可以使用+h/++help来获取它们：</p>
+<div class="hljs"><pre><code class="hljs stata">]$ maya ++<span class="hljs-keyword">help</span>
+usage: maya [+<span class="hljs-keyword">h</span>] [+a] [+i] [+p [PKG [PKG ...]]] [++versions]
+            [++command COMMAND [ARG ...]] [++stdin] [++strict] [++<span class="hljs-keyword">nl</span>]
+            [++peek] [++verbose] [++quiet] [++<span class="hljs-keyword">no</span>-rez-<span class="hljs-keyword">args</span>]
+
+optional arguments:
+  +<span class="hljs-keyword">h</span>, ++<span class="hljs-keyword">help</span>            show this <span class="hljs-keyword">help</span> message and <span class="hljs-keyword">exit</span>
+  +a, ++<span class="hljs-keyword">about</span>           <span class="hljs-keyword">print</span> information <span class="hljs-keyword">about</span> the tool
+  +i, ++interactive     launch <span class="hljs-keyword">an</span> interactive <span class="hljs-keyword">shell</span> within the tool&#x27;s
+                        configured environment
+  +p [PKG [PKG ...]], ++patch [PKG [PKG ...]]
+                        <span class="hljs-keyword">run</span> the tool <span class="hljs-keyword">in</span> a patched environment
+  ++versions            <span class="hljs-keyword">list</span> versions of package providing this tool
+  ++command COMMAND [ARG ...]
+                        <span class="hljs-keyword">read</span> commands from string, rather than executing the
+                        tool
+  ++stdin               <span class="hljs-keyword">read</span> commands from standard <span class="hljs-keyword">input</span>, rather than
+                        executing the tool
+  ++strict              strict patching. Ignored <span class="hljs-keyword">if</span> ++patch is not present
+  ++<span class="hljs-keyword">nl</span>, ++<span class="hljs-keyword">no</span>-<span class="hljs-keyword">local</span>      don&#x27;t load <span class="hljs-keyword">local</span> packages when patching
+  ++peek                diff against the tool&#x27;s context and a re-resolved <span class="hljs-keyword">copy</span>
+                        - this shows how &#x27;stale&#x27; the context is
+  ++verbose             verbose mode, <span class="hljs-keyword">repeat</span> <span class="hljs-keyword">for</span> <span class="hljs-keyword">more</span> verbosity
+  ++quiet               hide welcome message when entering interactive mode
+  ++<span class="hljs-keyword">no</span>-rez-<span class="hljs-keyword">args</span>         pass all <span class="hljs-keyword">args</span> to the tool, even <span class="hljs-keyword">if</span> they start with &#x27;+&#x27;</code></pre></div>
+
+<p>例如，查看suite中maya工具的相关信息：</p>
+<div class="hljs"><pre><code class="hljs groovy">]$ maya ++about
+<span class="hljs-attr">Tool:</span>     maya
+<span class="hljs-attr">Path:</span>     .<span class="hljs-regexp">/mysuite/</span>bin/maya
+<span class="hljs-attr">Suite:</span>    ./mysuite
+<span class="hljs-attr">Context:</span>  .<span class="hljs-regexp">/mysuite/</span>contexts/maya2016.rxt (<span class="hljs-string">&#x27;maya2016&#x27;</span>)</code></pre></div>
+
+<p><strong>提示</strong>：如果目标工具也使用+作为自己的参数，那么可以使用rez对其前缀字符修改。</p>
+<p>参考 <code>rez-suite —prefix-char</code>选项。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <a href="http://beian.miit.gov.cn/" target="_blank"
+       rel="nofollow noopener">京ICP证123456号</a>
+    
+      <a
+        href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12345678"
+        rel="nofollow noopener"
+        class="beian-police"
+        target="_blank"
+      >
+        <span class="beian-police-sep">&nbsp;|&nbsp;</span>
+        
+          <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon" />
+        
+        <span>京公网安备12345678号</span>
+      </a>
+     
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Suites&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'G-M9TPSKV7NY# Google 统计的 Tracking ID，参见 https://analytics.google.com/analytics/web/', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+</body>
+</html>

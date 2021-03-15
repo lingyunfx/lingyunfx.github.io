@@ -1,0 +1,931 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="关于电影视效的经验与分享">
+  <meta name="author" content="Lingyun Zhang">
+  <meta name="keywords" content="">
+  <title>Package Definition Guide - 凌云的个人博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/hopscotch.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>凌云的个人博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Lingyun Zhang
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-15 17:34" pubdate>
+        2021年3月15日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      58
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Package Definition Guide</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>软件包的定义来自文件（package.py），位于每个包安装的根目录下。<br>比如包的存储位置为<code>/packages/inhouse</code>，则包”foo-1.0.0”的定义文件路径是：<br><code>/packages/inhouse/foo/1.0.0/package.py</code></p>
+<p>这里是一个定义文件的例子：</p>
+<div class="hljs"><pre><code class="hljs python">name = <span class="hljs-string">&#x27;sequence&#x27;</span>
+
+version = <span class="hljs-string">&#x27;2.1.2&#x27;</span>
+
+description = <span class="hljs-string">&#x27;Sequence detection library.&#x27;</span>
+
+authors = [<span class="hljs-string">&#x27;ajohns&#x27;</span>]
+
+tools = [
+    <span class="hljs-string">&#x27;lsq&#x27;</span>,
+    <span class="hljs-string">&#x27;cpq&#x27;</span>
+]
+
+requires = [
+    <span class="hljs-string">&#x27;python-2.6+&lt;3&#x27;</span>,
+    <span class="hljs-string">&#x27;argparse&#x27;</span>
+]
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">commands</span>():</span>
+    env.PATH.append(<span class="hljs-string">&quot;&#123;root&#125;/bin&quot;</span>)
+    env.PYTHONPATH.append(<span class="hljs-string">&quot;&#123;root&#125;/python&quot;</span>)
+
+uuid = <span class="hljs-string">&#x27;6c43d533-92bb-4f8b-b812-7020bf54d3f1&#x27;</span></code></pre></div>
+
+<h1 id="软件包属性"><a href="#软件包属性" class="headerlink" title="软件包属性"></a>软件包属性</h1><p>包定义文件中的每一个变量都会成为已构建或已安装的软件包的属性。<br>所以你可以在包中添加任何自定义属性，不过有些属性并作为包的属性添加，<br>比如下面这个：</p>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">import</span> sys
+
+description = <span class="hljs-string">&quot;This package was built on %s&quot;</span> % sys.platform</code></pre></div>
+
+<p>因为我们并不想让sys成为一个包属性，这会和python标准模块冲突。<br>所以不会成为包属性的包括：</p>
+<ul>
+<li>python 模块</li>
+<li>函数，不包括预/后绑定函数，不包含命令和相关函数</li>
+<li>任何前面有双下划线的变量</li>
+<li>任何作为构建时软件属性的变量</li>
+</ul>
+<h1 id="包属性作为函数"><a href="#包属性作为函数" class="headerlink" title="包属性作为函数"></a>包属性作为函数</h1><p>包属性可以包装成函数，函数的返回值为属性值。</p>
+<p>有两种类型的属性函数：<br><strong>预绑定函数</strong>(early binding function)和<strong>后绑定函数</strong>(late binding function)。<br>它们分别使用装饰器<code>@early</code>和<code>@late</code>来装饰。</p>
+<p>包定义的commands函数是例外，它们是后期绑定，但与标准的函数属性不同，不能用上述的装饰器来装饰。</p>
+<h2 id="预绑定函数"><a href="#预绑定函数" class="headerlink" title="预绑定函数"></a>预绑定函数</h2><p>预绑定函数使用<code>@early</code>装饰器，它们在构建时执行，任何包属性都可以作为预绑定函数来实现。<br>这是一个authors属性的示例，该函数返回包的git项目的贡献者：</p>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-meta">@early()</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">authors</span>():</span>
+    <span class="hljs-keyword">import</span> subprocess
+    p = subprocess.Popen(<span class="hljs-string">&quot;git shortlog -sn | cut -f2&quot;</span>,
+                         shell=<span class="hljs-literal">True</span>, stdout=subprocess.PIPE)
+    out, _ = p.communicate()
+    <span class="hljs-keyword">return</span> out.strip().split(<span class="hljs-string">&#x27;\n&#x27;</span>)</code></pre></div>
+
+<p>预绑定函数还可以访问其它软件包的属性：</p>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-meta">@early()</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">description</span>():</span>
+    <span class="hljs-comment"># a not very useful description</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;%s version %s&quot;</span> % (this.name, this.version)</code></pre></div>
+
+<p><strong>注意</strong>：不要在预绑定函数中使用其它预绑定函数或后绑定函数的属性，否则会报错。</p>
+<p>预绑定函数很方便的一点是，你可以使用任意的函数来替代，像这样：</p>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_description</span>():</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;%s version %s&quot;</span> % (this.name, this.version)
+
+description = _description()</code></pre></div>
+
+<p><strong>可用对象：</strong></p>
+<ul>
+<li>building：返回值为布尔，如果正在构建返回True</li>
+<li>build_variant_index：当前正在构建variant的索引值，只有当building为True才有效。</li>
+<li>build_variant_requires：当前构建的软件包的子集，是PackageRequest对象的列表，只有当building为True才有效。</li>
+<li>this：当前包。</li>
+</ul>
+<p><strong>注意：</strong>预绑定函数实际上会在构建过程中执行多次，在构建期间进行一次，然后对每个变体进行一次。这是为了让预绑定函数可以根据比如build_variant_index等variant来更改它们的返回值。</p>
+<p>比如你希望requires字段仅在运行时返回某个软件包（软件包构建的时候不需要返回那个软件包）。<br>可以这样写：</p>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-meta">@early()</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">requires</span>():</span>
+    <span class="hljs-keyword">if</span> building:
+        <span class="hljs-keyword">return</span> [<span class="hljs-string">&quot;python-2&quot;</span>]
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">return</span> [<span class="hljs-string">&quot;runtimeonly-1.2&quot;</span>, <span class="hljs-string">&quot;python-2&quot;</span>]</code></pre></div>
+
+<h2 id="后绑定函数"><a href="#后绑定函数" class="headerlink" title="后绑定函数"></a>后绑定函数</h2><p>后绑定函数作为函数保留在已安装的软件包定义中，<br>并且在第一次调用的时候才进行求值（然后会将返回值进行缓存）。<br>允许的属性有：</p>
+<ul>
+<li>requires</li>
+<li>build_requires</li>
+<li>private_build_requires</li>
+<li>tools</li>
+<li>help</li>
+<li>any arbitrary attribute</li>
+</ul>
+<p>下面是一个后绑定函数的示例：</p>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-meta">@late()</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">tools</span>():</span>
+    <span class="hljs-keyword">import</span> os
+
+    <span class="hljs-comment"># get everything in bin dir</span>
+    binpath = os.path.join(this.root, <span class="hljs-string">&quot;bin&quot;</span>)
+    result = os.listdir(binpath)
+
+    <span class="hljs-comment"># we don&#x27;t want artists to see the admin tools</span>
+    <span class="hljs-keyword">if</span> os.getenv(<span class="hljs-string">&quot;_USER_ROLE&quot;</span>) != <span class="hljs-string">&quot;superuser&quot;</span>:
+        result = <span class="hljs-built_in">set</span>(result) - <span class="hljs-built_in">set</span>([<span class="hljs-string">&quot;delete-all&quot;</span>, <span class="hljs-string">&quot;mod-things&quot;</span>])
+
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">list</span>(result)</code></pre></div>
+
+<p><strong>注意</strong>：后绑定函数使用到的模块必须在函数内进行导入，而不是package.py文件顶部。<br>还有一点是，比如函数只是为了返回bin目录的一个路径，最好是将它写作为一个预绑定函数，<br>这样对性能来说更节省。</p>
+<p>但如果有一个环境变量”_USER_ROLE”是在构建时未知的，则适用于写作后绑定函数。<br>有时候我们会通过预绑定函数来存储一个属性来减少运行时的成本，再到后绑定函数中直接读取这个属性，<br>比如下面这个示例：</p>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-meta">@late()</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">tools</span>():</span>
+    <span class="hljs-keyword">import</span> os
+    result = this._tools
+
+    <span class="hljs-comment"># we don&#x27;t want artists to see the admin tools</span>
+    <span class="hljs-keyword">if</span> os.getenv(<span class="hljs-string">&quot;_USER_ROLE&quot;</span>) != <span class="hljs-string">&quot;superuser&quot;</span>:
+        result = <span class="hljs-built_in">set</span>(result) - <span class="hljs-built_in">set</span>([<span class="hljs-string">&quot;delete-all&quot;</span>, <span class="hljs-string">&quot;mod-things&quot;</span>])
+
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">list</span>(result)
+
+<span class="hljs-meta">@early()</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_tools</span>():</span>
+    <span class="hljs-keyword">import</span> os
+    <span class="hljs-keyword">return</span> os.listdir(<span class="hljs-string">&quot;./bin&quot;</span>)</code></pre></div>
+
+<p>注意在上述的代码中，_tools函数使用的一个相对路径，因为预绑定函数在进行构建求值时，该软件包是处于尚未安装的状态，所以诸如<code>this.root</code>之类的属性是不存在的。</p>
+<p><strong>in_context 函数</strong></p>
+<p>当后绑定函数求值时，将存在一个布尔函数in_context，如果软件包在解析后的环境中，返回True。<br>比如，仅使用rez API遍历软件包（如rez-search工具），则这些程序不属于解析后环境。</p>
+<p>但如果创建一个ResolvedContext对象（如rez-env工具所做的）并遍历其已解析的软件包，则它们属于in_context。下面同样是一个示例：</p>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-meta">@late()</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">tools</span>():</span>
+    result = [<span class="hljs-string">&quot;edit&quot;</span>]
+
+    <span class="hljs-keyword">if</span> in_context() <span class="hljs-keyword">and</span> <span class="hljs-string">&quot;maya&quot;</span> <span class="hljs-keyword">in</span> request:
+        result.append(<span class="hljs-string">&quot;maya-edit&quot;</span>)
+
+    <span class="hljs-keyword">return</span> result</code></pre></div>
+
+<p>这里检查request对象，查看是否当前环境请求了maya软件。如果是，将maya-edit工具加入列表。</p>
+<p><strong>有效对象</strong></p>
+<p>如果in_context返回True，下面是一些可用对象：</p>
+<ul>
+<li>context</li>
+<li>system</li>
+<li>building</li>
+<li>request</li>
+<li>implicits</li>
+</ul>
+<p>下面是无论in_context返回值，都可以使用的对象：</p>
+<ul>
+<li>this</li>
+<li>in_context</li>
+</ul>
+<p><strong>示例 - 后绑定函数中的build_requires</strong></p>
+<div class="hljs"><pre><code class="hljs python">name = <span class="hljs-string">&quot;maya_thing&quot;</span>
+
+version = <span class="hljs-string">&quot;1.0.0&quot;</span>
+
+variants = [
+    [<span class="hljs-string">&quot;maya-2017&quot;</span>],
+    [<span class="hljs-string">&quot;maya-2018&quot;</span>]
+]
+
+<span class="hljs-meta">@late()</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">build_requires</span>():</span>
+    <span class="hljs-keyword">if</span> this.is_package:
+        <span class="hljs-keyword">return</span> []
+    <span class="hljs-keyword">elif</span> this.index == <span class="hljs-number">0</span>:
+        <span class="hljs-keyword">return</span> [<span class="hljs-string">&quot;maya_2017_build_utils&quot;</span>]
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">return</span> [<span class="hljs-string">&quot;maya_2018_build_utils&quot;</span>]</code></pre></div>
+
+<p>这里对this.is_package检查，实际上如果运行下面的命令，this的字段是一个包实例，并没有索引：</p>
+<div class="hljs"><pre><code class="hljs python">]$ rez-search maya_thing --<span class="hljs-built_in">type</span> package --<span class="hljs-built_in">format</span> <span class="hljs-string">&#x27;&#123;build_requires&#125;&#x27;</span></code></pre></div>
+
+<p>在这种情况下，this.is_package和this.index的返回值都为False，但是仍然可以用else返回一些值。</p>
+<h1 id="跨软件包共享"><a href="#跨软件包共享" class="headerlink" title="跨软件包共享"></a>跨软件包共享</h1><p>跨包定义函数的属性是可以共享的，但是根据函数是预先绑定还是后绑定，机制上有些不同。</p>
+<p>这是为了避免已经安装的软件包依赖于随时可能更改的外部代码。但是依赖于外部代码的构建是没有问题的。</p>
+<h2 id="在构建期间共享"><a href="#在构建期间共享" class="headerlink" title="在构建期间共享"></a>在构建期间共享</h2><p>函数在package.py文件中构建的功能包括：</p>
+<ul>
+<li>预处理功能</li>
+<li>任何使用<code>@early</code>装饰器实现为功能的包属性</li>
+</ul>
+<p>你可以使用<code>package_definition_build_python_paths</code>配置通用的共享属性。</p>
+<h2 id="在已经安装的程序之间共享"><a href="#在已经安装的程序之间共享" class="headerlink" title="在已经安装的程序之间共享"></a>在已经安装的程序之间共享</h2><p>包括：</p>
+<ul>
+<li>各种<code>commands</code>函数属性</li>
+<li>任何使用<code>@late</code>装饰器装饰的函数属性</li>
+</ul>
+<p>使用装饰器<code>@include</code>将函数进行共享，该装饰器依赖于<code>package_definition_python_path</code>的设置。</p>
+<p>下面是一个共享模块包命令的例子：</p>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-comment"># in package.py</span>
+<span class="hljs-meta">@include(&quot;utils&quot;)</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">commands</span>():</span>
+    utils.set_common_env_vars(this, env)</code></pre></div>
+
+<h1 id="requires扩展"><a href="#requires扩展" class="headerlink" title="requires扩展"></a>requires扩展</h1><p>通常软件包在构建时，可能比运行时需要更多的依赖项兼容。</p>
+<p>例如，一个C++包可以针对任何版本的boost-1进行构建，但是有时需要链接到它针对的特定小版本，比如boost-1.55。你可以使用通配符号在requires属性（或任何相关属性比如build_requires）中这样去描述它：</p>
+<div class="hljs"><pre><code class="hljs python">requires = [
+    <span class="hljs-string">&quot;boost-1.*&quot;</span>
+]</code></pre></div>
+
+<p>你也可以将requires作为一个预绑定函数来实现刚刚的需求，结合rez包的expand_requires函数：</p>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-meta">@early()</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">requires</span>():</span>
+    <span class="hljs-keyword">from</span> rez.package_py_utils <span class="hljs-keyword">import</span> expand_requires
+    <span class="hljs-keyword">return</span> expand_requires([<span class="hljs-string">&quot;boost-1.*&quot;</span>])</code></pre></div>
+
+<h1 id="软件包预处理"><a href="#软件包预处理" class="headerlink" title="软件包预处理"></a>软件包预处理</h1><p>你可以在全局或者在package.py文件中定义预处理功能。在构建软件包之前，<br>可以使用它来验证软件包，甚至修改某些属性。要设置这个功能，参考：<br><a target="_blank" rel="noopener" href="https://github.com/nerdvegas/rez/wiki/Configuring-Rez#package_preprocess_function">package_preprocess_function</a>配置设置。</p>
+<p>看下面这个预处理示例：</p>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">preprocess</span>(<span class="hljs-params">package, data</span>):</span>
+    <span class="hljs-keyword">from</span> rez.package_py_utils <span class="hljs-keyword">import</span> InvalidPackageError
+    <span class="hljs-keyword">import</span> re
+
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> re.match(<span class="hljs-string">&quot;[a-z]+$&quot;</span>, package.name):
+        <span class="hljs-keyword">raise</span> InvalidPackageError(<span class="hljs-string">&quot;Invalid name, only lowercase letters allowed&quot;</span>)
+
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> package.authors:
+        <span class="hljs-keyword">from</span> preprocess_utils <span class="hljs-keyword">import</span> get_git_committers
+        data[<span class="hljs-string">&quot;authors&quot;</span>] = get_git_committers()</code></pre></div>
+
+<p>上面的预处理程序会根据正则来检查软件包名称，并将包的authors属性设置为git_committers的返回值<br>（当包没有给予这个属性的时候）。如果软件包名称没有通过检查，需要停止构建，<br>必须在代码中引发一个”InvalidPackageError”的错误。</p>
+<p><strong>Tips</strong>：要查看package.py的预处理内容，可以在其根目录运行命令：<br><code>rez-build --view-pre</code> 将会打印一个标准输出。</p>
+<h2 id="在预处理中覆盖配置设置"><a href="#在预处理中覆盖配置设置" class="headerlink" title="在预处理中覆盖配置设置"></a>在预处理中覆盖配置设置</h2><p>比如在预处理中，覆盖软件包发布路径设置：</p>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-comment"># in package.py</span>
+<span class="hljs-keyword">with</span> scope(<span class="hljs-string">&quot;config&quot;</span>) <span class="hljs-keyword">as</span> c:
+    c.release_packages_path = <span class="hljs-string">&quot;/software/packages/external&quot;</span></code></pre></div>
+
+<p>假设一个场景，我们希望将第三方包安装到特定的路径，并且将这些包的属性”external”为True，我们可以在全局预处理函数中这样设置：</p>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">preprocess</span>(<span class="hljs-params">package, data</span>):</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> data.get(<span class="hljs-string">&quot;external&quot;</span>):
+        <span class="hljs-keyword">return</span>
+
+    <span class="hljs-keyword">try</span>:
+        _ = data[<span class="hljs-string">&quot;config&quot;</span>][<span class="hljs-string">&quot;release_packages_path&quot;</span>]
+        <span class="hljs-keyword">return</span>  <span class="hljs-comment"># already explicitly specified by package</span>
+    <span class="hljs-keyword">except</span> KeyError:
+        <span class="hljs-keyword">pass</span>
+
+    data[<span class="hljs-string">&quot;config&quot;</span>] = data[<span class="hljs-string">&quot;config&quot;</span>] <span class="hljs-keyword">or</span> &#123;&#125;
+    data[<span class="hljs-string">&quot;config&quot;</span>][<span class="hljs-string">&quot;release_packages_path&quot;</span>] = <span class="hljs-string">&quot;/software/packages/external&quot;</span></code></pre></div>
+
+<h1 id="软件包范例"><a href="#软件包范例" class="headerlink" title="软件包范例"></a>软件包范例</h1><p>下面是一个软件包定义文件，演示了几个特性。<br>这是个python软件包，该软件包不会实际安装python，而是检测现有系统的python安装，<br>并将其绑定到rez软件包中。（结合上述的知识来阅读它吧）</p>
+<div class="hljs"><pre><code class="hljs python">name = <span class="hljs-string">&quot;python&quot;</span>
+
+<span class="hljs-meta">@early()</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">version</span>():</span>
+    <span class="hljs-keyword">return</span> this.__version + <span class="hljs-string">&quot;-detected&quot;</span>
+
+authors = [
+    <span class="hljs-string">&quot;Guido van Rossum&quot;</span>
+]
+
+description = \
+    <span class="hljs-string">&quot;&quot;&quot;</span>
+<span class="hljs-string">    The Python programming language.</span>
+<span class="hljs-string">    &quot;&quot;&quot;</span>
+
+<span class="hljs-meta">@early()</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">variants</span>():</span>
+    <span class="hljs-keyword">from</span> rez.package_py_utils <span class="hljs-keyword">import</span> expand_requires
+    requires = [<span class="hljs-string">&quot;platform-**&quot;</span>, <span class="hljs-string">&quot;arch-**&quot;</span>, <span class="hljs-string">&quot;os-**&quot;</span>]
+    <span class="hljs-keyword">return</span> [expand_requires(*requires)]
+
+<span class="hljs-meta">@early()</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">tools</span>():</span>
+    version_parts = this.__version.split(<span class="hljs-string">&#x27;.&#x27;</span>)
+
+    <span class="hljs-keyword">return</span> [
+        <span class="hljs-string">&quot;2to3&quot;</span>,
+        <span class="hljs-string">&quot;pydoc&quot;</span>,
+        <span class="hljs-string">&quot;python&quot;</span>,
+        <span class="hljs-string">&quot;python%s&quot;</span> % (version_parts[<span class="hljs-number">0</span>]),
+        <span class="hljs-string">&quot;python%s.%s&quot;</span> % (version_parts[<span class="hljs-number">0</span>], version_parts[<span class="hljs-number">1</span>])
+    ]
+
+uuid = <span class="hljs-string">&quot;recipes.python&quot;</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">commands</span>():</span>
+    env.PATH.append(<span class="hljs-string">&quot;&#123;this._bin_path&#125;&quot;</span>)
+
+    <span class="hljs-keyword">if</span> building:
+        env.CMAKE_MODULE_PATH.append(<span class="hljs-string">&quot;&#123;root&#125;/cmake&quot;</span>)
+
+<span class="hljs-comment"># --- internals</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_exec_python</span>(<span class="hljs-params">attr, src</span>):</span>
+    <span class="hljs-keyword">import</span> subprocess
+
+    p = subprocess.Popen(
+        [<span class="hljs-string">&quot;python&quot;</span>, <span class="hljs-string">&quot;-c&quot;</span>, src],
+        stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    out, err = p.communicate()
+
+    <span class="hljs-keyword">if</span> p.returncode:
+        <span class="hljs-keyword">from</span> rez.exceptions <span class="hljs-keyword">import</span> InvalidPackageError
+        <span class="hljs-keyword">raise</span> InvalidPackageError(
+            <span class="hljs-string">&quot;Error determining package attribute &#x27;%s&#x27;:\n%s&quot;</span> % (attr, err))
+
+    <span class="hljs-keyword">return</span> out.strip()
+
+<span class="hljs-meta">@early()</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_bin_path</span>():</span>
+    <span class="hljs-keyword">return</span> this._exec_python(
+        <span class="hljs-string">&quot;_bin_path&quot;</span>,
+        <span class="hljs-string">&quot;import sys, os.path; print(os.path.dirname(sys.executable))&quot;</span>)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_version</span>():</span>
+    <span class="hljs-keyword">return</span> _exec_python(
+        <span class="hljs-string">&quot;version&quot;</span>,
+        <span class="hljs-string">&quot;import sys; print(sys.version.split()[0])&quot;</span>)
+
+__version = _version()</code></pre></div>
+
+<h1 id="软件包标准属性"><a href="#软件包标准属性" class="headerlink" title="软件包标准属性"></a>软件包标准属性</h1><h2 id="authors（List-of-string）"><a href="#authors（List-of-string）" class="headerlink" title="authors（List of string）"></a>authors（List of string）</h2><p><code>authors = [&quot;jchrist&quot;, &quot;sclaus&quot;]</code></p>
+<p>软件包的作者，顺序从主要贡献者开始。</p>
+<h2 id="build-requires（List-of-string）"><a href="#build-requires（List-of-string）" class="headerlink" title="build_requires（List of string）"></a>build_requires（List of string）</h2><div class="hljs"><pre><code class="hljs python">build_requires = [
+    <span class="hljs-string">&quot;cmake-2.8&quot;</span>,
+    <span class="hljs-string">&quot;doxygen&quot;</span>
+]</code></pre></div>
+
+<p>与require相同，只是这些依赖项只包含在构建期间（通常配合rez-build调用）</p>
+<h2 id="cachable（Boolean）"><a href="#cachable（Boolean）" class="headerlink" title="cachable（Boolean）"></a>cachable（Boolean）</h2><p><code>cachable = True</code></p>
+<p>在启用包缓存时，是否可以缓存包。如果没有提供此参数，则由全局配置的”default_cachable”和相关的”default_cachable_*”设置中获取。</p>
+<h2 id="commands（Function）"><a href="#commands（Function）" class="headerlink" title="commands（Function）"></a>commands（Function）</h2><div class="hljs"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">commands</span>():</span>
+    env.PYTHONPATH.append(<span class="hljs-string">&quot;&#123;root&#125;/python&quot;</span>)
+    env.PATH.append(<span class="hljs-string">&quot;&#123;root&#125;/bin&quot;</span>)</code></pre></div>
+
+<p>一个python代码块，告诉rez如何使用这个包更新环境。比如：</p>
+<ul>
+<li>设置，取消，前置或附加环境变量</li>
+<li>创建别名</li>
+<li>执行脚本</li>
+<li>打印信息</li>
+</ul>
+<h2 id="config"><a href="#config" class="headerlink" title="config"></a>config</h2><div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">with</span> scope(<span class="hljs-string">&quot;config&quot;</span>):
+    release_packages_path = <span class="hljs-string">&quot;/software/packages/apps&quot;</span></code></pre></div>
+
+<p>软件包可以使用它来覆盖rez配置设置。只在某些情况下有效，比如我们希望将包发布到一个与默认目录不同的路径。</p>
+<h2 id="description（String）"><a href="#description（String）" class="headerlink" title="description（String）"></a>description（String）</h2><p><code>description = &quot;Library for communicating with the dead.&quot;</code><br>对软件包的总体描述。不要用它描述关于包的特定版本和细节，只应该提到包的一般特性。</p>
+<h2 id="has-plugins（Boolean）"><a href="#has-plugins（Boolean）" class="headerlink" title="has_plugins（Boolean）"></a>has_plugins（Boolean）</h2><p><code>has_plugins = True</code><br>标识这个包是有插件的。</p>
+<h2 id="hashed-variants（Boolean）"><a href="#hashed-variants（Boolean）" class="headerlink" title="hashed_variants（Boolean）"></a>hashed_variants（Boolean）</h2><p><code>hashed_variants = True</code><br>标识软件包根据variants内容的哈希值将variants安装到子目录中。</p>
+<h2 id="help（String-or-List-of-string）"><a href="#help（String-or-List-of-string）" class="headerlink" title="help（String or List of string）"></a>help（String or List of string）</h2><p><code>help = &quot;https://github.com/nerdvegas/rez/wiki&quot;</code><br>软件包的帮助url页面，如果是包含空格的字符，则是要运行的命令。<br>如果是一个列表，代表帮助条目，可以使用SECTION参数指定要查看的条目。</p>
+<h2 id="name（String，mandatory）"><a href="#name（String，mandatory）" class="headerlink" title="name（String，mandatory）"></a>name（String，mandatory）</h2><p><code>name = &quot;maya_utils&quot;</code><br>包的名称。允许使用字母数字和下划线，名称区分大小写。</p>
+<h2 id="plugin-for（String）"><a href="#plugin-for（String）" class="headerlink" title="plugin_for（String）"></a>plugin_for（String）</h2><p><code>plugin_for = &quot;maya&quot;</code><br>表明这个包是另一个包的插件。如上例子，这是一个maya插件。</p>
+<h2 id="post-commands（Function）"><a href="#post-commands（Function）" class="headerlink" title="post_commands（Function）"></a>post_commands（Function）</h2><div class="hljs"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">post_commands</span>():</span>
+    env.FOO_PLUGIN_PATH.append(<span class="hljs-string">&quot;@&quot;</span>)</code></pre></div>
+
+<p>与pre_commands类似，但在最后运行，而不是在开始阶段。</p>
+<h2 id="pre-commands（Function）"><a href="#pre-commands（Function）" class="headerlink" title="pre_commands（Function）"></a>pre_commands（Function）</h2><div class="hljs"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pre_commands</span>():</span>
+    <span class="hljs-keyword">import</span> os.path
+    env.FOO_PLUGIN_PATH = os.path.join(this.root, <span class="hljs-string">&quot;plugins&quot;</span>)</code></pre></div>
+
+<p>和commands一样，执行顺序是pre_commands优先执行，然后是commands，最后是post_commands。</p>
+<h2 id="pre-test-commands（Function）"><a href="#pre-test-commands（Function）" class="headerlink" title="pre_test_commands（Function）"></a>pre_test_commands（Function）</h2><div class="hljs"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pre_test_commands</span>():</span>
+    <span class="hljs-keyword">if</span> test.name == <span class="hljs-string">&quot;unit&quot;</span>:
+        env.IS_UNIT_TEST = <span class="hljs-number">1</span></code></pre></div>
+
+<p>和commands类似，但它是在测试中的定义的每个测试之前运行。</p>
+<h2 id="relocatable（Boolean）"><a href="#relocatable（Boolean）" class="headerlink" title="relocatable（Boolean）"></a>relocatable（Boolean）</h2><p><code>relocatable = True</code><br>确定这个包是否可以复制到另一个包存储库。（例如使用rez-cp命令）<br>如果没有提供，则由全局配置”default_relocatable”和相关设置”default_relocatable_*”设置确定。</p>
+<h2 id="requires（List-of-string）"><a href="#requires（List-of-string）" class="headerlink" title="requires（List of string）"></a>requires（List of string）</h2><div class="hljs"><pre><code class="hljs ini"><span class="hljs-attr">requires</span> = [
+    <span class="hljs-string">&quot;python-2&quot;</span>,
+    <span class="hljs-string">&quot;maya-2016&quot;</span>,
+    <span class="hljs-string">&quot;maya_utils-3.4+&lt;4&quot;</span>
+]</code></pre></div>
+
+<p>这是包所依赖的其它包列表。</p>
+<h2 id="tests（Dict）"><a href="#tests（Dict）" class="headerlink" title="tests（Dict）"></a>tests（Dict）</h2><div class="hljs"><pre><code class="hljs python">tests = &#123;
+    <span class="hljs-string">&quot;unit&quot;</span>: <span class="hljs-string">&quot;python -m unittest discover -s &#123;root&#125;/python/tests&quot;</span>,
+    <span class="hljs-string">&quot;lint&quot;</span>: &#123;
+        <span class="hljs-string">&quot;command&quot;</span>: <span class="hljs-string">&quot;pylint mymodule&quot;</span>,
+        <span class="hljs-string">&quot;requires&quot;</span>: [<span class="hljs-string">&quot;pylint&quot;</span>],
+        <span class="hljs-string">&quot;run_on&quot;</span>: [<span class="hljs-string">&quot;default&quot;</span>, <span class="hljs-string">&quot;pre_release&quot;</span>]
+    &#125;,
+    <span class="hljs-string">&quot;maya_CI&quot;</span>: &#123;
+        <span class="hljs-string">&quot;command&quot;</span>: <span class="hljs-string">&quot;python &#123;root&#125;/ci_tests/maya.py&quot;</span>,
+        <span class="hljs-string">&quot;on_variants&quot;</span>: &#123;
+            <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;requires&quot;</span>,
+            <span class="hljs-string">&quot;value&quot;</span>: [<span class="hljs-string">&quot;maya&quot;</span>]
+        &#125;,
+        <span class="hljs-string">&quot;run_on&quot;</span>: <span class="hljs-string">&quot;explicit&quot;</span>
+    &#125;
+&#125;</code></pre></div>
+
+<p>定义的这个字典，代表可以使用rez-test工具在软件包运行测试。</p>
+<p>例如在上述带有test属性的包maya_utils上运行linter：</p>
+<div class="hljs"><pre><code class="hljs autohotkey">]$ rez-test may<span class="hljs-built_in">a_utils</span> lint</code></pre></div>
+
+<p>如果测试条目是一个字符串或一个字符串列表，这将会解释为要运行的命令。<br>字符串扩展任何包属性引用，比如{root}。<br>如果提供了一个嵌套字典，你可以为每个测试指定额外的字段：</p>
+<ul>
+<li><strong>requires</strong>: 要包含在测试运行时env中额外包的依赖</li>
+<li><strong>on_variants</strong>：哪些variants可以在测试里生效<ul>
+<li><strong>True</strong>：所有variants</li>
+<li><strong>False</strong>：只在一个variant上进行测试，即在env被解析时获得的variant（默认值）</li>
+<li><strong>Dict</strong>：选择的variants，可以参考上面的”maya_CI”下”on_variants”的值</li>
+</ul>
+</li>
+<li><strong>run_on</strong>: 什么时候运行这个测试。有效值:<ul>
+<li><strong>default</strong>:  在不指定测试参数的情况下运行rez-test</li>
+<li><strong>pre_install</strong>：在安装之前运行（即rez-build -i），并在安装失败后中止安装</li>
+<li><strong>pre_release</strong>：在发布之前运行，失败则中止发布</li>
+<li><strong>explicit</strong>：当rez-test运行时，仅在指定为TEST参数的时候执行</li>
+</ul>
+</li>
+</ul>
+<h2 id="tools（List-of-string）"><a href="#tools（List-of-string）" class="headerlink" title="tools（List of string）"></a>tools（List of string）</h2><div class="hljs"><pre><code class="hljs ini"><span class="hljs-attr">tools</span> = [
+    <span class="hljs-string">&quot;houdini&quot;</span>,
+    <span class="hljs-string">&quot;hescape&quot;</span>,
+    <span class="hljs-string">&quot;hython&quot;</span>
+]</code></pre></div>
+
+<p>软件包提供的工具列表。</p>
+<h2 id="uuid（String）"><a href="#uuid（String）" class="headerlink" title="uuid（String）"></a>uuid（String）</h2><div class="hljs"><pre><code class="hljs ini"><span class="hljs-attr">uuid</span> = <span class="hljs-string">&quot;489ad32867494baab7e5be3e462473c6&quot;</span></code></pre></div>
+
+<p>一个唯一值，可以用于标识相似名称的两个包。（一旦设置就不要更改它）<br>可以这样去获得一个uuid：</p>
+<div class="hljs"><pre><code class="hljs swift">]$ python -<span class="hljs-built_in">c</span> &#x27;<span class="hljs-keyword">import</span> uuid; print(uuid.uuid4().hex)&#x27;</code></pre></div>
+
+<h2 id="variants（List-of-list-of-string）"><a href="#variants（List-of-list-of-string）" class="headerlink" title="variants（List of list of string）"></a>variants（List of list of string）</h2><div class="hljs"><pre><code class="hljs prolog">variants = [
+    [<span class="hljs-string">&quot;maya-2015.3&quot;</span>],
+    [<span class="hljs-string">&quot;maya-2016.1&quot;</span>],
+    [<span class="hljs-string">&quot;maya-2016.7&quot;</span>]
+]</code></pre></div>
+
+<p>一个包可以包含的各种变体，可以看作是同一个包的不同版本变体，具有不同的依赖性。</p>
+<h2 id="version（String）"><a href="#version（String）" class="headerlink" title="version（String）"></a>version（String）</h2><p><code>version = &quot;1.0.0&quot;</code><br>标识这个包的版本。</p>
+<h1 id="构建包时的属性"><a href="#构建包时的属性" class="headerlink" title="构建包时的属性"></a>构建包时的属性</h1><p>这些属性只在包构建的时候生效，一旦安装完成，这些属性就走了。  </p>
+<h2 id="build-command（String-or-False）"><a href="#build-command（String-or-False）" class="headerlink" title="build_command（String or False）"></a>build_command（String or False）</h2><p><code>build_command = &quot;bash &#123;root&#125;/build.sh &#123;install&#125;&quot;</code>  </p>
+<p>包的构建命令。如果设置，它将在运行”rez-build”时执行这个构建命令。<br>如果为False，则不需要任何构建步骤（仍然会安装包）。<br>{root}字符同样是可用的字符扩展，代表构建路径根目录。<br>{install}字符为“install”如果安装正在进行，否则为空。<br>可以在build命令中引用的变量有：</p>
+<ul>
+<li>root</li>
+<li>install</li>
+<li>build_path：构建路径（也就是当前工作目录）</li>
+<li>install_path：安装目标的完整路径</li>
+<li>name：正在构建包的名称</li>
+<li>variant_index：当前构建variant的索引</li>
+<li>version：当前正在构建包的版本</li>
+</ul>
+<h2 id="build-system（String）"><a href="#build-system（String）" class="headerlink" title="build_system（String）"></a>build_system（String）</h2><p><code>build_system = &quot;cmake&quot;</code><br>指定构建这个包所使用的构建系统，如果未设置则在构建时自动检测。<br>或者也可以使用 —build-system option 来指定。  </p>
+<h2 id="pre-build-commands（Function）"><a href="#pre-build-commands（Function）" class="headerlink" title="pre_build_commands（Function）"></a>pre_build_commands（Function）</h2><div class="hljs"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pre_build_commands</span>():</span>
+    env.FOO_BUILT_BY_REZ = <span class="hljs-number">1</span></code></pre></div>
+
+<p>与commands类似，不同的是它在构建包之前运行。</p>
+<h2 id="preprocess（Function）"><a href="#preprocess（Function）" class="headerlink" title="preprocess（Function）"></a>preprocess（Function）</h2><p>见本文之前讲到的 “软件包预处理”  </p>
+<h2 id="private-build-requires（List-of-string）"><a href="#private-build-requires（List-of-string）" class="headerlink" title="private_build_requires（List of string）"></a>private_build_requires（List of string）</h2><div class="hljs"><pre><code class="hljs ini"><span class="hljs-attr">private_build_requires</span> = [
+    <span class="hljs-string">&quot;cmake-2.8&quot;</span>,
+    <span class="hljs-string">&quot;doxygen&quot;</span>
+]</code></pre></div>
+
+<p>与build_requires相同，区别是这些依赖项只有在构建时才包括。</p>
+<h2 id="requires-rez-version（String）"><a href="#requires-rez-version（String）" class="headerlink" title="requires_rez_version（String）"></a>requires_rez_version（String）</h2><p><code>requires_rez_version = &quot;2.10&quot;</code><br>定义了软件包所需的rez最小版本。</p>
+<h1 id="发布包时的属性"><a href="#发布包时的属性" class="headerlink" title="发布包时的属性"></a>发布包时的属性</h1><p>当你的包通过rez-release工具发布时，Rez会创建以下包属性：</p>
+<h2 id="changelog（String）"><a href="#changelog（String）" class="headerlink" title="changelog（String）"></a>changelog（String）</h2><div class="hljs"><pre><code class="hljs awk">changelog = \
+    <span class="hljs-string">&quot;&quot;&quot;</span>
+<span class="hljs-string">    commit 22abe31541ceebced8d4e209e3f6c44d8d0bea1c</span>
+<span class="hljs-string">    Author: allan johns &lt;nerdvegas at gee mail dot com&gt;</span>
+<span class="hljs-string">    Date:   Sun May 15 15:39:10 2016 -0700</span>
+<span class="hljs-string"></span>
+<span class="hljs-string">        first commit</span>
+<span class="hljs-string">    &quot;&quot;&quot;</span></code></pre></div>
+
+<p>包含上次发布到现在的所有提交更改日志。这个更新日志的语法取决于版本管理工具，这里是基于git的一个例子。</p>
+<h2 id="previous-revision（Type-varies）"><a href="#previous-revision（Type-varies）" class="headerlink" title="previous_revision（Type varies）"></a>previous_revision（Type varies）</h2><p>先前发布的软件包的修订信息。（如果有）</p>
+<h2 id="previous-version（String）"><a href="#previous-version（String）" class="headerlink" title="previous_version（String）"></a>previous_version（String）</h2><p><code>previous_version = &quot;1.0.1&quot;</code><br>先前发布的包的版本(如果有的话)。</p>
+<h2 id="release-message（String）"><a href="#release-message（String）" class="headerlink" title="release_message（String）"></a>release_message（String）</h2><p><code>release_message = &quot;Fixed the flickering thingo&quot;</code><br>程序包发布信息。可以通过发布工具<code>rez-release —message option</code>设置，<br>或者在发布时的文本编辑器中输入（后者需要rez配置设置TODO_ADD_THIS）。</p>
+<h2 id="revision（Type-varies）"><a href="#revision（Type-varies）" class="headerlink" title="revision（Type varies）"></a>revision（Type varies）</h2><div class="hljs"><pre><code class="hljs scala">revision = \
+    &#123;<span class="hljs-symbol">&#x27;branc</span>h&#x27;: <span class="hljs-symbol">&#x27;maste</span>r&#x27;,
+     <span class="hljs-symbol">&#x27;commi</span>t&#x27;: <span class="hljs-symbol">&#x27;22abe31541ceebced8d4e209e3f6c44d8d0bea1</span>c&#x27;,
+     <span class="hljs-symbol">&#x27;fetch_ur</span>l&#x27;: <span class="hljs-symbol">&#x27;git</span><span class="hljs-meta">@github</span>.com:nerdvegas/dummy.git&#x27;,
+     <span class="hljs-symbol">&#x27;push_ur</span>l&#x27;: <span class="hljs-symbol">&#x27;git</span><span class="hljs-meta">@github</span>.com:nerdvegas/dummy.git&#x27;,
+     <span class="hljs-symbol">&#x27;tracking_branc</span>h&#x27;: <span class="hljs-symbol">&#x27;origin</span>/master&#x27;&#125;</code></pre></div>
+
+<p>有关已发布包源代码修订信息。数据类型由所用的版本控制工具确定，这里是git-based的修订信息。</p>
+<h2 id="timestamp（Integer）"><a href="#timestamp（Integer）" class="headerlink" title="timestamp（Integer）"></a>timestamp（Integer）</h2><p><code>timestamp = 1463350552</code><br>包发布的时间。</p>
+<h2 id="vcs（String）"><a href="#vcs（String）" class="headerlink" title="vcs（String）"></a>vcs（String）</h2><p><code>vcs = &quot;git&quot;</code><br>发布包的版本控制工具的名字。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <a href="http://beian.miit.gov.cn/" target="_blank"
+       rel="nofollow noopener">京ICP证123456号</a>
+    
+      <a
+        href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12345678"
+        rel="nofollow noopener"
+        class="beian-police"
+        target="_blank"
+      >
+        <span class="beian-police-sep">&nbsp;|&nbsp;</span>
+        
+          <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon" />
+        
+        <span>京公网安备12345678号</span>
+      </a>
+     
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Package Definition Guide&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'G-M9TPSKV7NY# Google 统计的 Tracking ID，参见 https://analytics.google.com/analytics/web/', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+</body>
+</html>

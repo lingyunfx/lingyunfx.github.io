@@ -1,0 +1,591 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="关于电影视效的经验与分享">
+  <meta name="author" content="Lingyun Zhang">
+  <meta name="keywords" content="">
+  <title>Building Packages - 凌云的个人博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/hopscotch.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>凌云的个人博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Lingyun Zhang
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-15 19:01" pubdate>
+        2021年3月15日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.9k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      22
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Building Packages</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>rez包可以使用rez-build工具来构建和本地安装。这个工具有以下操作：</p>
+<ul>
+<li>遍历一个包的变体</li>
+<li>构建环境</li>
+<li>在此环境中运行构建系统</li>
+</ul>
+<p>每一个构建都来自构建的目录路径。（通常是构建的子目录或构建下的变体特定子目录）<br>例如一个包含两个基本python变体的程序包：</p>
+<div class="hljs"><pre><code class="hljs css">+<span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">package</span><span class="hljs-selector-class">.py</span>
++<span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">CMakeLists</span><span class="hljs-selector-class">.txt</span> (<span class="hljs-selector-tag">or</span> <span class="hljs-selector-tag">other</span> <span class="hljs-selector-tag">build</span> <span class="hljs-selector-tag">file</span>)
++<span class="hljs-selector-tag">-build</span>
+  +<span class="hljs-selector-tag">-python-2</span><span class="hljs-selector-class">.6</span>  # <span class="hljs-selector-tag">build</span> <span class="hljs-selector-tag">dir</span> <span class="hljs-selector-tag">for</span> <span class="hljs-selector-tag">python-2</span><span class="hljs-selector-class">.6</span> <span class="hljs-selector-tag">variant</span>
+  +<span class="hljs-selector-tag">-python-2</span><span class="hljs-selector-class">.7</span>  # <span class="hljs-selector-tag">build</span> <span class="hljs-selector-tag">dir</span> <span class="hljs-selector-tag">for</span> <span class="hljs-selector-tag">python-2</span><span class="hljs-selector-class">.6</span> <span class="hljs-selector-tag">variant</span></code></pre></div>
+
+<p>在构建过程中，当前目录被视为构建路径。</p>
+<h1 id="构建环境"><a href="#构建环境" class="headerlink" title="构建环境"></a>构建环境</h1><p>构建环境是一个rez解析环境，它的需求列表是这样构造的：</p>
+<ul>
+<li>首先使用程序包require列表</li>
+<li>然后添加程序包的build_require列表。其它包的build_requires也会被使用</li>
+<li>再然后追加程序包的private_build_requires</li>
+<li>最后，如果包有变体，则追加变体的需求</li>
+</ul>
+<p>构建时会创建一系列环境变量（REZ_BUILD_开头），在<a target="_blank" rel="noopener" href="http://localhost:4000/2021/03/15/rez-environment-variables/">这里</a>可以看到构建时产生的环境变量。</p>
+<p>在这个环境中会为每个变量调用构建系统。</p>
+<h1 id="构建时依赖"><a href="#构建时依赖" class="headerlink" title="构建时依赖"></a>构建时依赖</h1><p>有时候一个包只需要依赖另一个包来构建它的代码，或者生成文档。<br>以文档为例，一个C++项目可能需要使用doxygen来构建它的文档，<br>而一旦文档被生成，就不再需要doxygen了。</p>
+<p>这可以通过package.py的build_requires或private_build_requires来实现，<br>在这两个参数下的依赖包都只用于构建时，是过渡性的依赖列表。</p>
+<p>一些private_build_requires使用包括：</p>
+<ul>
+<li>文档的生成器，如doxygen或sphinx</li>
+<li>构建工具，如一个名为pyqt_cmake_utils的包，它提供了将ui文件转换为py的cmake宏</li>
+<li>静态链接库（因为库在构建时已经链接好了，所以运行时就不需要这个包了）</li>
+</ul>
+<h1 id="包的通信"><a href="#包的通信" class="headerlink" title="包的通信"></a>包的通信</h1><p>比如有两个C++包，maya_utils和著名的boost库。maya_utils如何找到boost的头文件，或库文件？<br>简单的回答是，这取决于你。Rez其实并不是一个构建系统，它支持各种构建系统，它可以配置构建环境，但构建本身的细节部分是留给使用者的。</p>
+<p>话虽如此，rez支持cmake有一段时间了，而且rez自带大量的实用代码来管理cmake构建。<br>当配置rez环境时，每个包的命令部分都会配置环境。当发生构建时，一个特殊的变量building被设置为True。你的包会使用这个变量来向未构建的包传达构建信息。</p>
+<p>举个例子，我们的boost包命令看起来也许是这样的：</p>
+<div class="hljs"><pre><code class="hljs ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">commands</span><span class="hljs-params">()</span></span><span class="hljs-symbol">:</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-symbol">building:</span>
+        <span class="hljs-comment"># there is a &#x27;FindBoost.cmake&#x27; file in this dir..</span>
+        env.CMAKE_MODULE_PATH.append(<span class="hljs-string">&quot;&#123;root&#125;/cmake&quot;</span>)</code></pre></div>
+
+<p>一个简单的FindBoost.cmake文件可能是这样：</p>
+<div class="hljs"><pre><code class="hljs bash"><span class="hljs-built_in">set</span>(Boost_INCLUDE_DIRS <span class="hljs-variable">$ENV</span>&#123;REZ_BOOST_ROOT&#125;/include)
+<span class="hljs-built_in">set</span>(Boost_LIBRARY_DIRS <span class="hljs-variable">$ENV</span>&#123;REZ_BOOST_ROOT&#125;/lib)
+<span class="hljs-built_in">set</span>(Boost_LIBRARIES boost-python)</code></pre></div>
+
+<p>然后，我们的maya_utils包可能有一个CMakeLists.txt文件（cmake的构建脚本），其中包含：</p>
+<div class="hljs"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">find_package</span><span class="hljs-params">(Boost)</span></span>
+<span class="hljs-function"><span class="hljs-title">include_directories</span><span class="hljs-params">($&#123;Boost_INCLUDE_DIRS&#125;)</span></span>
+<span class="hljs-function"><span class="hljs-title">link_directories</span><span class="hljs-params">($&#123;Boost_LIBRARY_DIRS&#125;)</span></span>
+<span class="hljs-function"><span class="hljs-title">target_link_libraries</span><span class="hljs-params">(maya_utils $&#123;Boost_LIBRARIES&#125;)</span></span></code></pre></div>
+
+<p>find_package cmake宏会搜索CMAKE_MODULE_PATH环境变量中列出的路径，并寻找一个名为FindXXX.cmake的文件，其中XXX是包的名称（在本例中为Boost），然后将其包含在内。</p>
+<h1 id="构建系统"><a href="#构建系统" class="headerlink" title="构建系统"></a>构建系统</h1><p>Rez支持多种构建系统，新的构建系统可以作为插件添加。当调用构建时，会自动检测并选择构建系统。例如如果在程序包根目录发现来CMakeLists.txt文件，就会使用cmake构建系统。</p>
+<h2 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h2><p>有两种方法可以将参数传递给构建系统。</p>
+<p>其一，一些编译系统插件会直接向<code>rez-build</code>命令添加额外选项。例如在一个基于CMake的程序包中，<br>又运行了<code>rez-build -h</code>命令，你会看到cmake的特定参数列表，比如 <code>—build-target</code>。</p>
+<p>其二，你可以直接向编译系统传递参数，使用<code>rez-build —build-args</code>命令。</p>
+<p>例如，这里在cmake中明确定义一个变量：<br><code>]$ rez-build -- -DMYVAR=YES</code></p>
+<h2 id="自定义构建"><a href="#自定义构建" class="headerlink" title="自定义构建"></a>自定义构建</h2><p>除了从构建文件中检查构建系统外，程序包还可以使用build_command属性明确指定构建命令。</p>
+<p>在package.py文件中定义：</p>
+<div class="hljs"><pre><code class="hljs ini"><span class="hljs-attr">name</span> = <span class="hljs-string">&quot;nuke_utils&quot;</span>
+
+<span class="hljs-attr">version</span> = <span class="hljs-string">&quot;1.2.3&quot;</span>
+
+<span class="hljs-attr">build_command</span> = <span class="hljs-string">&quot;bash &#123;root&#125;/build.sh &#123;install&#125;&quot;</span></code></pre></div>
+
+<p>当在这个包运行rez-build时，给定的build.sh脚本将用bash执行。</p>
+<p>{root}字符为软件包根目录，如果又安装，{install}字符串将展开为”install”，否则为空。</p>
+<p>构建过程中的当前工作目录被设置为构建路径，而不是包的根目录。因此通常会使用{root}字符串来引用包根目录下的构建脚本。</p>
+<p><strong>传递参数</strong></p>
+<p>你可以直接为你的编译脚本添加参数到rez-build命令中，通过在程序包根目录创建一个parse_build_args.py文件，如下：</p>
+<div class="hljs"><pre><code class="hljs routeros"><span class="hljs-comment"># in parse_build_args.py</span>
+parser.add_argument(<span class="hljs-string">&quot;--foo&quot;</span>, <span class="hljs-attribute">action</span>=<span class="hljs-string">&quot;store_true&quot;</span>, <span class="hljs-attribute">help</span>=<span class="hljs-string">&quot;do some foo&quot;</span>)</code></pre></div>
+
+<p>现在，如果你在这个软件包上运行<code>rez-build -h</code>会看到列出的选项：</p>
+<div class="hljs"><pre><code class="hljs prolog">$ rez-build -h
+usage: rez build [-h] [-c] [-i] [-p <span class="hljs-symbol">PATH</span>] [--fail-graph] [-s] [--view-pre]
+                 [--process &#123;remote,local&#125;] [--foo]
+                 [--variants <span class="hljs-symbol">INDEX</span> [<span class="hljs-symbol">INDEX</span> ...]] [--ba <span class="hljs-symbol">ARGS</span>] [--cba <span class="hljs-symbol">ARGS</span>] [-v]
+
+<span class="hljs-symbol">Build</span> a package from source.
+
+optional arguments:
+  ...
+  --foo                 do some foo</code></pre></div>
+
+<p>添加的参数会被存储到环境变量中，这样你的编译脚本就可以访问它们。</p>
+<p>它们的前缀是<code>__PARSE_ARF_</code> ；在上面的例子中，变量<code>__PARSE_ARG_FOO</code>被设置。<br>布尔由0/1表示，而列表则用空格分隔，必要时使用引号。</p>
+<p><strong>一个实例</strong></p>
+<p>以下是一个非常简单的C++例子，展示来如何使用自定义构建命令，通过make进行构建和安装。</p>
+<div class="hljs"><pre><code class="hljs crystal"><span class="hljs-comment"># in package.py</span>
+build_command = <span class="hljs-string">&quot;make -f &#123;root&#125;/Makefile &#123;install&#125;&quot;</span>
+
+<span class="hljs-comment"># in Makefile</span>
+<span class="hljs-symbol">hai:</span> $&#123;REZ_BUILD_SOURCE_PATH&#125;/<span class="hljs-class"><span class="hljs-keyword">lib</span>/<span class="hljs-title">main</span>.<span class="hljs-title">cpp</span></span>
+    g++ -o hai $&#123;REZ_BUILD_SOURCE_PATH&#125;/<span class="hljs-class"><span class="hljs-keyword">lib</span>/<span class="hljs-title">main</span>.<span class="hljs-title">cpp</span></span>
+
+.<span class="hljs-symbol">PHONY:</span> install
+<span class="hljs-symbol">install:</span> hai
+    mkdir -p $&#123;REZ_BUILD_INSTALL_PATH&#125;/bin
+		p $&lt; $&#123;REZ_BUILD_INSTALL_PATH&#125;/bin/hai</code></pre></div>
+
+<h1 id="本地包安装"><a href="#本地包安装" class="headerlink" title="本地包安装"></a>本地包安装</h1><p>在你做了一些代码修改之后，想要测试它们。你可以通过本地安装程序包，然后用<code>rez-env</code>解析环境来测试程序包，大概是这样：</p>
+<ul>
+<li>进行代码修改</li>
+<li>运行<code>rez-build —install</code> 安装为本地包</li>
+<li>在一个单独的shell里运行rez-env mypackage。这将启用你的本地软件包，以及程序包需求</li>
+<li>测试软件包</li>
+</ul>
+<p>本地安装会将程序包构建并安装到本地仓库中，通常是~/package目录。这个目录被列在包搜索路径的开头，所以当你解析一个环境进行测试时，本地安装的包会被首先选中。你的包通常会被安装到 ~/packages/packagename/version，例如 ~/packages/maya_utils/1.0.5。如果你有变体，它们会被安装到这个安装路径的子目录中。<br>（可以参考文章：<a target="_blank" rel="noopener" href="http://localhost:4000/2021/03/15/rez-variants">变体 (Variants)</a>的结构部分）</p>
+<p>你不需要每次安装后都运行<code>rez-env</code>。如果你的程序包没有改变，你可以继续使用现有测试环境。</p>
+<p>可以通过检查rez-env执行后的输出，来确保你已经pick了你的本地包。</p>
+<div class="hljs"><pre><code class="hljs fortran">]$ rez-env <span class="hljs-keyword">sequence</span>
+
+You are now <span class="hljs-keyword">in</span> a rez-configured environment<span class="hljs-number">.</span>
+
+resolved by ajohns@turtle, on Thu Mar <span class="hljs-number">09</span> <span class="hljs-number">11</span>:<span class="hljs-number">41</span>:<span class="hljs-number">06</span> <span class="hljs-number">2017</span>, using Rez v2<span class="hljs-number">.7</span><span class="hljs-number">.0</span>
+
+requested packages:
+<span class="hljs-keyword">sequence</span>
+~platform==linux   (<span class="hljs-keyword">implicit</span>)
+~arch==x86_64      (<span class="hljs-keyword">implicit</span>)
+~os==Ubuntu-<span class="hljs-number">16.04</span>  (<span class="hljs-keyword">implicit</span>)
+
+resolved packages:
+arch-x86_64      /sw/packages/arch/x86_64
+os-Ubuntu-<span class="hljs-number">16.04</span>  /sw/packages/os/Ubuntu-<span class="hljs-number">16.04</span>
+platform-linux   /sw/packages/platform/linux
+python-<span class="hljs-number">2.7</span><span class="hljs-number">.12</span>    /sw/packages/python/<span class="hljs-number">2.7</span><span class="hljs-number">.12</span>
+<span class="hljs-keyword">sequence</span>-<span class="hljs-number">2.1</span><span class="hljs-number">.2</span>   /home/ajohns/packages/<span class="hljs-keyword">sequence</span>/<span class="hljs-number">2.1</span><span class="hljs-number">.2</span>  (<span class="hljs-keyword">local</span>)</code></pre></div>
+
+<p><strong>注意</strong>：这里的sequence包是本地安装，括号里local表示。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <a href="http://beian.miit.gov.cn/" target="_blank"
+       rel="nofollow noopener">京ICP证123456号</a>
+    
+      <a
+        href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12345678"
+        rel="nofollow noopener"
+        class="beian-police"
+        target="_blank"
+      >
+        <span class="beian-police-sep">&nbsp;|&nbsp;</span>
+        
+          <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon" />
+        
+        <span>京公网安备12345678号</span>
+      </a>
+     
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Building Packages&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'G-M9TPSKV7NY# Google 统计的 Tracking ID，参见 https://analytics.google.com/analytics/web/', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+</body>
+</html>

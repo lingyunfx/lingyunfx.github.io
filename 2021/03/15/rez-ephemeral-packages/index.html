@@ -1,0 +1,548 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="关于电影视效的经验与分享">
+  <meta name="author" content="Lingyun Zhang">
+  <meta name="keywords" content="">
+  <title>Ephemeral Packages - 凌云的个人博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/hopscotch.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>凌云的个人博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Lingyun Zhang
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-15 17:34" pubdate>
+        2021年3月15日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      910 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      11
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Ephemeral Packages</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>于2.71.0版本中引入。</p>
+<p>临时包（Ephemeral Packages）是对不存在的包的请求。<br>包名称以<code>.</code>开头，和其它的软件包请求类似，可以作为变体列表的一部分来请求，<br>或者直接用<code>rez-env</code>命令进行请求。<br>下面是一个例子：</p>
+<div class="hljs"><pre><code class="hljs fortran">]$ rez-env <span class="hljs-number">.</span>foo-<span class="hljs-number">1</span>
+You are now <span class="hljs-keyword">in</span> a rez-configured environment<span class="hljs-number">.</span>
+
+resolved by ajohns@turtle, on Tue Dec <span class="hljs-number">22</span> <span class="hljs-number">08</span>:<span class="hljs-number">17</span>:<span class="hljs-number">00</span> <span class="hljs-number">2020</span>, using Rez v2<span class="hljs-number">.70</span><span class="hljs-number">.0</span>
+
+requested packages:
+<span class="hljs-number">.</span>foo-<span class="hljs-number">1</span>             (ephemeral)
+~platform==linux   (<span class="hljs-keyword">implicit</span>)
+~arch==x86_64      (<span class="hljs-keyword">implicit</span>)
+~os==Ubuntu-<span class="hljs-number">16.04</span>  (<span class="hljs-keyword">implicit</span>)
+
+resolved packages:
+<span class="hljs-number">.</span>foo-<span class="hljs-number">1</span>    (ephemeral)</code></pre></div>
+
+<p>在解析过程中，临时包会其它软件包一样工作，但是它不会和实际软件包相关联，<br>也不会运行执行任何配置。一个版本范围交集的例子：</p>
+<div class="hljs"><pre><code class="hljs fortran">]$ rez-env <span class="hljs-number">.</span>foo-<span class="hljs-number">1</span> <span class="hljs-string">&#x27;.foo-1.5+&#x27;</span>
+
+You are now <span class="hljs-keyword">in</span> a rez-configured environment<span class="hljs-number">.</span>
+
+resolved by ajohns@turtle, on Tue Dec <span class="hljs-number">22</span> <span class="hljs-number">08</span>:<span class="hljs-number">21</span>:<span class="hljs-number">04</span> <span class="hljs-number">2020</span>, using Rez v2<span class="hljs-number">.70</span><span class="hljs-number">.0</span>
+
+requested packages:
+<span class="hljs-number">.</span>foo-<span class="hljs-number">1</span>             (ephemeral)
+<span class="hljs-number">.</span>foo-<span class="hljs-number">1.5</span>+          (ephemeral)
+~platform==linux   (<span class="hljs-keyword">implicit</span>)
+~arch==x86_64      (<span class="hljs-keyword">implicit</span>)
+~os==Ubuntu-<span class="hljs-number">16.04</span>  (<span class="hljs-keyword">implicit</span>)
+
+resolved packages:
+<span class="hljs-number">.</span>foo-<span class="hljs-number">1.5</span>+&lt;<span class="hljs-number">1</span>_    (ephemeral)</code></pre></div>
+
+<p>一个会引发冲突的例子：</p>
+<div class="hljs"><pre><code class="hljs angelscript">]$ rez-env .foo<span class="hljs-number">-1</span> .foo<span class="hljs-number">-2</span>
+The context failed to resolve:
+The following package conflicts occurred: (.foo<span class="hljs-number">-1</span> &lt;--!--&gt; .foo<span class="hljs-number">-2</span>)</code></pre></div>
+
+<h1 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h1><p>临时软件包不会以实际软件包的方式运行，但会设置一些环境变量：</p>
+<ul>
+<li>REZ_USED_EPH_RESOLVE：列出所有解析的临时请求</li>
+<li>REZ_EPH_(PKG)_REQUEST：标记已经解析完成的临时包。PKG为临时包名称，以大写形式表示，<br>其中的点符号由下划线代替，并删除来名称最前面的<code>.</code></li>
+</ul>
+<p>以下例子：</p>
+<div class="hljs"><pre><code class="hljs jboss-cli">]$ rez-env python <span class="hljs-string">.foo-1</span> <span class="hljs-string">.bah-2</span>
+<span class="hljs-string">...</span>
+]$ <span class="hljs-keyword">echo</span> $REZ_EPH_FOO_REQUEST
+1
+]$ <span class="hljs-keyword">echo</span> $REZ_USED_EPH_RESOLVE
+<span class="hljs-string">.foo-1</span> <span class="hljs-string">.bah-2</span></code></pre></div>
+
+<h1 id="自检"><a href="#自检" class="headerlink" title="自检"></a>自检</h1><p>为了使软件包检查运行时存在的临时包，提供了一个<code>ephemerals</code>对象，类似于<code>resolve</code>对象。</p>
+<p>通常使用<code>intersects</code>函数进行检查，如：</p>
+<div class="hljs"><pre><code class="hljs ruby"><span class="hljs-comment"># in package.py</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">commands</span><span class="hljs-params">()</span></span>
+    <span class="hljs-keyword">if</span> intersects(ephemerals.get_range(<span class="hljs-string">&#x27;enable_tracking&#x27;</span>, <span class="hljs-string">&#x27;0&#x27;</span>), <span class="hljs-string">&#x27;1&#x27;</span>)<span class="hljs-symbol">:</span>
+        env.TRACKING_ENABLED = <span class="hljs-number">1</span></code></pre></div>
+
+<p>在这个例子里，如果解析中出现了.enable_tracking-1（或.enable_tracking-1.2+）这样的临时包，<br>那么环境变量TRACKING_ENABLED则被标记为1。</p>
+<p><strong>注意</strong>：implied的包不会包含在ephemerals对象中。</p>
+<p>由于ephemerals对象是一个类似dict的对象，所以它有一个get函数。如果key存在，该函数返回一个完整字符串，<br>因此使用get时，给予的默认值也应该是一个完整的字符串，而不是<code>0</code>这样的版本范围字符串。</p>
+<h1 id="临时包示例"><a href="#临时包示例" class="headerlink" title="临时包示例"></a>临时包示例</h1><p>为什么我们会需要用到临时包？下面有两个示例：</p>
+<h2 id="向包传递信息"><a href="#向包传递信息" class="headerlink" title="向包传递信息"></a>向包传递信息</h2><p>临时包可以作为一种包的选择，或在解析中将信息传递给软件包的一种方式。如下：</p>
+<div class="hljs"><pre><code class="hljs ruby">name = <span class="hljs-string">&#x27;bah&#x27;</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">commands</span><span class="hljs-params">()</span></span><span class="hljs-symbol">:</span>
+    <span class="hljs-keyword">if</span> intersects(ephemerals.get_range(<span class="hljs-string">&#x27;bah.cli&#x27;</span>, <span class="hljs-string">&#x27;1&#x27;</span>), <span class="hljs-string">&#x27;1&#x27;</span>)<span class="hljs-symbol">:</span>
+        env.PATH.append(<span class="hljs-string">&#x27;&#123;root&#125;/bin&#x27;</span>)</code></pre></div>
+
+<p>当检查到临时包bah.cli在运行时存在，bah包将不执行它自身的command。</p>
+<p>临时包可以是任何东西，因此你可以决定将它们用作全局包选项。</p>
+<p>下面的这个示例，引用了一个充当全局白名单的cli临时包：</p>
+<div class="hljs"><pre><code class="hljs ruby">name = <span class="hljs-string">&#x27;bah&#x27;</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">commands</span><span class="hljs-params">()</span></span><span class="hljs-symbol">:</span>
+    <span class="hljs-keyword">if</span> intersects(ephemerals.get_range(<span class="hljs-string">&#x27;cli&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>), <span class="hljs-string">&#x27;bah&#x27;</span>)<span class="hljs-symbol">:</span>
+        env.PATH.append(<span class="hljs-string">&#x27;&#123;root&#125;/bin&#x27;</span>)</code></pre></div>
+
+<p>这里，如果没有在命令中指定.cli，则将激活所有cli包。否则它将作为一个白名单。</p>
+<h2 id="表示抽象包"><a href="#表示抽象包" class="headerlink" title="表示抽象包"></a>表示抽象包</h2><p>有时一个包需要某种形式的抽象对象或功能，而不是一个实际的包。</p>
+<p>例如你的软件包需要GPU在主机上存在，为此需要进行设置，让所有带有GPU主机上的<code>implicits</code>列表包含<code>.gpu-1</code>临时包。</p>
+<div class="hljs"><pre><code class="hljs ini"><span class="hljs-attr">name</span> = <span class="hljs-string">&#x27;pixxelator&#x27;</span>
+
+<span class="hljs-attr">variants</span> = [
+    [<span class="hljs-string">&#x27;.gpu-0&#x27;</span>],  <span class="hljs-comment"># renders via CPU</span>
+    [<span class="hljs-string">&#x27;.gpu-1&#x27;</span>]  <span class="hljs-comment"># renders via GPU</span>
+]</code></pre></div>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <a href="http://beian.miit.gov.cn/" target="_blank"
+       rel="nofollow noopener">京ICP证123456号</a>
+    
+      <a
+        href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12345678"
+        rel="nofollow noopener"
+        class="beian-police"
+        target="_blank"
+      >
+        <span class="beian-police-sep">&nbsp;|&nbsp;</span>
+        
+          <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon" />
+        
+        <span>京公网安备12345678号</span>
+      </a>
+     
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Ephemeral Packages&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'G-M9TPSKV7NY# Google 统计的 Tracking ID，参见 https://analytics.google.com/analytics/web/', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+</body>
+</html>

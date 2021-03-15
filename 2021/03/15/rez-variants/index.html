@@ -1,0 +1,549 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="关于电影视效的经验与分享">
+  <meta name="author" content="Lingyun Zhang">
+  <meta name="keywords" content="">
+  <title>Variants - 凌云的个人博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/hopscotch.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>凌云的个人博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Lingyun Zhang
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-15 17:34" pubdate>
+        2021年3月15日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.6k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      18
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Variants</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>rez的包可以包含不同的变体（variant），可以把它看作同一个包版本的不同变种。<br>每个变体都有一个或多个相对于当前包不同的依赖关系。</p>
+<p>假定一个场景来说明变体的使用：</p>
+<p>有一个maya插件my_maya_plugin，公司有两个maya版本分别为2016-sp2和2017。<br>如果你的插件已经编译，而你需要在每个不同的maya版本中构建它。（即使源代码是相同的）<br>这个时候就可以使用变体来创建插件版本，像这样来定义插件的package文件：</p>
+<div class="hljs"><pre><code class="hljs ini"><span class="hljs-attr">name</span> = <span class="hljs-string">&quot;my_maya_plugin&quot;</span>
+
+<span class="hljs-attr">version</span> = <span class="hljs-string">&quot;1.0.0&quot;</span>
+
+<span class="hljs-attr">requires</span> = [
+    <span class="hljs-string">&quot;openexr-2.2&quot;</span>
+]
+
+<span class="hljs-attr">variants</span> = [
+    [<span class="hljs-string">&quot;maya-2016.sp2&quot;</span>],
+    [<span class="hljs-string">&quot;maya-2017&quot;</span>]
+]</code></pre></div>
+
+<p>当构建这个插件的时候，会根据当前maya版本选择相应的变体。（在给定的配置环境中，只会使用包的一种变体）<br>每个变体条目都有一个依赖列表，与requires列表里的没有什么不同。<br>第一个变体需要openexr-2.2和maya-2016sp2，第二个变体需要openexr-2.2和maya-2017。</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>程序包变体存储在程序包符合变体要求的子目录下。例如刚刚示例中的my_maya_plugin软件包：</p>
+<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/rez/</span>packages<span class="hljs-regexp">/my_maya_plugin/</span><span class="hljs-number">1.0</span>.<span class="hljs-number">0</span><span class="hljs-regexp">/maya-2016.sp2/</span>&lt;PAYLOAD&gt;
+                                  <span class="hljs-regexp">/maya-2017/</span>&lt;PAYLOAD&gt;</code></pre></div>
+
+<p>下图展示了一个包含各种变体的包：</p>
+<p><img src="https://github.com/nerdvegas/rez/wiki/media/pkg_path_anatomy.png" srcset="/img/loading.gif"></p>
+<p>包的根目录是它当前变体的根目录（当前环境配置使用的那个）</p>
+<h1 id="哈希"><a href="#哈希" class="headerlink" title="哈希"></a>哈希</h1><p>如上所示变体路径有两个问题：</p>
+<ul>
+<li>如果需求有很多，则变体安装路径会很长</li>
+<li>如果一些变体的需求里包含类似<code>!</code>和 <code>&lt;</code> 的字符，它们可能会导致系统构建的泄漏问题。<br>对于不同的系统平台来说，可能不是有效的文件系统路径</li>
+</ul>
+<p>你可以通过哈希命名来避免这些问题，将变体的路径设置为其需求的哈希值。</p>
+<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/rez/</span>packages<span class="hljs-regexp">/my_maya_plugin/</span><span class="hljs-number">1.0</span>.<span class="hljs-number">0</span>/<span class="hljs-number">83</span>e0c415db1b602f9d59cee028da6ac785e9bacc</code></pre></div>
+
+<p>这里可以通过变体的短链接来访问相同的路径，需要在已解析的环境中使用。</p>
+<p>短链接是指向每个变体的符号链接，默认是<code>_v</code>。</p>
+<div class="hljs"><pre><code class="hljs awk"><span class="hljs-regexp">/rez/</span>packages<span class="hljs-regexp">/my_maya_plugin/</span><span class="hljs-number">1.0</span>.<span class="hljs-number">0</span><span class="hljs-regexp">/_v/</span>a</code></pre></div>
+
+<p>必须为包的定义设置中启用哈希变体：<br><code>hashed_variants = True</code></p>
+<h1 id="不同系统平台的变体"><a href="#不同系统平台的变体" class="headerlink" title="不同系统平台的变体"></a>不同系统平台的变体</h1><p>在软件包定义中看到针对不同系统平台，架构而配置的变体并不少见。如下：</p>
+<div class="hljs"><pre><code class="hljs csharp"><span class="hljs-meta"># in package.py</span>
+variants = [
+    [<span class="hljs-meta"><span class="hljs-meta-string">&quot;platform-linux&quot;</span>, <span class="hljs-meta-string">&quot;arch-x86_64&quot;</span>, <span class="hljs-meta-string">&quot;os-Ubuntu-12.04&quot;</span></span>],
+    [<span class="hljs-meta"><span class="hljs-meta-string">&quot;platform-linux&quot;</span>, <span class="hljs-meta-string">&quot;arch-x86_64&quot;</span>, <span class="hljs-meta-string">&quot;os-Ubuntu-16.04&quot;</span></span>]
+]</code></pre></div>
+
+<p>这表明了可以针对多个系统平台创建。</p>
+<h1 id="单一变体"><a href="#单一变体" class="headerlink" title="单一变体"></a>单一变体</h1><p>通常我们只会看到一种变体的程序包，因为：</p>
+<ul>
+<li>比如一个编译过的python包，暂时只支持python2.7，这个时候就只存在一种变体。不过可以在以后编译包更新了在添加变体，从而不需要迁移到新版本。</li>
+<li>安装路径。人们希望可以从安装包路径中看到一些相关信息，譬如平台，架构，操作系统等。通过将这些依赖项放到变体中，使它们出现在程序包的安装路径中。</li>
+</ul>
+<h1 id="变体的选择"><a href="#变体的选择" class="headerlink" title="变体的选择"></a>变体的选择</h1><p>如之前所说的，rez会根据解析的环境自动选择正确的变体。例如：</p>
+<div class="hljs"><pre><code class="hljs awk">]$ rez-env my_maya_plugin maya-<span class="hljs-number">2017</span> -- echo <span class="hljs-string">&#x27;$REZ_MY_MAYA_PLUGIN_ROOT&#x27;</span>
+<span class="hljs-regexp">/rez/</span>packages<span class="hljs-regexp">/my_maya_plugin/</span><span class="hljs-number">1.0</span>.<span class="hljs-number">0</span>/maya-<span class="hljs-number">2017</span>
+]$ rez-env my_maya_plugin maya-<span class="hljs-number">2016</span> -- echo <span class="hljs-string">&#x27;$REZ_MY_MAYA_PLUGIN_ROOT&#x27;</span>
+<span class="hljs-regexp">/rez/</span>packages<span class="hljs-regexp">/my_maya_plugin/</span><span class="hljs-number">1.0</span>.<span class="hljs-number">0</span>/maya-<span class="hljs-number">2016</span>.sp2</code></pre></div>
+
+<p>如果两种变体给定的请求都有效且满足，如下操作（这里maya不在请求中）：</p>
+<div class="hljs"><pre><code class="hljs awk">]$ rez-env my_maya_plugin -- echo <span class="hljs-string">&#x27;$REZ_MY_MAYA_PLUGIN_ROOT&#x27;</span>
+<span class="hljs-regexp">/rez/</span>packages<span class="hljs-regexp">/my_maya_plugin/</span><span class="hljs-number">1.0</span>.<span class="hljs-number">0</span>/maya-<span class="hljs-number">2017</span></code></pre></div>
+
+<p>my_maya_plugin的任何一种变体都可以满足要求，因为我们没有指定实际需要哪个版本的maya。<br>默认情况下，rez会选择更高的程序包版本，这也是为什么上述例子中选择了maya-2017的原因。</p>
+<p>如果给定选择，则优先选择给定的变体。如果没有则优先选择列表中前面列出的变体，<br>看下面这个例子：</p>
+<div class="hljs"><pre><code class="hljs ini"><span class="hljs-attr">name</span> = <span class="hljs-string">&quot;foo&quot;</span>
+
+<span class="hljs-attr">variants</span> = [
+    [<span class="hljs-string">&quot;python-2.6&quot;</span>, <span class="hljs-string">&quot;maya-2017&quot;</span>],
+    [<span class="hljs-string">&quot;python-2.7&quot;</span>, <span class="hljs-string">&quot;maya-2016&quot;</span>]
+]</code></pre></div>
+
+<p>如果运行<code>rez-env foo</code> ，它将选择第二种变体，因为这个时候python具有优先级（变体中列出的第一个包），<br>且第二个变体的python版本更高。</p>
+<p>但如果运行<code>rez-env foo maya</code>这个命令的话，将得到第一个变体，因为在命令中把优先级给了maya，<br>第一个变体的maya版本更高。</p>
+<p>rez的配置设置”variant_select_mode”影响选择方式。刚刚描述的是”version_priority”的方式，<br>还有另外一种方式”intersection_priority”，这种模式下，请求中包数量最多的变体是优先，然后再是版本。</p>
+<h2 id="排他性"><a href="#排他性" class="headerlink" title="排他性"></a>排他性</h2><p>在上述的例子中，变体都是相互排斥的，例如不能在同一个环境拥有python-2.6和python-2.7。<br>所以当我们请求”foo python-2.6”的时候，可以确定得到的是哪个变体。<br>然而，变体并不总会相互排斥，比如下面这个例子：</p>
+<div class="hljs"><pre><code class="hljs ini"><span class="hljs-attr">name</span> = <span class="hljs-string">&quot;geocache&quot;</span>
+
+<span class="hljs-attr">variants</span> = [
+    [<span class="hljs-string">&quot;maya-2016&quot;</span>],
+    [<span class="hljs-string">&quot;houdini-14&quot;</span>]
+]</code></pre></div>
+
+<p>如果我们运行<code>rez-env geocache</code>，我们会得到哪一个变体？这里肯定不能直接用版本进行比较，<br>那如果我们这样进行选择<code>rez-env geocache maya</code>，也许会得到第一个变体？</p>
+<p>这里的关键字”maya”是选择偏好，但因为变体不是互斥的，所以我们不能保证上述的解决方案是确定的。<br>再看下面这个例子：</p>
+<div class="hljs"><pre><code class="hljs angelscript">]$ rez-env geocache maya animtools<span class="hljs-number">-1.4</span></code></pre></div>
+
+<p>我们请求geocache时，期望获得maya-2016的变体。但animtools需要maya-2017该怎么办？<br>这将导致rez无法选择geocache中的第一个变体maya，而去选择第二个houdini，这是错误的。</p>
+<p><strong>Notes</strong>：rez计划添加一个新的包请求语法，能够显式的选择包变体，避免这样的歧义。</p>
+<h1 id="为什么使用变体"><a href="#为什么使用变体" class="headerlink" title="为什么使用变体"></a>为什么使用变体</h1><p>变体是rez中的一种强大的机制。</p>
+<p>它们避免了为支持不同的依赖关系而维护大量独立包的繁琐需求。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <a href="http://beian.miit.gov.cn/" target="_blank"
+       rel="nofollow noopener">京ICP证123456号</a>
+    
+      <a
+        href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12345678"
+        rel="nofollow noopener"
+        class="beian-police"
+        target="_blank"
+      >
+        <span class="beian-police-sep">&nbsp;|&nbsp;</span>
+        
+          <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon" />
+        
+        <span>京公网安备12345678号</span>
+      </a>
+     
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Variants&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'G-M9TPSKV7NY# Google 统计的 Tracking ID，参见 https://analytics.google.com/analytics/web/', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+</body>
+</html>

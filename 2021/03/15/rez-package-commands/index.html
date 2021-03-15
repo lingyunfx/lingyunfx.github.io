@@ -1,0 +1,696 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="关于电影视效的经验与分享">
+  <meta name="author" content="Lingyun Zhang">
+  <meta name="keywords" content="">
+  <title>Package Commands - 凌云的个人博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/hopscotch.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>凌云的个人博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Lingyun Zhang
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-15 15:23" pubdate>
+        2021年3月15日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      43
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Package Commands</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>程序包定义文件（package.py）通常定义命令的部分。<br>这是一个例子，用于确定如何配置环境和软件包的Python函数：</p>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">commands</span>():</span>
+  env.PYTHONPATH.append(<span class="hljs-string">&quot;&#123;root&#125;/python&quot;</span>)
+  env.PATH.append(<span class="hljs-string">&quot;&#123;root&#125;/bin&quot;</span>)</code></pre></div>
+
+<p>这是一个典型例子，程序包将其路径添加到PYTHONPATH，并将其工具添加到PATH。<br><code>&#123;root&#125;</code> 字符串代表软件包的安装目录。</p>
+<p>配置rez环境后，解析列表中的每个软件包都将其命令部分解释并转换为shell代码。<br>（bash或其它，这取决于系统平台。）shell代码是源代码，用于配置环境。<br>在已配置的环境中，变量<code>REZ_CONTEXT_FILE</code>指向此shell代码文件，</p>
+<p>然后命令<code>rez-context-interper</code>会对其进行打印输出。</p>
+<p>在commands函数中使用的python API称为rex（rez执行语言）。<br>你可以使用此API执行一些常见操作，包括设置环境变量。</p>
+<p><strong>注意</strong>：如果需要导入任何python模块在命令部分中使用，则import语句必须在该函数中。</p>
+<h1 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h1><p>包的commands执行顺序取决于两个因素，请求包的顺序和包之间的依赖关系。</p>
+<ul>
+<li>如果程序包B之前请求了程序包A，则A的命令在B之前解释执行</li>
+<li>除非程序包A需要（取决于）程序包B，在这种情况下，程序包B将优先解释执行</li>
+</ul>
+<p>比如一个名为”maya_anim_tool”的包，肉眼可见的它是一个maya插件，它依赖于maya。<br>因此，将优先解释执行maya的命令，这是因为maya插件可能取决于maya设置的某些环境变量。<br>maya会初始化MAYA_PLUG_IN_PATH变量，然后”maya_anim_tool”会添加到这里面。</p>
+<p>一个例子：<br><code>rez-env maya_anim_tool-1.3+ PyYAML-3.10 maya-2015</code></p>
+<p>假设PyYAML依赖于python，而maya_anim_tool依赖于maya，则命令的执行顺序为：</p>
+<ul>
+<li>maya</li>
+<li>maya_anim_tool</li>
+<li>python</li>
+<li>PyYAML</li>
+</ul>
+<h1 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h1><p>对于类PATH的环境变量，可以添加到此变量前面，或后面。<br>比如向后添加：<br><code>env.PATH.append(&quot;&#123;root&#125;/bin&quot;)</code></p>
+<p>不过，对于任何给定变量的第一个append/prepend操作实际上会覆盖该变量。<br>因为考虑到了”PYTHONPATH”在系统级别上已经配置了一些PATH变量。  </p>
+<p>例如，PyQt在系统变量的”PYTHONPATH”上，同时又使用rez-env设置了不同版本的PyQt，<br>那么在已配置版本的环境中导入它，仍然会不正确的导入系统版本。</p>
+<p><strong>Tips</strong>：<br>PATH比较特殊，它不是简单的覆盖，因为这样会丢失一些重要的系统路径，比如无法使用<code>ls</code>或<code>cd</code>等命令。<br>通常这种情况下，在解释完所有命令后，系统路径将附加回PATH。</p>
+<p>rez将来的新特性可以为变量指定各种模式，例如一种模式会将原始（pre-rez）值附加回结果值。</p>
+<h1 id="支持的字符引用"><a href="#支持的字符引用" class="headerlink" title="支持的字符引用"></a>支持的字符引用</h1><h2 id="可引用的对象字符"><a href="#可引用的对象字符" class="headerlink" title="可引用的对象字符"></a>可引用的对象字符</h2><p>commands部分可用的任何对象都可以作为字符引用，该字符会传递给rex函数，例如：</p>
+<p><code>appendenv(&quot;PATH&quot;, &quot;&#123;root&#125;/bin&quot;)</code></p>
+<p>在这里”{root}”将解释为root的值，root的值是软件包的安装路径（也可以使用”this.root”）。</p>
+<p>它的代码和下述是同样的意思，只是下述的代码更冗长：</p>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os.path
+appendenv(<span class="hljs-string">&quot;PATH&quot;</span>, os.path.join(root, <span class="hljs-string">&quot;bin&quot;</span>))</code></pre></div>
+
+<p>通过env对象还支持下面这种写法：</p>
+<p><code>env.FOO_LIC = &quot;&#123;this.root&#125;/lic&quot;</code></p>
+<h2 id="环境变量引用字符"><a href="#环境变量引用字符" class="headerlink" title="环境变量引用字符"></a>环境变量引用字符</h2><p>支持语法是$FOO和${FOO}。</p>
+<h2 id="Literal函数"><a href="#Literal函数" class="headerlink" title="Literal函数"></a>Literal函数</h2><p>你可以使用<code>literal</code>函数，来将对象或环境变量的特殊字符注释掉。比如：</p>
+<p><code>env.TEST = literal(&quot;this &#123;root&#125; will not expand&quot;)</code></p>
+<p>它还有个扩展功能是，类似格式化字符的用法，将字符和变量组合起来：</p>
+<p><code>env.DESC = literal(&quot;the value of &#123;root&#125; is&quot;).expandable(&quot;&#123;root&#125;&quot;)</code></p>
+<h2 id="expandvars函数"><a href="#expandvars函数" class="headerlink" title="expandvars函数"></a>expandvars函数</h2><p>字符引用通常只在将字符传递给rex函数或env对象的时候发生。</p>
+<p>例如一个简单的语句”var = {root}/bin”，这里的”{root}”就不会被解释成安装包路径。</p>
+<p>但是可以使用<code>expandvars</code>函数来启用字符引用：</p>
+<p><code>var = expandvars(&quot;&#123;root&#125;/bin&quot;)</code></p>
+<h1 id="预载和后置命令"><a href="#预载和后置命令" class="headerlink" title="预载和后置命令"></a>预载和后置命令</h1><p>我们可以为程序包设置pre_commands或post_commands。</p>
+<p>执行顺序为：</p>
+<ul>
+<li>所有软件包的pre_commands以标准顺序执行</li>
+<li>然后执行所有包的commands</li>
+<li>最后执行所有包的post_commands</li>
+</ul>
+<h1 id="预构建命令"><a href="#预构建命令" class="headerlink" title="预构建命令"></a>预构建命令</h1><p>在构建一个软件包的时候是不会执行commands的，原因是软件包不在其自身的构建环境中。</p>
+<p>但是有时候需要在构建的时候运行命令，例如将一些环境变量传递到构建系统。</p>
+<p><code>pre_build_commands</code>函数就可以实现。</p>
+<h1 id="预测试命令"><a href="#预测试命令" class="headerlink" title="预测试命令"></a>预测试命令</h1><p>在运行包测试的环境中执行一些额外的配置很有用。</p>
+<p>可以定义<code>pre_test_commands</code>函数来执行此操作。</p>
+<h1 id="一个例子"><a href="#一个例子" class="headerlink" title="一个例子"></a>一个例子</h1><p>这是一个包定义的示例，其中的commands部分非常冗长：</p>
+<div class="hljs"><pre><code class="hljs python">name = <span class="hljs-string">&quot;foo&quot;</span>
+
+version = <span class="hljs-string">&quot;1.0.0&quot;</span>
+
+requires = [
+    <span class="hljs-string">&quot;python-2.7&quot;</span>,
+    <span class="hljs-string">&quot;~maya-2015&quot;</span>
+]
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">commands</span>():</span>
+    <span class="hljs-keyword">import</span> os.path  <span class="hljs-comment"># imports MUST be inline to the function</span>
+
+    <span class="hljs-comment"># add python module, executables</span>
+    env.PYTHONPATH.append(<span class="hljs-string">&quot;&#123;this.root&#125;/python&quot;</span>)
+    env.PATH.append(<span class="hljs-string">&quot;&#123;this.root&#125;/bin&quot;</span>)
+
+    <span class="hljs-comment"># show include path if a build is occurring</span>
+    <span class="hljs-keyword">if</span> building:
+        env.FOO_INCLUDE_PATH = <span class="hljs-string">&quot;&#123;this.root&#125;/include&quot;</span>
+
+    <span class="hljs-comment"># debug support to point at local config</span>
+    <span class="hljs-keyword">if</span> defined(<span class="hljs-string">&quot;DEBUG_FOO&quot;</span>):
+        conf_file = os.path.expanduser(<span class="hljs-string">&quot;~/.foo/config&quot;</span>)
+    <span class="hljs-keyword">else</span>:
+        conf_file = <span class="hljs-string">&quot;&#123;this.root&#125;/config&quot;</span>
+    env.FOO_CONFIG_FILE = conf_file
+
+    <span class="hljs-comment"># if maya is in use then include the maya plugin part of this package</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-string">&quot;maya&quot;</span> <span class="hljs-keyword">in</span> resolve:
+        env.MAYA_PLUG_IN_PATH.append(<span class="hljs-string">&quot;&#123;this.root&#125;/maya/plugins&quot;</span>)
+
+        <span class="hljs-keyword">if</span> resolve.maya.version.minor == <span class="hljs-string">&quot;sp3&quot;</span>:
+            error(<span class="hljs-string">&quot;known issue with GL renderer in service pack 3, beware&quot;</span>)
+
+    <span class="hljs-comment"># license file per major version</span>
+    env.FOO_LIC = <span class="hljs-string">&quot;/lic/foo_&#123;this.version.major&#125;.lic&quot;</span></code></pre></div>
+
+<h1 id="可使用的对象"><a href="#可使用的对象" class="headerlink" title="可使用的对象"></a>可使用的对象</h1><p>commands函数中（包括pre_commands和post_commands）可以使用各种对象和函数。<br>例如，env是类似dict对象，表示目标环境中构造的所有环境变量。<br>以下是可用对象和功能：</p>
+<h2 id="alias（Function"><a href="#alias（Function" class="headerlink" title="alias（Function)"></a>alias（Function)</h2><p>创建一个命令别名。</p>
+<p><code>alias(&quot;nukex&quot;, &quot;Nuke -x&quot;)</code></p>
+<h2 id="base（String）"><a href="#base（String）" class="headerlink" title="base（String）"></a>base（String）</h2><p><strong>this.base</strong>: 与this.root类似，但不包含变量的子路径（如果有的话）。</p>
+<h2 id="build（Dict-like-object）"><a href="#build（Dict-like-object）" class="headerlink" title="build（Dict-like object）"></a>build（Dict-like object）</h2><div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">if</span> build.install:
+	info(<span class="hljs-string">&quot;An installation is taking place&quot;</span>)</code></pre></div>
+
+<p>这个对象只能在”pre_build_commands”函数中使用。有以下字段：</p>
+<ul>
+<li><strong>build.build_type</strong>：参数可以是”local”或”central”，表示发布软件包在本地或是中央存储库。</li>
+<li><strong>build.install</strong>： 如果安装在进行中返回True，否则返回False。</li>
+<li><strong>build.build_path</strong>：构建目录的路径（不是安装路径）。通常位于要构建软件包的./build子目录中的某个位置。</li>
+<li><strong>build.install_path</strong>：安装目录的路径。注意即使没有进行安装也会进行设置。（不要检查这个变量来检测是否正在安装）。</li>
+</ul>
+<h2 id="building（Boolean）"><a href="#building（Boolean）" class="headerlink" title="building（Boolean）"></a>building（Boolean）</h2><div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">if</span> building:
+    env.FOO_INCLUDE_PATH = <span class="hljs-string">&quot;&#123;root&#125;/include&quot;</span></code></pre></div>
+
+<p>如果正在进行构建（通常用rez-build工具完成），则此布尔变量为True，否则为False。<br>常见的用法是，一个包会使用这个判断来设置环境变量，这些变量只在构建过程中生效。<br>比如上述的例子。</p>
+<h2 id="command（Function）"><a href="#command（Function）" class="headerlink" title="command（Function）"></a>command（Function）</h2><p><code>command(&quot;rm -rf ~/.foo_plugin&quot;)</code></p>
+<p>运行任意的shell命令。注意不能用这个函数来获取返回值，因为命令并没有运行。<br>只要在包被解释并转换为shell语言之后才会执行它们的命令。<br>如果有需要的话，尽可能在Python中执行简单的操作（例如文件操作等）。<br>它可以立即生效，且跨平台使用。如下：</p>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">commands</span>():</span>
+    <span class="hljs-keyword">import</span> shutil
+    <span class="hljs-keyword">import</span> os.path
+    path = os.path.expanduser(<span class="hljs-string">&quot;~/.foo_plugin&quot;</span>)
+    <span class="hljs-keyword">if</span> os.path.exists(path):
+        shutil.rmtree(path)</code></pre></div>
+
+<h2 id="comment（Function）"><a href="#comment（Function）" class="headerlink" title="comment（Function）"></a>comment（Function）</h2><div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">if</span> <span class="hljs-string">&quot;nuke&quot;</span> <span class="hljs-keyword">in</span> resolve:
+    comment(<span class="hljs-string">&quot;note: taking over &#x27;nuke&#x27; binary!&quot;</span>)
+    alias(<span class="hljs-string">&quot;nuke&quot;</span>, <span class="hljs-string">&quot;foo_nuke_replacer&quot;</span>)</code></pre></div>
+
+<p>在转换后的shell脚本代码中创建注释行。当用户使用命令<code>rez-context —interpret</code>或查看环境变量”REZ_CONTEXT_FILE”所引用的文件时，可以看到这个注释行。</p>
+<h2 id="defined（Function）"><a href="#defined（Function）" class="headerlink" title="defined（Function）"></a>defined（Function）</h2><div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">if</span> defined(<span class="hljs-string">&quot;REZ_MAYA_VERSION&quot;</span>):
+    env.FOO_MAYA = <span class="hljs-number">1</span></code></pre></div>
+
+<p>这个布尔函数将返回是否设置了这个环境变量。</p>
+<h2 id="env（Dict-like-object）"><a href="#env（Dict-like-object）" class="headerlink" title="env（Dict-like object）"></a>env（Dict-like object）</h2><div class="hljs"><pre><code class="hljs python">env.FOO_DEBUG = <span class="hljs-number">1</span>
+env[<span class="hljs-string">&quot;BAH_LICENSE&quot;</span>] = <span class="hljs-string">&quot;/lic/bah.lic&quot;</span></code></pre></div>
+
+<p>env对象表示所配置的环境变量字典。需要注意的是，这和python的os.environ返回的字典不一样。<br>env只表示正在配置的环境，如果之前的程序通过env对象设置了变量，则只能在env中看到变量，<br>os.environ是看不到的，因为os.environ并不会随之更新。</p>
+<p>env对象还提供以下功能：</p>
+<ul>
+<li><p>env.append（Function）<br><code>env.PATH.append(&quot;&#123;root&#125;/bin&quot;)</code><br>将值附加到环境变量中。默认它使用os.pathsep分隔符，<br>但是也可以配置”env_var_separators”覆盖它。</p>
+</li>
+<li><p>env.prepend（Function）<br><code>env.PYTHONPATH.prepend(&quot;&#123;root&#125;/python&quot;)</code><br>同上，只是将变量加到最前面。</p>
+</li>
+</ul>
+<h2 id="ephemerals（Dict-like-object）"><a href="#ephemerals（Dict-like-object）" class="headerlink" title="ephemerals（Dict-like object）"></a>ephemerals（Dict-like object）</h2><div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">if</span> <span class="hljs-string">&quot;foo.cli&quot;</span> <span class="hljs-keyword">in</span> ephemerals:
+    info(<span class="hljs-string">&quot;Foo cli option is being specified!&quot;</span>)</code></pre></div>
+
+<p>代表已解析完成环境中的临时字典。字典里每一项都是一个字符串（例如fooc.li-1），使用get_range来测试intersects函数（一个布尔函数，如果给定对象的版本在给定版本范围内，则返回True），下面是一个用法示例：</p>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">if</span> intersects(ephemerals.get_range(<span class="hljs-string">&quot;foo.cli&quot;</span>, <span class="hljs-string">&quot;1&quot;</span>), <span class="hljs-string">&quot;1&quot;</span>):
+    info(<span class="hljs-string">&quot;Enabling foo cli tools&quot;</span>)
+    env.PATH.append(<span class="hljs-string">&quot;&#123;root&#125;/bin&quot;</span>)</code></pre></div>
+
+<h2 id="error（Function）"><a href="#error（Function）" class="headerlink" title="error（Function）"></a>error（Function）</h2><div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">if</span> <span class="hljs-string">&quot;PyQt&quot;</span> <span class="hljs-keyword">in</span> resolve:
+    error(<span class="hljs-string">&quot;The floob package has problems running in combo with PyQt&quot;</span>)</code></pre></div>
+
+<p>打印一个标准错误，只有打印作用，不会阻止环境构建（要阻止使用stop命令）。</p>
+<h2 id="getenv（Function）"><a href="#getenv（Function）" class="headerlink" title="getenv（Function）"></a>getenv（Function）</h2><div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">if</span> getenv(<span class="hljs-string">&quot;REZ_MAYA_VERSION&quot;</span>) == <span class="hljs-string">&quot;2016.sp1&quot;</span>:
+    <span class="hljs-keyword">pass</span></code></pre></div>
+
+<p>获取环境变量的值，如果变量不存在，触发”RexUndefinedVariableError”。</p>
+<h2 id="implicit（Dict-like-object）"><a href="#implicit（Dict-like-object）" class="headerlink" title="implicit（Dict-like object）"></a>implicit（Dict-like object）</h2><div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">if</span> <span class="hljs-string">&quot;platform&quot;</span> <span class="hljs-keyword">in</span> implicits:
+    <span class="hljs-keyword">pass</span></code></pre></div>
+
+<p>类似于request对象（request表示程序包请求列表组成的字典），不同的是它仅包含由implicit_packages配置定义的包请求。</p>
+<h2 id="info（Function）"><a href="#info（Function）" class="headerlink" title="info（Function）"></a>info（Function）</h2><p><code>info(&quot;floob version is %s&quot; % resolve.floob.version)</code></p>
+<p>打印一个标准输出。</p>
+<h2 id="intersects（Function）"><a href="#intersects（Function）" class="headerlink" title="intersects（Function）"></a>intersects（Function）</h2><div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">if</span> intersects(resolve.maya, <span class="hljs-string">&quot;2019+&quot;</span>):
+    info(<span class="hljs-string">&quot;Maya 2019 or greater is present&quot;</span>)</code></pre></div>
+
+<p>一个布尔函数，如果给定对象的版本在给定的版本范围内，则返回True。</p>
+<p>可查询的有效对象包括：</p>
+<ul>
+<li>一个已解析的包，eg <code>resolve.maya</code></li>
+<li>一个包请求，eg <code>request.foo</code></li>
+<li>一个已解析包的版本，eg <code>resolve.maya.version</code></li>
+<li>一个已解析的ephemeral，eg <code>ephemerals.foo</code></li>
+<li>一个版本范围对象，eg <code>ephemerals.get_range(&#39;foo.cli&#39;, &#39;1&#39;)</code></li>
+</ul>
+<p>注意：不要这样做<code>if intersects(ephemerals.get(&quot;foo.cli&quot;, &quot;0&quot;), &quot;1&quot;): ...</code><br>如果不存在”foo.cli”，这将把返回的默认值0与范围1进行比较，它会返回True。</p>
+<p>在测试临时对象的交集时，请使用get_range：<br><code>if intersects(ephemerals.get_range(&quot;foo.cli&quot;, &quot;0&quot;), &quot;1&quot;): ...</code></p>
+<h2 id="literal（Function）"><a href="#literal（Function）" class="headerlink" title="literal（Function）"></a>literal（Function）</h2><p>将特殊字符注释掉（使其失效）。<br><code>env.FOO = literal(&quot;this &#123;root&#125; will not expand&quot;)</code>  </p>
+<p>也可以像这样将文字和可扩展字符链接起来：<br><code>env.FOO = literal(&quot;the value of &#123;root&#125; is&quot;).expandable(&quot;&#123;root&#125;&quot;)</code></p>
+<h2 id="request（Dict-like-object）"><a href="#request（Dict-like-object）" class="headerlink" title="request（Dict-like object）"></a>request（Dict-like object）</h2><div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">if</span> <span class="hljs-string">&quot;maya&quot;</span> <span class="hljs-keyword">in</span> request:
+    info(<span class="hljs-string">&quot;maya was asked for!&quot;</span>)</code></pre></div>
+
+<p>表示包请求列表的字典，以包的名称为键，比如下面这条命令。</p>
+<div class="hljs"><pre><code class="hljs angelscript">]$ rez-env maya<span class="hljs-number">-2015</span> maya_utils<span class="hljs-number">-1.2</span>+&lt;<span class="hljs-number">2</span> !corelib<span class="hljs-number">-1.4</span><span class="hljs-number">.4</span></code></pre></div>
+
+<p>会生成如下的对象：</p>
+<div class="hljs"><pre><code class="hljs json">&#123;
+    <span class="hljs-attr">&quot;maya&quot;</span>: <span class="hljs-string">&quot;maya-2015&quot;</span>,
+    <span class="hljs-attr">&quot;maya_utils&quot;</span>: <span class="hljs-string">&quot;maya_utils-1.2+&lt;2&quot;</span>,
+    <span class="hljs-attr">&quot;corelib&quot;</span>: <span class="hljs-string">&quot;!corelib-1.4.4&quot;</span>
+&#125;</code></pre></div>
+
+<p>使用get_range函数来测试intersects函数：</p>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">if</span> intersects(request.get_range(<span class="hljs-string">&quot;maya&quot;</span>, <span class="hljs-string">&quot;0&quot;</span>), <span class="hljs-string">&quot;2019&quot;</span>):
+    info(<span class="hljs-string">&quot;maya 2019.* was asked for!&quot;</span>)</code></pre></div>
+
+<h2 id="resolve（Dict-like-object）"><a href="#resolve（Dict-like-object）" class="headerlink" title="resolve（Dict-like object）"></a>resolve（Dict-like object）</h2><div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">if</span> <span class="hljs-string">&quot;maya&quot;</span> <span class="hljs-keyword">in</span> resolve:
+    info(<span class="hljs-string">&quot;Maya version is %s&quot;</span>, resolve.maya.version)
+    <span class="hljs-comment"># ..or resolve[&quot;maya&quot;].version</span></code></pre></div>
+
+<p>表示已解析环境中的包列表字典。每个键为包的名称，值为包对象。</p>
+<h2 id="root（String）"><a href="#root（String）" class="headerlink" title="root（String）"></a>root（String）</h2><p><code>this.root</code><br>包的安装目录，如果程序包包含变量，则此路径包含变量的子路径。</p>
+<h2 id="setenv（Function）"><a href="#setenv（Function）" class="headerlink" title="setenv（Function）"></a>setenv（Function）</h2><p><code>setenv(&quot;FOO_PLUGIN_PATH&quot;, &quot;&#123;root&#125;/plugins&quot;)</code><br>将环境变量设置为给定的值。相当于<code>env.FOO = &quot;BAH&quot;</code></p>
+<h2 id="source（Function）"><a href="#source（Function）" class="headerlink" title="source（Function）"></a>source（Function）</h2><p><code>source(&quot;&#123;root&#125;/scripts/init.sh&quot;)</code><br>执行一个shell脚本。类似于commands，此函数不会有返回值。</p>
+<h2 id="stop（Function）"><a href="#stop（Function）" class="headerlink" title="stop（Function）"></a>stop（Function）</h2><p><code>stop(&quot;The value should be %s&quot;, expected_value)</code><br>引发异常并阻止继续解析。当检测到无法配置有效环境的错误时，使用它。</p>
+<h2 id="system（System-object）"><a href="#system（System-object）" class="headerlink" title="system（System object）"></a>system（System object）</h2><div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">if</span> system.platform == <span class="hljs-string">&quot;windows&quot;</span>:
+    ...</code></pre></div>
+
+<p>该对象提供系统信息，比如当前平台，架构或操作系统。<br>查看这个文件可以获取更多信息：<a target="_blank" rel="noopener" href="https://github.com/nerdvegas/rez/blob/master/src/rez/system.py">https://github.com/nerdvegas/rez/blob/master/src/rez/system.py</a></p>
+<h2 id="test（Dict-like-object）"><a href="#test（Dict-like-object）" class="headerlink" title="test（Dict-like object）"></a>test（Dict-like object）</h2><div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">if</span> test.name == <span class="hljs-string">&quot;unit&quot;</span>:
+    info(<span class="hljs-string">&quot;My unit test is about to run yay&quot;</span>)</code></pre></div>
+
+<p>这个对象仅在”pre_test_commands”函数中生效。具有以下的字段：</p>
+<ul>
+<li>test.name：将要运行的测试名称。</li>
+</ul>
+<h2 id="this（Package-object）"><a href="#this（Package-object）" class="headerlink" title="this（Package object）"></a>this（Package object）</h2><div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os.path
+env.PATH.append(os.path.join(this.root, <span class="hljs-string">&quot;bin&quot;</span>))</code></pre></div>
+
+<p>表示当前包，下面是一些常用的命令：</p>
+<ul>
+<li>this.base：类似this.root，返回包路径，不包含子路径。</li>
+<li>this.name：包的名字，比如”houdini”。</li>
+<li>this.root：包的安装路径，包含子路径。</li>
+<li>this.version：返回版本对象，可以作为一个字符串使用，也可以访问版本中特定标识（如主要版本号等），演示代码：<code>env.FOO_MAJOR = this.version.major # or, this.version[0]</code></li>
+</ul>
+<h2 id="undefined（Function）"><a href="#undefined（Function）" class="headerlink" title="undefined（Function）"></a>undefined（Function）</h2><div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">if</span> undefined(<span class="hljs-string">&quot;REZ_MAYA_VERSION&quot;</span>):
+    info(<span class="hljs-string">&quot;maya is not present&quot;</span>)</code></pre></div>
+
+<p>一个布尔函数，环境变量如果没有被定义则返回True，与defined刚好相反。</p>
+<h2 id="unsetenv（Function）"><a href="#unsetenv（Function）" class="headerlink" title="unsetenv（Function）"></a>unsetenv（Function）</h2><p><code>unsetenv(&quot;FOO_LIC_SERVER&quot;)</code><br>删除指定的环境变量，如果没有这个环境变量，则该函数不执行任何操作。</p>
+<h2 id="version（Version-object）"><a href="#version（Version-object）" class="headerlink" title="version（Version object）"></a>version（Version object）</h2><p>版本对象。可以见上述的this.version。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <a href="http://beian.miit.gov.cn/" target="_blank"
+       rel="nofollow noopener">京ICP证123456号</a>
+    
+      <a
+        href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12345678"
+        rel="nofollow noopener"
+        class="beian-police"
+        target="_blank"
+      >
+        <span class="beian-police-sep">&nbsp;|&nbsp;</span>
+        
+          <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon" />
+        
+        <span>京公网安备12345678号</span>
+      </a>
+     
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Package Commands&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'G-M9TPSKV7NY# Google 统计的 Tracking ID，参见 https://analytics.google.com/analytics/web/', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+</body>
+</html>
