@@ -153,6 +153,112 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/04/11/maya-python-learning003/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/maya_python_learn002.png" srcset="/img/loading.gif" alt="Maya &amp; Python 快速学系列（三）">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/04/11/maya-python-learning003/">Maya &amp; Python 快速学系列（三）</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/04/11/maya-python-learning003/">
+          
+          
+            
+          
+          本节会对之前讲过的知识进行一些补充（讲理论了），然后动手实练写出一个maya小工具。一个给locator添加锥体的工具。效果是这样：
+
+下面先补充一些理论知识
+赋值的概念扩展什么可以对变量进行赋值？python基本数据类型都可以赋值给变量，比如：  
+a = &#x27;car&#x27;                      # 字符串
+b = 10                     
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-11 17:50" pubdate>
+              2021-04-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/DCC/">DCC</a>
+            
+              <a href="/categories/DCC/Maya/">Maya</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/04/11/maya-python-learning002/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/maya_python_learn031.png" srcset="/img/loading.gif" alt="Maya &amp; Python 快速学系列（二）">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/04/11/maya-python-learning002/">Maya &amp; Python 快速学系列（二）</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/04/11/maya-python-learning002/">
+          
+          
+            
+          
+          赋值还记得上一节学的赋值吗？下面就来说说赋值的作用。
+我们在对一个立方体进行操作的时候，得事先知道这个立方体的名字。立方体的名字我们能从大纲视图里看到。它或许叫pCube1,pCube2,pCube3…  
+然后再执行这样的命令来操控它 cmds.move(5, &#39;pCube1&#39;, moveX=True)
+而赋值的优势是，我们不需要care刚刚创建的立方体叫什么，因为我们可以在创建
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-11 15:29" pubdate>
+              2021-04-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/DCC/">DCC</a>
+            
+              <a href="/categories/DCC/Maya/">Maya</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2021/04/11/maya-python-learning001/" target="_self">
           <img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/maya_love_python2.jpg" srcset="/img/loading.gif" alt="Maya &amp; Python 快速学系列（一）">
         </a>
@@ -567,113 +673,6 @@ rez最开始是Dr.D Studio于2011年用python写的依赖解算器，于2012年�
               <a href="/categories/DCC/">DCC</a>
             
               <a href="/categories/DCC/Maya/">Maya</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/02/17/maya-tips-001/" target="_self">
-          <img src="https://i.loli.net/2021/02/17/MqkBjthrSdEWumZ.jpg" srcset="/img/loading.gif" alt="Maya的效率使用和技巧（一）">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/17/maya-tips-001/">Maya的效率使用和技巧（一）</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/17/maya-tips-001/">
-          
-          
-            
-          
-          前言收集了一些Maya使用效率的技巧。大致来源于一些博客，视频教程和平时使用的经验。废话不多说，开始。
-1.清理优化场景文件有时候我们拿到一个文件，明明场景里只有一个人物rig动画。但是当我们对它进行调整，或是打开保存文件的时候，会异常的慢。这有可能是场景中存在了很多未被使用的材质或动画曲线等一系列垃圾节点。  
-这个时候需要用到Maya自带的优化功能进行清理。  
-
-可以根据需要进行清理，不过在
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-17 18:40" pubdate>
-              2021-02-17
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/DCC/">DCC</a>
-            
-              <a href="/categories/DCC/Maya/">Maya</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/02/15/pyqt4to5/" target="_self">
-          <img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/pyqt.png" srcset="/img/loading.gif" alt="将PyQt4代码转到PyQt5">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/15/pyqt4to5/">将PyQt4代码转到PyQt5</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/15/pyqt4to5/">
-          
-          
-            
-          
-          最近在读这本经典的GUI编程书《Python Qt GUI快速编程》。  
-  
-
-在这之前虽然已经写了很多的图形界面了，但是一直没有系统的学过PyQt。蹭着节假日期间，可以好好的咬咬这本书。  
-书中的代码示例是用的PyQt4，和即将淘汰的Python2。而在学习的时候需要一点前瞻性，需要考虑到今后对知识的使用，和它的时效。  
-SCP-079-TIP说：Python2已经停止维护了。（而PyQ
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-15 09:02" pubdate>
-              2021-02-15
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Python/">Python</a>
-            
-              <a href="/categories/Python/PyQt/">PyQt</a>
             
           </div>
         
