@@ -19,7 +19,7 @@
   <meta name="description" content="关于电影视效的经验与分享">
   <meta name="author" content="Lingyun Zhang">
   <meta name="keywords" content="">
-  <title>Maya动画变速工具 - 凌云的个人博客</title>
+  <title>Maya &amp; Python 快速学系列（二） - 凌云的个人博客</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -148,8 +148,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-04-06 18:16" pubdate>
-        2021年4月6日 晚上
+      <time datetime="2021-04-12 10:19" pubdate>
+        2021年4月12日 上午
       </time>
     </span>
   
@@ -160,7 +160,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      990 字
+      760 字
     </span>
   
 
@@ -170,7 +170,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10
+      8
        分钟
     </span>
   
@@ -208,68 +208,49 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">Maya动画变速工具</h1>
+            <h1 style="display: none">Maya &amp; Python 快速学系列（二）</h1>
             
             <div class="markdown-body" id="post-body">
-              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前段时间朋友接了个外包，实拍的原始素材在nuke里进行了变速，而一些cg动画在原素材中已经制作完成，<br>需要一个工具对maya文件中动画进行相同的变速来匹配变速后的素材。</p>
-<p>其实变速的原理和实现并不是特别复杂，不过繁复的数值计算需要借助脚本来实现。  </p>
-<p>然后借着节假日的最后一天，写了这个变速工具。<br>这篇文章简单的记录下过程，并把它分享给需要的朋友。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/tool_ui.jpeg" srcset="/img/loading.gif"></p>
-<h2 id="变速的方式"><a href="#变速的方式" class="headerlink" title="变速的方式"></a>变速的方式</h2><p>变速实际上是对原始素材的抽帧和补帧，<br>而对于我们来说，最需要知道的是：<br><strong>变速后的每一帧，对应的是原始素材中哪一帧画面。</strong></p>
-<p>比如，知道变速后的1001帧，是原本的1005帧，<br>这样把1005帧的动画复制到变速后的1001帧，<br>就可以完成了这一帧的匹配。</p>
-<p>为了得知变速后的对应原始帧，我们可以用这样一个验证方式。<br>首先用软件输出一个这样的（纯数字）序列帧。  </p>
-<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/sequences_number.gif" srcset="/img/loading.gif"></p>
-<p>然后套上变速节点进行观察。<br>在Nuke中常用的变速节点有<code>Retime</code>，<code>OFlow</code>，<code>Kronos</code>等。</p>
-<p>首先使用retime节点做最简单的<strong>倍速变速</strong>。<br>这里为范围1001-1100的序列帧做一个1.9倍的变速，<br>filter就默认使用box。  </p>
-<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/retime_node_01.jpg" srcset="/img/loading.gif"></p>
-<p>点击变速后的每一帧，可以看到对应的图像。<br>比如变速后的1025帧的图像为原始1046和1047的融合。  </p>
-<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/retime_node02.gif" srcset="/img/loading.gif"></p>
-<p>然而每个变速节点又有几种不同的变速方式，<br>这里的retime节点就有<code>none</code>，<code>box</code>和<code>nearest</code>三种方式。<br>尝试不同的变速方式能看出，有的是直接进行取整，有的是会融合前后帧。  </p>
-<p>通过这些尝试和观察，对于直接的倍数变速，推导出这样一个公式：<br><code>起始帧 + (变速后的帧数指数)*倍数 - 倍数</code><br><strong>注意：</strong>这里指数是指变速后序列的第几帧。  </p>
-<p>比如变速后的1035帧的指数就为35。（起始帧为1001帧的情况下）<br>把上述的公式带进去可以得到结果：<br><code>1001 + 35*1.9 - 1.9 = 1065.6</code></p>
-<p>针对于retime节点，不同的变速方式它的取值为：</p>
+              <h2 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h2><p>还记得上一节学的<strong>赋值</strong>吗？下面就来说说赋值的作用。</p>
+<p>我们在对一个立方体进行操作的时候，得事先知道这个立方体的名字。<br>立方体的名字我们能从大纲视图里看到。它或许叫pCube1,pCube2,pCube3…  </p>
+<p>然后再执行这样的命令来操控它 <code>cmds.move(5, &#39;立方体名称&#39;, moveX=True)</code></p>
+<p><strong>而赋值的优势是，我们不需要care刚刚创建的立方体叫什么，</strong><br>因为我们可以在创建它的时候，把它赋值给一个变量。<br>至于变量名嘛，你可以随便取。比如：  </p>
+<div class="hljs"><pre><code class="hljs python">my_box = cmds.polyCube()
+cmds.move(<span class="hljs-number">5</span>, my_box, moveX=<span class="hljs-literal">True</span>)</code></pre></div>
+
+<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/maya_python_learn021.gif" srcset="/img/loading.gif"></p>
+<p>看，它同样是有效的。<br>其实这行命令<code>cmds.move(5, my_box, moveX=True)</code>等同于<code>cmds.move(5, &#39;pCube1&#39;, moveX=True)</code>。  </p>
+<p>这里或许想问，为什么<code>&#39;pCube1&#39;</code>需要用引号包起来，而<code>my_box</code>则不需要呢？<br>因为前者是字符串，而后者是变量。变量不能用引号包起来。</p>
+<p>至于为什么它们是等同的，你用<code>print()</code>语句来查看一下my_box变量的值就知道了。<br>可以看到在脚本编辑器的输出区，返回了这样的字符：</p>
+<div class="hljs"><pre><code class="hljs awk">[<span class="hljs-string">u&#x27;pCube1&#x27;</span>, <span class="hljs-string">u&#x27;polyCube1&#x27;</span>]</code></pre></div>
+
+<p><code>[]</code>中括号包起来的数据，在上一节讲过，是一个<strong>列表</strong>。<br>而列表中的两个元素都是指向同一个物体pCube1的。</p>
+ <img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/maya_python_learn022.png" srcset="/img/loading.gif" width="30%" height="30%" alt="" align=center />  
+
+<p>其实maya就是把变量my_box”翻译”了一下执行了这样的命令 <code>cmds.move(5, [&#39;pCube1&#39;, &#39;polyCube1&#39;], moveX=True)</code></p>
+<p>学会了赋值，当我们想创建一个名字超级长的立方体时，可以用这样的方式给它起一个”别名”。  </p>
+<div class="hljs"><pre><code class="hljs routeros">a = cmds.polyCube(<span class="hljs-attribute">n</span>=<span class="hljs-string">&#x27;yishanyishanliangjingjingliuxiashuiyuedehengji&#x27;</span>)
+cmds.move(5, a, <span class="hljs-attribute">moveX</span>=<span class="hljs-literal">True</span>)</code></pre></div>
+<p>（谁会这么神经的取这么长的名字…）</p>
+<h2 id="再来一点python知识"><a href="#再来一点python知识" class="headerlink" title="再来一点python知识"></a>再来一点python知识</h2><p>首先说下python跟maya命令的关系是什么？<br>可以这么理解，<strong>我们使用python的语法来控制maya的命令</strong>。</p>
+<p>下面扩展两个python的知识，以便于更灵活的控制maya命令：</p>
 <ul>
-<li>none：直接去小数取整</li>
-<li>box：四舍五入后，融合前后帧</li>
-<li>nearest：有小数，直接进一位取整</li>
+<li>列表切片</li>
+<li>for循环</li>
 </ul>
-<p>说完了倍数变速，对于OFlow，Kronos和TimeWarp节点进行曲线变速的情况下，可以直接通过观察这里的值进行结果判断：  </p>
-<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/oflow02.jpg" srcset="/img/loading.gif"></p>
-<p>如图所示，变速后的1059帧对应原始的1081帧，Frame里的值为1080.562。<br>再次尝试不同变速方式，总结出不同变速方式的求值结果：</p>
-<ul>
-<li><p>timeWarp</p>
-<ul>
-<li>none： 直接去小数取整</li>
-<li>nearest：四舍五入取整</li>
-<li>box：根据小数点的值，画面融合</li>
-</ul>
-</li>
-<li><p>oFlow</p>
-<ul>
-<li>motion：根据小数点的值，画面融合</li>
-<li>frame：四舍五入取整</li>
-<li>blend：根据小数点的值，画面融合</li>
-</ul>
-</li>
-<li><p>Kronos</p>
-<ul>
-<li>motion：根据小数点的值，画面融合</li>
-<li>frame：四舍五入取整</li>
-<li>blend：根据小数点的值，画面融合</li>
-</ul>
-</li>
-</ul>
-<p>通过上述的方法，我们就可以得到这样一个变速信息文件：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/retime_node.jpg" srcset="/img/loading.gif"></p>
-<p><strong>左侧为</strong>变速前帧数，<strong>右侧为</strong>对应的原始素材帧数，中间用空格隔开。  </p>
-<h2 id="变速工具"><a href="#变速工具" class="headerlink" title="变速工具"></a>变速工具</h2><p>工具我放在了github上，直接下载使用即可。  </p>
-<p><a target="_blank" rel="noopener" href="https://github.com/lingyunfx/MayaCameraRetime">https://github.com/lingyunfx/MayaCameraRetime</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/retime_tools.jpg" srcset="/img/loading.gif"></p>
-<p>使用步骤：<br>1.选择变速信息文件（txt格式）  </p>
-<p>2.选择变速方式，支持motion，frame，none三种类型。<br>blend可以使用motion进行变速，nearest可以使用frame方式。  </p>
-<p>3.点击run按钮，工具会对maya中所有的动画进行变速。<br>（保险起见，最好在操作前进行文件保存）</p>
-<p>这篇文章就到这里，如果觉得文章还不错，可以关注这个公众号支持一下作者thx！  </p>
-<img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/IMG_0583.JPG" srcset="/img/loading.gif" width="50%" height="50%" alt="" align=center />
+<p>当我们想从列表中获取一个元素的时候，就得用到<strong>列表切片</strong>。<br>比如从一个列表里<strong>取出第一个元素</strong>。  </p>
+<div class="hljs"><pre><code class="hljs prolog">my_list = [<span class="hljs-string">&#x27;box1&#x27;</span>, <span class="hljs-string">&#x27;box2&#x27;</span>, <span class="hljs-string">&#x27;box3&#x27;</span>, <span class="hljs-string">&#x27;box4&#x27;</span>]
+print my_list[<span class="hljs-number">0</span>]</code></pre></div>
+
+<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/maya_python_learn023.gif" srcset="/img/loading.gif"></p>
+<p>可以看到<code>print my_list[0]</code>返回结果是<code>&#39;box1&#39;</code>。（即列表中的第一个元素）<br>列表切片的语法是，在列表后加上<code>[]</code>符号，符号内写第几个元素，则代表要获取第几个元素。<br>在python计数中，是从0开始的，所以第一个元素就是’[0]’，第二个元素则是’[1]’，以此类推。<br>下面自己试试获取列表中最后一个元素吧。</p>
+<hr>
+<p><strong>for循环</strong>是在编程中比较常用且实用的python语句。<br>它的效果是重复执行一件事。</p>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-comment"># 首先声明一个变量fruits，并把下面的列表赋值给它</span>
+fruits = [<span class="hljs-string">&#x27;banana&#x27;</span>, <span class="hljs-string">&#x27;apple&#x27;</span>,  <span class="hljs-string">&#x27;mango&#x27;</span>]
+
+<span class="hljs-keyword">for</span> fruit <span class="hljs-keyword">in</span> fruits:
+   <span class="hljs-built_in">print</span> <span class="hljs-string">&#x27;当前水果 :&#x27;</span>, fruit</code></pre></div>
 
             </div>
             <hr>
@@ -290,29 +271,6 @@
               
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
-              
-                <div class="post-prevnext row">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2021/04/11/maya-python-learning001/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Maya & Python 快速学系列（一）</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2021/03/18/maya-env-varibles/">
-                        <span class="hidden-mobile">Maya常用环境变量</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
               
             </div>
 
@@ -468,7 +426,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Maya动画变速工具&nbsp;",
+        "Maya & Python 快速学系列（二）&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

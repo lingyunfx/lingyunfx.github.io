@@ -19,7 +19,7 @@
   <meta name="description" content="关于电影视效的经验与分享">
   <meta name="author" content="Lingyun Zhang">
   <meta name="keywords" content="">
-  <title>归档 - 凌云的个人博客</title>
+  <title>凌云的个人博客</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -45,7 +45,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -115,7 +115,7 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/default.png') no-repeat center center;
+         style="background: url('/img/default_2.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -128,6 +128,10 @@
           </div>
 
           
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
         </div>
       </div>
     </div>
@@ -137,39 +141,79 @@
     
       <div class="container nopadding-md">
         <div class="py-5" id="board"
-          >
+          style=margin-top:0>
           
           <div class="container">
             <div class="row">
               <div class="col-12 col-md-10 m-auto">
                 
 
-<div class="list-group">
-  <p class="h4">共计 31 篇文章</p>
-  <hr>
-  
+
+  <div class="row mx-auto index-card">
     
-      
-      <p class="h5">2021</p>
     
-    <a href="/2021/02/24/maya-tips-002/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Maya的效率使用和技巧（二）</span>
-      <time style="float: right;">02-24</time>
-    </a>
-  
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2020/11/05/install-cgwire/" target="_self">
+          <img src="/img/cover/cgwire_cover.jpg" srcset="/img/loading.gif" alt="搭建电影视效流程管理系统CGWire">
+        </a>
+      </div>
     
-    <a href="/2021/02/17/maya-tips-001/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Maya的效率使用和技巧（一）</span>
-      <time style="float: right;">02-17</time>
-    </a>
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/11/05/install-cgwire/">搭建电影视效流程管理系统CGWire</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/11/05/install-cgwire/">
+          
+          
+            
+          
+          前言国庆在家容易想些有的没的，想着万一以后自己开了一个小型视效工作室，该用什么来进行跟踪管理项目进度。
+首先是想到的当然是诸如Shotgun, FTrack, CGTeamWork等这些项目管理平台。但是价格上则让人却步，比如Shotgun收费标准是每人每月30刀。
+
+这对于小型低成本工作室，也算是一笔不小的开销。抱着能省则省的态度，在网上找到了开源免费的项目管理平台CGWire
+
+CGWire介
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-11-05 22:56" pubdate>
+              2020-11-05
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/CG/">CG</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/3/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    </span>
+  </nav>
   
-    
-    <a href="/2021/02/15/pyqt4to5/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">将PyQt4代码转到PyQt5</span>
-      <time style="float: right;">02-15</time>
-    </a>
-  
-</div>
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
 
 
 
@@ -285,7 +329,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "归档&nbsp;",
+        "关于电影视效的一些学习和分享。&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

@@ -19,7 +19,7 @@
   <meta name="description" content="关于电影视效的经验与分享">
   <meta name="author" content="Lingyun Zhang">
   <meta name="keywords" content="">
-  <title>Maya动画变速工具 - 凌云的个人博客</title>
+  <title>Maya &amp; Python 快速学系列（一） - 凌云的个人博客</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -148,8 +148,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-04-06 18:16" pubdate>
-        2021年4月6日 晚上
+      <time datetime="2021-04-11 10:17" pubdate>
+        2021年4月11日 上午
       </time>
     </span>
   
@@ -160,7 +160,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      990 字
+      1.7k 字
     </span>
   
 
@@ -170,7 +170,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10
+      19
        分钟
     </span>
   
@@ -208,68 +208,96 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">Maya动画变速工具</h1>
+            <h1 style="display: none">Maya &amp; Python 快速学系列（一）</h1>
             
             <div class="markdown-body" id="post-body">
-              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前段时间朋友接了个外包，实拍的原始素材在nuke里进行了变速，而一些cg动画在原素材中已经制作完成，<br>需要一个工具对maya文件中动画进行相同的变速来匹配变速后的素材。</p>
-<p>其实变速的原理和实现并不是特别复杂，不过繁复的数值计算需要借助脚本来实现。  </p>
-<p>然后借着节假日的最后一天，写了这个变速工具。<br>这篇文章简单的记录下过程，并把它分享给需要的朋友。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/tool_ui.jpeg" srcset="/img/loading.gif"></p>
-<h2 id="变速的方式"><a href="#变速的方式" class="headerlink" title="变速的方式"></a>变速的方式</h2><p>变速实际上是对原始素材的抽帧和补帧，<br>而对于我们来说，最需要知道的是：<br><strong>变速后的每一帧，对应的是原始素材中哪一帧画面。</strong></p>
-<p>比如，知道变速后的1001帧，是原本的1005帧，<br>这样把1005帧的动画复制到变速后的1001帧，<br>就可以完成了这一帧的匹配。</p>
-<p>为了得知变速后的对应原始帧，我们可以用这样一个验证方式。<br>首先用软件输出一个这样的（纯数字）序列帧。  </p>
-<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/sequences_number.gif" srcset="/img/loading.gif"></p>
-<p>然后套上变速节点进行观察。<br>在Nuke中常用的变速节点有<code>Retime</code>，<code>OFlow</code>，<code>Kronos</code>等。</p>
-<p>首先使用retime节点做最简单的<strong>倍速变速</strong>。<br>这里为范围1001-1100的序列帧做一个1.9倍的变速，<br>filter就默认使用box。  </p>
-<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/retime_node_01.jpg" srcset="/img/loading.gif"></p>
-<p>点击变速后的每一帧，可以看到对应的图像。<br>比如变速后的1025帧的图像为原始1046和1047的融合。  </p>
-<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/retime_node02.gif" srcset="/img/loading.gif"></p>
-<p>然而每个变速节点又有几种不同的变速方式，<br>这里的retime节点就有<code>none</code>，<code>box</code>和<code>nearest</code>三种方式。<br>尝试不同的变速方式能看出，有的是直接进行取整，有的是会融合前后帧。  </p>
-<p>通过这些尝试和观察，对于直接的倍数变速，推导出这样一个公式：<br><code>起始帧 + (变速后的帧数指数)*倍数 - 倍数</code><br><strong>注意：</strong>这里指数是指变速后序列的第几帧。  </p>
-<p>比如变速后的1035帧的指数就为35。（起始帧为1001帧的情况下）<br>把上述的公式带进去可以得到结果：<br><code>1001 + 35*1.9 - 1.9 = 1065.6</code></p>
-<p>针对于retime节点，不同的变速方式它的取值为：</p>
+              <p>这个系列是一个快速教学，目的是让想入门maya编程的朋友，<br>在最短时间写出maya脚本工具。(快速找到兴趣和成就点)</p>
+<p>本节会先从python开始讲起，但不会讲述太多理论知识（达到可用即可）。<br>话不多说，<strong>let’s start！</strong></p>
+<h2 id="Python入门"><a href="#Python入门" class="headerlink" title="Python入门"></a>Python入门</h2><p>关于python这里就只先讲两件事：</p>
 <ul>
-<li>none：直接去小数取整</li>
-<li>box：四舍五入后，融合前后帧</li>
-<li>nearest：有小数，直接进一位取整</li>
+<li>数据类型</li>
+<li>赋值</li>
 </ul>
-<p>说完了倍数变速，对于OFlow，Kronos和TimeWarp节点进行曲线变速的情况下，可以直接通过观察这里的值进行结果判断：  </p>
-<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/oflow02.jpg" srcset="/img/loading.gif"></p>
-<p>如图所示，变速后的1059帧对应原始的1081帧，Frame里的值为1080.562。<br>再次尝试不同变速方式，总结出不同变速方式的求值结果：</p>
+<p>编程是为了处理不同数据，故而有了数据类型。<br>这里只讲其中三种基本类型：<code>字符串</code>，<code>整数</code>，<code>列表</code>。</p>
+<p><strong>字符串</strong>顾名思义就是<strong>字符</strong>:<br>比如 <code>&quot;你今天吃了没&quot;</code>, <code>&quot;hello 大boss&quot;</code>,<code>&quot;Somewhere in time&quot;</code>都是字符串。<br>在python语法中，字符需要用双引号<code>&quot; &quot;</code>或者单引号<code>&#39; &#39;</code>将字符包起来。<br>这样python才会知道：噢，它是一个字符串。</p>
+<p><strong>整数</strong>如同字面意思，<code>952</code>,<code>2</code>,<code>25</code>都是整数。</p>
+<p><strong>列表</strong>的话可以理解为一个集合，一个大箩筐子。它可以装进多个的字符串或整数。<br>列表的语法是用方括号<code>[]</code>将所需元素包起来，元素与元素间用逗号隔开。<br>比如<code>[&quot;hkf&quot;, &quot;kyj&quot;, &quot;sdj&quot;]</code>就是一个列表。</p>
+<p>了解完数据类型，下面说下<strong>赋值</strong>。赋值是将上述的数据赋予给一个变量。<br>语法中是使用等号<code>=</code>，python会将等号右边的数据赋给左边的变量。  </p>
+<p>变量的名字可以自行定义，比如我们将一个列表<code>[1, 2, 3]</code>赋值给变量<code>a</code>，写作：</p>
+<div class="hljs"><pre><code class="hljs python">a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]</code></pre></div>
+<p><strong>赋值</strong>可以理解为<strong>给数据贴上了一个标注</strong>。</p>
+ <img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/maya_python_learn001.png" srcset="/img/loading.gif" width="30%" height="30%" alt="" align=center />
+
+<hr>
+<p>关于python先讲到这里，下面进入maya。<br><strong>如何在maya里执行刚刚的python代码呢？</strong></p>
+<p>首先打开Maya的脚本编辑器：<br>菜单栏在这个位置。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/maya_python_learn002.png" srcset="/img/loading.gif"></p>
+<p>也可以直接点击右下角的这个图标打开它。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/maya_python_learn003.png" srcset="/img/loading.gif"></p>
+<p>打开后它长这样，上面为输出区域，下面为输入区域。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/maya_python_learn007.png" srcset="/img/loading.gif"></p>
+<p>上图中可以看到，输入区域有两个标签，MEL和Python。<br>这里咱们学的是Python，所以就在这个标签下敲代码吧。<br>实践一下刚刚的赋值操作：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/maya_python_learn005.png" srcset="/img/loading.gif"></p>
+<p>码完了框选它们，按<strong>小键盘的回车键</strong>执行。<br>当然也可以点击这个按钮执行代码。  </p>
+  <img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/maya_python_learn012.png" srcset="/img/loading.gif" width="50%" height="50%" alt="" align=center/>  
+
+<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/maya_python_learn006.gif" srcset="/img/loading.gif"></p>
+<p>看起来好像什么也没有发生，除了代码已经“发送”到了输出区。<br>那么如何验证刚刚的赋值生效了呢？  </p>
+<p>可以使用Python内置的<code>print()</code>语句。<br>我们新建一个python类型的输入区，写入<code>print(a)</code>然后执行。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/maya_python_learn008.gif" srcset="/img/loading.gif"></p>
+<p>在输出的区域可以看到，之前赋值给变量a的列表<code>[2,3]</code>被<code>print</code>（打印）了出来。<br><code>print()</code>语句的意义就是，打印出给予变量的值。  </p>
+<p>接着自己尝试用同样的方法来验证变量b, c, d吧。</p>
+<p>到了这里应该理解了三种<strong>数据类型</strong>，<strong>变量</strong>，<strong>赋值</strong>和一个简单的<strong>print语句</strong>。<br>下面开始学一些maya命令。</p>
+<h2 id="几句maya命令"><a href="#几句maya命令" class="headerlink" title="几句maya命令"></a>几句maya命令</h2><p>maya的命令其实非常简单，你输入一个命令，它就达成一个结果。  </p>
+<p>在开始maya编程前，首先要进行导入操作。（把maya的编程模块导入进来）<br>在脚本编辑器里执行 <code>import maya.cmds as cmds</code><br>暂时可以不用理解这句语法的含义，知道这是开始maya编程的前提条件就行。  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/maya_python_learn013.png" srcset="/img/loading.gif"></p>
+<p>然后我们开始一些maya的命令尝试：  </p>
+<h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><p>比如创建一个box <code>cmds.polyCube()</code><br>执行后一个box就在场景原点创建了。  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/maya_python_learn018.gif" srcset="/img/loading.gif"></p>
+<h3 id="移动"><a href="#移动" class="headerlink" title="移动"></a>移动</h3><p>现在想要对这个box进行一个位置上的修改。<br>执行<code>cmds.move(5, &#39;pCube1&#39;, moveX=True)</code>  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/maya_python_learn019.gif" srcset="/img/loading.gif"></p>
+<p>从上面的命令中可以看到，它告诉了maya：<br>需要移动的是名为‘pCube1’的box，移动X轴，5个单位。  </p>
+<h3 id="缩放"><a href="#缩放" class="headerlink" title="缩放"></a>缩放</h3><p>感觉box有点大，想要对它进行缩放：<br>执行<code>cmds.setAttr(&#39;pCube1.scale&#39;, 0.5, 0.5, 0.5)</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/maya_python_learn020.gif" srcset="/img/loading.gif"></p>
+<h3 id="命令解释"><a href="#命令解释" class="headerlink" title="命令解释"></a>命令解释</h3><p>其实英文比较好的同学可以看出来了，命令都是很直接的告诉了maya我们需要做什么。<br><strong>cmds</strong> 是 <strong>commands(命令)</strong> 的简写，代表maya<strong>命令</strong>。  </p>
+<p><code>cmds.polyCube()</code><br><strong>cmds</strong> 后面跟上 <strong>polyCube</strong>，代表使用maya命令创建一个立方体多边形(polygon cube)。</p>
+<p>在后面的 <strong>move</strong> 和 <strong>set attr(attribute的简写)</strong> 就不用多说了。</p>
+<p>来，用中文傻傻的描述<code>cmds.setAttr(&#39;pCube1.scale&#39;, 0.5, 0.5, 0.5)</code>：  </p>
+<p>翻译后： <font face="黑体" color=green size=3>maya命令.设置属性(‘物体pCube1.缩放’, 0.5, 0.5, 0.5)</font></p>
+<p>是不是大概明白了maya命令的构成。</p>
+<h2 id="如何获取需要的maya命令"><a href="#如何获取需要的maya命令" class="headerlink" title="如何获取需要的maya命令"></a>如何获取需要的maya命令</h2><p>刚刚讲了这么多，什么创建立方体，要写作<code>cmds.polyCube()</code>。<br>什么修改一个缩放属性要写作<code>cmds.setAttr(&#39;pCube1.scale&#39;, 0.5, 0.5, 0.5)</code>。  </p>
+<p>脑洞大的会想，修改属性为什么不是<code>cmds.modifyAttr(&#39;pCube1.scale&#39; ...)</code></p>
+<p>因为maya并没有这么聪明，它有它自己的”规矩”。那如何知道这些”规矩”？<br>下面就来说说。  </p>
+<p>先新建一个空场景，清空脚本编辑器的输出区历史。<br>（看不清，点击图片放大）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/maya_python_learn009.gif" srcset="/img/loading.gif"></p>
+<p>然后通过按钮创建一个立方体。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/maya_python_learn010.gif" srcset="/img/loading.gif"></p>
+<p>看看脚本编辑器的输出区域返回了什么:  </p>
+<div class="hljs"><pre><code class="hljs angelscript">CreatePolygonCube;
+polyCube -w <span class="hljs-number">1</span> -h <span class="hljs-number">1</span> -d <span class="hljs-number">1</span> -sx <span class="hljs-number">1</span> -sy <span class="hljs-number">1</span> -sz <span class="hljs-number">1</span> -ax <span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">0</span> -cuv <span class="hljs-number">4</span> -ch <span class="hljs-number">1</span>;
+<span class="hljs-comment">// Result: pCube1 polyCube1 //</span></code></pre></div>
+
+<p>这里怎么过滤出有效信息？即<code>polyCube</code>就是创建立方体的命令。<br>首先<code>// Result..</code>只是告诉你一个结果，所以忽略它。<br><code>CreatePolygonCube</code>看起来挺像，但是它不是，因为maya的命令中没有首字母大写的。  </p>
+<p>在学习maya编程的初期，我们可以根据上述的规律来判断。<br>现在我们知道了，想要用编程代码做一件事，可以先手动在maya界面上操作一遍，得知了实际命令是什么。<br>再尝试用代码进行maya操作。</p>
+<h2 id="代码的执行顺序"><a href="#代码的执行顺序" class="headerlink" title="代码的执行顺序"></a>代码的执行顺序</h2><p>这里用刚刚我们写过的代码举例：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/maya_python_learn015.png" srcset="/img/loading.gif"></p>
+<p>每行命令之间<strong>需要进行换行</strong>，<strong>不能</strong>像这样把它们<strong>写作一行</strong>：</p>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">import</span> maya.cmds <span class="hljs-keyword">as</span> cmds cmds.polyCube() cmds.move(<span class="hljs-number">5</span>, <span class="hljs-string">&#x27;pCube1&#x27;</span>, moveX=<span class="hljs-literal">True</span>)</code></pre></div>
+
+<p>我们可以一行一行来执行代码（为了看清每一步产生的结果）：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/maya_python_learn016.gif" srcset="/img/loading.gif"></p>
+<p>也可以一起框选，然后执行  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/maya_python_learn017.gif" srcset="/img/loading.gif"></p>
+<p>这里其实就说明了，代码的执行顺序是一行一行，从上往下的。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本节差不多就到这里，做几个小练习。  </p>
 <ul>
-<li><p>timeWarp</p>
-<ul>
-<li>none： 直接去小数取整</li>
-<li>nearest：四舍五入取整</li>
-<li>box：根据小数点的值，画面融合</li>
-</ul>
+<li>1.使用代码创建一个球体，修改它的缩放值为2。</li>
+<li>2.创建一个圆锥体，修改Subdivisions Axis为3，再给它的Z轴旋转180度（倒过来）。<img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/maya_python_learn011.png" srcset="/img/loading.gif" width="30%" height="30%" alt="" align=center />
+
 </li>
-<li><p>oFlow</p>
-<ul>
-<li>motion：根据小数点的值，画面融合</li>
-<li>frame：四舍五入取整</li>
-<li>blend：根据小数点的值，画面融合</li>
 </ul>
-</li>
-<li><p>Kronos</p>
-<ul>
-<li>motion：根据小数点的值，画面融合</li>
-<li>frame：四舍五入取整</li>
-<li>blend：根据小数点的值，画面融合</li>
-</ul>
-</li>
-</ul>
-<p>通过上述的方法，我们就可以得到这样一个变速信息文件：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/retime_node.jpg" srcset="/img/loading.gif"></p>
-<p><strong>左侧为</strong>变速前帧数，<strong>右侧为</strong>对应的原始素材帧数，中间用空格隔开。  </p>
-<h2 id="变速工具"><a href="#变速工具" class="headerlink" title="变速工具"></a>变速工具</h2><p>工具我放在了github上，直接下载使用即可。  </p>
-<p><a target="_blank" rel="noopener" href="https://github.com/lingyunfx/MayaCameraRetime">https://github.com/lingyunfx/MayaCameraRetime</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/retime_tools.jpg" srcset="/img/loading.gif"></p>
-<p>使用步骤：<br>1.选择变速信息文件（txt格式）  </p>
-<p>2.选择变速方式，支持motion，frame，none三种类型。<br>blend可以使用motion进行变速，nearest可以使用frame方式。  </p>
-<p>3.点击run按钮，工具会对maya中所有的动画进行变速。<br>（保险起见，最好在操作前进行文件保存）</p>
-<p>这篇文章就到这里，如果觉得文章还不错，可以关注这个公众号支持一下作者thx！  </p>
-<img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/IMG_0583.JPG" srcset="/img/loading.gif" width="50%" height="50%" alt="" align=center />
+<p>完成了上述两个操作，说明这一节你已经完全掌握了。<br>但是也不要忘了之前讲的python小知识，马上就会用到了。  </p>
+<center>(完)
 
             </div>
             <hr>
@@ -295,18 +323,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/04/11/maya-python-learning001/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Maya & Python 快速学系列（一）</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/03/18/maya-env-varibles/">
-                        <span class="hidden-mobile">Maya常用环境变量</span>
+                      <a href="/2021/04/06/maya-retime-tool-intro/">
+                        <span class="hidden-mobile">Maya动画变速工具</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -468,7 +490,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Maya动画变速工具&nbsp;",
+        "Maya & Python 快速学系列（一）&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
