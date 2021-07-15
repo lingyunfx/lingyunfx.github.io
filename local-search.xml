@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>使用Notion建立个人Wiki</title>
+    <link href="/2021/07/12/notion-intro/"/>
+    <url>/2021/07/12/notion-intro/</url>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>一个从事<strong>vfx行业</strong>的打工人，要积累非常多<strong>零碎</strong>的技能知识。<br>（无论是来自工作中的经验技巧，还是教程学习）</p><p>而每次真正遇到问题的时候，会发现这个问题好像是在某个教程里讲过，<br>又或是经过不停的试错，曾经找出过解决方案。<br>但时隔已久，具体如何实现已经不记得了。  </p><p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/notion_intro_10.jpeg"></p><p>除了那些核心和常用的，大多零碎知识很容易被遗忘。<br>要拯救你的记忆，要么进行阶段性的复习，要么<strong>把学习历程记录成笔记</strong>。  </p><p><strong>记笔记有什么好处？</strong><br>打个比方，我自己的职业是需要给不同的DCC软件写一些工具扩展。<br>而每个DCC软件都有大量的命令，参数和用法，不可能把它们全记在脑海里。  </p><p>假设要写一个Nuke脚本，它涉及到节点动画操作，<br>有想起之前有看过教程学习过，也记录到了notion中，这样就可以很快定位到需要的结果。</p><p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/notion_intro_11.gif"></p><p>其实写这篇文章就是想向大家推荐一款笔记应用：<code>Notion</code><br>官网：<a href="https://www.notion.so/">https://www.notion.so/</a></p><p>笔者大概是从去年开始使用的Notion，它给我的感觉是<strong>易用</strong>，<strong>灵活</strong>，<strong>设计美观</strong>。<br>并且是一款让人很<strong>乐意</strong>打开使用的笔记软件。  </p><p>用它来搭建个人知识wiki再合适不过。  </p><p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/notion_intro_09.jpg"></p><p>下面是对Notion的一些介绍。</p><h1 id="页面"><a href="#页面" class="headerlink" title="页面"></a>页面</h1><p>一款笔记应用，最基础的功能就是新建页面（page）。  </p><p>每一个页面都可以自定义一个<strong>图标</strong>和<strong>顶部图</strong>来对页面进行“装饰”。  </p><p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/notion_intro_13.jpg"></p><p>Notion支持<strong>Markdown语法</strong>（一种高效率写作方式），<br>编辑时会动态的将markdown转换为富文本。  </p><p>页面也可以进行分享，可以指定用户分享，也可以分享给所有人。<br>选择后者的话notion会提供你一个网络链接，类似这样：<br><a href="https://www.notion.so/a527330b344f4b6f841b7ab5a17b8dc3">https://www.notion.so/a527330b344f4b6f841b7ab5a17b8dc3</a></p><p><strong>再说下插入图片的方式</strong>（记笔记怎么可能不放图）。<br>我通常的方式是，截图后将图片保存在剪切板，一般截图软件都带有这个功能<br>然后再去notion里ctrl+v粘贴它。（个人认为最快捷方便的方式）</p><p>也可以直接拖动本地的图片到页面，或是使用网络路径的照片。   </p><h1 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h1><p>页面之间可以无限的嵌套，以此来分类和进行结构组织。  </p><p>嵌套的方式也很简单，两种方法：<br>1.按住鼠标拖动放到另一个页面下。<br>2.在当前页面使用<code>/page</code>命令创建子页面。</p><p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/notion_intro_16.jpg"></p><h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><p>页面可以插入表格，notion自带的表格功能非常丰富。  </p><p>比如用最基本的表格进行<strong>记账</strong>。<br>单元格支持的内容有文字、数字、单选、多选、日期、成员等。</p><p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/notion_intro_17.jpg"></p><p>notion的表格也有不同类型分类。<br>内置的board来进行<strong>待办事项</strong>管理：</p><p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/notion_intro_18.gif"></p><p>使用timeline来进行事件进度管理：</p><p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/notion_intro_19.jpeg"></p><p>每个表格可以为它们添加不同的预览模式，<br>使用这个特性，以此来建立一个易于浏览的资产库。  </p><p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/notion_intro_21.gif"></p><h1 id="嵌入"><a href="#嵌入" class="headerlink" title="嵌入"></a>嵌入</h1><p>Notion的页面可以嵌入一些网页信息，方法是复制网站的链接粘贴到页面就可以。<br>可以用它来整理一份旅游攻略：</p><p><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/notion_intro_23.jpg"></p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>以上介绍了我自己使用中常用到的功能，它的特性远不止这些，<br>这篇文章的目的也不是要写一个Notion软件说明书。<br>如果感兴趣，哔哩哔哩上有许多视频介绍（比上述文字介绍好得多哈哈）。  </p><p>最后想说建立个人的wiki是挺有用的一件事，人生是一个不断学习的过程，<br>花费时间记录笔记，在今后的某个时刻是会帮你节省很多时间和烦恼的一件事。  </p><hr><p>文章差不多就到这里，觉得还不错可以关注下这个公众号，thx！  </p><center><img src="https://cdn.jsdelivr.net/gh/lingyunfx/image@main/IMG_0583.JPG" width="30%" height="30%" alt="" align=center /></center>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>CraftProducer 帮助文档</title>
     <link href="/2021/07/04/cc-pmd-tool/"/>
     <url>/2021/07/04/cc-pmd-tool/</url>
