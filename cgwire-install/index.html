@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Zhangly">
+
+
+    <meta name="subtitle" content="Pipeline TD for VFX">
+
+
+    <meta name="description" content="关于视效的学习和分享">
+
+
+
+
+
+<title>搭建电影视效流程管理系统CGWire | 凌云的个人博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Roboto+Mono&display=swap');
+</style>
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/frame.js"></script>
+    
+
+
+
+
+
+
+<script src='https://unpkg.com/valine@1.4.16/dist/Valine.min.js'></script>
+
+
+
+  <meta name="generator" content="Hexo 5.4.0"></head>
+  <body>
+    <div class="mask-border">
+    </div>
+
+    <div class="wrapper">
+
+      <div class="header">
+  <div class="flex-container">
+    <div class="header-inner">
+      <div class="site-brand-container">
+        <a href="/">
+          
+            lingyunFX.
+          
+        </a>
+      </div>
+      <div id="menu-btn" class="menu-btn" onclick="toggleMenu()">
+        Menu
+      </div>
+      <nav class="site-nav">
+        <ul class="menu-list">
+          
+            
+              <li class="menu-item">
+                <a href="/">Home</a>
+              </li> 
+                   
+          
+            
+              <li class="menu-item">
+                <a href="/archives/">Archive</a>
+              </li> 
+                   
+          
+            
+              <li class="menu-item">
+                <a href="/categories/gallery/">Gallery</a>
+              </li> 
+                   
+          
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main">
+        <div class="flex-container">
+          <article id="post">
+
+  
+    <div class="post-head">
+    <div class="post-info">
+        <div class="tag-list">
+            
+        </div>
+        <div class="post-title">
+            
+            
+                搭建电影视效流程管理系统CGWire
+            
+            
+        </div>
+        <span class="post-date">
+            Nov 5, 2020
+        </span>
+    </div>
+    <div class="post-img">
+        
+            <div class="h-line-primary"></div>
+              
+    </div>
+</div>
+    <div class="post-content">
+    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>国庆在家容易想些有的没的，<br>想着万一以后自己开了一个小型视效工作室，<br>该用什么来进行跟踪管理项目进度。</p>
+<p>首先是想到的当然是诸如Shotgun, FTrack, CGTeamWork等这些项目管理平台。<br>但是价格上则让人却步，比如Shotgun收费标准是每人每月30刀。</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/install-cgwire/p1.jpg"></p>
+<p>这对于小型低成本工作室，也算是一笔不小的开销。<br>抱着能省则省的态度，在网上找到了<strong>开源免费</strong>的项目管理平台CGWire</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/install-cgwire/p2.jpg"></p>
+<h1 id="CGWire介绍"><a href="#CGWire介绍" class="headerlink" title="CGWire介绍"></a>CGWire介绍</h1><p>文字不如视频直观，下面是官方的视频介绍，<br>可以说是麻雀虽小，该有的功能都有。</p>
+<p><a target="_blank" rel="noopener" href="https://youtu.be/EH3RbmHykrE">https://youtu.be/EH3RbmHykrE</a></p>
+<h1 id="CGWire搭建"><a href="#CGWire搭建" class="headerlink" title="CGWire搭建"></a>CGWire搭建</h1><p>接下来就是无趣的代码部分了。<br>我这里使用的是Ubuntu 16.04版本进行的测试。</p>
+<h2 id="安装软件依赖"><a href="#安装软件依赖" class="headerlink" title="安装软件依赖"></a>安装软件依赖</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install postgresql postgresql-client postgresql-server-dev-all</span><br><span class="line">sudo apt-get install redis-server</span><br><span class="line">sudo apt-get install python3 python3-pip</span><br><span class="line">sudo apt-get install git</span><br><span class="line">sudo apt-get install nginx</span><br><span class="line">sudo apt-get install ffmpeg</span><br></pre></td></tr></table></figure>
+
+<h2 id="获取资源"><a href="#获取资源" class="headerlink" title="获取资源"></a>获取资源</h2><p>创建一个zou用户</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo useradd --home /opt/zou zou</span><br><span class="line">mkdir /opt/zou</span><br><span class="line">chown zou: /opt/zou</span><br></pre></td></tr></table></figure>
+
+<p>安装zou和其依赖</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo pip3 install virtualenv</span><br><span class="line">cd /opt/zou</span><br><span class="line">sudo virtualenv zouenv</span><br><span class="line">. zouenv/bin/activate</span><br><span class="line">sudo zouenv/bin/pip3 install zou</span><br><span class="line">sudo chown -R zou:www-data .</span><br></pre></td></tr></table></figure>
+
+<p>创建存储预览的文件夹</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /opt/zou/previews</span><br><span class="line">sudo chown -R zou:www-data /opt/zou</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="安装Postgres数据库"><a href="#安装Postgres数据库" class="headerlink" title="安装Postgres数据库"></a>安装Postgres数据库</h2><p>在postgres中创建Zou数据库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo su -l postgres</span><br><span class="line">psql -c &#x27;create database zoudb;&#x27; -U postgres</span><br></pre></td></tr></table></figure>
+
+<p>为postgres用户设置密码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 输入命令</span></span><br><span class="line">psql</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 这里会进入postgres的交互模式</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; psql (9.4.12)</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; Type <span class="string">&quot;help&quot;</span> <span class="keyword">for</span> <span class="built_in">help</span>.</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 输入下面命令进行密码创建</span></span><br><span class="line">postgres=# \password postgres</span><br><span class="line">Enter new password:</span><br><span class="line">Enter it again:</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置完成密码，退出交互模式</span></span><br><span class="line">\q</span><br></pre></td></tr></table></figure>
+
+<p>如果不想使用交互式创建密码，可以用下面的方式。<br>如果已经创建了密码，跳过此步骤。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psql -U postgres -d postgres -c &quot;alter user postgres with password &#x27;mysecretpassword&#x27;;&quot;</span><br></pre></td></tr></table></figure>
+
+<p>最后，创建数据库表。<br>这里需注意已经退出了psql交互模式，并在zou虚拟环境下。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Run it <span class="keyword">in</span> your bash console.</span></span><br><span class="line">DB_PASSWORD=yourdbpassword zou init_db</span><br></pre></td></tr></table></figure>
+
+<h2 id="准备键值存储"><a href="#准备键值存储" class="headerlink" title="准备键值存储"></a>准备键值存储</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
+<p>在这个文件末尾添加一行：<br><code>vm.overcommit_memory = 1</code></p>
+<h3 id="配置Gunicorn"><a href="#配置Gunicorn" class="headerlink" title="配置Gunicorn"></a>配置Gunicorn</h3><p>需要通过Gunicorn运行该应用程序，<br>Gunicorn是将zou作为守护程序运行的WSGI服务器。</p>
+<p>创建配置文件夹</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /etc/zou</span><br></pre></td></tr></table></figure>
+
+<p>创建Gunicorn配置文件<br>路径： /etc/zou/gunicorn.conf</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">accesslog = &quot;/opt/zou/logs/gunicorn_access.log&quot;</span><br><span class="line">errorlog = &quot;/opt/zou/logs/gunicorn_error.log&quot;</span><br><span class="line">workers = 3</span><br><span class="line">worker_class = &quot;gevent&quot;</span><br></pre></td></tr></table></figure>
+
+<p>创建日志文件夹</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /opt/zou/logs</span><br><span class="line">sudo chown zou: /opt/zou/logs</span><br></pre></td></tr></table></figure>
+
+<p>创建进程守护的配置文件<br>路径: /etc/systemd/system/zou.service</p>
+<p>这里需要修改DB_PASSWORD和SECRET_KEY。<br>数据库的密码是之前设置的，而SECRET_KEY可以用pwgen来随机生成。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get install pwgen</span><br><span class="line">pwgen 16</span><br></pre></td></tr></table></figure>
+
+<p>生成后可以复制其中一个给到SECRET_KEY</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Gunicorn instance to serve the Zou API</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">User=zou</span><br><span class="line">Group=www-data</span><br><span class="line">WorkingDirectory=/opt/zou</span><br><span class="line"># Append DB_USERNAME=username DB_HOST=server when default values aren&#x27;t used</span><br><span class="line"># ffmpeg must be in PATH</span><br><span class="line">Environment=&quot;DB_PASSWORD=yourdbpassword&quot;</span><br><span class="line">Environment=&quot;SECRET_KEY=yourrandomsecretkey&quot;</span><br><span class="line">Environment=&quot;PATH=/opt/zou/zouenv/bin:/usr/bin&quot;</span><br><span class="line">Environment=&quot;PREVIEW_FOLDER=/opt/zou/previews&quot;</span><br><span class="line">ExecStart=/opt/zou/zouenv/bin/gunicorn  -c /etc/zou/gunicorn.conf -b 127.0.0.1:5000 zou.app:app</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>创建事件流API服务器配置<br>路径: /etc/zou/gunicorn-events.conf</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">accesslog = &quot;/opt/zou/logs/gunicorn_events_access.log&quot;</span><br><span class="line">errorlog = &quot;/opt/zou/logs/gunicorn_events_error.log&quot;</span><br><span class="line">workers = 1</span><br><span class="line">worker_class = &quot;geventwebsocket.gunicorn.workers.GeventWebSocketWorker&quot;</span><br></pre></td></tr></table></figure>
+
+<p>通过Systemd来守护事件流API服务进程<br>路径: /etc/systemd/system/zou-events.service</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Gunicorn instance to serve the Zou Events API</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">User=zou</span><br><span class="line">Group=www-data</span><br><span class="line">WorkingDirectory=/opt/zou</span><br><span class="line"># Append DB_USERNAME=username DB_HOST=server when default values aren&#x27;t used</span><br><span class="line">Environment=&quot;PATH=/opt/zou/zouenv/bin&quot;</span><br><span class="line">ExecStart=/opt/zou/zouenv/bin/gunicorn -c /etc/zou/gunicorn-events.conf -b 127.0.0.1:5001 zou.event_stream:app</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置Nginx"><a href="#配置Nginx" class="headerlink" title="配置Nginx"></a>配置Nginx</h2><p>配置文件路径: /etc/nginx/sites-available/zou</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name server_domain_or_IP;</span><br><span class="line"></span><br><span class="line">    location /api &#123;</span><br><span class="line">        proxy_set_header Host $host;</span><br><span class="line">        proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">        proxy_pass http://localhost:5000/;</span><br><span class="line">        client_max_body_size 500M;</span><br><span class="line">    proxy_connect_timeout 600s;</span><br><span class="line">        proxy_send_timeout 600s;</span><br><span class="line">        proxy_read_timeout 600s;</span><br><span class="line">        send_timeout 600s;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location /socket.io &#123;</span><br><span class="line">    proxy_http_version 1.1;</span><br><span class="line">        proxy_set_header Host $host;</span><br><span class="line">        proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">    proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">    proxy_set_header Connection &quot;Upgrade&quot;;</span><br><span class="line">        proxy_pass http://localhost:5001;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>启用nginx</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 删除默认配置</span></span><br><span class="line">sudo rm /etc/nginx/sites-enabled/default</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建文件链接</span></span><br><span class="line">sudo ln -s /etc/nginx/sites-available/zou /etc/nginx/sites-enabled</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 重启nginx</span></span><br><span class="line">sudo service zou start</span><br><span class="line">sudo service zou-events start</span><br><span class="line">sudo service nginx restart</span><br></pre></td></tr></table></figure>
+
+<h2 id="更新所有包"><a href="#更新所有包" class="headerlink" title="更新所有包"></a>更新所有包</h2><p>更新zou软件包</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/zou</span><br><span class="line">. zouenv/bin/activate</span><br><span class="line">sudo zouenv/bin/pip3 install --upgrade zou</span><br></pre></td></tr></table></figure>
+
+<p>更新数据路架构</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 这里输入数据库的密码</span></span><br><span class="line">DB_PASSWORD=yourdbpassword zou upgrade_db</span><br></pre></td></tr></table></figure>
+
+<p>重启zou服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R zou:www-data .</span><br><span class="line">sudo service zou restart</span><br><span class="line">sudo service zou-events restart</span><br></pre></td></tr></table></figure>
+
+<h2 id="部署Kitsu"><a href="#部署Kitsu" class="headerlink" title="部署Kitsu"></a>部署Kitsu</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/</span><br><span class="line">sudo git clone -b build https://github.com/cgwire/kitsu</span><br><span class="line">cd kitsu</span><br><span class="line">sudo git checkout build</span><br><span class="line">sudo chown -R zou:www-data /opt/kitsu</span><br></pre></td></tr></table></figure>
+
+<p>部署完成后需要更新nginx的配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name server_domain_or_IP;</span><br><span class="line"></span><br><span class="line">    location /api &#123;</span><br><span class="line">        proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">        proxy_set_header Host $host;</span><br><span class="line">        proxy_pass http://localhost:5000/;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location /socket.io &#123;</span><br><span class="line">        proxy_http_version 1.1;</span><br><span class="line">        proxy_set_header Host $host;</span><br><span class="line">        proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">        proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">        proxy_set_header Connection &quot;Upgrade&quot;;</span><br><span class="line">        proxy_pass http://localhost:5001;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        autoindex on;</span><br><span class="line">        root  /opt/kitsu/dist;</span><br><span class="line">        try_files $uri $uri/ /index.html;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>重启nginx服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service nginx restart</span><br></pre></td></tr></table></figure>
+<p>到这一步就可以访问自己的ip或者域名来使用cgwire了。<br>当然，在此之前需要一个管理员账户来登陆cgwire。</p>
+<h2 id="创建cgwire管理员账户"><a href="#创建cgwire管理员账户" class="headerlink" title="创建cgwire管理员账户"></a>创建cgwire管理员账户</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 首先进入zou环境</span></span><br><span class="line">cd /opt/zou</span><br><span class="line">. zouenv/bin/activate</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建管理员账户 create_admin后的参数 为自己的登陆邮箱</span></span><br><span class="line">DB_PASSWORD=yourdbpassword zou create_admin adminemail@yourstudio.com</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 初始化数据</span></span><br><span class="line">DB_PASSWORD=yourdbpassword zou init_data</span><br></pre></td></tr></table></figure>
+
+<p>账户创建完成后，默认密码为default，第一次登陆后会强制让你修改密码。<br>最后请尽情的enjoy it。</p>
+<center>（完）
+
+
+
+</div> 
+
+<script>
+    window.onload = detectors();
+</script>
+    <div class="post-footer">
+    <div class="h-line-primary"></div>
+    <nav class="post-nav">
+        <div class="prev-item">
+           
+                <div class="icon arrow-left"></div>
+                <div class="post-link">
+                    <a href="/hello-world/">Prev</a>
+                </div>
+            
+        </div>
+        <div class="next-item">
+            
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="post-comment">
+
+     
+
+     
+    
+    
+
+</div>
+     
+  
+</article>
+        </div>
+      </div>
+      
+      <div class="footer">
+    <div class="flex-container">
+        <div class="footer-text">
+            
+                版权归博主所有，未经允许请勿copy.
+                <br>
+            
+            
+                
+        </div>
+    </div>
+</div>
+
+    </div>
+
+  </body>
+</html>
