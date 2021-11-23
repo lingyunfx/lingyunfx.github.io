@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		Python的re模块 | 
+	 
+	凌云的个人博客
+	</title>
+	
+	<!-- keywords,description -->
+	 
+		<meta name="description" content="关于视效的学习和分享" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "tdvfx.com";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">凌云的个人博客</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+
+	
+
+		
+		<li class="menu-item">
+			<a href="https://gitlab.lingyunfx.com/zhangly" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Article
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/command-tool-intro/">
+										命令行工具的三把瑞士军刀
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-link-unreal/">
+										UE4和Maya的数据通信
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-retime-tool-intro/">
+										Maya动画变速工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/meshlab-remove-face/">
+										使用MeshLab为模型减面
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/metahuman-intro/">
+										MetaHumans Creator初体验
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/notion-intro/">
+										使用Notion建立个人Wiki
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/tracks-2d-tools/">
+										在不同跟踪软件之间的2D点转换工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/whats-matchmoving/">
+										电影视效制作中的Matchmove
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										DCC
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Deadline
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/deadline-use-techniques/">
+										Deadline 使用技巧
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Maya
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/maya-env-varibles/">
+										Maya常用环境变量
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-issue-vol1/">
+										Maya疑难杂症备忘录 Vol.1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-001/">
+										Maya的效率使用和技巧（一）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-002/">
+										Maya的效率使用和技巧（二）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/mtoa-install-issue/">
+										安装Arnold后环境变量被破坏
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/reject-maya-warning/">
+										关于“你的文件贼健康”的简单处理方式
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Nuke
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/nuke-trn-lens-distort/">
+										使用LensDistortion节点输出STMap
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Unreal
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/unreal-add-custom-menus/">
+										使用Python为UE4添加自定义菜单
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal-vive-tracker-camera/">
+										使用Vive Tracker控制UE4摄像机
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Geek
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Cloudreve
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cloudreve-install/">
+										搭建Cloudreve私有云盘
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Docker
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/docker-common-command/">
+										Docker常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/docker-make-jira/">
+										Docker部署JIRA和PostgreSQL
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Vim
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/vim-help/">
+										vim快捷键查询
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Mac
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py2app-used/">
+										将Python程序打包成App过程和排错
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Python
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										学习笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py2py3/">
+										Python3的一些新特性
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-basis/">
+										PyQt介绍及入门学习
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt4to5/">
+										将PyQt4代码转到PyQt5
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										查询
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/pyqt-learning-001/">
+										PyQt常用部件用法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-learning-event/">
+										PySide Event事件
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/python-re-module-help/">
+										Python的re模块
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										疑难问题
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/pycharm-pyside-issue1/">
+										Pycharm中无法使用QApplication类
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										TD Pipeline
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										CGWire
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cgwire-install/">
+										搭建CGWire
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Rez
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/00%20rez-wiki-cn/">
+										00 Rez中文文档
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/01%20rez-home/">
+										01 Home
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/02%20rez-install/">
+										02 Installation
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/03%20rez-getting-started/">
+										03 Getting Started
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/04%20rez-basic-concepts/">
+										04 Basic Concepts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/05%20rez-configuring/">
+										05 Configuring Rez
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/06%20rez-package-commands/">
+										06 Package Commands
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/07%20rez-package-definition-guide/">
+										07 Package Definition Guide
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/08%20rez-variants/">
+										08 Variants
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/09%20rez-ephemeral-packages/">
+										09 Ephemeral Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/10%20rez-contexts/">
+										10 Contexts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/11%20rez-bundles/">
+										11 Bundles
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/12%20rez-suites/">
+										12 Suites
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/13%20rez-building-package/">
+										13 Building Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/14%20rez-copying-package/">
+										14 Copying Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/15%20rez-package-caching/">
+										15 Package Caching
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/16%20rez-environment-variables/">
+										16 Environment Variables
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/rez-intro/">
+										Rez介绍（使用篇）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+	Python的re模块
+</h1>
+<div class="article-meta">
+	
+	<span>zhangly</span>
+	<span>2020-12-10 15:54:27</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/Python/">Python</a>
+                        </i>
+                      
+                        >
+                      
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/Python/查询/">查询</a>
+                        </i>
+                      
+                    </span>
+                
+            
+    
+
+    
+		<span>Tags：</span>
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h2><span id="概览">概览</span></h2><ul>
+<li><code>re.compile</code> 生成一个匹配器实例，用来匹配</li>
+<li><code>re.match</code> 从字符最前端开始匹配</li>
+<li><code>re.search</code> 从字符中搜索出第一个匹配结果</li>
+<li><code>re.findall</code> 从字符中找出所有匹配结果</li>
+<li><code>re.sub</code> 查询替换字符，返回替换结果</li>
+<li><code>re.subn</code> 查询替换字符，返回替换结果和替换次数</li>
+<li><code>re.split</code> 根据规则切分字符串</li>
+</ul>
+<h2><span id="rematch案例">re.match案例</span></h2><p>re.match返回的是一个<strong>实例对象</strong>，调用它的方法找到结果。</p>
+<p>假设我们需要匹配开头为”Ch_”的字符</p>
+<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">import re
+
+# 匹配成功返回一个实例对象
+print re.match(&#39;Ch_&#39;, &#39;Ch_dog_v001&#39;)
+&gt;&gt;&gt; &lt;_sre.SRE_Match object at 0x0000000003ACA510&gt;
+
+# 如果匹配失败，是没有返回值的
+print re.match(&#39;Ch_&#39;, &#39;aCh_dog_v001&#39;)
+&gt;&gt;&gt; None<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>group方法：用于获得一个或多个分组匹配的字符串</p>
+<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">res &#x3D; re.match(&#39;Ch_&#39;, &#39;Ch_dog_v001&#39;)
+print res.group()
+&gt;&gt;&gt; Ch_<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>pos方法：找到匹配字符的index位置（好像这个方法永远都是返回0吧？）</p>
+<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">res &#x3D; re.match(&#39;Ch_&#39;, &#39;Ch_dog_v001&#39;)
+print res.pos
+&gt;&gt;&gt; 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>注意re.match是<strong>从字符串前端开始匹配</strong>，如下情况需要<strong>匹配的字符在字符串中间</strong>，就会返回空值。</p>
+<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">res &#x3D; re.match(&#39;Ch_&#39;, &#39;HCH_Ch_dog_v001&#39;)
+print res
+&gt;&gt;&gt; None<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2><span id="research案例">re.search案例</span></h2><p>search方法则是从字符串中搜索出第一个匹配的结果</p>
+<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">res &#x3D; re.match(&#39;Ch_&#39;, &#39;HAH_Ch_dog_v001&#39;)
+
+# 这里返回了实例，说明匹配成功
+print res
+&gt;&gt;&gt; &lt;_sre.SRE_Match object at 0x00000000031AA510&gt;
+
+print res.group()
+&gt;&gt;&gt; Ch_
+
+# 匹配字符的起始index位置
+print res.start()
+&gt;&gt;&gt; 4
+
+# 匹配字符的结束index位置
+print res.end()
+&gt;&gt;&gt; 7<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<h2><span id="模糊匹配">模糊匹配</span></h2><p><strong>上面讲的是精确搜索，下面开始讲解模糊搜索。</strong></p>
+<ul>
+<li><p>使用<code>[]</code>找到中括号里的任意一个字母匹配。</p>
+<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">res &#x3D; re.search(&#39;d[aoes]g&#39;, &#39;dog dag deg dsg&#39;)
+
+print res
+&gt;&gt;&gt; &lt;_sre.SRE_Match object at 0x0000000002FDA510&gt;
+
+print res.group()
+&gt;&gt;&gt; dog<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>或者<code>[a-zA-Z0-9]</code>这样匹配所有的小写和大写字母与数字。</p>
+</li>
+<li><p>使用转义字符模糊搜索<br><code>\d</code> 匹配数字(0-9)<br><code>\w</code> 匹配字母，数字和下划线 (a-z A-Z 0-9 _)<br><code>\s</code> 匹配空格<br><code>\n</code> 匹配换行的地方<br><code>.</code>  匹配任何一个字符</p>
+</li>
+</ul>
+<p> 将<strong>转移字符大写</strong>，则是<strong>相反的效果</strong>，意思是匹配除去本义匹配的字符。<br> <code>\D</code> 匹配除数字外的字符<br> <code>\S</code> 匹配除空格外的字符<br> 以此类推…</p>
+<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">res &#x3D; re.search(&#39;a\dt&#39;, &#39;a6t&#39;)
+print res.group(), res.start(), res.end()
+
+&gt;&gt;&gt; a6t 0 3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>匹配次数</li>
+</ul>
+<p><code>?</code> 表示匹配0-1次<br><code>+</code> 表示匹配1-无数次<br><code>*</code> 表示匹配0-无数次</p>
+<p>课堂小案例：</p>
+<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python"># 字符a和t之间有一个数字匹配成功
+res &#x3D; re.search(&#39;a\d?t&#39;, &#39;a6t&#39;)
+print res.group(), res.start(), res.end()
+
+# 字符a和t之间有多个数字匹配失败
+res &#x3D; re.search(&#39;a\d?t&#39;, &#39;a66666t&#39;)
+print res
+
+# 字符a和t之间没有数字匹配成功
+res &#x3D; re.search(&#39;a\d?t&#39;, &#39;at&#39;)
+print res.group(), res.start(), res.end()
+
+# 匹配条件：1开头，第二个数字是3，5，或者7，后面9位都是数字
+res &#x3D; re.search(&#39;1[357]\d&#123;9&#125;&#39;, &#39;13910733521-45648356489&#39;)
+print res.group(), res.start(), res.end()
+&gt;&gt;&gt; 13910733521 0 11
+
+# 匹配3个以上的 a
+res &#x3D; re.search(&#39;a&#123;3,&#125;&#39;, &#39;abbaabbbaaabbbb&#39;)
+print res.group(), res.start(), res.end()
+&gt;&gt;&gt; aaa 8 11
+
+# 贪婪模式，匹配大于等于3个到小于等于9个 a，默认是往最大数量的找
+&#39;&#39;&#39;
+这里因为用的search, 所以如果匹配对象为&#39;baaabaaaaaaaaab&#39;
+则会返回3个a，search是返回第一个符合匹配条件的对象。
+&#39;&#39;&#39;
+res &#x3D; re.search(&#39;a&#123;3,9&#125;&#39;, &#39;aabaaaaaaaaaaaaaaab&#39;)
+print res.group(), res.start(), res.end()
+&gt;&gt;&gt; aaaaaaaaa 3 12
+
+# 非贪婪模式,加上?, 返回上面情况的最小数量
+res &#x3D; re.search(&#39;a&#123;3,9&#125;?&#39;, &#39;aabaaaaaaaaaaaaaaab&#39;)
+print res.group(), res.start(), res.end()
+&gt;&gt;&gt; aaa 3 6<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>?</code>号通常用于大区间匹配限制。<br><code>+?</code>: 在匹配1到无数次时，取最小数量。<br><code>*?</code>: 在匹配0到无数次时，取最小数量。<br><code>&#123;m,n&#125;</code>: 在匹配m到n次时，取最小数量。</p>
+<ul>
+<li>特殊符号</li>
+</ul>
+<p><code>^</code>: 表示匹配字符串开头。<br><code>$</code>: 表示匹配字符串结尾。<br><code>|</code>: 表示或，把正则表达式分为两段判断匹配。<br><code>()</code>: 表示编组，括号里面的表达式作为一个整体逻辑。<br><code>[^ABC]</code>: 匹配除去括号内字符以外的字符。<br><code>\</code>: 转义符，给一些特殊符号去除符号作用。</p>
+<p>课堂小案例：</p>
+<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python"># 匹配开头，这和match方法一样了。
+res &#x3D; re.search(&#39;^zhangly&#39;, &#39;zhanglyoooohhhh&#39;)
+print res.group(), res.start(), res.end()
+&gt;&gt;&gt; zhangly 0 7
+
+# 符号.表示匹配任何一个字符，这里用\去除它的作用
+res &#x3D; re.search(&#39;HS-\d&#123;3&#125;\.avi&#39;, &#39;this is lalala HS-009.avi lalala&#39;)
+print res.group(), res.start(), res.end()
+&gt;&gt;&gt; HS-009.avi 15 25
+
+# 如果需要匹配多个， 使用findall()， 返回一个列表
+res &#x3D; re.findall(&#39;HS-\d&#123;3&#125;\.avi&#39;, &#39;HS-988.avi lalala HS-009.avi lalala&#39;)
+print res
+&gt;&gt;&gt; [&#39;HS-988.avi&#39;, &#39;HS-009.avi&#39;]
+
+# 符号()编组返回结果
+res &#x3D; re.search(&#39;(?P&lt;zimu&gt;[a-zA-Z]+)(?P&lt;shuzi&gt;\d+)&#39;, &#39;sgasgasg55648&#39;)
+print res.groups()
+&gt;&gt;&gt; (&#39;sgasgasg&#39;, &#39;55648&#39;)
+print res.groupdict()
+&gt;&gt;&gt; &#123;&#39;zimu&#39;: &#39;sgasgasg&#39;, &#39;shuzi&#39;: &#39;55648&#39;&#125;
+
+# 使用符号 | 返回多个匹配条件
+res &#x3D; re.findall(&#39;((aaa|bbb)\.txt)&#39;, &#39;gasgaaa.txtgasgwghbbb.txt&#39;)
+print res
+&gt;&gt;&gt; [(&#39;aaa.txt&#39;, &#39;aaa&#39;), (&#39;bbb.txt&#39;, &#39;bbb&#39;)]
+&#39;&#39;&#39;
+列表中元组的第一个元素，是满足整个匹配条件的字符。
+第二个元素是里层括号&#39;(aaa|bbb)&#39;满足条件的字符。
+&#39;&#39;&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>逻辑判断<br><code>(?=abc)</code>: 判断字符后面包含abc<br><code>(?!abv)</code>: 判断字符后面不包含abc<br><code>(?&lt;abc)</code>: 判断字符前面包含abc<br><code>(?&lt;!abc)</code>: 判断字符前面不包含abc<br><code>(?#...)</code>: 注释</li>
+</ul>
+<p>课堂小案例：</p>
+<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python"># 比如只返回匹配.jpg前面的字符
+res &#x3D; re.search(&#39;\w+(?&#x3D;.jpg)&#39;, &#39;image001.jpg&#39;)
+print res.group()
+&gt;&gt;&gt; image001
+
+# 判断条件：字符是数字，并且字符后面不是.jpg
+res &#x3D; re.search(&#39;\d+(?!.jpg)&#39;, &#39;image001.jpg&#39;)
+print res.group()
+&gt;&gt;&gt; 00
+
+# 判断条件：字符是数字，并且字符前面是num
+res &#x3D; re.search(&#39;(?&lt;&#x3D;num)\d+&#39;, &#39;123456num7890&#39;)
+print res.group()
+&gt;&gt;&gt; 7890<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>课程推荐的一个检查正则表达式网站：<br><a target="_blank" rel="noopener" href="https://regex101.com/">https://regex101.com/</a></p>
+<p>这里的博客介绍也很详细，可以当作参考：<br><a target="_blank" rel="noopener" href="http://funhacks.net/2016/12/27/regular_expression/">http://funhacks.net/2016/12/27/regular_expression/</a></p>
+<center>(完)
+</center>
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/pyqt-basis/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  PyQt介绍及入门学习
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/vim-help/">
+                vim快捷键查询
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2019-<span id="footerYear"></span> 
+	<a href="/">zhangly</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

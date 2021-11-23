@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		Maya疑难杂症备忘录 Vol.1 | 
+	 
+	凌云的个人博客
+	</title>
+	
+	<!-- keywords,description -->
+	 
+		<meta name="description" content="关于视效的学习和分享" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "tdvfx.com";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">凌云的个人博客</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+
+	
+
+		
+		<li class="menu-item">
+			<a href="https://gitlab.lingyunfx.com/zhangly" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Article
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/command-tool-intro/">
+										命令行工具的三把瑞士军刀
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-link-unreal/">
+										UE4和Maya的数据通信
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-retime-tool-intro/">
+										Maya动画变速工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/meshlab-remove-face/">
+										使用MeshLab为模型减面
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/metahuman-intro/">
+										MetaHumans Creator初体验
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/notion-intro/">
+										使用Notion建立个人Wiki
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/tracks-2d-tools/">
+										在不同跟踪软件之间的2D点转换工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/whats-matchmoving/">
+										电影视效制作中的Matchmove
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										DCC
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Deadline
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/deadline-use-techniques/">
+										Deadline 使用技巧
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Maya
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/maya-env-varibles/">
+										Maya常用环境变量
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/maya-issue-vol1/">
+										Maya疑难杂症备忘录 Vol.1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-001/">
+										Maya的效率使用和技巧（一）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-002/">
+										Maya的效率使用和技巧（二）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/mtoa-install-issue/">
+										安装Arnold后环境变量被破坏
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/reject-maya-warning/">
+										关于“你的文件贼健康”的简单处理方式
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Nuke
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/nuke-trn-lens-distort/">
+										使用LensDistortion节点输出STMap
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Unreal
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/unreal-add-custom-menus/">
+										使用Python为UE4添加自定义菜单
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal-vive-tracker-camera/">
+										使用Vive Tracker控制UE4摄像机
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Geek
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Cloudreve
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cloudreve-install/">
+										搭建Cloudreve私有云盘
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Docker
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/docker-common-command/">
+										Docker常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/docker-make-jira/">
+										Docker部署JIRA和PostgreSQL
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Vim
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/vim-help/">
+										vim快捷键查询
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Mac
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py2app-used/">
+										将Python程序打包成App过程和排错
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Python
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										学习笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py2py3/">
+										Python3的一些新特性
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-basis/">
+										PyQt介绍及入门学习
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt4to5/">
+										将PyQt4代码转到PyQt5
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										查询
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/pyqt-learning-001/">
+										PyQt常用部件用法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-learning-event/">
+										PySide Event事件
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-re-module-help/">
+										Python的re模块
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										疑难问题
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/pycharm-pyside-issue1/">
+										Pycharm中无法使用QApplication类
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										TD Pipeline
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										CGWire
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cgwire-install/">
+										搭建CGWire
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Rez
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/00%20rez-wiki-cn/">
+										00 Rez中文文档
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/01%20rez-home/">
+										01 Home
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/02%20rez-install/">
+										02 Installation
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/03%20rez-getting-started/">
+										03 Getting Started
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/04%20rez-basic-concepts/">
+										04 Basic Concepts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/05%20rez-configuring/">
+										05 Configuring Rez
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/06%20rez-package-commands/">
+										06 Package Commands
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/07%20rez-package-definition-guide/">
+										07 Package Definition Guide
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/08%20rez-variants/">
+										08 Variants
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/09%20rez-ephemeral-packages/">
+										09 Ephemeral Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/10%20rez-contexts/">
+										10 Contexts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/11%20rez-bundles/">
+										11 Bundles
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/12%20rez-suites/">
+										12 Suites
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/13%20rez-building-package/">
+										13 Building Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/14%20rez-copying-package/">
+										14 Copying Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/15%20rez-package-caching/">
+										15 Package Caching
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/16%20rez-environment-variables/">
+										16 Environment Variables
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/rez-intro/">
+										Rez介绍（使用篇）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+	Maya疑难杂症备忘录 Vol.1
+</h1>
+<div class="article-meta">
+	
+	<span>zhangly</span>
+	<span>2021-03-09 13:13:44</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/DCC/">DCC</a>
+                        </i>
+                      
+                        >
+                      
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/DCC/Maya/">Maya</a>
+                        </i>
+                      
+                    </span>
+                
+            
+    
+
+    
+		<span>Tags：</span>
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<blockquote>
+<p>这个系列主要是收集一些Maya中遇到的疑难杂症，<br>有自己工作中遇到的，有从网上或者博客中看到记录的。<br>总之当作一个备忘录。</p>
+</blockquote>
+<h2><span id="1打开软件崩溃">1.打开软件崩溃</span></h2><p>双击打开软件，出现一个下面这样的弹窗，Maya就崩溃退出了。  </p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-issue-vol1/p1.jpeg"></p>
+<p>出现这样的情况通常重置用户预设文件夹即可解决：<br><strong><code>...\Documents\maya\&lt;版本&gt;\prefs</code></strong></p>
+<p>自己遇到几次这种情况，是因为在Plug-in Manager为某些插件勾选了Auto Load，<br>如果不勾选它，在打开Maya后再开启这个插件就没有问题，<br>没有细究过原因，暂时就让制作们手动加载。</p>
+<p>还有种情况是因为OpenCL导致的Maya启动崩溃。<br>解决方法是在Maya.env文件中添加环境变量来禁用它：  </p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">MAYA_DISABLE_OPENCL &#x3D; 1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2><span id="2打开文件崩溃">2.打开文件崩溃</span></h2><p><strong>(1.)文件里包含了Maya没有加载的插件。</strong><br>比如一个场景文件中，人物的资产带有RenderMan的材质球。<br>这样的情况需先开启插件，再打开文件。</p>
+<p><strong>(2.)文件里加载了多个且臃肿的引用。</strong><br>Maya一次性加载这些Reference文件，可能会导致进程卡死崩溃。<br>通常在打开文件的时候在右侧选项里选择Load no reference，<br>然后在Maya文件打开后，进入Reference管理器中一一勾选加载资产。</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-issue-vol1/p2.png"></p>
+<p>(3.)有些文件默认打开文件的时候，会开启了Hypershade窗口。<br>一些过多或未使用的材质球也会导致Maya打开文件时的拥挤。<br>解决方法是找到预设文件：<code>...\Documents\Maya\&lt;版本&gt;\prefs\userPrefs.mel</code>  </p>
+<p>打开这个文件并通过搜索minorNodeTypesDisplay，修改为:  </p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json">-iv <span class="token string">"minorNodeTypesDisplay"</span> <span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>修改后重启Maya。</p>
+<p>除此之外，当对文件进行open操作会导致崩溃的话，可以尝试import这个文件试试。<br>导入文件在大多情况是可行的，然后在保存文件之前，最好对文件进行场景优化和清理。</p>
+<p>也可以尝试使用最新版本的Maya2022打开文件。</p>
+<h2><span id="3进行某项操作崩溃">3.进行某项操作崩溃</span></h2><p>对于这样的情况非常多，列举几个自己遇到的。</p>
+<p>打开Plug-in Manager的时候崩溃，这可能是一些第三方插件导致，<br>在安装Arnold的时候配置mod文件的时候出现过类似问题，<br>这里有篇文章记录过：<a href="https://tdvfx.com/mtoa-install-error/">安装新版本Arnold for maya后环境变量被破坏</a>  </p>
+<p>对一个绑定文件进行位移选择操作的时候崩溃：<br>打开预设设置，修改求值模式为DG（脏值运算）。<br><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-issue-vol1/p3.jpeg"></p>
+<p>在动画烘培的时候崩溃：<br>因为Maya在进行烘培的时候会跑一遍时间滑块，对于一些臃肿的文件（帧数长，文件大），<br>可能在跑到一半的时候Maya就闪退了。可以把主界面显示修改为其它窗口：</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-issue-vol1/p4.png"></p>
+<p>这样减少了Maya烘培时候，对图形多余的计算（因为在时间滑块一帧帧播放的时候，图形一直在刷新）。  </p>
+<p>还有种方法则是使用脚本进行烘培，跳过跑时间滑块的步骤。<br>在这篇文章也讲过：<a href="https://tdvfx.com/maya-tips-001/">Maya的效率使用和技巧（一）</a></p>
+<h2><span id="4透视图相机属性值变为了无穷大">4.透视图相机属性值变为了无穷大</span></h2><p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-issue-vol1/p5.jpeg"></p>
+<p>在按下f键，对模型在视图局中显示的时候，容易触发这个问题。<br>通常可能是因为模型过大，损坏的模型，或者打开一些有问题的Maya文件所导致。</p>
+<p>暂时修复的话，选择透视图摄像机：<br>1.执行 <em>Modify - Reset Transformations</em> 操作<br>2.将下图的数值改为1<br><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-issue-vol1/p6.png"><br>这个时候就不要再按F了，不然视图又会变成NaN。</p>
+<p>需要完全修复它的话，关闭maya，找到预设文件：<br><code>...\Documents\Maya\&lt;版本&gt;\prefs\userPrefs.mel</code><br>搜索并修改“FitFactor”的数值，为0.01-1.0之间。（一定要带小数点）<br><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-issue-vol1/p7.png"><br>重新打开Maya就好了。</p>
+<h2><span id="5maya中看不到位移或选择轴向控制">5.Maya中看不到位移或选择轴向控制</span></h2><p>这里选择了Move Tool但是没有轴向控制显示。<br><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-issue-vol1/p8.png"></p>
+<p>双击Move Tool打开选项窗口，把Tweak Mode勾选去除即可<br>(或者直接Reset Tool将设置还原为默认值)<br><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-issue-vol1/p9.png"></p>
+<p>可以看到轴向控制正常显示了。<br><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-issue-vol1/p10.png"></p>
+<h2><span id="6文件无法保存">6.文件无法保存</span></h2><p>比如在保存文件（保存为ma文件的时候），遇到这样的提示。<br><left><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-issue-vol1/p11.png" width="80%" height="80%" alt align="center"></left>  </p>
+<p>因为文件中存在了未知节点，清理后再进行Save即可：<br><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-issue-vol1/p12.png"></p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-issue-vol1/p13.png"></p>
+<p>还有些未知情况，保存文件的时候出现一行报错（具体没有截图也没法还原场景）。<br>尝试在Script Editor输入这行Mel命令，改个名字就可以了：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">file -rename &quot;newName.ma&quot;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2><span id="7在大纲视图选择一个对象后报错">7.在大纲视图选择一个对象后报错</span></h2><p><strong><code>Error: Cannot find procedure &quot;look&quot;</code></strong></p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-issue-vol1/p14.jpg"></p>
+<p>在透视图选择物体没有问题，只有当在Outline视图里选择物体的时候会出现报错。<br>虽然暂时看来说没什么影响，不过每次报错很烦。<br>解决它只需要在mel里执行一行命令即可：  </p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">outlinerEditor -edit -selectCommand &quot;&quot; &quot;outlinerPanel1&quot;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2><span id="8cant-find-procedure-xxxx-报错">8.”Can’t find procedure xxxx” 报错</span></h2><p>诸如这样的报错：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">&#x2F;&#x2F; Error: line 1: Cannot find procedure &quot;onModelChange3dc&quot;. &#x2F;&#x2F;
+&#x2F;&#x2F; Error: line 1: Cannot find procedure &quot;CgAbBlastPanelOptChangeCallback&quot;. &#x2F;&#x2F;
+...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>之前在智伤帝的博客看到类似的问题，今天自己也遇到了。<br>关于”CgAbBlastPanelOptChangeCallback”的错误可以参考他的博客：<br><a target="_blank" rel="noopener" href="https://blog.l0v0.com/posts/a7c99667.html">Maya奇怪的callback报错</a></p>
+<p>而”onModelChange3dc”我在google搜到一篇帖子，执行一个python脚本进行修复：  </p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">needs_fixing <span class="token operator">=</span> <span class="token boolean">False</span>
+<span class="token keyword">try</span><span class="token punctuation">:</span>
+    expression_str <span class="token operator">=</span> cmds<span class="token punctuation">.</span>getAttr<span class="token punctuation">(</span><span class="token string">'uiConfigurationScriptNode.before'</span><span class="token punctuation">)</span>
+    fixed_expression_lines <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> line <span class="token keyword">in</span> expression_str<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token string">'-editorChanged "onModelChange3dc"'</span> <span class="token keyword">in</span> line<span class="token punctuation">:</span>
+            needs_fixing <span class="token operator">=</span> <span class="token boolean">True</span>
+            <span class="token keyword">continue</span>
+        fixed_expression_lines<span class="token punctuation">.</span>append<span class="token punctuation">(</span>line<span class="token punctuation">)</span>
+    fixed_expression <span class="token operator">=</span> <span class="token string">'\n'</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>fixed_expression_lines<span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> needs_fixing<span class="token punctuation">:</span>
+
+        cmds<span class="token punctuation">.</span>setAttr<span class="token punctuation">(</span><span class="token string">'uiConfigurationScriptNode.before'</span><span class="token punctuation">,</span> fixed_expression<span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token string">'string'</span><span class="token punctuation">)</span>
+<span class="token keyword">except</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>帖子链接：<a target="_blank" rel="noopener" href="https://forums.autodesk.com/t5/maya-animation-and-rigging/onmodelchange3dc-error/td-p/8124149">https://forums.autodesk.com/t5/maya-animation-and-rigging/onmodelchange3dc-error/td-p/8124149</a></p>
+<p>这样的问题google搜索基本能找到解决方法。</p>
+<h2><span id="9maya窗口丢失">9.Maya窗口丢失</span></h2><p>有些情况是因为改变了界面布局，这里重置布局即可：<br><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-issue-vol1/p15.png"></p>
+<p>或者把一些UI元素给隐藏了起来，在这里进行还原：<br><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-issue-vol1/p16.png"></p>
+<p>再者是因为从双屏切换到了单屏，导致一些窗口保留到了另一个屏幕。<br>我自己经常遇到这样的情况，后来在劲爆羊的博客里翻到了一个方法。<br>参考来自：<a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_4413e58d0102x5rp.html">http://blog.sina.com.cn/s/blog_4413e58d0102x5rp.html</a><br>大致意思是把所有窗口给移到指定的位置，用这个python脚本</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> pymel<span class="token punctuation">.</span>core <span class="token keyword">as</span> pmc
+<span class="token keyword">try</span><span class="token punctuation">:</span>        
+    <span class="token keyword">from</span> PySide<span class="token punctuation">.</span>QtGui <span class="token keyword">import</span> QApplication<span class="token comment">#(2015-2016)</span>
+<span class="token keyword">except</span><span class="token punctuation">:</span>
+    <span class="token keyword">from</span> PySide2<span class="token punctuation">.</span>QtWidgets <span class="token keyword">import</span> QApplication<span class="token comment">#(2017-2018)</span>
+
+<span class="token keyword">for</span> one <span class="token keyword">in</span> QApplication<span class="token punctuation">.</span>topLevelWidgets<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        one<span class="token punctuation">.</span>move<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span><span class="token punctuation">:</span>
+        <span class="token keyword">pass</span>
+
+<span class="token keyword">for</span> one <span class="token keyword">in</span> pmc<span class="token punctuation">.</span>lsUI<span class="token punctuation">(</span><span class="token builtin">type</span><span class="token operator">=</span><span class="token string">'window'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        one<span class="token punctuation">.</span>setTopLeftCorner<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span><span class="token punctuation">:</span>
+        <span class="token keyword">pass</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2><span id="10渲染层切换的时候报错">10.渲染层切换的时候报错</span></h2><p>来自Adu的博客：<a target="_blank" rel="noopener" href="https://www.aducg.com/2015/03/23/maya-renderlayer-batch-rendering-errors/">https://www.aducg.com/2015/03/23/maya-renderlayer-batch-rendering-errors/</a></p>
+<p><strong><code>Error: Cannot switch from &#39;bottle&#39; to &#39;defaultRenderLayer1&#39; because of an override to a missing node within a referenced scene</code></strong></p>
+<p>之前遇到类似的报错，是因为在渲染层里把一些Reference资产给remove掉了，<br>导致渲染层丢失了这个节点，在切换到默认渲染层的时候出现报错，且无法切换回去。<br>博客里有一个解决方法，一行mel命令：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">fixRenderLayerOutAdjustmentErrors;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>有时候它可以解决问题，但有时候又没有效果。  </p>
+<p>后来问了同事，打开Node Editor找到defaultRenderLayer的节点，<br>断开那条爆红（或者好像是有个警告的标志）的Input连接即可。<br>（这里没有图，也没法还原当时的场景，就是提供这个思路）</p>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/03%20rez-getting-started/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  03 Getting Started
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/command-tool-intro/">
+                命令行工具的三把瑞士军刀
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2019-<span id="footerYear"></span> 
+	<a href="/">zhangly</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		命令行工具的三把瑞士军刀 | 
+	 
+	凌云的个人博客
+	</title>
+	
+	<!-- keywords,description -->
+	 
+		<meta name="description" content="关于视效的学习和分享" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "tdvfx.com";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">凌云的个人博客</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+
+	
+
+		
+		<li class="menu-item">
+			<a href="https://gitlab.lingyunfx.com/zhangly" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Article
+									</a>
+									
+							<ul>
+								<li class="file active">
+									<a href="/command-tool-intro/">
+										命令行工具的三把瑞士军刀
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-link-unreal/">
+										UE4和Maya的数据通信
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-retime-tool-intro/">
+										Maya动画变速工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/meshlab-remove-face/">
+										使用MeshLab为模型减面
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/metahuman-intro/">
+										MetaHumans Creator初体验
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/notion-intro/">
+										使用Notion建立个人Wiki
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/tracks-2d-tools/">
+										在不同跟踪软件之间的2D点转换工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/whats-matchmoving/">
+										电影视效制作中的Matchmove
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										DCC
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Deadline
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/deadline-use-techniques/">
+										Deadline 使用技巧
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Maya
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/maya-env-varibles/">
+										Maya常用环境变量
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-issue-vol1/">
+										Maya疑难杂症备忘录 Vol.1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-001/">
+										Maya的效率使用和技巧（一）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-002/">
+										Maya的效率使用和技巧（二）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/mtoa-install-issue/">
+										安装Arnold后环境变量被破坏
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/reject-maya-warning/">
+										关于“你的文件贼健康”的简单处理方式
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Nuke
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/nuke-trn-lens-distort/">
+										使用LensDistortion节点输出STMap
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Unreal
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/unreal-add-custom-menus/">
+										使用Python为UE4添加自定义菜单
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal-vive-tracker-camera/">
+										使用Vive Tracker控制UE4摄像机
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Geek
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Cloudreve
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cloudreve-install/">
+										搭建Cloudreve私有云盘
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Docker
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/docker-common-command/">
+										Docker常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/docker-make-jira/">
+										Docker部署JIRA和PostgreSQL
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Vim
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/vim-help/">
+										vim快捷键查询
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Mac
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py2app-used/">
+										将Python程序打包成App过程和排错
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Python
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										学习笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py2py3/">
+										Python3的一些新特性
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-basis/">
+										PyQt介绍及入门学习
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt4to5/">
+										将PyQt4代码转到PyQt5
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										查询
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/pyqt-learning-001/">
+										PyQt常用部件用法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-learning-event/">
+										PySide Event事件
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-re-module-help/">
+										Python的re模块
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										疑难问题
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/pycharm-pyside-issue1/">
+										Pycharm中无法使用QApplication类
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										TD Pipeline
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										CGWire
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cgwire-install/">
+										搭建CGWire
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Rez
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/00%20rez-wiki-cn/">
+										00 Rez中文文档
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/01%20rez-home/">
+										01 Home
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/02%20rez-install/">
+										02 Installation
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/03%20rez-getting-started/">
+										03 Getting Started
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/04%20rez-basic-concepts/">
+										04 Basic Concepts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/05%20rez-configuring/">
+										05 Configuring Rez
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/06%20rez-package-commands/">
+										06 Package Commands
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/07%20rez-package-definition-guide/">
+										07 Package Definition Guide
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/08%20rez-variants/">
+										08 Variants
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/09%20rez-ephemeral-packages/">
+										09 Ephemeral Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/10%20rez-contexts/">
+										10 Contexts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/11%20rez-bundles/">
+										11 Bundles
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/12%20rez-suites/">
+										12 Suites
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/13%20rez-building-package/">
+										13 Building Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/14%20rez-copying-package/">
+										14 Copying Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/15%20rez-package-caching/">
+										15 Package Caching
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/16%20rez-environment-variables/">
+										16 Environment Variables
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/rez-intro/">
+										Rez介绍（使用篇）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+	命令行工具的三把瑞士军刀
+</h1>
+<div class="article-meta">
+	
+	<span>zhangly</span>
+	<span>2021-03-01 18:52:11</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/Article/">Article</a>
+                        </i>
+                      
+                    </span>
+                
+            
+    
+
+    
+		<span>Tags：</span>
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h1><span id="前言">前言</span></h1><p>数字时代我们常会和文字，图片，视频打交道。<br>而作为一个cg工作者，你可能时常会有下面的需求：</p>
+<ul>
+<li>批量将一堆4k的材质贴图转成2k</li>
+<li>将exr序列帧转换成更轻便的jpg进行预览</li>
+<li>批量给序列帧更名</li>
+<li>把mov视频转换成序列帧</li>
+<li>将写好的doc文档转换为pdf格式</li>
+<li>合并一堆mov视频</li>
+</ul>
+<p>面对这样的需要，我们或许会打开Nuke等DCC软件进行转换输出，<br>或是@公司TD写一个批量工具，但其实对于以上需求，<br>使用命令行工具，输入一行命令即可达到上述的目的。</p>
+<p>下面为大家安利和介绍三款命令行工具，<br>它们包含了对文字，图片，音频和视频的处理，<br>有着命令行界的瑞士军刀称号。<br>分别是：</p>
+<ul>
+<li>ffmpeg</li>
+<li>imagemagick</li>
+<li>pandoc</li>
+</ul>
+<h1><span id="ffmpeg">FFmpeg</span></h1><p>一款处理音频和视频的命令行工具。<br>官网：<a target="_blank" rel="noopener" href="https://ffmpeg.org/">https://ffmpeg.org/</a>  </p>
+<p>Windows用户可以直接从官网下载安装包，双击安装即可。<br>Mac用户可以使用<code>brew install ffmpeg</code>进行安装。<br>Linux用户…应该有自己动手安装的能力。</p>
+<p>下面说几个常用的命令：  </p>
+<h3><span id="转码">转码</span></h3><p>这里是将mov格式转码为mp4格式。  </p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ffmpeg -i input.mov output.mp4<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3><span id="视频转序列帧">视频转序列帧</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ffmpeg -i video.mov frames.%04d.jpg<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3><span id="序列帧转为视频">序列帧转为视频</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ffmpeg -i &#x2F;test&#x2F;test.%04d.jpg -vcodec mpeg4 test.mov<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这里的vcodec参数是指定的视频编码器。</p>
+<h3><span id="合并视频">合并视频</span></h3><p>这里是将三个视频 01.mp4，02.mp4，03.mp4合并成一个。  </p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ffmpeg -i &quot;concat:01.mp4|02.mp4|03.mp4&quot; -c copy out.mp4<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3><span id="给视频添加水印">给视频添加水印</span></h3><p>将logo.png作为水印，添加到离左上角（顶部和左边）分别20个像素位置。  </p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ffmpeg -i in.mp4 -i logo.png -filter_complex &quot;overlay&#x3D;20:20&quot; out.mp4<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3><span id="截取一部分视频作为gif动图">截取一部分视频作为gif动图</span></h3><p>将视频的7.5秒到8.5秒截取，输出gif动图。  </p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ffmpeg -i in.mp4 -ss 7.5 -to 8.5 -s 640x320 out.gif<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<hr>
+<p>关于这个工具包，它还包含了下面几个工具：</p>
+<ul>
+<li>ffmpeg: 转换，操作流媒体</li>
+<li>ffplay: 简单的流媒体播放器</li>
+<li>ffprobe: 媒体参数分析工具</li>
+</ul>
+<h1><span id="imagemagick">ImageMagick</span></h1><p>处理图片的命令行工具。<br>官网： <a target="_blank" rel="noopener" href="https://imagemagick.org/script/index.php">https://imagemagick.org/script/index.php</a></p>
+<p>安装方式同上，windows下载双击安装。<br>Mac的话<code>brew install imagemagick</code>  </p>
+<p>同样介绍几个常用的操作：</p>
+<h3><span id="批量将图片尺寸缩至50">批量将图片尺寸缩至50%</span></h3><p>这个操作可以将当前目录所有4k的贴图转换为2k<br>-format参数为jpg格式，可以替换成任意的图片格式。  </p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">magick mogrify -format jpg -resize 50% *.jpg<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>(注意：此方法会覆盖原本的图片)</p>
+<p>如果不希望被覆盖，可以用下面命令指定一个新的文件夹，<br>存储缩放后的图片，这里的newdir是新文件夹的路径。  </p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">magick mogrify -path newdir -resize 50% &#x2F;inputFolder&#x2F;*.jpg<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3><span id="批量将图片转换格式">批量将图片转换格式</span></h3><p>这里是将文件夹下所有jpg文件转换为png，并重命名为test2。<br>（所以这个操作也可以用作序列帧批量重命名）  </p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">magick test&#x2F;*.jpg test2&#x2F;test2.%04d.png<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3><span id="旋转图片">旋转图片</span></h3><p>将input.png逆时针旋转90度，并输出新文件output.png。  </p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">magick convert input.png -rotate -90 output.png<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>它也可以进行批量旋转操作：  </p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">magick mogrify -path newdir -rotate -90 *.png<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3><span id="压缩图片质量">压缩图片质量</span></h3><p>这里的quality参数表示，降低图片的质量为70%  </p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">magick convert -quality 70 input.jpg output.jpg<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3><span id="将图片打包成pdf">将图片打包成pdf</span></h3><p>将当前目录下所有jpg图片，打包成一个pdf格式。  </p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">magick *.jpg output.pdf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>ImageMagick的强大之处不止这些，套用官方的话，<br>它是一款创建、编辑、合成，转换图像的命令行工具。  </p>
+<p>支持格式超过 200 种，功能包括调整，翻转，镜像(mirror)，旋转，扭曲，<br>修剪和变换图像，调整图像颜色，应用各种特殊效果，或绘制文本，<br>线条，多边形，椭圆和贝塞尔曲线等。</p>
+<p>上述命令是我自己常用的一些，有兴趣的话也可以去搜索更多的用法。  </p>
+<h1><span id="pandoc">Pandoc</span></h1><p>是一款处理文本文档的工具。<br>官网：<a target="_blank" rel="noopener" href="https://pandoc.org/index.html">https://pandoc.org/index.html</a>  </p>
+<p>它可以将文档在 Markdown、LaTeX、reStructuredText、HTML、Word docx 等多种标记格式之间相互转换，并支持输出 PDF、EPUB、HTML 幻灯片等多种格式。  </p>
+<p>安装方法和上述两款命令行工具一样。<br>对于Mac：<code>brew install pandoc</code></p>
+<p>关于它我最常用的是将markdown格式的文件转换成pdf，方便分享给朋友。</p>
+<p>下面也列出几个基本命令：  </p>
+<h3><span id="将markdown文档转换为pdf格式">将markdown文档转换为pdf格式</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pandoc input.md -o output.pdf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>pandoc在进行对pdf转换的时候，无法处理Unicode字符，<br>有需要的朋友参考这篇博客的解决方法：<br><a target="_blank" rel="noopener" href="https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/">https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/</a></p>
+<h3><span id="将markdown转换为docx文档">将markdown转换为docx文档</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pandoc input.md -o output.docx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>关于pandoc的介绍基本就到这里，因为我自己用的也很少。  </p>
+<h1><span id="总结">总结</span></h1><p>希望这篇文章可以帮助大家提高工作效率，早点下班！<br>觉得文章还不错，可以关注这个公众号thx。  </p>
+<center><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/metahuman-intro/p31.JPG" width="30%" height="30%" alt align="center"></center>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/maya-issue-vol1/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  Maya疑难杂症备忘录 Vol.1
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/maya-tips-002/">
+                Maya的效率使用和技巧（二）
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2019-<span id="footerYear"></span> 
+	<a href="/">zhangly</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

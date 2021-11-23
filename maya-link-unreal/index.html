@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		UE4和Maya的数据通信 | 
+	 
+	凌云的个人博客
+	</title>
+	
+	<!-- keywords,description -->
+	 
+		<meta name="description" content="关于视效的学习和分享" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "tdvfx.com";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">凌云的个人博客</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+
+	
+
+		
+		<li class="menu-item">
+			<a href="https://gitlab.lingyunfx.com/zhangly" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Article
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/command-tool-intro/">
+										命令行工具的三把瑞士军刀
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/maya-link-unreal/">
+										UE4和Maya的数据通信
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-retime-tool-intro/">
+										Maya动画变速工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/meshlab-remove-face/">
+										使用MeshLab为模型减面
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/metahuman-intro/">
+										MetaHumans Creator初体验
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/notion-intro/">
+										使用Notion建立个人Wiki
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/tracks-2d-tools/">
+										在不同跟踪软件之间的2D点转换工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/whats-matchmoving/">
+										电影视效制作中的Matchmove
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										DCC
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Deadline
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/deadline-use-techniques/">
+										Deadline 使用技巧
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Maya
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/maya-env-varibles/">
+										Maya常用环境变量
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-issue-vol1/">
+										Maya疑难杂症备忘录 Vol.1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-001/">
+										Maya的效率使用和技巧（一）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-002/">
+										Maya的效率使用和技巧（二）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/mtoa-install-issue/">
+										安装Arnold后环境变量被破坏
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/reject-maya-warning/">
+										关于“你的文件贼健康”的简单处理方式
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Nuke
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/nuke-trn-lens-distort/">
+										使用LensDistortion节点输出STMap
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Unreal
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/unreal-add-custom-menus/">
+										使用Python为UE4添加自定义菜单
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal-vive-tracker-camera/">
+										使用Vive Tracker控制UE4摄像机
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Geek
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Cloudreve
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cloudreve-install/">
+										搭建Cloudreve私有云盘
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Docker
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/docker-common-command/">
+										Docker常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/docker-make-jira/">
+										Docker部署JIRA和PostgreSQL
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Vim
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/vim-help/">
+										vim快捷键查询
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Mac
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py2app-used/">
+										将Python程序打包成App过程和排错
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Python
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										学习笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py2py3/">
+										Python3的一些新特性
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-basis/">
+										PyQt介绍及入门学习
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt4to5/">
+										将PyQt4代码转到PyQt5
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										查询
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/pyqt-learning-001/">
+										PyQt常用部件用法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-learning-event/">
+										PySide Event事件
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-re-module-help/">
+										Python的re模块
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										疑难问题
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/pycharm-pyside-issue1/">
+										Pycharm中无法使用QApplication类
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										TD Pipeline
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										CGWire
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cgwire-install/">
+										搭建CGWire
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Rez
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/00%20rez-wiki-cn/">
+										00 Rez中文文档
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/01%20rez-home/">
+										01 Home
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/02%20rez-install/">
+										02 Installation
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/03%20rez-getting-started/">
+										03 Getting Started
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/04%20rez-basic-concepts/">
+										04 Basic Concepts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/05%20rez-configuring/">
+										05 Configuring Rez
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/06%20rez-package-commands/">
+										06 Package Commands
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/07%20rez-package-definition-guide/">
+										07 Package Definition Guide
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/08%20rez-variants/">
+										08 Variants
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/09%20rez-ephemeral-packages/">
+										09 Ephemeral Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/10%20rez-contexts/">
+										10 Contexts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/11%20rez-bundles/">
+										11 Bundles
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/12%20rez-suites/">
+										12 Suites
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/13%20rez-building-package/">
+										13 Building Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/14%20rez-copying-package/">
+										14 Copying Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/15%20rez-package-caching/">
+										15 Package Caching
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/16%20rez-environment-variables/">
+										16 Environment Variables
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/rez-intro/">
+										Rez介绍（使用篇）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+	UE4和Maya的数据通信
+</h1>
+<div class="article-meta">
+	
+	<span>zhangly</span>
+	<span>2020-12-02 17:39:28</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/Article/">Article</a>
+                        </i>
+                      
+                    </span>
+                
+            
+    
+
+    
+		<span>Tags：</span>
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h1><span id="前言">前言</span></h1><p>因为出色的实时渲染，快速的可见效果。<br>在如今的电影视效制作中，渐渐有了Unreal的身影。  </p>
+<p>不过Unreal在动画部分，却不像它的渲染这么出彩。<br><strong>动画制作还是由我们的老牌软件Maya来负责</strong>，<br>然后再将动画通过abc,fbx等格式输出到Unreal进行预览。  </p>
+<p>在这样“分离”的情况下，可能会遇到动画的反复修改，<br>重复的导出导入，没法很好的运用到Unreal的优势。<br>为了能够<strong>所见即所得</strong>，让Maya和Unreal之间的数据通信。<br>所以它们就诞生了: Live Link, Mirror, MUTools。</p>
+<p>下面将为大家介绍这几款插件，以及它们的区别，和各自的优势。</p>
+<h1><span id="live-link">Live Link</span></h1><p>Live Link是Unreal官方插件，内置在虚幻引擎中。<br>在Setting - Plugin中开启即可。</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-link-unreal/p1.jpg"></p>
+<p>它可以在两个软件里导入同一个文件(目前只支持fbx)，<br><strong>然后在Maya中制作动画，Unreal会实时更新制作的动画效果。</strong></p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-link-unreal/p2.gif"></p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-link-unreal/p3.gif"></p>
+<p>Live Link是Maya到Unreal的单向输出，<br>在Unreal里的操作不会对Maya里的动画和模型有任何影响。<br>如果想了解更多以及如何使用，可以查看官方文档：<br><a target="_blank" rel="noopener" href="https://docs.unrealengine.com/zh-CN/Engine/Animation/LiveLinkPlugin/ConnectingUnrealEngine4toMayawithLiveLink/index.html">https://docs.unrealengine.com/zh-CN/Engine/Animation/LiveLinkPlugin/ConnectingUnrealEngine4toMayawithLiveLink/index.html</a></p>
+<h1><span id="mirror">Mirror</span></h1><p>Mirror是由国内团队开发的插件，<br>它的作用是将Unreal场景渲染的效果实时传递到Maya里。</p>
+<p>和它的名字一样，传入的效果只是一个镜像，<br>在Maya里是不会载入任何Unreal的模型物体。<br>和Live Link相比，它是由Unreal到Maya的单向输出，<br>当然这个输出只是一个镜像，软件本身互不影响。</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-link-unreal/p4.gif"></p>
+<p>我们可以直接在这样的“镜像”场景中，导入模型开始动画制作。<br>在Maya里就可以实时看到动画在场景中的表现。  </p>
+<p>同时，它也可以在Maya进行拍屏预览，这对于制作previz是非常友好了。<br>等动画效果满意后，再导出到Unreal里进行渲染。</p>
+<p>官方网站：<a target="_blank" rel="noopener" href="http://mirror.virtueal.cn/">http://mirror.virtueal.cn/</a></p>
+<h1><span id="mutools">MUTools</span></h1><p>MUTools是由<strong>达瓦科技</strong>的R&amp;D部门研发的插件，<br>它可以直接在Unreal里“打开”Maya的ma文件，无需导出fbx或者abc等中间文件，实现数据传递。</p>
+<p>这个“打开”是通过插件里的一个蓝图实现，它可以和一个ma文件进行链接，<br>并列出ma文件中所有模型，然后将所需的物体加载到Unreal中。  </p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-link-unreal/p5.jpg"></p>
+<p>这省去了中间导入导出的过程，在Maya里修改动画后，保存文件。<br>返回到Unreal，再进行一次ma文件的load，即可在Unreal里完成动画的更新。<br>当然，它也可以支持Maya时间轴和Sequencer同步。  </p>
+<p>更多的功能可以看这个介绍视频：<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ct4y1Y7qP">https://www.bilibili.com/video/BV1ct4y1Y7qP</a></p>
+<h1><span id="总结">总结</span></h1><p><strong>Live Link</strong></p>
+<ul>
+<li>从Maya到Unreal单向输出</li>
+<li>官方插件，比较好的兼容性</li>
+<li>免费的</li>
+<li>只支持fbx文件</li>
+<li>较为繁琐的连接配置</li>
+</ul>
+<p><strong>Mirror</strong></p>
+<ul>
+<li>从Unreal到Maya的单向(镜像)输出</li>
+<li>付费插件</li>
+<li>配置简单，在Unreal里打开插件和场景即可</li>
+<li>能专注在Maya里进行动画制作</li>
+</ul>
+<p><strong>MUTools</strong></p>
+<ul>
+<li>无需中间文件，直接在Unreal里读取ma文件</li>
+<li>尚在开发测试阶段，插件暂时不对外</li>
+</ul>
+<hr>
+<p>如果觉得文章还不错，可以关注下作者的公众号。</p>
+<center><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/metahuman-intro/p31.JPG" width="30%" height="30%" alt align="center"></center>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/meshlab-remove-face/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  使用MeshLab为模型减面
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/unreal-vive-tracker-camera/">
+                使用Vive Tracker控制UE4摄像机
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2019-<span id="footerYear"></span> 
+	<a href="/">zhangly</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

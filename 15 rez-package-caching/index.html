@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		15 Package Caching | 
+	 
+	凌云的个人博客
+	</title>
+	
+	<!-- keywords,description -->
+	 
+		<meta name="description" content="关于视效的学习和分享" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "tdvfx.com";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">凌云的个人博客</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+
+	
+
+		
+		<li class="menu-item">
+			<a href="https://gitlab.lingyunfx.com/zhangly" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Article
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/command-tool-intro/">
+										命令行工具的三把瑞士军刀
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-link-unreal/">
+										UE4和Maya的数据通信
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-retime-tool-intro/">
+										Maya动画变速工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/meshlab-remove-face/">
+										使用MeshLab为模型减面
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/metahuman-intro/">
+										MetaHumans Creator初体验
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/notion-intro/">
+										使用Notion建立个人Wiki
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/tracks-2d-tools/">
+										在不同跟踪软件之间的2D点转换工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/whats-matchmoving/">
+										电影视效制作中的Matchmove
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										DCC
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Deadline
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/deadline-use-techniques/">
+										Deadline 使用技巧
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Maya
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/maya-env-varibles/">
+										Maya常用环境变量
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-issue-vol1/">
+										Maya疑难杂症备忘录 Vol.1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-001/">
+										Maya的效率使用和技巧（一）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-002/">
+										Maya的效率使用和技巧（二）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/mtoa-install-issue/">
+										安装Arnold后环境变量被破坏
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/reject-maya-warning/">
+										关于“你的文件贼健康”的简单处理方式
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Nuke
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/nuke-trn-lens-distort/">
+										使用LensDistortion节点输出STMap
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Unreal
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/unreal-add-custom-menus/">
+										使用Python为UE4添加自定义菜单
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal-vive-tracker-camera/">
+										使用Vive Tracker控制UE4摄像机
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Geek
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Cloudreve
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cloudreve-install/">
+										搭建Cloudreve私有云盘
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Docker
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/docker-common-command/">
+										Docker常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/docker-make-jira/">
+										Docker部署JIRA和PostgreSQL
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Vim
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/vim-help/">
+										vim快捷键查询
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Mac
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py2app-used/">
+										将Python程序打包成App过程和排错
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Python
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										学习笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py2py3/">
+										Python3的一些新特性
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-basis/">
+										PyQt介绍及入门学习
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt4to5/">
+										将PyQt4代码转到PyQt5
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										查询
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/pyqt-learning-001/">
+										PyQt常用部件用法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-learning-event/">
+										PySide Event事件
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-re-module-help/">
+										Python的re模块
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										疑难问题
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/pycharm-pyside-issue1/">
+										Pycharm中无法使用QApplication类
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										TD Pipeline
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										CGWire
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cgwire-install/">
+										搭建CGWire
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Rez
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/00%20rez-wiki-cn/">
+										00 Rez中文文档
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/01%20rez-home/">
+										01 Home
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/02%20rez-install/">
+										02 Installation
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/03%20rez-getting-started/">
+										03 Getting Started
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/04%20rez-basic-concepts/">
+										04 Basic Concepts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/05%20rez-configuring/">
+										05 Configuring Rez
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/06%20rez-package-commands/">
+										06 Package Commands
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/07%20rez-package-definition-guide/">
+										07 Package Definition Guide
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/08%20rez-variants/">
+										08 Variants
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/09%20rez-ephemeral-packages/">
+										09 Ephemeral Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/10%20rez-contexts/">
+										10 Contexts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/11%20rez-bundles/">
+										11 Bundles
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/12%20rez-suites/">
+										12 Suites
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/13%20rez-building-package/">
+										13 Building Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/14%20rez-copying-package/">
+										14 Copying Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/15%20rez-package-caching/">
+										15 Package Caching
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/16%20rez-environment-variables/">
+										16 Environment Variables
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/rez-intro/">
+										Rez介绍（使用篇）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+	15 Package Caching
+</h1>
+<div class="article-meta">
+	
+	<span>zhangly</span>
+	<span>2021-03-15 19:02:02</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
+                        </i>
+                      
+                        >
+                      
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
+                        </i>
+                      
+                    </span>
+                
+            
+    
+
+    
+		<span>Tags：</span>
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h1><span id="概述">概述</span></h1><p>软件包缓存（Package Caching）是一个将包复制到本地磁盘加快运行环境的功能。</p>
+<p>比如你发布的包通常是在共享服务器上，那么运行python进程时，就会从共享存储上获取所有源码。缓存的意义在于将这些内容复制到本地，节省访问网络的时间成本。</p>
+<h1><span id="启用缓存">启用缓存</span></h1><p>软件包缓存功能不是默认启用的。要启用它，需要配置<code>cache_packages_path</code>来指定缓存的路径。</p>
+<p>你也可以细致的控制哪些包是需要被缓存的，只需要在它的定义文件（package.py）设置<code>cachable = True</code> 。我们需要单独控制哪些包是可以被缓存的，因为某些编译后的包无法支持重定向（即缓存到本地会丢失作用）。</p>
+<p>还有一些配置会在包没有设置<code>cachable=True</code>的情况下缓存包。比如<code>dedefault_cachable</code>，<code>default_cachable_per_package</code> 和<code>default_cachable_per_repository</code>。</p>
+<p><strong>Notes</strong>：你也可以使用<code>rez-env --no-pkg-caching</code>来禁用包缓存。</p>
+<h1><span id="验证">验证</span></h1><p>当你解析一个环境后，可以通过<code>rez-context</code>输出的右侧栏中看到缓存标签，查看哪些变体已经被缓存。如下所示：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-env Flask
+
+You are now <span class="token keyword">in</span> a rez-configured environment.
+
+requested packages:
+Flask
+~platform<span class="token operator">==</span>linux   <span class="token punctuation">(</span>implicit<span class="token punctuation">)</span>
+~arch<span class="token operator">==</span>x86_64      <span class="token punctuation">(</span>implicit<span class="token punctuation">)</span>
+~os<span class="token operator">==</span>Ubuntu-16.04  <span class="token punctuation">(</span>implicit<span class="token punctuation">)</span>
+
+resolved packages:
+Flask-1.1.2         /home/ajohns/package_cache/Flask/1.1.2/d998/a                                     <span class="token punctuation">(</span>cached<span class="token punctuation">)</span>
+Jinja2-2.11.2       /home/ajohns/package_cache/Jinja2/2.11.2/6087/a                                   <span class="token punctuation">(</span>cached<span class="token punctuation">)</span>
+MarkupSafe-1.1.1    /svr/packages/MarkupSafe/1.1.1/d9e9d80193dcd9578844ec4c2c22c9366ef0b88a
+Werkzeug-1.0.1      /home/ajohns/package_cache/Werkzeug/1.0.1/fe76/a                                  <span class="token punctuation">(</span>cached<span class="token punctuation">)</span>
+arch-x86_64         /home/ajohns/package_cache/arch/x86_64/6450/a                                     <span class="token punctuation">(</span>cached<span class="token punctuation">)</span>
+click-7.1.2         /home/ajohns/package_cache/click/7.1.2/0da2/a                                     <span class="token punctuation">(</span>cached<span class="token punctuation">)</span>
+itsdangerous-1.1.0  /home/ajohns/package_cache/itsdangerous/1.1.0/b23f/a                              <span class="token punctuation">(</span>cached<span class="token punctuation">)</span>
+platform-linux      /home/ajohns/package_cache/platform/linux/9d4d/a                                  <span class="token punctuation">(</span>cached<span class="token punctuation">)</span>
+python-3.7.4        /home/ajohns/package_cache/python/3.7.4/ce1c/a<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>对于引用，缓存的包也会将其原始的位置存储到一个环境变量中：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ <span class="token builtin class-name">echo</span> <span class="token variable">$REZ_FLASK_ORIG_ROOT</span>
+/svr/packages/Flask/1.1.2/88a70aca30cb79a278872594adf043dc6c40af99<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h1><span id="工作原理">工作原理</span></h1><p>包缓存实际上缓存的是变体，而不是整个包。当你执行环境解析的时候，或者source一些存在的context时，所需的变体会被异步复制到本地磁盘（如果它们是可缓存的），在一个单独的进程中，进程名为<code>rez-pkg-cache</code>。</p>
+<p>这意味着在第一次解析时，不一定会用到缓存的变体（因为进程还在持续运行中，完成缓存需要时间，这是一个缓慢的过程）。</p>
+<p>注意，包缓存不是一个包仓库，它只是一个变体存储，结构上可以将任何仓库中的变体存储到一个共享缓存中。</p>
+<p>被缓存的变体是不可变的，没法检查变体是否有发生变化。所以你不应该在包仓库中使用缓存，因为包可能会覆盖。正因如此，本地包的缓存默认是被禁用的。（参考<a target="_blank" rel="noopener" href="https://github.com/nerdvegas/rez/wiki/Configuring-Rez#package_cache_local">package_cache_local</a>）</p>
+<h1><span id="命令行">命令行</span></h1><h2><span id="检验">检验</span></h2><p>使用<code>rez-pkg-cache</code>来查看缓存的状态，并进行预加载和删除操作。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-pkg-cache
+Package cache at /home/ajohns/package_cache:
+
+status   package             variant uri                                             cache path
+------   -------             -----------                                             ----------
+cached   Flask-1.1.2         /svr/packages/Flask/1.1.2/package.py<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>         /home/ajohns/package_cache/Flask/1.1.2/d998/a
+cached   Jinja2-2.11.2       /svr/packages/Jinja2/2.11.2/package.py<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>       /home/ajohns/package_cache/Jinja2/2.11.2/6087/a
+cached   Werkzeug-1.0.1      /svr/packages/Werkzeug/1.0.1/package.py<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>      /home/ajohns/package_cache/Werkzeug/1.0.1/fe76/a
+cached   arch-x86_64         /svr/packages/arch/x86_64/package.py<span class="token punctuation">[</span><span class="token punctuation">]</span>          /home/ajohns/package_cache/arch/x86_64/6450/a
+cached   click-7.1.2         /svr/packages/click/7.1.2/package.py<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>         /home/ajohns/package_cache/click/7.1.2/0da2/a
+cached   itsdangerous-1.1.0  /svr/packages/itsdangerous/1.1.0/package.py<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>  /home/ajohns/package_cache/itsdangerous/1.1.0/b23f/a
+cached   platform-linux      /svr/packages/platform/linux/package.py<span class="token punctuation">[</span><span class="token punctuation">]</span>       /home/ajohns/package_cache/platform/linux/9d4d/a
+copying  python-3.7.4        /svr/packages/python/3.7.4/package.py<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>        /home/ajohns/package_cache/python/3.7.4/ce1c/a
+stalled  MarkupSafe-1.1.1    /svr/packages/MarkupSafe/1.1.1/package.py<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>    /home/ajohns/package_cache/MarkupSafe/1.1.1/724c/a<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>每个变体都被存储在一个目录中，这个目录是该变体唯一的标识符。</p>
+<p>软件包缓存是具有线程和多进程的，并在必要时使用文件锁来控制访问。</p>
+<p>缓存的变体在任何时候都有其中之一的状态：</p>
+<ul>
+<li>copying：这个变体正在被复制到缓存中，还不能使用。</li>
+<li>cached：该变体已经被缓存，可以使用。</li>
+<li>stalled：变体在复制中出现来点问题，缓存中只存在部分副本。</li>
+</ul>
+<h2><span id="日志">日志</span></h2><p>缓存操作存储在缓存目录下的日志文件中：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-pkg-cache --logs
+rez-pkg-cache <span class="token number">2020</span>-05-23 <span class="token number">16</span>:17:45,194 PID-29827 INFO Started daemon
+rez-pkg-cache <span class="token number">2020</span>-05-23 <span class="token number">16</span>:17:45,201 PID-29827 INFO Started caching of variant /home/ajohns/packages/Werkzeug/1.0.1/package.py<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">..</span>.
+rez-pkg-cache <span class="token number">2020</span>-05-23 <span class="token number">16</span>:17:45,404 PID-29827 INFO Cached variant to /home/ajohns/package_cache/Werkzeug/1.0.1/fe76/a <span class="token keyword">in</span> <span class="token number">0.202576</span> seconds
+rez-pkg-cache <span class="token number">2020</span>-05-23 <span class="token number">16</span>:17:45,404 PID-29827 INFO Started caching of variant /home/ajohns/packages/python/3.7.4/package.py<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">..</span>.
+rez-pkg-cache <span class="token number">2020</span>-05-23 <span class="token number">16</span>:17:46,006 PID-29827 INFO Cached variant to /home/ajohns/package_cache/python/3.7.4/ce1c/a <span class="token keyword">in</span> <span class="token number">0.602037</span> seconds<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2><span id="清理缓存">清理缓存</span></h2><p>清理缓存是指删除停滞的或者不再使用的变体。由于我们无法知道一个变体是否在使用，所以有一个可配置的<code>package_cache_max_variant_days</code>设置，它将删除超过X天没有被使用的变体。</p>
+<p>你也可以使用<code>rez-pkg-cache -r</code>来手动删除缓存中的变体。需主要这样的操作只是使缓存不可用，但它仍然存储在磁盘上。执行<code>rez-pkg-cache --clean</code>来真正意义上从磁盘删除缓存。</p>
+<p>你可以使用package_cache_clean_limit 设置，在每次更新缓存时，异步的执行一些清理工作。如果你不想使用这个设置，建议你设置一个cron或其它形式的定时器来定期运行<code>rez-pkg-cache --clean</code>，否则你的缓存将越积越多。</p>
+<p>最后请注意，处于停滞状态的缓存不会尝试重新缓存，直到它被清理或移除操作。</p>
+<p>你需要运行<code>rez-pkg-cache --clean</code>来删除停滞的缓存。</p>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/16%20rez-environment-variables/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  16 Environment Variables
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/14%20rez-copying-package/">
+                14 Copying Packages
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2019-<span id="footerYear"></span> 
+	<a href="/">zhangly</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		13 Building Packages | 
+	 
+	凌云的个人博客
+	</title>
+	
+	<!-- keywords,description -->
+	 
+		<meta name="description" content="关于视效的学习和分享" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "tdvfx.com";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">凌云的个人博客</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+
+	
+
+		
+		<li class="menu-item">
+			<a href="https://gitlab.lingyunfx.com/zhangly" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Article
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/command-tool-intro/">
+										命令行工具的三把瑞士军刀
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-link-unreal/">
+										UE4和Maya的数据通信
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-retime-tool-intro/">
+										Maya动画变速工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/meshlab-remove-face/">
+										使用MeshLab为模型减面
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/metahuman-intro/">
+										MetaHumans Creator初体验
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/notion-intro/">
+										使用Notion建立个人Wiki
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/tracks-2d-tools/">
+										在不同跟踪软件之间的2D点转换工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/whats-matchmoving/">
+										电影视效制作中的Matchmove
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										DCC
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Deadline
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/deadline-use-techniques/">
+										Deadline 使用技巧
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Maya
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/maya-env-varibles/">
+										Maya常用环境变量
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-issue-vol1/">
+										Maya疑难杂症备忘录 Vol.1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-001/">
+										Maya的效率使用和技巧（一）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-002/">
+										Maya的效率使用和技巧（二）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/mtoa-install-issue/">
+										安装Arnold后环境变量被破坏
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/reject-maya-warning/">
+										关于“你的文件贼健康”的简单处理方式
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Nuke
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/nuke-trn-lens-distort/">
+										使用LensDistortion节点输出STMap
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Unreal
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/unreal-add-custom-menus/">
+										使用Python为UE4添加自定义菜单
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal-vive-tracker-camera/">
+										使用Vive Tracker控制UE4摄像机
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Geek
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Cloudreve
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cloudreve-install/">
+										搭建Cloudreve私有云盘
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Docker
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/docker-common-command/">
+										Docker常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/docker-make-jira/">
+										Docker部署JIRA和PostgreSQL
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Vim
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/vim-help/">
+										vim快捷键查询
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Mac
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py2app-used/">
+										将Python程序打包成App过程和排错
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Python
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										学习笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py2py3/">
+										Python3的一些新特性
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-basis/">
+										PyQt介绍及入门学习
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt4to5/">
+										将PyQt4代码转到PyQt5
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										查询
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/pyqt-learning-001/">
+										PyQt常用部件用法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-learning-event/">
+										PySide Event事件
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-re-module-help/">
+										Python的re模块
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										疑难问题
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/pycharm-pyside-issue1/">
+										Pycharm中无法使用QApplication类
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										TD Pipeline
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										CGWire
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cgwire-install/">
+										搭建CGWire
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Rez
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/00%20rez-wiki-cn/">
+										00 Rez中文文档
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/01%20rez-home/">
+										01 Home
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/02%20rez-install/">
+										02 Installation
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/03%20rez-getting-started/">
+										03 Getting Started
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/04%20rez-basic-concepts/">
+										04 Basic Concepts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/05%20rez-configuring/">
+										05 Configuring Rez
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/06%20rez-package-commands/">
+										06 Package Commands
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/07%20rez-package-definition-guide/">
+										07 Package Definition Guide
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/08%20rez-variants/">
+										08 Variants
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/09%20rez-ephemeral-packages/">
+										09 Ephemeral Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/10%20rez-contexts/">
+										10 Contexts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/11%20rez-bundles/">
+										11 Bundles
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/12%20rez-suites/">
+										12 Suites
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/13%20rez-building-package/">
+										13 Building Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/14%20rez-copying-package/">
+										14 Copying Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/15%20rez-package-caching/">
+										15 Package Caching
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/16%20rez-environment-variables/">
+										16 Environment Variables
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/rez-intro/">
+										Rez介绍（使用篇）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+	13 Building Packages
+</h1>
+<div class="article-meta">
+	
+	<span>zhangly</span>
+	<span>2021-03-15 19:01:33</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
+                        </i>
+                      
+                        >
+                      
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
+                        </i>
+                      
+                    </span>
+                
+            
+    
+
+    
+		<span>Tags：</span>
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h1><span id="概述">概述</span></h1><p>rez包可以使用rez-build工具来构建和本地安装。这个工具有以下操作：</p>
+<ul>
+<li>遍历一个包的变体</li>
+<li>构建环境</li>
+<li>在此环境中运行构建系统</li>
+</ul>
+<p>每一个构建都来自构建的目录路径。（通常是构建的子目录或构建下的变体特定子目录）<br>例如一个包含两个基本python变体的程序包：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">+- package.py
++- CMakeLists.txt <span class="token punctuation">(</span>or other build <span class="token function">file</span><span class="token punctuation">)</span>
++-build
+  +-python-2.6  <span class="token comment"># build dir for python-2.6 variant</span>
+  +-python-2.7  <span class="token comment"># build dir for python-2.6 variant</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在构建过程中，当前目录被视为构建路径。</p>
+<h1><span id="构建环境">构建环境</span></h1><p>构建环境是一个rez解析环境，它的需求列表是这样构造的：</p>
+<ul>
+<li>首先使用程序包require列表</li>
+<li>然后添加程序包的build_require列表。其它包的build_requires也会被使用</li>
+<li>再然后追加程序包的private_build_requires</li>
+<li>最后，如果包有变体，则追加变体的需求</li>
+</ul>
+<p>构建时会创建一系列环境变量（REZ_BUILD_开头），在<a target="_blank" rel="noopener" href="https://lingyunfx.com/2021/03/15/rez-environment-variables/">这里</a>可以看到构建时产生的环境变量。</p>
+<p>在这个环境中会为每个变量调用构建系统。</p>
+<h1><span id="构建时依赖">构建时依赖</span></h1><p>有时候一个包只需要依赖另一个包来构建它的代码，或者生成文档。<br>以文档为例，一个C++项目可能需要使用doxygen来构建它的文档，<br>而一旦文档被生成，就不再需要doxygen了。</p>
+<p>这可以通过package.py的build_requires或private_build_requires来实现，<br>在这两个参数下的依赖包都只用于构建时，是过渡性的依赖列表。</p>
+<p>一些private_build_requires使用包括：</p>
+<ul>
+<li>文档的生成器，如doxygen或sphinx</li>
+<li>构建工具，如一个名为pyqt_cmake_utils的包，它提供了将ui文件转换为py的cmake宏</li>
+<li>静态链接库（因为库在构建时已经链接好了，所以运行时就不需要这个包了）</li>
+</ul>
+<h1><span id="包的通信">包的通信</span></h1><p>比如有两个C++包，maya_utils和著名的boost库。maya_utils如何找到boost的头文件，或库文件？<br>简单的回答是，这取决于你。Rez其实并不是一个构建系统，它支持各种构建系统，它可以配置构建环境，但构建本身的细节部分是留给使用者的。</p>
+<p>话虽如此，rez支持cmake有一段时间了，而且rez自带大量的实用代码来管理cmake构建。<br>当配置rez环境时，每个包的命令部分都会配置环境。当发生构建时，一个特殊的变量building被设置为True。你的包会使用这个变量来向未构建的包传达构建信息。</p>
+<p>举个例子，我们的boost包命令看起来也许是这样的：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">commands</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> building<span class="token punctuation">:</span>
+        <span class="token comment"># there is a 'FindBoost.cmake' file in this dir..</span>
+        env<span class="token punctuation">.</span>CMAKE_MODULE_PATH<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">"&#123;root&#125;/cmake"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>一个简单的FindBoost.cmake文件可能是这样：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">set<span class="token punctuation">(</span>Boost_INCLUDE_DIRS <span class="token variable">$ENV</span><span class="token punctuation">&#123;</span>REZ_BOOST_ROOT<span class="token punctuation">&#125;</span>/include<span class="token punctuation">)</span>
+set<span class="token punctuation">(</span>Boost_LIBRARY_DIRS <span class="token variable">$ENV</span><span class="token punctuation">&#123;</span>REZ_BOOST_ROOT<span class="token punctuation">&#125;</span>/lib<span class="token punctuation">)</span>
+set<span class="token punctuation">(</span>Boost_LIBRARIES boost-python<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>然后，我们的maya_utils包可能有一个CMakeLists.txt文件（cmake的构建脚本），其中包含：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">find_package<span class="token punctuation">(</span>Boost<span class="token punctuation">)</span>
+include_directories<span class="token punctuation">(</span><span class="token variable">$&#123;Boost_INCLUDE_DIRS&#125;</span><span class="token punctuation">)</span>
+link_directories<span class="token punctuation">(</span><span class="token variable">$&#123;Boost_LIBRARY_DIRS&#125;</span><span class="token punctuation">)</span>
+target_link_libraries<span class="token punctuation">(</span>maya_utils <span class="token variable">$&#123;Boost_LIBRARIES&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>find_package cmake宏会搜索CMAKE_MODULE_PATH环境变量中列出的路径，并寻找一个名为FindXXX.cmake的文件，其中XXX是包的名称（在本例中为Boost），然后将其包含在内。</p>
+<h1><span id="构建系统">构建系统</span></h1><p>Rez支持多种构建系统，新的构建系统可以作为插件添加。当调用构建时，会自动检测并选择构建系统。例如如果在程序包根目录发现来CMakeLists.txt文件，就会使用cmake构建系统。</p>
+<h2><span id="参数传递">参数传递</span></h2><p>有两种方法可以将参数传递给构建系统。</p>
+<p>其一，一些编译系统插件会直接向<code>rez-build</code>命令添加额外选项。例如在一个基于CMake的程序包中，<br>又运行了<code>rez-build -h</code>命令，你会看到cmake的特定参数列表，比如 <code>—build-target</code>。</p>
+<p>其二，你可以直接向编译系统传递参数，使用<code>rez-build —build-args</code>命令。</p>
+<p>例如，这里在cmake中明确定义一个变量：<br><code>]$ rez-build -- -DMYVAR=YES</code></p>
+<h2><span id="自定义构建">自定义构建</span></h2><p>除了从构建文件中检查构建系统外，程序包还可以使用build_command属性明确指定构建命令。</p>
+<p>在package.py文件中定义：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">name <span class="token operator">=</span> <span class="token string">"nuke_utils"</span>
+
+version <span class="token operator">=</span> <span class="token string">"1.2.3"</span>
+
+build_command <span class="token operator">=</span> <span class="token string">"bash &#123;root&#125;/build.sh &#123;install&#125;"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>当在这个包运行rez-build时，给定的build.sh脚本将用bash执行。</p>
+<p>{root}字符为软件包根目录，如果又安装，{install}字符串将展开为”install”，否则为空。</p>
+<p>构建过程中的当前工作目录被设置为构建路径，而不是包的根目录。因此通常会使用{root}字符串来引用包根目录下的构建脚本。</p>
+<p><strong>传递参数</strong></p>
+<p>你可以直接为你的编译脚本添加参数到rez-build命令中，通过在程序包根目录创建一个parse_build_args.py文件，如下：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># in parse_build_args.py</span>
+parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">"--foo"</span><span class="token punctuation">,</span> action<span class="token operator">=</span><span class="token string">"store_true"</span><span class="token punctuation">,</span> <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">"do some foo"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>现在，如果你在这个软件包上运行<code>rez-build -h</code>会看到列出的选项：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ rez-build -h
+usage: rez build <span class="token punctuation">[</span>-h<span class="token punctuation">]</span> <span class="token punctuation">[</span>-c<span class="token punctuation">]</span> <span class="token punctuation">[</span>-i<span class="token punctuation">]</span> <span class="token punctuation">[</span>-p <span class="token environment constant">PATH</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>--fail-graph<span class="token punctuation">]</span> <span class="token punctuation">[</span>-s<span class="token punctuation">]</span> <span class="token punctuation">[</span>--view-pre<span class="token punctuation">]</span>
+                 <span class="token punctuation">[</span>--process <span class="token punctuation">&#123;</span>remote,local<span class="token punctuation">&#125;</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>--foo<span class="token punctuation">]</span>
+                 <span class="token punctuation">[</span>--variants INDEX <span class="token punctuation">[</span>INDEX <span class="token punctuation">..</span>.<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>--ba ARGS<span class="token punctuation">]</span> <span class="token punctuation">[</span>--cba ARGS<span class="token punctuation">]</span> <span class="token punctuation">[</span>-v<span class="token punctuation">]</span>
+
+Build a package from source.
+
+optional arguments:
+  <span class="token punctuation">..</span>.
+  --foo                 <span class="token keyword">do</span> some foo<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>添加的参数会被存储到环境变量中，这样你的编译脚本就可以访问它们。</p>
+<p>它们的前缀是<code>__PARSE_ARF_</code> ；在上面的例子中，变量<code>__PARSE_ARG_FOO</code>被设置。<br>布尔由0/1表示，而列表则用空格分隔，必要时使用引号。</p>
+<p><strong>一个实例</strong></p>
+<p>以下是一个非常简单的C++例子，展示来如何使用自定义构建命令，通过make进行构建和安装。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># in package.py</span>
+build_command <span class="token operator">=</span> <span class="token string">"make -f &#123;root&#125;/Makefile &#123;install&#125;"</span>
+
+<span class="token comment"># in Makefile</span>
+hai<span class="token punctuation">:</span> $<span class="token punctuation">&#123;</span>REZ_BUILD_SOURCE_PATH<span class="token punctuation">&#125;</span><span class="token operator">/</span>lib<span class="token operator">/</span>main<span class="token punctuation">.</span>cpp
+    g<span class="token operator">+</span><span class="token operator">+</span> <span class="token operator">-</span>o hai $<span class="token punctuation">&#123;</span>REZ_BUILD_SOURCE_PATH<span class="token punctuation">&#125;</span><span class="token operator">/</span>lib<span class="token operator">/</span>main<span class="token punctuation">.</span>cpp
+
+<span class="token punctuation">.</span>PHONY<span class="token punctuation">:</span> install
+install<span class="token punctuation">:</span> hai
+    mkdir <span class="token operator">-</span>p $<span class="token punctuation">&#123;</span>REZ_BUILD_INSTALL_PATH<span class="token punctuation">&#125;</span><span class="token operator">/</span><span class="token builtin">bin</span>
+		p $<span class="token operator">&lt;</span> $<span class="token punctuation">&#123;</span>REZ_BUILD_INSTALL_PATH<span class="token punctuation">&#125;</span><span class="token operator">/</span><span class="token builtin">bin</span><span class="token operator">/</span>hai<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1><span id="本地包安装">本地包安装</span></h1><p>在你做了一些代码修改之后，想要测试它们。你可以通过本地安装程序包，然后用<code>rez-env</code>解析环境来测试程序包，大概是这样：</p>
+<ul>
+<li>进行代码修改</li>
+<li>运行<code>rez-build —install</code> 安装为本地包</li>
+<li>在一个单独的shell里运行rez-env mypackage。这将启用你的本地软件包，以及程序包需求</li>
+<li>测试软件包</li>
+</ul>
+<p>本地安装会将程序包构建并安装到本地仓库中，通常是~/package目录。这个目录被列在包搜索路径的开头，所以当你解析一个环境进行测试时，本地安装的包会被首先选中。你的包通常会被安装到 ~/packages/packagename/version，例如 ~/packages/maya_utils/1.0.5。如果你有变体，它们会被安装到这个安装路径的子目录中。<br>（可以参考文章：<a target="_blank" rel="noopener" href="https://lingyunfx.com/2021/03/15/rez-variants">变体 (Variants)</a>的结构部分）</p>
+<p>你不需要每次安装后都运行<code>rez-env</code>。如果你的程序包没有改变，你可以继续使用现有测试环境。</p>
+<p>可以通过检查rez-env执行后的输出，来确保你已经pick了你的本地包。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-env sequence
+
+You are now <span class="token keyword">in</span> a rez-configured environment.
+
+resolved by ajohns@turtle, on Thu Mar 09 <span class="token number">11</span>:41:06 <span class="token number">2017</span>, using Rez v2.7.0
+
+requested packages:
+sequence
+~platform<span class="token operator">==</span>linux   <span class="token punctuation">(</span>implicit<span class="token punctuation">)</span>
+~arch<span class="token operator">==</span>x86_64      <span class="token punctuation">(</span>implicit<span class="token punctuation">)</span>
+~os<span class="token operator">==</span>Ubuntu-16.04  <span class="token punctuation">(</span>implicit<span class="token punctuation">)</span>
+
+resolved packages:
+arch-x86_64      /sw/packages/arch/x86_64
+os-Ubuntu-16.04  /sw/packages/os/Ubuntu-16.04
+platform-linux   /sw/packages/platform/linux
+python-2.7.12    /sw/packages/python/2.7.12
+sequence-2.1.2   /home/ajohns/packages/sequence/2.1.2  <span class="token punctuation">(</span>local<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>注意</strong>：这里的sequence包是本地安装，括号里local表示。</p>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/14%20rez-copying-package/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  14 Copying Packages
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/12%20rez-suites/">
+                12 Suites
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2019-<span id="footerYear"></span> 
+	<a href="/">zhangly</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		将Python程序打包成App过程和排错 | 
+	 
+	凌云的个人博客
+	</title>
+	
+	<!-- keywords,description -->
+	 
+		<meta name="description" content="关于视效的学习和分享" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "tdvfx.com";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">凌云的个人博客</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+
+	
+
+		
+		<li class="menu-item">
+			<a href="https://gitlab.lingyunfx.com/zhangly" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Article
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/command-tool-intro/">
+										命令行工具的三把瑞士军刀
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-link-unreal/">
+										UE4和Maya的数据通信
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-retime-tool-intro/">
+										Maya动画变速工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/meshlab-remove-face/">
+										使用MeshLab为模型减面
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/metahuman-intro/">
+										MetaHumans Creator初体验
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/notion-intro/">
+										使用Notion建立个人Wiki
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/tracks-2d-tools/">
+										在不同跟踪软件之间的2D点转换工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/whats-matchmoving/">
+										电影视效制作中的Matchmove
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										DCC
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Deadline
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/deadline-use-techniques/">
+										Deadline 使用技巧
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Maya
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/maya-env-varibles/">
+										Maya常用环境变量
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-issue-vol1/">
+										Maya疑难杂症备忘录 Vol.1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-001/">
+										Maya的效率使用和技巧（一）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-002/">
+										Maya的效率使用和技巧（二）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/mtoa-install-issue/">
+										安装Arnold后环境变量被破坏
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/reject-maya-warning/">
+										关于“你的文件贼健康”的简单处理方式
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Nuke
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/nuke-trn-lens-distort/">
+										使用LensDistortion节点输出STMap
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Unreal
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/unreal-add-custom-menus/">
+										使用Python为UE4添加自定义菜单
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal-vive-tracker-camera/">
+										使用Vive Tracker控制UE4摄像机
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Geek
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Cloudreve
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cloudreve-install/">
+										搭建Cloudreve私有云盘
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Docker
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/docker-common-command/">
+										Docker常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/docker-make-jira/">
+										Docker部署JIRA和PostgreSQL
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Vim
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/vim-help/">
+										vim快捷键查询
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Mac
+									</a>
+									
+							<ul>
+								<li class="file active">
+									<a href="/py2app-used/">
+										将Python程序打包成App过程和排错
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Python
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										学习笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py2py3/">
+										Python3的一些新特性
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-basis/">
+										PyQt介绍及入门学习
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt4to5/">
+										将PyQt4代码转到PyQt5
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										查询
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/pyqt-learning-001/">
+										PyQt常用部件用法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-learning-event/">
+										PySide Event事件
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-re-module-help/">
+										Python的re模块
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										疑难问题
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/pycharm-pyside-issue1/">
+										Pycharm中无法使用QApplication类
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										TD Pipeline
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										CGWire
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cgwire-install/">
+										搭建CGWire
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Rez
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/00%20rez-wiki-cn/">
+										00 Rez中文文档
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/01%20rez-home/">
+										01 Home
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/02%20rez-install/">
+										02 Installation
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/03%20rez-getting-started/">
+										03 Getting Started
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/04%20rez-basic-concepts/">
+										04 Basic Concepts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/05%20rez-configuring/">
+										05 Configuring Rez
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/06%20rez-package-commands/">
+										06 Package Commands
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/07%20rez-package-definition-guide/">
+										07 Package Definition Guide
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/08%20rez-variants/">
+										08 Variants
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/09%20rez-ephemeral-packages/">
+										09 Ephemeral Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/10%20rez-contexts/">
+										10 Contexts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/11%20rez-bundles/">
+										11 Bundles
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/12%20rez-suites/">
+										12 Suites
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/13%20rez-building-package/">
+										13 Building Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/14%20rez-copying-package/">
+										14 Copying Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/15%20rez-package-caching/">
+										15 Package Caching
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/16%20rez-environment-variables/">
+										16 Environment Variables
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/rez-intro/">
+										Rez介绍（使用篇）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+	将Python程序打包成App过程和排错
+</h1>
+<div class="article-meta">
+	
+	<span>zhangly</span>
+	<span>2021-01-29 21:23:45</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/Mac/">Mac</a>
+                        </i>
+                      
+                    </span>
+                
+            
+    
+
+    
+		<span>Tags：</span>
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h1><span id="前言">前言</span></h1><p>最近写了一个Python工具，需求是要在Mac笔记本上使用。<br>（不依赖于DCC软件，独立运行）</p>
+<p>因为工具依赖了一些第三方库，不可能在每台电脑上对这些库逐一进行安装。<br>想到最好的方法是将其打包成一个Mac App，并制作成一个dmg文件。</p>
+<p>这样只需要分享这个映像文件，使用者只需双击安装使用即可。<br>在网上找到打包Mac App的库：<strong>py2app</strong>。</p>
+<p>于是开始了踩坑和一步步排错的过程。</p>
+<h1><span id="使用py2app打包程序">使用py2app打包程序</span></h1><h3><span id="1首先安装py2app">1.首先安装py2app</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pip install py2app<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3><span id="2构建安装文件">2.构建安装文件</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">py2applet --make-setup myApplication.py<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>（这里的myApplication.py为自己工具的主程序接口。）</p>
+<h3><span id="3配置setuppy文件">3.配置setup.py文件</span></h3><p><strong>DATA_FILES</strong> 放自己写的模块，和一些附件（比如UI里插入的图片）。<br><strong>OPTIONS</strong> 里配置App的图标（需要icns格式），和使用的第三方模块。</p>
+<p>下面是一个参考：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token triple-quoted-string string">"""
+This is a setup.py script generated by py2applet
+
+Usage:
+    python setup.py py2app
+"""</span>
+
+<span class="token keyword">from</span> setuptools <span class="token keyword">import</span> setup
+
+APP <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'myApplication.py'</span><span class="token punctuation">]</span>
+DATA_FILES <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'ui_logo.png'</span><span class="token punctuation">]</span> <span class="token comment"># 附件</span>
+OPTIONS <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">'iconfile'</span><span class="token punctuation">:</span> <span class="token string">'AppIcon.ICNS'</span><span class="token punctuation">,</span> <span class="token comment"># 图标</span>
+           <span class="token string">'packages'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'PySide2'</span><span class="token punctuation">,</span> <span class="token string">'shotgun_api3'</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span> <span class="token comment"># 第三方库</span>
+
+setup<span class="token punctuation">(</span>
+    app<span class="token operator">=</span>APP<span class="token punctuation">,</span>
+    data_files<span class="token operator">=</span>DATA_FILES<span class="token punctuation">,</span>
+    options<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token string">'py2app'</span><span class="token punctuation">:</span> OPTIONS<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    setup_requires<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'py2app'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="4打包app">4.打包App</span></h3><p><code>python setup.py py2app</code></p>
+<p>这里直接跳过了测试阶段，一般会先添加 -A 参数进行测试打包。<br>添加-A参数打包速度快，但是不会将依赖打包进去，打包出来的程序会很小。<br>这里就直接进行整体打包。（因为之前已经测试过了）</p>
+<h3><span id="5运行app并进行排错">5.运行App并进行排错</span></h3><p>打包完成可以看到当前目录多了dist和build两个文件夹。<br>进入dist文件夹可以看到打包好的app。<br>双击运行它：</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/py2app-used/p1.png"></p>
+<p>程序报错崩溃了。<br>这个时候可以右键 - 显示包内容</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/py2app-used/p2.png"></p>
+<p>进入到这个层级  <code>myApplication.app/Contents/MacOS</code> ，双击直接运行主程序。</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/py2app-used/p3.png"></p>
+<p>这里可以通过终端观察到报错信息。</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/py2app-used/p4.png"></p>
+<p>从报错信息可以看到，像是缺少了什么东西。<br>于是google搜了下，在无数帖子中找到了原因。<br>这里放个帖子链接：<a target="_blank" rel="noopener" href="http://nfail.com/q/f6QYYx">http://nfail.com/q/f6QYYx</a></p>
+<p>是因为PySide2依赖<code>shiboken2</code>模块，而在打包后的这个模块中，<br>缺少<code>libshiboken2-python2.7v.5.15.dylib</code>文件。</p>
+<p>解决方式就是直接从来源的shiboken2模块复制这个文件到App的包中。</p>
+<p><code>cp ./venv/lib/python3.8/site-packages/shiboken2/libshiboken2.abi3.5.15.dylib ./dist/app.app/Contents/Resources/lib/python3.8/lib-dynload/shiboken2</code></p>
+<p>这个时候双击再App图标，程序可以正确的运行了。<br>(至少在本机是正常运行了。)</p>
+<h1><span id="将app封装成dmg映像文件">将App封装成dmg映像文件</span></h1><p>可以运行了，兴冲冲的就想把它封装成一个dmg文件并分享给同事。<br>这个过程网上很多讲解的，也比较简单。<br>这里参考的是知乎专栏的一篇帖子：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/56864296">https://zhuanlan.zhihu.com/p/56864296</a></p>
+<h3><span id="1打开磁盘工具新建空白映像文件">1.打开磁盘工具，新建空白映像文件</span></h3><p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/py2app-used/p5.png"></p>
+<p>填写必要参数：<br>文件名称自己定义，<br>大小则要根据自己App包的大小来定。<br>（不要和App包大小一样，要多预留一些）</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/py2app-used/p6.png"></p>
+<h3><span id="2配置映像文件">2.配置映像文件</span></h3><p>首先是将App包拷贝到映像文件中，这里打开终端，创建一个link</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cd &#x2F;Volumes&#x2F;myApplication
+ln -s &#x2F;Applications Applications<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>这里可以看到应用程序的文件夹被link到了这里。</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/py2app-used/p7.png"></p>
+<p>这样别人打开这个dmg文件后，直接拖动App包到Applications里，<br>程序就可以正常安装了。</p>
+<h1><span id="在其他主机进行安装测试">在其他主机进行安装测试</span></h1><p>拷贝这个dmg文件，到同事电脑进行安装。<br>双击运行app，果不其然的又报错崩溃了。</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/py2app-used/p8.png"></p>
+<p>这里就出现了一个千古问题：<br>“在我电脑上可以用啊，为什么在你电脑上就不行？”<br>依旧按照惯例，右键进入包，直接运行主程序。</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/py2app-used/p9.png"></p>
+<p>看起来同样是缺少了什么文件，但是这次没有提示是哪一个模块，哪一个包。<br>不过有了刚刚的经验，至少知道要怎么去解决这样的问题。</p>
+<p>使用搜索功能，输入缺失的文件名<code>libffi.7.dylib</code> 。（在自己的主机上搜索）<br>因为我用的miniconda搭建的环境，所以在miniconda的文件夹中搜索到了这个文件。</p>
+<p>现在问题来了，这个文件要拷贝到App包的什么地方。<br>观察App包的层级结构可以看到，基本上所有的依赖项都被放在了<br><code>app.app/Contents/Resources/lib</code> 文件夹中。  </p>
+<p>于是尝试将刚刚找到的文件拷贝到这里，运行app。<br>又报错了！<br>庆幸的是这次的报错和上次的不一样，说明刚刚的问题已经解决了。<br>不过报错依旧是说缺少某个文件，重复上述的解决方法即可。</p>
+<p>到了这里这次打包过程遇到的问题都解决了，<br>将刚刚提示缺失的所有文件手动复制到指定位置。<br>重新存储成dmg文件，然后就可以交差了。</p>
+<h1><span id="总结">总结</span></h1><p>这次使用py2app对python程序进行打包，<br>主要遇到的问题就是，打包后依赖不全。<br>需要根据报错提示，从一步一步的去从源文件找到文件，手动拷贝到过来。<br>不过后来想想也有可能是我操作不当，在写setup文件的时候没有配置好。</p>
+<p>文章是一次排错经历分享，如果觉得文章还不错或者有所帮助可以关注下公众号。<br>也欢迎大佬们一起讨论。</p>
+<center><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/metahuman-intro/p31.JPG" width="30%" height="30%" alt align="center"></center>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/pyqt4to5/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  将PyQt4代码转到PyQt5
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/tracks-2d-tools/">
+                在不同跟踪软件之间的2D点转换工具
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2019-<span id="footerYear"></span> 
+	<a href="/">zhangly</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

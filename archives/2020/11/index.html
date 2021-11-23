@@ -1,492 +1,1229 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>凌云的个人博客</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="凌云的个人博客">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="一个电影视效工作者 从事过五年的Matchmove工作 现已转Pipeline TD 这个博客是为了记录，分享和学习">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="https://tdvfx.com/about/index.html">
-<meta property="og:site_name" content="凌云的个人博客">
-<meta property="og:description" content="一个电影视效工作者 从事过五年的Matchmove工作 现已转Pipeline TD 这个博客是为了记录，分享和学习">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://i.loli.net/2020/12/02/4DISGvYmLKuARd3.jpg">
-<meta property="article:published_time" content="2020-10-30T12:07:33.000Z">
-<meta property="article:modified_time" content="2021-11-22T09:58:29.996Z">
-<meta property="article:author" content="zhangly">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2020/12/02/4DISGvYmLKuARd3.jpg">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	 
+	凌云的个人博客
+	</title>
+	
+	<!-- keywords,description -->
+	 
+		<meta name="description" content="关于视效的学习和分享" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
 
 
-<link rel="icon" href="/img/favicon.ico">
-
-<link href="/css/style.css?v=1.1.0" rel="stylesheet">
-
-<link href="/css/hl_theme/gruvbox-dark.css?v=1.1.0" rel="stylesheet">
-
-<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
-
-<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-<script src="/js/titleTip.js?v=1.1.0" ></script>
-
-<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
-<script>
-    hljs.initHighlightingOnLoad();
-</script>
-
-<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "tdvfx.com";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
 
 
+	
+<link rel="stylesheet" href="/css/main.css">
 
-<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<script src="/js/iconfont.js?v=1.1.0" ></script>
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
 
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
 <meta name="generator" content="Hexo 5.4.0"></head>
-<div style="display: none">
-  <input class="theme_disqus_on" value="false">
-  <input class="theme_preload_comment" value="">
-  <input class="theme_blog_path" value="">
-  <input id="theme_shortcut" value="true" />
-  <input id="theme_highlight_on" value="true" />
-  <input id="theme_code_copy" value="true" />
-</div>
-
-
 
 <body>
-<aside class="nav mobile">
-    <div class="nav-left">
-        <a href="/"
-   class="avatar_target">
-    <img class="avatar"
-         src="/img/avatar.jpg"/>
-</a>
-<div class="author">
-    <span>zhangly</span>
-</div>
-
-<div class="icon">
-    
-        
-            <a title="github"
-               href="https://gitlab.lingyunfx.com/zhangly"
-               target="_blank">
-                
-                    <i class="iconfont icon-github"></i>
-                
-            </a>
-        
-    
-        
-            <a title="email"
-               href="mailto:zhangly.basefx@gmail.com"
-               target="_blank">
-                
-                    <i class="iconfont icon-email"></i>
-                
-            </a>
-        
-    
-</div>
-
-
-
-
-<ul>
-    <li>
-        <div class="all active" data-rel="All">All
-            
-                <small>(2)</small>
-            
-        </div>
-    </li>
-    
-        
-            
-                <li>
-                    <div data-rel="CG">
-                        
-                        CG
-                        <small>(2)</small>
-                        
-                    </div>
-                    
-                </li>
-            
-        
-    
-</ul>
-<div class="left-bottom">
-    <div class="menus">
-        
-            
-            
-            
-    </div>
-    <div>
-        
-            <a class="about  site_url"
-               
-               href="/about">About</a>
-        
-        
-    </div>
-</div>
-<input type="hidden" id="yelog_site_posts_number" value="2">
-<input type="hidden" id="yelog_site_word_count" value="2.4k">
-<div style="display: none">
-    <span id="busuanzi_value_site_uv"></span>
-    <span id="busuanzi_value_site_pv"></span>
-</div>
-
-    </div>
-    <div class="nav-right">
-        <div class="friends-area">
-    <div class="friends-title">
-        Links
-        <i class="iconfont icon-left"></i>
-    </div>
-    <div class="friends-content">
-        <ul>
-            
-            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
-            
-        </ul>
-    </div>
-</div>
-        <div class="title-list">
-    <div class="right-top">
-        <div id="default-panel">
-            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
-            <div class="right-title">All</div>
-            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
-        </div>
-        <div id="search-panel">
-            <i class="iconfont icon-left" data-title="返回"></i>
-            <input id="local-search-input" autocomplete="off"/>
-            <label class="border-line" for="input"></label>
-            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
-            <i class="iconfont icon-tag" data-title="标签"></i>
-        </div>
-        <div id="outline-panel" style="display: none">
-            <div class="right-title">大纲</div>
-            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
-        </div>
-    </div>
-
-    <div class="tags-list">
-    <input id="tag-search" />
-    <div class="tag-wrapper">
-        
-    </div>
-
-</div>
-
-    
-    <nav id="title-list-nav">
-        
-        <a  class="All CG "
-           href="/whats-matchmoving/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="电影视效制作中的Matchmove">电影视效制作中的Matchmove</span>
-            <span class="post-date" title="2020-11-05 23:13:38">2020/11/05</span>
-        </a>
-        
-        <a  class="All CG "
-           href="/cgwire-install/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="搭建电影视效流程管理系统CGWire">搭建电影视效流程管理系统CGWire</span>
-            <span class="post-date" title="2020-11-05 22:56:52">2020/11/05</span>
-        </a>
-        
-        <div id="no-item-tips">
-
-        </div>
-    </nav>
-    <div id="outline-list">
-    </div>
-</div>
-
-    </div>
-    <div class="hide-list">
-        <div class="semicircle" data-title="切换全屏 快捷键 s">
-            <div class="brackets first"><</div>
-            <div class="brackets">&gt;</div>
-        </div>
-    </div>
-</aside>
-<div id="post" class="index">
-    <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
-    
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%88%91"><span class="toc-text">关于我</span></a></li></ol>
-    
-<style>
-    .left-col .switch-btn,
-    .left-col .switch-area {
-        display: none;
-    }
-    .toc-level-3 i,
-    .toc-level-3 ol {
-        display: none !important;
-    }
-</style>
-</div>
-            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>这个博客是为了记录，学习和分享。  </p>
-<h2 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h2><ul>
-<li>一个电影视效工作者</li>
-<li>从事过五年的Matchmove工作</li>
-<li>现已转Pipeline TD</li>
-</ul>
-<p>到目前为止已经写了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
-<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
-<img src="https://i.loli.net/2020/12/02/4DISGvYmLKuARd3.jpg" width = "300" height = "300" alt="" align=center />
-        </article>
-        
-        <p>
-            <a  class="dashang" onclick="dashangToggle()">赏</a>
-        </p>
-        
-        
-    </div>
-    <div class="copyright">
-        <p class="footer-entry">
-    ©2019-2022 lingyunfx
-</p>
-<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
-
-    </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
-<a class="" id="rocket" ></a>
-
-</div>
-
-<div class="hide_box" onclick="dashangToggle()"></div>
-<div class="shang_box">
-    <a class="shang_close"  onclick="dashangToggle()">×</a>
-    <div class="shang_tit">
-        <p>Help us with donation</p>
-    </div>
-    <div class="shang_payimg">
-        <div class="pay_img">
-            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
-            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
-        </div>
-    </div>
-    <div class="shang_payselect">
-        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
-    </div>
-</div>
-
-
-</body>
-<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
-
-<script src="/js/script.js?v=1.1.0" ></script>
-<script>
-    var img_resize = 'default';
-    function initArticle() {
-        /*渲染对应的表格样式*/
-        
-            $("#post .pjax table").addClass("green_title");
-        
-
-        /*渲染打赏样式*/
-        
-        $("input[name=pay]").on("click", function () {
-            if($("input[name=pay]:checked").val()=="weixin"){
-                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
-            } else {
-                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
-            }
-        })
-        
-
-        /*高亮代码块行号*/
-        
-        $('pre code').each(function(){
-            var lines = $(this).text().trim().split('\n').length, widther='';
-            if (lines>99) {
-                widther = 'widther'
-            }
-            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
-            $(this).addClass('has-numbering ' + widther)
-                    .parent()
-                    .append($numbering);
-            for(var i=1;i<=lines;i++){
-                $numbering.append($('<li/>').text(i));
-            }
-        });
-        
-
-        /*访问数量*/
-        
-        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-        
-
-        /*代码高亮，行号对齐*/
-        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
-
-        
-        
-    }
-
-    /*打赏页面隐藏与展示*/
-    
-    function dashangToggle() {
-        $(".shang_box").fadeToggle();
-        $(".hide_box").fadeToggle();
-    }
-    
-
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
 </script>
 
-<!--加入行号的高亮代码块样式-->
+<header id="header">
+    <a id="title" href="/" class="logo">凌云的个人博客</a>
 
-<style>
-    pre{
-        position: relative;
-        margin-bottom: 24px;
-        border-radius: 10px;
-        border: 1px solid #e2dede;
-        background: #FFF;
-        overflow: hidden;
-    }
-    code.has-numbering{
-        margin-left: 30px;
-    }
-    code.has-numbering.widther{
-        margin-left: 35px;
-    }
-    .pre-numbering{
-        margin: 0;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 20px;
-        padding: 0.5em 3px 0.7em 5px;
-        border-right: 1px solid #C3CCD0;
-        text-align: right;
-        color: #AAA;
-        background-color: ;
-    }
-    .pre-numbering.widther {
-        width: 35px;
-    }
-</style>
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
 
-<!--自定义样式设置-->
-<style>
-    
-    
-    .nav {
-        width: 542px;
-    }
-    .nav.fullscreen {
-        margin-left: -542px;
-    }
-    .nav-left {
-        width: 120px;
-    }
-    
-    
-    @media screen and (max-width: 1468px) {
-        .nav {
-            width: 492px;
-        }
-        .nav.fullscreen {
-            margin-left: -492px;
-        }
-        .nav-left {
-            width: 100px;
-        }
-    }
-    
-    
-    @media screen and (max-width: 1024px) {
-        .nav {
-            width: 492px;
-            margin-left: -492px
-        }
-        .nav.fullscreen {
-            margin-left: 0;
-        }
-    }
-    
-    @media screen and (max-width: 426px) {
-        .nav {
-            width: 100%;
-        }
-        .nav-left {
-            width: 100%;
-        }
-    }
-    
-    
-    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
-        color: #383636;
-    }
-    
-    
-    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
-        color: #5e5e5f;
-    }
-    
-    
-    .nav-right nav a.hover, #local-search-result a.hover{
-        background-color: #e2e0e0;
-    }
-    
-    
+	
 
-    /*列表样式*/
-    
-    #post .pjax article .article-entry>ol, #post .pjax article .article-entry>ul, #post .pjax article>ol, #post .pjax article>ul{
-        border: #e2dede solid 1px;
-        border-radius: 10px;
-        padding: 10px 32px 10px 56px;
-    }
-    #post .pjax article .article-entry li>ol, #post .pjax article .article-entry li>ul,#post .pjax article li>ol, #post .pjax article li>ul{
-        padding-top: 5px;
-        padding-bottom: 5px;
-    }
-    #post .pjax article .article-entry>ol>li, #post .pjax article .article-entry>ul>li,#post .pjax article>ol>li, #post .pjax article>ul>li{
-        margin-bottom: auto;
-        margin-left: auto;
-    }
-    #post .pjax article .article-entry li>ol>li, #post .pjax article .article-entry li>ul>li,#post .pjax article li>ol>li, #post .pjax article li>ul>li{
-        margin-bottom: auto;
-        margin-left: auto;
-    }
-    
+		
+		<li class="menu-item">
+			<a href="https://gitlab.lingyunfx.com/zhangly" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
 
-    /* 背景图样式 */
-    
-    
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Article
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/command-tool-intro/">
+										命令行工具的三把瑞士军刀
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-link-unreal/">
+										UE4和Maya的数据通信
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-retime-tool-intro/">
+										Maya动画变速工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/meshlab-remove-face/">
+										使用MeshLab为模型减面
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/metahuman-intro/">
+										MetaHumans Creator初体验
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/notion-intro/">
+										使用Notion建立个人Wiki
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/tracks-2d-tools/">
+										在不同跟踪软件之间的2D点转换工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/whats-matchmoving/">
+										电影视效制作中的Matchmove
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										DCC
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Deadline
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/deadline-use-techniques/">
+										Deadline 使用技巧
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Maya
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/maya-env-varibles/">
+										Maya常用环境变量
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-issue-vol1/">
+										Maya疑难杂症备忘录 Vol.1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-001/">
+										Maya的效率使用和技巧（一）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-002/">
+										Maya的效率使用和技巧（二）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/mtoa-install-issue/">
+										安装Arnold后环境变量被破坏
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/reject-maya-warning/">
+										关于“你的文件贼健康”的简单处理方式
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Nuke
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/nuke-trn-lens-distort/">
+										使用LensDistortion节点输出STMap
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Unreal
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/unreal-add-custom-menus/">
+										使用Python为UE4添加自定义菜单
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal-vive-tracker-camera/">
+										使用Vive Tracker控制UE4摄像机
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Geek
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Cloudreve
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cloudreve-install/">
+										搭建Cloudreve私有云盘
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Docker
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/docker-common-command/">
+										Docker常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/docker-make-jira/">
+										Docker部署JIRA和PostgreSQL
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Vim
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/vim-help/">
+										vim快捷键查询
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Mac
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py2app-used/">
+										将Python程序打包成App过程和排错
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Python
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										学习笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py2py3/">
+										Python3的一些新特性
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-basis/">
+										PyQt介绍及入门学习
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt4to5/">
+										将PyQt4代码转到PyQt5
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										查询
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/pyqt-learning-001/">
+										PyQt常用部件用法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-learning-event/">
+										PySide Event事件
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-re-module-help/">
+										Python的re模块
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										疑难问题
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/pycharm-pyside-issue1/">
+										Pycharm中无法使用QApplication类
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										TD Pipeline
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										CGWire
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cgwire-install/">
+										搭建CGWire
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Rez
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/00%20rez-wiki-cn/">
+										00 Rez中文文档
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/01%20rez-home/">
+										01 Home
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/02%20rez-install/">
+										02 Installation
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/03%20rez-getting-started/">
+										03 Getting Started
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/04%20rez-basic-concepts/">
+										04 Basic Concepts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/05%20rez-configuring/">
+										05 Configuring Rez
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/06%20rez-package-commands/">
+										06 Package Commands
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/07%20rez-package-definition-guide/">
+										07 Package Definition Guide
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/08%20rez-variants/">
+										08 Variants
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/09%20rez-ephemeral-packages/">
+										09 Ephemeral Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/10%20rez-contexts/">
+										10 Contexts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/11%20rez-bundles/">
+										11 Bundles
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/12%20rez-suites/">
+										12 Suites
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/13%20rez-building-package/">
+										13 Building Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/14%20rez-copying-package/">
+										14 Copying Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/15%20rez-package-caching/">
+										15 Package Caching
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/16%20rez-environment-variables/">
+										16 Environment Variables
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/rez-intro/">
+										Rez介绍（使用篇）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<div id="index">
+	
+		<div class="index-li">
+			<a href="/unreal-vive-tracker-camera/">
+				<h2 class="index-title">
+					使用Vive Tracker控制UE4摄像机
+				</h2>
+				<div class="index-brief">
+					前言Vive Tracker是HTC VR系列产品的配件，它可以通过绑定现实世界中的物体(配合定位器)，来追踪物体的位置。
+使用这个特性，我们可以通过将Vive Tracker绑定到摄像机上，来控制UE4里的虚拟相机运动。
+
+准备首先需要下载SteamVR，进行与VR设备的连接配置。下载安装完成后，
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2020-11-27</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/">DCC</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/Unreal/">Unreal</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/pyqt-learning-event/">
+				<h2 class="index-title">
+					PySide Event事件
+				</h2>
+				<div class="index-brief">
+					
+下面几个示例来说明事件的应用
 
 
-    /*引用块样式*/
-    
+一些基本的事件注释  
 
-    /*文章列表背景图*/
-    
+# coding&#x3D;utf-8
 
-    
-</style>
+from PySide2.QtWidgets import *
+from PySide2.QtGui import *
+from PySide2.QtCore import *
+import sy
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2020-11-22</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Python/">Python</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Python/查询/">查询</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/pyqt-learning-001/">
+				<h2 class="index-title">
+					PyQt常用部件用法
+				</h2>
+				<div class="index-brief">
+					前言本文非常臭长，并不适合整篇阅读。此页面主要用于PyQt控件方法查询 (所以左侧的目录会很有用)
+QLineEdit
+生成控件widget = QLineEdit()
+设置输入框文字widget.setText(&#39;some text&#39;)
+设置提示文字widget.setPlaceh
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2020-11-21</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Python/">Python</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Python/查询/">查询</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/pycharm-pyside-issue1/">
+				<h2 class="index-title">
+					Pycharm中无法使用QApplication类
+				</h2>
+				<div class="index-brief">
+					前段时间想把PyQt系统的重新学学习一下，兴致勃勃的打开Pycharm，运行起了下列这一串代码：
+from PySide2 import QtWidgets
+import sys
+
+app &#x3D; QtWidgets.QApplication(sys.argv)
+widget &#x3D; Q
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2020-11-21</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Python/">Python</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Python/疑难问题/">疑难问题</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/unreal-add-custom-menus/">
+				<h2 class="index-title">
+					使用Python为UE4添加自定义菜单
+				</h2>
+				<div class="index-brief">
+					在程序主菜单下添加自定义菜单
+import unreal
+
+# Get the main menu class
+menus = unreal.ToolMenus.get()
+menu_name = 'LevelEditor.MainMenu'
+menu = menus.find_menu(menu_
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2020-11-21</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/">DCC</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/Unreal/">Unreal</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/deadline-use-techniques/">
+				<h2 class="index-title">
+					Deadline 使用技巧
+				</h2>
+				<div class="index-brief">
+					如何重置面板
+如何重新提交任务
+比如一些帧数是黑帧，可以在面板里输入指定的帧数进行渲染
+
+暂时禁用自己的主机到渲染台首先需要切换到super mode
+
+如何加入黑名单和白名单比如一台机子渲染一直在报错，可以将这台机子（暂时）加入黑名单
 
 
+如何限制cpu gpu核心数
+
+任务权限优先级设置
+
+设置
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2020-11-21</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/">DCC</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/Deadline/">Deadline</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/docker-make-jira/">
+				<h2 class="index-title">
+					Docker部署JIRA和PostgreSQL
+				</h2>
+				<div class="index-brief">
+					
+下述的部署方式只供用于学习用途，如需商业使用，请购买正版：https://www.atlassian.com/zh/software/jira
+
+部署PostgreSQL# 拉取postgres包。(这里对应的PostgreSQL版本是9.6)
+docker pull postgreSQL:9.6
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2020-11-21</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Geek/">Geek</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Geek/Docker/">Docker</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/docker-common-command/">
+				<h2 class="index-title">
+					Docker常用命令
+				</h2>
+				<div class="index-brief">
+					下载指定镜像这里以nginx来举例
+# 不指定版本
+docker pull nginx
+
+# 指定版本
+docker pull nginx:latest
+
+查看本地有哪些镜像docker images
+
+运行镜像 -d为后台运行 -p指定内外端口映射(外面机器端口：里面机器端口)这里的image_n
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2020-11-21</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Geek/">Geek</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Geek/Docker/">Docker</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/mtoa-install-issue/">
+				<h2 class="index-title">
+					安装Arnold后环境变量被破坏
+				</h2>
+				<div class="index-brief">
+					前言今天在安装新版本Arnold 4.1.0 for maya后，打开maya发现一堆报错，其中还有不少乱码字符。
+
+一看就知道是Arnold配置失败了，果不其然打开Plug-in Manager，Maya直接就崩掉了。  
+好奇这一堆乱码是怎么来的，安装的路径也没有中文字符啊。接下来就开始一步步排
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2020-11-11</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/">DCC</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/Maya/">Maya</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/nuke-trn-lens-distort/">
+				<h2 class="index-title">
+					使用LensDistortion节点输出STMap
+				</h2>
+				<div class="index-brief">
+					前言通常在电影的前期拍摄中，Onset人员会拍摄摄像机不同焦段的畸变网格，因为在后期制作中，没有Distortion map会让摄像机反求变得困难得多。
+最左为枕形畸变，最右为桶形畸变。
+
+通常我们会对一个棋盘格板进行拍摄，类似下图这样的。
 
 
+拍摄完会得到一张畸变网格，下面我们使用nuke对其进行
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2020-11-05</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/">DCC</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/Nuke/">Nuke</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+	
+	<div id="index-paginator">
+		
+			<span class="page-number current">1</span><a class="page-number" href="/archives/2020/11/page/2/">2</a><a class="extend next" rel="next" href="/archives/2020/11/page/2/">&gt;</a>
+		
+	</div>
+</div>
 
-
-
+	</div>
+	<div id="footer">
+	<p>
+	©2019-<span id="footerYear"></span> 
+	<a href="/">zhangly</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
 </html>

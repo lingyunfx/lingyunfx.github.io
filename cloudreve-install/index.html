@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		搭建Cloudreve私有云盘 | 
+	 
+	凌云的个人博客
+	</title>
+	
+	<!-- keywords,description -->
+	 
+		<meta name="description" content="关于视效的学习和分享" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "tdvfx.com";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">凌云的个人博客</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+
+	
+
+		
+		<li class="menu-item">
+			<a href="https://gitlab.lingyunfx.com/zhangly" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Article
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/command-tool-intro/">
+										命令行工具的三把瑞士军刀
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-link-unreal/">
+										UE4和Maya的数据通信
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-retime-tool-intro/">
+										Maya动画变速工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/meshlab-remove-face/">
+										使用MeshLab为模型减面
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/metahuman-intro/">
+										MetaHumans Creator初体验
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/notion-intro/">
+										使用Notion建立个人Wiki
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/tracks-2d-tools/">
+										在不同跟踪软件之间的2D点转换工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/whats-matchmoving/">
+										电影视效制作中的Matchmove
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										DCC
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Deadline
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/deadline-use-techniques/">
+										Deadline 使用技巧
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Maya
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/maya-env-varibles/">
+										Maya常用环境变量
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-issue-vol1/">
+										Maya疑难杂症备忘录 Vol.1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-001/">
+										Maya的效率使用和技巧（一）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-002/">
+										Maya的效率使用和技巧（二）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/mtoa-install-issue/">
+										安装Arnold后环境变量被破坏
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/reject-maya-warning/">
+										关于“你的文件贼健康”的简单处理方式
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Nuke
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/nuke-trn-lens-distort/">
+										使用LensDistortion节点输出STMap
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Unreal
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/unreal-add-custom-menus/">
+										使用Python为UE4添加自定义菜单
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal-vive-tracker-camera/">
+										使用Vive Tracker控制UE4摄像机
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Geek
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Cloudreve
+									</a>
+									
+							<ul>
+								<li class="file active">
+									<a href="/cloudreve-install/">
+										搭建Cloudreve私有云盘
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Docker
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/docker-common-command/">
+										Docker常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/docker-make-jira/">
+										Docker部署JIRA和PostgreSQL
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Vim
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/vim-help/">
+										vim快捷键查询
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Mac
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py2app-used/">
+										将Python程序打包成App过程和排错
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Python
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										学习笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py2py3/">
+										Python3的一些新特性
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-basis/">
+										PyQt介绍及入门学习
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt4to5/">
+										将PyQt4代码转到PyQt5
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										查询
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/pyqt-learning-001/">
+										PyQt常用部件用法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-learning-event/">
+										PySide Event事件
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-re-module-help/">
+										Python的re模块
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										疑难问题
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/pycharm-pyside-issue1/">
+										Pycharm中无法使用QApplication类
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										TD Pipeline
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										CGWire
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cgwire-install/">
+										搭建CGWire
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Rez
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/00%20rez-wiki-cn/">
+										00 Rez中文文档
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/01%20rez-home/">
+										01 Home
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/02%20rez-install/">
+										02 Installation
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/03%20rez-getting-started/">
+										03 Getting Started
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/04%20rez-basic-concepts/">
+										04 Basic Concepts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/05%20rez-configuring/">
+										05 Configuring Rez
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/06%20rez-package-commands/">
+										06 Package Commands
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/07%20rez-package-definition-guide/">
+										07 Package Definition Guide
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/08%20rez-variants/">
+										08 Variants
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/09%20rez-ephemeral-packages/">
+										09 Ephemeral Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/10%20rez-contexts/">
+										10 Contexts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/11%20rez-bundles/">
+										11 Bundles
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/12%20rez-suites/">
+										12 Suites
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/13%20rez-building-package/">
+										13 Building Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/14%20rez-copying-package/">
+										14 Copying Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/15%20rez-package-caching/">
+										15 Package Caching
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/16%20rez-environment-variables/">
+										16 Environment Variables
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/rez-intro/">
+										Rez介绍（使用篇）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+	搭建Cloudreve私有云盘
+</h1>
+<div class="article-meta">
+	
+	<span>zhangly</span>
+	<span>2021-05-17 22:55:17</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/Geek/">Geek</a>
+                        </i>
+                      
+                        >
+                      
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/Geek/Cloudreve/">Cloudreve</a>
+                        </i>
+                      
+                    </span>
+                
+            
+    
+
+    
+		<span>Tags：</span>
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h2><span id="前言">前言</span></h2><p>对于网盘来说现在最普及的就是百度云盘，不过很不喜欢百度盘的一点是：<br>分享一个文件给朋友，对方必须使用百度云客户端才可以下载，而且百度云对于资源会进行审核。</p>
+<p>这个时候就希望一个网盘能实现：<br>1.发送给对方分享链接<br>2.对方点击链接，直接下载<br>（且下载速度不受限，文件内容不被监管）</p>
+<p>这就需要搭建一个私有的个人网盘，并满足上述的需求。<br>于是Cloudreve诞生了。</p>
+<p><left><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/cloudreve-install/p1.png" width="80%" height="80%" alt align="center"></left>  </p>
+<p>私有网盘的优势是，所有文件都在自己的服务器上，更安全可靠，自由度更高。<br>那么搭建个人网盘的条件是什么？</p>
+<ul>
+<li>一点linux基础</li>
+<li>一台云主机</li>
+</ul>
+<p>下面就为大家介绍cloudreve，并讲解如何搭建cloudreve服务。</p>
+<h2><span id="cloudreve介绍">Cloudreve介绍</span></h2><p>Cloudreve是一个开源的网盘系统，它具有如下特性：</p>
+<ul>
+<li>网页端直接上传/下载。</li>
+<li>支持离线下载</li>
+<li>支持WebDAV协议</li>
+<li>多用户组，用户管理，支持用户注册</li>
+<li>视频，图片，音频，文本，office文档在线预览</li>
+<li>支持本机、从机、七牛、阿里云 OSS、腾讯云 COS、又拍云、OneDrive作为存储端</li>
+<li>等等等…</li>
+</ul>
+<p><strong>cloudreve的主页</strong></p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/cloudreve-install/p2.png"></p>
+<p><strong>后台配置页面</strong></p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/cloudreve-install/p3.png"></p>
+<p>更多了解可以访问它的github主页：<br><a target="_blank" rel="noopener" href="https://github.com/cloudreve/Cloudreve">https://github.com/cloudreve/Cloudreve</a></p>
+<p><strong>支持WebDAV</strong><br>除了上传分享文件外，笔者最常用的就是将cloudreve网盘挂载成一个网络驱动器。  </p>
+<p><left><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/cloudreve-install/p4.png" width="80%" height="80%" alt align="center"></left>  </p>
+<p>首先为朋友的电脑挂上这个网络驱动器（因为cloudreve支持WebDAV）。<br>每次要分享文件的时候，只需要将文件拷贝进去。  </p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/cloudreve-install/p5.gif"></p>
+<p>对方就可以在他的电脑上打开这个盘，拿走文件。</p>
+<h2><span id="搭建cloudreve">搭建Cloudreve</span></h2><p>搭建这样的一个网盘，肯定需要一台云服务器。<br>（其实就是一台配有公网ip的电脑主机）</p>
+<p>笔者是在腾讯云租的<strong>lightroom轻量应用服务器</strong>。<br>其它的如阿里云，华为云，国外的一些云服务器厂商也都ok。</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/cloudreve-install/p6.png"></p>
+<p>这里我选用的是香港地区，CentOS8.0系统。<br>一个最便宜的资费套餐。</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/cloudreve-install/p7.png"></p>
+<p>进入控制台，找到公网ip，并重置一下密码。</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/cloudreve-install/p8.png"></p>
+<p>我使用的是MobaXterm这款软件进行ssh连接（贼好用）。<br>然后就开始命令行环节了。</p>
+<h3><span id="准备cloudreve程序">准备cloudreve程序</span></h3><p>从这里找到最新的版本：<br><a target="_blank" rel="noopener" href="https://github.com/cloudreve/Cloudreve/releases">https://github.com/cloudreve/Cloudreve/releases</a></p>
+<p>我用的是CentOS，x86架构，所以这里选择amd64版本。</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/cloudreve-install/p9.png"></p>
+<p>鼠标右键复制链接地址。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 下载cloudreve主程序，wget后面是刚刚复制的地址</span>
+<span class="token function">wget</span> https://github.com/cloudreve/Cloudreve/releases/download/3.3.1/cloudreve_3.3.1_linux_amd64.tar.gz
+
+<span class="token comment"># 解压</span>
+<span class="token function">tar</span> xvf cloudreve_3.3.1_linux_amd64.tar.gz
+
+<span class="token comment"># 复制到指定位置</span>
+<span class="token function">cp</span> cloudreve /usr/bin/cloudreve
+
+<span class="token comment"># 给予可执行权限</span>
+<span class="token function">chmod</span> <span class="token number">755</span> /usr/bin/cloudreve<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="安装配置mysql">安装配置mysql</span></h3><p>默认情况下，Cloudreve会使用内置的SQLite数据库。笔者建议使用mysql。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装mysql</span>
+yum <span class="token function">install</span> mysql-server
+
+<span class="token comment"># 启动mysql</span>
+systemctl start mysqld.service
+
+<span class="token comment"># 进入到mysql交互界面</span>
+mysql
+
+<span class="token comment"># 设置root密码</span>
+ALTER <span class="token environment constant">USER</span> <span class="token string">'root'</span>@<span class="token string">'localhost'</span> IDENTIFIED BY <span class="token string">'你的密码'</span><span class="token punctuation">;</span>
+
+<span class="token comment"># 创建用户</span>
+CREATE <span class="token environment constant">USER</span> <span class="token string">'root'</span>@<span class="token string">'%'</span> IDENTIFIED BY <span class="token string">'你的密码'</span><span class="token punctuation">;</span>
+
+<span class="token comment"># 开启root远程访问</span>
+GRANT ALL PRIVILEGES ON *.* TO <span class="token string">'root'</span>@<span class="token string">'%'</span> WITH GRANT OPTION<span class="token punctuation">;</span>
+
+<span class="token comment"># 刷新设置</span>
+FLUSH PRIVILEGES<span class="token punctuation">;</span>
+
+<span class="token comment"># 退出交互界面</span>
+<span class="token builtin class-name">exit</span>
+
+<span class="token comment"># 重启mysql服务</span>
+systemctl restart mysqld.service<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>mysql默认运行在3306端口，我们需要将它配置给cloudreve。<br>新建一个文件：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /etc/cloudreve.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>写入下面的内容：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>Database<span class="token punctuation">]</span>
+<span class="token punctuation">;</span> 数据库类型，目前支持 sqlite <span class="token operator">|</span> mysql
+Type <span class="token operator">=</span> mysql
+
+<span class="token punctuation">;</span> MySQL 端口
+Port <span class="token operator">=</span> <span class="token number">3306</span>
+
+<span class="token punctuation">;</span> 用户名,根据自己情况修改
+User <span class="token operator">=</span> root
+
+<span class="token punctuation">;</span> 密码,根据自己情况修改
+Password <span class="token operator">=</span> <span class="token string">"mysql的root密码"</span>
+
+<span class="token punctuation">;</span> 数据库地址,根据自己情况修改
+Host <span class="token operator">=</span> <span class="token number">127.0</span>.0.1
+
+<span class="token punctuation">;</span> 数据库名称,根据自己情况修改
+Name <span class="token operator">=</span> mysql
+
+<span class="token punctuation">;</span> 数据表前缀
+TablePrefix <span class="token operator">=</span> <span class="token builtin class-name">cd</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="进行测试">进行测试</span></h3><p>这个时候cloudreve服务就已经配置好了。<br>输入下面的命令启动它：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 用刚刚创建的配置文件启动</span>
+cloudreve -c /etc/cloudreve.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>可以看到终端里输出的信息，初始的账户和密码。  </p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/cloudreve-install/p10.png"></p>
+<p>它运行在5212端口，打开浏览器，输入你的服务器”公网ip:5212”，回车。<br>输入刚刚显示的账户和密码就可以登陆了：</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/cloudreve-install/p11.png"></p>
+<p>然后我们需要为它加上一个域名和https，还有aria2（用作离线下载）。</p>
+<h3><span id="域名解析">域名解析</span></h3><p>我是在namecheap购买的域名和解析，<br>添加一条A记录输入你的公网ip即可。</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/cloudreve-install/p12.png"></p>
+<h3><span id="配置ssl">配置ssl</span></h3><blockquote>
+<p>网站没有一个小锁是不好看的  </p>
+</blockquote>
+<p>有了ssl证书，网站才会是https协议。<br>我使用的是acme来申请的证书。<br>首先从安装nginx开始：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装nginx</span>
+yum <span class="token function">install</span> nginx
+
+<span class="token comment"># 安装acme的依赖</span>
+yum <span class="token function">install</span> openssl
+yum <span class="token function">install</span> socat
+yum <span class="token function">install</span> netcat
+
+<span class="token comment"># 下载acme</span>
+<span class="token function">curl</span>  https://get.acme.sh <span class="token operator">|</span> <span class="token function">sh</span>
+
+<span class="token comment"># 生成证书（在这一步前一定要完成域名解析）</span>
+<span class="token builtin class-name">cd</span> .acme.sh/
+./acme.sh --issue -d cloud.lingyunfx.com --standalone -k ec-256<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这里可以看到终端输出的证书和密钥位置：<br>（记下来！）</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/cloudreve-install/p13.png"></p>
+<p>配置nginx：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 在此之前新建一个目录</span>
+<span class="token function">mkdir</span> -p /www/log/
+
+<span class="token comment"># 新建一个配置文件</span>
+<span class="token function">vim</span> /etc/nginx/conf.d/default.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>内容如下（有四个地方需要根据自己的情况进行替换）</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json">server
+<span class="token punctuation">&#123;</span>
+	listen <span class="token number">80</span>;
+	listen <span class="token number">443</span> ssl http2;
+	server_name cloud.lingyunfx.com;       # 这里替换自己的域名
+	if ($host != 'cloud.lingyunfx.com')<span class="token punctuation">&#123;</span>   # 这里替换自己的域名
+		return <span class="token number">403</span>;
+	<span class="token punctuation">&#125;</span>
+	if ($server_port = <span class="token number">80</span> ) <span class="token punctuation">&#123;</span>
+		return <span class="token number">301</span> https<span class="token operator">:</span><span class="token comment">//$host$request_uri;</span>
+	<span class="token punctuation">&#125;</span>
+index index.php index.html index.htm default.php default.htm default.html;
+location / <span class="token punctuation">&#123;</span>
+	    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	    proxy_set_header Host $http_host;
+	    proxy_redirect off;
+	    proxy_pass http<span class="token operator">:</span><span class="token comment">//127.0.0.1:5212;</span>
+	    client_max_body_size 4000m;        # 这里限制了单个文件上传的大小
+<span class="token punctuation">&#125;</span>
+#SSL-START SSL相关配置，请勿删除或修改下一行带注释的<span class="token number">404</span>规则
+#error_page <span class="token number">404</span>/<span class="token number">404</span>.html;
+ssl_certificate /root/.acme.sh/cloud.lingyunfx.com_ecc/cloud.lingyunfx.com.cer;     # 这里是你的证书地址
+ssl_certificate_key /root/.acme.sh/cloud.lingyunfx.com_ecc/cloud.lingyunfx.com.key; # 这里是你的密钥路径
+ssl_protocols TLSv1.<span class="token number">1</span> TLSv1.<span class="token number">2</span> TLSv1.<span class="token number">3</span>;
+ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256<span class="token operator">:</span>HIGH<span class="token operator">:</span>!aNULL<span class="token operator">:</span>!MD5<span class="token operator">:</span>!RC4<span class="token operator">:</span>!DHE;
+ssl_prefer_server_ciphers on;
+ssl_session_cache shared<span class="token operator">:</span>SSL<span class="token operator">:</span>10m;
+ssl_session_timeout 10m;
+
+
+#SSL-END
+
+#禁止访问的文件或目录
+location ~ ^/(\.user.ini|\.htaccess|\.git|\.svn|\.project|LICENSE|README.md)
+<span class="token punctuation">&#123;</span>
+	    return <span class="token number">404</span>;
+<span class="token punctuation">&#125;</span>
+
+access_log  /www/log/access.log;
+error_log  /www/log/error.log;
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>完成后启动nginx。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemctl start nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>再次启动cloudreve服务进行验证。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cloudreve -c /etc/cloudreve.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>现在可以看到网站上有美丽的小锁了。</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/cloudreve-install/p14.png"></p>
+<h3><span id="配置aria2">配置aria2</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 安装</span>
+yum <span class="token function">install</span> aria2
+
+<span class="token comment"># 新建一个配置文件</span>
+<span class="token function">mkdir</span> /etc/aria2
+<span class="token function">vim</span> /etc/aria2/aria2.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>写入下面内容：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#是否启用RPC服务，请设置为true</span>
+enable-rpc<span class="token operator">=</span>true
+
+<span class="token comment">#RPC服务的端口，默认为6800</span>
+rpc-listen-port<span class="token operator">=</span><span class="token number">6800</span>
+
+<span class="token comment">#设置PRC服务的密钥，在接下来的步骤中会用到</span>
+rpc-secret<span class="token operator">=</span>my_password<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>里面rpc-secret后面是你对接aria2的密码，自己改一个。</p>
+<p>然后建立并配置aria2服务。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">vim</span> /usr/lib/systemd/system/aria2.service<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>写入</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>Unit<span class="token punctuation">]</span>
+<span class="token assign-left variable">Description</span><span class="token operator">=</span>aria2c
+
+<span class="token punctuation">[</span>Service<span class="token punctuation">]</span>
+<span class="token assign-left variable">User</span><span class="token operator">=</span>root
+<span class="token assign-left variable">ExecStart</span><span class="token operator">=</span>/usr/bin/aria2c --conf-path<span class="token operator">=</span>/etc/aria2/aria2.conf
+<span class="token assign-left variable">Restart</span><span class="token operator">=</span>on-abort
+
+<span class="token punctuation">[</span>Install<span class="token punctuation">]</span>
+<span class="token assign-left variable">WantedBy</span><span class="token operator">=</span>multi-user.target<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>重载daemon，启动服务。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemctl daemon-reload
+systemctl <span class="token builtin class-name">enable</span> aria2
+systemctl start aria2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>最后需要cloudreve网页端配置aria2。<br>首先启动cloudreve程序。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cloudreve -c /etc/cloudreve.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>登录后在网站右上角进入管理面板</p>
+<p><left><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/cloudreve-install/p15.png" width="50%" height="50%" alt align="center"></left>  </p>
+<p>进行如下设置。<br>可以参考官方的wiki：<a target="_blank" rel="noopener" href="https://docs.cloudreve.org/use/aria2">https://docs.cloudreve.org/use/aria2</a></p>
+<p><left><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/cloudreve-install/p16.png" width="75%" height="75%" alt align="center"></left>  </p>
+<p>到了这里离线下载的功能就配置好了。</p>
+<h3><span id="配置cloudreve开机启动">配置cloudreve开机启动</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">vim</span> /usr/lib/systemd/system/cloudreve.service<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>写入：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>Unit<span class="token punctuation">]</span>
+<span class="token assign-left variable">Description</span><span class="token operator">=</span>Cloudreve
+<span class="token assign-left variable">Documentation</span><span class="token operator">=</span>https://docs.cloudreve.org
+<span class="token assign-left variable">After</span><span class="token operator">=</span>network.target
+<span class="token assign-left variable">Wants</span><span class="token operator">=</span>network.target
+
+<span class="token punctuation">[</span>Service<span class="token punctuation">]</span>
+<span class="token assign-left variable">ExecStart</span><span class="token operator">=</span>/usr/bin/cloudreve -c /etc/cloudreve.conf
+
+<span class="token assign-left variable">Restart</span><span class="token operator">=</span>on-abnormal
+<span class="token assign-left variable">RestartSec</span><span class="token operator">=</span>5s
+<span class="token assign-left variable">KillMode</span><span class="token operator">=</span>mixed
+
+<span class="token assign-left variable">StandardOutput</span><span class="token operator">=</span>null
+<span class="token assign-left variable">StandardError</span><span class="token operator">=</span>syslog
+
+<span class="token punctuation">[</span>Install<span class="token punctuation">]</span>
+<span class="token assign-left variable">WantedBy</span><span class="token operator">=</span>multi-user.target<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>然后更新并启动服务</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 更新配置</span>
+systemctl daemon-reload
+
+<span class="token comment"># 启动服务</span>
+systemctl start cloudreve
+
+<span class="token comment"># 设置开机启动</span>
+systemctl <span class="token builtin class-name">enable</span> cloudreve<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>到这里就完成了！</p>
+<h2><span id="挂载网络驱动器">挂载网络驱动器</span></h2><p>最后说一下怎么把网盘挂载成一个网络驱动器。</p>
+<p>我用的是一个叫raidrive的软件进行辅助挂载。windows自身也可以直接进行挂载，<br>不过这个软件有本地缓存的帮助，访问会流畅很多。</p>
+<p>下载地址：<br><a target="_blank" rel="noopener" href="https://www.raidrive.com/download">https://www.raidrive.com/download</a></p>
+<p>下载后双击安装，这里进行配置即可  </p>
+<p><left><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/cloudreve-install/p17.png" width="70%" height="70%" alt align="center"></left>  </p>
+<p>账户密码在这个页面获取</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/cloudreve-install/p18.png"></p>
+<hr>
+<p>这篇文章差不多就到这里，觉得还不错可以关注下这个公众号，thx！  </p>
+<center><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/metahuman-intro/p31.JPG" width="30%" height="30%" alt align="center"></center>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/notion-intro/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  使用Notion建立个人Wiki
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/metahuman-intro/">
+                MetaHumans Creator初体验
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2019-<span id="footerYear"></span> 
+	<a href="/">zhangly</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>
