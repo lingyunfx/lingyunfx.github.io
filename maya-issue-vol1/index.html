@@ -1077,6 +1077,10 @@ var _hmt = _hmt || [];
 </h1>
 <div class="article-meta">
 	
+		<span>
+			阅读量:<span id="/maya-issue-vol1/" class="leancloud_visitors" data-flag-title="Maya疑难杂症备忘录 Vol.1"></span>
+		</span>
+	
 	<span>zhangly</span>
 	<span>2021-03-09 13:13:44</span>
 		<div id="article-categories">
@@ -1134,12 +1138,12 @@ var _hmt = _hmt || [];
 <p>除此之外，当对文件进行open操作会导致崩溃的话，可以尝试import这个文件试试。<br>导入文件在大多情况是可行的，然后在保存文件之前，最好对文件进行场景优化和清理。</p>
 <p>也可以尝试使用最新版本的Maya2022打开文件。</p>
 <h2><span id="3进行某项操作崩溃">3.进行某项操作崩溃</span></h2><p>对于这样的情况非常多，列举几个自己遇到的。</p>
-<p>打开Plug-in Manager的时候崩溃，这可能是一些第三方插件导致，<br>在安装Arnold的时候配置mod文件的时候出现过类似问题，<br>这里有篇文章记录过：<a href="https://tdvfx.com/mtoa-install-error/">安装新版本Arnold for maya后环境变量被破坏</a>  </p>
+<p>打开Plug-in Manager的时候崩溃，这可能是一些第三方插件导致，<br>在安装Arnold的时候配置mod文件的时候出现过类似问题，<br>这里有篇文章记录过：<a href="https://lingyunfx.com/mtoa-install-error/">安装新版本Arnold for maya后环境变量被破坏</a>  </p>
 <p>对一个绑定文件进行位移选择操作的时候崩溃：<br>打开预设设置，修改求值模式为DG（脏值运算）。<br><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-issue-vol1/p3.jpeg"></p>
 <p>在动画烘培的时候崩溃：<br>因为Maya在进行烘培的时候会跑一遍时间滑块，对于一些臃肿的文件（帧数长，文件大），<br>可能在跑到一半的时候Maya就闪退了。可以把主界面显示修改为其它窗口：</p>
 <p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-issue-vol1/p4.png"></p>
 <p>这样减少了Maya烘培时候，对图形多余的计算（因为在时间滑块一帧帧播放的时候，图形一直在刷新）。  </p>
-<p>还有种方法则是使用脚本进行烘培，跳过跑时间滑块的步骤。<br>在这篇文章也讲过：<a href="https://tdvfx.com/maya-tips-001/">Maya的效率使用和技巧（一）</a></p>
+<p>还有种方法则是使用脚本进行烘培，跳过跑时间滑块的步骤。<br>在这篇文章也讲过：<a href="https://lingyunfx.com/maya-tips-001/">Maya的效率使用和技巧（一）</a></p>
 <h2><span id="4透视图相机属性值变为了无穷大">4.透视图相机属性值变为了无穷大</span></h2><p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-issue-vol1/p5.jpeg"></p>
 <p>在按下f键，对模型在视图局中显示的时候，容易触发这个问题。<br>通常可能是因为模型过大，损坏的模型，或者打开一些有问题的Maya文件所导致。</p>
 <p>暂时修复的话，选择透视图摄像机：<br>1.执行 <em>Modify - Reset Transformations</em> 操作<br>2.将下图的数值改为1<br><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-issue-vol1/p6.png"><br>这个时候就不要再按F了，不然视图又会变成NaN。</p>
@@ -1239,6 +1243,38 @@ var _hmt = _hmt || [];
 
 <script>
 	
+	
+    // 显示次数
+		function showTime(Counter) {
+			var query = new AV.Query("Counter");
+			if($(".leancloud_visitors").length > 0){
+				var url = $(".leancloud_visitors").attr('id').trim();
+				// where field
+				query.equalTo("words", url);
+				// count
+				query.count().then(function (number) {
+					// There are number instances of MyClass where words equals url.
+					$(document.getElementById(url)).text(number?  number : '--');
+				}, function (error) {
+					// error is an instance of AVError.
+				});
+			}
+		}
+		// 追加pv
+		function addCount(Counter) {
+			var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'wujun234.github.io';
+			var Counter = AV.Object.extend("Counter");
+			var query = new Counter;
+			query.save({
+				words: url
+			}).then(function (object) {
+			})
+		}
+		$(function () {
+			var Counter = AV.Object.extend("Counter");
+			addCount(Counter);
+			showTime(Counter);
+		});
 	
 </script>
 	</div>

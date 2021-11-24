@@ -1077,6 +1077,10 @@ var _hmt = _hmt || [];
 </h1>
 <div class="article-meta">
 	
+		<span>
+			阅读量:<span id="/13%20rez-building-package/" class="leancloud_visitors" data-flag-title="13 Building Packages"></span>
+		</span>
+	
 	<span>zhangly</span>
 	<span>2021-03-15 19:01:33</span>
 		<div id="article-categories">
@@ -1135,7 +1139,7 @@ var _hmt = _hmt || [];
 <li>再然后追加程序包的private_build_requires</li>
 <li>最后，如果包有变体，则追加变体的需求</li>
 </ul>
-<p>构建时会创建一系列环境变量（REZ_BUILD_开头），在<a target="_blank" rel="noopener" href="https://lingyunfx.com/2021/03/15/rez-environment-variables/">这里</a>可以看到构建时产生的环境变量。</p>
+<p>构建时会创建一系列环境变量（REZ_BUILD_开头），在<a href="https://lingyunfx.com/2021/03/15/rez-environment-variables/">这里</a>可以看到构建时产生的环境变量。</p>
 <p>在这个环境中会为每个变量调用构建系统。</p>
 <h1><span id="构建时依赖">构建时依赖</span></h1><p>有时候一个包只需要依赖另一个包来构建它的代码，或者生成文档。<br>以文档为例，一个C++项目可能需要使用doxygen来构建它的文档，<br>而一旦文档被生成，就不再需要doxygen了。</p>
 <p>这可以通过package.py的build_requires或private_build_requires来实现，<br>在这两个参数下的依赖包都只用于构建时，是过渡性的依赖列表。</p>
@@ -1221,7 +1225,7 @@ install<span class="token punctuation">:</span> hai
 <li>在一个单独的shell里运行rez-env mypackage。这将启用你的本地软件包，以及程序包需求</li>
 <li>测试软件包</li>
 </ul>
-<p>本地安装会将程序包构建并安装到本地仓库中，通常是~/package目录。这个目录被列在包搜索路径的开头，所以当你解析一个环境进行测试时，本地安装的包会被首先选中。你的包通常会被安装到 ~/packages/packagename/version，例如 ~/packages/maya_utils/1.0.5。如果你有变体，它们会被安装到这个安装路径的子目录中。<br>（可以参考文章：<a target="_blank" rel="noopener" href="https://lingyunfx.com/2021/03/15/rez-variants">变体 (Variants)</a>的结构部分）</p>
+<p>本地安装会将程序包构建并安装到本地仓库中，通常是~/package目录。这个目录被列在包搜索路径的开头，所以当你解析一个环境进行测试时，本地安装的包会被首先选中。你的包通常会被安装到 ~/packages/packagename/version，例如 ~/packages/maya_utils/1.0.5。如果你有变体，它们会被安装到这个安装路径的子目录中。<br>（可以参考文章：<a href="https://lingyunfx.com/2021/03/15/rez-variants">变体 (Variants)</a>的结构部分）</p>
 <p>你不需要每次安装后都运行<code>rez-env</code>。如果你的程序包没有改变，你可以继续使用现有测试环境。</p>
 <p>可以通过检查rez-env执行后的输出，来确保你已经pick了你的本地包。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-env sequence
@@ -1272,6 +1276,38 @@ sequence-2.1.2   /home/ajohns/packages/sequence/2.1.2  <span class="token punctu
 
 <script>
 	
+	
+    // 显示次数
+		function showTime(Counter) {
+			var query = new AV.Query("Counter");
+			if($(".leancloud_visitors").length > 0){
+				var url = $(".leancloud_visitors").attr('id').trim();
+				// where field
+				query.equalTo("words", url);
+				// count
+				query.count().then(function (number) {
+					// There are number instances of MyClass where words equals url.
+					$(document.getElementById(url)).text(number?  number : '--');
+				}, function (error) {
+					// error is an instance of AVError.
+				});
+			}
+		}
+		// 追加pv
+		function addCount(Counter) {
+			var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'wujun234.github.io';
+			var Counter = AV.Object.extend("Counter");
+			var query = new Counter;
+			query.save({
+				words: url
+			}).then(function (object) {
+			})
+		}
+		$(function () {
+			var Counter = AV.Object.extend("Counter");
+			addCount(Counter);
+			showTime(Counter);
+		});
 	
 </script>
 	</div>
