@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		Shotgun常用命令参考 | 
+	 
+	凌云的个人博客
+	</title>
+	
+	<!-- keywords,description -->
+	 
+		<meta name="description" content="关于视效的学习和分享" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "tdvfx.com";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">凌云的个人博客</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+
+	
+
+		
+		<li class="menu-item">
+			<a href="https://gitlab.lingyunfx.com/zhangly" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Article
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/command-tool-intro/">
+										命令行工具的三把瑞士军刀
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-link-unreal/">
+										UE4和Maya的数据通信
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-replace-ref-tool/">
+										批量替换Maya Reference工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-retime-tool-intro/">
+										Maya动画变速工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/meshlab-remove-face/">
+										使用MeshLab为模型减面
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/metahuman-intro/">
+										MetaHumans Creator初体验
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/notion-intro/">
+										使用Notion建立个人Wiki
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/reject-maya-warning/">
+										关于“你的文件贼健康”的简单处理方式
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/tracks-2d-tools/">
+										在不同跟踪软件之间的2D点转换工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/whats-matchmoving/">
+										电影视效制作中的Matchmove
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										DCC
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										3DEqualizer
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/tde-py-ref/">
+										3DEqualizer 命令参考
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Deadline
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/deadline-use-techniques/">
+										Deadline 使用技巧
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Maya
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/maya-cmds-example/">
+										Maya Command 代码段
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-env-varibles/">
+										Maya常用环境变量
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-flipping-camera/">
+										在Maya中进行Flipping Camera
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-issue-vol1/">
+										Maya疑难杂症备忘录 Vol.1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-001/">
+										Maya的效率使用和技巧（一）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-002/">
+										Maya的效率使用和技巧（二）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/mtoa-install-issue/">
+										安装Arnold后环境变量被破坏
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Nuke
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Nuke编程
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/gizmo-basic/">
+										gizmo制作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/knob-basic/">
+										自定义Knob操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-call-back/">
+										callback使用
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-menu/">
+										菜单操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-node-ani/">
+										节点动画操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-node-basic/">
+										nuke节点操作入门
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-py-file/">
+										文件操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-tcl-basic/">
+										tcl入门
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-ui/">
+										界面操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nukestudio-command-ref/">
+										Nuke Studio常用命令参考
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-lic/">
+										nuke license运作模式
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-trn-lens-distort/">
+										使用LensDistortion节点输出STMap
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Unreal
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/ue4-python-ref/">
+										Python片段参考
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal-add-custom-menus/">
+										使用Python为UE4添加自定义菜单
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal-vive-tracker-camera/">
+										使用Vive Tracker控制UE4摄像机
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Geek
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Cloudreve
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cloudreve-install/">
+										搭建Cloudreve私有云盘
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Docker
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/docker-common-command/">
+										Docker常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/docker-make-jira/">
+										Docker部署JIRA和PostgreSQL
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										GitLab
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/01%20install-gitlab/">
+										GitLab搭建
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/how-to-use-gitlab/">
+										GitLab使用
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Nginx
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/nginx-learn/">
+										Nginx学习笔记
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Vim
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/vim-help/">
+										vim快捷键查询
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Mac
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py2app-used/">
+										将Python程序打包成App过程和排错
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Python
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 学习笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py-class-learn/">
+										面向对象进阶
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py-multiprocess/">
+										并发编程
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py-network/">
+										网络编程
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py2py3/">
+										Python3的一些新特性
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py91suggestions/">
+										改善Python程序的91个建议(笔记)
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-basis/">
+										PyQt介绍及入门学习
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt4to5/">
+										将PyQt4代码转到PyQt5
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 查询
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py-common-use/">
+										Python常用代码段
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-learning-001/">
+										PyQt常用部件用法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-learning-event/">
+										PySide Event事件
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-re-module-help/">
+										Python的re模块
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										03 疑难问题
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/pycharm-pyside-issue1/">
+										Pycharm中无法使用QApplication类
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/miniconda-use/">
+										Miniconda使用
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pip-install-i/">
+										PIP走国内镜像安装
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										TD Pipeline
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										CGWire
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cgwire-install/">
+										搭建CGWire
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Rez
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/00%20rez-wiki-cn/">
+										00 Rez中文文档
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/01%20rez-home/">
+										01 Home
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/02%20rez-install/">
+										02 Installation
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/03%20rez-getting-started/">
+										03 Getting Started
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/04%20rez-basic-concepts/">
+										04 Basic Concepts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/05%20rez-configuring/">
+										05 Configuring Rez
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/06%20rez-package-commands/">
+										06 Package Commands
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/07%20rez-package-definition-guide/">
+										07 Package Definition Guide
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/08%20rez-variants/">
+										08 Variants
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/09%20rez-ephemeral-packages/">
+										09 Ephemeral Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/10%20rez-contexts/">
+										10 Contexts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/11%20rez-bundles/">
+										11 Bundles
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/12%20rez-suites/">
+										12 Suites
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/13%20rez-building-package/">
+										13 Building Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/14%20rez-copying-package/">
+										14 Copying Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/15%20rez-package-caching/">
+										15 Package Caching
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/16%20rez-environment-variables/">
+										16 Environment Variables
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/rez-intro/">
+										Rez介绍（使用篇）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Shotgun
+									</a>
+									
+							<ul>
+								<li class="file active">
+									<a href="/sg-common-command/">
+										Shotgun常用命令参考
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/shotgun-entity/">
+										可控制的Entity
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+	Shotgun常用命令参考
+</h1>
+<div class="article-meta">
+	
+	<span>zhangly</span>
+	<span>2021-09-16 14:08:00</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
+                        </i>
+                      
+                        >
+                      
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/TD-Pipeline/Shotgun/">Shotgun</a>
+                        </i>
+                      
+                    </span>
+                
+            
+    
+
+    
+		<span>Tags：</span>
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h2><span id="常用命令">常用命令</span></h2><h3><span id="用api-key获取sg对象">用api key获取sg对象</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 使用apikey登陆</span>
+sg <span class="token operator">=</span> shotgun_api3<span class="token punctuation">.</span>Shotgun<span class="token punctuation">(</span><span class="token string">"https://piedpiper.shotgunstudio.com"</span><span class="token punctuation">,</span>
+                          script_name<span class="token operator">=</span><span class="token string">"compress"</span><span class="token punctuation">,</span>
+                          api_key<span class="token operator">=</span><span class="token string">"01234567ef0123456789abcdef"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 使用账号登陆</span>
+sg <span class="token operator">=</span> shotgun_api3<span class="token punctuation">.</span>Shotgun<span class="token punctuation">(</span><span class="token string">"https://piedpiper.shotgunstudio.com"</span><span class="token punctuation">,</span>
+                          login<span class="token operator">=</span><span class="token string">"username"</span><span class="token punctuation">,</span>
+                          password<span class="token operator">=</span><span class="token string">"password"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="获取所有项目">获取所有项目</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">getAllProjects</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    fields <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">,</span><span class="token string">'name'</span><span class="token punctuation">,</span><span class="token string">'type'</span><span class="token punctuation">]</span>
+    projects<span class="token operator">=</span> sg<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">"Project"</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>fields<span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>projects<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">1</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span> <span class="token string">"couldn't find any projects"</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span> <span class="token string">"Found "</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>projects<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" projects"</span>
+
+    <span class="token keyword">return</span> projects
+
+<span class="token operator">>></span><span class="token operator">></span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Project'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">87</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'TST'</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="获取指定project所有的sequence需要project-id">获取指定Project所有的sequence（需要Project id）</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">getSequencesByProjId</span><span class="token punctuation">(</span>proj_id<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+    fields <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">,</span><span class="token string">'type'</span><span class="token punctuation">,</span><span class="token string">'code'</span><span class="token punctuation">]</span>
+    filters <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'project'</span><span class="token punctuation">,</span><span class="token string">'is'</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span><span class="token string">'Project'</span><span class="token punctuation">,</span><span class="token string">'id'</span><span class="token punctuation">:</span>proj_id<span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+    sequences<span class="token operator">=</span> sg<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">"Sequence"</span><span class="token punctuation">,</span>filters<span class="token punctuation">,</span>fields<span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>sequences<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">1</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span> <span class="token string">"couldn't find any sequences"</span>
+
+    <span class="token keyword">return</span> sequences
+
+<span class="token operator">>></span><span class="token operator">></span> <span class="token punctuation">&#123;</span><span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token string">'test_seq001'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Sequence'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">154</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="获取指定seq下所有shot需要sequence-id">获取指定seq下所有shot（需要sequence id）</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">getShotsBySeqId</span><span class="token punctuation">(</span>seq_id<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    fields <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">,</span><span class="token string">'type'</span><span class="token punctuation">,</span><span class="token string">'code'</span><span class="token punctuation">]</span>
+    filters <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'sg_sequence'</span><span class="token punctuation">,</span><span class="token string">'is'</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span><span class="token string">'Sequence'</span><span class="token punctuation">,</span><span class="token string">'id'</span><span class="token punctuation">:</span>seq_id<span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+    shots<span class="token operator">=</span> sg<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">"Shot"</span><span class="token punctuation">,</span>filters<span class="token punctuation">,</span>fields<span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>shots<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">1</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span> <span class="token string">"couldn't find any shots"</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token boolean">None</span>   
+
+    <span class="token keyword">return</span> shots
+
+<span class="token operator">>></span><span class="token operator">></span> <span class="token punctuation">&#123;</span><span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token string">'zly_test_001'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Shot'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">3485</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="列出指定project-sequence下的character资产">列出指定Project Sequence下的Character资产</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">fields <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">,</span> <span class="token string">'code'</span><span class="token punctuation">,</span> <span class="token string">'sg_asset_type'</span><span class="token punctuation">]</span>
+sequence_id <span class="token operator">=</span> <span class="token number">154</span>
+project_id <span class="token operator">=</span> <span class="token number">87</span>
+filters <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token string">'project'</span><span class="token punctuation">,</span> <span class="token string">'is'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Project'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> project_id<span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token string">'sg_asset_type'</span><span class="token punctuation">,</span> <span class="token string">'is'</span><span class="token punctuation">,</span> <span class="token string">'Character'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token string">'sequences'</span><span class="token punctuation">,</span> <span class="token string">'is'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Sequence'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> sequence_id<span class="token punctuation">&#125;</span><span class="token punctuation">]</span>
+<span class="token punctuation">]</span>
+assets <span class="token operator">=</span> sg<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">"Asset"</span><span class="token punctuation">,</span>filters<span class="token punctuation">,</span>fields<span class="token punctuation">)</span>
+<span class="token keyword">print</span> assets<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="下载指定version-id的mov-file">下载指定version id的mov file</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">version <span class="token operator">=</span> sg<span class="token punctuation">.</span>find_one<span class="token punctuation">(</span><span class="token string">"Version"</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">"id"</span><span class="token punctuation">,</span> <span class="token string">"is"</span><span class="token punctuation">,</span> <span class="token number">8649</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">"sg_uploaded_movie"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+local_file_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token string">r"D:\temp"</span><span class="token punctuation">,</span> version<span class="token punctuation">[</span><span class="token string">"sg_uploaded_movie"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+sg<span class="token punctuation">.</span>download_attachment<span class="token punctuation">(</span>version<span class="token punctuation">[</span><span class="token string">"sg_uploaded_movie"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> file_path<span class="token operator">=</span>local_file_path<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="用名称寻找asset">用名称寻找asset</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">findAssetByName</span><span class="token punctuation">(</span>proj_id<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    fields <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">,</span> <span class="token string">'code'</span><span class="token punctuation">,</span> <span class="token string">'sg_asset_type'</span><span class="token punctuation">,</span> <span class="token string">'tasks'</span><span class="token punctuation">]</span>
+    filters <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'project'</span><span class="token punctuation">,</span> <span class="token string">'is'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Project'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> proj_id<span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'code'</span><span class="token punctuation">,</span> <span class="token string">'is'</span><span class="token punctuation">,</span> name<span class="token punctuation">]</span><span class="token punctuation">]</span>
+    result <span class="token operator">=</span> sg<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'Asset'</span><span class="token punctuation">,</span> filters<span class="token punctuation">,</span> fields<span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> result<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="指定project-id场次名和镜头号获取镜头信息">指定project id,场次名和镜头号,获取镜头信息</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">findShotByName</span><span class="token punctuation">(</span>project_id<span class="token punctuation">,</span> seq<span class="token punctuation">,</span> shot<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    fields <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">,</span> <span class="token string">'code'</span><span class="token punctuation">,</span> <span class="token string">'sg_asset_type'</span><span class="token punctuation">,</span> <span class="token string">'tasks'</span><span class="token punctuation">,</span> <span class="token string">'sg_sequence'</span><span class="token punctuation">]</span>
+    filters <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'project'</span><span class="token punctuation">,</span> <span class="token string">'is'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Project'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> project_id<span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'code'</span><span class="token punctuation">,</span> <span class="token string">'is'</span><span class="token punctuation">,</span> shot<span class="token punctuation">]</span><span class="token punctuation">]</span>
+
+    result <span class="token operator">=</span> sg<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'Shot'</span><span class="token punctuation">,</span> filters<span class="token punctuation">,</span> fields<span class="token punctuation">)</span>
+
+    <span class="token keyword">for</span> x <span class="token keyword">in</span> result<span class="token punctuation">:</span>
+        name <span class="token operator">=</span> x<span class="token punctuation">[</span><span class="token string">'sg_sequence'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span>
+        <span class="token keyword">if</span> name <span class="token operator">==</span> seq<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> x
+
+    <span class="token keyword">return</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="打印出指定项目下所有sequence和seq下所有shots">打印出指定项目下，所有Sequence，和Seq下所有Shots</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">fields <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">,</span> <span class="token string">'code'</span><span class="token punctuation">]</span>
+filters <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'project'</span><span class="token punctuation">,</span> <span class="token string">'is'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Project'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">87</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+sequences <span class="token operator">=</span> sg<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">"Sequence"</span><span class="token punctuation">,</span> filters<span class="token punctuation">,</span> fields<span class="token punctuation">)</span>
+<span class="token keyword">for</span> seq <span class="token keyword">in</span> sequences<span class="token punctuation">:</span>
+    <span class="token keyword">print</span> <span class="token string">"Sequence: "</span><span class="token punctuation">,</span> seq<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'code'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> seq<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'id'</span><span class="token punctuation">)</span>
+    fields <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">,</span> <span class="token string">'code'</span><span class="token punctuation">]</span>
+    filters <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'sg_sequence'</span><span class="token punctuation">,</span> <span class="token string">'is'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Sequence'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> seq<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'id'</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+    shots <span class="token operator">=</span> sg<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">"Shot"</span><span class="token punctuation">,</span> filters<span class="token punctuation">,</span> fields<span class="token punctuation">)</span>
+
+    <span class="token keyword">for</span> shot <span class="token keyword">in</span> shots<span class="token punctuation">:</span>
+        <span class="token keyword">print</span> <span class="token string">'Shot: '</span><span class="token punctuation">,</span> shot<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'code'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="创建一个镜头任务和版本指定project-id和sequence-id">创建一个镜头，任务，和版本（指定Project id和Sequence id）</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 创建Shot</span>
+shot_name <span class="token operator">=</span> <span class="token string">'TESTSHOT_001'</span>
+data <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token string">'project'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Project'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">87</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token string">'sg_sequence'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Sequence'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">246</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token string">'code'</span><span class="token punctuation">:</span> shot_name<span class="token punctuation">,</span>
+    <span class="token string">'sg_status_list'</span><span class="token punctuation">:</span> <span class="token string">'ip'</span>
+<span class="token punctuation">&#125;</span>
+
+s <span class="token operator">=</span> sg<span class="token punctuation">.</span>create<span class="token punctuation">(</span><span class="token string">'Shot'</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span>
+
+<span class="token comment"># 在Shot下创建Task</span>
+data <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token string">'project'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Project'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">87</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token string">'content'</span><span class="token punctuation">:</span> <span class="token string">'ani01'</span><span class="token punctuation">,</span> <span class="token comment"># 任务名</span>
+    <span class="token string">'step'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Animation'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Step'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> const<span class="token punctuation">.</span>PIPELINE_STEP_ID<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'Animation'</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token comment"># 任务类型</span>
+    <span class="token string">'entity'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Shot'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> s<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'id'</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span> <span class="token comment"># 这里指定Shot id</span>
+<span class="token punctuation">&#125;</span>
+
+t <span class="token operator">=</span> sg<span class="token punctuation">.</span>create<span class="token punctuation">(</span><span class="token string">'Task'</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span>
+<span class="token keyword">print</span> t
+
+<span class="token comment"># 在Task下创建Version</span>
+data <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+        <span class="token string">'project'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Project'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">87</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+        <span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token string">'testshot_ani_v001'</span><span class="token punctuation">,</span>
+        <span class="token string">'sg_status_list'</span><span class="token punctuation">:</span> <span class="token string">'rev'</span><span class="token punctuation">,</span>
+        <span class="token string">'entity'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Shot'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> s<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'id'</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token comment"># Shot id</span>
+        <span class="token string">'sg_task'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Task'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> t<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'id'</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token comment"># Task id</span>
+        <span class="token string">'user'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'HumanUser'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">220</span><span class="token punctuation">&#125;</span> <span class="token comment"># 创建Version的人员</span>
+        <span class="token punctuation">&#125;</span>
+
+version <span class="token operator">=</span> sg<span class="token punctuation">.</span>create<span class="token punctuation">(</span><span class="token string">'Version'</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span>
+<span class="token keyword">print</span> version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="对自定义entity进行创建">对自定义Entity进行创建</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">data <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token string">'project'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Project'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">87</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token string">'test_plate_v005'</span><span class="token punctuation">,</span>
+    <span class="token string">'sg_shot'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Shot'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">6661</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token string">'updated_by'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Group'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token comment"># 更新用户为群组</span>
+    <span class="token string">'sg_original_resolution'</span><span class="token punctuation">:</span> <span class="token string">'1920x1080'</span><span class="token punctuation">,</span>
+    <span class="token string">'sg_plate_type'</span><span class="token punctuation">:</span> <span class="token string">'BG01'</span><span class="token punctuation">,</span>
+    <span class="token string">'sg_frames_scanned'</span><span class="token punctuation">:</span> <span class="token number">150</span><span class="token punctuation">,</span>
+    <span class="token string">'sg_scan_start'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token string">'sg_scan_end'</span><span class="token punctuation">:</span> <span class="token number">150</span>
+<span class="token punctuation">&#125;</span>
+
+plate <span class="token operator">=</span> sg<span class="token punctuation">.</span>create<span class="token punctuation">(</span><span class="token string">'CustomEntity10'</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span>
+<span class="token keyword">print</span> plate<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="对自定义entity进行查找">对自定义Entity进行查找</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> pprint
+
+filters <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token string">'project'</span><span class="token punctuation">,</span> <span class="token string">'is'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Project'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">87</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span>
+<span class="token punctuation">]</span>
+fields <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'code'</span><span class="token punctuation">]</span>
+result <span class="token operator">=</span> sg<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'CustomEntity10'</span><span class="token punctuation">,</span> filters<span class="token punctuation">,</span> fields<span class="token punctuation">)</span>
+
+pprint<span class="token punctuation">.</span>pprint<span class="token punctuation">(</span>result<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="查询指定类型的资产指定projectsequence-id">查询指定类型的资产（指定Project，Sequence id）</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">fields <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">,</span> <span class="token string">'sg_asset_type'</span><span class="token punctuation">,</span> <span class="token string">'code'</span><span class="token punctuation">]</span>
+filters <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token string">'project'</span><span class="token punctuation">,</span> <span class="token string">'is'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Project'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">87</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token string">'sequence'</span><span class="token punctuation">,</span> <span class="token string">'is'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Sequence'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">247</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token string">'sg_asset_type'</span><span class="token punctuation">,</span> <span class="token string">'is'</span><span class="token punctuation">,</span> <span class="token string">'Character'</span><span class="token punctuation">]</span> <span class="token comment"># 指定Character类型</span>
+
+<span class="token punctuation">]</span>
+<span class="token builtin">chr</span> <span class="token operator">=</span> sg<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'Asset'</span><span class="token punctuation">,</span> filters<span class="token punctuation">,</span> fields<span class="token punctuation">)</span>
+pprint<span class="token punctuation">.</span>pprint<span class="token punctuation">(</span><span class="token builtin">chr</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2><span id="官方的example">官方的example</span></h2><blockquote>
+<p>参考来源：<a target="_blank" rel="noopener" href="https://developer.shotgunsoftware.com/python-api/reference.html">https://developer.shotgunsoftware.com/python-api/reference.html</a></p>
+</blockquote>
+<h3><span id="创建一个镜头">创建一个镜头</span></h3><blockquote>
+<p>Shotgun.create(entity_type, data, return_fields=None)</p>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> data <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+     <span class="token string">"project"</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">"type"</span><span class="token punctuation">:</span> <span class="token string">"Project"</span><span class="token punctuation">,</span> <span class="token string">"id"</span><span class="token punctuation">:</span> <span class="token number">161</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+     <span class="token string">"sg_sequence"</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">"type"</span><span class="token punctuation">:</span> <span class="token string">"Sequence"</span><span class="token punctuation">,</span> <span class="token string">"id"</span><span class="token punctuation">:</span> <span class="token number">109</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+     <span class="token string">"code"</span><span class="token punctuation">:</span> <span class="token string">"001_100"</span><span class="token punctuation">,</span>
+     <span class="token string">'sg_status_list'</span><span class="token punctuation">:</span> <span class="token string">"ip"</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token operator">>></span><span class="token operator">></span> sg<span class="token punctuation">.</span>create<span class="token punctuation">(</span><span class="token string">'Shot'</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span>
+
+<span class="token punctuation">&#123;</span><span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token string">'001_100'</span><span class="token punctuation">,</span>
+ <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">2557</span><span class="token punctuation">,</span>
+ <span class="token string">'project'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">161</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Pied Piper'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Project'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+ <span class="token string">'sg_sequence'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">109</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Sequence 001'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Sequence'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+ <span class="token string">'sg_status_list'</span><span class="token punctuation">:</span> <span class="token string">'ip'</span><span class="token punctuation">,</span>
+ <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Shot'</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="指定project-id-和-sequence-id返回所有character的资产">指定Project id 和 Sequence id，返回所有Character的资产</span></h3><blockquote>
+<p>Shotgun.find(entity_type, filters, fields=None, order=None, filter_operator=None, limit=0, retired_only=False, page=0, include_archived_projects=True, additional_filter_presets=None)</p>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token comment"># Find Character Assets in Sequence 100_FOO</span>
+<span class="token operator">>></span><span class="token operator">></span> <span class="token comment"># -------------</span>
+<span class="token operator">>></span><span class="token operator">></span> fields <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">,</span> <span class="token string">'code'</span><span class="token punctuation">,</span> <span class="token string">'sg_asset_type'</span><span class="token punctuation">]</span>
+<span class="token operator">>></span><span class="token operator">></span> sequence_id <span class="token operator">=</span> <span class="token number">2</span> <span class="token comment"># Sequence "100_FOO"</span>
+<span class="token operator">>></span><span class="token operator">></span> project_id <span class="token operator">=</span> <span class="token number">4</span> <span class="token comment"># Demo Project</span>
+<span class="token operator">>></span><span class="token operator">></span> filters <span class="token operator">=</span> <span class="token punctuation">[</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token punctuation">[</span><span class="token string">'project'</span><span class="token punctuation">,</span> <span class="token string">'is'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Project'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> project_id<span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token punctuation">[</span><span class="token string">'sg_asset_type'</span><span class="token punctuation">,</span> <span class="token string">'is'</span><span class="token punctuation">,</span> <span class="token string">'Character'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token punctuation">[</span><span class="token string">'sequences'</span><span class="token punctuation">,</span> <span class="token string">'is'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Sequence'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> sequence_id<span class="token punctuation">&#125;</span><span class="token punctuation">]</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">]</span>
+<span class="token operator">>></span><span class="token operator">></span> assets<span class="token operator">=</span> sg<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">"Asset"</span><span class="token punctuation">,</span>filters<span class="token punctuation">,</span>fields<span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token punctuation">&#123;</span><span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token string">'Gopher'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token string">'sg_asset_type'</span><span class="token punctuation">:</span> <span class="token string">'Character'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Asset'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+ <span class="token punctuation">&#123;</span><span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token string">'Cow'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">33</span><span class="token punctuation">,</span> <span class="token string">'sg_asset_type'</span><span class="token punctuation">:</span> <span class="token string">'Character'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Asset'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+ <span class="token punctuation">&#123;</span><span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token string">'Bird_1'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">35</span><span class="token punctuation">,</span> <span class="token string">'sg_asset_type'</span><span class="token punctuation">:</span> <span class="token string">'Character'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Asset'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+ <span class="token punctuation">&#123;</span><span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token string">'Bird_2'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">36</span><span class="token punctuation">,</span> <span class="token string">'sg_asset_type'</span><span class="token punctuation">:</span> <span class="token string">'Character'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Asset'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+ <span class="token punctuation">&#123;</span><span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token string">'Bird_3'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">37</span><span class="token punctuation">,</span> <span class="token string">'sg_asset_type'</span><span class="token punctuation">:</span> <span class="token string">'Character'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Asset'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+ <span class="token punctuation">&#123;</span><span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token string">'Raccoon'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">45</span><span class="token punctuation">,</span> <span class="token string">'sg_asset_type'</span><span class="token punctuation">:</span> <span class="token string">'Character'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Asset'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+ <span class="token punctuation">&#123;</span><span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token string">'Wet Gopher'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">149</span><span class="token punctuation">,</span> <span class="token string">'sg_asset_type'</span><span class="token punctuation">:</span> <span class="token string">'Character'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Asset'</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="指定project-id-和-animation-step-id返回所有version">指定Project id 和 animation step id，返回所有Version</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token comment"># Find Versions created by Tasks in the Animation Pipeline Step</span>
+<span class="token operator">>></span><span class="token operator">></span> <span class="token comment"># -------------</span>
+<span class="token operator">>></span><span class="token operator">></span> fields <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">,</span> <span class="token string">'code'</span><span class="token punctuation">]</span>
+<span class="token operator">>></span><span class="token operator">></span> pipeline_step_id <span class="token operator">=</span> <span class="token number">2</span> <span class="token comment"># Animation Step ID</span>
+<span class="token operator">>></span><span class="token operator">></span> project_id <span class="token operator">=</span> <span class="token number">4</span> <span class="token comment"># Demo Project</span>
+<span class="token operator">>></span><span class="token operator">></span> <span class="token comment"># you can drill through single-entity link fields</span>
+<span class="token operator">>></span><span class="token operator">></span> filters <span class="token operator">=</span> <span class="token punctuation">[</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token punctuation">[</span><span class="token string">'project'</span><span class="token punctuation">,</span><span class="token string">'is'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Project'</span><span class="token punctuation">,</span><span class="token string">'id'</span><span class="token punctuation">:</span> project_id<span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token punctuation">[</span><span class="token string">'sg_task.Task.step.Step.id'</span><span class="token punctuation">,</span> <span class="token string">'is'</span><span class="token punctuation">,</span> pipeline_step_id<span class="token punctuation">]</span>
+<span class="token operator">>></span><span class="token operator">></span> <span class="token punctuation">]</span>
+<span class="token operator">>></span><span class="token operator">></span> sg<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">"Version"</span><span class="token punctuation">,</span> filters<span class="token punctuation">,</span> fields<span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token punctuation">&#123;</span><span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token string">'scene_010_anim_v001'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">42</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Version'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+ <span class="token punctuation">&#123;</span><span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token string">'scene_010_anim_v002'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">134</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Version'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+ <span class="token punctuation">&#123;</span><span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token string">'bird_v001'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">137</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Version'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+ <span class="token punctuation">&#123;</span><span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token string">'birdAltBlue_v002'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">236</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Version'</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="指定类型和id返回名称">指定类型和id，返回名称</span></h3><blockquote>
+<p>Shotgun.find_one(entity_type, filters, fields=None, order=None, filter_operator=None, retired_only=False, include_archived_projects=True, additional_filter_presets=None)</p>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 这里的Asset可以是Project，Sequence，Shot，Version等等</span>
+
+<span class="token operator">>></span><span class="token operator">></span> sg<span class="token punctuation">.</span>find_one<span class="token punctuation">(</span><span class="token string">"Asset"</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">"id"</span><span class="token punctuation">,</span> <span class="token string">"is"</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">"id"</span><span class="token punctuation">,</span> <span class="token string">"code"</span><span class="token punctuation">,</span> <span class="token string">"sg_status_list"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span><span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token string">'Gopher'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token string">'sg_status_list'</span><span class="token punctuation">:</span> <span class="token string">'ip'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Asset'</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="更新选定镜头的制作状态">更新选定镜头的制作状态</span></h3><blockquote>
+<p>Shotgun.update(entity_type, entity_id, data, multi_entity_update_modes=None)</p>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 看起来好像有问题，待测试</span>
+<span class="token operator">>></span><span class="token operator">></span> shots <span class="token operator">=</span> <span class="token punctuation">[</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>    <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span><span class="token string">'Shot'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span><span class="token string">'40435'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>    <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span><span class="token string">'Shot'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span><span class="token string">'40438'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>    <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span><span class="token string">'Shot'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span><span class="token string">'40441'</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span>
+<span class="token operator">>></span><span class="token operator">></span> data <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>    <span class="token string">'shots'</span><span class="token punctuation">:</span> shots<span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>    <span class="token string">'sg_status_list'</span><span class="token punctuation">:</span><span class="token string">'rev'</span><span class="token punctuation">&#125;</span>
+<span class="token operator">>></span><span class="token operator">></span> sg<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token string">"Asset"</span><span class="token punctuation">,</span> <span class="token number">55</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Shot'</span><span class="token punctuation">,</span>
+ <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">55</span><span class="token punctuation">,</span>
+ <span class="token string">'sg_status_list'</span><span class="token punctuation">:</span> <span class="token string">'rev'</span><span class="token punctuation">,</span>
+ <span class="token string">'shots'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">40435</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'100_010'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Shot'</span><span class="token punctuation">,</span> <span class="token string">'valid'</span><span class="token punctuation">:</span> <span class="token string">'valid'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+           <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">40438</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'100_040'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Shot'</span><span class="token punctuation">,</span> <span class="token string">'valid'</span><span class="token punctuation">:</span> <span class="token string">'valid'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+           <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">40441</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'100_070'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Shot'</span><span class="token punctuation">,</span> <span class="token string">'valid'</span><span class="token punctuation">:</span> <span class="token string">'valid'</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="删除一个镜头">删除一个镜头</span></h3><blockquote>
+<p>Shotgun.delete(entity_type, entity_id)</p>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> sg<span class="token punctuation">.</span>delete<span class="token punctuation">(</span><span class="token string">"Shot"</span><span class="token punctuation">,</span> <span class="token number">2557</span><span class="token punctuation">)</span>
+<span class="token boolean">True</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3><span id="恢复之前删除的镜头">恢复之前删除的镜头</span></h3><blockquote>
+<p>Shotgun.revive(entity_type, entity_id)</p>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> sg<span class="token punctuation">.</span>revive<span class="token punctuation">(</span><span class="token string">"Shot"</span><span class="token punctuation">,</span> <span class="token number">860</span><span class="token punctuation">)</span>
+<span class="token boolean">True</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3><span id="批量处理创建删除更新镜头">批量处理（创建，删除，更新）镜头</span></h3><blockquote>
+<p>Shotgun.batch(requests)</p>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># batch可用作于create(), update(), delete()</span>
+<span class="token comment"># 使用batch函数的任务，要么全部完成，要么全都不完成</span>
+
+batch_data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    data <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+        <span class="token string">"code"</span><span class="token punctuation">:</span> <span class="token string">"shot_%04d"</span> <span class="token operator">%</span> i<span class="token punctuation">,</span>
+        <span class="token string">"project"</span><span class="token punctuation">:</span> project
+    <span class="token punctuation">&#125;</span>
+    batch_data<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token string">"request_type"</span><span class="token punctuation">:</span> <span class="token string">"create"</span><span class="token punctuation">,</span> <span class="token string">"entity_type"</span><span class="token punctuation">:</span> <span class="token string">"Shot"</span><span class="token punctuation">,</span> <span class="token string">"data"</span><span class="token punctuation">:</span> data<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+sg<span class="token punctuation">.</span>batch<span class="token punctuation">(</span>batch_data<span class="token punctuation">)</span>
+
+<span class="token comment"># 三种不同类型可同时存在</span>
+batch_data <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">&#123;</span><span class="token string">"request_type"</span><span class="token punctuation">:</span> <span class="token string">"create"</span><span class="token punctuation">,</span> <span class="token string">"entity_type"</span><span class="token punctuation">:</span> <span class="token string">"Shot"</span><span class="token punctuation">,</span> <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">"code"</span><span class="token punctuation">:</span> <span class="token string">"New Shot 1"</span><span class="token punctuation">,</span> <span class="token string">"project"</span><span class="token punctuation">:</span> project<span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span><span class="token string">"request_type"</span><span class="token punctuation">:</span> <span class="token string">"update"</span><span class="token punctuation">,</span> <span class="token string">"entity_type"</span><span class="token punctuation">:</span> <span class="token string">"Shot"</span><span class="token punctuation">,</span> <span class="token string">"entity_id"</span><span class="token punctuation">:</span> <span class="token number">3624</span><span class="token punctuation">,</span> <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">"code"</span><span class="token punctuation">:</span> <span class="token string">"Changed 1"</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span><span class="token string">"request_type"</span><span class="token punctuation">:</span> <span class="token string">"delete"</span><span class="token punctuation">,</span> <span class="token string">"entity_type"</span><span class="token punctuation">:</span> <span class="token string">"Shot"</span><span class="token punctuation">,</span> <span class="token string">"entity_id"</span><span class="token punctuation">:</span> <span class="token number">3624</span><span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span>
+sg<span class="token punctuation">.</span>batch<span class="token punctuation">(</span>batch_data<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="计算指定项目中所有assets数量">计算指定项目中所有Assets数量</span></h3><blockquote>
+<p>Shotgun.summarize(entity_type, filters, summary_fields, filter_operator=None, grouping=None, include_archived_projects=True)</p>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> sg<span class="token punctuation">.</span>summarize<span class="token punctuation">(</span>entity_type<span class="token operator">=</span><span class="token string">'Asset'</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>              filters <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'project'</span><span class="token punctuation">,</span> <span class="token string">'is'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span><span class="token string">'Project'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>              summary_fields<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">&#123;</span><span class="token string">'field'</span><span class="token punctuation">:</span><span class="token string">'id'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span><span class="token string">'count'</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span><span class="token string">'groups'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'summaries'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">15</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span>
+
+<span class="token comment"># 返回值的id即为数量</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="计算指定项目中所有assets数量按照sg_asset_type排序">计算指定项目中所有Assets数量，按照sg_asset_type排序</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> sg<span class="token punctuation">.</span>summarize<span class="token punctuation">(</span>entity_type<span class="token operator">=</span><span class="token string">'Asset'</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>              filters<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'project'</span><span class="token punctuation">,</span> <span class="token string">'is'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Project'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>              summary_fields<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">&#123;</span><span class="token string">'field'</span><span class="token punctuation">:</span> <span class="token string">'id'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'count'</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>              grouping<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">&#123;</span><span class="token string">'field'</span><span class="token punctuation">:</span> <span class="token string">'sg_asset_type'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'exact'</span><span class="token punctuation">,</span> <span class="token string">'direction'</span><span class="token punctuation">:</span> <span class="token string">'asc'</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Groups里是每个类型资产的总数</span>
+<span class="token punctuation">&#123;</span><span class="token string">'groups'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span><span class="token string">'group_name'</span><span class="token punctuation">:</span> <span class="token string">'Character'</span><span class="token punctuation">,</span><span class="token string">'group_value'</span><span class="token punctuation">:</span> <span class="token string">'Character'</span><span class="token punctuation">,</span> <span class="token string">'summaries'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+            <span class="token punctuation">&#123;</span><span class="token string">'group_name'</span><span class="token punctuation">:</span> <span class="token string">'Environment'</span><span class="token punctuation">,</span><span class="token string">'group_value'</span><span class="token punctuation">:</span> <span class="token string">'Environment'</span><span class="token punctuation">,</span> <span class="token string">'summaries'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+            <span class="token punctuation">&#123;</span><span class="token string">'group_name'</span><span class="token punctuation">:</span> <span class="token string">'Matte Painting'</span><span class="token punctuation">,</span> <span class="token string">'group_value'</span><span class="token punctuation">:</span> <span class="token string">'Matte Painting'</span><span class="token punctuation">,</span> <span class="token string">'summaries'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+            <span class="token punctuation">&#123;</span><span class="token string">'group_name'</span><span class="token punctuation">:</span> <span class="token string">'Prop'</span><span class="token punctuation">,</span> <span class="token string">'group_value'</span><span class="token punctuation">:</span> <span class="token string">'Prop'</span><span class="token punctuation">,</span> <span class="token string">'summaries'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+            <span class="token punctuation">&#123;</span><span class="token string">'group_name'</span><span class="token punctuation">:</span> <span class="token string">'Vehicle'</span><span class="token punctuation">,</span> <span class="token string">'group_value'</span><span class="token punctuation">:</span> <span class="token string">'Vehicle'</span><span class="token punctuation">,</span> <span class="token string">'summaries'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+ <span class="token string">'summaries'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">15</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span>
+<span class="token comment"># 最后是所有资产的总和</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="计算一个sequence里所有的任务数量并找到其中最近截止日期">计算一个Sequence里所有的任务数量，并找到其中最近截止日期</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> sg<span class="token punctuation">.</span>summarize<span class="token punctuation">(</span>entity_type<span class="token operator">=</span><span class="token string">'Task'</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>              filters <span class="token operator">=</span> <span class="token punctuation">[</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>                 <span class="token punctuation">[</span><span class="token string">'entity.Shot.sg_sequence'</span><span class="token punctuation">,</span> <span class="token string">'is'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span><span class="token string">'Sequence'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>                 <span class="token punctuation">[</span><span class="token string">'sg_status_list'</span><span class="token punctuation">,</span> <span class="token string">'is_not'</span><span class="token punctuation">,</span> <span class="token string">'na'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>              summary_fields<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">&#123;</span><span class="token string">'field'</span><span class="token punctuation">:</span><span class="token string">'id'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span><span class="token string">'count'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>                              <span class="token punctuation">&#123;</span><span class="token string">'field'</span><span class="token punctuation">:</span><span class="token string">'due_date'</span><span class="token punctuation">,</span><span class="token string">'type'</span><span class="token punctuation">:</span><span class="token string">'latest'</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 最近的截至日期，和当前场次所有任务的总数</span>
+<span class="token punctuation">&#123;</span><span class="token string">'groups'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'summaries'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'due_date'</span><span class="token punctuation">:</span> <span class="token string">'2013-07-05'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="计算一个sequence里所有的任务数量并列出所有shots按照截至日期排序">计算一个Sequence里所有的任务数量，并列出所有Shots，按照截至日期排序</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> sg<span class="token punctuation">.</span>summarize<span class="token punctuation">(</span>entity_type<span class="token operator">=</span><span class="token string">'Task'</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>              filters <span class="token operator">=</span> <span class="token punctuation">[</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>                 <span class="token punctuation">[</span><span class="token string">'entity.Shot.sg_sequence'</span><span class="token punctuation">,</span> <span class="token string">'is'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Sequence'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>                 <span class="token punctuation">[</span><span class="token string">'sg_status_list'</span><span class="token punctuation">,</span> <span class="token string">'is_not'</span><span class="token punctuation">,</span> <span class="token string">'na'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>              summary_fields<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">&#123;</span><span class="token string">'field'</span><span class="token punctuation">:</span> <span class="token string">'id'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'count'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token string">'field'</span><span class="token punctuation">:</span> <span class="token string">'due_date'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'latest'</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>              grouping<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">&#123;</span><span class="token string">'field'</span><span class="token punctuation">:</span> <span class="token string">'entity'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'exact'</span><span class="token punctuation">,</span> <span class="token string">'direction'</span><span class="token punctuation">:</span> <span class="token string">'asc'</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span><span class="token string">'groups'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span><span class="token string">'group_name'</span><span class="token punctuation">:</span> <span class="token string">'shot_010'</span><span class="token punctuation">,</span>
+             <span class="token string">'group_value'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'shot_010'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Shot'</span><span class="token punctuation">,</span> <span class="token string">'valid'</span><span class="token punctuation">:</span> <span class="token string">'valid'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+             <span class="token string">'summaries'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'due_date'</span><span class="token punctuation">:</span> <span class="token string">'2013-06-18'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+            <span class="token punctuation">&#123;</span><span class="token string">'group_name'</span><span class="token punctuation">:</span> <span class="token string">'shot_020'</span><span class="token punctuation">,</span>
+             <span class="token string">'group_value'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'shot_020'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Shot'</span><span class="token punctuation">,</span> <span class="token string">'valid'</span><span class="token punctuation">:</span> <span class="token string">'valid'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+             <span class="token string">'summaries'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'due_date'</span><span class="token punctuation">:</span> <span class="token string">'2013-06-28'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+            <span class="token punctuation">&#123;</span><span class="token string">'group_name'</span><span class="token punctuation">:</span> <span class="token string">'shot_030'</span><span class="token punctuation">,</span>
+             <span class="token string">'group_value'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'shot_030'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Shot'</span><span class="token punctuation">,</span> <span class="token string">'valid'</span><span class="token punctuation">:</span> <span class="token string">'valid'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+             <span class="token string">'summaries'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'due_date'</span><span class="token punctuation">:</span> <span class="token string">'2013-07-05'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+ <span class="token string">'summaries'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'due_date'</span><span class="token punctuation">:</span> <span class="token string">'2013-07-05'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="计算一个sequence里所有任务数量找到最近的截止日期并列出所有shots和step">计算一个Sequence里所有任务数量，找到最近的截止日期，并列出所有Shots和Step</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> sg<span class="token punctuation">.</span>summarize<span class="token punctuation">(</span>entity_type<span class="token operator">=</span><span class="token string">'Task'</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>                 filters <span class="token operator">=</span> <span class="token punctuation">[</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>                    <span class="token punctuation">[</span><span class="token string">'entity.Shot.sg_sequence'</span><span class="token punctuation">,</span> <span class="token string">'is'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Sequence'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>                    <span class="token punctuation">[</span><span class="token string">'sg_status_list'</span><span class="token punctuation">,</span> <span class="token string">'is_not'</span><span class="token punctuation">,</span> <span class="token string">'na'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>                 summary_fields<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">&#123;</span><span class="token string">'field'</span><span class="token punctuation">:</span> <span class="token string">'id'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'count'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>                                 <span class="token punctuation">&#123;</span><span class="token string">'field'</span><span class="token punctuation">:</span> <span class="token string">'due_date'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'latest'</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>                 grouping<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">&#123;</span><span class="token string">'field'</span><span class="token punctuation">:</span> <span class="token string">'entity'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'exact'</span><span class="token punctuation">,</span> <span class="token string">'direction'</span><span class="token punctuation">:</span> <span class="token string">'asc'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>                           <span class="token punctuation">&#123;</span><span class="token string">'field'</span><span class="token punctuation">:</span> <span class="token string">'step'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'exact'</span><span class="token punctuation">,</span> <span class="token string">'direction'</span><span class="token punctuation">:</span> <span class="token string">'asc'</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span><span class="token string">'groups'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span><span class="token string">'group_name'</span><span class="token punctuation">:</span> <span class="token string">'shot_010'</span><span class="token punctuation">,</span>
+             <span class="token string">'group_value'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'shot_010'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Shot'</span><span class="token punctuation">,</span> <span class="token string">'valid'</span><span class="token punctuation">:</span> <span class="token string">'valid'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+             <span class="token string">'groups'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span><span class="token string">'group_name'</span><span class="token punctuation">:</span> <span class="token string">'Client'</span><span class="token punctuation">,</span>
+                         <span class="token string">'group_value'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Client'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Step'</span><span class="token punctuation">,</span> <span class="token string">'valid'</span><span class="token punctuation">:</span> <span class="token string">'valid'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+                         <span class="token string">'summaries'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'due_date'</span><span class="token punctuation">:</span> <span class="token string">'2013-05-04'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">&#123;</span><span class="token string">'group_name'</span><span class="token punctuation">:</span> <span class="token string">'Online'</span><span class="token punctuation">,</span>
+                         <span class="token string">'group_value'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Online'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Step'</span><span class="token punctuation">,</span> <span class="token string">'valid'</span><span class="token punctuation">:</span> <span class="token string">'valid'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+                         <span class="token string">'summaries'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'due_date'</span><span class="token punctuation">:</span> <span class="token string">'2013-05-05'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+                        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> truncated <span class="token keyword">for</span> brevity
+                        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+                        <span class="token punctuation">&#123;</span><span class="token string">'group_name'</span><span class="token punctuation">:</span> <span class="token string">'Comp'</span><span class="token punctuation">,</span>
+                         <span class="token string">'group_value'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Comp'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Step'</span><span class="token punctuation">,</span> <span class="token string">'valid'</span><span class="token punctuation">:</span> <span class="token string">'valid'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+                         <span class="token string">'summaries'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'due_date'</span><span class="token punctuation">:</span> <span class="token string">'2013-06-18'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+             <span class="token string">'summaries'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'due_date'</span><span class="token punctuation">:</span> <span class="token string">'2013-06-18'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+            <span class="token punctuation">&#123;</span><span class="token string">'group_name'</span><span class="token punctuation">:</span> <span class="token string">'shot_020'</span><span class="token punctuation">,</span>
+             <span class="token string">'group_value'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'shot_020'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Shot'</span><span class="token punctuation">,</span> <span class="token string">'valid'</span><span class="token punctuation">:</span> <span class="token string">'valid'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+             <span class="token string">'groups'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span><span class="token string">'group_name'</span><span class="token punctuation">:</span> <span class="token string">'Client'</span><span class="token punctuation">,</span>
+                         <span class="token string">'group_value'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Client'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Step'</span><span class="token punctuation">,</span> <span class="token string">'valid'</span><span class="token punctuation">:</span> <span class="token string">'valid'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+                         <span class="token string">'summaries'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'due_date'</span><span class="token punctuation">:</span> <span class="token string">'2013-05-15'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">&#123;</span><span class="token string">'group_name'</span><span class="token punctuation">:</span> <span class="token string">'Online'</span><span class="token punctuation">,</span>
+                         <span class="token string">'group_value'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Online'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Step'</span><span class="token punctuation">,</span> <span class="token string">'valid'</span><span class="token punctuation">:</span> <span class="token string">'valid'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+                         <span class="token string">'summaries'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'due_date'</span><span class="token punctuation">:</span> <span class="token string">'2013-05-16'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+                        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> truncated <span class="token keyword">for</span> brevity
+                        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+                        <span class="token punctuation">&#123;</span><span class="token string">'group_name'</span><span class="token punctuation">:</span> <span class="token string">'Comp'</span><span class="token punctuation">,</span>
+                         <span class="token string">'group_value'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Comp'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Step'</span><span class="token punctuation">,</span> <span class="token string">'valid'</span><span class="token punctuation">:</span> <span class="token string">'valid'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+                         <span class="token string">'summaries'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'due_date'</span><span class="token punctuation">:</span> <span class="token string">'2013-06-28'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+             <span class="token string">'summaries'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'due_date'</span><span class="token punctuation">:</span> <span class="token string">'2013-06-28'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+            <span class="token punctuation">&#123;</span><span class="token string">'group_name'</span><span class="token punctuation">:</span> <span class="token string">'shot_030'</span><span class="token punctuation">,</span>
+             <span class="token string">'group_value'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'shot_030'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Shot'</span><span class="token punctuation">,</span> <span class="token string">'valid'</span><span class="token punctuation">:</span> <span class="token string">'valid'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+             <span class="token string">'groups'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span><span class="token string">'group_name'</span><span class="token punctuation">:</span> <span class="token string">'Client'</span><span class="token punctuation">,</span>
+                         <span class="token string">'group_value'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Client'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Step'</span><span class="token punctuation">,</span> <span class="token string">'valid'</span><span class="token punctuation">:</span> <span class="token string">'valid'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+                         <span class="token string">'summaries'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'due_date'</span><span class="token punctuation">:</span> <span class="token string">'2013-05-20'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">&#123;</span><span class="token string">'group_name'</span><span class="token punctuation">:</span> <span class="token string">'Online'</span><span class="token punctuation">,</span>
+                         <span class="token string">'group_value'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Online'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Step'</span><span class="token punctuation">,</span> <span class="token string">'valid'</span><span class="token punctuation">:</span> <span class="token string">'valid'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+                         <span class="token string">'summaries'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'due_date'</span><span class="token punctuation">:</span> <span class="token string">'2013-05-21'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+                        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> truncated <span class="token keyword">for</span> brevity
+                        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+                        <span class="token punctuation">&#123;</span><span class="token string">'group_name'</span><span class="token punctuation">:</span> <span class="token string">'Comp'</span><span class="token punctuation">,</span>
+                         <span class="token string">'group_value'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Comp'</span><span class="token punctuation">,</span> <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Step'</span><span class="token punctuation">,</span> <span class="token string">'valid'</span><span class="token punctuation">:</span> <span class="token string">'valid'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+                         <span class="token string">'summaries'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'due_date'</span><span class="token punctuation">:</span> <span class="token string">'2013-07-05'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+             <span class="token string">'summaries'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'due_date'</span><span class="token punctuation">:</span> <span class="token string">'2013-07-05'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string">'summaries'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'due_date'</span><span class="token punctuation">:</span> <span class="token string">'2013-07-05'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3><span id="给notes-id参数返回完整notes对话包括回复与附件">给notes id参数，返回完整notes对话，包括回复与附件</span></h3><blockquote>
+<p>Shotgun.note_thread_read(note_id, entity_fields=None)</p>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token punctuation">[</span><span class="token punctuation">&#123;</span><span class="token string">'content'</span><span class="token punctuation">:</span> <span class="token string">'Please add more awesomeness to the color grading.'</span><span class="token punctuation">,</span>
+  <span class="token string">'created_at'</span><span class="token punctuation">:</span> <span class="token string">'2015-07-14 21:33:28 UTC'</span><span class="token punctuation">,</span>
+  <span class="token string">'created_by'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">38</span><span class="token punctuation">,</span>
+                 <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'John Pink'</span><span class="token punctuation">,</span>
+                 <span class="token string">'status'</span><span class="token punctuation">:</span> <span class="token string">'act'</span><span class="token punctuation">,</span>
+                 <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'HumanUser'</span><span class="token punctuation">,</span>
+                 <span class="token string">'valid'</span><span class="token punctuation">:</span> <span class="token string">'valid'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">6013</span><span class="token punctuation">,</span>
+  <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Note'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+ <span class="token punctuation">&#123;</span><span class="token string">'created_at'</span><span class="token punctuation">:</span> <span class="token string">'2015-07-14 21:33:32 UTC'</span><span class="token punctuation">,</span>
+  <span class="token string">'created_by'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">38</span><span class="token punctuation">,</span>
+                 <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'John Pink'</span><span class="token punctuation">,</span>
+                 <span class="token string">'status'</span><span class="token punctuation">:</span> <span class="token string">'act'</span><span class="token punctuation">,</span>
+                 <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'HumanUser'</span><span class="token punctuation">,</span>
+                 <span class="token string">'valid'</span><span class="token punctuation">:</span> <span class="token string">'valid'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">159</span><span class="token punctuation">,</span>
+  <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Attachment'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+ <span class="token punctuation">&#123;</span><span class="token string">'content'</span><span class="token punctuation">:</span> <span class="token string">'More awesomeness added'</span><span class="token punctuation">,</span>
+  <span class="token string">'created_at'</span><span class="token punctuation">:</span> <span class="token string">'2015-07-14 21:54:51 UTC'</span><span class="token punctuation">,</span>
+  <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+  <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Reply'</span><span class="token punctuation">,</span>
+  <span class="token string">'user'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">38</span><span class="token punctuation">,</span>
+           <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'David Blue'</span><span class="token punctuation">,</span>
+           <span class="token string">'status'</span><span class="token punctuation">:</span> <span class="token string">'act'</span><span class="token punctuation">,</span>
+           <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'HumanUser'</span><span class="token punctuation">,</span>
+           <span class="token string">'valid'</span><span class="token punctuation">:</span> <span class="token string">'valid'</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3><span id="给定一个text参数和entiry_type参数全局搜索匹配条件的资产">给定一个text参数，和entiry_type参数，全局搜索匹配条件的资产</span></h3><blockquote>
+<p>Shotgun.text_search(text, entity_types, project_ids=None, limit=None)   # 这里可以给定Project id参数，限制搜索范围</p>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> entity_types <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token string">"Asset"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">"sg_asset_type"</span><span class="token punctuation">,</span> <span class="token string">"is"</span><span class="token punctuation">,</span> <span class="token string">"Character"</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token string">"Task"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">&#125;</span>
+<span class="token operator">>></span><span class="token operator">></span> sg<span class="token punctuation">.</span>text_search<span class="token punctuation">(</span><span class="token string">"bunny"</span><span class="token punctuation">,</span> entity_types<span class="token punctuation">)</span>
+
+<span class="token punctuation">&#123;</span><span class="token string">'matches'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">734</span><span class="token punctuation">,</span>
+              <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Asset'</span><span class="token punctuation">,</span>
+              <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Bunny'</span><span class="token punctuation">,</span>
+              <span class="token string">'project_id'</span><span class="token punctuation">:</span> <span class="token number">65</span><span class="token punctuation">,</span>
+              <span class="token string">'image'</span><span class="token punctuation">:</span> <span class="token string">'https://...'</span><span class="token punctuation">,</span>
+              <span class="token string">'links'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">''</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+              <span class="token string">'status'</span><span class="token punctuation">:</span> <span class="token string">'fin'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+              <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+              <span class="token punctuation">&#123;</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">558</span><span class="token punctuation">,</span>
+               <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'Task'</span>
+               <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'FX'</span><span class="token punctuation">,</span>
+               <span class="token string">'project_id'</span><span class="token punctuation">:</span> <span class="token number">65</span><span class="token punctuation">,</span>
+               <span class="token string">'image'</span><span class="token punctuation">:</span> <span class="token string">'https://...'</span><span class="token punctuation">,</span>
+               <span class="token string">'links'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'Shot'</span><span class="token punctuation">,</span> <span class="token string">'bunny_010_0010'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+               <span class="token string">'status'</span><span class="token punctuation">:</span> <span class="token string">'fin'</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">'terms'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'bunny'</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="上传mov到指定的shot标志为sg_latest_quicktime">上传mov到指定的shot，标志为sg_latest_quicktime</span></h3><blockquote>
+<p>Shotgun.upload(entity_type, entity_id, path, field_name=None, display_name=None, tag_list=None)</p>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 官方的例子</span>
+<span class="token operator">>></span><span class="token operator">></span> mov_file <span class="token operator">=</span> <span class="token string">'/data/show/ne2/100_110/anim/01.mlk-02b.mov'</span>
+<span class="token operator">>></span><span class="token operator">></span> sg<span class="token punctuation">.</span>upload<span class="token punctuation">(</span><span class="token string">"Shot"</span><span class="token punctuation">,</span> <span class="token number">423</span><span class="token punctuation">,</span> mov_file<span class="token punctuation">,</span> field_name<span class="token operator">=</span><span class="token string">"sg_latest_quicktime"</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>           display_name<span class="token operator">=</span><span class="token string">"Latest QT"</span><span class="token punctuation">)</span>
+<span class="token number">72</span>
+
+<span class="token comment"># 自己尝试的方法</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">not</span> os<span class="token punctuation">.</span>environ<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'PYTHONHTTPSVERIFY'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span> <span class="token keyword">and</span> <span class="token builtin">getattr</span><span class="token punctuation">(</span>ssl<span class="token punctuation">,</span> <span class="token string">'_create_unverified_context'</span><span class="token punctuation">,</span> <span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    ssl<span class="token punctuation">.</span>_create_default_https_context <span class="token operator">=</span> ssl<span class="token punctuation">.</span>_create_unverified_context
+
+sg <span class="token operator">=</span> shotgun_api<span class="token punctuation">.</span>Shotgun<span class="token punctuation">(</span>const<span class="token punctuation">.</span>SHOTGUN_WEB_PATH<span class="token punctuation">,</span> const<span class="token punctuation">.</span>SCRIPT_NAME<span class="token punctuation">,</span> const<span class="token punctuation">.</span>API_KEY<span class="token punctuation">)</span>
+mov_file <span class="token operator">=</span> <span class="token string">r'D:\\show\VPT\B003C022\img\B003C022_layout_v001.mov'</span>
+sg<span class="token punctuation">.</span>upload<span class="token punctuation">(</span><span class="token string">'Version'</span><span class="token punctuation">,</span> <span class="token number">8676</span><span class="token punctuation">,</span> mov_file<span class="token punctuation">,</span> <span class="token string">'sg_uploaded_movie'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="上传本地文件到指定的entity下">上传本地文件到指定的entity下</span></h3><blockquote>
+<p>Shotgun.upload_thumbnail（entity_type，entity_id，path，** kwargs ）</p>
+</blockquote>
+<blockquote>
+<p>图像将在服务器上自动调整大小，以生成适合大小的图像文件。但是，原始文件也将保留，并且在Web UI中单击缩略图时可以访问。如果您使用本地安装的Shotgun而未启用S3，则如果您要为缩略图上传非常大的源图像，则会占用磁盘空间。</p>
+</blockquote>
+<h3><span id="从给定的版本下载附件">从给定的版本下载附件</span></h3><blockquote>
+<p>Shotgun.download_attachment(attachment=False, file_path=None, attachment_id=None)</p>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> version <span class="token operator">=</span> sg<span class="token punctuation">.</span>find_one<span class="token punctuation">(</span><span class="token string">"Version"</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">"id"</span><span class="token punctuation">,</span> <span class="token string">"is"</span><span class="token punctuation">,</span> <span class="token number">7115</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">"sg_uploaded_movie"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token operator">>></span><span class="token operator">></span> local_file_path <span class="token operator">=</span> <span class="token string">"/var/tmp/%s"</span> <span class="token operator">%</span> version<span class="token punctuation">[</span><span class="token string">"sg_uploaded_movie"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">]</span>
+<span class="token operator">>></span><span class="token operator">></span> sg<span class="token punctuation">.</span>download_attachment<span class="token punctuation">(</span>version<span class="token punctuation">[</span><span class="token string">"sg_uploaded_movie"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> file_path<span class="token operator">=</span>local_file_path<span class="token punctuation">)</span>
+
+<span class="token operator">/</span>var<span class="token operator">/</span>tmp<span class="token operator">/</span>100b_scene_output_v032<span class="token punctuation">.</span>mov<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="返回下载附件的url">返回下载附件的URL</span></h3><blockquote>
+<p>Shotgun.get_attachment_download_url(attachment)</p>
+</blockquote>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/maya-flipping-camera/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  在Maya中进行Flipping Camera
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/maya-cmds-example/">
+                Maya Command 代码段
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2019-<span id="footerYear"></span> 
+	<a href="/">zhangly</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

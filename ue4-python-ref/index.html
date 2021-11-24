@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		Python片段参考 | 
+	 
+	凌云的个人博客
+	</title>
+	
+	<!-- keywords,description -->
+	 
+		<meta name="description" content="关于视效的学习和分享" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "tdvfx.com";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">凌云的个人博客</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+
+	
+
+		
+		<li class="menu-item">
+			<a href="https://gitlab.lingyunfx.com/zhangly" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Article
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/command-tool-intro/">
+										命令行工具的三把瑞士军刀
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-link-unreal/">
+										UE4和Maya的数据通信
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-replace-ref-tool/">
+										批量替换Maya Reference工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-retime-tool-intro/">
+										Maya动画变速工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/meshlab-remove-face/">
+										使用MeshLab为模型减面
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/metahuman-intro/">
+										MetaHumans Creator初体验
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/notion-intro/">
+										使用Notion建立个人Wiki
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/reject-maya-warning/">
+										关于“你的文件贼健康”的简单处理方式
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/tracks-2d-tools/">
+										在不同跟踪软件之间的2D点转换工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/whats-matchmoving/">
+										电影视效制作中的Matchmove
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										DCC
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										3DEqualizer
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/tde-py-ref/">
+										3DEqualizer 命令参考
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Deadline
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/deadline-use-techniques/">
+										Deadline 使用技巧
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Maya
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/maya-cmds-example/">
+										Maya Command 代码段
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-env-varibles/">
+										Maya常用环境变量
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-flipping-camera/">
+										在Maya中进行Flipping Camera
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-issue-vol1/">
+										Maya疑难杂症备忘录 Vol.1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-001/">
+										Maya的效率使用和技巧（一）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-002/">
+										Maya的效率使用和技巧（二）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/mtoa-install-issue/">
+										安装Arnold后环境变量被破坏
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Nuke
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Nuke编程
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/gizmo-basic/">
+										gizmo制作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/knob-basic/">
+										自定义Knob操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-call-back/">
+										callback使用
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-menu/">
+										菜单操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-node-ani/">
+										节点动画操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-node-basic/">
+										nuke节点操作入门
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-py-file/">
+										文件操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-tcl-basic/">
+										tcl入门
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-ui/">
+										界面操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nukestudio-command-ref/">
+										Nuke Studio常用命令参考
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-lic/">
+										nuke license运作模式
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-trn-lens-distort/">
+										使用LensDistortion节点输出STMap
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Unreal
+									</a>
+									
+							<ul>
+								<li class="file active">
+									<a href="/ue4-python-ref/">
+										Python片段参考
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal-add-custom-menus/">
+										使用Python为UE4添加自定义菜单
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal-vive-tracker-camera/">
+										使用Vive Tracker控制UE4摄像机
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Geek
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Cloudreve
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cloudreve-install/">
+										搭建Cloudreve私有云盘
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Docker
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/docker-common-command/">
+										Docker常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/docker-make-jira/">
+										Docker部署JIRA和PostgreSQL
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										GitLab
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/01%20install-gitlab/">
+										GitLab搭建
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/how-to-use-gitlab/">
+										GitLab使用
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Nginx
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/nginx-learn/">
+										Nginx学习笔记
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Vim
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/vim-help/">
+										vim快捷键查询
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Mac
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py2app-used/">
+										将Python程序打包成App过程和排错
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Python
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 学习笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py-class-learn/">
+										面向对象进阶
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py-multiprocess/">
+										并发编程
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py-network/">
+										网络编程
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py2py3/">
+										Python3的一些新特性
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py91suggestions/">
+										改善Python程序的91个建议(笔记)
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-basis/">
+										PyQt介绍及入门学习
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt4to5/">
+										将PyQt4代码转到PyQt5
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 查询
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py-common-use/">
+										Python常用代码段
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-learning-001/">
+										PyQt常用部件用法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-learning-event/">
+										PySide Event事件
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-re-module-help/">
+										Python的re模块
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										03 疑难问题
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/pycharm-pyside-issue1/">
+										Pycharm中无法使用QApplication类
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/miniconda-use/">
+										Miniconda使用
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pip-install-i/">
+										PIP走国内镜像安装
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										TD Pipeline
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										CGWire
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cgwire-install/">
+										搭建CGWire
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Rez
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/00%20rez-wiki-cn/">
+										00 Rez中文文档
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/01%20rez-home/">
+										01 Home
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/02%20rez-install/">
+										02 Installation
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/03%20rez-getting-started/">
+										03 Getting Started
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/04%20rez-basic-concepts/">
+										04 Basic Concepts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/05%20rez-configuring/">
+										05 Configuring Rez
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/06%20rez-package-commands/">
+										06 Package Commands
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/07%20rez-package-definition-guide/">
+										07 Package Definition Guide
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/08%20rez-variants/">
+										08 Variants
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/09%20rez-ephemeral-packages/">
+										09 Ephemeral Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/10%20rez-contexts/">
+										10 Contexts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/11%20rez-bundles/">
+										11 Bundles
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/12%20rez-suites/">
+										12 Suites
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/13%20rez-building-package/">
+										13 Building Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/14%20rez-copying-package/">
+										14 Copying Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/15%20rez-package-caching/">
+										15 Package Caching
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/16%20rez-environment-variables/">
+										16 Environment Variables
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/rez-intro/">
+										Rez介绍（使用篇）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Shotgun
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/sg-common-command/">
+										Shotgun常用命令参考
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/shotgun-entity/">
+										可控制的Entity
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+	Python片段参考
+</h1>
+<div class="article-meta">
+	
+	<span>zhangly</span>
+	<span>2021-11-23 17:14:06</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/DCC/">DCC</a>
+                        </i>
+                      
+                        >
+                      
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/DCC/Unreal/">Unreal</a>
+                        </i>
+                      
+                    </span>
+                
+            
+    
+
+    
+		<span>Tags：</span>
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h2><span id="列出所有assets以及类型">列出所有Assets以及类型</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> unreal
+
+workingPath <span class="token operator">=</span> <span class="token string">"/Game/"</span>
+
+<span class="token decorator annotation punctuation">@unreal<span class="token punctuation">.</span>uclass</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">GetEditorAssetLibrary</span><span class="token punctuation">(</span>unreal<span class="token punctuation">.</span>EditorAssetLibrary<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
+
+editorAssetLib <span class="token operator">=</span> GetEditorAssetLibrary<span class="token punctuation">(</span><span class="token punctuation">)</span>
+allAssets <span class="token operator">=</span> editorAssetLib<span class="token punctuation">.</span>list_assets<span class="token punctuation">(</span>workingPath<span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">,</span> <span class="token boolean">False</span><span class="token punctuation">)</span>
+allAssetsCount <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>allAssets<span class="token punctuation">)</span>
+
+selectedAssetPath <span class="token operator">=</span> workingPath
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'---'</span><span class="token operator">*</span><span class="token number">20</span><span class="token punctuation">)</span>
+<span class="token keyword">with</span> unreal<span class="token punctuation">.</span>ScopedSlowTask<span class="token punctuation">(</span>allAssetsCount<span class="token punctuation">,</span> selectedAssetPath<span class="token punctuation">)</span> <span class="token keyword">as</span> slowTask<span class="token punctuation">:</span>
+    slowTask<span class="token punctuation">.</span>make_dialog<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> asset <span class="token keyword">in</span> allAssets<span class="token punctuation">:</span>
+        _assetData <span class="token operator">=</span> editorAssetLib<span class="token punctuation">.</span>find_asset_data<span class="token punctuation">(</span>asset<span class="token punctuation">)</span>
+        _assetName <span class="token operator">=</span> _assetData<span class="token punctuation">.</span>get_asset<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get_name<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        _assetPathName <span class="token operator">=</span> _assetData<span class="token punctuation">.</span>get_asset<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get_path_name<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        _assetClassName <span class="token operator">=</span> _assetData<span class="token punctuation">.</span>get_asset<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get_class<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get_name<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'&#123;0&#125;  >>>>  &#123;1&#125;'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>_assetName<span class="token punctuation">,</span> _assetClassName<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token triple-quoted-string string">"""
+type:
+LevelSequence, Material, StaticMesh, SkeletalMesh, AnimSequence, Skeleton, PhysicsAsset
+"""</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2><span id="输出log">输出log</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> unreal
+
+unreal<span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token string">'基本'</span><span class="token punctuation">)</span>
+unreal<span class="token punctuation">.</span>log_warning<span class="token punctuation">(</span><span class="token string">'警告'</span><span class="token punctuation">)</span>
+unreal<span class="token punctuation">.</span>log_error<span class="token punctuation">(</span><span class="token string">'报错'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2><span id="列出所有选择的资产">列出所有选择的资产</span></h2><p><strong>概念</strong>：在Content Browser里的是Assets，在场景中的是Actor</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> unreal
+
+<span class="token decorator annotation punctuation">@unreal<span class="token punctuation">.</span>uclass</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">MyEditorUtility</span><span class="token punctuation">(</span>unreal<span class="token punctuation">.</span>GlobalEditorUtilityBase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
+
+selectedAssets <span class="token operator">=</span> MyEditorUtility<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get_selected_assets<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> asset <span class="token keyword">in</span> selectedAssets<span class="token punctuation">:</span>
+    unreal<span class="token punctuation">.</span>log<span class="token punctuation">(</span>asset<span class="token punctuation">.</span>get_full_name<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 获取该资产全名（类的名称+完整的路径）</span>
+    unreal<span class="token punctuation">.</span>log<span class="token punctuation">(</span>asset<span class="token punctuation">.</span>get_fname<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>     <span class="token comment"># 获取该资产的名称</span>
+    unreal<span class="token punctuation">.</span>log<span class="token punctuation">(</span>asset<span class="token punctuation">.</span>get_name<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>      <span class="token comment"># 获取该资产的名称</span>
+    unreal<span class="token punctuation">.</span>log<span class="token punctuation">(</span>asset<span class="token punctuation">.</span>get_path_name<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 获取该资产的路径</span>
+    unreal<span class="token punctuation">.</span>log<span class="token punctuation">(</span>asset<span class="token punctuation">.</span>get_class<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>     <span class="token comment"># 获取该资产的类名</span>
+    unreal<span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token string">'--'</span><span class="token operator">*</span><span class="token number">20</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>更多关于ObjectBase的方法可以参考：</p>
+<p><a target="_blank" rel="noopener" href="https://docs.unrealengine.com/4.27/en-US/PythonAPI/class/_ObjectBase.html">https://docs.unrealengine.com/4.27/en-US/PythonAPI/class/_ObjectBase.html</a></p>
+<h2><span id="列出所有选择的actor">列出所有选择的Actor</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> unreal
+
+<span class="token decorator annotation punctuation">@unreal<span class="token punctuation">.</span>uclass</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">MyEditorUtility</span><span class="token punctuation">(</span>unreal<span class="token punctuation">.</span>GlobalEditorUtilityBase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
+
+selectedActors <span class="token operator">=</span> MyEditorUtility<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get_selection_set<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> actor <span class="token keyword">in</span> selectedActors<span class="token punctuation">:</span>
+    unreal<span class="token punctuation">.</span>log<span class="token punctuation">(</span>actor<span class="token punctuation">.</span>get_name<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>             <span class="token comment"># 获取actor的名称</span>
+    unreal<span class="token punctuation">.</span>log<span class="token punctuation">(</span>actor<span class="token punctuation">.</span>get_actor_location<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token comment"># 获取actor的loaction实例</span>
+    unreal<span class="token punctuation">.</span>log<span class="token punctuation">(</span>actor<span class="token punctuation">.</span>get_actor_transform<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 获取actor的transform实例</span>
+    unreal<span class="token punctuation">.</span>log<span class="token punctuation">(</span>actor<span class="token punctuation">.</span>is_hidden_ed<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>         <span class="token comment"># actor是否隐藏</span>
+    <span class="token keyword">if</span> actor<span class="token punctuation">.</span>actor_has_tag<span class="token punctuation">(</span><span class="token string">"tagOne"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>        <span class="token comment"># actor是否有xx标签</span>
+        actor<span class="token punctuation">.</span>destroy_actor<span class="token punctuation">(</span><span class="token punctuation">)</span>                <span class="token comment"># 删除actor</span>
+        unreal<span class="token punctuation">.</span>log_warning<span class="token punctuation">(</span><span class="token string">">>>> Do Remove"</span><span class="token punctuation">)</span>
+
+    unreal<span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token string">"--"</span><span class="token operator">*</span><span class="token number">20</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>更多关于Actor的方法可以参考：</p>
+<p><a target="_blank" rel="noopener" href="https://docs.unrealengine.com/4.27/en-US/PythonAPI/class/Actor.html#unreal.Actor">https://docs.unrealengine.com/4.27/en-US/PythonAPI/class/Actor.html#unreal.Actor</a></p>
+<h2><span id="创建蓝图">创建蓝图</span></h2><p><strong>Factory 工厂</strong>：如果需要创建一个蓝图，就要找到蓝图工厂，如果要创建一个动画就要创建动画工厂。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> unreal
+
+blueprintName <span class="token operator">=</span> <span class="token string">"MyEpicBPActorClass"</span>  <span class="token comment"># 定义蓝图的名称</span>
+blueprintPath <span class="token operator">=</span> <span class="token string">"/Game/AutoCreated"</span>   <span class="token comment"># 定义蓝图的路径</span>
+
+factory <span class="token operator">=</span> unreal<span class="token punctuation">.</span>BlueprintFactory<span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment"># 实例化蓝图类</span>
+factory<span class="token punctuation">.</span>set_editor_property<span class="token punctuation">(</span><span class="token string">"ParentClass"</span><span class="token punctuation">,</span> unreal<span class="token punctuation">.</span>Actor<span class="token punctuation">)</span>  <span class="token comment"># 定义蓝图类型</span>
+
+<span class="token comment"># 实例化资产创建工具，并执行创建</span>
+assetTools <span class="token operator">=</span> unreal<span class="token punctuation">.</span>AssetToolsHelpers<span class="token punctuation">.</span>get_asset_tools<span class="token punctuation">(</span><span class="token punctuation">)</span>
+myFancyNewAssetFile <span class="token operator">=</span> assetTools<span class="token punctuation">.</span>create_asset<span class="token punctuation">(</span>blueprintName<span class="token punctuation">,</span> blueprintPath<span class="token punctuation">,</span> <span class="token boolean">None</span><span class="token punctuation">,</span> factory<span class="token punctuation">)</span>
+
+<span class="token comment"># 保存创建的结果</span>
+unreal<span class="token punctuation">.</span>EditorAssetLibrary<span class="token punctuation">.</span>save_loaded_asset<span class="token punctuation">(</span>myFancyNewAssetFile<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2><span id="创建进度条任务">创建进度条任务</span></h2><p>当一些任务执行时间较长，程序长时间处于“卡死”的状态，可以使用进度条来告知用户程序并没有崩溃。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> unreal
+
+totalFrames <span class="token operator">=</span> <span class="token number">500000</span>
+textDisplay <span class="token operator">=</span> <span class="token string">"This is the text displayed on a progress bar"</span> <span class="token comment"># 进度显示的文字</span>
+
+<span class="token keyword">with</span> unreal<span class="token punctuation">.</span>ScopedSlowTask<span class="token punctuation">(</span>totalFrames<span class="token punctuation">,</span> textDisplay<span class="token punctuation">)</span> <span class="token keyword">as</span> ST<span class="token punctuation">:</span>
+    ST<span class="token punctuation">.</span>make_dialog<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span>         <span class="token comment"># 创建对话框</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>totalFrames<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> ST<span class="token punctuation">.</span>should_cancel<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>   <span class="token comment"># 当用户点击取消时</span>
+            <span class="token keyword">break</span>
+        unreal<span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token string">"running running"</span><span class="token punctuation">)</span>
+        ST<span class="token punctuation">.</span>enter_progress_frame<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>参考：</p>
+<p><a target="_blank" rel="noopener" href="https://docs.unrealengine.com/4.27/en-US/PythonAPI/class/ScopedSlowTask.html">https://docs.unrealengine.com/4.27/en-US/PythonAPI/class/ScopedSlowTask.html</a></p>
+<h2><span id="创建多个蓝图案例结合">创建多个蓝图（案例结合）</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> unreal
+
+totalRequiredBlueprints <span class="token operator">=</span> <span class="token number">70</span>
+newAssetName <span class="token operator">=</span> <span class="token string">"BP_pythonMade_%d"</span>
+createdAssetsPath <span class="token operator">=</span> <span class="token string">"/Game/TestStuff"</span>
+slowTaskDisplayText <span class="token operator">=</span> <span class="token string">"Createing new assets....."</span>
+
+factory <span class="token operator">=</span> unreal<span class="token punctuation">.</span>BlueprintFactory<span class="token punctuation">(</span><span class="token punctuation">)</span>
+factory<span class="token punctuation">.</span>set_editor_property<span class="token punctuation">(</span><span class="token string">"ParentClass"</span><span class="token punctuation">,</span> unreal<span class="token punctuation">.</span>Pawn<span class="token punctuation">)</span>
+
+assetTools <span class="token operator">=</span> unreal<span class="token punctuation">.</span>AssetToolsHelpers<span class="token punctuation">.</span>get_asset_tools<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">with</span> unreal<span class="token punctuation">.</span>ScopedSlowTask<span class="token punctuation">(</span>totalRequiredBlueprints<span class="token punctuation">,</span> slowTaskDisplayText<span class="token punctuation">)</span> <span class="token keyword">as</span> ST<span class="token punctuation">:</span>
+    ST<span class="token punctuation">.</span>make_dialog<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>totalRequiredBlueprints<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> ST<span class="token punctuation">.</span>should_cancel<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">break</span>
+        newAsset <span class="token operator">=</span> assetTools<span class="token punctuation">.</span>create_asset<span class="token punctuation">(</span>newAssetName<span class="token operator">%</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> createdAssetsPath<span class="token punctuation">,</span> <span class="token boolean">None</span><span class="token punctuation">,</span> factory<span class="token punctuation">)</span>
+        unreal<span class="token punctuation">.</span>EditorAssetLibrary<span class="token punctuation">.</span>save_loaded_asset<span class="token punctuation">(</span>newAsset<span class="token punctuation">)</span>
+        unreal<span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token string">"Just created an asset BP_PythonMade_%d via PYTHON API"</span> <span class="token operator">%</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        ST<span class="token punctuation">.</span>enter_progress_frame<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2><span id="将选中的actor放到level中">将选中的Actor放到Level中</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> unreal
+
+actorsCount <span class="token operator">=</span> <span class="token number">50</span>
+slowTaskDisplayText <span class="token operator">=</span> <span class="token string">"Spawning actors in the level...."</span>
+
+<span class="token decorator annotation punctuation">@unreal<span class="token punctuation">.</span>uclass</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">MyEditorUtility</span><span class="token punctuation">(</span>unreal<span class="token punctuation">.</span>GlobalEditorUtilityBase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
+
+selectedAssets <span class="token operator">=</span> MyEditorUtility<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get_selected_assets<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">with</span> unreal<span class="token punctuation">.</span>ScopedSlowTask<span class="token punctuation">(</span>actorsCount<span class="token punctuation">,</span> slowTaskDisplayText<span class="token punctuation">)</span> <span class="token keyword">as</span> ST<span class="token punctuation">:</span>
+    ST<span class="token punctuation">.</span>make_dialog<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>actorsCount<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> ST<span class="token punctuation">.</span>should_cancel<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">break</span>
+        <span class="token comment"># 针对关卡的操作，所有这里去找EditorLevelLibray里的方法</span>
+        unreal<span class="token punctuation">.</span>EditorLevelLibrary<span class="token punctuation">.</span>spawn_actor_from_object<span class="token punctuation">(</span>selectedAssets<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> unreal<span class="token punctuation">.</span>Vector<span class="token punctuation">(</span><span class="token number">1.0</span><span class="token operator">+</span>x<span class="token operator">*</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token operator">+</span>x<span class="token operator">*</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">30.0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> unreal<span class="token punctuation">.</span>Rotator<span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">10.0</span><span class="token operator">*</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        unreal<span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token string">"Just added an actor to the level!"</span><span class="token punctuation">)</span>
+        ST<span class="token punctuation">.</span>enter_progress_frame<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/nuke-tcl-basic/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  tcl入门
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/maya-flipping-camera/">
+                在Maya中进行Flipping Camera
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2019-<span id="footerYear"></span> 
+	<a href="/">zhangly</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

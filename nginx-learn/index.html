@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		Nginx学习笔记 | 
+	 
+	凌云的个人博客
+	</title>
+	
+	<!-- keywords,description -->
+	 
+		<meta name="description" content="关于视效的学习和分享" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "tdvfx.com";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">凌云的个人博客</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+
+	
+
+		
+		<li class="menu-item">
+			<a href="https://gitlab.lingyunfx.com/zhangly" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Article
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/command-tool-intro/">
+										命令行工具的三把瑞士军刀
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-link-unreal/">
+										UE4和Maya的数据通信
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-replace-ref-tool/">
+										批量替换Maya Reference工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-retime-tool-intro/">
+										Maya动画变速工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/meshlab-remove-face/">
+										使用MeshLab为模型减面
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/metahuman-intro/">
+										MetaHumans Creator初体验
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/notion-intro/">
+										使用Notion建立个人Wiki
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/reject-maya-warning/">
+										关于“你的文件贼健康”的简单处理方式
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/tracks-2d-tools/">
+										在不同跟踪软件之间的2D点转换工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/whats-matchmoving/">
+										电影视效制作中的Matchmove
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										DCC
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										3DEqualizer
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/tde-py-ref/">
+										3DEqualizer 命令参考
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Deadline
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/deadline-use-techniques/">
+										Deadline 使用技巧
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Maya
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/maya-cmds-example/">
+										Maya Command 代码段
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-env-varibles/">
+										Maya常用环境变量
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-flipping-camera/">
+										在Maya中进行Flipping Camera
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-issue-vol1/">
+										Maya疑难杂症备忘录 Vol.1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-001/">
+										Maya的效率使用和技巧（一）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-002/">
+										Maya的效率使用和技巧（二）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/mtoa-install-issue/">
+										安装Arnold后环境变量被破坏
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Nuke
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Nuke编程
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/gizmo-basic/">
+										gizmo制作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/knob-basic/">
+										自定义Knob操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-call-back/">
+										callback使用
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-menu/">
+										菜单操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-node-ani/">
+										节点动画操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-node-basic/">
+										nuke节点操作入门
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-py-file/">
+										文件操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-tcl-basic/">
+										tcl入门
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-ui/">
+										界面操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nukestudio-command-ref/">
+										Nuke Studio常用命令参考
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-lic/">
+										nuke license运作模式
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-trn-lens-distort/">
+										使用LensDistortion节点输出STMap
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Unreal
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/ue4-python-ref/">
+										Python片段参考
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal-add-custom-menus/">
+										使用Python为UE4添加自定义菜单
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal-vive-tracker-camera/">
+										使用Vive Tracker控制UE4摄像机
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Geek
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Cloudreve
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cloudreve-install/">
+										搭建Cloudreve私有云盘
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Docker
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/docker-common-command/">
+										Docker常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/docker-make-jira/">
+										Docker部署JIRA和PostgreSQL
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										GitLab
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/01%20install-gitlab/">
+										GitLab搭建
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/how-to-use-gitlab/">
+										GitLab使用
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Nginx
+									</a>
+									
+							<ul>
+								<li class="file active">
+									<a href="/nginx-learn/">
+										Nginx学习笔记
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Vim
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/vim-help/">
+										vim快捷键查询
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Mac
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py2app-used/">
+										将Python程序打包成App过程和排错
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Python
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 学习笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py-class-learn/">
+										面向对象进阶
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py-multiprocess/">
+										并发编程
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py-network/">
+										网络编程
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py2py3/">
+										Python3的一些新特性
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py91suggestions/">
+										改善Python程序的91个建议(笔记)
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-basis/">
+										PyQt介绍及入门学习
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt4to5/">
+										将PyQt4代码转到PyQt5
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 查询
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py-common-use/">
+										Python常用代码段
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-learning-001/">
+										PyQt常用部件用法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-learning-event/">
+										PySide Event事件
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-re-module-help/">
+										Python的re模块
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										03 疑难问题
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/pycharm-pyside-issue1/">
+										Pycharm中无法使用QApplication类
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/miniconda-use/">
+										Miniconda使用
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pip-install-i/">
+										PIP走国内镜像安装
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										TD Pipeline
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										CGWire
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cgwire-install/">
+										搭建CGWire
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Rez
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/00%20rez-wiki-cn/">
+										00 Rez中文文档
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/01%20rez-home/">
+										01 Home
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/02%20rez-install/">
+										02 Installation
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/03%20rez-getting-started/">
+										03 Getting Started
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/04%20rez-basic-concepts/">
+										04 Basic Concepts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/05%20rez-configuring/">
+										05 Configuring Rez
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/06%20rez-package-commands/">
+										06 Package Commands
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/07%20rez-package-definition-guide/">
+										07 Package Definition Guide
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/08%20rez-variants/">
+										08 Variants
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/09%20rez-ephemeral-packages/">
+										09 Ephemeral Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/10%20rez-contexts/">
+										10 Contexts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/11%20rez-bundles/">
+										11 Bundles
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/12%20rez-suites/">
+										12 Suites
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/13%20rez-building-package/">
+										13 Building Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/14%20rez-copying-package/">
+										14 Copying Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/15%20rez-package-caching/">
+										15 Package Caching
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/16%20rez-environment-variables/">
+										16 Environment Variables
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/rez-intro/">
+										Rez介绍（使用篇）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Shotgun
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/sg-common-command/">
+										Shotgun常用命令参考
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/shotgun-entity/">
+										可控制的Entity
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+	Nginx学习笔记
+</h1>
+<div class="article-meta">
+	
+	<span>zhangly</span>
+	<span>2021-11-24 12:50:06</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/Geek/">Geek</a>
+                        </i>
+                      
+                        >
+                      
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/Geek/Nginx/">Nginx</a>
+                        </i>
+                      
+                    </span>
+                
+            
+    
+
+    
+		<span>Tags：</span>
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h2><span id="安装">安装</span></h2><p>不推荐使用rpm包，可能会存在后门（有安全风险）</p>
+<p>建议从官方源码包安装。</p>
+<p><a target="_blank" rel="noopener" href="https://nginx.org/en/download.html">https://nginx.org/en/download.html</a></p>
+<p><strong>1.下载源码包</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 源码包一般放在src里</span>
+<span class="token function">wget</span> https://nginx.org/download/nginx-1.21.3.tar.gz -P /usr/src
+<span class="token builtin class-name">cd</span> /usr/src
+<span class="token function">tar</span> xf nginx-1.21.3.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>2.配置（检查环境依赖，安装方式，指定安装路径）</strong></p>
+<p>进入解压后的文件，可以<code>--help</code>命令看到如何指定安装目录</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/nginx-learn/p1.png"></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装依赖（gcc编译器，url重写，解压软件）</span>
+yum -y <span class="token function">install</span> gcc pcre-devel zlib zlib-devel
+
+<span class="token comment"># 配置</span>
+./configure --prefix<span class="token operator">=</span>/usr/local/nginx
+
+<span class="token comment"># 编译</span>
+<span class="token function">make</span>
+
+<span class="token comment"># 安装</span>
+<span class="token function">make</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2><span id="相关目录">相关目录</span></h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># nginx总目录</span>
+/usr/local/nginx
+
+<span class="token comment"># nginx可执行文件</span>
+/usr/local/nginx/sbin/nginx
+
+<span class="token comment"># nginx自身所需的模块</span>
+/usr/local/nginx/modules
+
+<span class="token comment"># 配置文件目录</span>
+/usr/local/nginx/conf
+
+<span class="token comment"># 配置文件</span>
+/usr/local/nginx/conf/nginx.conf
+
+<span class="token comment"># nginx进程id号</span>
+/usr/local/nginx/logs/nginx.pid
+
+<span class="token comment"># 日志</span>
+/usr/local/nginx/logs/error.log
+/usr/local/nginx/logs/access.log<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2><span id="启动nginx">启动Nginx</span></h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/usr/local/nginx/sbin/nginx
+
+<span class="token comment"># 在此之前可以查看80端口是否被占用</span>
+<span class="token function">lsof</span> -i:80<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在linux系统可以用<code>elinks</code>来查看。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">elinks http://192.168.10.42 --dump<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>杀死并重启进程</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">killall <span class="token punctuation">-</span>s HUP nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2><span id="配置">配置</span></h2><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment">#启动子进程程序默认用户</span>
+<span class="token comment">#user  nobody;</span>
+<span class="token comment">#一个主进程和多个工作进程。工作进程是单进程的，且不需要特殊授权即可运行；这里定义的是工作进程数量</span>
+worker_processes  1;
+
+<span class="token comment">#全局错误日志的位置及日志格式</span>
+<span class="token comment">#error_log  logs/error.log;</span>
+<span class="token comment">#error_log  logs/error.log  notice;</span>
+<span class="token comment">#error_log  logs/error.log  info;</span>
+
+<span class="token comment">#pid        logs/nginx.pid;</span>
+
+events <span class="token punctuation">&#123;</span>
+    <span class="token comment">#每个工作进程最大的并发数</span>
+    worker_connections  1024;
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">#http服务器设置</span>
+http <span class="token punctuation">&#123;</span>
+    <span class="token comment">#设定mime类型，类型由mime.type文件定义</span>
+    include       mime.types;
+
+    <span class="token comment">#</span>
+    default_type  application/octet<span class="token punctuation">-</span>stream;
+
+    <span class="token comment">#日志格式</span>
+    <span class="token comment">#log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '</span>
+    <span class="token comment">#                  '$status $body_bytes_sent "$http_referer" '</span>
+    <span class="token comment">#                  '"$http_user_agent" "$http_x_forwarded_for"';</span>
+    <span class="token comment">#$remote_addr与$http_x_forwarded_for用以记录客户端的ip地址；</span>
+    <span class="token comment">#$remote_user：用来记录客户端用户名称；</span>
+    <span class="token comment">#$time_local： 用来记录访问时间与时区；</span>
+    <span class="token comment">#$request： 用来记录请求的url与http协议；</span>
+    <span class="token comment">#$status： 用来记录请求状态；成功是200，</span>
+    <span class="token comment">#$body_bytes_sent ：记录发送给客户端文件主体内容大小；</span>
+    <span class="token comment">#$http_referer：用来记录从那个页面链接访问过来的；</span>
+    <span class="token comment">#$http_user_agent：记录客户浏览器的相关信息；</span>
+
+    <span class="token comment">#全局访问日志路径</span>
+    <span class="token comment">#access_log  logs/access.log  main;</span>
+    <span class="token comment">#sendfile指令指定 nginx 是否调用sendfile 函数（zero copy 方式）来输出文件，</span>
+    <span class="token comment"># 对于普通应用，必须设为on。如果用来进行下载等应用磁盘IO重负载应用，可设置为off，</span>
+    <span class="token comment"># 以平衡磁盘与网络IO处理速度，降低系统uptime。</span>
+    sendfile        on;
+
+    <span class="token comment">#此选项允许或禁止使用socke的TCP_CORK的选项，此选项仅在使用sendfile的时候使用</span>
+    <span class="token comment">#tcp_nopush     on;</span>
+
+    <span class="token comment">#长连接超时时间</span>
+    <span class="token comment">#keepalive_timeout  0;</span>
+    keepalive_timeout  65;
+
+    <span class="token comment">#开启压缩</span>
+    <span class="token comment">#gzip  on;</span>
+
+    <span class="token comment">#配置虚拟主机</span>
+    server <span class="token punctuation">&#123;</span>
+        <span class="token comment">#虚拟主机使用的端口</span>
+        listen       80;
+        <span class="token comment">#虚拟主机域名</span>
+        server_name  localhost;
+
+        <span class="token comment">#虚拟主机支持的字符集</span>
+        <span class="token comment">#charset koi8-r;</span>
+
+        <span class="token comment">#虚拟主机的访问日志路径</span>
+        <span class="token comment">#access_log  logs/host.access.log  main;</span>
+
+        <span class="token comment">#定义web根路径</span>
+        location / <span class="token punctuation">&#123;</span>
+            <span class="token comment">#根目录路径</span>
+            root   html;
+            <span class="token comment">#索引页</span>
+            index  index.html index.htm;
+        <span class="token punctuation">&#125;</span>
+
+        <span class="token comment">#error_page  404              /404.html;</span>
+
+        <span class="token comment"># redirect server error pages to the static page /50x.html</span>
+        <span class="token comment">#</span>
+
+        <span class="token comment">#根据错误码 返回对应的页面</span>
+        error_page   500 502 503 504  /50x.html;
+
+        <span class="token comment">#定义页面路径</span>
+        location = /50x.html <span class="token punctuation">&#123;</span>
+            root   html;
+        <span class="token punctuation">&#125;</span>
+
+        <span class="token comment">#定义反向代理服务器 数据服务器是lamp模型</span>
+        <span class="token comment"># proxy the PHP scripts to Apache listening on 127.0.0.1:80</span>
+        <span class="token comment">#</span>
+        <span class="token comment">#location ~ \.php$ &#123;</span>
+        <span class="token comment">#    proxy_pass   http://127.0.0.1;</span>
+        <span class="token comment">#&#125;</span>
+
+        <span class="token comment">#定义PHP为本机服务的模型  </span>
+        <span class="token comment"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span>
+        <span class="token comment">#</span>
+        <span class="token comment">#location ~ \.php$ &#123;</span>
+        <span class="token comment">#    root           html;</span>
+        <span class="token comment">#    fastcgi_pass   127.0.0.1:9000;</span>
+        <span class="token comment">#    fastcgi_index  index.php;</span>
+        <span class="token comment">#    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span>
+        <span class="token comment">#    include        fastcgi_params;</span>
+        <span class="token comment">#&#125;</span>
+
+        <span class="token comment"># deny access to .htaccess files, if Apache's document root</span>
+        <span class="token comment"># concurs with nginx's one</span>
+        <span class="token comment">#</span>
+        <span class="token comment">#拒绝apache DR目录及子目录下的.htaccess文件访问</span>
+        <span class="token comment">#location ~ /\.ht &#123;</span>
+        <span class="token comment">#    deny  all;</span>
+        <span class="token comment">#&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment"># another virtual host using mix of IP-, name-, and port-based configuration</span>
+    <span class="token comment">#</span>
+    <span class="token comment">#server &#123;</span>
+    <span class="token comment">#    listen       8000;</span>
+    <span class="token comment">#    listen       somename:8080;</span>
+    <span class="token comment">#    server_name  somename  alias  another.alias;</span>
+
+    <span class="token comment">#    location / &#123;</span>
+    <span class="token comment">#        root   html;</span>
+    <span class="token comment">#        index  index.html index.htm;</span>
+    <span class="token comment">#    &#125;</span>
+    <span class="token comment">#&#125;</span>
+
+    <span class="token comment">#https的配置方案</span>
+    <span class="token comment"># HTTPS server</span>
+    <span class="token comment">#</span>
+    <span class="token comment">#server &#123;</span>
+    <span class="token comment">#    listen       443 ssl;</span>
+    <span class="token comment">#    server_name  localhost;</span>
+
+    <span class="token comment">#    ssl_certificate      cert.pem;</span>
+    <span class="token comment">#    ssl_certificate_key  cert.key;</span>
+
+    <span class="token comment">#    ssl_session_cache    shared:SSL:1m;</span>
+    <span class="token comment">#    ssl_session_timeout  5m;</span>
+
+    <span class="token comment">#    ssl_ciphers  HIGH:!aNULL:!MD5;</span>
+    <span class="token comment">#    ssl_prefer_server_ciphers  on;</span>
+
+    <span class="token comment">#    location / &#123;</span>
+    <span class="token comment">#        root   html;</span>
+    <span class="token comment">#        index  index.html index.htm;</span>
+    <span class="token comment">#    &#125;</span>
+    <span class="token comment">#&#125;</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2><span id="默认网站概念">默认网站概念</span></h2><p>当Nginx配置文件中有且只有一个Server的时候，该Server就被Nginx认为是默认网站，所有发给Nginx服务器80端口的数据都会默认给该Server。</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">server <span class="token punctuation">&#123;</span>
+	listen 80;
+	server_name localhost; location / <span class="token punctuation">&#123;</span>
+	root html;
+	index index.html index.htm;<span class="token punctuation">&#125;</span>
+	error_page 500 502 503 504 /50x.html; location = /50x.html
+	<span class="token punctuation">&#123;</span>
+	root html;
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2><span id="nginx目录访问控制">Nginx目录访问控制</span></h2><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">cd html/
+mkdir a
+mkdir b
+mkdir c
+echo aaa <span class="token punctuation">></span> a/index.html
+echo bbb <span class="token punctuation">></span> b/index.html
+echo ccc <span class="token punctuation">></span> c/index.html<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>访问一下试试<code>http://ip/a</code></p>
+<h3><span id="限制ip访问">限制ip访问</span></h3><p>如果想控制访问，只允许本机访问a</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">server <span class="token punctuation">&#123;</span>
+	listen 80;
+	server_name localhost; location / <span class="token punctuation">&#123;</span>
+	root html;
+	index index.html index.htm;
+	<span class="token punctuation">&#125;</span>
+	<span class="token comment"># 添加这里</span>
+	location /a <span class="token punctuation">&#123;</span>
+			allow 127.0.0.1; <span class="token comment"># 允许本机访问</span>
+			deny all;        <span class="token comment"># 拒绝所有</span>
+			return 404;      <span class="token comment"># 返回404代码</span>
+	<span class="token punctuation">&#125;</span>
+	error_page 500 502 503 504 /50x.html; location = /50x.html
+	<span class="token punctuation">&#123;</span>
+	root html;
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>return</code> 后也可以跟一个网页：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">return http<span class="token punctuation">:</span>//www.jd.com;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3><span id="密码登陆验证">密码登陆验证</span></h3><p>访问b时，需要密码验证</p>
+<p><code>auth_basic</code>:  参数可以是字符，显示在对话框标题。也可以是on｜off</p>
+<p><code>auth_basic_user_file</code>: 账号密码的文件</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">location /b <span class="token punctuation">&#123;</span>
+	auth_basic "凌云登陆验证";
+	auth_basic_user_file /etc/nginx/htpasswd;
+  <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>先安装一个包，用于生成密码</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装</span>
+yum <span class="token function">install</span> httpd-tools
+
+<span class="token comment"># 生成(如果没有这个文件则可以用 -c 参数)</span>
+<span class="token comment"># 这里创建一个sky用户，根据提示输入密码</span>
+htpasswd -m /etc/nginx/htpasswd sky<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2><span id="日志管理">日志管理</span></h2><p>Nginx访问⽇日志主要有两个参数控制：</p>
+<ul>
+<li><p><strong>log_format</strong> 用来定义记录日志的格式(可以定义多种⽇志格式，取不同名字即可）</p>
+<p>  <code>log_format log_name string</code></p>
+</li>
+<li><p><strong>access_log</strong> 用来指定日志⽂件的路径，及使⽤的哪种日志格式记录日志</p>
+<p>  <code>access_log logs/access.log main;</code></p>
+</li>
+</ul>
+<p>log_format格式变量：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token variable">$remote_addr</span> <span class="token comment">#记录访问⽹网站的客户端地址</span>
+<span class="token variable">$remote_user</span> <span class="token comment">#远程客户端⽤用户名</span>
+<span class="token variable">$time_local</span> <span class="token comment">#记录访问时间与时区</span>
+<span class="token variable">$request</span> <span class="token comment">#⽤用户的http请求起始⾏行行信息</span>
+<span class="token variable">$status</span> <span class="token comment">#http状态码，记录请求返回的状态码，例例如:200、301、404等</span>
+<span class="token variable">$body_bytes_sent</span> <span class="token comment">#服务器器发送给客户端的响应body字节数</span>
+<span class="token variable">$http_referer</span> <span class="token comment">#记录此次请求是从哪个连接访问过来的，可以根据该参数进⾏行行防盗链设置。</span>
+<span class="token variable">$http_user_agent</span> <span class="token comment">#记录客户端访问信息，例例如:浏览器器、⼿手机客户端等</span>
+<span class="token variable">$http_x_forwarded_for</span> <span class="token comment">#当前端有代理理服务器器时，设置web节点记录客户端地址的配置，此参数⽣生效的前提是代理理服务器器也要进⾏行行相关的x_forwarded_for设置</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>举个例子，自定义一个log文件与格式：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">log_format lingyun <span class="token string">'[$remote_local] $remote_addr "request" $status'</span><span class="token punctuation">;</span>
+access_log logs/lingyun.log lingyun<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2><span id="防盗链">防盗链</span></h2><p>如何判断盗链？开发者工具可以看到多出的<code>referer</code>字段。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">location /c <span class="token punctuation">&#123;</span>
+	<span class="token comment"># 这里限制了三种情况是允许访问/c的</span>
+	<span class="token comment"># referer字段为空，满足防火墙策略，匹配到对应域名</span>
+	valid_referers none blocked *.ayitula.com<span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$invalid_referer</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token builtin class-name">return</span> <span class="token number">403</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>可以根据格式来使用宽泛匹配</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">location ~* <span class="token punctuation">\</span>.<span class="token punctuation">(</span>png<span class="token operator">|</span>gif<span class="token operator">|</span>bmp<span class="token punctuation">)</span>$ <span class="token punctuation">&#123;</span>
+<span class="token punctuation">..</span><span class="token punctuation">..</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2><span id="虚拟主机">虚拟主机</span></h2><p>一个web服务器软件发布多个web。</p>
+<h3><span id="基于ip">基于IP</span></h3><p>缺点：需要多个IP，公网IP是要付费的。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">server <span class="token punctuation">&#123;</span>
+	listen <span class="token number">192.168</span>.10.42:80<span class="token punctuation">;</span>
+	location / <span class="token punctuation">&#123;</span>
+			root html/web1<span class="token punctuation">;</span>
+			index index.html index.htm index.php<span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+server <span class="token punctuation">&#123;</span>
+	listen <span class="token number">192.168</span>.10.52:80<span class="token punctuation">;</span>
+	location / <span class="token punctuation">&#123;</span>
+			root html/web2<span class="token punctuation">;</span>
+			index index.html index.htm index.php<span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="基于端口">基于端口</span></h3><p>缺点：无法将端口告诉公网用户。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">server <span class="token punctuation">&#123;</span>
+	listen <span class="token number">80</span><span class="token punctuation">;</span>
+	location / <span class="token punctuation">&#123;</span>
+			root html/web1<span class="token punctuation">;</span>
+			index index.html index.htm index.php<span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+server <span class="token punctuation">&#123;</span>
+	listen <span class="token number">8080</span><span class="token punctuation">;</span>
+	location / <span class="token punctuation">&#123;</span>
+			root html/web1<span class="token punctuation">;</span>
+			index index.html index.htm index.php<span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="基于域名">基于域名</span></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">server <span class="token punctuation">&#123;</span>
+	listen <span class="token number">80</span><span class="token punctuation">;</span>
+	server_name www.cbd.com<span class="token punctuation">;</span>
+	location / <span class="token punctuation">&#123;</span>
+			root html/web1<span class="token punctuation">;</span>
+			index index.html index.htm index.php<span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+server <span class="token punctuation">&#123;</span>
+	listen <span class="token number">8080</span><span class="token punctuation">;</span>
+	server_name www.abc.com<span class="token punctuation">;</span>
+	location / <span class="token punctuation">&#123;</span>
+			root html/web1<span class="token punctuation">;</span>
+			index index.html index.htm index.php<span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2><span id="反向代理服务器">反向代理服务器</span></h2><p>配置解释：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">location / <span class="token punctuation">&#123;</span>
+	index index.php index.html index.htm<span class="token punctuation">;</span> <span class="token comment"># 定义⾸首⻚页索引⽂文件的名称</span>
+	proxy_pass http://mysvr <span class="token punctuation">;</span><span class="token comment"># 请求转向mysvr 定义的服务器器列列表</span>
+	proxy_set_header Host <span class="token variable">$host</span><span class="token punctuation">;</span>
+	proxy_set_header X-Real-IP <span class="token variable">$remote_addr</span><span class="token punctuation">;</span>
+	proxy_set_header X-Forwarded-For <span class="token variable">$proxy_add_x_forwarded_for</span><span class="token punctuation">;</span>
+	client_max_body_size 10m<span class="token punctuation">;</span> <span class="token comment"># 允许客户端请求的最⼤大单⽂文件字节数</span>
+	client_body_buffer_size 128k<span class="token punctuation">;</span> <span class="token comment">#缓冲区代理理缓冲⽤用户端请求的最⼤大字节数</span>
+	proxy_connect_timeout <span class="token number">90</span><span class="token punctuation">;</span> <span class="token comment"># nginx跟后端服务器器连接超时时间(代理理连接超时)</span>
+	proxy_send_timeout <span class="token number">90</span><span class="token punctuation">;</span> <span class="token comment"># 后端服务器器数据回传时间(代理理发送超时)</span>
+	proxy_read_timeout <span class="token number">90</span><span class="token punctuation">;</span> <span class="token comment"># 连接成功后，后端服务器器响应时间(代理理接收超时)</span>
+	proxy_buffer_size 4k<span class="token punctuation">;</span> <span class="token comment"># 设置代理理服务器器(nginx)保存⽤用户头信息的缓冲区⼤大⼩小</span>
+	proxy_buffers <span class="token number">4</span> 32k<span class="token punctuation">;</span> <span class="token comment"># proxy_buffers缓冲区，网页平均在32k以下的话，这样设置</span>
+	proxy_busy_buffers_size 64k<span class="token punctuation">;</span> <span class="token comment">#⾼高负荷下缓冲⼤大⼩小(proxy_buffers*2)</span>
+	proxy_temp_file_write_size 64k<span class="token punctuation">;</span> <span class="token comment">#设定缓存⽂文件夹⼤大⼩小，⼤大于这个值，将从upstream服务器器传</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2><span id="限速">限速</span></h2><ul>
+<li>限速该特性可以限制某个用户在⼀个给定时间段内能够产生的HTTP请求数。请求可以简单到就是⼀个对于主页的GET请求或者⼀个登陆表格的POST请求。</li>
+<li>限速也可以用于安全目的上，比如暴力密码破解攻击。通过限制进来的请求速率，并且（结合日志）标记出目标URLs来帮助防范DDoS攻击。⼀般地说，限流是用在保护上游应用服务器不被在同⼀时刻的大量用户请求淹没。</li>
+</ul>
+<p>Nginx官⽅版本限制IP的连接和并发分别有两个模块：<br><code>limit_req_zone</code> ⽤来限制单位时间内的请求数，即速率限制。<br><code>limit_req_conn</code> ⽤来限制同⼀时间连接数，即并发限制。</p>
+<h3><span id="案例一">案例一</span></h3><p>基于IP对下载速率做限制 限制每秒处理1次请求，对突发超过5个以后的请求放⼊缓存区。</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">http <span class="token punctuation">&#123;</span>
+ limit_req_zone $binary_remote_addr zone=baism<span class="token punctuation">:</span>10m rate=1r/s;
+ server <span class="token punctuation">&#123;</span>
+ location /search/ <span class="token punctuation">&#123;</span>
+ limit_req zone=baism burst=5 nodelay;
+ <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>limit_req_zone $binary_remote_addr zone=baism:10m rate=1r/s;</code><br>第⼀个参数：<code>$binary_remote_addr</code> 表示通过remote_addr这个标识来做限制，<br><code>“binary_”</code>的⽬的是缩写内存占⽤量，是限制同⼀客户端ip地址。<br>第⼆个参数：<code>zone=baism:10m</code>表示⽣成⼀个大小为10M，名字为one的内存区域，用来存储访问的频次信息。<br>第三个参数：<code>rate=1r/s</code>表示允许相同标识的客户端的访问频次，这里限制的是每秒1次，还可以有比如30r/m的。</p>
+<p><code>limit_req zone=baism burst=5 nodelay;</code><br>第⼀个参数：<code>zone=baism</code> 设置使⽤哪个配置区域来做限制，与上⾯<code>limit_req_zone</code> ⾥的name对应。<br>第⼆个参数：<code>burst=5</code>，重点说明⼀下这个配置，<code>burst</code>爆发的意思，这个配置的意思是设置⼀个大小为5的缓冲区当有⼤量请求（爆发）过来时，超过了访问频次限制的请求可以先放到这个缓冲区内。<br>第三个参数：<code>nodelay</code>，如果设置，超过访问频次而且缓冲区也满了的时候就会直接返回503，如果没有设置，则所有请求会等待排队。</p>
+<h3><span id="案例二">案例二</span></h3><p>基于IP做连接限制，限制同⼀IP并发为1 下载速度为100K。</p>
+<p>（弊端是别人可以用多次请求来进行并发下载）</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">limit_conn_zone $binary_remote_addr zone=addr<span class="token punctuation">:</span>10m;
+server <span class="token punctuation">&#123;</span>
+ listen 80;
+ server_name localhost;
+ location / <span class="token punctuation">&#123;</span>
+ root html;
+ index index.html index.htm;
+ <span class="token punctuation">&#125;</span>
+ location /abc <span class="token punctuation">&#123;</span>
+ limit_conn addr 1;
+ limit_rate 100k;
+ <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="综合案例">综合案例</span></h3><p>限制并发的连接数 ＋ 下载速率。</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">http <span class="token punctuation">&#123;</span>
+ include mime.types;
+ default_type application/octet<span class="token punctuation">-</span>stream;
+ sendfile on;
+ keepalive_timeout 65;
+ <span class="token comment"># 基于IP做连接限制 限制同⼀IP并发为1 下载速度为100K</span>
+ limit_conn_zone $binary_remote_addr zone=addr<span class="token punctuation">:</span>10m;
+ <span class="token comment"># 基于IP对下载速率做限制 限制每秒处理1次请求，对突发超过5个以后的请求放⼊缓存区</span>
+ limit_req_zone $binary_remote_addr zone=one<span class="token punctuation">:</span>10m rate=1r/s;
+ server <span class="token punctuation">&#123;</span>
+ listen 80;
+ server_name localhost;
+ location / <span class="token punctuation">&#123;</span>
+ root html;
+ index index.html index.htm;
+ <span class="token punctuation">&#125;</span>
+ location /abc <span class="token punctuation">&#123;</span>
+ limit_req zone=one burst=5 nodelay;
+ limit_conn addr 1;
+ limit_rate 100k;
+ <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2><span id="url重写">URL重写</span></h2><p>主要使用<strong>rewrite</strong>模块（<code>ngx_http_rewrite_module</code>）</p>
+<ul>
+<li>Rewrite功功能是Nginx服务器提供的⼀个重要功能。几乎是所有的web产品必备技能，用于实现URL重写。URL重写是非常有用的功能，比如它可以在我们在改变网站结构后，不需要客户端修改原来的书签，也不需要其他网站修改对我们网站的友情链接，还可以在⼀定程度上提高网站的安全性。</li>
+<li>Nginx服务器Rewrite功能的实现是依赖于PCRE（Perl Compatible Regular Expression。Perl兼容的正则表达式）的支持，所以在编译安装Nginx之前，需要安装PCRE库。</li>
+</ul>
+<h3><span id="url模块语法">URL模块语法</span></h3><pre class="line-numbers language-none"><code class="language-none">set 设置变量
+if 负责语句的判断
+retuen 返回返回值或URL
+break 终止后续的rewrite规则
+rewrite 重定向URL
+
+模糊匹配  ~匹配  !~模糊匹配  ~*不区分大小写的匹配
+精确匹配  &#x3D;  !&#x3D;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>例子1</strong>：使用变量将<code>http://www.lingyunfx.com</code> 重写为 <code>http://www.lingyunfx.com/abc</code></p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">location / <span class="token punctuation">&#123;</span>
+	set $name abc;
+	rewrite ^(.<span class="token important">*)$</span> http<span class="token punctuation">:</span>//www.lingyunfx.com/$name;
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>例子2</strong>：使用判断不允许谷歌浏览器访问</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">location / <span class="token punctuation">&#123;</span>
+	if ($http_user_agent ~* 'chrome') <span class="token punctuation">&#123;</span>
+				return 403;
+		<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="url-rewrite语法">URL rewrite语法</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">rewrite <span class="token operator">&lt;</span>regex<span class="token operator">></span> <span class="token operator">&lt;</span>replacement<span class="token operator">></span> <span class="token punctuation">[</span>flag<span class="token punctuation">]</span><span class="token punctuation">;</span>
+关键字    正则      替代内容     flag标记
+
+flag有：
+last       本条规则匹配完成后，继续向下匹配新的location URL规则
+<span class="token builtin class-name">break</span>      本条规则匹配完成即终⽌，不再匹配后⾯的任何规则
+redirect   返回302临时重定向
+permanent  返回301永久重定向<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>例子1</strong>：<br>将<code>http://www.lingyunfx.com</code> 重定向为<code>http://www.jd.com</code></p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json">server <span class="token punctuation">&#123;</span>
+ listen <span class="token number">80</span>;
+ server_name www.lingyunfx.com;
+ location / <span class="token punctuation">&#123;</span>
+	 rewrite ^/$ http<span class="token operator">:</span><span class="token comment">//www.jd.com permanent ;</span>
+ <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>例子2</strong>：</p>
+<p>判断如果是chrome浏览器，就将 <code>http://www.lingyunfx.com/aaa</code>重写为<code>http://www.lingyunfx.com/chrome/aaa</code></p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json">location / <span class="token punctuation">&#123;</span>
+.....
+if ($http_user_agent ~* 'chrome')<span class="token punctuation">&#123;</span>
+rewrite ^(.*)$ /chrome/$<span class="token number">1</span> last;
+ <span class="token punctuation">&#125;</span>
+ location /chrome <span class="token punctuation">&#123;</span>
+ root html;
+ index index.html;
+ <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/01%20install-gitlab/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  GitLab搭建
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/py-class-learn/">
+                面向对象进阶
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2019-<span id="footerYear"></span> 
+	<a href="/">zhangly</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

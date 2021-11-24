@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		界面操作 | 
+	 
+	凌云的个人博客
+	</title>
+	
+	<!-- keywords,description -->
+	 
+		<meta name="description" content="关于视效的学习和分享" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "tdvfx.com";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">凌云的个人博客</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+
+	
+
+		
+		<li class="menu-item">
+			<a href="https://gitlab.lingyunfx.com/zhangly" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Article
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/command-tool-intro/">
+										命令行工具的三把瑞士军刀
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-link-unreal/">
+										UE4和Maya的数据通信
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-replace-ref-tool/">
+										批量替换Maya Reference工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-retime-tool-intro/">
+										Maya动画变速工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/meshlab-remove-face/">
+										使用MeshLab为模型减面
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/metahuman-intro/">
+										MetaHumans Creator初体验
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/notion-intro/">
+										使用Notion建立个人Wiki
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/reject-maya-warning/">
+										关于“你的文件贼健康”的简单处理方式
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/tracks-2d-tools/">
+										在不同跟踪软件之间的2D点转换工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/whats-matchmoving/">
+										电影视效制作中的Matchmove
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										DCC
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										3DEqualizer
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/tde-py-ref/">
+										3DEqualizer 命令参考
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Deadline
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/deadline-use-techniques/">
+										Deadline 使用技巧
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Maya
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/maya-cmds-example/">
+										Maya Command 代码段
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-env-varibles/">
+										Maya常用环境变量
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-flipping-camera/">
+										在Maya中进行Flipping Camera
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-issue-vol1/">
+										Maya疑难杂症备忘录 Vol.1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-001/">
+										Maya的效率使用和技巧（一）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-002/">
+										Maya的效率使用和技巧（二）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/mtoa-install-issue/">
+										安装Arnold后环境变量被破坏
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Nuke
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Nuke编程
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/gizmo-basic/">
+										gizmo制作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/knob-basic/">
+										自定义Knob操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-call-back/">
+										callback使用
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-menu/">
+										菜单操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-node-ani/">
+										节点动画操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-node-basic/">
+										nuke节点操作入门
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-py-file/">
+										文件操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-tcl-basic/">
+										tcl入门
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/nuke-ui/">
+										界面操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nukestudio-command-ref/">
+										Nuke Studio常用命令参考
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-lic/">
+										nuke license运作模式
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-trn-lens-distort/">
+										使用LensDistortion节点输出STMap
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Unreal
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/ue4-python-ref/">
+										Python片段参考
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal-add-custom-menus/">
+										使用Python为UE4添加自定义菜单
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal-vive-tracker-camera/">
+										使用Vive Tracker控制UE4摄像机
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Geek
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Cloudreve
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cloudreve-install/">
+										搭建Cloudreve私有云盘
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Docker
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/docker-common-command/">
+										Docker常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/docker-make-jira/">
+										Docker部署JIRA和PostgreSQL
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										GitLab
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/01%20install-gitlab/">
+										GitLab搭建
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/how-to-use-gitlab/">
+										GitLab使用
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Nginx
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/nginx-learn/">
+										Nginx学习笔记
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Vim
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/vim-help/">
+										vim快捷键查询
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Mac
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py2app-used/">
+										将Python程序打包成App过程和排错
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Python
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 学习笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py-class-learn/">
+										面向对象进阶
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py-multiprocess/">
+										并发编程
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py-network/">
+										网络编程
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py2py3/">
+										Python3的一些新特性
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py91suggestions/">
+										改善Python程序的91个建议(笔记)
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-basis/">
+										PyQt介绍及入门学习
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt4to5/">
+										将PyQt4代码转到PyQt5
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 查询
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py-common-use/">
+										Python常用代码段
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-learning-001/">
+										PyQt常用部件用法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-learning-event/">
+										PySide Event事件
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-re-module-help/">
+										Python的re模块
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										03 疑难问题
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/pycharm-pyside-issue1/">
+										Pycharm中无法使用QApplication类
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/miniconda-use/">
+										Miniconda使用
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pip-install-i/">
+										PIP走国内镜像安装
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										TD Pipeline
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										CGWire
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cgwire-install/">
+										搭建CGWire
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Rez
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/00%20rez-wiki-cn/">
+										00 Rez中文文档
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/01%20rez-home/">
+										01 Home
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/02%20rez-install/">
+										02 Installation
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/03%20rez-getting-started/">
+										03 Getting Started
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/04%20rez-basic-concepts/">
+										04 Basic Concepts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/05%20rez-configuring/">
+										05 Configuring Rez
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/06%20rez-package-commands/">
+										06 Package Commands
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/07%20rez-package-definition-guide/">
+										07 Package Definition Guide
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/08%20rez-variants/">
+										08 Variants
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/09%20rez-ephemeral-packages/">
+										09 Ephemeral Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/10%20rez-contexts/">
+										10 Contexts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/11%20rez-bundles/">
+										11 Bundles
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/12%20rez-suites/">
+										12 Suites
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/13%20rez-building-package/">
+										13 Building Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/14%20rez-copying-package/">
+										14 Copying Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/15%20rez-package-caching/">
+										15 Package Caching
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/16%20rez-environment-variables/">
+										16 Environment Variables
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/rez-intro/">
+										Rez介绍（使用篇）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Shotgun
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/sg-common-command/">
+										Shotgun常用命令参考
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/shotgun-entity/">
+										可控制的Entity
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+	界面操作
+</h1>
+<div class="article-meta">
+	
+	<span>zhangly</span>
+	<span>2021-11-23 17:29:58</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/DCC/">DCC</a>
+                        </i>
+                      
+                        >
+                      
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/DCC/Nuke/">Nuke</a>
+                        </i>
+                      
+                        >
+                      
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/DCC/Nuke/Nuke编程/">Nuke编程</a>
+                        </i>
+                      
+                    </span>
+                
+            
+    
+
+    
+		<span>Tags：</span>
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h3><span id="nuke的界面">nuke的界面</span></h3><p><code>nuke.message(&quot;this is message&quot;)</code> 提示框</p>
+<p><code>nuke.ask(&quot;create a node?&quot;)</code> 询问框，点yes返回True</p>
+<p><code>nuke.getInput(&quot;input:&quot;, &quot;test..&quot;)</code> 输入框，返回值为输入的内容，第二个参数为默认值</p>
+<p><code>nuke.getColor()</code> 颜色拾取框，返回整数形式的颜色</p>
+<p><code>nuke.getFilename(&quot;get file&quot;, &quot;*.nk&quot;)</code> 文件浏览器</p>
+<p><code>nuke.getClipname(&quot;get clip&quot;)</code> 文件选择，可以支持选择序列文件夹</p>
+<p><code>nuke.panel(&quot;test panel&quot;)</code> 一个面板窗口</p>
+<p><strong>关于面板窗口的例子</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">p <span class="token operator">=</span> nuke<span class="token punctuation">.</span>Panel<span class="token punctuation">(</span><span class="token string">"test panel"</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>addClipnameSearch<span class="token punctuation">(</span><span class="token string">"clip path"</span><span class="token punctuation">,</span> <span class="token string">"/tmp"</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>addFilenameSearch<span class="token punctuation">(</span><span class="token string">"file path"</span><span class="token punctuation">,</span> <span class="token string">"/tmp"</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>addTextFontPulldown<span class="token punctuation">(</span><span class="token string">"font browser"</span><span class="token punctuation">,</span> <span class="token string">"/myFonts/"</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>addRGBColorChip<span class="token punctuation">(</span><span class="token string">"some pretty color"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>addExpressionInput<span class="token punctuation">(</span><span class="token string">"enter an expression"</span><span class="token punctuation">,</span> <span class="token string">"4*25"</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>addBooleanCheckBox<span class="token punctuation">(</span><span class="token string">"Yes or no?"</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>addEnumerationPulldown<span class="token punctuation">(</span><span class="token string">"my choices"</span><span class="token punctuation">,</span> <span class="token string">"A B C"</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>addScriptCommand<span class="token punctuation">(</span><span class="token string">"tcl or python code"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>addSingleLineInput<span class="token punctuation">(</span><span class="token string">"just one line"</span><span class="token punctuation">,</span> <span class="token string">"not much space"</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>addMultilineTextInput<span class="token punctuation">(</span><span class="token string">"multiple lines of user input"</span><span class="token punctuation">,</span> <span class="token string">"lineA\\nlineB"</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>addPasswordInput<span class="token punctuation">(</span><span class="token string">"password"</span><span class="token punctuation">,</span> <span class="token string">"donttellanyone"</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>addButton<span class="token punctuation">(</span><span class="token string">"push here"</span><span class="token punctuation">)</span>
+ret <span class="token operator">=</span> p<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>用dot节点画圆的例子</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> nuke
+<span class="token keyword">import</span> math
+
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  circleType <span class="token operator">=</span> <span class="token string">"circle spiral both"</span>
+  circleNum <span class="token operator">=</span> <span class="token string">"50"</span>
+  scaleCircle <span class="token operator">=</span> <span class="token string">"50"</span>
+  spiralNum <span class="token operator">=</span> <span class="token string">"100"</span>
+  line <span class="token operator">=</span> <span class="token string">"5"</span>
+  scaleSpiral <span class="token operator">=</span> <span class="token string">"0.5"</span>
+  rotateOffsetX <span class="token operator">=</span> <span class="token string">"0"</span>
+  rotateOffsetY <span class="token operator">=</span> <span class="token string">"0"</span>
+  clockwise <span class="token operator">=</span> <span class="token boolean">True</span>
+  connectDots <span class="token operator">=</span> <span class="token boolean">False</span>
+  hideinput <span class="token operator">=</span> <span class="token boolean">True</span>
+
+  p <span class="token operator">=</span> nuke<span class="token punctuation">.</span>Panel<span class="token punctuation">(</span><span class="token string">"draw circle"</span><span class="token punctuation">)</span>
+  p<span class="token punctuation">.</span>addEnumerationPulldown<span class="token punctuation">(</span><span class="token string">"circle type:"</span><span class="token punctuation">,</span> circleType<span class="token punctuation">)</span>
+  p<span class="token punctuation">.</span>addSingleLineInput<span class="token punctuation">(</span><span class="token string">"circle num:"</span><span class="token punctuation">,</span> circleNum<span class="token punctuation">)</span>
+  p<span class="token punctuation">.</span>addSingleLineInput<span class="token punctuation">(</span><span class="token string">"circle scale:"</span><span class="token punctuation">,</span> scaleCircle<span class="token punctuation">)</span>
+
+  p<span class="token punctuation">.</span>addSingleLineInput<span class="token punctuation">(</span><span class="token string">"spiral num:"</span><span class="token punctuation">,</span> spiralNum<span class="token punctuation">)</span>
+  p<span class="token punctuation">.</span>addSingleLineInput<span class="token punctuation">(</span><span class="token string">"spiral scale:"</span><span class="token punctuation">,</span> scaleSpiral<span class="token punctuation">)</span>
+  p<span class="token punctuation">.</span>addSingleLineInput<span class="token punctuation">(</span><span class="token string">"line num:"</span><span class="token punctuation">,</span> line<span class="token punctuation">)</span>
+  p<span class="token punctuation">.</span>addSingleLineInput<span class="token punctuation">(</span><span class="token string">"rotateOffsetX:"</span><span class="token punctuation">,</span> rotateOffsetX<span class="token punctuation">)</span>
+  p<span class="token punctuation">.</span>addSingleLineInput<span class="token punctuation">(</span><span class="token string">"rotateOffsetY:"</span><span class="token punctuation">,</span> rotateOffsetY<span class="token punctuation">)</span>
+  p<span class="token punctuation">.</span>addBooleanCheckBox<span class="token punctuation">(</span><span class="token string">"clockwise:"</span><span class="token punctuation">,</span> clockwise<span class="token punctuation">)</span>
+
+  p<span class="token punctuation">.</span>addBooleanCheckBox<span class="token punctuation">(</span><span class="token string">"connect dots:"</span><span class="token punctuation">,</span> connectDots<span class="token punctuation">)</span>
+  p<span class="token punctuation">.</span>addBooleanCheckBox<span class="token punctuation">(</span><span class="token string">"hide input:"</span><span class="token punctuation">,</span> hideinput<span class="token punctuation">)</span>
+
+  result <span class="token operator">=</span> p<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">if</span> result <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+    circleType <span class="token operator">=</span> p<span class="token punctuation">.</span>value<span class="token punctuation">(</span><span class="token string">"circle type:"</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> circleType <span class="token operator">==</span> <span class="token string">"circle"</span> <span class="token keyword">or</span> circleType <span class="token operator">==</span> <span class="token string">"both"</span><span class="token punctuation">:</span>
+      circleNum <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>value<span class="token punctuation">(</span><span class="token string">"circle num:"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      scaleCircle  <span class="token builtin">float</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>value<span class="token punctuation">(</span><span class="token string">"circle scale:"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> circleType <span class="token operator">=</span> <span class="token string">"spiral"</span> <span class="token keyword">or</span> circleType <span class="token operator">==</span> <span class="token string">"both"</span><span class="token punctuation">:</span>
+      spiralNum <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>value<span class="token punctuation">(</span><span class="token string">"spiral num:"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      scaleSpiral <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>value<span class="token punctuation">(</span><span class="token string">"spiral scale:"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      line <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>value<span class="token punctuation">(</span><span class="token string">"line num:"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      rotateOffsetX <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>value<span class="token punctuation">(</span><span class="token string">"rotateOffsetX:"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      rotateOffsetY <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>value<span class="token punctuation">(</span><span class="token string">"rotateOffsetY:"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      clockwise <span class="token operator">=</span> p<span class="token punctuation">.</span>value<span class="token punctuation">(</span><span class="token string">"clockwise"</span><span class="token punctuation">)</span>
+    connectDots <span class="token operator">=</span> p<span class="token punctuation">.</span>value<span class="token punctuation">(</span><span class="token string">"connect dots:"</span><span class="token punctuation">)</span>
+    hideinput <span class="token operator">=</span> p<span class="token punctuation">.</span>value<span class="token punctuation">(</span><span class="token string">"hide input:"</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> circleType <span class="token operator">==</span> <span class="token string">"circle"</span> <span class="token keyword">or</span> circleType <span class="token operator">==</span> <span class="token string">"both"</span><span class="token punctuation">:</span>
+      color1 <span class="token operator">=</span> nuke<span class="token punctuation">.</span>getColor<span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>circleNum<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        x <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>math<span class="token punctuation">.</span>cos<span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span>math<span class="token punctuation">.</span>pi <span class="token operator">/</span> circleNum <span class="token operator">*</span> i<span class="token punctuation">)</span> <span class="token operator">*</span> scaleCircle<span class="token punctuation">)</span>
+        y <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>math<span class="token punctuation">.</span>sin<span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span>math<span class="token punctuation">.</span>pi <span class="token operator">/</span> circleNum <span class="token operator">*</span> i<span class="token punctuation">)</span> <span class="token operator">*</span> scaleCircle<span class="token punctuation">)</span>
+        dot <span class="token operator">=</span> nuke<span class="token punctuation">.</span>createNode<span class="token punctuation">(</span><span class="token string">"Dot"</span><span class="token punctuation">,</span> inpanel<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+        dot<span class="token punctuation">[</span><span class="token string">"xpos"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>setValue<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+        dot<span class="token punctuation">[</span><span class="token string">"ypos"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>setValue<span class="token punctuation">(</span>y<span class="token punctuation">)</span>
+        dot<span class="token punctuation">[</span><span class="token string">"tile_color"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>setValue<span class="token punctuation">(</span>color1<span class="token punctuation">)</span>
+        dot<span class="token punctuation">[</span><span class="token string">"hide_input"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>setValue<span class="token punctuation">(</span>hideinput<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> i <span class="token operator">==</span> circleNum <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">:</span>
+          finalDot <span class="token operator">=</span> dot
+        dot<span class="token punctuation">.</span>setSelected<span class="token punctuation">(</span>connectDots<span class="token punctuation">)</span>
+      finalDot<span class="token punctuation">.</span>setSelected<span class="token punctuation">(</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> circleType <span class="token operator">==</span> <span class="token string">"spiral"</span> <span class="token keyword">or</span> circleType <span class="token operator">==</span> <span class="token string">"both"</span><span class="token punctuation">:</span>
+      color2 <span class="token operator">=</span> nuke<span class="token punctuation">.</span>getColor<span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>spiralNum<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> clockwise<span class="token punctuation">:</span>
+          x <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span> <span class="token operator">*</span> math<span class="token punctuation">.</span>cos<span class="token punctuation">(</span>i <span class="token operator">*</span> line <span class="token operator">+</span> rotateOffsetX <span class="token operator">*</span> math<span class="token punctuation">.</span>pi <span class="token operator">/</span> <span class="token number">180</span><span class="token punctuation">)</span> <span class="token operator">*</span> i <span class="token operator">*</span> scaleSpiral<span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+          x <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">*</span> math<span class="token punctuation">.</span>cos<span class="token punctuation">(</span>i <span class="token operator">*</span> line <span class="token operator">+</span> rotateOffsetX <span class="token operator">*</span> math<span class="token punctuation">.</span>pi <span class="token operator">/</span> <span class="token number">180</span><span class="token punctuation">)</span> <span class="token operator">*</span> i <span class="token operator">*</span> scaleSpiral<span class="token punctuation">)</span>
+        y <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span> <span class="token operator">*</span> math<span class="token punctuation">.</span>cos<span class="token punctuation">(</span>i <span class="token operator">*</span> line <span class="token operator">+</span> rotateOffsetY <span class="token operator">*</span> math<span class="token punctuation">.</span>pi <span class="token operator">/</span> <span class="token number">180</span><span class="token punctuation">)</span> <span class="token operator">*</span> i <span class="token operator">*</span> scaleSpiral<span class="token punctuation">)</span>
+        dot <span class="token operator">=</span> nuke<span class="token punctuation">.</span>createNode<span class="token punctuation">(</span><span class="token string">"Dot"</span><span class="token punctuation">,</span> inpanel<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+        dot<span class="token punctuation">[</span><span class="token string">"xpos"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>setValue<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+        dot<span class="token punctuation">[</span><span class="token string">"ypos"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>setValue<span class="token punctuation">(</span>y<span class="token punctuation">)</span>
+
+<span class="token comment"># 后面还有一些代码没有写完，当作参考吧</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>将上述的工具放到菜单栏里:</strong><br>把刚刚的代码保存名为 <code>drawCircle.py</code><br>在.nuke文件夹中新建一个<code>menu.py</code>的文件</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> nuke
+<span class="token keyword">import</span> drawCircle
+
+tool_menu <span class="token operator">=</span> nuke<span class="token punctuation">.</span>menu<span class="token punctuation">(</span><span class="token string">"Nuke"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>addMenu<span class="token punctuation">(</span><span class="token string">"Python"</span><span class="token punctuation">)</span>
+tool_menu<span class="token punctuation">.</span>addCommand<span class="token punctuation">(</span><span class="token string">"draw circle"</span><span class="token punctuation">,</span> drawCircle<span class="token punctuation">.</span>main<span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> icon<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>最后还讲了个nukescripts，没有太明白是干嘛用的<br>这里摘抄下代码，以后作为参考。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> nukescripts
+
+<span class="token keyword">class</span> <span class="token class-name">TestPanel</span><span class="token punctuation">(</span>nukescripts<span class="token punctuation">.</span>PythonPanel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+  <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    nukescripts<span class="token punctuation">.</span>PythonPanel<span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>self<span class="token punctuation">,</span> <span class="token string">'test panel'</span><span class="token punctuation">)</span>
+    self<span class="token punctuation">.</span>typeKnob <span class="token operator">=</span> nuke<span class="token punctuation">.</span>Enumeration_Knob<span class="token punctuation">(</span><span class="token string">'element'</span><span class="token punctuation">,</span> <span class="token string">'element'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'Shapes'</span><span class="token punctuation">,</span> <span class="token string">'Strokes'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    self<span class="token punctuation">.</span>elementKnob <span class="token operator">=</span> nuke<span class="token punctuation">.</span>Enumeration_Knob<span class="token punctuation">(</span><span class="token string">'curve'</span><span class="token punctuation">,</span> <span class="token string">'curve'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> k <span class="token keyword">in</span> <span class="token punctuation">(</span>self<span class="token punctuation">.</span>typeKnob<span class="token punctuation">,</span> self<span class="token punctuation">.</span>elementKnob<span class="token punctuation">)</span><span class="token punctuation">:</span>
+      self<span class="token punctuation">.</span>addKnob<span class="token punctuation">(</span>k<span class="token punctuation">)</span>
+
+p <span class="token operator">=</span> TestPanel<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># 两种显示窗口的方法</span>
+
+p<span class="token punctuation">.</span>showModelDialog<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># 这种方法会占用整个nuke</span>
+p<span class="token punctuation">.</span>addToPane<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># 这种方法是添加到右侧标签</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/nuke-node-basic/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  nuke节点操作入门
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/nuke-tcl-basic/">
+                tcl入门
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2019-<span id="footerYear"></span> 
+	<a href="/">zhangly</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>
