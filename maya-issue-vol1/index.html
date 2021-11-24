@@ -1138,7 +1138,7 @@ var _hmt = _hmt || [];
 <p>除此之外，当对文件进行open操作会导致崩溃的话，可以尝试import这个文件试试。<br>导入文件在大多情况是可行的，然后在保存文件之前，最好对文件进行场景优化和清理。</p>
 <p>也可以尝试使用最新版本的Maya2022打开文件。</p>
 <h2><span id="3进行某项操作崩溃">3.进行某项操作崩溃</span></h2><p>对于这样的情况非常多，列举几个自己遇到的。</p>
-<p>打开Plug-in Manager的时候崩溃，这可能是一些第三方插件导致，<br>在安装Arnold的时候配置mod文件的时候出现过类似问题，<br>这里有篇文章记录过：<a href="https://lingyunfx.com/mtoa-install-error/">安装新版本Arnold for maya后环境变量被破坏</a>  </p>
+<p>打开Plug-in Manager的时候崩溃，这可能是一些第三方插件导致，<br>在安装Arnold的时候配置mod文件的时候出现过类似问题，<br>这里有篇文章记录过：<a href="https://lingyunfx.com/mtoa-install-issue/">安装新版本Arnold for maya后环境变量被破坏</a>  </p>
 <p>对一个绑定文件进行位移选择操作的时候崩溃：<br>打开预设设置，修改求值模式为DG（脏值运算）。<br><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-issue-vol1/p3.jpeg"></p>
 <p>在动画烘培的时候崩溃：<br>因为Maya在进行烘培的时候会跑一遍时间滑块，对于一些臃肿的文件（帧数长，文件大），<br>可能在跑到一半的时候Maya就闪退了。可以把主界面显示修改为其它窗口：</p>
 <p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-issue-vol1/p4.png"></p>
