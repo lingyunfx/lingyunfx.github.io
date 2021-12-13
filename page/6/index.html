@@ -29,7 +29,7 @@
 		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
 			searchEngine = "https://www.google.com/search?q=";
 		}
-		var homeHost = "tdvfx.com";
+		var homeHost = "lingyunfx.com";
 		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
 			homeHost = window.location.host;
 		}
@@ -199,6 +199,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/tools-help/">
+										Matchmover Tools 帮助文档
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/tracks-2d-tools/">
 										在不同跟踪软件之间的2D点转换工具
 									</a>
@@ -257,6 +266,26 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/deadline-use-techniques/">
 										Deadline 使用技巧
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Houdini
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/houdini-py-intro/">
+										Houdini工具开发入门
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -650,6 +679,15 @@ var _hmt = _hmt || [];
 									
 							<ul>
 								<li class="file">
+									<a href="/mac-issue/">
+										Mac的一些问题备忘
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/py2app-used/">
 										将Python程序打包成App过程和排错
 									</a>
@@ -697,15 +735,6 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/py-network/">
 										网络编程
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/py2py3/">
-										Python3的一些新特性
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -778,8 +807,35 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/python-dict/">
+										Python字典方法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-list/">
+										Python列表方法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/python-re-module-help/">
-										Python的re模块
+										Python正则方法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-string/">
+										Python字符串方法
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -822,6 +878,15 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/pip-install-i/">
 										PIP走国内镜像安装
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py2py3/">
+										Python3的一些新特性
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -1073,6 +1138,250 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
+			<a href="/13%20rez-building-package/">
+				<h2 class="index-title">
+					13 Building Packages
+				</h2>
+				<div class="index-brief">
+					概述rez包可以使用rez-build工具来构建和本地安装。这个工具有以下操作：
+
+遍历一个包的变体
+构建环境
+在此环境中运行构建系统
+
+每一个构建都来自构建的目录路径。（通常是构建的子目录或构建下的变体特定子目录）例如一个包含两个基本python变体的程序包：
++- package.py
++- C
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-03-15</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/12%20rez-suites/">
+				<h2 class="index-title">
+					12 Suites
+				</h2>
+				<div class="index-brief">
+					概述假设你希望为你的用户提供一些不同的工具，尽管这些工具需要在不同的环境中运行。
+例如你希望工作室的艺术家能够从命令行运行maya和nuke，而不需要考虑它们的环境。
+为了达到这样的需求，你会创建两个context：maya.rxt和nuke.rxt。
+首先运行maya：
+]$ rez-env --
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-03-15</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/11%20rez-bundles/">
+				<h2 class="index-title">
+					11 Bundles
+				</h2>
+				<div class="index-brief">
+					概述Bundle是一个包含context文件和程序包仓库的目录。  
+context中的所有包都在存储库中，这使得bundle是可移动和独立的。通过命令创建一个bundle：
+]$ rez-env foo -o foo.rxt
+]$ rez-bundle foo.rxt ./mybundle
+
+# 
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-03-15</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/10%20rez-contexts/">
+				<h2 class="index-title">
+					10 Contexts
+				</h2>
+				<div class="index-brief">
+					概述当使用rez-env创建解析环境时，实际上是创建了一个称为context的东西。一个context存储的信息包括：
+
+初始程序包请求列表
+被选择的变体列表
+一个直观显示解析的图表
+
+context不存储解析到的程序包副本，而是为每个包存储一种句柄，它提供了足够的信息来知道从哪里获取完整的包定义和
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-03-15</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/09%20rez-ephemeral-packages/">
+				<h2 class="index-title">
+					09 Ephemeral Packages
+				</h2>
+				<div class="index-brief">
+					概述于2.71.0版本中引入。
+临时包（Ephemeral Packages）是对不存在的包的请求。包名称以.开头，和其它的软件包请求类似，可以作为变体列表的一部分来请求，或者直接用rez-env命令进行请求。下面是一个例子：
+]$ rez-env .foo-1
+You are now in a r
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-03-15</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/08%20rez-variants/">
+				<h2 class="index-title">
+					08 Variants
+				</h2>
+				<div class="index-brief">
+					概述rez的包可以包含不同的变体（variant），可以把它看作同一个包版本的不同变种。每个变体都有一个或多个相对于当前包不同的依赖关系。
+假定一个场景来说明变体的使用：
+有一个maya插件my_maya_plugin，公司有两个maya版本分别为2016-sp2和2017。如果你的插件已经编译，而
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-03-15</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/07%20rez-package-definition-guide/">
 				<h2 class="index-title">
 					07 Package Definition Guide
@@ -1230,235 +1539,10 @@ def commands():
                 </div>
 		</div>	
 	
-		<div class="index-li">
-			<a href="/02%20rez-install/">
-				<h2 class="index-title">
-					02 Installation
-				</h2>
-				<div class="index-brief">
-					下载Source code，然后打开终端进入rez-2.75.0目录中：python ./install.py
-默认会安装到 /opt/rez 中，如果需要安装到其它位置，使用install.py -h查看如何安装。
-安装成功提示：
-SUCCESS! To activate Rez, add the
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-03-15</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/04%20rez-basic-concepts/">
-				<h2 class="index-title">
-					04 Basic Concepts
-				</h2>
-				<div class="index-brief">
-					概述Rez管理软件包的过程：首先从rez请求一个软件包列表，rez会对包进行解析。如果解析没有成功，则系统会给出相关信息提示。当请求的软件包版本发生冲突的时候，Rez也会给出提示。  
-
-“…the latest version of houdini”
-“…maya-2009.1”
-“…the la
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-03-15</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/03%20rez-getting-started/">
-				<h2 class="index-title">
-					03 Getting Started
-				</h2>
-				<div class="index-brief">
-					基本软件包安装完成后，需要创建一些基本的Rez软件包。使用rez-bind工具进行创建，这些软件包会引用系统上已经安装的软件。（—quickstart是以标准创建）
-]$ rez-bind --quickstart
-Binding platform into /home/ajohns/package
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-03-15</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/maya-issue-vol1/">
-				<h2 class="index-title">
-					Maya疑难杂症备忘录 Vol.1
-				</h2>
-				<div class="index-brief">
-					
-这个系列主要是收集一些Maya中遇到的疑难杂症，有自己工作中遇到的，有从网上或者博客中看到记录的。总之当作一个备忘录。
-
-1.打开软件崩溃双击打开软件，出现一个下面这样的弹窗，Maya就崩溃退出了。  
-
-出现这样的情况通常重置用户预设文件夹即可解决：...\Documents\maya\&lt;
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-03-09</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/">DCC</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Maya/">Maya</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/pyqt4to5/">
-				<h2 class="index-title">
-					将PyQt4代码转到PyQt5
-				</h2>
-				<div class="index-brief">
-					最近在读这本经典的GUI编程书《Python Qt GUI快速编程》。  
-
-在这之前虽然已经写了很多的图形界面了，但是一直没有系统的学过PyQt。蹭着节假日期间，可以好好的咬咬这本书。  
-书中的代码示例是用的PyQt4，和即将淘汰的Python2。而在学习的时候需要一点前瞻性，需要考虑到今后对知
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-02-15</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Python/">Python</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Python/学习笔记/">学习笔记</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/py2app-used/">
-				<h2 class="index-title">
-					将Python程序打包成App过程和排错
-				</h2>
-				<div class="index-brief">
-					前言最近写了一个Python工具，需求是要在Mac笔记本上使用。（不依赖于DCC软件，独立运行）
-因为工具依赖了一些第三方库，不可能在每台电脑上对这些库逐一进行安装。想到最好的方法是将其打包成一个Mac App，并制作成一个dmg文件。
-这样只需要分享这个映像文件，使用者只需双击安装使用即可。在网上
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-01-29</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Mac/">Mac</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
 	
 	<div id="index-paginator">
 		
-			<a class="extend prev" rel="prev" href="/page/5/">&lt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/">&gt;</a>
+			<a class="extend prev" rel="prev" href="/page/5/">&lt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/">&gt;</a>
 		
 	</div>
 </div>

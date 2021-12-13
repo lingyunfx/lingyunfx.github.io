@@ -31,7 +31,7 @@
 		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
 			searchEngine = "https://www.google.com/search?q=";
 		}
-		var homeHost = "tdvfx.com";
+		var homeHost = "lingyunfx.com";
 		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
 			homeHost = window.location.host;
 		}
@@ -201,6 +201,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/tools-help/">
+										Matchmover Tools 帮助文档
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/tracks-2d-tools/">
 										在不同跟踪软件之间的2D点转换工具
 									</a>
@@ -259,6 +268,26 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/deadline-use-techniques/">
 										Deadline 使用技巧
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Houdini
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/houdini-py-intro/">
+										Houdini工具开发入门
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -652,6 +681,15 @@ var _hmt = _hmt || [];
 									
 							<ul>
 								<li class="file">
+									<a href="/mac-issue/">
+										Mac的一些问题备忘
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/py2app-used/">
 										将Python程序打包成App过程和排错
 									</a>
@@ -699,15 +737,6 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/py-network/">
 										网络编程
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/py2py3/">
-										Python3的一些新特性
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -780,8 +809,35 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/python-dict/">
+										Python字典方法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-list/">
+										Python列表方法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/python-re-module-help/">
-										Python的re模块
+										Python正则方法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-string/">
+										Python字符串方法
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -824,6 +880,15 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/pip-install-i/">
 										PIP走国内镜像安装
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py2py3/">
+										Python3的一些新特性
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -1077,10 +1142,6 @@ var _hmt = _hmt || [];
 </h1>
 <div class="article-meta">
 	
-		<span>
-			阅读量:<span id="/pycharm-pyside-issue1/" class="leancloud_visitors" data-flag-title="Pycharm中无法使用QApplication类"></span>
-		</span>
-	
 	<span>zhangly</span>
 	<span>2020-11-21 20:24:42</span>
 		<div id="article-categories">
@@ -1166,38 +1227,6 @@ TypeError: &#39;NoneType&#39; object is not callable<span aria-hidden="true" cla
 
 <script>
 	
-	
-    // 显示次数
-		function showTime(Counter) {
-			var query = new AV.Query("Counter");
-			if($(".leancloud_visitors").length > 0){
-				var url = $(".leancloud_visitors").attr('id').trim();
-				// where field
-				query.equalTo("words", url);
-				// count
-				query.count().then(function (number) {
-					// There are number instances of MyClass where words equals url.
-					$(document.getElementById(url)).text(number?  number : '--');
-				}, function (error) {
-					// error is an instance of AVError.
-				});
-			}
-		}
-		// 追加pv
-		function addCount(Counter) {
-			var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'wujun234.github.io';
-			var Counter = AV.Object.extend("Counter");
-			var query = new Counter;
-			query.save({
-				words: url
-			}).then(function (object) {
-			})
-		}
-		$(function () {
-			var Counter = AV.Object.extend("Counter");
-			addCount(Counter);
-			showTime(Counter);
-		});
 	
 </script>
 	</div>

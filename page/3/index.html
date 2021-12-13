@@ -29,7 +29,7 @@
 		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
 			searchEngine = "https://www.google.com/search?q=";
 		}
-		var homeHost = "tdvfx.com";
+		var homeHost = "lingyunfx.com";
 		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
 			homeHost = window.location.host;
 		}
@@ -199,6 +199,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/tools-help/">
+										Matchmover Tools 帮助文档
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/tracks-2d-tools/">
 										在不同跟踪软件之间的2D点转换工具
 									</a>
@@ -257,6 +266,26 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/deadline-use-techniques/">
 										Deadline 使用技巧
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Houdini
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/houdini-py-intro/">
+										Houdini工具开发入门
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -650,6 +679,15 @@ var _hmt = _hmt || [];
 									
 							<ul>
 								<li class="file">
+									<a href="/mac-issue/">
+										Mac的一些问题备忘
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/py2app-used/">
 										将Python程序打包成App过程和排错
 									</a>
@@ -697,15 +735,6 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/py-network/">
 										网络编程
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/py2py3/">
-										Python3的一些新特性
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -778,8 +807,35 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/python-dict/">
+										Python字典方法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-list/">
+										Python列表方法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/python-re-module-help/">
-										Python的re模块
+										Python正则方法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-string/">
+										Python字符串方法
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -822,6 +878,15 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/pip-install-i/">
 										PIP走国内镜像安装
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py2py3/">
+										Python3的一些新特性
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -1073,6 +1138,199 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
+			<a href="/py-network/">
+				<h2 class="index-title">
+					网络编程
+				</h2>
+				<div class="index-brief">
+					互联网协议按照功能的不同分为七层。
+OSI七层协议：应，表，会，传，网，数，物。
+其中应表会可以归为应用层。
+
+应用层：应用程序。http，ftp协议
+传输层：tcp/udp协议。端口来标识运行中的一款应用程序。 以太网头|IP头|tcp头|数据
+网络层：IP协议，用于寻找子网。
+数据链路层：Eth
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-11-23</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Python/">Python</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Python/学习笔记/">学习笔记</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/py-common-use/">
+				<h2 class="index-title">
+					Python常用代码段
+				</h2>
+				<div class="index-brief">
+					读取和写入json文件# 写
+with open(json_path, 'w') as f:
+    json.dump(self.items, f)
+
+# 读
+with open(json_path) as f:
+    items = json.load(f)
+
+读取和写入csv文件# 读
+wi
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-11-23</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Python/">Python</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Python/查询/">查询</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/pip-install-i/">
+				<h2 class="index-title">
+					PIP走国内镜像安装
+				</h2>
+				<div class="index-brief">
+					例子(使用清华源)pip install -i [https://pypi.tuna.tsinghua.edu.cn/simple](https://pypi.tuna.tsinghua.edu.cn/simple) PySide2
+其它源清华：https://pypi.tuna.tsinghua.
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-11-23</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Python/">Python</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/miniconda-use/">
+				<h2 class="index-title">
+					Miniconda使用
+				</h2>
+				<div class="index-brief">
+					安装在官网 https://docs.conda.io/en/latest/miniconda.html#macosx-installers 下载：
+
+在终端里（会安装到当前目录）：
+bash Miniconda2-latest-MacOSX-x86_64.sh
+
+# 需新建Terminal Ses
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-11-23</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Python/">Python</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/py91suggestions/">
+				<h2 class="index-title">
+					改善Python程序的91个建议(笔记)
+				</h2>
+				<div class="index-brief">
+					判断元素过多，使用跳转表# old
+if n == 0:
+	print 'Its zero.'
+elif == 1:
+	print 'Its one.'
+elif == 2:
+	prubt 'Its two.'
+else:
+	print 'No number input.'
+
+# new
+def g
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-11-23</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Python/">Python</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Python/学习笔记/">学习笔记</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/tde-py-ref/">
 				<h2 class="index-title">
 					3DEqualizer 命令参考
@@ -1294,252 +1552,10 @@ nuke.scriptSave("$nuke_file_path
                 </div>
 		</div>	
 	
-		<div class="index-li">
-			<a href="/nuke-call-back/">
-				<h2 class="index-title">
-					callback使用
-				</h2>
-				<div class="index-brief">
-					callback的应用添加在创建节点时，执行的callback
-def test():
-  print "this is test"
-
-nuke.addOnCreate(test, nodeClass='Blur')
-
-执行上述代码，在创建一个Blur节点的时候，就可以看到调用里test函数。
-如果
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-11-23</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/">DCC</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Nuke/">Nuke</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Nuke/Nuke编程/">Nuke编程</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/gizmo-basic/">
-				<h2 class="index-title">
-					gizmo制作
-				</h2>
-				<div class="index-brief">
-					gizmo制作在nuke中选中一些节点，按ctrl+g打包组，一个gizmo节点就做好了。
-ctrl+回车键，进入组。
-两种方法进行组和组内节点的关联：1.在gizmo组节点上右键Manage User Knobs，再点击pick找到组内节点的属性添加进来。
-2.在gizmo组上添加一个knob (
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-11-23</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/">DCC</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Nuke/">Nuke</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Nuke/Nuke编程/">Nuke编程</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/knob-basic/">
-				<h2 class="index-title">
-					自定义Knob操作
-				</h2>
-				<div class="index-brief">
-					节点里添加自定义knob# 可以用这样的方法，查看knob类型
-print nuke.selectedNode()["size"]
->>> Result: &lt;WH_Knob object at xxxx>
-
-# 给节点添加一个knob
-node = nuke.selectedNode()
-kn
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-11-23</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/">DCC</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Nuke/">Nuke</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Nuke/Nuke编程/">Nuke编程</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/nuke-lic/">
-				<h2 class="index-title">
-					nuke license运作模式
-				</h2>
-				<div class="index-brief">
-					https://support.foundry.com/hc/zh-cn/articles/208678945-Q100106-Nuke许可如何运作-
-针对不同模式的Nuke的不同许可证
-Nuke需要 nuke_i 许可证
-NukeX需要 nuke_i 和 nukex_i 许可证
-NukeStudi
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-11-23</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/">DCC</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Nuke/">Nuke</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/nuke-node-basic/">
-				<h2 class="index-title">
-					nuke节点操作入门
-				</h2>
-				<div class="index-brief">
-					Nuke开发相关的文档Nuke官方的一个技术支持论坛：https://support.foundry.com/hc/zh-cn
-Python开发文档：https://learn.foundry.com/nuke/developers/11.2/pythondevguide/
-Python API文档
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-11-23</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/">DCC</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Nuke/">Nuke</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Nuke/Nuke编程/">Nuke编程</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
 	
 	<div id="index-paginator">
 		
-			<a class="extend prev" rel="prev" href="/page/2/">&lt;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/">&gt;</a>
+			<a class="extend prev" rel="prev" href="/page/2/">&lt;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/">&gt;</a>
 		
 	</div>
 </div>

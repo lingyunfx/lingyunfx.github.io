@@ -29,7 +29,7 @@
 		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
 			searchEngine = "https://www.google.com/search?q=";
 		}
-		var homeHost = "tdvfx.com";
+		var homeHost = "lingyunfx.com";
 		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
 			homeHost = window.location.host;
 		}
@@ -199,6 +199,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/tools-help/">
+										Matchmover Tools 帮助文档
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/tracks-2d-tools/">
 										在不同跟踪软件之间的2D点转换工具
 									</a>
@@ -257,6 +266,26 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/deadline-use-techniques/">
 										Deadline 使用技巧
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Houdini
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/houdini-py-intro/">
+										Houdini工具开发入门
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -650,6 +679,15 @@ var _hmt = _hmt || [];
 									
 							<ul>
 								<li class="file">
+									<a href="/mac-issue/">
+										Mac的一些问题备忘
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/py2app-used/">
 										将Python程序打包成App过程和排错
 									</a>
@@ -697,15 +735,6 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/py-network/">
 										网络编程
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/py2py3/">
-										Python3的一些新特性
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -778,8 +807,35 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/python-dict/">
+										Python字典方法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-list/">
+										Python列表方法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/python-re-module-help/">
-										Python的re模块
+										Python正则方法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-string/">
+										Python字符串方法
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -822,6 +878,15 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/pip-install-i/">
 										PIP走国内镜像安装
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py2py3/">
+										Python3的一些新特性
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -1073,6 +1138,232 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
+			<a href="/meshlab-remove-face/">
+				<h2 class="index-title">
+					使用MeshLab为模型减面
+				</h2>
+				<div class="index-brief">
+					
+在项目制作中，我们时常会拿到模型面数非常大的扫描模型。模型导入到软件里会非常的吃内存，有时候这种扫描模型只是用作位置参照。使用MeshLab为模型减面，既不会改变太多模型，也不会让模型加大电脑的计算量。  
+
+在网上随便找了一个模型(手头没有扫描模型)。  
+
+导入到maya里，可以看到这里的面数
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2020-12-10</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Article/">Article</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/maya-link-unreal/">
+				<h2 class="index-title">
+					UE4和Maya的数据通信
+				</h2>
+				<div class="index-brief">
+					前言因为出色的实时渲染，快速的可见效果。在如今的电影视效制作中，渐渐有了Unreal的身影。  
+不过Unreal在动画部分，却不像它的渲染这么出彩。动画制作还是由我们的老牌软件Maya来负责，然后再将动画通过abc,fbx等格式输出到Unreal进行预览。  
+在这样“分离”的情况下，可能会遇到动
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2020-12-02</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Article/">Article</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/unreal-vive-tracker-camera/">
+				<h2 class="index-title">
+					使用Vive Tracker控制UE4摄像机
+				</h2>
+				<div class="index-brief">
+					前言Vive Tracker是HTC VR系列产品的配件，它可以通过绑定现实世界中的物体(配合定位器)，来追踪物体的位置。
+使用这个特性，我们可以通过将Vive Tracker绑定到摄像机上，来控制UE4里的虚拟相机运动。
+
+准备首先需要下载SteamVR，进行与VR设备的连接配置。下载安装完成后，
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2020-11-27</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/">DCC</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/Unreal/">Unreal</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/pyqt-learning-event/">
+				<h2 class="index-title">
+					PySide Event事件
+				</h2>
+				<div class="index-brief">
+					
+下面几个示例来说明事件的应用
+
+
+一些基本的事件注释  
+
+# coding&#x3D;utf-8
+
+from PySide2.QtWidgets import *
+from PySide2.QtGui import *
+from PySide2.QtCore import *
+import sy
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2020-11-22</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Python/">Python</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Python/查询/">查询</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/pyqt-learning-001/">
+				<h2 class="index-title">
+					PyQt常用部件用法
+				</h2>
+				<div class="index-brief">
+					前言本文非常臭长，并不适合整篇阅读。此页面主要用于PyQt控件方法查询 (所以左侧的目录会很有用)
+QLineEdit
+生成控件widget = QLineEdit()
+设置输入框文字widget.setText(&#39;some text&#39;)
+设置提示文字widget.setPlaceh
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2020-11-21</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Python/">Python</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Python/查询/">查询</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/pycharm-pyside-issue1/">
+				<h2 class="index-title">
+					Pycharm中无法使用QApplication类
+				</h2>
+				<div class="index-brief">
+					前段时间想把PyQt系统的重新学学习一下，兴致勃勃的打开Pycharm，运行起了下列这一串代码：
+from PySide2 import QtWidgets
+import sys
+
+app &#x3D; QtWidgets.QApplication(sys.argv)
+widget &#x3D; Q
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2020-11-21</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Python/">Python</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Python/疑难问题/">疑难问题</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/unreal-add-custom-menus/">
 				<h2 class="index-title">
 					使用Python为UE4添加自定义菜单
@@ -1248,130 +1539,10 @@ docker pull nginx:latest
                 </div>
 		</div>	
 	
-		<div class="index-li">
-			<a href="/mtoa-install-issue/">
-				<h2 class="index-title">
-					安装Arnold后环境变量被破坏
-				</h2>
-				<div class="index-brief">
-					前言今天在安装新版本Arnold 4.1.0 for maya后，打开maya发现一堆报错，其中还有不少乱码字符。
-
-一看就知道是Arnold配置失败了，果不其然打开Plug-in Manager，Maya直接就崩掉了。  
-好奇这一堆乱码是怎么来的，安装的路径也没有中文字符啊。接下来就开始一步步排
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2020-11-11</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/">DCC</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Maya/">Maya</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/nuke-trn-lens-distort/">
-				<h2 class="index-title">
-					使用LensDistortion节点输出STMap
-				</h2>
-				<div class="index-brief">
-					前言通常在电影的前期拍摄中，Onset人员会拍摄摄像机不同焦段的畸变网格，因为在后期制作中，没有Distortion map会让摄像机反求变得困难得多。
-最左为枕形畸变，最右为桶形畸变。
-
-通常我们会对一个棋盘格板进行拍摄，类似下图这样的。
-
-
-拍摄完会得到一张畸变网格，下面我们使用nuke对其进行
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2020-11-05</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/">DCC</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Nuke/">Nuke</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/cgwire-install/">
-				<h2 class="index-title">
-					搭建CGWire
-				</h2>
-				<div class="index-brief">
-					前言国庆在家容易想些有的没的，想着万一以后自己开了一个小型视效工作室，该用什么来进行跟踪管理项目进度。
-首先是想到的当然是诸如Shotgun, FTrack, CGTeamWork等这些项目管理平台。但是价格上则让人却步，比如Shotgun收费标准是每人每月30刀。
-  
-这对于小型低成本工作室，也
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2020-11-05</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/CGWire/">CGWire</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
 	
 	<div id="index-paginator">
 		
-			<a class="extend prev" rel="prev" href="/archives/page/7/">&lt;</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/6/">6</a><a class="page-number" href="/archives/page/7/">7</a><span class="page-number current">8</span>
+			<a class="extend prev" rel="prev" href="/archives/page/7/">&lt;</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/6/">6</a><a class="page-number" href="/archives/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/archives/page/9/">9</a><a class="extend next" rel="next" href="/archives/page/9/">&gt;</a>
 		
 	</div>
 </div>

@@ -29,7 +29,7 @@
 		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
 			searchEngine = "https://www.google.com/search?q=";
 		}
-		var homeHost = "tdvfx.com";
+		var homeHost = "lingyunfx.com";
 		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
 			homeHost = window.location.host;
 		}
@@ -199,6 +199,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/tools-help/">
+										Matchmover Tools 帮助文档
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/tracks-2d-tools/">
 										在不同跟踪软件之间的2D点转换工具
 									</a>
@@ -257,6 +266,26 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/deadline-use-techniques/">
 										Deadline 使用技巧
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Houdini
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/houdini-py-intro/">
+										Houdini工具开发入门
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -650,6 +679,15 @@ var _hmt = _hmt || [];
 									
 							<ul>
 								<li class="file">
+									<a href="/mac-issue/">
+										Mac的一些问题备忘
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/py2app-used/">
 										将Python程序打包成App过程和排错
 									</a>
@@ -697,15 +735,6 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/py-network/">
 										网络编程
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/py2py3/">
-										Python3的一些新特性
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -778,8 +807,35 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/python-dict/">
+										Python字典方法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-list/">
+										Python列表方法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/python-re-module-help/">
-										Python的re模块
+										Python正则方法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-string/">
+										Python字符串方法
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -822,6 +878,15 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/pip-install-i/">
 										PIP走国内镜像安装
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py2py3/">
+										Python3的一些新特性
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -1073,6 +1138,248 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
+			<a href="/nuke-call-back/">
+				<h2 class="index-title">
+					callback使用
+				</h2>
+				<div class="index-brief">
+					callback的应用添加在创建节点时，执行的callback
+def test():
+  print "this is test"
+
+nuke.addOnCreate(test, nodeClass='Blur')
+
+执行上述代码，在创建一个Blur节点的时候，就可以看到调用里test函数。
+如果
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-11-23</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/">DCC</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/Nuke/">Nuke</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/Nuke/Nuke编程/">Nuke编程</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/gizmo-basic/">
+				<h2 class="index-title">
+					gizmo制作
+				</h2>
+				<div class="index-brief">
+					gizmo制作在nuke中选中一些节点，按ctrl+g打包组，一个gizmo节点就做好了。
+ctrl+回车键，进入组。
+两种方法进行组和组内节点的关联：1.在gizmo组节点上右键Manage User Knobs，再点击pick找到组内节点的属性添加进来。
+2.在gizmo组上添加一个knob (
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-11-23</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/">DCC</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/Nuke/">Nuke</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/Nuke/Nuke编程/">Nuke编程</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/knob-basic/">
+				<h2 class="index-title">
+					自定义Knob操作
+				</h2>
+				<div class="index-brief">
+					节点里添加自定义knob# 可以用这样的方法，查看knob类型
+print nuke.selectedNode()["size"]
+>>> Result: &lt;WH_Knob object at xxxx>
+
+# 给节点添加一个knob
+node = nuke.selectedNode()
+kn
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-11-23</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/">DCC</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/Nuke/">Nuke</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/Nuke/Nuke编程/">Nuke编程</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/nuke-lic/">
+				<h2 class="index-title">
+					nuke license运作模式
+				</h2>
+				<div class="index-brief">
+					https://support.foundry.com/hc/zh-cn/articles/208678945-Q100106-Nuke许可如何运作-
+针对不同模式的Nuke的不同许可证
+Nuke需要 nuke_i 许可证
+NukeX需要 nuke_i 和 nukex_i 许可证
+NukeStudi
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-11-23</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/">DCC</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/Nuke/">Nuke</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/nuke-node-basic/">
+				<h2 class="index-title">
+					nuke节点操作入门
+				</h2>
+				<div class="index-brief">
+					Nuke开发相关的文档Nuke官方的一个技术支持论坛：https://support.foundry.com/hc/zh-cn
+Python开发文档：https://learn.foundry.com/nuke/developers/11.2/pythondevguide/
+Python API文档
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-11-23</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/">DCC</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/Nuke/">Nuke</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/Nuke/Nuke编程/">Nuke编程</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/nuke-ui/">
 				<h2 class="index-title">
 					界面操作
@@ -1295,209 +1602,10 @@ sg = shotgun_api3.Shotgun("https://piedpiper.shotgunstudio.com",
                 </div>
 		</div>	
 	
-		<div class="index-li">
-			<a href="/maya-cmds-example/">
-				<h2 class="index-title">
-					Maya Command 代码段
-				</h2>
-				<div class="index-brief">
-					动画相关获取物体有多少个关键帧cmds.keyframe(name, q=True, keyframeCount=True)
-获取物体第一个动画帧帧数cmds.findKeyframe(name, which=&#39;first&#39;)
-获取物体最后一个动画帧帧数cmds.findKeyfra
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-05-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/">DCC</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Maya/">Maya</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/cloudreve-install/">
-				<h2 class="index-title">
-					搭建Cloudreve私有云盘
-				</h2>
-				<div class="index-brief">
-					前言对于网盘来说现在最普及的就是百度云盘，不过很不喜欢百度盘的一点是：分享一个文件给朋友，对方必须使用百度云客户端才可以下载，而且百度云对于资源会进行审核。
-这个时候就希望一个网盘能实现：1.发送给对方分享链接2.对方点击链接，直接下载（且下载速度不受限，文件内容不被监管）
-这就需要搭建一个私有的个
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-05-17</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Geek/">Geek</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Geek/Cloudreve/">Cloudreve</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/py2py3/">
-				<h2 class="index-title">
-					Python3的一些新特性
-				</h2>
-				<div class="index-brief">
-					最近开发的工具不用依赖DCC软件，索性就开始使用最新的python3.8（现在好像到3.9了）踩了一些坑，在实践中知晓了从python2到python3的一些变化和不同。然后就整理了一些python3的新特性。（下面的内容在py3.8测试ok，有些是3.5或者3.7之后才开放的特性）
-语句变成函数p
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-04-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Python/">Python</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Python/学习笔记/">学习笔记</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/maya-env-varibles/">
-				<h2 class="index-title">
-					Maya常用环境变量
-				</h2>
-				<div class="index-brief">
-					收集一些常用的Maya环境变量，方便用的时候查。有关PATH的变量，Mac OS X中使用:分隔，Windows和Linux中使用;分隔。
-
-
-
-Variable
-Description
-
-
-
-MAYA_IGNORE_DIALOGS    
-打开maya场景禁止弹出警告框
-
-
-MAYA_DISABL
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-03-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/">DCC</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Maya/">Maya</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/rez-intro/">
-				<h2 class="index-title">
-					Rez介绍（使用篇）
-				</h2>
-				<div class="index-brief">
-					前言这篇文章讲下rez的使用，根据最近所得谈谈自己的理解。开始之前补充一些rez工具的背景和特性。  
-rez最开始是Dr.D Studio于2011年用python写的依赖解算器，于2012年开源。之后的V2版本几乎重写，变成一个完整的API。具有跨平台，支持多种shell环境，基于python的
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-03-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
 	
 	<div id="index-paginator">
 		
-			<a class="extend prev" rel="prev" href="/archives/page/3/">&lt;</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/8/">8</a><a class="extend next" rel="next" href="/archives/page/5/">&gt;</a>
+			<a class="extend prev" rel="prev" href="/archives/page/3/">&lt;</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/9/">9</a><a class="extend next" rel="next" href="/archives/page/5/">&gt;</a>
 		
 	</div>
 </div>

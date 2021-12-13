@@ -31,7 +31,7 @@
 		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
 			searchEngine = "https://www.google.com/search?q=";
 		}
-		var homeHost = "tdvfx.com";
+		var homeHost = "lingyunfx.com";
 		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
 			homeHost = window.location.host;
 		}
@@ -201,6 +201,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/tools-help/">
+										Matchmover Tools 帮助文档
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/tracks-2d-tools/">
 										在不同跟踪软件之间的2D点转换工具
 									</a>
@@ -259,6 +268,26 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/deadline-use-techniques/">
 										Deadline 使用技巧
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Houdini
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/houdini-py-intro/">
+										Houdini工具开发入门
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -651,6 +680,15 @@ var _hmt = _hmt || [];
 									</a>
 									
 							<ul>
+								<li class="file">
+									<a href="/mac-issue/">
+										Mac的一些问题备忘
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
 								<li class="file active">
 									<a href="/py2app-used/">
 										将Python程序打包成App过程和排错
@@ -699,15 +737,6 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/py-network/">
 										网络编程
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/py2py3/">
-										Python3的一些新特性
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -780,8 +809,35 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/python-dict/">
+										Python字典方法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-list/">
+										Python列表方法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/python-re-module-help/">
-										Python的re模块
+										Python正则方法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-string/">
+										Python字符串方法
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -824,6 +880,15 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/pip-install-i/">
 										PIP走国内镜像安装
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py2py3/">
+										Python3的一些新特性
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -1077,10 +1142,6 @@ var _hmt = _hmt || [];
 </h1>
 <div class="article-meta">
 	
-		<span>
-			阅读量:<span id="/py2app-used/" class="leancloud_visitors" data-flag-title="将Python程序打包成App过程和排错"></span>
-		</span>
-	
 	<span>zhangly</span>
 	<span>2021-01-29 21:23:45</span>
 		<div id="article-categories">
@@ -1111,7 +1172,7 @@ var _hmt = _hmt || [];
 <p>因为工具依赖了一些第三方库，不可能在每台电脑上对这些库逐一进行安装。<br>想到最好的方法是将其打包成一个Mac App，并制作成一个dmg文件。</p>
 <p>这样只需要分享这个映像文件，使用者只需双击安装使用即可。<br>在网上找到打包Mac App的库：<strong>py2app</strong>。</p>
 <p>于是开始了踩坑和一步步排错的过程。</p>
-<h1><span id="使用py2app打包程序">使用py2app打包程序</span></h1><h3><span id="1首先安装py2app">1.首先安装py2app</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pip <span class="token function">install</span> py2app<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1><span id="使用py2app打包程序">使用py2app打包程序</span></h1><h3><span id="1首先安装py2app">1.首先安装py2app</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pip install py2app<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3><span id="2构建安装文件">2.构建安装文件</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">py2applet --make-setup myApplication.py<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>（这里的myApplication.py为自己工具的主程序接口。）</p>
@@ -1158,8 +1219,8 @@ setup<span class="token punctuation">(</span>
 <p>填写必要参数：<br>文件名称自己定义，<br>大小则要根据自己App包的大小来定。<br>（不要和App包大小一样，要多预留一些）</p>
 <p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/py2app-used/p6.png"></p>
 <h3><span id="2配置映像文件">2.配置映像文件</span></h3><p>首先是将App包拷贝到映像文件中，这里打开终端，创建一个link</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span> /Volumes/myApplication
-<span class="token function">ln</span> -s /Applications Applications<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cd &#x2F;Volumes&#x2F;myApplication
+ln -s &#x2F;Applications Applications<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>这里可以看到应用程序的文件夹被link到了这里。</p>
 <p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/py2app-used/p7.png"></p>
@@ -1204,38 +1265,6 @@ setup<span class="token punctuation">(</span>
 
 <script>
 	
-	
-    // 显示次数
-		function showTime(Counter) {
-			var query = new AV.Query("Counter");
-			if($(".leancloud_visitors").length > 0){
-				var url = $(".leancloud_visitors").attr('id').trim();
-				// where field
-				query.equalTo("words", url);
-				// count
-				query.count().then(function (number) {
-					// There are number instances of MyClass where words equals url.
-					$(document.getElementById(url)).text(number?  number : '--');
-				}, function (error) {
-					// error is an instance of AVError.
-				});
-			}
-		}
-		// 追加pv
-		function addCount(Counter) {
-			var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'wujun234.github.io';
-			var Counter = AV.Object.extend("Counter");
-			var query = new Counter;
-			query.save({
-				words: url
-			}).then(function (object) {
-			})
-		}
-		$(function () {
-			var Counter = AV.Object.extend("Counter");
-			addCount(Counter);
-			showTime(Counter);
-		});
 	
 </script>
 	</div>

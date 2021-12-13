@@ -29,7 +29,7 @@
 		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
 			searchEngine = "https://www.google.com/search?q=";
 		}
-		var homeHost = "tdvfx.com";
+		var homeHost = "lingyunfx.com";
 		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
 			homeHost = window.location.host;
 		}
@@ -199,6 +199,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/tools-help/">
+										Matchmover Tools 帮助文档
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/tracks-2d-tools/">
 										在不同跟踪软件之间的2D点转换工具
 									</a>
@@ -257,6 +266,26 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/deadline-use-techniques/">
 										Deadline 使用技巧
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Houdini
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/houdini-py-intro/">
+										Houdini工具开发入门
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -650,6 +679,15 @@ var _hmt = _hmt || [];
 									
 							<ul>
 								<li class="file">
+									<a href="/mac-issue/">
+										Mac的一些问题备忘
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/py2app-used/">
 										将Python程序打包成App过程和排错
 									</a>
@@ -697,15 +735,6 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/py-network/">
 										网络编程
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/py2py3/">
-										Python3的一些新特性
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -778,8 +807,35 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/python-dict/">
+										Python字典方法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-list/">
+										Python列表方法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/python-re-module-help/">
-										Python的re模块
+										Python正则方法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-string/">
+										Python字符串方法
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -822,6 +878,15 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/pip-install-i/">
 										PIP走国内镜像安装
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py2py3/">
+										Python3的一些新特性
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -1073,6 +1138,231 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
+			<a href="/02%20rez-install/">
+				<h2 class="index-title">
+					02 Installation
+				</h2>
+				<div class="index-brief">
+					下载Source code，然后打开终端进入rez-2.75.0目录中：python ./install.py
+默认会安装到 /opt/rez 中，如果需要安装到其它位置，使用install.py -h查看如何安装。
+安装成功提示：
+SUCCESS! To activate Rez, add the
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-03-15</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/04%20rez-basic-concepts/">
+				<h2 class="index-title">
+					04 Basic Concepts
+				</h2>
+				<div class="index-brief">
+					概述Rez管理软件包的过程：首先从rez请求一个软件包列表，rez会对包进行解析。如果解析没有成功，则系统会给出相关信息提示。当请求的软件包版本发生冲突的时候，Rez也会给出提示。  
+
+“…the latest version of houdini”
+“…maya-2009.1”
+“…the la
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-03-15</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/03%20rez-getting-started/">
+				<h2 class="index-title">
+					03 Getting Started
+				</h2>
+				<div class="index-brief">
+					基本软件包安装完成后，需要创建一些基本的Rez软件包。使用rez-bind工具进行创建，这些软件包会引用系统上已经安装的软件。（—quickstart是以标准创建）
+]$ rez-bind --quickstart
+Binding platform into /home/ajohns/package
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-03-15</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/maya-issue-vol1/">
+				<h2 class="index-title">
+					Maya疑难杂症备忘录 Vol.1
+				</h2>
+				<div class="index-brief">
+					
+这个系列主要是收集一些Maya中遇到的疑难杂症，有自己工作中遇到的，有从网上或者博客中看到记录的。总之当作一个备忘录。
+
+1.打开软件崩溃双击打开软件，出现一个下面这样的弹窗，Maya就崩溃退出了。  
+
+出现这样的情况通常重置用户预设文件夹即可解决：...\Documents\maya\&lt;
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-03-09</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/">DCC</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/Maya/">Maya</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/pyqt4to5/">
+				<h2 class="index-title">
+					将PyQt4代码转到PyQt5
+				</h2>
+				<div class="index-brief">
+					最近在读这本经典的GUI编程书《Python Qt GUI快速编程》。  
+
+在这之前虽然已经写了很多的图形界面了，但是一直没有系统的学过PyQt。蹭着节假日期间，可以好好的咬咬这本书。  
+书中的代码示例是用的PyQt4，和即将淘汰的Python2。而在学习的时候需要一点前瞻性，需要考虑到今后对知
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-02-15</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Python/">Python</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Python/学习笔记/">学习笔记</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/py2app-used/">
+				<h2 class="index-title">
+					将Python程序打包成App过程和排错
+				</h2>
+				<div class="index-brief">
+					前言最近写了一个Python工具，需求是要在Mac笔记本上使用。（不依赖于DCC软件，独立运行）
+因为工具依赖了一些第三方库，不可能在每台电脑上对这些库逐一进行安装。想到最好的方法是将其打包成一个Mac App，并制作成一个dmg文件。
+这样只需要分享这个映像文件，使用者只需双击安装使用即可。在网上
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-01-29</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Mac/">Mac</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/shotgun-entity/">
 				<h2 class="index-title">
 					可控制的Entity
@@ -1188,7 +1478,7 @@ Cut
 		<div class="index-li">
 			<a href="/python-re-module-help/">
 				<h2 class="index-title">
-					Python的re模块
+					Python正则方法
 				</h2>
 				<div class="index-brief">
 					概览
@@ -1297,236 +1587,10 @@ O
                 </div>
 		</div>	
 	
-		<div class="index-li">
-			<a href="/meshlab-remove-face/">
-				<h2 class="index-title">
-					使用MeshLab为模型减面
-				</h2>
-				<div class="index-brief">
-					
-在项目制作中，我们时常会拿到模型面数非常大的扫描模型。模型导入到软件里会非常的吃内存，有时候这种扫描模型只是用作位置参照。使用MeshLab为模型减面，既不会改变太多模型，也不会让模型加大电脑的计算量。  
-
-在网上随便找了一个模型(手头没有扫描模型)。  
-
-导入到maya里，可以看到这里的面数
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2020-12-10</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Article/">Article</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/maya-link-unreal/">
-				<h2 class="index-title">
-					UE4和Maya的数据通信
-				</h2>
-				<div class="index-brief">
-					前言因为出色的实时渲染，快速的可见效果。在如今的电影视效制作中，渐渐有了Unreal的身影。  
-不过Unreal在动画部分，却不像它的渲染这么出彩。动画制作还是由我们的老牌软件Maya来负责，然后再将动画通过abc,fbx等格式输出到Unreal进行预览。  
-在这样“分离”的情况下，可能会遇到动
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2020-12-02</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Article/">Article</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/unreal-vive-tracker-camera/">
-				<h2 class="index-title">
-					使用Vive Tracker控制UE4摄像机
-				</h2>
-				<div class="index-brief">
-					前言Vive Tracker是HTC VR系列产品的配件，它可以通过绑定现实世界中的物体(配合定位器)，来追踪物体的位置。
-使用这个特性，我们可以通过将Vive Tracker绑定到摄像机上，来控制UE4里的虚拟相机运动。
-
-准备首先需要下载SteamVR，进行与VR设备的连接配置。下载安装完成后，
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2020-11-27</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/">DCC</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Unreal/">Unreal</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/pyqt-learning-event/">
-				<h2 class="index-title">
-					PySide Event事件
-				</h2>
-				<div class="index-brief">
-					
-下面几个示例来说明事件的应用
-
-
-一些基本的事件注释  
-
-# coding&#x3D;utf-8
-
-from PySide2.QtWidgets import *
-from PySide2.QtGui import *
-from PySide2.QtCore import *
-import sy
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2020-11-22</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Python/">Python</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Python/查询/">查询</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/pyqt-learning-001/">
-				<h2 class="index-title">
-					PyQt常用部件用法
-				</h2>
-				<div class="index-brief">
-					前言本文非常臭长，并不适合整篇阅读。此页面主要用于PyQt控件方法查询 (所以左侧的目录会很有用)
-QLineEdit
-生成控件widget = QLineEdit()
-设置输入框文字widget.setText(&#39;some text&#39;)
-设置提示文字widget.setPlaceh
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2020-11-21</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Python/">Python</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Python/查询/">查询</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/pycharm-pyside-issue1/">
-				<h2 class="index-title">
-					Pycharm中无法使用QApplication类
-				</h2>
-				<div class="index-brief">
-					前段时间想把PyQt系统的重新学学习一下，兴致勃勃的打开Pycharm，运行起了下列这一串代码：
-from PySide2 import QtWidgets
-import sys
-
-app &#x3D; QtWidgets.QApplication(sys.argv)
-widget &#x3D; Q
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2020-11-21</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Python/">Python</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Python/疑难问题/">疑难问题</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
 	
 	<div id="index-paginator">
 		
-			<a class="extend prev" rel="prev" href="/page/6/">&lt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/">&gt;</a>
+			<a class="extend prev" rel="prev" href="/page/6/">&lt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/8/">&gt;</a>
 		
 	</div>
 </div>
