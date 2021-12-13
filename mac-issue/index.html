@@ -1168,31 +1168,31 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h3><span id="来自未知开发者">来自未知开发者</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo xattr -rd com.apple.quarantine sesinetd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+	<h3><span id="来自未知开发者">来自未知开发者</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> xattr -rd com.apple.quarantine sesinetd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3><span id="你没有权限打开应用程序">你没有权限打开应用程序</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">brew install upx
+<h3><span id="你没有权限打开应用程序">你没有权限打开应用程序</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">brew <span class="token function">install</span> upx
 
-# 这里以xf-adsk软件来举例
-# 把xf-adsk放到桌面，右键包内容进入到MacOS
+<span class="token comment"># 这里以xf-adsk软件来举例</span>
+<span class="token comment"># 把xf-adsk放到桌面，右键包内容进入到MacOS</span>
 
-sudo upx -d &#x2F;Users&#x2F;lingyunzhang&#x2F;Desktop&#x2F;xf-adsk20.app&#x2F;Contents&#x2F;MacOS&#x2F;x-force<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">sudo</span> upx -d /Users/lingyunzhang/Desktop/xf-adsk20.app/Contents/MacOS/x-force<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3><span id="打开dmg资源忙">打开dmg资源忙</span></h3><p>1.打开活动管理器<br>2.搜索disk的进程  </p>
 <p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/mac-issue/p1.png"></p>
 <p>3.随便退出几个进程就可以了（双击 - 强制退出）</p>
-<h3><span id="homebrew安装">Homebrew安装</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 官方安装
-&#x2F;bin&#x2F;bash -c &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;HEAD&#x2F;install.sh)&quot;
+<h3><span id="homebrew安装">Homebrew安装</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 官方安装</span>
+/bin/bash -c <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="token variable">)</span></span>"</span>
 
-# 国内源
-&#x2F;bin&#x2F;zsh -c &quot;$(curl -fsSL https:&#x2F;&#x2F;gitee.com&#x2F;cunkai&#x2F;HomebrewCN&#x2F;raw&#x2F;master&#x2F;Homebrew.sh)&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment"># 国内源</span>
+/bin/zsh -c <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh<span class="token variable">)</span></span>"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>今后安装的包，都会放在<code>/usr/local</code>中。（M1不是）</p>
-<h3><span id="homebrew走代理">Homebrew走代理</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 临时环境
-export ALL_PROXY&#x3D;socks5:&#x2F;&#x2F;127.0.0.1:1089
-export ALL_PROXY&#x3D;https:&#x2F;&#x2F;127.0.0.1:8889
+<h3><span id="homebrew走代理">Homebrew走代理</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 临时环境</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">ALL_PROXY</span><span class="token operator">=</span>socks5://127.0.0.1:1089
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">ALL_PROXY</span><span class="token operator">=</span>https://127.0.0.1:8889
 
-# 永久修改(根据不同的shell解释器)
-echo export ALL_PROXY&#x3D;socks5:&#x2F;&#x2F;127.0.0.1:1089 &gt;&gt; ~&#x2F;.bash_profile
-echo export ALL_PROXY&#x3D;socks5:&#x2F;&#x2F;127.0.0.1:1089 &gt;&gt; ~&#x2F;.zsh_profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment"># 永久修改(根据不同的shell解释器)</span>
+<span class="token builtin class-name">echo</span> <span class="token builtin class-name">export</span> <span class="token assign-left variable">ALL_PROXY</span><span class="token operator">=</span>socks5://127.0.0.1:1089 <span class="token operator">>></span> ~/.bash_profile
+<span class="token builtin class-name">echo</span> <span class="token builtin class-name">export</span> <span class="token assign-left variable">ALL_PROXY</span><span class="token operator">=</span>socks5://127.0.0.1:1089 <span class="token operator">>></span> ~/.zsh_profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 </div>
 
