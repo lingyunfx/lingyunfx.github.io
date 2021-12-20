@@ -1187,12 +1187,16 @@ var _hmt = _hmt || [];
 
 <div id="article-content">
 	<p><left><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-py-to-pyd/p1.png" width="50%" height="50%" alt align="center"></left>  </p>
-<h3><span id="关于将py文件编译为pyd">关于将py文件编译为pyd</span></h3><p>当你想把一个python脚本分享出去，又不想暴露源码的时候，可以将py文件编译成pyd文件。  </p>
+<h3><span id="关于将py文件编译为pyd">关于将py文件编译为pyd</span></h3><p>当你想把一个python脚本分享出去，又不想暴露源码的时候，可以将py文件编译成pyd或pyc文件。</p>
 <p>pyd格式是D语言(C/C++综合进化版本)生成的二进制文件，实际也会是dll文件。<br>该文件不可以被反编译，只能被反汇编。</p>
-<p>相较于pyc文件，虽然也是py编译后的格式，但是pyc非常容易被反编译，基本上可以说编译了个寂寞。  </p>
-<p>我之前用过angelic47大佬写的<a target="_blank" rel="noopener" href="https://pyprotect.angelic47.com/">pyprotect</a>，这是个第三方python加密混淆工具，编译后的pyc代码也具有很高的反编译难度。(其实我自身更偏向于pyc文件，不用像pyd一样太考虑解释器版本和系统平台)</p>
+<p>而pyc文件，虽然也是py编译后的格式，但是pyc非常容易被反编译，基本上可以说编译了个寂寞。  </p>
+<p>我之前用过<code>angelic47</code>大佬写的<a target="_blank" rel="noopener" href="https://pyprotect.angelic47.com/">pyprotect</a>，这是个第三方python加密混淆工具，编译后的pyc代码也具有很高的反编译难度。(其实我自身更偏向于pyc文件，不用像pyd一样太考虑解释器版本和系统平台)</p>
 <p>不过后来pyprotect工具无法使用了，这也是我开始使用pyd格式进行编译的原因。<br>废话到这里，下面开始说下整个编译过程。(这里以Maya2018为例)</p>
+<blockquote>
+<p>点击阅读原文可以打开博客地址在pc端浏览。</p>
+</blockquote>
 <h3><span id="1找到msc版本和对应vs版本">1.找到MSC版本和对应VS版本</span></h3><p>msc是微软的C编译器，安装对应的VS版本会带有。</p>
+<p>如何查看MSC版本，这里有两种方式：</p>
 <p>使用cmd命令行工具，打开<code>C:\Program Files\Autodesk\Maya2018\bin\mayapy.exe</code></p>
 <p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-py-to-pyd/p2.jpg"></p>
 <p>或者在Maya的script editor里:</p>
@@ -1221,8 +1225,8 @@ MSC v.1916 -&gt; Visual C++ 2017 (15.9)<span aria-hidden="true" class="line-numb
 <p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-py-to-pyd/p3.jpg"></p>
 <p>下载完成后安装，记得勾选</p>
 <p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-py-to-pyd/p4.png"></p>
-<h3><span id="2安装cython">2.安装Cython</span></h3><p>刚刚安装的是编译时所需依赖，而Cython是编译成pyd的主要工具。  </p>
-<p>去<a target="_blank" rel="noopener" href="https://github.com/cython/cython">https://github.com/cython/cython</a>下载源代码进行编译安装，或者到我的网盘<a target="_blank" rel="noopener" href="http://s.lingyunfx.com/smart-link/1a258ada-af7d-402c-8550-72eddb68a8ee/">分享链接</a>进行下载。<br>下载完解压后，先放一边。</p>
+<h3><span id="2安装cython">2.安装Cython</span></h3><p>刚刚安装的是编译时所需的依赖，而我们要使用Cython将py文件编译成pyd。  </p>
+<p>去<a target="_blank" rel="noopener" href="https://github.com/cython/cython">https://github.com/cython/cython</a>下载源代码进行编译安装，或者到我的网盘<a target="_blank" rel="noopener" href="http://s.lingyunfx.com/f/f79425f96f1a460a810d/?dl=1">分享链接</a>进行下载。<br>下载完解压后，先放一边。</p>
 <p>在此之前需要在<code>C:\Program Files\Autodesk\Maya2018\Python</code>下新建两个文件，<code>include</code>和<code>libs </code>。</p>
 <p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-py-to-pyd/p6.png"></p>
 <ul>
@@ -1232,7 +1236,7 @@ MSC v.1916 -&gt; Visual C++ 2017 (15.9)<span aria-hidden="true" class="line-numb
 <p>然后用管理员模式打开cmd命令行工具，<code>cd</code>定位到刚刚解压的cython文件夹下。<br>运行:</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token string">"C:\Program Files\Autodesk\Maya2018<span class="token entity" title="\b">\b</span>in\mayapy.exe"</span>  setup.py <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>安装完成后就可以开始编译代码了。</p>
-<h3><span id="3编译成pyd文件">3.编译成pyd文件</span></h3><p>在你的代码中，写一个<code>setpup.py</code>文件。</p>
+<h3><span id="3编译成pyd文件">3.编译成pyd文件</span></h3><p>在你的代码中，写一个<code>setup.py</code>文件。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># coding=utf-8</span>
 <span class="token comment">#!/usr/bin/python2</span>
 

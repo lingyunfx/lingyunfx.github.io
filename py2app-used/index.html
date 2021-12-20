@@ -1179,7 +1179,7 @@ var _hmt = _hmt || [];
 <p>因为工具依赖了一些第三方库，不可能在每台电脑上对这些库逐一进行安装。<br>想到最好的方法是将其打包成一个Mac App，并制作成一个dmg文件。</p>
 <p>这样只需要分享这个映像文件，使用者只需双击安装使用即可。<br>在网上找到打包Mac App的库：<strong>py2app</strong>。</p>
 <p>于是开始了踩坑和一步步排错的过程。</p>
-<h1><span id="使用py2app打包程序">使用py2app打包程序</span></h1><h3><span id="1首先安装py2app">1.首先安装py2app</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pip install py2app<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1><span id="使用py2app打包程序">使用py2app打包程序</span></h1><h3><span id="1首先安装py2app">1.首先安装py2app</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pip <span class="token function">install</span> py2app<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3><span id="2构建安装文件">2.构建安装文件</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">py2applet --make-setup myApplication.py<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>（这里的myApplication.py为自己工具的主程序接口。）</p>
@@ -1226,8 +1226,8 @@ setup<span class="token punctuation">(</span>
 <p>填写必要参数：<br>文件名称自己定义，<br>大小则要根据自己App包的大小来定。<br>（不要和App包大小一样，要多预留一些）</p>
 <p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/py2app-used/p6.png"></p>
 <h3><span id="2配置映像文件">2.配置映像文件</span></h3><p>首先是将App包拷贝到映像文件中，这里打开终端，创建一个link</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cd &#x2F;Volumes&#x2F;myApplication
-ln -s &#x2F;Applications Applications<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span> /Volumes/myApplication
+<span class="token function">ln</span> -s /Applications Applications<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>这里可以看到应用程序的文件夹被link到了这里。</p>
 <p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/py2app-used/p7.png"></p>
