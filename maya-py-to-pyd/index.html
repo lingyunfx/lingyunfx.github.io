@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		将Maya的python代码编译成pyd | 
+	 
+	凌云的个人博客
+	</title>
+	
+	<!-- keywords,description -->
+	 
+		<meta name="description" content="关于视效的学习和分享" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "lingyunfx.com";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<script src="/js/main.js"></script>
+
+
+	
+
+	  
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+	  
+<link rel="stylesheet" href="/css/darcula.min.css">
+
+	  
+<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
+
+	  
+<script src="/js/jquery.min.js"></script>
+
+	  
+<script src="/js/jquery.fancybox.min.js"></script>
+
+	  
+<script src="/js/highlight.min.js"></script>
+
+	  
+<script src="/js/jquery.pjax.min.js"></script>
+
+
+    
+	    
+<script src="/js/av-min.js"></script>
+
+	    
+<script src="/js/Valine.min.js"></script>
+
+    
+
+    
+	    
+<script src="/js/busuanzi.pure.mini.js"></script>
+
+    
+	
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">凌云的个人博客</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+
+	
+
+		<li class="menu-item">
+			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
+				UidGenerator
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="https://github.com/wujun234" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Article
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/command-tool-intro/">
+                     
+										    命令行工具的三把瑞士军刀
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-link-unreal/">
+                     
+										    UE4和Maya的数据通信
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-replace-ref-tool/">
+                     
+										    批量替换Maya Reference工具
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-retime-tool-intro/">
+                     
+										    Maya动画变速工具
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/meshlab-remove-face/">
+                     
+										    使用MeshLab为模型减面
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/metahuman-intro/">
+                     
+										    MetaHumans Creator初体验
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/notion-intro/">
+                     
+										    使用Notion建立个人Wiki
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/reject-maya-warning/">
+                     
+										    关于“你的文件贼健康”的简单处理方式
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/tools-help/">
+                     
+										    Matchmover Tools 帮助文档
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/tracks-2d-tools/">
+                     
+										    在不同跟踪软件之间的2D点转换工具
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/whats-matchmoving/">
+                     
+										    电影视效制作中的Matchmove
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										DCC
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										3DEqualizer
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/tde-py-ref/">
+                     
+										    3DEqualizer 命令参考
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Deadline
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/deadline-use-techniques/">
+                     
+										    Deadline 使用技巧
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Houdini
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/houdini-py-intro/">
+                     
+										    Houdini工具开发入门
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Maya
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/maya-cmds-example/">
+                     
+										    Maya Command 代码段
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-env-varibles/">
+                     
+										    Maya常用环境变量
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-flipping-camera/">
+                     
+										    在Maya中进行Flipping Camera
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-issue-vol1/">
+                     
+										    Maya疑难杂症备忘录 Vol.1
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/maya-py-to-pyd/">
+                     
+										    将Maya的python代码编译成pyd
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-001/">
+                     
+										    Maya的效率使用和技巧（一）
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-002/">
+                     
+										    Maya的效率使用和技巧（二）
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/mtoa-install-issue/">
+                     
+										    安装Arnold后环境变量被破坏
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Nuke
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Nuke编程
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/gizmo-basic/">
+                     
+										    gizmo制作
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/knob-basic/">
+                     
+										    自定义Knob操作
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-call-back/">
+                     
+										    callback使用
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-menu/">
+                     
+										    菜单操作
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-node-ani/">
+                     
+										    节点动画操作
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-node-basic/">
+                     
+										    nuke节点操作入门
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-py-file/">
+                     
+										    文件操作
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-tcl-basic/">
+                     
+										    tcl入门
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-ui/">
+                     
+										    界面操作
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nukestudio-command-ref/">
+                     
+										    Nuke Studio常用命令参考
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-lic/">
+                     
+										    nuke license运作模式
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-trn-lens-distort/">
+                     
+										    使用LensDistortion节点输出STMap
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Unreal
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/ue4-python-ref/">
+                     
+										    Python片段参考
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal-add-custom-menus/">
+                     
+										    使用Python为UE4添加自定义菜单
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal-vive-tracker-camera/">
+                     
+										    使用Vive Tracker控制UE4摄像机
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Geek
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Cloudreve
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cloudreve-install/">
+                     
+										    搭建Cloudreve私有云盘
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Docker
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/docker-common-command/">
+                     
+										    Docker常用命令
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/docker-make-jira/">
+                     
+										    Docker部署JIRA和PostgreSQL
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										GitLab
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/01%20install-gitlab/">
+                     
+										    GitLab搭建
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/how-to-use-gitlab/">
+                     
+										    GitLab使用
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Nginx
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/nginx-learn/">
+                     
+										    Nginx学习笔记
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Vim
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/vim-help/">
+                     
+										    vim快捷键查询
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Mac
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/mac-issue/">
+                     
+										    Mac的一些问题备忘
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py2app-used/">
+                     
+										    将Python程序打包成App过程和排错
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Python
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										01 学习笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py-class-learn/">
+                     
+										    面向对象进阶
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py-multiprocess/">
+                     
+										    并发编程
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py-network/">
+                     
+										    网络编程
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py91suggestions/">
+                     
+										    改善Python程序的91个建议(笔记)
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-basis/">
+                     
+										    PyQt介绍及入门学习
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt4to5/">
+                     
+										    将PyQt4代码转到PyQt5
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										02 查询
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py-common-use/">
+                     
+										    Python常用代码段
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-learning-001/">
+                     
+										    PyQt常用部件用法
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt-learning-event/">
+                     
+										    PySide Event事件
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-dict/">
+                     
+										    Python字典方法
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-list/">
+                     
+										    Python列表方法
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-re-module-help/">
+                     
+										    Python正则方法
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/python-string/">
+                     
+										    Python字符串方法
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										03 疑难问题
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/pycharm-pyside-issue1/">
+                     
+										    Pycharm中无法使用QApplication类
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/miniconda-use/">
+                     
+										    Miniconda使用
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pip-install-i/">
+                     
+										    PIP走国内镜像安装
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py2py3/">
+                     
+										    Python3的一些新特性
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										TD Pipeline
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										CGWire
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cgwire-install/">
+                     
+										    搭建CGWire
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Rez
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/00%20rez-wiki-cn/">
+                     
+										    00 Rez中文文档
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/01%20rez-home/">
+                     
+										    01 Home
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/02%20rez-install/">
+                     
+										    02 Installation
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/03%20rez-getting-started/">
+                     
+										    03 Getting Started
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/04%20rez-basic-concepts/">
+                     
+										    04 Basic Concepts
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/05%20rez-configuring/">
+                     
+										    05 Configuring Rez
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/06%20rez-package-commands/">
+                     
+										    06 Package Commands
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/07%20rez-package-definition-guide/">
+                     
+										    07 Package Definition Guide
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/08%20rez-variants/">
+                     
+										    08 Variants
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/09%20rez-ephemeral-packages/">
+                     
+										    09 Ephemeral Packages
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/10%20rez-contexts/">
+                     
+										    10 Contexts
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/11%20rez-bundles/">
+                     
+										    11 Bundles
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/12%20rez-suites/">
+                     
+										    12 Suites
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/13%20rez-building-package/">
+                     
+										    13 Building Packages
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/14%20rez-copying-package/">
+                     
+										    14 Copying Packages
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/15%20rez-package-caching/">
+                     
+										    15 Package Caching
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/16%20rez-environment-variables/">
+                     
+										    16 Environment Variables
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/rez-intro/">
+                     
+										    Rez介绍（使用篇）
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Shotgun
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/sg-common-command/">
+                     
+										    Shotgun常用命令参考
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/shotgun-entity/">
+                     
+										    可控制的Entity
+                     
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+	将Maya的python代码编译成pyd
+</h1>
+<div class="article-meta">
+	
+	<span>zhangly</span>
+	<span>2021-12-20 14:08:14</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/DCC/">DCC</a>
+                        </i>
+                      
+                        >
+                      
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/DCC/Maya/">Maya</a>
+                        </i>
+                      
+                    </span>
+                
+            
+    
+
+    
+		<span>Tags：</span>
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<p><left><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-py-to-pyd/p1.png" width="50%" height="50%" alt align="center"></left>  </p>
+<h3><span id="关于将py文件编译为pyd">关于将py文件编译为pyd</span></h3><p>当你想把一个python脚本分享出去，又不想暴露源码的时候，可以将py文件编译成pyd文件。  </p>
+<p>pyd格式是D语言(C/C++综合进化版本)生成的二进制文件，实际也会是dll文件。<br>该文件不可以被反编译，只能被反汇编。</p>
+<p>相较于pyc文件，虽然也是py编译后的格式，但是pyc非常容易被反编译，基本上可以说编译了个寂寞。  </p>
+<p>我之前用过angelic47大佬写的<a target="_blank" rel="noopener" href="https://pyprotect.angelic47.com/">pyprotect</a>，这是个第三方python加密混淆工具，编译后的pyc代码也具有很高的反编译难度。(其实我自身更偏向于pyc文件，不用像pyd一样太考虑解释器版本和系统平台)</p>
+<p>不过后来pyprotect工具无法使用了，这也是我开始使用pyd格式进行编译的原因。<br>废话到这里，下面开始说下整个编译过程。(这里以Maya2018为例)</p>
+<h3><span id="1找到msc版本和对应vs版本">1.找到MSC版本和对应VS版本</span></h3><p>msc是微软的C编译器，安装对应的VS版本会带有。</p>
+<p>使用cmd命令行工具，打开<code>C:\Program Files\Autodesk\Maya2018\bin\mayapy.exe</code></p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-py-to-pyd/p2.jpg"></p>
+<p>或者在Maya的script editor里:</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-py-to-pyd/p5.jpg"></p>
+<p>可以看到，Maya2018使用的是<code>MSC v.1900</code>版本，通过下表来找到对应的VS版本。</p>
+<pre class="line-numbers language-none"><code class="language-none">MSC v.1000 -&gt; Visual C++ 4.x        
+MSC v.1100 -&gt; Visual C++ 5          
+MSC v.1200 -&gt; Visual C++ 6          
+MSC v.1300 -&gt; Visual C++ .NET       
+MSC v.1310 -&gt; Visual C++ .NET 2003  
+MSC v.1400 -&gt; Visual C++ 2005  (8.0)
+MSC v.1500 -&gt; Visual C++ 2008  (9.0)
+MSC v.1600 -&gt; Visual C++ 2010 (10.0)
+MSC v.1700 -&gt; Visual C++ 2012 (11.0)
+MSC v.1800 -&gt; Visual C++ 2013 (12.0)
+MSC v.1900 -&gt; Visual C++ 2015 (14.0)
+MSC v.1910 -&gt; Visual C++ 2017 (15.0)
+MSC v.1911 -&gt; Visual C++ 2017 (15.3)
+MSC v.1912 -&gt; Visual C++ 2017 (15.5)
+MSC v.1913 -&gt; Visual C++ 2017 (15.6)
+MSC v.1914 -&gt; Visual C++ 2017 (15.7)
+MSC v.1915 -&gt; Visual C++ 2017 (15.8)
+MSC v.1916 -&gt; Visual C++ 2017 (15.9)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>对应的版本是Visual C++ 2015，在<a target="_blank" rel="noopener" href="https://visualstudio.microsoft.com/zh-hans/vs/older-downloads/">官网</a>上进行下载安装。<br>也可以到<a target="_blank" rel="noopener" href="https://msdn.itellyou.cn/">https://msdn.itellyou.cn/</a>进行下载。<br>(推荐后者，微软官网的下载体验巨差)</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-py-to-pyd/p3.jpg"></p>
+<p>下载完成后安装，记得勾选</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-py-to-pyd/p4.png"></p>
+<h3><span id="2安装cython">2.安装Cython</span></h3><p>刚刚安装的是编译时所需依赖，而Cython是编译成pyd的主要工具。  </p>
+<p>去<a target="_blank" rel="noopener" href="https://github.com/cython/cython">https://github.com/cython/cython</a>下载源代码进行编译安装，或者到我的网盘<a target="_blank" rel="noopener" href="http://s.lingyunfx.com/smart-link/1a258ada-af7d-402c-8550-72eddb68a8ee/">分享链接</a>进行下载。<br>下载完解压后，先放一边。</p>
+<p>在此之前需要在<code>C:\Program Files\Autodesk\Maya2018\Python</code>下新建两个文件，<code>include</code>和<code>libs </code>。</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/maya-py-to-pyd/p6.png"></p>
+<ul>
+<li>拷贝<code>C:\Program Files\Autodesk\Maya2018\lib</code>里的<code>python27.lib</code>文件到<code>C:\Program Files\Autodesk\Maya2018\Python\libs</code></li>
+<li>拷贝<code>C:\Program Files\Autodesk\Maya2018\include\python2.7</code>里的所有文件到<code>C:\Program Files\Autodesk\Maya2018\Python\include</code></li>
+</ul>
+<p>然后用管理员模式打开cmd命令行工具，<code>cd</code>定位到刚刚解压的cython文件夹下。<br>运行:</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">&quot;C:\Program Files\Autodesk\Maya2018\bin\mayapy.exe&quot;  setup.py install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>安装完成后就可以开始编译代码了。</p>
+<h3><span id="3编译成pyd文件">3.编译成pyd文件</span></h3><p>在你的代码中，写一个<code>setpup.py</code>文件。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># coding=utf-8</span>
+<span class="token comment">#!/usr/bin/python2</span>
+
+<span class="token keyword">import</span> os
+<span class="token keyword">from</span> distutils<span class="token punctuation">.</span>core <span class="token keyword">import</span> setup
+<span class="token keyword">from</span> Cython<span class="token punctuation">.</span>Build <span class="token keyword">import</span> cythonize
+<span class="token keyword">from</span> distutils<span class="token punctuation">.</span>extension <span class="token keyword">import</span> Extension
+
+
+extensions <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+<span class="token keyword">for</span> f <span class="token keyword">in</span> os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span>os<span class="token punctuation">.</span>getcwd<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    name<span class="token punctuation">,</span> ext <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>splitext<span class="token punctuation">(</span>f<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> name <span class="token operator">==</span> <span class="token string">'__init__'</span><span class="token punctuation">:</span> <span class="token comment"># __init__文件不能被编译，会发生错误</span>
+        <span class="token keyword">continue</span>
+    <span class="token keyword">if</span> ext <span class="token operator">==</span> <span class="token string">'.py'</span><span class="token punctuation">:</span>
+        extensions<span class="token punctuation">.</span>append<span class="token punctuation">(</span>Extension<span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'&#123;0&#125;'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+setup<span class="token punctuation">(</span>
+    ext_modules<span class="token operator">=</span>cythonize<span class="token punctuation">(</span>extensions<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>打开cmd命令行工具，<code>cd</code>到你的代码文件夹，运行:</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">&quot;C:&#x2F;Program Files&#x2F;Autodesk&#x2F;Maya2018&#x2F;bin&#x2F;mayapy.exe&quot; setup.py build_ext --inplace<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/maya-tips-002/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  Maya的效率使用和技巧（二）
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/command-tool-intro/">
+                命令行工具的三把瑞士军刀
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2019-<span id="footerYear"></span> 
+	<a href="/">zhangly</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

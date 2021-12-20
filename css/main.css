@@ -14,10 +14,10 @@ a {
     text-decoration: none;
 }
 .content-on{
-	padding-left: 300px;
+	padding-left: 250px;
 }
 .header-on{
-	padding-left: 300px;
+	padding-left: 250px;
 }
 .on,
 .header-on,
@@ -69,7 +69,7 @@ a {
 }
 #sidebar-toggle{
 	top: 60px;
-	left: 310px;
+	left: 260px;
 	position: absolute;
 }
 .toggle {
@@ -90,8 +90,8 @@ a {
 	flex-grow:1;
 	flex-shrink:1;
 	flex-basis: 0;
-	width: 300px;
-	left: -300px;
+	width: 250px;
+	left: -250px;
 	height: 100%;
 	top: 0px;
 	background: #41555d;
@@ -101,7 +101,7 @@ a {
   left: 0;
 }
 #sidebar.off {
-  left: -300px;
+  left: -250px;
 }
 #search-input {
 	position: absolute;
