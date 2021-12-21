@@ -40,36 +40,36 @@
 <link rel="stylesheet" href="/css/main.css">
 
 	
-<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	
-<link rel="stylesheet" href="/css/darcula.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
 
 	
-<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
 
 
 	
-<script src="/js/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 
 	
-<script src="/js/jquery.fancybox.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
 	
-<script src="/js/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
 
 	
-<script src="/js/jquery.pjax.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
 
 	
 <script src="/js/main.js"></script>
 
 	
 		
-<script src="/js/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
 
 		
-<script src="/js/Valine.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
 
 	
 	
@@ -97,7 +97,6 @@ var _hmt = _hmt || [];
 
 	
 
-		
 		<li class="menu-item">
 			<a href="https://gitlab.lingyunfx.com/zhangly" class="menu-item-link" target="_blank">
 				<i class="fa fa-github fa-2x"></i>
@@ -515,6 +514,15 @@ var _hmt = _hmt || [];
 									
 							<ul>
 								<li class="file">
+									<a href="/retarget-ani-unreal/">
+										Unreal动画重定向
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/ue4-python-ref/">
 										Python片段参考
 									</a>
@@ -526,6 +534,15 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/unreal-add-custom-menus/">
 										使用Python为UE4添加自定义菜单
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal-basic-leaning/">
+										Unreal学习笔记之基础操作
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -1145,6 +1162,108 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
+			<a href="/nuke-call-back/">
+				<h2 class="index-title">
+					callback使用
+				</h2>
+				<div class="index-brief">
+					callback的应用添加在创建节点时，执行的callback
+def test():
+  print "this is test"
+
+nuke.addOnCreate(test, nodeClass='Blur')
+
+执行上述代码，在创建一个Blur节点的时候，就可以看到调用里test函数。
+如果
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-11-23</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/">DCC</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/Nuke/">Nuke</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/Nuke/Nuke编程/">Nuke编程</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/gizmo-basic/">
+				<h2 class="index-title">
+					gizmo制作
+				</h2>
+				<div class="index-brief">
+					gizmo制作在nuke中选中一些节点，按ctrl+g打包组，一个gizmo节点就做好了。
+ctrl+回车键，进入组。
+两种方法进行组和组内节点的关联：1.在gizmo组节点上右键Manage User Knobs，再点击pick找到组内节点的属性添加进来。
+2.在gizmo组上添加一个knob (
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-11-23</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/">DCC</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/Nuke/">Nuke</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/Nuke/Nuke编程/">Nuke编程</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/knob-basic/">
 				<h2 class="index-title">
 					自定义Knob操作
@@ -1482,96 +1601,6 @@ editorAssetLib
 			</a>
                 <div class="article-meta">
 				    <span>2021-05-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/">DCC</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Maya/">Maya</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/maya-env-varibles/">
-				<h2 class="index-title">
-					Maya常用环境变量
-				</h2>
-				<div class="index-brief">
-					收集一些常用的Maya环境变量，方便用的时候查。有关PATH的变量，Mac OS X中使用:分隔，Windows和Linux中使用;分隔。
-
-
-
-Variable
-Description
-
-
-
-MAYA_IGNORE_DIALOGS    
-打开maya场景禁止弹出警告框
-
-
-MAYA_DISABL
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-03-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/">DCC</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Maya/">Maya</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/maya-issue-vol1/">
-				<h2 class="index-title">
-					Maya疑难杂症备忘录 Vol.1
-				</h2>
-				<div class="index-brief">
-					
-这个系列主要是收集一些Maya中遇到的疑难杂症，有自己工作中遇到的，有从网上或者博客中看到记录的。总之当作一个备忘录。
-
-1.打开软件崩溃双击打开软件，出现一个下面这样的弹窗，Maya就崩溃退出了。  
-
-出现这样的情况通常重置用户预设文件夹即可解决：...\Documents\maya\&lt;
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-03-09</span>
                     
                             
                                 

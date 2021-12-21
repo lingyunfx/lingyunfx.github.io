@@ -40,36 +40,36 @@
 <link rel="stylesheet" href="/css/main.css">
 
 	
-<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	
-<link rel="stylesheet" href="/css/darcula.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
 
 	
-<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
 
 
 	
-<script src="/js/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 
 	
-<script src="/js/jquery.fancybox.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
 	
-<script src="/js/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
 
 	
-<script src="/js/jquery.pjax.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
 
 	
 <script src="/js/main.js"></script>
 
 	
 		
-<script src="/js/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
 
 		
-<script src="/js/Valine.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
 
 	
 	
@@ -97,7 +97,6 @@ var _hmt = _hmt || [];
 
 	
 
-		
 		<li class="menu-item">
 			<a href="https://gitlab.lingyunfx.com/zhangly" class="menu-item-link" target="_blank">
 				<i class="fa fa-github fa-2x"></i>
@@ -515,6 +514,15 @@ var _hmt = _hmt || [];
 									
 							<ul>
 								<li class="file">
+									<a href="/retarget-ani-unreal/">
+										Unreal动画重定向
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/ue4-python-ref/">
 										Python片段参考
 									</a>
@@ -526,6 +534,15 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/unreal-add-custom-menus/">
 										使用Python为UE4添加自定义菜单
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal-basic-leaning/">
+										Unreal学习笔记之基础操作
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -1145,6 +1162,89 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
+			<a href="/nginx-learn/">
+				<h2 class="index-title">
+					Nginx学习笔记
+				</h2>
+				<div class="index-brief">
+					安装不推荐使用rpm包，可能会存在后门（有安全风险）
+建议从官方源码包安装。
+https://nginx.org/en/download.html
+1.下载源码包
+# 源码包一般放在src里
+wget https://nginx.org/download/nginx-1.21.3.tar.gz -P
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-11-24</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Geek/">Geek</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Geek/Nginx/">Nginx</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/py-class-learn/">
+				<h2 class="index-title">
+					面向对象进阶
+				</h2>
+				<div class="index-brief">
+					公共属性使用id()可以查看，公共属性的地址是一样的。
+Dog.d_type = &#39;藏獒&#39; 一旦更改，其他的实例对应属性也会随之更改。
+class Dog:
+	d_type = '京巴' # 公共属性， 类属性， 类变量
+
+	def say_hi(self):
+		print('he
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-11-23</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Python/">Python</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Python/学习笔记/">学习笔记</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/py-multiprocess/">
 				<h2 class="index-title">
 					并发编程
@@ -1438,112 +1538,6 @@ import hiero.core
                 <div class="article-meta">
 				    <span>2021-11-23</span>
                     
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/nuke-menu/">
-				<h2 class="index-title">
-					菜单操作
-				</h2>
-				<div class="index-brief">
-					在nuke添加自己的菜单# 获取menu对象，并打印出所有menu
-nukeMenu = nuke.menu("Nuke")
-for item in nukeMenu.items():
-  print item.name()
-
-# 添加一个新的menu
-testMenu = nukeMenu.add
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-11-23</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/">DCC</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Nuke/">Nuke</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Nuke/Nuke编程/">Nuke编程</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/nuke-node-ani/">
-				<h2 class="index-title">
-					节点动画操作
-				</h2>
-				<div class="index-brief">
-					# 设置为可key帧状态
-node = nuke.toNode("Blur1")
-knob = node["size"]
-knob.setAnimated()
-
-# 给指定帧数key帧，第一个参数是数值，第二个参数是帧数
-knob.setValueAt(55, 10)
-
-# 比如size属性，有x和
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-11-23</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/">DCC</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Nuke/">Nuke</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Nuke/Nuke编程/">Nuke编程</a>
-										
-                                    </span>
-                                
                             
                     
                 </div>

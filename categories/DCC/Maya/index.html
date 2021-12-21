@@ -40,36 +40,36 @@
 <link rel="stylesheet" href="/css/main.css">
 
 	
-<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	
-<link rel="stylesheet" href="/css/darcula.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
 
 	
-<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
 
 
 	
-<script src="/js/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 
 	
-<script src="/js/jquery.fancybox.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
 	
-<script src="/js/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
 
 	
-<script src="/js/jquery.pjax.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
 
 	
 <script src="/js/main.js"></script>
 
 	
 		
-<script src="/js/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
 
 		
-<script src="/js/Valine.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
 
 	
 	
@@ -97,7 +97,6 @@ var _hmt = _hmt || [];
 
 	
 
-		
 		<li class="menu-item">
 			<a href="https://gitlab.lingyunfx.com/zhangly" class="menu-item-link" target="_blank">
 				<i class="fa fa-github fa-2x"></i>
@@ -515,6 +514,15 @@ var _hmt = _hmt || [];
 									
 							<ul>
 								<li class="file">
+									<a href="/retarget-ani-unreal/">
+										Unreal动画重定向
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/ue4-python-ref/">
 										Python片段参考
 									</a>
@@ -526,6 +534,15 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/unreal-add-custom-menus/">
 										使用Python为UE4添加自定义菜单
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal-basic-leaning/">
+										Unreal学习笔记之基础操作
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -1145,14 +1162,15 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
-			<a href="/maya-tips-001/">
+			<a href="/maya-py-to-pyd/">
 				<h2 class="index-title">
-					Maya的效率使用和技巧（一）
+					将Maya的python代码编译成pyd
 				</h2>
 				<div class="index-brief">
-					前言收集了一些Maya使用效率的技巧。大致来源于一些博客，视频教程和平时使用的经验。
-1.清理优化场景文件有时候我们拿到一个文件，明明场景里只有一个人物rig动画。但是当我们对它进行调整，或是打开保存文件的时候，会异常的慢。这有可能是场景中存在了很多未被使用的材质或动画曲线等一系列垃圾节点。  
-这
+					  
+关于将py文件编译为pyd当你想把一个python脚本分享出去，又不想暴露源码的时候，可以将py文件编译成pyd或pyc文件。
+pyd格式是D语言(C/C++综合进化版本)生成的二进制文件，实际也会是dll文件。该文件不可以被反编译，只能被反汇编。
+而pyc文件，虽然也是py编译后的格式，但是
 					...
 				</div>
 			</a>
@@ -1197,7 +1215,7 @@ var _hmt = _hmt || [];
 				</div>
 			</a>
                 <div class="article-meta">
-				    <span>2021-12-20</span>
+				    <span>2021-12-13</span>
                     
                             
                                 
@@ -1223,20 +1241,19 @@ var _hmt = _hmt || [];
 		</div>	
 	
 		<div class="index-li">
-			<a href="/maya-py-to-pyd/">
+			<a href="/maya-tips-001/">
 				<h2 class="index-title">
-					将Maya的python代码编译成pyd
+					Maya的效率使用和技巧（一）
 				</h2>
 				<div class="index-brief">
-					  
-关于将py文件编译为pyd当你想把一个python脚本分享出去，又不想暴露源码的时候，可以将py文件编译成pyd或pyc文件。
-pyd格式是D语言(C/C++综合进化版本)生成的二进制文件，实际也会是dll文件。该文件不可以被反编译，只能被反汇编。
-而pyc文件，虽然也是py编译后的格式，但是
+					前言收集了一些Maya使用效率的技巧。大致来源于一些博客，视频教程和平时使用的经验。
+1.清理优化场景文件有时候我们拿到一个文件，明明场景里只有一个人物rig动画。但是当我们对它进行调整，或是打开保存文件的时候，会异常的慢。这有可能是场景中存在了很多未被使用的材质或动画曲线等一系列垃圾节点。  
+这
 					...
 				</div>
 			</a>
                 <div class="article-meta">
-				    <span>2021-12-20</span>
+				    <span>2021-12-12</span>
                     
                             
                                 

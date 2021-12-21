@@ -40,36 +40,36 @@
 <link rel="stylesheet" href="/css/main.css">
 
 	
-<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	
-<link rel="stylesheet" href="/css/darcula.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
 
 	
-<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
 
 
 	
-<script src="/js/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 
 	
-<script src="/js/jquery.fancybox.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
 	
-<script src="/js/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
 
 	
-<script src="/js/jquery.pjax.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
 
 	
 <script src="/js/main.js"></script>
 
 	
 		
-<script src="/js/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
 
 		
-<script src="/js/Valine.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
 
 	
 	
@@ -97,7 +97,6 @@ var _hmt = _hmt || [];
 
 	
 
-		
 		<li class="menu-item">
 			<a href="https://gitlab.lingyunfx.com/zhangly" class="menu-item-link" target="_blank">
 				<i class="fa fa-github fa-2x"></i>
@@ -515,6 +514,15 @@ var _hmt = _hmt || [];
 									
 							<ul>
 								<li class="file">
+									<a href="/retarget-ani-unreal/">
+										Unreal动画重定向
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/ue4-python-ref/">
 										Python片段参考
 									</a>
@@ -526,6 +534,15 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/unreal-add-custom-menus/">
 										使用Python为UE4添加自定义菜单
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal-basic-leaning/">
+										Unreal学习笔记之基础操作
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -1145,6 +1162,87 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
+			<a href="/06%20rez-package-commands/">
+				<h2 class="index-title">
+					06 Package Commands
+				</h2>
+				<div class="index-brief">
+					概述程序包定义文件（package.py）通常定义命令的部分。这是一个例子，用于确定如何配置环境和软件包的Python函数：
+def commands():
+  env.PYTHONPATH.append("&#123;root&#125;/python")
+  env.PATH.append("&
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-03-15</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/05%20rez-configuring/">
+				<h2 class="index-title">
+					05 Configuring Rez
+				</h2>
+				<div class="index-brief">
+					概述Rez具有大量可配置的设置。可以在这里找到设置的默认值和每个设置的释义。最终的设置通过以下方式确定：
+
+首先在Rez安装文件中的rezconfig.py读取设置
+
+如果REZ_CONFIG_FILE环境变量指向另一个文件，则设置被覆盖（变量也可以是一个文件夹路径，从而读取多个配置文件）
+
+如果$
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-03-15</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/01%20rez-home/">
 				<h2 class="index-title">
 					01 Home
@@ -1476,86 +1574,6 @@ Cut
                                     <span>
                                         <i class="fa fa-folder" aria-hidden="true"></i>
                                         <a href="/categories/TD-Pipeline/Shotgun/">Shotgun</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/pyqt-basis/">
-				<h2 class="index-title">
-					PyQt介绍及入门学习
-				</h2>
-				<div class="index-brief">
-					Qt的历史Qt是一个1991年由Qt Company开发的跨平台C++图形用户界面应用程序开发框架。也可以用与开发非GUI程序，比如控制台工具和服务器。Qt是面向对象的框架，使用特殊的代码生成扩展以及一些宏，Qt很容易扩展，并且允许真正地组件编程。
-2008年6月17日被NOKIA公司收购。2009
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2020-12-10</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Python/">Python</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Python/学习笔记/">学习笔记</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/python-re-module-help/">
-				<h2 class="index-title">
-					Python正则方法
-				</h2>
-				<div class="index-brief">
-					概览
-re.compile 生成一个匹配器实例，用来匹配
-re.match 从字符最前端开始匹配
-re.search 从字符中搜索出第一个匹配结果
-re.findall 从字符中找出所有匹配结果
-re.sub 查询替换字符，返回替换结果
-re.subn 查询替换字符，返回替换结果和替换次数
-re.s
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2020-12-10</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Python/">Python</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Python/查询/">查询</a>
 										
                                     </span>
                                 

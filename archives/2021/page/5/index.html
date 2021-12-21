@@ -40,36 +40,36 @@
 <link rel="stylesheet" href="/css/main.css">
 
 	
-<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	
-<link rel="stylesheet" href="/css/darcula.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
 
 	
-<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
 
 
 	
-<script src="/js/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 
 	
-<script src="/js/jquery.fancybox.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
 	
-<script src="/js/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
 
 	
-<script src="/js/jquery.pjax.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
 
 	
 <script src="/js/main.js"></script>
 
 	
 		
-<script src="/js/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
 
 		
-<script src="/js/Valine.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
 
 	
 	
@@ -97,7 +97,6 @@ var _hmt = _hmt || [];
 
 	
 
-		
 		<li class="menu-item">
 			<a href="https://gitlab.lingyunfx.com/zhangly" class="menu-item-link" target="_blank">
 				<i class="fa fa-github fa-2x"></i>
@@ -515,6 +514,15 @@ var _hmt = _hmt || [];
 									
 							<ul>
 								<li class="file">
+									<a href="/retarget-ani-unreal/">
+										Unreal动画重定向
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/ue4-python-ref/">
 										Python片段参考
 									</a>
@@ -526,6 +534,15 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/unreal-add-custom-menus/">
 										使用Python为UE4添加自定义菜单
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal-basic-leaning/">
+										Unreal学习笔记之基础操作
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -1145,6 +1162,94 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
+			<a href="/ue4-python-ref/">
+				<h2 class="index-title">
+					Python片段参考
+				</h2>
+				<div class="index-brief">
+					列出所有Assets以及类型import unreal
+
+workingPath = "/Game/"
+
+@unreal.uclass()
+class GetEditorAssetLibrary(unreal.EditorAssetLibrary):
+    pass
+
+editorAssetLib
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-11-23</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/">DCC</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/Unreal/">Unreal</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/maya-flipping-camera/">
+				<h2 class="index-title">
+					在Maya中进行Flipping Camera
+				</h2>
+				<div class="index-brief">
+					前言视效制作中，在完成Camera Tracking后，可能会被告知：“素材进行了翻转处理”。然后丢给你一个镜像后的素材，并要求你重新进行Tracking。
+翻转素材一般有两种情况：
+
+基于x轴镜像
+
+基于y轴镜像
+
+
+对于这样的镜头，不用重新再做一遍Tracking，只需要在Maya里进行一些处理
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-11-23</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/">DCC</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/Maya/">Maya</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/sg-common-command/">
 				<h2 class="index-title">
 					Shotgun常用命令参考
@@ -1416,84 +1521,6 @@ rez最开始是Dr.D Studio于2011年用python写的依赖解算器，于2012年�
 			</a>
                 <div class="article-meta">
 				    <span>2021-03-16</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/16%20rez-environment-variables/">
-				<h2 class="index-title">
-					16 Environment Variables
-				</h2>
-				<div class="index-brief">
-					
-本节列出来rez在某些情况下产生的环境变量，以及你可以设置的影响rez操作的环境变量。
-
-Context环境变量这些是rez在解析环境中产生的环境变量。
-REZ_RXT_FILE ： 当前context的文件路径 ( rxt 文件)。REZ_USED ：用于解析这个环境的rez安装路径。REZ_U
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-03-15</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/15%20rez-package-caching/">
-				<h2 class="index-title">
-					15 Package Caching
-				</h2>
-				<div class="index-brief">
-					概述软件包缓存（Package Caching）是一个将包复制到本地磁盘加快运行环境的功能。
-比如你发布的包通常是在共享服务器上，那么运行python进程时，就会从共享存储上获取所有源码。缓存的意义在于将这些内容复制到本地，节省访问网络的时间成本。
-启用缓存软件包缓存功能不是默认启用的。要启用它，需
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-03-15</span>
                     
                             
                                 

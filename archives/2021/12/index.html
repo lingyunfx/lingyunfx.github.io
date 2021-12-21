@@ -40,36 +40,36 @@
 <link rel="stylesheet" href="/css/main.css">
 
 	
-<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	
-<link rel="stylesheet" href="/css/darcula.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
 
 	
-<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
 
 
 	
-<script src="/js/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 
 	
-<script src="/js/jquery.fancybox.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
 	
-<script src="/js/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
 
 	
-<script src="/js/jquery.pjax.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
 
 	
 <script src="/js/main.js"></script>
 
 	
 		
-<script src="/js/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
 
 		
-<script src="/js/Valine.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
 
 	
 	
@@ -97,7 +97,6 @@ var _hmt = _hmt || [];
 
 	
 
-		
 		<li class="menu-item">
 			<a href="https://gitlab.lingyunfx.com/zhangly" class="menu-item-link" target="_blank">
 				<i class="fa fa-github fa-2x"></i>
@@ -515,6 +514,15 @@ var _hmt = _hmt || [];
 									
 							<ul>
 								<li class="file">
+									<a href="/retarget-ani-unreal/">
+										Unreal动画重定向
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/ue4-python-ref/">
 										Python片段参考
 									</a>
@@ -526,6 +534,15 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/unreal-add-custom-menus/">
 										使用Python为UE4添加自定义菜单
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal-basic-leaning/">
+										Unreal学习笔记之基础操作
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -1145,166 +1162,25 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
-			<a href="/maya-replace-ref-tool/">
+			<a href="/unreal-basic-leaning/">
 				<h2 class="index-title">
-					批量替换Maya Reference工具
+					Unreal学习笔记之基础操作
 				</h2>
 				<div class="index-brief">
-					废话在前从外包收回来文件，maya里reference路径都是他们本机的路径，要打开文件每次要手动重新指认，资产一旦多起来就很麻烦。
+					BSP （Binary Space Partitioning）计算机图像学术语：二叉空间划分。
+在UE4被称作为Geometry：
 
-后来找朋友要了一个批量替换reference的工具，但是有一些问题，比如：
-
-一次只能替换一个路径
-无法预先知道文件里使用的ref路径是什么
-
-当时有40多个文件，
+相较于static mesh，性能稍微差一点。
+适合用来快速搭建原型，验证想法。
+默认单位虚幻四中默认单位为厘米。
+复制物体按住alt键，移动物体
+吸附
+分别对应位移
 					...
 				</div>
 			</a>
                 <div class="article-meta">
-				    <span>2021-12-25</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Article/">Article</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/reject-maya-warning/">
-				<h2 class="index-title">
-					关于“你的文件贼健康”的简单处理方式
-				</h2>
-				<div class="index-brief">
-					
-关于“你的文件贼健康”算是一个过时的话题了，不过发现身边的朋友很多还是不知道怎么处理，或还在使用一些比较繁琐的处理方式：  
-1.比如每次打开文件之前用文本编辑器搜索关键字2.打开文件时取消勾选Execute script nodes3.将userSetup文件改为只读等等…
-这里推荐一个最简单的
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-12-25</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Article/">Article</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/metahuman-intro/">
-				<h2 class="index-title">
-					MetaHumans Creator初体验
-				</h2>
-				<div class="index-brief">
-					介绍MetaHumans Creator是虚幻引擎用来创建cg角色的工具。如同官方介绍的一样，它能够在几分钟创造出一个照片级的数字角色。  
-创建的cg角色包含完整的骨骼，以及毛发和服装。可以将它导入到Maya，Blender，Unreal等软件进行动画制作和渲染。（下图为MetaHuman的面部绑
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-12-20</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Article/">Article</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/notion-intro/">
-				<h2 class="index-title">
-					使用Notion建立个人Wiki
-				</h2>
-				<div class="index-brief">
-					前言一个从事vfx行业的打工人，要积累非常多零碎的技能知识。（无论是来自工作中的经验技巧，还是教程学习）
-而每次真正遇到问题的时候，会发现这个问题好像是在某个教程里讲过，又或是经过不停的试错，曾经找出过解决方案。但时隔已久，具体如何实现已经不记得了。  
-
-除了那些核心和常用的，大多零碎知识很容易被
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-12-20</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Article/">Article</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/whats-matchmoving/">
-				<h2 class="index-title">
-					电影视效制作中的Matchmove
-				</h2>
-				<div class="index-brief">
-					简述Matchmoving是后期视效制作中使用的一种技术，主要是对镜头画面进行摄像机反求和运动追踪。
-摄像机反求，通俗来说就是通过追踪的二维点解算，还原镜头拍摄时真实的三维像机路径。
-在实际工作中，matchmoving人员还会涉及到一点layout的工作。
-layout翻译过来是布局，在求得三维相
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-12-20</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Article/">Article</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/maya-tips-001/">
-				<h2 class="index-title">
-					Maya的效率使用和技巧（一）
-				</h2>
-				<div class="index-brief">
-					前言收集了一些Maya使用效率的技巧。大致来源于一些博客，视频教程和平时使用的经验。
-1.清理优化场景文件有时候我们拿到一个文件，明明场景里只有一个人物rig动画。但是当我们对它进行调整，或是打开保存文件的时候，会异常的慢。这有可能是场景中存在了很多未被使用的材质或动画曲线等一系列垃圾节点。  
-这
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-12-20</span>
+				    <span>2021-12-21</span>
                     
                             
                                 
@@ -1320,7 +1196,7 @@ layout翻译过来是布局，在求得三维相
                                 
                                     <span>
                                         <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Maya/">Maya</a>
+                                        <a href="/categories/DCC/Unreal/">Unreal</a>
 										
                                     </span>
                                 
@@ -1330,21 +1206,25 @@ layout翻译过来是布局，在求得三维相
 		</div>	
 	
 		<div class="index-li">
-			<a href="/maya-tips-002/">
+			<a href="/retarget-ani-unreal/">
 				<h2 class="index-title">
-					Maya的效率使用和技巧（二）
+					Unreal动画重定向
 				</h2>
 				<div class="index-brief">
-					8.快速选择集Maya的Create Quick Set可以创建快速选择集。比如一个动画师在制作手部动画，需要每次对手上的十多个控制器一起key帧。这里就可以创建快速选择集。  
-首先选择好手指上需要的控制器。  
-  
-菜单栏 Create - Sets - Quick Select Set  
+					1.打开骨骼，打开Retarget Manager面板
+2.添加目标源
+3.添加Rig模板
+4.一一对应骨骼如果有不确定骨骼，宁愿不要添加。(例如没有root骨骼的话，点后面的x去掉)
 
+如果有手指的骨骼，点击Show Advanced，指定更多细节骨骼
+
+调整完成后，点击Save。
+5.导航到需要
 					...
 				</div>
 			</a>
                 <div class="article-meta">
-				    <span>2021-12-20</span>
+				    <span>2021-12-21</span>
                     
                             
                                 
@@ -1360,7 +1240,7 @@ layout翻译过来是布局，在求得三维相
                                 
                                     <span>
                                         <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Maya/">Maya</a>
+                                        <a href="/categories/DCC/Unreal/">Unreal</a>
 										
                                     </span>
                                 
@@ -1409,6 +1289,166 @@ pyd格式是D语言(C/C++综合进化版本)生成的二进制文件，实际也
 		</div>	
 	
 		<div class="index-li">
+			<a href="/reject-maya-warning/">
+				<h2 class="index-title">
+					关于“你的文件贼健康”的简单处理方式
+				</h2>
+				<div class="index-brief">
+					
+关于“你的文件贼健康”算是一个过时的话题了，不过发现身边的朋友很多还是不知道怎么处理，或还在使用一些比较繁琐的处理方式：  
+1.比如每次打开文件之前用文本编辑器搜索关键字2.打开文件时取消勾选Execute script nodes3.将userSetup文件改为只读等等…
+这里推荐一个最简单的
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-12-19</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Article/">Article</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/maya-replace-ref-tool/">
+				<h2 class="index-title">
+					批量替换Maya Reference工具
+				</h2>
+				<div class="index-brief">
+					废话在前从外包收回来文件，maya里reference路径都是他们本机的路径，要打开文件每次要手动重新指认，资产一旦多起来就很麻烦。
+
+后来找朋友要了一个批量替换reference的工具，但是有一些问题，比如：
+
+一次只能替换一个路径
+无法预先知道文件里使用的ref路径是什么
+
+当时有40多个文件，
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Article/">Article</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/notion-intro/">
+				<h2 class="index-title">
+					使用Notion建立个人Wiki
+				</h2>
+				<div class="index-brief">
+					前言一个从事vfx行业的打工人，要积累非常多零碎的技能知识。（无论是来自工作中的经验技巧，还是教程学习）
+而每次真正遇到问题的时候，会发现这个问题好像是在某个教程里讲过，又或是经过不停的试错，曾经找出过解决方案。但时隔已久，具体如何实现已经不记得了。  
+
+除了那些核心和常用的，大多零碎知识很容易被
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-12-15</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Article/">Article</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/whats-matchmoving/">
+				<h2 class="index-title">
+					电影视效制作中的Matchmove
+				</h2>
+				<div class="index-brief">
+					简述Matchmoving是后期视效制作中使用的一种技术，主要是对镜头画面进行摄像机反求和运动追踪。
+摄像机反求，通俗来说就是通过追踪的二维点解算，还原镜头拍摄时真实的三维像机路径。
+在实际工作中，matchmoving人员还会涉及到一点layout的工作。
+layout翻译过来是布局，在求得三维相
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-12-14</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Article/">Article</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/maya-tips-002/">
+				<h2 class="index-title">
+					Maya的效率使用和技巧（二）
+				</h2>
+				<div class="index-brief">
+					8.快速选择集Maya的Create Quick Set可以创建快速选择集。比如一个动画师在制作手部动画，需要每次对手上的十多个控制器一起key帧。这里就可以创建快速选择集。  
+首先选择好手指上需要的控制器。  
+  
+菜单栏 Create - Sets - Quick Select Set  
+
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-12-13</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/">DCC</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/Maya/">Maya</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/command-tool-intro/">
 				<h2 class="index-title">
 					命令行工具的三把瑞士军刀
@@ -1428,7 +1468,7 @@ pyd格式是D语言(C/C++综合进化版本)生成的二进制文件，实际也
 				</div>
 			</a>
                 <div class="article-meta">
-				    <span>2021-12-10</span>
+				    <span>2021-12-12</span>
                     
                             
                                 
@@ -1444,25 +1484,35 @@ pyd格式是D语言(C/C++综合进化版本)生成的二进制文件，实际也
 		</div>	
 	
 		<div class="index-li">
-			<a href="/maya-retime-tool-intro/">
+			<a href="/maya-tips-001/">
 				<h2 class="index-title">
-					Maya动画变速工具
+					Maya的效率使用和技巧（一）
 				</h2>
 				<div class="index-brief">
-					前言前段时间朋友接了个外包，实拍的原始素材在nuke里进行了变速，而一些cg动画在原素材中已经制作完成，需要一个工具对maya文件中动画进行相同的变速来匹配变速后的素材。
-其实变速的原理和实现并不是特别复杂，不过繁复的数值计算需要借助脚本来实现。  
-然后借着节假日的最后一天，写了这个变速工具。这篇
+					前言收集了一些Maya使用效率的技巧。大致来源于一些博客，视频教程和平时使用的经验。
+1.清理优化场景文件有时候我们拿到一个文件，明明场景里只有一个人物rig动画。但是当我们对它进行调整，或是打开保存文件的时候，会异常的慢。这有可能是场景中存在了很多未被使用的材质或动画曲线等一系列垃圾节点。  
+这
 					...
 				</div>
 			</a>
                 <div class="article-meta">
-				    <span>2021-12-10</span>
+				    <span>2021-12-12</span>
                     
                             
                                 
                                     <span>
                                         <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Article/">Article</a>
+                                        <a href="/categories/DCC/">DCC</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/Maya/">Maya</a>
 										
                                     </span>
                                 

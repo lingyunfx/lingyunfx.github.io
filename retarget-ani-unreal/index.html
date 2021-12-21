@@ -8,6 +8,8 @@
 	<!-- title -->
 	
 	<title>
+	
+		Unreal动画重定向 | 
 	 
 	凌云的个人博客
 	</title>
@@ -513,7 +515,7 @@ var _hmt = _hmt || [];
 									</a>
 									
 							<ul>
-								<li class="file">
+								<li class="file active">
 									<a href="/retarget-ani-unreal/">
 										Unreal动画重定向
 									</a>
@@ -1159,57 +1161,95 @@ var _hmt = _hmt || [];
 
 	<!-- 引入正文 -->
 	<div id="content">
-		<div id="index">
+		<h1 id="article-title">
+	Unreal动画重定向
+</h1>
+<div class="article-meta">
 	
-		<div class="index-li">
-			<a href="/tde-py-ref/">
-				<h2 class="index-title">
-					3DEqualizer 命令参考
-				</h2>
-				<div class="index-brief">
-					窗口# 创建一个自定义请求对象
-req = tde4.createCustomRequester()
+	<span>zhangly</span>
+	<span>2021-12-21 15:32:04</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/DCC/">DCC</a>
+                        </i>
+                      
+                        >
+                      
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/DCC/Unreal/">Unreal</a>
+                        </i>
+                      
+                    </span>
+                
+            
+    
 
-# 为req对象添加“文件浏览器”部件
-tde4.addFileWidget(req, "filepath", "Browse", "*.obj")
+    
+		<span>Tags：</span>
+            
+    
+		</div>
 
-# 为req对象添加"开关选项"部件
-tde
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-11-23</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/">DCC</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/3DEqualizer/">3DEqualizer</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-	
-	<div id="index-paginator">
-		
-	</div>
 </div>
 
+<div id="article-content">
+	<h3><span id="1打开骨骼打开retarget-manager面板">1.打开骨骼，打开Retarget Manager面板</span></h3><p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/retarget-ani-unreal/p1.png"></p>
+<h3><span id="2添加目标源">2.添加目标源</span></h3><p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/retarget-ani-unreal/p2.png"></p>
+<h3><span id="3添加rig模板">3.添加Rig模板</span></h3><p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/retarget-ani-unreal/p3.png"></p>
+<h3><span id="4一一对应骨骼">4.一一对应骨骼</span></h3><p>如果有不确定骨骼，宁愿不要添加。<br>(例如没有root骨骼的话，点后面的x去掉)</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/retarget-ani-unreal/p4.png"></p>
+<p>如果有手指的骨骼，点击Show Advanced，指定更多细节骨骼</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/retarget-ani-unreal/p5.png"></p>
+<p>调整完成后，点击Save。</p>
+<h3><span id="5导航到需要的动画右键选中重定向功能">5.导航到需要的动画，右键选中重定向功能</span></h3><p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/retarget-ani-unreal/p6.png"></p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/retarget-ani-unreal/p7.png"></p>
+<p>对于体型差异太大的模型，可以选择使用骨骼作为基础。</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/retarget-ani-unreal/p8.png"></p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/retarget-ani-unreal/p9.png"></p>
+<h3><span id="6对于初始pose不一样的模型需要手动调整">6.对于初始pose不一样的模型，需要手动调整</span></h3><p>比如原始动画是T-Pose，而目标模型是A-Pose。<br>则需要在原始的模型上，进入模型修改界面进行修改。</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/retarget-ani-unreal/p10.png"></p>
+<p>修改成A-Pose后，进行保存，然后再点击Hide Pose，回到预览界面。</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/retarget-ani-unreal/p11.png"></p>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/unreal-basic-leaning/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  Unreal学习笔记之基础操作
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/maya-py-to-pyd/">
+                将Maya的python代码编译成pyd
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
 	</div>
 	<div id="footer">
 	<p>

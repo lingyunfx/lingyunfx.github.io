@@ -40,36 +40,36 @@
 <link rel="stylesheet" href="/css/main.css">
 
 	
-<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	
-<link rel="stylesheet" href="/css/darcula.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
 
 	
-<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
 
 
 	
-<script src="/js/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 
 	
-<script src="/js/jquery.fancybox.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
 	
-<script src="/js/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
 
 	
-<script src="/js/jquery.pjax.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
 
 	
 <script src="/js/main.js"></script>
 
 	
 		
-<script src="/js/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
 
 		
-<script src="/js/Valine.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
 
 	
 	
@@ -97,7 +97,6 @@ var _hmt = _hmt || [];
 
 	
 
-		
 		<li class="menu-item">
 			<a href="https://gitlab.lingyunfx.com/zhangly" class="menu-item-link" target="_blank">
 				<i class="fa fa-github fa-2x"></i>
@@ -515,6 +514,15 @@ var _hmt = _hmt || [];
 									
 							<ul>
 								<li class="file">
+									<a href="/retarget-ani-unreal/">
+										Unreal动画重定向
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/ue4-python-ref/">
 										Python片段参考
 									</a>
@@ -526,6 +534,15 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/unreal-add-custom-menus/">
 										使用Python为UE4添加自定义菜单
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal-basic-leaning/">
+										Unreal学习笔记之基础操作
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -1145,6 +1162,84 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
+			<a href="/16%20rez-environment-variables/">
+				<h2 class="index-title">
+					16 Environment Variables
+				</h2>
+				<div class="index-brief">
+					
+本节列出来rez在某些情况下产生的环境变量，以及你可以设置的影响rez操作的环境变量。
+
+Context环境变量这些是rez在解析环境中产生的环境变量。
+REZ_RXT_FILE ： 当前context的文件路径 ( rxt 文件)。REZ_USED ：用于解析这个环境的rez安装路径。REZ_U
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-03-15</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/15%20rez-package-caching/">
+				<h2 class="index-title">
+					15 Package Caching
+				</h2>
+				<div class="index-brief">
+					概述软件包缓存（Package Caching）是一个将包复制到本地磁盘加快运行环境的功能。
+比如你发布的包通常是在共享服务器上，那么运行python进程时，就会从共享存储上获取所有源码。缓存的意义在于将这些内容复制到本地，节省访问网络的时间成本。
+启用缓存软件包缓存功能不是默认启用的。要启用它，需
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-03-15</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/14%20rez-copying-package/">
 				<h2 class="index-title">
 					14 Copying Packages
@@ -1437,87 +1532,6 @@ You are now in a r
 					概述软件包的定义来自文件（package.py），位于每个包安装的根目录下。比如包的存储位置为/packages/inhouse，则包”foo-1.0.0”的定义文件路径是：/packages/inhouse/foo/1.0.0/package.py
 这里是一个定义文件的例子：
 name = 'se
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-03-15</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/06%20rez-package-commands/">
-				<h2 class="index-title">
-					06 Package Commands
-				</h2>
-				<div class="index-brief">
-					概述程序包定义文件（package.py）通常定义命令的部分。这是一个例子，用于确定如何配置环境和软件包的Python函数：
-def commands():
-  env.PYTHONPATH.append("&#123;root&#125;/python")
-  env.PATH.append("&
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-03-15</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/05%20rez-configuring/">
-				<h2 class="index-title">
-					05 Configuring Rez
-				</h2>
-				<div class="index-brief">
-					概述Rez具有大量可配置的设置。可以在这里找到设置的默认值和每个设置的释义。最终的设置通过以下方式确定：
-
-首先在Rez安装文件中的rezconfig.py读取设置
-
-如果REZ_CONFIG_FILE环境变量指向另一个文件，则设置被覆盖（变量也可以是一个文件夹路径，从而读取多个配置文件）
-
-如果$
 					...
 				</div>
 			</a>

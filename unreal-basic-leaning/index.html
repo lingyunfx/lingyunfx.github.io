@@ -8,6 +8,8 @@
 	<!-- title -->
 	
 	<title>
+	
+		Unreal学习笔记之基础操作 | 
 	 
 	凌云的个人博客
 	</title>
@@ -540,7 +542,7 @@ var _hmt = _hmt || [];
 							</ul>
 			
 							<ul>
-								<li class="file">
+								<li class="file active">
 									<a href="/unreal-basic-leaning/">
 										Unreal学习笔记之基础操作
 									</a>
@@ -1159,57 +1161,101 @@ var _hmt = _hmt || [];
 
 	<!-- 引入正文 -->
 	<div id="content">
-		<div id="index">
+		<h1 id="article-title">
+	Unreal学习笔记之基础操作
+</h1>
+<div class="article-meta">
 	
-		<div class="index-li">
-			<a href="/tde-py-ref/">
-				<h2 class="index-title">
-					3DEqualizer 命令参考
-				</h2>
-				<div class="index-brief">
-					窗口# 创建一个自定义请求对象
-req = tde4.createCustomRequester()
+	<span>zhangly</span>
+	<span>2021-12-21 15:56:13</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/DCC/">DCC</a>
+                        </i>
+                      
+                        >
+                      
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/DCC/Unreal/">Unreal</a>
+                        </i>
+                      
+                    </span>
+                
+            
+    
 
-# 为req对象添加“文件浏览器”部件
-tde4.addFileWidget(req, "filepath", "Browse", "*.obj")
+    
+		<span>Tags：</span>
+            
+    
+		</div>
 
-# 为req对象添加"开关选项"部件
-tde
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-11-23</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/">DCC</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/3DEqualizer/">3DEqualizer</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-	
-	<div id="index-paginator">
-		
-	</div>
 </div>
 
+<div id="article-content">
+	<h3><span id="bsp-binary-space-partitioning">BSP （Binary Space Partitioning）</span></h3><p>计算机图像学术语：二叉空间划分。</p>
+<p>在UE4被称作为Geometry：</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/unreal-basic-leaning/p1.png"></p>
+<p>相较于static mesh，性能稍微差一点。</p>
+<p>适合用来快速搭建原型，验证想法。</p>
+<h3><span id="默认单位">默认单位</span></h3><p>虚幻四中默认单位为厘米。</p>
+<h3><span id="复制物体">复制物体</span></h3><p>按住alt键，移动物体</p>
+<h3><span id="吸附">吸附</span></h3><p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/unreal-basic-leaning/p2.png"></p>
+<p>分别对应位移，旋转，缩放的，这里的snap意为数值snap。</p>
+<h3><span id="落地">落地</span></h3><p>选择物体，按键盘的end键，使物体落地。</p>
+<h3><span id="当场景中显示了preview">当场景中显示了Preview</span></h3><p>代表场景中的区域没有进行构建。</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/unreal-basic-leaning/p3.png"></p>
+<p>如果不想看到这个preview可以关闭显示：</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/unreal-basic-leaning/p4.png"></p>
+<h3><span id="导入初学者包">导入初学者包</span></h3><p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/unreal-basic-leaning/p5.png"></p>
+<h3><span id="选择geometry物体的所有面">选择Geometry物体的所有面</span></h3><p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/unreal-basic-leaning/p6.png"></p>
+<h3><span id="选择geometry所有相邻的墙面">选择Geometry所有相邻的墙面</span></h3><p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/unreal-basic-leaning/p7.png"></p>
+<h3><span id="分组">分组</span></h3><p>开关：</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/unreal-basic-leaning/p8.png"></p>
+<p>选择要打组的物体，按下ctrl+g。</p>
+<p>取消分组：shift+g。</p>
+<p>菜单按钮在右键。</p>
+<h3><span id="镜像">镜像</span></h3><p>选择物体，鼠标右键：</p>
+<p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/unreal-basic-leaning/p9.png"></p>
+<h3><span id="将资源迁移到另一个工程">将资源迁移到另一个工程</span></h3><p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/unreal-basic-leaning/p10.png"></p>
+<h3><span id="所有打开的窗口以标签显示">所有打开的窗口以标签显示</span></h3><p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/unreal-basic-leaning/p11.png"></p>
+<h3><span id="在编译完成后自动保存">在编译完成后自动保存</span></h3><p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/unreal-basic-leaning/p12.png"></p>
+<h3><span id="点击play的时候获取鼠标控制">点击Play的时候，获取鼠标控制</span></h3><p><img src="https://gitlab.lingyunfx.com/zhangly/image/-/raw/main/unreal-basic-leaning/p13.png"></p>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/retarget-ani-unreal/">
+                Unreal动画重定向
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
 	</div>
 	<div id="footer">
 	<p>

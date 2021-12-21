@@ -42,36 +42,36 @@
 <link rel="stylesheet" href="/css/main.css">
 
 	
-<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	
-<link rel="stylesheet" href="/css/darcula.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
 
 	
-<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
 
 
 	
-<script src="/js/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 
 	
-<script src="/js/jquery.fancybox.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
 	
-<script src="/js/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
 
 	
-<script src="/js/jquery.pjax.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
 
 	
 <script src="/js/main.js"></script>
 
 	
 		
-<script src="/js/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
 
 		
-<script src="/js/Valine.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
 
 	
 	
@@ -99,7 +99,6 @@ var _hmt = _hmt || [];
 
 	
 
-		
 		<li class="menu-item">
 			<a href="https://gitlab.lingyunfx.com/zhangly" class="menu-item-link" target="_blank">
 				<i class="fa fa-github fa-2x"></i>
@@ -517,6 +516,15 @@ var _hmt = _hmt || [];
 									
 							<ul>
 								<li class="file">
+									<a href="/retarget-ani-unreal/">
+										Unreal动画重定向
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/ue4-python-ref/">
 										Python片段参考
 									</a>
@@ -528,6 +536,15 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/unreal-add-custom-menus/">
 										使用Python为UE4添加自定义菜单
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal-basic-leaning/">
+										Unreal学习笔记之基础操作
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -1190,11 +1207,8 @@ var _hmt = _hmt || [];
 <h3><span id="关于将py文件编译为pyd">关于将py文件编译为pyd</span></h3><p>当你想把一个python脚本分享出去，又不想暴露源码的时候，可以将py文件编译成pyd或pyc文件。</p>
 <p>pyd格式是D语言(C/C++综合进化版本)生成的二进制文件，实际也会是dll文件。<br>该文件不可以被反编译，只能被反汇编。</p>
 <p>而pyc文件，虽然也是py编译后的格式，但是pyc非常容易被反编译，基本上可以说编译了个寂寞。  </p>
-<p>我之前用过<code>angelic47</code>大佬写的<a target="_blank" rel="noopener" href="https://pyprotect.angelic47.com/">pyprotect</a>，这是个第三方python加密混淆工具，编译后的pyc代码也具有很高的反编译难度。(其实我自身更偏向于pyc文件，不用像pyd一样太考虑解释器版本和系统平台)</p>
+<p>我之前用过<strong>angelic47</strong>大佬写的<a target="_blank" rel="noopener" href="https://pyprotect.angelic47.com/">pyprotect</a>，这是个第三方python加密混淆工具，编译后的pyc代码也具有很高的反编译难度。(其实我自身更偏向于pyc文件，不用像pyd一样太考虑解释器版本和系统平台)</p>
 <p>不过后来pyprotect工具无法使用了，这也是我开始使用pyd格式进行编译的原因。<br>废话到这里，下面开始说下整个编译过程。(这里以Maya2018为例)</p>
-<blockquote>
-<p>点击阅读原文可以打开博客地址在pc端浏览。</p>
-</blockquote>
 <h3><span id="1找到msc版本和对应vs版本">1.找到MSC版本和对应VS版本</span></h3><p>msc是微软的C编译器，安装对应的VS版本会带有。</p>
 <p>如何查看MSC版本，这里有两种方式：</p>
 <p>使用cmd命令行工具，打开<code>C:\Program Files\Autodesk\Maya2018\bin\mayapy.exe</code></p>
@@ -1269,16 +1283,16 @@ setup<span class="token punctuation">(</span>
     <div class="post-guide">
         <div class="item left">
             
-              <a href="/maya-tips-002/">
+              <a href="/retarget-ani-unreal/">
                   <i class="fa fa-angle-left" aria-hidden="true"></i>
-                  Maya的效率使用和技巧（二）
+                  Unreal动画重定向
               </a>
             
         </div>
         <div class="item right">
             
-              <a href="/command-tool-intro/">
-                命令行工具的三把瑞士军刀
+              <a href="/reject-maya-warning/">
+                关于“你的文件贼健康”的简单处理方式
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
               </a>
             
