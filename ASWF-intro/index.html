@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		简单了解一下ASWF | 
+	 
+	凌云的个人博客
+	</title>
+	
+	<!-- keywords,description -->
+	 
+		<meta name="description" content="关于视效的学习和分享" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "lingyunfx.com";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
+
+	
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">凌云的个人博客</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+
+	
+
+		<li class="menu-item">
+			<a href="https://gitlab.lingyunfx.com/zhangly" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Article
+									</a>
+									
+							<ul>
+								<li class="file active">
+									<a href="/ASWF-intro/">
+										简单了解一下ASWF
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/asset-library-share/">
+										分享几个三维模型资产库应用
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/command-tool-intro/">
+										命令行工具的三把瑞士军刀
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-flipping-camera/">
+										在Maya中进行Flipping Camera
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-link-unreal/">
+										UE4和Maya的数据通信
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-replace-ref-tool/">
+										批量替换Maya Reference工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-retime-tool-intro/">
+										Maya动画变速工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/meshlab-remove-face/">
+										使用MeshLab为模型减面
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/metahuman-intro/">
+										MetaHumans Creator初体验
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/notion-intro/">
+										使用Notion建立个人Wiki
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/reject-maya-warning/">
+										关于“你的文件贼健康”的简单处理方式
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/tracker_connect_camera/">
+										Vive Tracker控制Camera
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/tracks-2d-tools/">
+										在不同跟踪软件之间的2D点转换工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/whats-matchmoving/">
+										电影视效制作中的Matchmove
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										DCC
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Houdini
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/houdini_codes/">
+										代码参考
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/houdini_tips/">
+										Houdini Tips
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										学习笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/houdini_basic/">
+										1.界面及视图操作技巧
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/houdini_network_basic/">
+										2.NetWork界面操作及快捷键
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/houdini_node_basic/">
+										3.常用节点及操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Maya
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/learn-minq/">
+										maya第三方库minq学习
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-issue-vol1/">
+										Maya疑难杂症备忘录 Vol.1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-py-to-pyd/">
+										将Maya的python代码编译成pyd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-001/">
+										Maya的效率使用和技巧（一）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-002/">
+										Maya的效率使用和技巧（二）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya_cmds/">
+										maya command代码段
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya_environment_variable/">
+										Maya环境变量表
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/mtoa-install-issue/">
+										安装Arnold后环境变量被破坏
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										绑定学习笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/maya_adv_workflow/">
+										Maya Adv插件使用流程
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya_rigging_basic/">
+										Maya角色动画绑定基础入门
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Nuke
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/nk_call_back/">
+										Nuke的Call Back使用
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nk_custom_knob/">
+										Nuke自定义Knob操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nk_gizmo_make/">
+										Nuke Gizmo制作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nk_node_animation/">
+										Nuke节点动画操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nk_tcl/">
+										Nuke tcl脚本
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/ns_py_intro/">
+										NukeStudio常用命令参考
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-trn-lens-distort/">
+										使用LensDistortion节点输出STMap
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke_py_intro/">
+										Nuke 开发基础
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Unreal
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/unreal-python-01/">
+										UE开发的一点心得经验（一）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal_code_ref/">
+										Unreal Python代码段
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal_motion_redirect/">
+										Unreal 动画重定向
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										学习笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/unreal4_basic/">
+										虚幻4基础操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal4_fps/">
+										用虚幻4蓝图制作FPS
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal4_jc_learning/">
+										谌嘉诚教程学习笔记
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Geek
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Cloudreve
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cloudreve-install/">
+										搭建Cloudreve私有云盘
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Docker
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/docker_command/">
+										Docker 常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Gitlab
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/git_command/">
+										Git 常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/gitlab_install/">
+										Gitlab在Centos上搭建
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/gitlab_win_install/">
+										Gitlab在Windows10搭建
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Linux
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/firewall_cmd/">
+										防火墙相关
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/linux_command_cmd/">
+										Linux 常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/shell_learn/">
+										Shell脚本学习
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Nginx
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/nginx_learn/">
+										Nginx学习笔记
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										PostgreSql
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/postgres_cmd/">
+										PostgreSql 操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/postgres_install/">
+										PostgreSql 安装和配置
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Vim
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/vim-help/">
+										vim快捷键查询
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Mac
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/mac-issue/">
+										Mac的一些问题备忘
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py2app-used/">
+										将Python程序打包成App过程和排错
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Python
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										学习笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/miniconda/">
+										Minconda使用
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py3_feature/">
+										Python3的一些新特性
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py_class_extra/">
+										面向对象进阶
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py_network/">
+										网络通信
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py_process/">
+										并发编程
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py_re/">
+										正则学习
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										查询
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py_common_cod/">
+										代码段记录
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py_dict/">
+										Python字典方法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py_list/">
+										Python列表方法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py_str/">
+										Python字符串方法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt_widgets/">
+										PyQt常用控件
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										TD Pipeline
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										CGWire
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cgwire-install/">
+										搭建CGWire
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Rez
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/00%20rez-wiki-cn/">
+										00 Rez中文文档
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/01%20rez-home/">
+										01 Home
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/02%20rez-install/">
+										02 Installation
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/03%20rez-getting-started/">
+										03 Getting Started
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/04%20rez-basic-concepts/">
+										04 Basic Concepts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/05%20rez-configuring/">
+										05 Configuring Rez
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/06%20rez-package-commands/">
+										06 Package Commands
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/07%20rez-package-definition-guide/">
+										07 Package Definition Guide
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/08%20rez-variants/">
+										08 Variants
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/09%20rez-ephemeral-packages/">
+										09 Ephemeral Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/10%20rez-contexts/">
+										10 Contexts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/11%20rez-bundles/">
+										11 Bundles
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/12%20rez-suites/">
+										12 Suites
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/13%20rez-building-package/">
+										13 Building Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/14%20rez-copying-package/">
+										14 Copying Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/15%20rez-package-caching/">
+										15 Package Caching
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/16%20rez-environment-variables/">
+										16 Environment Variables
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/rez-intro/">
+										Rez介绍（使用篇）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Shotgun
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/sg_common_command/">
+										Shotgun常用代码段
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/sg_entity/">
+										Shotgun可控制的Entity
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/sg_official_example/">
+										Shotgun一些官方例子
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+	简单了解一下ASWF
+</h1>
+<div class="article-meta">
+	
+	<span>zhangly</span>
+	<span>2022-03-20 22:53:27</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/Article/">Article</a>
+                        </i>
+                      
+                    </span>
+                
+            
+    
+
+    
+		<span>Tags：</span>
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h2><span id="什么是aswf基金会">什么是ASWF基金会</span></h2><p>ASWF全称为The Academy Software Foundation，于2018年8月由美国电影艺术与科学学院（AMPAS）成立。  </p>
+<p>其目的是为了提高对内容创作行业开源软件库的贡献（数量与质量），创造一个健康的开源社区。  </p>
+<blockquote>
+<p>关于AMPAS：是美国一个致力于促进电影艺术发展的非营利性专业组织，总部位于美国加州的比佛利山。</p>
+</blockquote>
+<p>加入ASWF的开源项目有：  </p>
+<ul>
+<li>OpenVDB</li>
+<li>OpenColorIO</li>
+<li>OpenEXR</li>
+<li>OpenCue</li>
+<li>OpenTimelineIO</li>
+<li>Open Shading Language(OSL)</li>
+<li>MaterialX</li>
+<li>Digital Production Example Library (DPEL)</li>
+<li>RAW to ACES Utility</li>
+<li>Rez</li>
+</ul>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab33006bd01.jpg" alt="ASWF-intro-p1.jpg"><br>其中<code>ADOPTED PROJECTS</code>为已经成熟且被行业标准认可的项目。<br>而<code>INCUBATION PROJECTS</code>如译名一样，处于孵化成长的阶段。<br>下面对这些项目进行简单介绍。</p>
+<h2><span id="openvdb">OpenVDB</span></h2><p>一个C++库，包含一个分层数据结构和一些工具。<br>用于有效地处理稀疏的、时间变化的、三维网格上离散的体积数据。（如云雾，火焰，烟尘等等）  </p>
+<p>OpenVDB最初由<code>梦工厂</code>开发，并于2015年获得奥斯卡技术成就奖，是第一个加入ASWF的项目。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab32fdbef04.jpg" alt="ASWF-intro-p6.jpg"><br>体积数据存储在名为<code>vdb</code>格式的文件中，你可以理解它为装着体积的alembic。<br>感兴趣可以从这个网站免费下载一些的vdb文件进行一些测试：<br><a target="_blank" rel="noopener" href="https://jangafx.com/software/embergen/download/free-vdb-animations/">https://jangafx.com/software/embergen/download/free-vdb-animations/</a></p>
+<p>vdb格式支持大多主流的三维软件，如Houdini, RenderMan, Arnold, RealFlow。<br>OpenVDB所包含的一套工具，还可以对vdb数据进行转换，过滤，合成，形态学运算等。<br>并且提供了Python API，可对vdb进行一些基础操作。</p>
+<p>官方网站：<a target="_blank" rel="noopener" href="https://www.openvdb.org/">https://www.openvdb.org/</a><br>开源地址：<a target="_blank" rel="noopener" href="https://github.com/AcademySoftwareFoundation/openvdb">https://github.com/AcademySoftwareFoundation/openvdb</a></p>
+<h2><span id="opencolorioocio">OpenColorIO（OCIO）</span></h2><p>一个面向电影制作、视觉特效和三维动画领域的色彩空间管理方案。   </p>
+<p>在数字时代，色彩管理是非常繁琐的一件事。<br>从摄像机原始画面，到CG合成素材，再到各个环节部门，使用一套统一的色彩标准管理至关重要。<br>于是OpenColorIO应运而生。它提供了简单的，跨应用的色彩管理支持，兼容色彩编码规范(ACES)。</p>
+<p>项目最初由索尼影业旗下的动画公司<code>Imageworks</code>于2003年开发，<br>2019年2月8日被ASWF收纳为其第二个托管项目。</p>
+<p>大多DCC软件都支持ocio配置。<br>以Nuke为例，你可以选择内置的或加载一个格式为<code>.ocio</code>的配置文件，<br>并在下拉列表中选择要访问的色彩空间。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab32fcaf2a7.png" alt="ASWF-intro-p2.png">  </p>
+<p>官方网站：<a target="_blank" rel="noopener" href="https://opencolorio.org/">https://opencolorio.org/</a><br>开源地址：<a target="_blank" rel="noopener" href="https://github.com/AcademySoftwareFoundation/OpenColorIO">https://github.com/AcademySoftwareFoundation/OpenColorIO</a>  </p>
+<h2><span id="openexr">OpenEXR</span></h2><p>是一种开放标准的高动态范围图像格式，可存储比常规的8位和10位图像格式更高的动态范围和颜色精度。<br>支持16位浮点数、32位浮点数和32位整数的像素颜色值。</p>
+<p>OpenEXR的多级分辨率和任意数据通道存储使其非常适合用于合成，<br>它能把高光（specular）、漫射（diffuse）、阴影、Alpha通道、RGB、法线等数据存储于一个文件里。  </p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab32fd561c3.png" alt="ASWF-intro-p4.png"></p>
+<p>该项目由由工业光魔于2000年开发，2003年公开发布。<br>2019年加入ASWF，成为基金会第三个加入的托管项目。<br>现如今，OpenEXR已成为影视制作中图像格式交换的标准。</p>
+<p>官方网站：<a target="_blank" rel="noopener" href="https://www.openexr.com/">https://www.openexr.com/</a><br>开源地址：<a target="_blank" rel="noopener" href="https://github.com/AcademySoftwareFoundation/openexr">https://github.com/AcademySoftwareFoundation/openexr</a></p>
+<h2><span id="opencue">OpenCue</span></h2><p>一个开源的渲染管理系统。<br>它可以灵活的将特定的作业任务分配给多个跨本地和云端机器。<br>（也就是咱们常说的渲染农场）</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab33025a07f.jpg" alt="ASWF-intro-p5.jpg"><br>项目由<code>Google Cloud</code>和<code>Sony Pictures Imageworks</code>合作开发。2019年加入ASWF，成为基金会第四个托管项目。</p>
+<p>同样它也提供了Python API，功能包括调度队列，对多设施、本地、云和混合部署的支持，以及支持大量并发机器的高度可扩展架构。</p>
+<p>官方网站：<a target="_blank" rel="noopener" href="https://www.opencue.io/">https://www.opencue.io/</a><br>开源地址：<a target="_blank" rel="noopener" href="https://github.com/AcademySoftwareFoundation/OpenCue">https://github.com/AcademySoftwareFoundation/OpenCue</a></p>
+<h2><span id="opentimelineio">OpenTimelineIO</span></h2><p>一种用于编辑时间线信息的开源交换格式。<br>（包含剪辑的顺序和长度以及对外部媒体的引用信息）  </p>
+<p>提供的Python API可以对其剪辑、计时、轨道、转场、标记和元数据进行操作。<br>并支持许多现有文件格式的转换，例如<code>Final Cut Pro XML</code>、<code>AAF</code>、<code>CMX 3600 EDL</code>等。</p>
+<p>下图为OTIO时间线查看工具<code>OTIOView</code>：</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab32fe551fc.png" alt="ASWF-intro-p10.png"><br>项目由皮克斯动画工作室创建，2019年加入ASWF，是基金会第五个托管项目。</p>
+<p>开源地址：<a target="_blank" rel="noopener" href="https://github.com/PixarAnimationStudios/OpenTimelineIO">https://github.com/PixarAnimationStudios/OpenTimelineIO</a></p>
+<h2><span id="open-shading-language">Open Shading Language</span></h2><p>一种小而丰富的开放式着色语言 (OSL) ，用于高级渲染器和其他应用程序中的可编程着色，<br>非常适合描述材质、灯光、置换和图案生成。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab330124167.jpg" alt="ASWF-intro-p8.jpg"><br>OSL最初由<code>Sony Pictures Imageworks</code>开发，用于其故事片动画和视觉效果的内部渲染器。<br>在2010年作为开源发布，2017年获得奥斯卡科学技术奖，2020年4月加入ASWF，成为基金会托管的第六个项目。</p>
+<p>开源地址：<a target="_blank" rel="noopener" href="https://github.com/AcademySoftwareFoundation/OpenShadingLanguage">https://github.com/AcademySoftwareFoundation/OpenShadingLanguage</a></p>
+<h2><span id="materialx">MaterialX</span></h2><p>一种关于材质的开放标准，用于描述计算机图形模型外观所需的数据值和关系：<br>包括阴影网络、图案和纹理、复杂的嵌套材质和几何分配。</p>
+<p>这种描述文件的格式为mtlx，它是可以跨软件，或跨渲染器使用。<br>（需安装对应DCC软件插件）  </p>
+<p>这里提供一个MaterialsX库链接：<br><a target="_blank" rel="noopener" href="https://matlib.gpuopen.com/main/materials/all">https://matlib.gpuopen.com/main/materials/all</a></p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3301d9f28.jpg" alt="ASWF-intro-p9.jpg"><br>MaterialX于2012年在工业光魔推出，2017年发布开源，2021年成为ASWF的第七个托管项目。</p>
+<p>官方网站：<a target="_blank" rel="noopener" href="https://www.materialx.org/">https://www.materialx.org/</a><br>开源地址：<a target="_blank" rel="noopener" href="https://github.com/AcademySoftwareFoundation/MaterialX">https://github.com/AcademySoftwareFoundation/MaterialX</a></p>
+<h2><span id="digital-production-example-library">Digital Production Example Library</span></h2><p>一个数字资产的范例库，用作于教学目的。  </p>
+<p>下图为一些公开的资产表：</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab32ff2e794.jpg" alt="ASWF-intro-p7.jpg"><br>（此条目在网上找到的资料很少，就介绍到这）</p>
+<h2><span id="raw-to-aces-utility">RAW to ACES Utility</span></h2><p>一个软件包，可将数码相机的RAW文件转换为ACES容器文件。    </p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/AcademySoftwareFoundation/rawtoaces">https://github.com/AcademySoftwareFoundation/rawtoaces</a></p>
+<h2><span id="rez">Rez</span></h2><p>一个开源、跨平台的包管理器，它可以给程序配置独立的环境。<br>所有的程序包都安装在一个中央统一位置，每个独立环境只是引用了这些包。</p>
+<p>Rez最初由<code>Allan Johns</code>于2010年作为<code>Dr.D Studios</code>的内部解决方案开发，<br>2012年开源，2022年2月加入ASWF，现为基金会最新加入的托管项目。</p>
+<p>开源地址：<a target="_blank" rel="noopener" href="https://github.com/nerdvegas/rez/wiki">https://github.com/nerdvegas/rez/wiki</a></p>
+<p>这里就不过多介绍了，之前公众号写过关于Rez：<br><a href="https://lingyunfx.com/00%20rez-wiki-cn/">https://lingyunfx.com/00%20rez-wiki-cn/</a></p>
+<hr>
+<p>觉得文章还不错，可以关注这个公众号thx！  </p>
+<center><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36f1d52b8.jpg" width="30%" height="30%" alt align="center"></center>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/unreal-python-01/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  UE开发的一点心得经验（一）
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/learn-minq/">
+                maya第三方库minq学习
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2019-<span id="footerYear"></span> 
+	<a href="/">zhangly</a> 
+	
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

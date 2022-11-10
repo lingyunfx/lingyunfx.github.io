@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		maya第三方库minq学习 | 
+	 
+	凌云的个人博客
+	</title>
+	
+	<!-- keywords,description -->
+	 
+		<meta name="description" content="关于视效的学习和分享" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "lingyunfx.com";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js"></script>
+
+	
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">凌云的个人博客</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+
+	
+
+		<li class="menu-item">
+			<a href="https://gitlab.lingyunfx.com/zhangly" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Article
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/ASWF-intro/">
+										简单了解一下ASWF
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/asset-library-share/">
+										分享几个三维模型资产库应用
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/command-tool-intro/">
+										命令行工具的三把瑞士军刀
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-flipping-camera/">
+										在Maya中进行Flipping Camera
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-link-unreal/">
+										UE4和Maya的数据通信
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-replace-ref-tool/">
+										批量替换Maya Reference工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-retime-tool-intro/">
+										Maya动画变速工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/meshlab-remove-face/">
+										使用MeshLab为模型减面
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/metahuman-intro/">
+										MetaHumans Creator初体验
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/notion-intro/">
+										使用Notion建立个人Wiki
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/reject-maya-warning/">
+										关于“你的文件贼健康”的简单处理方式
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/tracker_connect_camera/">
+										Vive Tracker控制Camera
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/tracks-2d-tools/">
+										在不同跟踪软件之间的2D点转换工具
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/whats-matchmoving/">
+										电影视效制作中的Matchmove
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										DCC
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Houdini
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/houdini_codes/">
+										代码参考
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/houdini_tips/">
+										Houdini Tips
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										学习笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/houdini_basic/">
+										1.界面及视图操作技巧
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/houdini_network_basic/">
+										2.NetWork界面操作及快捷键
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/houdini_node_basic/">
+										3.常用节点及操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Maya
+									</a>
+									
+							<ul>
+								<li class="file active">
+									<a href="/learn-minq/">
+										maya第三方库minq学习
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-issue-vol1/">
+										Maya疑难杂症备忘录 Vol.1
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-py-to-pyd/">
+										将Maya的python代码编译成pyd
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-001/">
+										Maya的效率使用和技巧（一）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya-tips-002/">
+										Maya的效率使用和技巧（二）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya_cmds/">
+										maya command代码段
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya_environment_variable/">
+										Maya环境变量表
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/mtoa-install-issue/">
+										安装Arnold后环境变量被破坏
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										绑定学习笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/maya_adv_workflow/">
+										Maya Adv插件使用流程
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/maya_rigging_basic/">
+										Maya角色动画绑定基础入门
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Nuke
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/nk_call_back/">
+										Nuke的Call Back使用
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nk_custom_knob/">
+										Nuke自定义Knob操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nk_gizmo_make/">
+										Nuke Gizmo制作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nk_node_animation/">
+										Nuke节点动画操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nk_tcl/">
+										Nuke tcl脚本
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/ns_py_intro/">
+										NukeStudio常用命令参考
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke-trn-lens-distort/">
+										使用LensDistortion节点输出STMap
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/nuke_py_intro/">
+										Nuke 开发基础
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Unreal
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/unreal-python-01/">
+										UE开发的一点心得经验（一）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal_code_ref/">
+										Unreal Python代码段
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal_motion_redirect/">
+										Unreal 动画重定向
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										学习笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/unreal4_basic/">
+										虚幻4基础操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal4_fps/">
+										用虚幻4蓝图制作FPS
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/unreal4_jc_learning/">
+										谌嘉诚教程学习笔记
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Geek
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Cloudreve
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cloudreve-install/">
+										搭建Cloudreve私有云盘
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Docker
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/docker_command/">
+										Docker 常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Gitlab
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/git_command/">
+										Git 常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/gitlab_install/">
+										Gitlab在Centos上搭建
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/gitlab_win_install/">
+										Gitlab在Windows10搭建
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Linux
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/firewall_cmd/">
+										防火墙相关
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/linux_command_cmd/">
+										Linux 常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/shell_learn/">
+										Shell脚本学习
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Nginx
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/nginx_learn/">
+										Nginx学习笔记
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										PostgreSql
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/postgres_cmd/">
+										PostgreSql 操作
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/postgres_install/">
+										PostgreSql 安装和配置
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Vim
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/vim-help/">
+										vim快捷键查询
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Mac
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/mac-issue/">
+										Mac的一些问题备忘
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py2app-used/">
+										将Python程序打包成App过程和排错
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Python
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										学习笔记
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/miniconda/">
+										Minconda使用
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py3_feature/">
+										Python3的一些新特性
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py_class_extra/">
+										面向对象进阶
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py_network/">
+										网络通信
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py_process/">
+										并发编程
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py_re/">
+										正则学习
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										查询
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/py_common_cod/">
+										代码段记录
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py_dict/">
+										Python字典方法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py_list/">
+										Python列表方法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/py_str/">
+										Python字符串方法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/pyqt_widgets/">
+										PyQt常用控件
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										TD Pipeline
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										CGWire
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/cgwire-install/">
+										搭建CGWire
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Rez
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/00%20rez-wiki-cn/">
+										00 Rez中文文档
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/01%20rez-home/">
+										01 Home
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/02%20rez-install/">
+										02 Installation
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/03%20rez-getting-started/">
+										03 Getting Started
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/04%20rez-basic-concepts/">
+										04 Basic Concepts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/05%20rez-configuring/">
+										05 Configuring Rez
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/06%20rez-package-commands/">
+										06 Package Commands
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/07%20rez-package-definition-guide/">
+										07 Package Definition Guide
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/08%20rez-variants/">
+										08 Variants
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/09%20rez-ephemeral-packages/">
+										09 Ephemeral Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/10%20rez-contexts/">
+										10 Contexts
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/11%20rez-bundles/">
+										11 Bundles
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/12%20rez-suites/">
+										12 Suites
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/13%20rez-building-package/">
+										13 Building Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/14%20rez-copying-package/">
+										14 Copying Packages
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/15%20rez-package-caching/">
+										15 Package Caching
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/16%20rez-environment-variables/">
+										16 Environment Variables
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/rez-intro/">
+										Rez介绍（使用篇）
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Shotgun
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/sg_common_command/">
+										Shotgun常用代码段
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/sg_entity/">
+										Shotgun可控制的Entity
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/sg_official_example/">
+										Shotgun一些官方例子
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+	maya第三方库minq学习
+</h1>
+<div class="article-meta">
+	
+	<span>zhangly</span>
+	<span>2022-01-10 00:48:21</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/DCC/">DCC</a>
+                        </i>
+                      
+                        >
+                      
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true">
+                        <a href="/categories/DCC/Maya/">Maya</a>
+                        </i>
+                      
+                    </span>
+                
+            
+    
+
+    
+		<span>Tags：</span>
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<blockquote>
+<p>minq是一个在maya场景中快速物体对象查询的库</p>
+</blockquote>
+<p>仓库地址：<a target="_blank" rel="noopener" href="https://github.com/theodox/minq">https://github.com/theodox/minq</a></p>
+<h2><span id="minq简单介绍">minq简单介绍</span></h2><p>这个项目是为了减少Maya中每次对物体查询时，用到命令比如<code>ls()</code>，<code>listRelatives()</code>和<code>listHistory()</code>的频次。意在直接了当的获取所需的物体对象。</p>
+<p>举个例子，比如我们想找到场景中角色的IK手柄，你需要：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">iks <span class="token operator">=</span> cmds<span class="token punctuation">.</span>ls<span class="token punctuation">(</span><span class="token builtin">type</span> <span class="token operator">=</span> <span class="token string">'ikHandle'</span><span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> ik <span class="token keyword">in</span> iks<span class="token punctuation">:</span>
+    parents <span class="token operator">=</span> cmds<span class="token punctuation">.</span>listRelatives<span class="token punctuation">(</span>ik<span class="token punctuation">,</span> p<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> p <span class="token keyword">in</span> parents<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> p<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">"|"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> p
+<span class="token keyword">return</span> <span class="token boolean">None</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>对于一个简单的需求，这显然会产生很多的代码。<br>而且不同的命令返回的结果格式不一样，比如<code>ls()</code>返回一个列表，你需要在后面加上<code>[]</code>。<br>如果你想要返回完整的物体路径，使用<code>ls()</code>还需要添加<code>long</code>参数，使用<code>listRelatives()</code>则要使用<code>fullPath</code>参数。</p>
+<p><strong>minq</strong>是一个简化查询过程的这么一个库，例：  </p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">q <span class="token operator">=</span> Scene<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'top'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>它将返回一个<code>minq.Stream</code>对象。不过它不是最终的查询结果，你需要调用<code>.execute()</code>函数来将它转换成列表：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span> q<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># [u'|top']</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>你也可以直接进行迭代：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">q <span class="token operator">=</span> Scene<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'top'</span><span class="token punctuation">,</span> <span class="token string">'front'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> item <span class="token keyword">in</span> q<span class="token punctuation">:</span>
+    <span class="token keyword">print</span> item
+
+<span class="token comment"># u'|top'</span>
+<span class="token comment"># u'|front'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>通常也可以直接把它们变成一个元组或列表：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token builtin">tuple</span><span class="token punctuation">(</span>Cameras<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># Result: (u'frontShape', u'perspShape', u'sideShape', u'topShape')</span>
+
+<span class="token builtin">list</span><span class="token punctuation">(</span>Scene<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>only<span class="token punctuation">(</span><span class="token string">'polyCreator'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># Result: [u'polyCube1', u'polyCube2', u'polyCube3', u'polyUnite1']</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>当然也可以使用一些关键字，如<code>in</code>，<code>any</code>和<code>all</code> :</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token string">u'|top'</span> <span class="token keyword">in</span> Cameras<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># True</span>
+
+<span class="token string">u'|pCube1'</span> <span class="token keyword">in</span> Cameras<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># False</span>
+
+<span class="token builtin">any</span><span class="token punctuation">(</span>Meshes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>like<span class="token punctuation">(</span><span class="token string">'cube'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># True</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2><span id="关联式查询">关联式查询</span></h2><p>在minq中，<code>minq.Stream</code>对象可以使用一些表达式进行关联式查询，下面是一些例子：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">Meshes<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># 获取所有polyMesh节点</span>
+Meshes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span>Parents<span class="token punctuation">)</span> <span class="token comment"># 获取polyMesh节点的父级</span>
+Meshes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span>Parents<span class="token punctuation">)</span><span class="token punctuation">.</span>like<span class="token punctuation">(</span><span class="token string">'wall'</span><span class="token punctuation">)</span> <span class="token comment"># 获取polyMesh节点的父级中，名字包含'wall'的对象</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>通常我们要实现上述的需求，可能要用到这样的代码：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">results <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+meshes <span class="token operator">=</span> cmds<span class="token punctuation">.</span>ls<span class="token punctuation">(</span><span class="token builtin">type</span><span class="token operator">=</span><span class="token string">'mesh'</span><span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">if</span> meshes<span class="token punctuation">:</span>
+    parents <span class="token operator">=</span> cmds<span class="token punctuation">.</span>listRelatives<span class="token punctuation">(</span><span class="token operator">*</span>meshes<span class="token punctuation">,</span> p<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> item <span class="token keyword">in</span> parents<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span><span class="token string">'wall'</span><span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            results<span class="token punctuation">.</span>append<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+<span class="token keyword">return</span> results<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>和普通的查询一样，关联式查询也可以使用<code>execute()</code>函数，或直接进行迭代：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">cubes <span class="token operator">=</span> Meshes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span>Parents<span class="token punctuation">)</span><span class="token punctuation">.</span>like<span class="token punctuation">(</span><span class="token string">'cube'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> cubes<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># [u'pCube1']</span>
+cmds<span class="token punctuation">.</span>polyCube<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> cubes<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># [u'pCube1', u'pCube2']</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>再次声明，minq的查询结果不是一个列表，而是一个可迭代的对象。<br>通常我们看到查询链中的最后一个关键字决定了查询结果：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">Selected<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>only<span class="token punctuation">(</span>Transforms<span class="token punctuation">)</span>
+<span class="token comment"># 这里的Transforms决定了结果</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>刚刚的代码可以返回所有选择的Transforms节点。我们也可以使用<code>append()</code>方法将其它的对象加入进去：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">Selected<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>only<span class="token punctuation">(</span>Transforms<span class="token punctuation">)</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>AllChildren<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>对于更复杂的查询组合，你还可以使用集合操作。<br>比如当我们想用一个或多个已知名称的对象开始查询，<code>using()</code>函数会用你提供的名称来创建<code>Stream</code>对象。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">using<span class="token punctuation">(</span><span class="token string">"character_root"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span>AllChidren<span class="token punctuation">)</span><span class="token punctuation">.</span>only<span class="token punctuation">(</span>IKHandles<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这将会返回在character_root下的所有ik手柄。<code>using()</code>函数可以放入多个名称。</p>
+<h2><span id="过滤">过滤</span></h2><p>绝大多数的查询都会通过过滤的方式来缩减实际需要的结果。在minq中主要有以下三种方式：</p>
+<ul>
+<li><code>.like()</code></li>
+<li><code>.only()</code></li>
+<li><code>.where()</code></li>
+</ul>
+<h3><span id="like">.like()</span></h3><p>这个方法是一个正则表达式过滤器，默认返回<strong>包含</strong>传入字符的对象，不区分大小写。  </p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span> Cameras<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># Stream([u'frontShape', u'perspShape', u'sideShape', u'topShape'])</span>
+
+<span class="token keyword">print</span> Cameras<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>like<span class="token punctuation">(</span><span class="token string">'top'</span><span class="token punctuation">)</span>
+<span class="token comment"># Stream([u'topShape'])</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如果你需要更精确的匹配，可以加入关键字<code>exact</code>。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span> Cameras<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>like<span class="token punctuation">(</span><span class="token string">'top'</span><span class="token punctuation">,</span> exact<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+<span class="token comment"># Stream([])</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>其次，<code>like()</code>也可以使用完整的表达式。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span> Joints<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>like<span class="token punctuation">(</span><span class="token string">'Left(hand|foot)$'</span><span class="token punctuation">)</span>
+<span class="token comment"># Result: Stream([u'Character1_LeftFoot', u'Character1_LeftHand'])</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3><span id="only">.only()</span></h3><p>这个方法是过滤<code>Stream</code>对象的结果类型。<br>常见的用法是这样：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">some_stream<span class="token punctuation">.</span>only<span class="token punctuation">(</span><span class="token string">'camera'</span><span class="token punctuation">,</span><span class="token string">'light'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这将会从某个<code>Stream</code>中过滤出摄像机和灯光的对象。<br>minq为我们设置好了许多类型相关的关键字，所以还有种写法是：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">some_stream<span class="token punctuation">.</span>only<span class="token punctuation">(</span>Meshes<span class="token punctuation">,</span> Cameras<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><code>only()</code>还可以使用参数来指定命名空间进行查询：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">Transforms<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>only<span class="token punctuation">(</span>namespace <span class="token operator">=</span> <span class="token string">'test'</span><span class="token punctuation">)</span>
+<span class="token comment"># Stream(['|test:pCube1',  '|nested:test:pCube1'])</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>使用冒号<code>:</code>来精确的匹配命名空间：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">ransforms<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>only<span class="token punctuation">(</span>namespace<span class="token operator">=</span><span class="token string">':test'</span><span class="token punctuation">)</span>
+<span class="token comment"># Stream(['|test:pCube1'])  # 'nested:test is' excluded</span>
+Transforms<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>only<span class="token punctuation">(</span>namespace<span class="token operator">=</span><span class="token string">':nested:test'</span><span class="token punctuation">)</span>
+<span class="token comment"># Stream(['|nested:test:pCube1'])  # 'test' is excluded</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>命名空间也可以与过滤类型进行组合：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">DagNodes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>only<span class="token punctuation">(</span><span class="token string">'skinClusters'</span><span class="token punctuation">,</span> namespace<span class="token operator">=</span><span class="token string">"export"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3><span id="where">.where()</span></h3><p>这个方法是可以添加一个函数对每个物体对象进行过滤。  </p>
+<p>比如下面的一个情况：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># get all the meshes whose translateX is larger than 50</span>
+result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> item <span class="token keyword">in</span> cmds<span class="token punctuation">.</span>ls<span class="token punctuation">(</span><span class="token builtin">type</span> <span class="token operator">=</span> mesh<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    parent <span class="token operator">=</span> cmds<span class="token punctuation">.</span>listRelatives<span class="token punctuation">(</span>item<span class="token punctuation">,</span> p<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+        <span class="token keyword">if</span> cmds<span class="token punctuation">.</span>getAttr<span class="token punctuation">(</span>parent <span class="token operator">+</span> <span class="token string">".tx"</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">50</span><span class="token punctuation">:</span>
+            result<span class="token punctuation">.</span>add<span class="token punctuation">(</span>parent<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>.where()</code>接受一个函数作为参数，它会将左边所有Steam里的元素作为参数，过滤出结果返回为True的对象。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">tx_over_fifty <span class="token operator">=</span> <span class="token keyword">lambda</span> p<span class="token punctuation">:</span> cmds<span class="token punctuation">.</span>getAttr<span class="token punctuation">(</span>p <span class="token operator">+</span> <span class="token string">".tx"</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">50</span>
+Meshes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span>Parents<span class="token punctuation">)</span><span class="token punctuation">.</span>where<span class="token punctuation">(</span>tx_over_fifty<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>它还可以简单的写作：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">Meshes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>where<span class="token punctuation">(</span>item<span class="token punctuation">.</span>tx <span class="token operator">></span> <span class="token number">50</span><span class="token punctuation">)</span> <span class="token comment"># item是minq的特殊类，代表左侧Steam中每个元素</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>你也可以利用<code>.where()</code>的特性，找到所有被连接的节点：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">Scene<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>where<span class="token punctuation">(</span>cmds<span class="token punctuation">.</span>listConnections<span class="token punctuation">)</span>
+<span class="token comment"># cmds.listConnections返回一个列表，包含传入物体所有连接的节点。如果没有则为[]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>特殊类<code>item</code>还可以简单的对父级，子级，关联关系，历史进行查询。<br>比如<code>item.has()</code>方法：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 找到所有含有子级的Transforms节点</span>
+has_kids <span class="token operator">=</span> Transforms<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>where<span class="token punctuation">(</span>item<span class="token punctuation">.</span>has<span class="token punctuation">(</span>Children<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 找到所有没有连接的节点</span>
+no_connections <span class="token operator">=</span> DagNodes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>where_not<span class="token punctuation">(</span>item<span class="token punctuation">.</span>has<span class="token punctuation">(</span>Connections<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>与之相似的还有<code>item.has_attr()</code>方法，判断每个元素是否存在某个属性。  </p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">has_tx <span class="token operator">=</span> Transforms<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>where<span class="token punctuation">(</span>item<span class="token punctuation">.</span>has_attr<span class="token punctuation">(</span><span class="token string">'tx'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3><span id="having">.having()</span></h3><p><code>.having()</code>方法同样是判断某个属性是否存在。<br>比如找到所有带有”exportable”属性的Transforms节点:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">export_set <span class="token operator">=</span>  Transforms<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>having<span class="token punctuation">(</span><span class="token string">'exportable'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>相较于<code>.has_attr()</code>，<code>.having()</code>的效率会快一些。</p>
+</blockquote>
+<h2><span id="扩展">扩展</span></h2><p>使用minq得到一个列表后，可以使用<code>.get()</code>对结果进行转换。  </p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 将结果转换为其transform节点</span>
+camera_transforms <span class="token operator">=</span> Cameras<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span>Parents<span class="token punctuation">)</span>
+<span class="token comment"># Result: Stream([u'|front', u'|persp', u'|side', u'|top']) #</span>
+
+<span class="token comment"># 将结果转换为其历史节点</span>
+sphere_history <span class="token operator">=</span> Meshes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>like<span class="token punctuation">(</span><span class="token string">'sphere'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span>History<span class="token punctuation">)</span>
+<span class="token comment"># Result: Stream([u'|pSphere1|pSphereShape1', u'polySphere1']) #</span>
+
+<span class="token comment"># 同上，转换为Future类型</span>
+skinned_meshes <span class="token operator">=</span> Scene<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>only<span class="token punctuation">(</span><span class="token string">'skinCluster'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span>Future<span class="token punctuation">)</span>
+<span class="token comment"># Result: Stream([u'|characterMesh|characterMeshShape']) #</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>还有一些<code>.get()</code>无法获取到物体的名称，比如：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">mesh_translates <span class="token operator">=</span> Meshes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span>Parents<span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span>Attribute<span class="token punctuation">,</span> <span class="token string">'t'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span>Values<span class="token punctuation">)</span>
+<span class="token comment"># Result: Stream([(0,0,0), (10,0,0), (0,20.2123, 11)]) #</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>你可以使用<code>foreach()</code>对<strong>Stream</strong>结果里每个结果执行一个自定义的函数操作：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span> Cameras<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>short<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>foreach<span class="token punctuation">(</span><span class="token keyword">lambda</span> p<span class="token punctuation">:</span> p<span class="token punctuation">.</span>upper<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># Stream([u'FRONTSHAPE', u'PERSPSHAPE', u'SIDESHAPE', u'TOPSHAPE'])</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><code>foreach()</code>也可以用作复杂过滤的转换：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">connected_shaders</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    sgs <span class="token operator">=</span> cmds<span class="token punctuation">.</span>listConnections<span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token string">'shadingEngine'</span><span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">return</span> <span class="token builtin">tuple</span><span class="token punctuation">(</span><span class="token builtin">set</span><span class="token punctuation">(</span> cmds<span class="token punctuation">.</span>listConnections<span class="token punctuation">(</span><span class="token operator">*</span>sgs<span class="token punctuation">,</span> <span class="token builtin">type</span> <span class="token operator">=</span> <span class="token string">'lambert'</span><span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span> Meshes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>foreach<span class="token punctuation">(</span>connected_shaders<span class="token punctuation">)</span>
+<span class="token comment"># Result: Stream([(u'lambert1',), (u'blinn1',), (u'lambert1', u'phong1')]) #</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2><span id="制表显示">制表显示</span></h2><p>minq支持对结果进行制表显示，需要用到<code>.join()</code>方法。<br>下面的例子制表显示所有模型和对应的材质。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">mesh_stream <span class="token operator">=</span> Meshes<span class="token punctuation">(</span><span class="token punctuation">)</span>
+shader_stream <span class="token operator">=</span> mesh_stream<span class="token punctuation">.</span>foreach<span class="token punctuation">(</span>connected_shaders<span class="token punctuation">)</span>
+table <span class="token operator">=</span> mesh_stream<span class="token punctuation">.</span>join<span class="token punctuation">(</span>shaders <span class="token operator">=</span> shader_stream<span class="token punctuation">)</span>
+<span class="token keyword">for</span> each_row <span class="token keyword">in</span> table<span class="token punctuation">:</span>
+    <span class="token keyword">print</span> each_row
+
+<span class="token comment"># dataRow(index=u'|pCube1|pCubeShape1', shaders=(u'lambert1',))</span>
+<span class="token comment"># dataRow(index=u'|pPyramid1|pPyramidShape1', shaders=(u'blinn1',))</span>
+<span class="token comment"># dataRow(index=u'|pSphere1|pSphereShape1', shaders=(u'lambert1', u'phong1'))</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>从上述输出的结果来看，返回的列表里的元素是具名元组。所以我们也可以将它转换成字典：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">meshes<span class="token punctuation">,</span> shaders <span class="token operator">=</span> Meshes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+m <span class="token operator">=</span> meshes<span class="token punctuation">.</span>join<span class="token punctuation">(</span>shaders<span class="token operator">=</span> shaders<span class="token punctuation">.</span>foreach<span class="token punctuation">(</span>connected_shaders<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token builtin">dict</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span>
+<span class="token comment"># &#123;u'|pCube1|pCubeShape1': (u'lambert1',), u'|pPyramid1|pPyramidShape1': (u'blinn1',), u'|pSphere1|pSphereShape1': (u'lambert1', u'phong1')&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>上面的例子没有进行过优化，<code>mesh_stream</code>和<code>shader_stream</code>会重复的执行<code>Meshes()</code>查询。在对性能有要求的情况下，可以使用<code>.split()</code>函数将<strong>Stream</strong>结果复制分成两份。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">meshes<span class="token punctuation">,</span> shaders <span class="token operator">=</span> Meshes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+m <span class="token operator">=</span> meshes<span class="token punctuation">.</span>join<span class="token punctuation">(</span>shaders<span class="token operator">=</span> shaders<span class="token punctuation">.</span>foreach<span class="token punctuation">(</span>connected_shaders<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token builtin">dict</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span>
+
+<span class="token comment"># &#123;u'|pCube1|pCubeShape1': (u'lambert1',), u'|pPyramid1|pPyramidShape1': (u'blinn1',), u'|pSphere1|pSphereShape1': (u'lambert1', u'phong1')&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2><span id="打组">打组</span></h2><p>时常会将<strong>Stream</strong>的结果根据需要进行打组分类。<br>比如根据面数对模型分类：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">poly_category</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    count <span class="token operator">=</span> cmds<span class="token punctuation">.</span>polyEvaluate<span class="token punctuation">(</span>obj<span class="token punctuation">,</span> v<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> count <span class="token operator">></span> <span class="token number">512</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string">'high'</span>
+    <span class="token keyword">if</span> count <span class="token operator">></span> <span class="token number">256</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string">'med'</span>
+    <span class="token keyword">return</span> <span class="token string">'low'</span>
+
+<span class="token keyword">for</span> category<span class="token punctuation">,</span> meshes <span class="token keyword">in</span> Meshes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>group_by<span class="token punctuation">(</span>poly_category<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span> category<span class="token punctuation">,</span> <span class="token string">":"</span><span class="token punctuation">,</span> meshes
+
+<span class="token comment"># high : [u'|pHelix1|pHelixShape1']</span>
+<span class="token comment"># med : [u'|pSphere1|pSphereShape1', u'|pSphere2|pSphereShape2']</span>
+<span class="token comment"># low : [u'|pCube1|pCubeShape1']</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>对于<strong>Stream</strong>结果中包含<code>dataRows</code>元素的，你可以使用行列数进行分类，而不要使用分组函数。</p>
+<h2><span id="集合的操作">集合的操作</span></h2><p>查询可以像集合一样操作。<br>比如对两个结果相加：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">cube_parents  <span class="token operator">=</span> nodes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>of_type<span class="token punctuation">(</span><span class="token string">'polyCube'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>parents
+red_lights <span class="token operator">=</span> lights<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>where<span class="token punctuation">(</span>item<span class="token punctuation">.</span>colorR <span class="token operator">></span> <span class="token number">.5</span><span class="token punctuation">)</span><span class="token punctuation">.</span>where<span class="token punctuation">(</span>item<span class="token punctuation">.</span>colorG <span class="token operator">&lt;</span> <span class="token number">.5</span><span class="token punctuation">)</span>
+
+combined <span class="token operator">=</span> cube_parents <span class="token operator">+</span> lights
+<span class="token keyword">for</span> item combined<span class="token punctuation">:</span>
+    <span class="token keyword">print</span> item
+
+<span class="token comment"># |pCube1</span>
+<span class="token comment"># |ambientLight1|ambientLightShape1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>同样，你需要使用<code>.execute()</code>将其转换成列表。  </p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">q <span class="token operator">=</span> Cameras<span class="token punctuation">(</span><span class="token punctuation">)</span>                                   <span class="token comment"># all cameras</span>
+o <span class="token operator">=</span> Cameras<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>where<span class="token punctuation">(</span>item<span class="token punctuation">.</span>orthographic <span class="token operator">==</span> <span class="token boolean">True</span><span class="token punctuation">)</span>  <span class="token comment"># only ortho cameras</span>
+
+<span class="token punctuation">(</span>q <span class="token operator">+</span> o<span class="token punctuation">)</span><span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># union:</span>
+<span class="token comment"># Result: (u'|side|sideShape', u'|top|topShape', u'|front|frontShape', u'|persp|perspShape') #</span>
+
+<span class="token punctuation">(</span>q <span class="token operator">-</span> o<span class="token punctuation">)</span><span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># difference --  in q but not in o</span>
+<span class="token comment"># Result: (u'|persp|perspShape',) #</span>
+
+<span class="token punctuation">(</span>o <span class="token operator">-</span> q<span class="token punctuation">)</span><span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># difference is order dependent!</span>
+<span class="token comment"># Result: (,) #</span>
+
+<span class="token punctuation">(</span>q <span class="token operator">&amp;</span> o<span class="token punctuation">)</span><span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">#intersection  -- in both sets</span>
+<span class="token comment"># Result: (u'|side|sideShape', u'|top|topShape', u'|front|frontShape') #</span>
+
+<span class="token punctuation">(</span>q <span class="token operator">^</span> o<span class="token punctuation">)</span><span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># XOR : Items not in both sets</span>
+<span class="token comment"># Result: (u'|persp|perspShape',) #</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<center>(完)
+</center>
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/ASWF-intro/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  简单了解一下ASWF
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/maya_environment_variable/">
+                Maya环境变量表
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+
+<script>
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2019-<span id="footerYear"></span> 
+	<a href="/">zhangly</a> 
+	
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>
