@@ -1249,25 +1249,14 @@ minq简单介绍这个项目是为了减少Maya中每次对物体查询时，用
 		</div>	
 	
 		<div class="index-li">
-			<a href="/maya_environment_variable/">
+			<a href="/maya_cmds/">
 				<h2 class="index-title">
-					Maya环境变量表
+					maya command代码段
 				</h2>
 				<div class="index-brief">
-					收集一些常用的Maya环境变量，方便用的时候查。有关PATH的变量，Mac OS X中使用:分隔，Windows和Linux中使用;分隔。
-
-
-
-Variable
-Description
-
-
-
-MAYA_IGNORE_DIALOGS    
-打开maya场景禁止弹出警告框
-
-
-MAYA_DISABL
+					动画相关获取物体有多少个关键帧cmds.keyframe(name, q=True, keyframeCount=True)
+获取物体第一个动画帧帧数cmds.findKeyframe(name, which=&#39;first&#39;)
+获取物体最后一个动画帧帧数cmds.findKeyfra
 					...
 				</div>
 			</a>
@@ -1298,14 +1287,25 @@ MAYA_DISABL
 		</div>	
 	
 		<div class="index-li">
-			<a href="/maya_cmds/">
+			<a href="/maya_environment_variable/">
 				<h2 class="index-title">
-					maya command代码段
+					Maya环境变量表
 				</h2>
 				<div class="index-brief">
-					动画相关获取物体有多少个关键帧cmds.keyframe(name, q=True, keyframeCount=True)
-获取物体第一个动画帧帧数cmds.findKeyframe(name, which=&#39;first&#39;)
-获取物体最后一个动画帧帧数cmds.findKeyfra
+					收集一些常用的Maya环境变量，方便用的时候查。有关PATH的变量，Mac OS X中使用:分隔，Windows和Linux中使用;分隔。
+
+
+
+Variable
+Description
+
+
+
+MAYA_IGNORE_DIALOGS    
+打开maya场景禁止弹出警告框
+
+
+MAYA_DISABL
 					...
 				</div>
 			</a>
@@ -1581,19 +1581,20 @@ pyd格式是D语言(C/C++综合进化版本)生成的二进制文件，实际也
 		</div>	
 	
 		<div class="index-li">
-			<a href="/nk_call_back/">
+			<a href="/unreal_code_ref/">
 				<h2 class="index-title">
-					Nuke的Call Back使用
+					Unreal Python代码段
 				</h2>
 				<div class="index-brief">
-					callback的应用添加在创建节点时，执行的callback
-def test():
-	print "this is test"
+					列出所有Assets以及类型import unreal
 
-nuke.addOnCreate(test, nodeClass='Blur')
+workingPath = "/Game/"
 
-执行上述代码，在创建一个Blur节点的时候，就可以看到调用里test函数。
-如果需
+@unreal.uclass()
+class GetEditorAssetLibrary(unreal.EditorAssetLibrary):
+    pass
+
+editorAssetLib
 					...
 				</div>
 			</a>
@@ -1614,7 +1615,7 @@ nuke.addOnCreate(test, nodeClass='Blur')
                                 
                                     <span>
                                         <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Nuke/">Nuke</a>
+                                        <a href="/categories/DCC/Unreal/">Unreal</a>
 										
                                     </span>
                                 

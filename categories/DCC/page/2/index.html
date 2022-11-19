@@ -1209,6 +1209,49 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
+			<a href="/nk_call_back/">
+				<h2 class="index-title">
+					Nuke的Call Back使用
+				</h2>
+				<div class="index-brief">
+					callback的应用添加在创建节点时，执行的callback
+def test():
+	print "this is test"
+
+nuke.addOnCreate(test, nodeClass='Blur')
+
+执行上述代码，在创建一个Blur节点的时候，就可以看到调用里test函数。
+如果需
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-11-05</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/">DCC</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/Nuke/">Nuke</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/nk_custom_knob/">
 				<h2 class="index-title">
 					Nuke自定义Knob操作
@@ -1221,6 +1264,45 @@ print nuke.selectedNode()["size"]
 # 给节点添加一个knob
 node = nuke.selectedNode()
 kn
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-11-05</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/">DCC</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/Nuke/">Nuke</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/nk_gizmo_make/">
+				<h2 class="index-title">
+					Nuke Gizmo制作
+				</h2>
+				<div class="index-brief">
+					gizmo制作在nuke中选中一些节点，按ctrl+g打包组，一个gizmo节点就做好了。
+ctrl+回车键，进入组。
+两种方法进行组和组内节点的关联：1.在gizmo组节点上右键Manage User Knobs，再点击pick找到组内节点的属性添加进来。
+2.在gizmo组上添加一个knob (
 					...
 				</div>
 			</a>
@@ -1327,45 +1409,6 @@ import hiero.core
 		</div>	
 	
 		<div class="index-li">
-			<a href="/nk_gizmo_make/">
-				<h2 class="index-title">
-					Nuke Gizmo制作
-				</h2>
-				<div class="index-brief">
-					gizmo制作在nuke中选中一些节点，按ctrl+g打包组，一个gizmo节点就做好了。
-ctrl+回车键，进入组。
-两种方法进行组和组内节点的关联：1.在gizmo组节点上右键Manage User Knobs，再点击pick找到组内节点的属性添加进来。
-2.在gizmo组上添加一个knob (
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-11-05</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/">DCC</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Nuke/">Nuke</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
 			<a href="/nuke_py_intro/">
 				<h2 class="index-title">
 					Nuke 开发基础
@@ -1395,50 +1438,6 @@ Python API文档
                                     <span>
                                         <i class="fa fa-folder" aria-hidden="true"></i>
                                         <a href="/categories/DCC/Nuke/">Nuke</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/unreal_code_ref/">
-				<h2 class="index-title">
-					Unreal Python代码段
-				</h2>
-				<div class="index-brief">
-					列出所有Assets以及类型import unreal
-
-workingPath = "/Game/"
-
-@unreal.uclass()
-class GetEditorAssetLibrary(unreal.EditorAssetLibrary):
-    pass
-
-editorAssetLib
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-11-05</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/">DCC</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Unreal/">Unreal</a>
 										
                                     </span>
                                 

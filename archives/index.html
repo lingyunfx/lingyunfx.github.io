@@ -1364,25 +1364,14 @@ minq简单介绍这个项目是为了减少Maya中每次对物体查询时，用
 		</div>	
 	
 		<div class="index-li">
-			<a href="/maya_environment_variable/">
+			<a href="/maya_cmds/">
 				<h2 class="index-title">
-					Maya环境变量表
+					maya command代码段
 				</h2>
 				<div class="index-brief">
-					收集一些常用的Maya环境变量，方便用的时候查。有关PATH的变量，Mac OS X中使用:分隔，Windows和Linux中使用;分隔。
-
-
-
-Variable
-Description
-
-
-
-MAYA_IGNORE_DIALOGS    
-打开maya场景禁止弹出警告框
-
-
-MAYA_DISABL
+					动画相关获取物体有多少个关键帧cmds.keyframe(name, q=True, keyframeCount=True)
+获取物体第一个动画帧帧数cmds.findKeyframe(name, which=&#39;first&#39;)
+获取物体最后一个动画帧帧数cmds.findKeyfra
 					...
 				</div>
 			</a>
@@ -1413,14 +1402,25 @@ MAYA_DISABL
 		</div>	
 	
 		<div class="index-li">
-			<a href="/maya_cmds/">
+			<a href="/maya_environment_variable/">
 				<h2 class="index-title">
-					maya command代码段
+					Maya环境变量表
 				</h2>
 				<div class="index-brief">
-					动画相关获取物体有多少个关键帧cmds.keyframe(name, q=True, keyframeCount=True)
-获取物体第一个动画帧帧数cmds.findKeyframe(name, which=&#39;first&#39;)
-获取物体最后一个动画帧帧数cmds.findKeyfra
+					收集一些常用的Maya环境变量，方便用的时候查。有关PATH的变量，Mac OS X中使用:分隔，Windows和Linux中使用;分隔。
+
+
+
+Variable
+Description
+
+
+
+MAYA_IGNORE_DIALOGS    
+打开maya场景禁止弹出警告框
+
+
+MAYA_DISABL
 					...
 				</div>
 			</a>

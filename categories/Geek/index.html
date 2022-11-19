@@ -1247,21 +1247,14 @@ var _hmt = _hmt || [];
 		</div>	
 	
 		<div class="index-li">
-			<a href="/gitlab_install/">
+			<a href="/cloudreve-install/">
 				<h2 class="index-title">
-					Gitlab在Centos上搭建
+					搭建Cloudreve私有云盘
 				</h2>
 				<div class="index-brief">
-					
-这里安装的是GitLab社区版（CE），使用的是Centos7系统。
-
-对主机的性能要求：
-
-至少4GB内存
-2个CPU内核
-5GB以上的存储空间
-
-开始安装安装依赖curl https://packages.gitlab.com/install/repositories/gitlab/gitla
+					前言对于网盘来说现在最普及的就是百度云盘，不过很不喜欢百度盘的一点是：分享一个文件给朋友，对方必须使用百度云客户端才可以下载，而且百度云对于资源会进行审核。
+这个时候就希望一个网盘能实现：1.发送给对方分享链接2.对方点击链接，直接下载（且下载速度不受限，文件内容不被监管）
+这就需要搭建一个私有的个
 					...
 				</div>
 			</a>
@@ -1282,7 +1275,7 @@ var _hmt = _hmt || [];
                                 
                                     <span>
                                         <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Geek/Gitlab/">Gitlab</a>
+                                        <a href="/categories/Geek/Cloudreve/">Cloudreve</a>
 										
                                     </span>
                                 
@@ -1333,14 +1326,21 @@ git config --global user.name "lingyunfx"
 		</div>	
 	
 		<div class="index-li">
-			<a href="/cloudreve-install/">
+			<a href="/gitlab_install/">
 				<h2 class="index-title">
-					搭建Cloudreve私有云盘
+					Gitlab在Centos上搭建
 				</h2>
 				<div class="index-brief">
-					前言对于网盘来说现在最普及的就是百度云盘，不过很不喜欢百度盘的一点是：分享一个文件给朋友，对方必须使用百度云客户端才可以下载，而且百度云对于资源会进行审核。
-这个时候就希望一个网盘能实现：1.发送给对方分享链接2.对方点击链接，直接下载（且下载速度不受限，文件内容不被监管）
-这就需要搭建一个私有的个
+					
+这里安装的是GitLab社区版（CE），使用的是Centos7系统。
+
+对主机的性能要求：
+
+至少4GB内存
+2个CPU内核
+5GB以上的存储空间
+
+开始安装安装依赖curl https://packages.gitlab.com/install/repositories/gitlab/gitla
 					...
 				</div>
 			</a>
@@ -1361,7 +1361,53 @@ git config --global user.name "lingyunfx"
                                 
                                     <span>
                                         <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Geek/Cloudreve/">Cloudreve</a>
+                                        <a href="/categories/Geek/Gitlab/">Gitlab</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/docker_command/">
+				<h2 class="index-title">
+					Docker 常用命令
+				</h2>
+				<div class="index-brief">
+					# 下载nginx镜像
+docker pull nginx
+docker pull nginx:latest
+
+# 查看本地有哪些镜像
+docker images
+
+# 删除镜像
+docker image rm &lt;id>
+
+# 运行镜像 -d为后台运行 -p指定内外端口映射(外面机器端口：里面
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-05-17</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Geek/">Geek</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Geek/Docker/">Docker</a>
 										
                                     </span>
                                 
@@ -1386,54 +1432,6 @@ git config --global user.name "lingyunfx"
 用户配置目录/etc/firewalld/
 /etc/firewalld/services
 /etc/fi
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-05-17</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Geek/">Geek</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Geek/Linux/">Linux</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/shell_learn/">
-				<h2 class="index-title">
-					Shell脚本学习
-				</h2>
-				<div class="index-brief">
-					注释# 单行注释
-:> 多行注释
-
-变量局部变量：在脚本中定义，只在shell实例中生效
-环境变量：也就是当前环境变量
-变量操作# 创建变量（等号两边不能有空格）
-name="test"
-
-# 创建局部变量（只在函数体中使用）
-local name="test"
-
-# 使用变量
-echo $name
 					...
 				</div>
 			</a>
@@ -1512,22 +1510,24 @@ ssh连接ssh root@192.168.12.100
 		</div>	
 	
 		<div class="index-li">
-			<a href="/docker_command/">
+			<a href="/shell_learn/">
 				<h2 class="index-title">
-					Docker 常用命令
+					Shell脚本学习
 				</h2>
 				<div class="index-brief">
-					# 下载nginx镜像
-docker pull nginx
-docker pull nginx:latest
+					注释# 单行注释
+:> 多行注释
 
-# 查看本地有哪些镜像
-docker images
+变量局部变量：在脚本中定义，只在shell实例中生效
+环境变量：也就是当前环境变量
+变量操作# 创建变量（等号两边不能有空格）
+name="test"
 
-# 删除镜像
-docker image rm &lt;id>
+# 创建局部变量（只在函数体中使用）
+local name="test"
 
-# 运行镜像 -d为后台运行 -p指定内外端口映射(外面机器端口：里面
+# 使用变量
+echo $name
 					...
 				</div>
 			</a>
@@ -1548,7 +1548,47 @@ docker image rm &lt;id>
                                 
                                     <span>
                                         <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Geek/Docker/">Docker</a>
+                                        <a href="/categories/Geek/Linux/">Linux</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/nginx_learn/">
+				<h2 class="index-title">
+					Nginx学习笔记
+				</h2>
+				<div class="index-brief">
+					安装下面提供两种安装方式，喜欢折腾的推荐使用第一种。第二种比较简单方便，适合小白（我）。
+源码包安装https://nginx.org/en/download.html
+1.下载源码包
+# 源码包一般放在src里
+wget https://nginx.org/download/nginx-1.21.
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-01-17</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Geek/">Geek</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Geek/Nginx/">Nginx</a>
 										
                                     </span>
                                 
@@ -1574,45 +1614,6 @@ CREATE DATABASE dbname;
 
 # 删除数据库
 DROP DATABASE [IF EXISTS] &#123;database_
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-01-17</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Geek/">Geek</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Geek/PostgreSql/">PostgreSql</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/postgres_install/">
-				<h2 class="index-title">
-					PostgreSql 安装和配置
-				</h2>
-				<div class="index-brief">
-					CentOS 7安装# 下载rpm包
-sudo yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm  
-
-# 安装 P
 					...
 				</div>
 			</a>

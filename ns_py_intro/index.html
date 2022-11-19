@@ -1273,12 +1273,13 @@ m <span class="token operator">=</span> hc<span class="token punctuation">.</spa
 c <span class="token operator">=</span> hc<span class="token punctuation">.</span>Clip<span class="token punctuation">(</span>m<span class="token punctuation">)</span>
 
 <span class="token comment"># 创建binItem对象</span>
-bi <span class="token operator">=</span> hc<span class="token punctuation">.</span>BinItem<span class="token punctuation">(</span>c<span class="token punctuation">)</span>
+bin_item <span class="token operator">=</span> hc<span class="token punctuation">.</span>BinItem<span class="token punctuation">(</span>c<span class="token punctuation">)</span>
 
 <span class="token comment"># 获取需要放置的bin路径对象，添加对象到Bin</span>
+<span class="token comment"># 确保test_project和Bin 1已经存在</span>
 p <span class="token operator">=</span> hc<span class="token punctuation">.</span>project<span class="token punctuation">(</span><span class="token string">'test_project'</span><span class="token punctuation">)</span>
-bin1 <span class="token operator">=</span> p<span class="token punctuation">.</span>bins<span class="token punctuation">(</span><span class="token string">'Bin 1'</span><span class="token punctuation">)</span>
-bin1<span class="token punctuation">.</span>addItem<span class="token punctuation">(</span>bin1<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+bin1 <span class="token operator">=</span> p<span class="token punctuation">.</span>bins<span class="token punctuation">(</span><span class="token string">'Bin 1'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+bin1<span class="token punctuation">.</span>addItem<span class="token punctuation">(</span>bin_item<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>关于Clip，MediaSource，binItem对象的方法：</p>
 <p><a target="_blank" rel="noopener" href="https://learn.foundry.com/hiero/developers/11.1/HieroPythonDevGuide/api/api_core.html#hiero.core.Clip">https://learn.foundry.com/hiero/developers/11.1/HieroPythonDevGuide/api/api_core.html#hiero.core.Clip</a></p>
@@ -1292,9 +1293,9 @@ m_infos <span class="token operator">=</span> m<span class="token punctuation">.
 <span class="token keyword">print</span> m_infos<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>filename<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3><span id="在项目顶层文件夹创建bin">在项目顶层文件夹创建Bin</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> hiero<span class="token punctuation">.</span>core <span class="token keyword">as</span> hc
-p <span class="token operator">=</span> hc<span class="token punctuation">.</span>project<span class="token punctuation">(</span><span class="token string">'test_project'</span><span class="token punctuation">)</span>
-bin1 <span class="token operator">=</span> hc<span class="token punctuation">.</span>bins<span class="token punctuation">(</span><span class="token string">'test'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
 
+p <span class="token operator">=</span> hc<span class="token punctuation">.</span>project<span class="token punctuation">(</span><span class="token string">'test_project'</span><span class="token punctuation">)</span>
+bin1 <span class="token operator">=</span> hc<span class="token punctuation">.</span>Bin<span class="token punctuation">(</span><span class="token string">'test'</span><span class="token punctuation">)</span>
 p<span class="token punctuation">.</span>clipsBin<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>addItem<span class="token punctuation">(</span>bin1<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3><span id="将clip放置到时间线">将clip放置到时间线</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token triple-quoted-string string">"""
@@ -1370,6 +1371,7 @@ s<span class="token punctuation">.</span>addClip<span class="token punctuation">
 <span class="token triple-quoted-string string">"""
 hasKey, keys, setValue, value
 """</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </div>
 
 
@@ -1384,8 +1386,8 @@ hasKey, keys, setValue, value
         </div>
         <div class="item right">
             
-              <a href="/nk_gizmo_make/">
-                Nuke Gizmo制作
+              <a href="/nuke_py_intro/">
+                Nuke 开发基础
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
               </a>
             

@@ -1209,135 +1209,6 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
-			<a href="/py_network/">
-				<h2 class="index-title">
-					网络通信
-				</h2>
-				<div class="index-brief">
-					互联网协议按照功能的不同分为七层。
-OSI七层协议：应，表，会，传，网，数，物。
-其中应表会可以归为应用层。
-
-应用层：应用程序。http，ftp协议
-传输层：tcp/udp协议。端口来标识运行中的一款应用程序。 以太网头|IP头|tcp头|数据
-网络层：IP协议，用于寻找子网。
-数据链路层：Eth
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-11-06</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Python/">Python</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Python/学习笔记/">学习笔记</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/py_process/">
-				<h2 class="index-title">
-					并发编程
-				</h2>
-				<div class="index-brief">
-					开启子进程的两种方式方式一：
-import time
-from multiprocessing import Process
-
-def task(name):
-    print('&#123;0&#125; is running'.format(name))
-    time.sleep(3)
- 
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-11-06</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Python/">Python</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Python/学习笔记/">学习笔记</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/py_re/">
-				<h2 class="index-title">
-					正则学习
-				</h2>
-				<div class="index-brief">
-					概览
-re.compile 生成一个匹配器实例，用来匹配
-re.match 从字符最前端开始匹配
-re.search 从字符中搜索出第一个匹配结果
-re.findall 从字符中找出所有匹配结果
-re.sub 查询替换字符，返回替换结果
-re.subn 查询替换字符，返回替换结果和替换次数
-re.s
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-11-06</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Python/">Python</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Python/学习笔记/">学习笔记</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
 			<a href="/py_common_cod/">
 				<h2 class="index-title">
 					代码段记录
@@ -1601,19 +1472,175 @@ string.count(str, beg=0, end=len(string))
 		</div>	
 	
 		<div class="index-li">
-			<a href="/nk_call_back/">
+			<a href="/sg_common_command/">
 				<h2 class="index-title">
-					Nuke的Call Back使用
+					Shotgun常用代码段
 				</h2>
 				<div class="index-brief">
-					callback的应用添加在创建节点时，执行的callback
-def test():
-	print "this is test"
+					用api key获取sg对象sg = shotgun_api3.Shotgun("https://piedpiper.shotgunstudio.com",
+                          script_name="compress",
+                     
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-11-06</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Pipeline/">Pipeline</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Pipeline/Shotgun/">Shotgun</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/sg_entity/">
+				<h2 class="index-title">
+					Shotgun可控制的Entity
+				</h2>
+				<div class="index-brief">
+					
 
-nuke.addOnCreate(test, nodeClass='Blur')
 
-执行上述代码，在创建一个Blur节点的时候，就可以看到调用里test函数。
-如果需
+Entity Name
+对应中文名
+
+
+
+ActionMenuItem
+动作菜单
+
+
+ApiUser
+脚本
+
+
+Asset
+资产
+
+
+Attachment
+附件
+
+
+Booking
+人员规划
+
+
+Camera
+摄像机
+
+
+ClientUser
+客户
+
+
+Composition
+合成
+
+
+Cut
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-11-06</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Pipeline/">Pipeline</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Pipeline/Shotgun/">Shotgun</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/sg_official_example/">
+				<h2 class="index-title">
+					Shotgun一些官方例子
+				</h2>
+				<div class="index-brief">
+					参考来源：https://developer.shotgunsoftware.com/python-api/reference.html
+创建一个镜头
+Shotgun.create(entity_type, data, return_fields=None)
+
+>>> data = &#123;
+ 
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-11-06</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Pipeline/">Pipeline</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Pipeline/Shotgun/">Shotgun</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/unreal_code_ref/">
+				<h2 class="index-title">
+					Unreal Python代码段
+				</h2>
+				<div class="index-brief">
+					列出所有Assets以及类型import unreal
+
+workingPath = "/Game/"
+
+@unreal.uclass()
+class GetEditorAssetLibrary(unreal.EditorAssetLibrary):
+    pass
+
+editorAssetLib
 					...
 				</div>
 			</a>
@@ -1634,7 +1661,7 @@ nuke.addOnCreate(test, nodeClass='Blur')
                                 
                                     <span>
                                         <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Nuke/">Nuke</a>
+                                        <a href="/categories/DCC/Unreal/">Unreal</a>
 										
                                     </span>
                                 
@@ -1644,18 +1671,19 @@ nuke.addOnCreate(test, nodeClass='Blur')
 		</div>	
 	
 		<div class="index-li">
-			<a href="/nk_custom_knob/">
+			<a href="/nk_call_back/">
 				<h2 class="index-title">
-					Nuke自定义Knob操作
+					Nuke的Call Back使用
 				</h2>
 				<div class="index-brief">
-					节点里添加自定义knob# 可以用这样的方法，查看knob类型
-print nuke.selectedNode()["size"]
->>> Result: &lt;WH_Knob object at xxxx>
+					callback的应用添加在创建节点时，执行的callback
+def test():
+	print "this is test"
 
-# 给节点添加一个knob
-node = nuke.selectedNode()
-kn
+nuke.addOnCreate(test, nodeClass='Blur')
+
+执行上述代码，在创建一个Blur节点的时候，就可以看到调用里test函数。
+如果需
 					...
 				</div>
 			</a>
