@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1247,35 +1265,79 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h1><span id="前言">前言</span></h1><p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d92d1431.jpg" alt="tracks-2d-tools-p1.jpg"><br>看过之前<a href="https://lingyunfx.com/2020/11/05/whats-matchmoving/">电影视效制作中的Matchmove</a>这篇文章的朋友应该知道，<br><strong>跟踪</strong>最基本的步骤就是为匹配物或场景添加二维跟踪点。</p>
-<p>在进行摄像机反求的时候，可能单一软件的解算效果不是很理想，<br>通常我们切换到另一个软件进行尝试解算。<br>(比如对于变焦镜头来说，SynthEyes的变焦解算会稍好于3DEqualizer。)<br>而这些<strong>二维跟踪点</strong>，<strong>在跟踪软件之间是不互通的</strong>。</p>
-<p>当我们已经完成了二维点的添加工作，想要更换跟踪软件的时候。<br>就需要一个工具来进行点之间的转换。</p>
-<h1><span id="分析">分析</span></h1><p>为了得知不同软件之间导出二维点格式的区别，<br>我们可以在同一段素材的同一个位置，添加一个二维点。<br>然后导出：</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d937967e.gif" alt="tracks-2d-tools-p2.gif"><br>首先可以看到，点数据是以一个txt文本存储的，<br>里面记录了点的<strong>名称</strong>，<strong>帧数</strong>，和对应帧的x，y<strong>位置</strong>。</p>
-<p>其中除排序格式不一样之外，最重要的则是对二维点x，y位置描述上的不同。<br>像3DE，PFTrack和Boujou，是以图像像素为标尺。<br>而SynthEyes则要独树一帜些。</p>
-<p>以1920x1080的尺寸素材为例，我们可以为素材的四个角分别添加跟踪点，<br>观察点的x，y数值，这里用画图来表示结果：<br>(红线为X轴，绿线为Y轴)</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d92d0aad.jpg" alt="tracks-2d-tools-p3.jpg"><br><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d92d49d5.jpg" alt="tracks-2d-tools-p4.jpg"><br>PFTrack和3DE是相同的，以二维点在图像像素中的位置来进行记录。<br>它们之间的二维点x，y数值可以直接进行copy，不需做更改。<br><code>x_position = x_position</code><br><code>y_position = y_position</code></p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d9355d8b.jpg" alt="tracks-2d-tools-p5.jpg"><br>而Boujou的Y轴向和上述两款软件恰好相反。<br>在进行二维点转换的时候，只需要重新计算y的位置即可。<br><code>x_position = x_position</code><br><code>y_position = image_width - y_position</code></p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d93b9f50.jpg" alt="tracks-2d-tools-p6.jpg"><br>SynthEyes则是以-1到1之间进行取值，所以在转换二维点的时候，<br>需要将图像尺寸套入公式进行换算。<br><code>x_position = x_position / image_width * 2 - 1</code><br><code>y_position = 1 - y_position / image_height * 2</code></p>
-<p>现在已经知道了二维点的x，y在不同软件之间如何进行换算，<br>剩下的就是每个软件的点数据排序格式，这个部分比较简单。<br>像Boujou和PFTrack已经用注释写明了每一行所表示的数据是什么。<br>这里就不再赘述了。</p>
+	<h1><span id="前言">前言</span></h1>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d92d1431.jpg" alt="tracks-2d-tools-p1.jpg"><br>
+看过之前<a href="https://lingyunfx.com/2020/11/05/whats-matchmoving/">电影视效制作中的Matchmove</a>这篇文章的朋友应该知道，<br>
+<strong>跟踪</strong>最基本的步骤就是为匹配物或场景添加二维跟踪点。</p>
+<p>在进行摄像机反求的时候，可能单一软件的解算效果不是很理想，<br>
+通常我们切换到另一个软件进行尝试解算。<br>
+(比如对于变焦镜头来说，SynthEyes的变焦解算会稍好于3DEqualizer。)<br>
+而这些<strong>二维跟踪点</strong>，<strong>在跟踪软件之间是不互通的</strong>。</p>
+<p>当我们已经完成了二维点的添加工作，想要更换跟踪软件的时候。<br>
+就需要一个工具来进行点之间的转换。</p>
+<h1><span id="分析">分析</span></h1>
+<p>为了得知不同软件之间导出二维点格式的区别，<br>
+我们可以在同一段素材的同一个位置，添加一个二维点。<br>
+然后导出：</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d937967e.gif" alt="tracks-2d-tools-p2.gif"><br>
+首先可以看到，点数据是以一个txt文本存储的，<br>
+里面记录了点的<strong>名称</strong>，<strong>帧数</strong>，和对应帧的x，y<strong>位置</strong>。</p>
+<p>其中除排序格式不一样之外，最重要的则是对二维点x，y位置描述上的不同。<br>
+像3DE，PFTrack和Boujou，是以图像像素为标尺。<br>
+而SynthEyes则要独树一帜些。</p>
+<p>以1920x1080的尺寸素材为例，我们可以为素材的四个角分别添加跟踪点，<br>
+观察点的x，y数值，这里用画图来表示结果：<br>
+(红线为X轴，绿线为Y轴)</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d92d0aad.jpg" alt="tracks-2d-tools-p3.jpg"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d92d49d5.jpg" alt="tracks-2d-tools-p4.jpg"><br>
+PFTrack和3DE是相同的，以二维点在图像像素中的位置来进行记录。<br>
+它们之间的二维点x，y数值可以直接进行copy，不需做更改。<br>
+<code>x_position = x_position</code><br>
+<code>y_position = y_position</code></p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d9355d8b.jpg" alt="tracks-2d-tools-p5.jpg"><br>
+而Boujou的Y轴向和上述两款软件恰好相反。<br>
+在进行二维点转换的时候，只需要重新计算y的位置即可。<br>
+<code>x_position = x_position</code><br>
+<code>y_position = image_width - y_position</code></p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d93b9f50.jpg" alt="tracks-2d-tools-p6.jpg"><br>
+SynthEyes则是以-1到1之间进行取值，所以在转换二维点的时候，<br>
+需要将图像尺寸套入公式进行换算。<br>
+<code>x_position = x_position / image_width * 2 - 1</code><br>
+<code>y_position = 1 - y_position / image_height * 2</code></p>
+<p>现在已经知道了二维点的x，y在不同软件之间如何进行换算，<br>
+剩下的就是每个软件的点数据排序格式，这个部分比较简单。<br>
+像Boujou和PFTrack已经用注释写明了每一行所表示的数据是什么。<br>
+这里就不再赘述了。</p>
 <p>有了思路，这些繁琐的步骤就交给脚本来实现吧。</p>
-<h1><span id="工具">工具</span></h1><p>代码放到github上了：<br><a target="_blank" rel="noopener" href="https://github.com/lingyunfx/tracks2d_conversion">https://github.com/lingyunfx/tracks2d_conversion</a></p>
-<p>下载下来后打开终端，<br>使用<code>python conver_tracker.py --help</code>来查看(简陋的)帮助。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d9417da3.jpg" alt="tracks-2d-tools-p7.jpg"><br>从上图可以看到<strong>有以下几个参数</strong></p>
+<h1><span id="工具">工具</span></h1>
+<p>代码放到github上了：<br>
+<a target="_blank" rel="noopener" href="https://github.com/lingyunfx/tracks2d_conversion">https://github.com/lingyunfx/tracks2d_conversion</a></p>
+<p>下载下来后打开终端，<br>
+使用<code>python conver_tracker.py --help</code>来查看(简陋的)帮助。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d9417da3.jpg" alt="tracks-2d-tools-p7.jpg"><br>
+从上图可以看到<strong>有以下几个参数</strong></p>
 <ul>
 <li><code>-s</code> 指定来源二维点的类型</li>
 <li><code>-t</code> 指定目标二维点的类型</li>
 <li><code>-wh</code> 指定使用序列帧的尺寸</li>
 <li><code>-o</code> 设置偏移帧</li>
 </ul>
-<p>指定类型可以用的参数值有：<br>syntheyes, 3de, pftrack, boujou, syn</p>
-<p><strong>基本调用</strong><br><code>python conver_trakcer.py /Downloads/from_3de_point.txt</code><br>默认情况是不添加任何参数，<br>是将3DEqualizer二维点转换为SynthEyes。<br>图像尺寸为1920x1080，默认不偏移帧。</p>
+<p>指定类型可以用的参数值有：<br>
+syntheyes, 3de, pftrack, boujou, syn</p>
+<p><strong>基本调用</strong><br>
+<code>python conver_trakcer.py /Downloads/from_3de_point.txt</code><br>
+默认情况是不添加任何参数，<br>
+是将3DEqualizer二维点转换为SynthEyes。<br>
+图像尺寸为1920x1080，默认不偏移帧。</p>
 <p><strong>例子</strong></p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 将Boujou的跟踪点转换为SynthEyes,指定尺寸2880x1550,偏移+1000帧
 python conver_trakcer.py -s boujou -t syn -wh 2880x1550 -o 1000 &#x2F;Downloads&#x2F;2dtracks.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h1><span id="结尾">结尾</span></h1><p>这个是蹭着周六空闲临时写的一个工具，功能比较简单。<br>之后可能会加入nuke，blender等软件的支持。<br>也会添加对二维点的裁剪，镜像等操作。</p>
-<p>如果对工具有什么建议或反馈，可以私信我。<br>如果觉得有用的话可以关注一下这个公众号，谢谢。</p>
+<h1><span id="结尾">结尾</span></h1>
+<p>这个是蹭着周六空闲临时写的一个工具，功能比较简单。<br>
+之后可能会加入nuke，blender等软件的支持。<br>
+也会添加对二维点的裁剪，镜像等操作。</p>
+<p>如果对工具有什么建议或反馈，可以私信我。<br>
+如果觉得有用的话可以关注一下这个公众号，谢谢。</p>
 <center><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36f1d52b8.jpg" width="30%" height="30%" alt align="center"></center>
 
 </div>

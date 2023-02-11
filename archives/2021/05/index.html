@@ -241,6 +241,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -769,6 +778,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1214,9 +1232,14 @@ var _hmt = _hmt || [];
 					搭建Cloudreve私有云盘
 				</h2>
 				<div class="index-brief">
-					前言对于网盘来说现在最普及的就是百度云盘，不过很不喜欢百度盘的一点是：分享一个文件给朋友，对方必须使用百度云客户端才可以下载，而且百度云对于资源会进行审核。
-这个时候就希望一个网盘能实现：1.发送给对方分享链接2.对方点击链接，直接下载（且下载速度不受限，文件内容不被监管）
-这就需要搭建一个私有的个
+					前言
+对于网盘来说现在最普及的就是百度云盘，不过很不喜欢百度盘的一点是：
+分享一个文件给朋友，对方必须使用百度云客户端才可以下载，而且百度云对于资源会进行审核。
+这个时候就希望一个网盘能实现：
+1.发送给对方分享链接
+2.对方点击链接，直接下载
+（且下载速度不受限，文件内容不被监管）
+这就需要搭建一
 					...
 				</div>
 			</a>
@@ -1247,17 +1270,213 @@ var _hmt = _hmt || [];
 		</div>	
 	
 		<div class="index-li">
+			<a href="/docker_command/">
+				<h2 class="index-title">
+					Docker 常用命令
+				</h2>
+				<div class="index-brief">
+					镜像
+搜索镜像
+docker search nginx
+这里会列出官方和非官方的镜像列表
+
+拉取/下载镜像
+# 直接拉取
+docker pull nginx
+
+# 拉取最新版本
+docker pull nginx:latest
+
+# 拉取指定版本镜像
+docker pull nginx:1.15.8
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-05-17</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Geek/">Geek</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Geek/Docker/">Docker</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/firewall_cmd/">
+				<h2 class="index-title">
+					防火墙相关
+				</h2>
+				<div class="index-brief">
+					
+这里是以CentOS 7为例
+
+系统配置目录
+/usr/lib/firewalld/
+/usr/lib/firewalld/services
+/usr/lib/firewalld/zones
+用户配置目录
+/etc/firewalld/
+/etc/firewalld/services
+/etc/f
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-05-17</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Geek/">Geek</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Geek/Linux/">Linux</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/linux_command_cmd/">
+				<h2 class="index-title">
+					Linux 常用命令
+				</h2>
+				<div class="index-brief">
+					通用命令
+查看文件大小
+du -h /usr/src/xxx.tar
+杀死进程
+killall nginx
+
+# 安装
+yum install psmisc
+
+# 在不知道包名称的情况下搜索
+yum search killall
+ssh连接
+ssh root@192.168.12.100
+添加用户
+
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-05-17</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Geek/">Geek</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Geek/Linux/">Linux</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/shell_learn/">
+				<h2 class="index-title">
+					Shell脚本学习
+				</h2>
+				<div class="index-brief">
+					注释
+# 单行注释
+:> 多行注释
+变量
+局部变量：在脚本中定义，只在shell实例中生效
+环境变量：也就是当前环境变量
+变量操作
+# 创建变量（等号两边不能有空格）
+name="test"
+
+# 创建局部变量（只在函数体中使用）
+local name="test"
+
+# 使用变量
+echo $na
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-05-17</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Geek/">Geek</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Geek/Linux/">Linux</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/git_command/">
 				<h2 class="index-title">
 					Git 常用命令
 				</h2>
 				<div class="index-brief">
-					设置自己的用户和名称git config --global user.email "lingyunfx@88.com"
+					设置自己的用户和名称
+git config --global user.email "lingyunfx@88.com"
 git config --global user.name "lingyunfx"
-
-查看历史版本git log
-
-查看当前版本和之前一个版本的差异git diff &lt;has
+查看历史版本
+git log
+查看当前版本和之前一个版本的差异
+git diff &lt;ha
 					...
 				</div>
 			</a>
@@ -1302,7 +1521,9 @@ git config --global user.name "lingyunfx"
 2个CPU内核
 5GB以上的存储空间
 
-开始安装安装依赖curl https://packages.gitlab.com/install/repositories/gitlab/gitla
+开始安装
+安装依赖
+curl https://packages.gitlab.com/install/repositories/gitlab/git
 					...
 				</div>
 			</a>
@@ -1324,193 +1545,6 @@ git config --global user.name "lingyunfx"
                                     <span>
                                         <i class="fa fa-folder" aria-hidden="true"></i>
                                         <a href="/categories/Geek/Gitlab/">Gitlab</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/docker_command/">
-				<h2 class="index-title">
-					Docker 常用命令
-				</h2>
-				<div class="index-brief">
-					# 下载nginx镜像
-docker pull nginx
-docker pull nginx:latest
-
-# 查看本地有哪些镜像
-docker images
-
-# 删除镜像
-docker image rm &lt;id>
-
-# 运行镜像 -d为后台运行 -p指定内外端口映射(外面机器端口：里面
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-05-17</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Geek/">Geek</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Geek/Docker/">Docker</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/firewall_cmd/">
-				<h2 class="index-title">
-					防火墙相关
-				</h2>
-				<div class="index-brief">
-					
-这里是以CentOS 7为例
-
-系统配置目录/usr/lib/firewalld/
-/usr/lib/firewalld/services
-/usr/lib/firewalld/zones
-
-用户配置目录/etc/firewalld/
-/etc/firewalld/services
-/etc/fi
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-05-17</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Geek/">Geek</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Geek/Linux/">Linux</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/linux_command_cmd/">
-				<h2 class="index-title">
-					Linux 常用命令
-				</h2>
-				<div class="index-brief">
-					通用命令查看文件大小du -h /usr/src/xxx.tar
-
-杀死进程killall nginx
-
-# 安装
-yum install psmisc
-
-# 在不知道包名称的情况下搜索
-yum search killall
-
-ssh连接ssh root@192.168.12.100
-
-添加用户us
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-05-17</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Geek/">Geek</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Geek/Linux/">Linux</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/shell_learn/">
-				<h2 class="index-title">
-					Shell脚本学习
-				</h2>
-				<div class="index-brief">
-					注释# 单行注释
-:> 多行注释
-
-变量局部变量：在脚本中定义，只在shell实例中生效
-环境变量：也就是当前环境变量
-变量操作# 创建变量（等号两边不能有空格）
-name="test"
-
-# 创建局部变量（只在函数体中使用）
-local name="test"
-
-# 使用变量
-echo $name
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-05-17</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Geek/">Geek</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Geek/Linux/">Linux</a>
 										
                                     </span>
                                 

@@ -241,6 +241,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -769,6 +778,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1222,6 +1240,7 @@ var _hmt = _hmt || [];
 
 
 
+
 cmp(list1, list2)
 比较两个列表的元素
 
@@ -1243,7 +1262,7 @@ list(seq)
 
 
 list.append(obj)
-在列表末尾添加
+在列表末尾添
 					...
 				</div>
 			</a>
@@ -1287,6 +1306,7 @@ list.append(obj)
 
 
 
+
 string.capitalize()
 把字符串的第一个字符大写
 
@@ -1296,7 +1316,7 @@ string.center(width)
 
 
 string.count(str, beg=0, end=len(string))
-返回 s
+返回 
 					...
 				</div>
 			</a>
@@ -1333,10 +1353,15 @@ string.count(str, beg=0, end=len(string))
 				</h2>
 				<div class="index-brief">
 					QLineEdit
-生成控件widget = QLineEdit()
-设置输入框文字widget.setText(&#39;some text&#39;)
-设置提示文字widget.setPlaceholderText(&#39;some text&#39;)
-设置输入框为只读widget.setR
+
+生成控件
+widget = QLineEdit()
+设置输入框文字
+widget.setText('some text')
+设置提示文字
+widget.setPlaceholderText('some text')
+设置输入框为只读
+widget.setReadOnly(Tru
 					...
 				</div>
 			</a>
@@ -1372,9 +1397,10 @@ string.count(str, beg=0, end=len(string))
 					Shotgun常用代码段
 				</h2>
 				<div class="index-brief">
-					用api key获取sg对象sg = shotgun_api3.Shotgun("https://piedpiper.shotgunstudio.com",
+					用api key获取sg对象
+sg = shotgun_api3.Shotgun("https://piedpiper.shotgunstudio.com",
                           script_name="compress",
-                     
+                    
 					...
 				</div>
 			</a>
@@ -1410,47 +1436,18 @@ string.count(str, beg=0, end=len(string))
 					Shotgun可控制的Entity
 				</h2>
 				<div class="index-brief">
-					
+					Entity Name | 对应中文名
 
-
-Entity Name
-对应中文名
-
-
-
-ActionMenuItem
-动作菜单
-
-
-ApiUser
-脚本
-
-
-Asset
-资产
-
-
-Attachment
-附件
-
-
-Booking
-人员规划
-
-
-Camera
-摄像机
-
-
-ClientUser
-客户
-
-
-Composition
-合成
-
-
-Cut
+| -
+ActionMenuItem | 动作菜单
+ApiUser |	脚本
+Asset |	资产
+Attachment |	附件
+Booking |	人员规划
+Camera |	摄像机
+ClientUser |	客户
+Composition |	合成
+Cu
 					...
 				</div>
 			</a>
@@ -1488,10 +1485,11 @@ Cut
 				<div class="index-brief">
 					参考来源：https://developer.shotgunsoftware.com/python-api/reference.html
 创建一个镜头
+
 Shotgun.create(entity_type, data, return_fields=None)
 
 >>> data = &#123;
- 
+
 					...
 				</div>
 			</a>
@@ -1527,7 +1525,8 @@ Shotgun.create(entity_type, data, return_fields=None)
 					Unreal Python代码段
 				</h2>
 				<div class="index-brief">
-					列出所有Assets以及类型import unreal
+					列出所有Assets以及类型
+import unreal
 
 workingPath = "/Game/"
 
@@ -1535,7 +1534,7 @@ workingPath = "/Game/"
 class GetEditorAssetLibrary(unreal.EditorAssetLibrary):
     pass
 
-editorAssetLib
+editorAssetLi
 					...
 				</div>
 			</a>
@@ -1571,12 +1570,12 @@ editorAssetLib
 					Nuke的Call Back使用
 				</h2>
 				<div class="index-brief">
-					callback的应用添加在创建节点时，执行的callback
+					callback的应用
+添加在创建节点时，执行的callback
 def test():
 	print "this is test"
 
 nuke.addOnCreate(test, nodeClass='Blur')
-
 执行上述代码，在创建一个Blur节点的时候，就可以看到调用里test函数。
 如果需
 					...
@@ -1614,13 +1613,14 @@ nuke.addOnCreate(test, nodeClass='Blur')
 					Nuke自定义Knob操作
 				</h2>
 				<div class="index-brief">
-					节点里添加自定义knob# 可以用这样的方法，查看knob类型
+					节点里添加自定义knob
+# 可以用这样的方法，查看knob类型
 print nuke.selectedNode()["size"]
 >>> Result: &lt;WH_Knob object at xxxx>
 
 # 给节点添加一个knob
 node = nuke.selectedNode()
-kn
+k
 					...
 				</div>
 			</a>
@@ -1656,10 +1656,13 @@ kn
 					Nuke Gizmo制作
 				</h2>
 				<div class="index-brief">
-					gizmo制作在nuke中选中一些节点，按ctrl+g打包组，一个gizmo节点就做好了。
+					gizmo制作
+在nuke中选中一些节点，按ctrl+g打包组，一个gizmo节点就做好了。
 ctrl+回车键，进入组。
-两种方法进行组和组内节点的关联：1.在gizmo组节点上右键Manage User Knobs，再点击pick找到组内节点的属性添加进来。
-2.在gizmo组上添加一个knob (
+两种方法进行组和组内节点的关联：
+1.在gizmo组节点上右键Manage User Knobs，再点击pick
+找到组内节点的属性添加进来。
+2.在gizmo组上添加一个kno
 					...
 				</div>
 			</a>

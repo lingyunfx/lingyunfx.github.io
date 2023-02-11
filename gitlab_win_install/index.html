@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1253,37 +1271,40 @@ var _hmt = _hmt || [];
 	<p>新加入的一家公司因为条件有限，无法提供服务器给TD部门来搭建一个gitlab服务。但是协同开发又离不开这样的版本管理应用，所以想了想在自己本机弄个gitlab服务也能凑合用用。</p>
 <p>虽然在windows用VM虚拟机也可以完成一样的效果，这里用docker是觉得更方便一些。</p>
 <p>参考来自于：<a target="_blank" rel="noopener" href="https://blog.csdn.net/pkrobbie/article/details/113837392">https://blog.csdn.net/pkrobbie/article/details/113837392</a></p>
-<h2><span id="1安装wsl2">1.安装WSL2</span></h2><h3><span id="开启功能">开启功能</span></h3><p>Windows Subsystem for Linux（WSL）是Windows 10上的一个工具，允许开发人员在Windows上直接运行Linux环境。</p>
+<h2><span id="1安装wsl2">1.安装WSL2</span></h2>
+<h3><span id="开启功能">开启功能</span></h3>
+<p>Windows Subsystem for Linux（WSL）是Windows 10上的一个工具，允许开发人员在Windows上直接运行Linux环境。</p>
 <p>在安装WSL前需要先开启两个功能。</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/08/13/62f77f1ac9dad.png" alt="Pasted image 20220813113526.png"></p>
-<p>可以从控制面板 - 程序 - 启用或关闭Windows功能中开启。<br>或者使用powershell（管理员身份打开）输入命令开启也一样。</p>
+<p>可以从控制面板 - 程序 - 启用或关闭Windows功能中开启。<br>
+或者使用powershell（管理员身份打开）输入命令开启也一样。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 启用"适用于 Linux 的 Windows 子系统"可选功能</span>
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 
 <span class="token comment"># 启用虚拟机平台</span>
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>然后重启计算机。</p>
-<h3><span id="安装内核">安装内核</span></h3><p>下载：<a target="_blank" rel="noopener" href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">适用于 x64 计算机的 WSL2 Linux 内核更新包</a></p>
+<h3><span id="安装内核">安装内核</span></h3>
+<p>下载：<a target="_blank" rel="noopener" href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">适用于 x64 计算机的 WSL2 Linux 内核更新包</a></p>
 <p>安装后在powershell里设置wsl的版本为wsl2</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wsl --set-default-version <span class="token number">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2><span id="2安装docker桌面版">2.安装Docker桌面版</span></h2><p>windows下载链接：<br><a target="_blank" rel="noopener" href="https://docs.docker.com/desktop/install/windows-install/">https://docs.docker.com/desktop/install/windows-install/</a></p>
+<h2><span id="2安装docker桌面版">2.安装Docker桌面版</span></h2>
+<p>windows下载链接：<br>
+<a target="_blank" rel="noopener" href="https://docs.docker.com/desktop/install/windows-install/">https://docs.docker.com/desktop/install/windows-install/</a></p>
 <p>安装时需要勾选<code>Use WSL2 instead of Hyper-V</code></p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/08/13/62f77f1a84720.png" alt="Pasted image 20220813115114.png"></p>
 <p>安装完成后根据提示重启电脑。</p>
-<h2><span id="3安装gitlab-ce">3.安装gitlab-ce</span></h2><p>打开cmd终端，拉取gitlab镜像文件</p>
+<h2><span id="3安装gitlab-ce">3.安装gitlab-ce</span></h2>
+<p>打开cmd终端，拉取gitlab镜像文件</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker pull gitlab/gitlab-ce<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>下载完成后，查看本地镜像文件</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker image <span class="token function">ls</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>创建数据卷</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker volume create gitlab-data-vol
 docker volume create gitlab-log-vol
 docker volume create gitlab-config-vol<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>在docker启动gitlab，这里映射到本机的80，22，443端口。<br>可以根据自己的需要修改。</p>
+<p>在docker启动gitlab，这里映射到本机的80，22，443端口。<br>
+可以根据自己的需要修改。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker run --detach 
   --publish <span class="token number">443</span>:443 --publish <span class="token number">80</span>:80 --publish <span class="token number">22</span>:22 
   --name gitlab 
@@ -1292,11 +1313,9 @@ docker volume create gitlab-config-vol<span aria-hidden="true" class="line-numbe
   --volume gitlab-log-vol:/var/log/gitlab
   --volume gitlab-data-vol:/var/opt/gitlab
   gitlab/gitlab-ce<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>配置gitlab，进入容器配置就可以。这里不赘述了，可以参考博客里面Gitlab linux的搭建过程来配置。  </p>
+<p>配置gitlab，进入容器配置就可以。这里不赘述了，可以参考博客里面Gitlab linux的搭建过程来配置。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 进入容器</span>
 docker <span class="token builtin class-name">exec</span> -it gitlab /bin/bash<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <center>(完)
 </center>
 </div>

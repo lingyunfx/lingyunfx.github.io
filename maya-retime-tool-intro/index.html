@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1247,44 +1265,85 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h2><span id="前言">前言</span></h2><p>前段时间朋友接了个外包，实拍的原始素材在nuke里进行了变速，而一些cg动画在原素材中已经制作完成，<br>需要一个工具对maya文件中动画进行相同的变速来匹配变速后的素材。</p>
-<p>其实变速的原理和实现并不是特别复杂，不过繁复的数值计算需要借助脚本来实现。  </p>
-<p>然后借着节假日的最后一天，写了这个变速工具。<br>这篇文章简单的记录下过程，并把它分享给需要的朋友。</p>
+	<h2><span id="前言">前言</span></h2>
+<p>前段时间朋友接了个外包，实拍的原始素材在nuke里进行了变速，而一些cg动画在原素材中已经制作完成，<br>
+需要一个工具对maya文件中动画进行相同的变速来匹配变速后的素材。</p>
+<p>其实变速的原理和实现并不是特别复杂，不过繁复的数值计算需要借助脚本来实现。</p>
+<p>然后借着节假日的最后一天，写了这个变速工具。<br>
+这篇文章简单的记录下过程，并把它分享给需要的朋友。</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38afd6682.jpeg" alt="maya-retime-tool-intro-p1.jpeg"></p>
-<h2><span id="变速的方式">变速的方式</span></h2><p>变速实际上是对原始素材的抽帧和补帧，<br>而对于我们来说，最需要知道的是：<br><strong>变速后的每一帧，对应的是原始素材中哪一帧画面。</strong></p>
-<p>比如，知道变速后的1001帧，是原本的1005帧，<br>这样把1005帧的动画复制到变速后的1001帧，<br>就可以完成了这一帧的匹配。</p>
-<p>为了得知变速后的对应原始帧，我们可以用这样一个验证方式。<br>首先用软件输出一个这样的（纯数字）序列帧。  </p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38afd5f31.gif" alt="maya-retime-tool-intro-p2.gif"><br>然后套上变速节点进行观察。<br>在Nuke中常用的变速节点有<code>Retime</code>，<code>OFlow</code>，<code>Kronos</code>等。</p>
-<p>首先使用retime节点做最简单的<strong>倍速变速</strong>。<br>这里为范围1001-1100的序列帧做一个1.9倍的变速，<br>filter就默认使用box。  </p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b06fa0b.jpg" alt="maya-retime-tool-intro-p3.jpg"><br>点击变速后的每一帧，可以看到对应的图像。<br>比如变速后的1025帧的图像为原始1046和1047的融合。  </p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38afefc94.gif" alt="maya-retime-tool-intro-p4.gif"><br>然而每个变速节点又有几种不同的变速方式，<br>这里的retime节点就有<code>none</code>，<code>box</code>和<code>nearest</code>三种方式。<br>尝试不同的变速方式能看出，有的是直接进行取整，有的是会融合前后帧。  </p>
-<p>通过这些尝试和观察，对于直接的倍数变速，推导出这样一个公式：<br><code>起始帧 + (变速后的帧数指数)*倍数 - 倍数</code><br><strong>注意：</strong>这里指数是指变速后序列的第几帧。  </p>
-<p>比如变速后的1035帧的指数就为35。（起始帧为1001帧的情况下）<br>把上述的公式带进去可以得到结果：<br><code>1001 + 35*1.9 - 1.9 = 1065.6</code></p>
+<h2><span id="变速的方式">变速的方式</span></h2>
+<p>变速实际上是对原始素材的抽帧和补帧，<br>
+而对于我们来说，最需要知道的是：<br>
+<strong>变速后的每一帧，对应的是原始素材中哪一帧画面。</strong></p>
+<p>比如，知道变速后的1001帧，是原本的1005帧，<br>
+这样把1005帧的动画复制到变速后的1001帧，<br>
+就可以完成了这一帧的匹配。</p>
+<p>为了得知变速后的对应原始帧，我们可以用这样一个验证方式。<br>
+首先用软件输出一个这样的（纯数字）序列帧。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38afd5f31.gif" alt="maya-retime-tool-intro-p2.gif"><br>
+然后套上变速节点进行观察。<br>
+在Nuke中常用的变速节点有<code>Retime</code>，<code>OFlow</code>，<code>Kronos</code>等。</p>
+<p>首先使用retime节点做最简单的<strong>倍速变速</strong>。<br>
+这里为范围1001-1100的序列帧做一个1.9倍的变速，<br>
+filter就默认使用box。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b06fa0b.jpg" alt="maya-retime-tool-intro-p3.jpg"><br>
+点击变速后的每一帧，可以看到对应的图像。<br>
+比如变速后的1025帧的图像为原始1046和1047的融合。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38afefc94.gif" alt="maya-retime-tool-intro-p4.gif"><br>
+然而每个变速节点又有几种不同的变速方式，<br>
+这里的retime节点就有<code>none</code>，<code>box</code>和<code>nearest</code>三种方式。<br>
+尝试不同的变速方式能看出，有的是直接进行取整，有的是会融合前后帧。</p>
+<p>通过这些尝试和观察，对于直接的倍数变速，推导出这样一个公式：<br>
+<code>起始帧 + (变速后的帧数指数)*倍数 - 倍数</code><br>
+**注意：**这里指数是指变速后序列的第几帧。</p>
+<p>比如变速后的1035帧的指数就为35。（起始帧为1001帧的情况下）<br>
+把上述的公式带进去可以得到结果：<br>
+<code>1001 + 35*1.9 - 1.9 = 1065.6</code></p>
 <p>针对于retime节点，不同的变速方式它的取值为：</p>
 <ul>
 <li>none：直接去小数取整</li>
 <li>box：四舍五入后，融合前后帧</li>
 <li>nearest：有小数，直接进一位取整</li>
 </ul>
-<p>说完了倍数变速，对于OFlow，Kronos和TimeWarp节点进行曲线变速的情况下，可以直接通过观察这里的值进行结果判断：  </p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b05d31a.jpg" alt="maya-retime-tool-intro-p5.jpg"><br>如图所示，变速后的1059帧对应原始的1081帧，Frame里的值为1080.562。<br>再次尝试不同变速方式，总结出不同变速方式的求值结果：</p>
+<p>说完了倍数变速，对于OFlow，Kronos和TimeWarp节点进行曲线变速的情况下，可以直接通过观察这里的值进行结果判断：</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b05d31a.jpg" alt="maya-retime-tool-intro-p5.jpg"><br>
+如图所示，变速后的1059帧对应原始的1081帧，Frame里的值为1080.562。<br>
+再次尝试不同变速方式，总结出不同变速方式的求值结果：</p>
 <ul>
-<li><p>timeWarp<br>none： 直接去小数取整<br>nearest：四舍五入取整<br>box：根据小数点的值，画面融合</p>
+<li>
+<p>timeWarp<br>
+none： 直接去小数取整<br>
+nearest：四舍五入取整<br>
+box：根据小数点的值，画面融合</p>
 </li>
-<li><p>oFlow<br>motion：根据小数点的值，画面融合<br>frame：四舍五入取整<br>blend：根据小数点的值，画面融合</p>
+<li>
+<p>oFlow<br>
+motion：根据小数点的值，画面融合<br>
+frame：四舍五入取整<br>
+blend：根据小数点的值，画面融合</p>
 </li>
-<li><p>Kronos<br>motion：根据小数点的值，画面融合<br>frame：四舍五入取整<br>blend：根据小数点的值，画面融合</p>
+<li>
+<p>Kronos<br>
+motion：根据小数点的值，画面融合<br>
+frame：四舍五入取整<br>
+blend：根据小数点的值，画面融合</p>
 </li>
 </ul>
 <p>通过上述的方法，我们就可以得到这样一个变速信息文件：</p>
-<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b0a2869.jpg" width="40%" height="40%" alt align="center"></left>  </p>
-<p><strong>左侧为</strong>变速前帧数，<strong>右侧为</strong>对应的原始素材帧数，中间用空格隔开。  </p>
-<h2><span id="变速工具">变速工具</span></h2><p>工具我放在了github上，直接下载使用即可。  </p>
+<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b0a2869.jpg" width="40%" height="40%" alt align="center"></left></p>
+<p><strong>左侧为</strong>变速前帧数，<strong>右侧为</strong>对应的原始素材帧数，中间用空格隔开。</p>
+<h2><span id="变速工具">变速工具</span></h2>
+<p>工具我放在了github上，直接下载使用即可。</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/lingyunfx/MayaCameraRetime">https://github.com/lingyunfx/MayaCameraRetime</a></p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b08ae7e.jpg" alt="maya-retime-tool-intro-p7.jpg"><br>使用步骤：<br>1.选择变速信息文件（txt格式）  </p>
-<p>2.选择变速方式，支持motion，frame，none三种类型。<br>blend可以使用motion进行变速，nearest可以使用frame方式。  </p>
-<p>3.点击run按钮，工具会对maya中所有的动画进行变速。<br>（保险起见，最好在操作前进行文件保存）</p>
-<p>这篇文章就到这里，如果觉得文章还不错，可以关注这个公众号支持一下作者thx！  </p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b08ae7e.jpg" alt="maya-retime-tool-intro-p7.jpg"><br>
+使用步骤：<br>
+1.选择变速信息文件（txt格式）</p>
+<p>2.选择变速方式，支持motion，frame，none三种类型。<br>
+blend可以使用motion进行变速，nearest可以使用frame方式。</p>
+<p>3.点击run按钮，工具会对maya中所有的动画进行变速。<br>
+（保险起见，最好在操作前进行文件保存）</p>
+<p>这篇文章就到这里，如果觉得文章还不错，可以关注这个公众号支持一下作者thx！</p>
 <center><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36f1d52b8.jpg" width="30%" height="30%" alt align="center"></center>
 
 </div>

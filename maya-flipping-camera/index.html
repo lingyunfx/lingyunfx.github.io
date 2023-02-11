@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,17 +1268,23 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h1><span id="前言">前言</span></h1><p>视效制作中，在完成Camera Tracking后，可能会被告知：“素材进行了翻转处理”。然后丢给你一个镜像后的素材，并要求你重新进行Tracking。</p>
+	<h1><span id="前言">前言</span></h1>
+<p>视效制作中，在完成Camera Tracking后，可能会被告知：“素材进行了翻转处理”。然后丢给你一个镜像后的素材，并要求你重新进行Tracking。</p>
 <p>翻转素材一般有两种情况：</p>
 <ul>
-<li>基于x轴镜像<br><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab37acd9797.gif" alt="maya-flipping-camera-p1.gif"></li>
-<li>基于y轴镜像<br><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab37abbd878.gif" alt="maya-flipping-camera-p2.gif"><br>对于这样的镜头，不用重新再做一遍Tracking，只需要在Maya里进行一些处理就可以了。</li>
+<li>基于x轴镜像<br>
+<img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab37acd9797.gif" alt="maya-flipping-camera-p1.gif"></li>
+<li>基于y轴镜像<br>
+<img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab37abbd878.gif" alt="maya-flipping-camera-p2.gif"><br>
+对于这样的镜头，不用重新再做一遍Tracking，只需要在Maya里进行一些处理就可以了。</li>
 </ul>
 <p>这篇文章主要是讲<strong>如何让摄像机和场景物体匹配上翻转后的素材。</strong></p>
-<h1><span id="基本方法">基本方法</span></h1><p>1.对于x轴翻转的，将摄像机的ty，rx，rz轴的数值设为其相反数。</p>
+<h1><span id="基本方法">基本方法</span></h1>
+<p>1.对于x轴翻转的，将摄像机的ty，rx，rz轴的数值设为其相反数。</p>
 <p>2.对于y轴翻转的，将摄像机的tx，ry，rz轴的数值设为其相反数。</p>
 <p>3.最后把场景中其它物体（<strong>不要摄像机</strong>）打组，以原点为中心缩放-1的数值。（如果是x轴翻转，缩放y轴；如果是y轴翻转，缩放x轴）</p>
-<h1><span id="脚本实现">脚本实现</span></h1><p>上述最麻烦了的就是对摄像机进行操作，因为如果手动的去修改每一帧数值会非常繁琐。</p>
+<h1><span id="脚本实现">脚本实现</span></h1>
+<p>上述最麻烦了的就是对摄像机进行操作，因为如果手动的去修改每一帧数值会非常繁琐。</p>
 <p>通常这样的问题可以交给代码来处理。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 选择你的摄像机，运行下面的代码</span>
 <span class="token keyword">import</span> pymel<span class="token punctuation">.</span>core <span class="token keyword">as</span> pm
@@ -1274,14 +1298,21 @@ end_t <span class="token operator">=</span> <span class="token builtin">int</spa
     <span class="token keyword">for</span> attr <span class="token keyword">in</span> <span class="token punctuation">(</span><span class="token string">'tx'</span><span class="token punctuation">,</span> <span class="token string">'ry'</span><span class="token punctuation">,</span> <span class="token string">'rz'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment"># 基于y轴的翻转</span>
         cam<span class="token punctuation">.</span>attr<span class="token punctuation">(</span>attr<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">set</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token punctuation">(</span>cam<span class="token punctuation">.</span>attr<span class="token punctuation">(</span>attr<span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>当然除去使用脚本，我们也可以用约束的方法，手动实现翻转摄像机的效果。</p>
-<h1><span id="手动实现">手动实现</span></h1><p><strong>这里以y轴翻转为例</strong>  </p>
+<h1><span id="手动实现">手动实现</span></h1>
+<p><strong>这里以y轴翻转为例</strong></p>
 <p>1.将所有物体包括摄像机打组</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab37aca4cc5.jpg" alt="maya-flipping-camera-p3.jpg"><br>2.在组上将y轴的数值改成-1（基于y轴的翻转）</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab37ac5588e.jpg" alt="maya-flipping-camera-p4.jpg"><br>3.将原始的摄像机ctrl+d复制一份，提出组外，为了方便区分重命名为Cam_mirror_y</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab37adbe293.jpg" alt="maya-flipping-camera-p5.jpg"><br>4.先选择原始摄像机，再选择组外的mirror摄像机，进行约束操作</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab37ae2ba5c.jpg" alt="maya-flipping-camera-p6.jpg"><br>5.将mirror的摄像机缩放数值设为1</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab37ae27d2b.jpg" alt="maya-flipping-camera-p7.jpg"><br>6.选择mirror摄像机的constraint节点，修改offset rotate x的旋转为-180</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab37af3cafb.jpg" alt="maya-flipping-camera-p8.jpg"><br>7.这个时候将mirror摄像机替换翻转后的素材，可以看到已经实现了摄像机翻转的操作。最后就是烘培mirror摄像机的动画，删除constraint节点。将所有物体提出组就好了。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab37aca4cc5.jpg" alt="maya-flipping-camera-p3.jpg"><br>
+2.在组上将y轴的数值改成-1（基于y轴的翻转）</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab37ac5588e.jpg" alt="maya-flipping-camera-p4.jpg"><br>
+3.将原始的摄像机ctrl+d复制一份，提出组外，为了方便区分重命名为Cam_mirror_y</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab37adbe293.jpg" alt="maya-flipping-camera-p5.jpg"><br>
+4.先选择原始摄像机，再选择组外的mirror摄像机，进行约束操作</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab37ae2ba5c.jpg" alt="maya-flipping-camera-p6.jpg"><br>
+5.将mirror的摄像机缩放数值设为1</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab37ae27d2b.jpg" alt="maya-flipping-camera-p7.jpg"><br>
+6.选择mirror摄像机的constraint节点，修改offset rotate x的旋转为-180</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab37af3cafb.jpg" alt="maya-flipping-camera-p8.jpg"><br>
+7.这个时候将mirror摄像机替换翻转后的素材，可以看到已经实现了摄像机翻转的操作。最后就是烘培mirror摄像机的动画，删除constraint节点。将所有物体提出组就好了。</p>
 
 </div>
 

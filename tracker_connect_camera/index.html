@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1240,28 +1258,50 @@ var _hmt = _hmt || [];
 
 <div id="article-content">
 	<p><em><strong>原文参考</strong></em>：</p>
-<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=GjCo4p7DNPM&ab_channel=AidenWilson">https://www.youtube.com/watch?v=GjCo4p7DNPM&amp;ab_channel=AidenWilson</a></p>
-<h2><span id="1禁用oculus-vr插件">1.禁用Oculus VR插件</span></h2><p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d97eb540.png" alt="1.png"></p>
-<h2><span id="2更改play设置勾选viewport-get-hmdcontrol">2.更改Play设置，勾选Viewport Get HMDControl</span></h2><p>允许用户在视口中播放模式下使用头戴式显示器方向。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d97efb96.png" alt="2.png"><br><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d987a2b6.png" alt="3.png"></p>
-<h2><span id="3新建一个actor蓝图类修改名称为trackercamera">3.新建一个Actor蓝图类，修改名称为TrackerCamera.</span></h2><p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d9875674.png" alt="4.png"><br><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d97903cf.png" alt="5.png"><br><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d97aa545.png" alt="6.png"></p>
-<h2><span id="4进入trackercamera蓝图进行修改">4.进入TrackerCamera蓝图进行修改</span></h2><h3><span id="1-创建一个cube">(1.) 创建一个cube</span></h3><p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d9830936.png" alt="7.png"></p>
-<h3><span id="2切换到event-graph标签创建以下两个节点并按照图示连接">(2.)切换到Event Graph标签，创建以下两个节点，并按照图示连接</span></h3><p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d9879fad.png" alt="8.png"><br><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d98d59d4.png" alt="9.png"><br>（这里记得是Out Orientation连New Transform）</p>
-<h3><span id="3-这里输入正确的设备id号">(3.) 这里输入正确的设备id号</span></h3><p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d98c02bf.png" alt="10.png"><br>默认是从0开始计序号，如图所示，比如需要用tracker设备，这里id号就是5。</p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=GjCo4p7DNPM&amp;ab_channel=AidenWilson">https://www.youtube.com/watch?v=GjCo4p7DNPM&amp;ab_channel=AidenWilson</a></p>
+<h2><span id="1禁用oculus-vr插件">1.禁用Oculus VR插件</span></h2>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d97eb540.png" alt="1.png"></p>
+<h2><span id="2更改play设置勾选viewport-get-hmdcontrol">2.更改Play设置，勾选Viewport Get HMDControl</span></h2>
+<p>允许用户在视口中播放模式下使用头戴式显示器方向。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d97efb96.png" alt="2.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d987a2b6.png" alt="3.png"></p>
+<h2><span id="3新建一个actor蓝图类修改名称为trackercamera">3.新建一个Actor蓝图类，修改名称为TrackerCamera.</span></h2>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d9875674.png" alt="4.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d97903cf.png" alt="5.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d97aa545.png" alt="6.png"></p>
+<h2><span id="4进入trackercamera蓝图进行修改">4.进入TrackerCamera蓝图进行修改</span></h2>
+<h3><span id="1-创建一个cube">(1.) 创建一个cube</span></h3>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d9830936.png" alt="7.png"></p>
+<h3><span id="2切换到event-graph标签创建以下两个节点并按照图示连接">(2.)切换到Event Graph标签，创建以下两个节点，并按照图示连接</span></h3>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d9879fad.png" alt="8.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d98d59d4.png" alt="9.png"><br>
+（这里记得是Out Orientation连New Transform）</p>
+<h3><span id="3-这里输入正确的设备id号">(3.) 这里输入正确的设备id号</span></h3>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d98c02bf.png" alt="10.png"><br>
+默认是从0开始计序号，如图所示，比如需要用tracker设备，这里id号就是5。</p>
 <p>（但是实测不是这样的）</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d9900a9c.png" alt="11.png"></p>
 <p>获取id号的方法</p>
 <p>连接这样一套节点</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0e3f69631.png" alt="12.png"><br>保存后去预览窗口播放，移动相应的设备，屏幕上即会print出对应的id号</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0e3f69631.png" alt="12.png"><br>
+保存后去预览窗口播放，移动相应的设备，屏幕上即会print出对应的id号</p>
 <p>(测试了也没成功，最后是靠猜id）</p>
-<h3><span id="4-创建一个摄像机放到cube下">(4.) 创建一个摄像机放到Cube下</span></h3><p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d9942e8e.png" alt="13.png"></p>
-<h2><span id="5添加动作映射">5.添加动作映射</span></h2><p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d998cab1.png" alt="14.png"></p>
-<h2><span id="6打开关卡蓝图进行修改如图所示">6.打开关卡蓝图，进行修改（如图所示）</span></h2><p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d9960133.png" alt="15.png"><br><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d9a00a51.png" alt="16.png"><br>（这里画圈的节点是ChangeCamera，创建Set View Target with Blend节点的时候，取消勾选Context Sensitive）</p>
+<h3><span id="4-创建一个摄像机放到cube下">(4.) 创建一个摄像机放到Cube下</span></h3>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d9942e8e.png" alt="13.png"></p>
+<h2><span id="5添加动作映射">5.添加动作映射</span></h2>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d998cab1.png" alt="14.png"></p>
+<h2><span id="6打开关卡蓝图进行修改如图所示">6.打开关卡蓝图，进行修改（如图所示）</span></h2>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d9960133.png" alt="15.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d9a00a51.png" alt="16.png"><br>
+（这里画圈的节点是ChangeCamera，创建Set View Target with Blend节点的时候，取消勾选Context Sensitive）</p>
 <p>连接到这一步，将视图最小化，在视图中选择cube，再返回到节点视图。</p>
 <p>右键创建：</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d99b91ab.png" alt="17.png"><br>再进行连接</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d9a5ca20.png" alt="18.png"><br>记得compile并save一下，关闭窗口。</p>
-<h2><span id="7效果检查">7.效果检查</span></h2><p>点击播放键，按下键盘的1切换到摄像机视图。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d99b91ab.png" alt="17.png"><br>
+再进行连接</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d9a5ca20.png" alt="18.png"><br>
+记得compile并save一下，关闭窗口。</p>
+<h2><span id="7效果检查">7.效果检查</span></h2>
+<p>点击播放键，按下键盘的1切换到摄像机视图。</p>
 
 </div>
 

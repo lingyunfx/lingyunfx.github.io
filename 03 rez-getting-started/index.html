@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,7 +1268,9 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h1><span id="基本软件包">基本软件包</span></h1><p>安装完成后，需要创建一些基本的Rez软件包。使用rez-bind工具进行创建，<br>这些软件包会引用系统上已经安装的软件。（—quickstart是以标准创建）</p>
+	<h1><span id="基本软件包">基本软件包</span></h1>
+<p>安装完成后，需要创建一些基本的Rez软件包。使用rez-bind工具进行创建，<br>
+这些软件包会引用系统上已经安装的软件。（—quickstart是以标准创建）</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-bind --quickstart
 Binding platform into /home/ajohns/packages<span class="token punctuation">..</span>.
 Binding arch into /home/ajohns/packages<span class="token punctuation">..</span>.
@@ -1273,17 +1293,17 @@ python      /home/ajohns/packages/python/2.7.11/package.py
 rez         /home/ajohns/packages/rez/2.0.rc1.44/package.py
 rezgui      /home/ajohns/packages/rezgui/2.0.rc1.44/package.py
 setuptools  /home/ajohns/packages/setuptools/19.4/package.py<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>现在你应该可以创建一个包含Python的环境：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-env python -- <span class="token function">which</span> python
 /home/ajohns/packages/python-2.7.8/platform-linux/arch-x86_64/os-Ubuntu-12.04/bin/python<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h2><span id="尝试创建第一个包">尝试创建第一个包</span></h2><p>创建之前确保两件事</p>
+<h2><span id="尝试创建第一个包">尝试创建第一个包</span></h2>
+<p>创建之前确保两件事</p>
 <ul>
 <li>%HOME/packages文件夹有可写权限（软件包都安装在这个路径）</li>
 <li>cmake工具是可用的</li>
 </ul>
-<p><code>rez-build</code>工具用于构建软件包并安装到packages中。<br>完成构建后就可以通过<code>rez-env</code>使用它们：</p>
+<p><code>rez-build</code>工具用于构建软件包并安装到packages中。<br>
+完成构建后就可以通过<code>rez-env</code>使用它们：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ <span class="token builtin class-name">cd</span> example_packages/hello_world
 <span class="token punctuation">]</span>$ rez-build --install
 
@@ -1325,8 +1345,8 @@ Install the project<span class="token punctuation">..</span>.
 -- Installing: /home/ajohns/packages/hello_world/1.0.0/./bin/hello
 
 All <span class="token number">1</span> build<span class="token punctuation">(</span>s<span class="token punctuation">)</span> were successful.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1><span id="测试你的包">测试你的包</span></h1><p>你可以使用rez-env命令来请求一个（或多个）你已经安装的软件包环境。</p>
+<h1><span id="测试你的包">测试你的包</span></h1>
+<p>你可以使用rez-env命令来请求一个（或多个）你已经安装的软件包环境。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-env hello_world
 
 You are now <span class="token keyword">in</span> a rez-configured environment.
@@ -1347,12 +1367,11 @@ platform-osx       /home/ajohns/packages/platform/osx                           
 python-2.7.11      /home/ajohns/packages/python/2.7.11/platform-osx/arch-x86_64/os-osx-10.11.5  <span class="token punctuation">(</span>local<span class="token punctuation">)</span>
 
 <span class="token operator">></span> <span class="token punctuation">]</span>$ █<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>现在已经处于配置的环境中，可以尝试运行hello_world包中的hello工具：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token operator">></span> <span class="token punctuation">]</span>$ hello
 Hello world<span class="token operator">!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>如果你已经在rez shell的配置环境中，并且忘记了当前可用的软件包列表。<br>可以使用<code>rez-context</code>工具查看：</p>
+<p>如果你已经在rez shell的配置环境中，并且忘记了当前可用的软件包列表。<br>
+可以使用<code>rez-context</code>工具查看：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token operator">></span> <span class="token punctuation">]</span>$ rez-context
 resolved by ajohns@workstation.local, on Sun Jul <span class="token number">31</span> <span class="token number">14</span>:43:54 <span class="token number">2016</span>, using Rez v2.0.rc1.44
 
@@ -1368,11 +1387,9 @@ hello_world-1.0.0  /home/ajohns/packages/hello_world/1.0.0                      
 os-osx-10.11.5     /home/ajohns/packages/os/osx-10.11.5                                         <span class="token punctuation">(</span>local<span class="token punctuation">)</span>
 platform-osx       /home/ajohns/packages/platform/osx                                           <span class="token punctuation">(</span>local<span class="token punctuation">)</span>
 python-2.7.11      /home/ajohns/packages/python/2.7.11/platform-osx/arch-x86_64/os-osx-10.11.5  <span class="token punctuation">(</span>local<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>如果要退出这个环境，使用<code>exit</code>命令。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token operator">></span> <span class="token punctuation">]</span>$ <span class="token builtin class-name">exit</span>
 <span class="token punctuation">]</span>$ █<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>你还可以快速的运行一个命令，当命令执行完成，则自动退出环境。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-env hello_world -- hello
 Hello world<span class="token operator">!</span>

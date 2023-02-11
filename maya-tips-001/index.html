@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,35 +1268,64 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h2><span id="前言">前言</span></h2><p>收集了一些Maya使用效率的技巧。<br>大致来源于一些博客，视频教程和平时使用的经验。</p>
-<h2><span id="1清理优化场景文件">1.清理优化场景文件</span></h2><p>有时候我们拿到一个文件，明明场景里只有一个人物rig动画。<br>但是当我们对它进行调整，或是打开保存文件的时候，会异常的慢。<br>这有可能是场景中存在了很多未被使用的材质或动画曲线等一系列垃圾节点。  </p>
-<p>这个时候需要用到Maya自带的优化功能进行清理。  </p>
-<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b159bb4.jpg" width="40%" height="40%" alt align="center"></left>  </p>
-<p>可以根据需要进行清理，不过在清理前最好先另存一下文件。<br><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b1593e8.png" width="60%" height="60%" alt align="center"></left>  </p>
-<h2><span id="2让maya启动快一些">2.让Maya启动快一些</span></h2><p><strong>关闭不使用的插件。</strong><br>比如对于一个动画师来说，我们不需要用到Maya的特效解算模块。<br>所以可以在Plug-in Manager中把它们给off掉。</p>
-<p>流体解算：<br><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b1ef6af.jpg" width="60%" height="60%" alt align="center"></left>  </p>
-<p>毛发解算：<br><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b1f027f.jpg" width="60%" height="60%" alt align="center"></left>  </p>
-<p>特效模拟：<br><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b254928.jpg" width="60%" height="60%" alt align="center"></left>  </p>
+	<h2><span id="前言">前言</span></h2>
+<p>收集了一些Maya使用效率的技巧。<br>
+大致来源于一些博客，视频教程和平时使用的经验。</p>
+<h2><span id="1清理优化场景文件">1.清理优化场景文件</span></h2>
+<p>有时候我们拿到一个文件，明明场景里只有一个人物rig动画。<br>
+但是当我们对它进行调整，或是打开保存文件的时候，会异常的慢。<br>
+这有可能是场景中存在了很多未被使用的材质或动画曲线等一系列垃圾节点。</p>
+<p>这个时候需要用到Maya自带的优化功能进行清理。</p>
+<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b159bb4.jpg" width="40%" height="40%" alt align="center"></left></p>
+<p>可以根据需要进行清理，不过在清理前最好先另存一下文件。<br>
+<left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b1593e8.png" width="60%" height="60%" alt align="center"></left></p>
+<h2><span id="2让maya启动快一些">2.让Maya启动快一些</span></h2>
+<p><strong>关闭不使用的插件。</strong><br>
+比如对于一个动画师来说，我们不需要用到Maya的特效解算模块。<br>
+所以可以在Plug-in Manager中把它们给off掉。</p>
+<p>流体解算：<br>
+<left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b1ef6af.jpg" width="60%" height="60%" alt align="center"></left></p>
+<p>毛发解算：<br>
+<left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b1f027f.jpg" width="60%" height="60%" alt align="center"></left></p>
+<p>特效模拟：<br>
+<left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b254928.jpg" width="60%" height="60%" alt align="center"></left></p>
 <p>把它们取消勾选后，基本可以节省10s的开启时间。</p>
-<p><strong>还有就是Maya在2016后的版本，会多出一个登录功能。</strong><br>每次启动也会占用时间进行网络验证。（下图可见）  </p>
-<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b1cdcb0.jpg" width="50%" height="50%" alt align="center"></left>  </p>
-<p>可以通过添加一个环境变量禁止这个功能。<br>设置完后记得注销重新登陆，再次打开Maya就会看到这个登陆框已经消失了。</p>
-<h2><span id="3开启远处物体低质渲染">3.开启远处物体低质渲染</span></h2><p>比如在进行场景动画制作的时候，一些离摄像机远处的物体，<br>不需要很高的预览质量，开启这个功能就会很有作用。  </p>
-<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b2b05cb.jpg" width="70%" height="70%" alt align="center"></left>  </p>
-<h2><span id="4批量修改多个物体的同一个属性">4.批量修改多个物体的同一个属性</span></h2><p>之前公司一个灯光师有个需求是，把大概50多盏灯光的属性批量修改。<br>当时是写了一个工具给他，后来在交流群里问到，Maya有自带这个功能。  </p>
+<p><strong>还有就是Maya在2016后的版本，会多出一个登录功能。</strong><br>
+每次启动也会占用时间进行网络验证。（下图可见）</p>
+<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b1cdcb0.jpg" width="50%" height="50%" alt align="center"></left></p>
+<p>可以通过添加一个环境变量禁止这个功能。<br>
+设置完后记得注销重新登陆，再次打开Maya就会看到这个登陆框已经消失了。</p>
+<h2><span id="3开启远处物体低质渲染">3.开启远处物体低质渲染</span></h2>
+<p>比如在进行场景动画制作的时候，一些离摄像机远处的物体，<br>
+不需要很高的预览质量，开启这个功能就会很有作用。</p>
+<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b2b05cb.jpg" width="70%" height="70%" alt align="center"></left></p>
+<h2><span id="4批量修改多个物体的同一个属性">4.批量修改多个物体的同一个属性</span></h2>
+<p>之前公司一个灯光师有个需求是，把大概50多盏灯光的属性批量修改。<br>
+当时是写了一个工具给他，后来在交流群里问到，Maya有自带这个功能。</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b317863.jpg" alt="maya-tips-001-p9.jpg"></p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b478d06.jpg" alt="maya-tips-001-p10.jpg"><br>在实际使用上，里面列出的属性也不是特别全。<br>不过能在里面找到的就不需要麻烦TD写一个工具了。  </p>
-<h2><span id="5暂停全局刷新">5.暂停全局刷新</span></h2><p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b12d0e3.png" alt="maya-tips-001-p11.png"><br>这个按钮可以暂停Maya的图形更新，<br>在对大纲视图，材质编辑器，曲线编辑器等窗口操作的时候，<br>我们不希望Maya实时进行更新，则可以打开这个开关。  </p>
-<h2><span id="6快速烘培动画">6.快速烘培动画</span></h2><p>通常我们在进行动画烘培（Bake Simulation）的时候，Maya都会逐帧跑一遍时间滑块。<br>能不能有一个方法可以跳过这个步骤，直接将动画烘培完成。<br>这里提供一个py小脚本，可以完成这件事。（几乎是秒烘培）  </p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b478d06.jpg" alt="maya-tips-001-p10.jpg"><br>
+在实际使用上，里面列出的属性也不是特别全。<br>
+不过能在里面找到的就不需要麻烦TD写一个工具了。</p>
+<h2><span id="5暂停全局刷新">5.暂停全局刷新</span></h2>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b12d0e3.png" alt="maya-tips-001-p11.png"><br>
+这个按钮可以暂停Maya的图形更新，<br>
+在对大纲视图，材质编辑器，曲线编辑器等窗口操作的时候，<br>
+我们不希望Maya实时进行更新，则可以打开这个开关。</p>
+<h2><span id="6快速烘培动画">6.快速烘培动画</span></h2>
+<p>通常我们在进行动画烘培（Bake Simulation）的时候，Maya都会逐帧跑一遍时间滑块。<br>
+能不能有一个方法可以跳过这个步骤，直接将动画烘培完成。<br>
+这里提供一个py小脚本，可以完成这件事。（几乎是秒烘培）</p>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">import maya.cmds as cmds
 st_frame &#x3D; int(cmds.playbackOptions(q&#x3D;True, minTime&#x3D;True))
 ed_frame &#x3D; int(cmds.playbackOptions(q&#x3D;True, maxTime&#x3D;True))
 cmds.bakeResults(simulation&#x3D;False, t&#x3D;(st_frame, ed_frame))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="7playblast后自动打开rv">7.Playblast后自动打开RV</span></h2><p>在Playblast选项里勾选view，默认是会在拍屏后打开FCheck进行预览。<br>如果想替换成其它软件（比如RV），可以在Preferences窗口里进行更改。  </p>
-<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b479571.jpg" width="80%" height="80%" alt align="center"></left>  </p>
+<h2><span id="7playblast后自动打开rv">7.Playblast后自动打开RV</span></h2>
+<p>在Playblast选项里勾选view，默认是会在拍屏后打开FCheck进行预览。<br>
+如果想替换成其它软件（比如RV），可以在Preferences窗口里进行更改。</p>
+<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38b479571.jpg" width="80%" height="80%" alt align="center"></left></p>
 <hr>
-<p>大致就先分享这些使用技巧，如果文章对你有所帮助，<br>可以关注一下这个公众号。thx！</p>
+<p>大致就先分享这些使用技巧，如果文章对你有所帮助，<br>
+可以关注一下这个公众号。thx！</p>
 <center><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36f1d52b8.jpg" width="30%" height="30%" alt align="center"></center>
 
 </div>

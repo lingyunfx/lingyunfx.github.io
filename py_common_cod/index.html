@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,15 +1268,16 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h3><span id="读取和写入json文件">读取和写入json文件</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 写</span>
+	<h3><span id="读取和写入json文件">读取和写入json文件</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 写</span>
 <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>json_path<span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
     json<span class="token punctuation">.</span>dump<span class="token punctuation">(</span>self<span class="token punctuation">.</span>items<span class="token punctuation">,</span> f<span class="token punctuation">)</span>
 
 <span class="token comment"># 读</span>
 <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>json_path<span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
     items <span class="token operator">=</span> json<span class="token punctuation">.</span>load<span class="token punctuation">(</span>f<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="读取和写入csv文件">读取和写入csv文件</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 读</span>
+<h3><span id="读取和写入csv文件">读取和写入csv文件</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 读</span>
 <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>csv_file<span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
     csv_reader <span class="token operator">=</span> csv<span class="token punctuation">.</span>reader<span class="token punctuation">(</span>f<span class="token punctuation">,</span> delimiter<span class="token operator">=</span><span class="token string">','</span><span class="token punctuation">)</span>
     <span class="token keyword">for</span> row <span class="token keyword">in</span> csv_reader<span class="token punctuation">:</span>
@@ -1269,8 +1288,8 @@ var _hmt = _hmt || [];
     csv_write <span class="token operator">=</span> csv<span class="token punctuation">.</span>writer<span class="token punctuation">(</span>f<span class="token punctuation">)</span>
     <span class="token keyword">for</span> row <span class="token keyword">in</span> csv_data_list<span class="token punctuation">:</span>
         csv_write<span class="token punctuation">.</span>writerow<span class="token punctuation">(</span>row<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="ordereddict-排序">OrderedDict 排序</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">from</span> collections <span class="token keyword">import</span> OrderedDict
+<h3><span id="ordereddict-排序">OrderedDict 排序</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">from</span> collections <span class="token keyword">import</span> OrderedDict
 <span class="token operator">>></span><span class="token operator">></span> d <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">'banana'</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">'apple'</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token string">'pear'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'orange'</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">&#125;</span>
 
 <span class="token comment">#按key排序</span>
@@ -1284,8 +1303,8 @@ OrderedDict<span class="token punctuation">(</span><span class="token punctuatio
 <span class="token comment">#按key的长度排序</span>
 <span class="token operator">>></span><span class="token operator">></span>OrderedDict<span class="token punctuation">(</span><span class="token builtin">sorted</span><span class="token punctuation">(</span>d<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> key<span class="token operator">=</span><span class="token keyword">lambda</span> t<span class="token punctuation">:</span> <span class="token builtin">len</span><span class="token punctuation">(</span>t<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 OrderedDict<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token string">'pear'</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token string">'apple'</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token string">'orange'</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token string">'banana'</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="打开和读取文件">打开和读取文件</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 如果文件内容只有一行,读和写</span>
+<h3><span id="打开和读取文件">打开和读取文件</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 如果文件内容只有一行,读和写</span>
 <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'/path/file.txt'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
   f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
@@ -1300,29 +1319,29 @@ OrderedDict<span class="token punctuation">(</span><span class="token punctuatio
 <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'/path/file.txt'</span><span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> p<span class="token punctuation">:</span>
   <span class="token keyword">for</span> each <span class="token keyword">in</span> file_list<span class="token punctuation">:</span>
     p<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>each<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'\n'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="比较两个字符串之间的相似度">比较两个字符串之间的相似度</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> difflib
+<h3><span id="比较两个字符串之间的相似度">比较两个字符串之间的相似度</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> difflib
 a <span class="token operator">=</span> <span class="token string">'1111'</span>
 b <span class="token operator">=</span> <span class="token string">'11112'</span>
 seq <span class="token operator">=</span> difflib<span class="token punctuation">.</span>SequenceMatcher<span class="token punctuation">(</span><span class="token boolean">None</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">)</span>
 ratio <span class="token operator">=</span> seq<span class="token punctuation">.</span>ratio<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span> ratio
 <span class="token operator">>></span><span class="token operator">></span> <span class="token number">0.88888888888</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="打开资源管理器">打开资源管理器</span></h3><p>windows可以使用os模块</p>
+<h3><span id="打开资源管理器">打开资源管理器</span></h3>
+<p>windows可以使用os模块</p>
 <p><code>os.system(&quot;explorer.exe %s&quot; % yourPath)</code></p>
 <p>linux可使用subprocess</p>
 <p><code>subprocess.Popen([&quot;bash&quot;, &quot;-l&quot;, &quot;-c&quot;, &quot;dolphin &#123;&#125;&quot;.format(yourPath)])</code></p>
-<h3><span id="创建一个临时目录">创建一个临时目录</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> tempfile
+<h3><span id="创建一个临时目录">创建一个临时目录</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> tempfile
 temp_dir <span class="token operator">=</span> tempfile<span class="token punctuation">.</span>mkdtemp<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>这样就可以得到一个临时的目录，我们可以获取这个目录的路径，并创建一个临时文件。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os
 temp_file <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>temp_dir<span class="token punctuation">,</span> <span class="token string">'temp.txt'</span><span class="token punctuation">)</span>
 <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>temp_file<span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token builtin">file</span><span class="token punctuation">:</span>
     <span class="token builtin">file</span><span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">"balabalabal...."</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="使用shutil复制删除目录">使用shutil复制，删除目录</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> shutil
+<h3><span id="使用shutil复制删除目录">使用shutil复制，删除目录</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> shutil
 <span class="token keyword">import</span> os
 
 <span class="token comment"># 删除空目录</span>
@@ -1337,17 +1356,18 @@ shutil<span class="token punctuation">.</span>copytree<span class="token punctua
 <span class="token comment"># 复制中忽略指定的文件类型</span>
 ignore_file <span class="token operator">=</span> shutil<span class="token punctuation">.</span>ignore_patterns<span class="token punctuation">(</span><span class="token string">"*.pyc"</span><span class="token punctuation">,</span> <span class="token string">"*.~"</span><span class="token punctuation">)</span>
 shutil<span class="token punctuation">.</span>copytree<span class="token punctuation">(</span>a_folder<span class="token punctuation">,</span> b_folder<span class="token punctuation">,</span> ignore<span class="token operator">=</span>ignore_file<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="将一个列表内的每个元素作为变量名">将一个列表内的每个元素作为变量名</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">a_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">,</span> <span class="token string">'d'</span><span class="token punctuation">,</span> <span class="token string">'e'</span><span class="token punctuation">]</span>
+<h3><span id="将一个列表内的每个元素作为变量名">将一个列表内的每个元素作为变量名</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">a_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">,</span> <span class="token string">'d'</span><span class="token punctuation">,</span> <span class="token string">'e'</span><span class="token punctuation">]</span>
 <span class="token keyword">for</span> i <span class="token keyword">in</span> a_list<span class="token punctuation">:</span>
   <span class="token builtin">locals</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'string name'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="比较a和b的最大值">比较a和b的最大值</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">a <span class="token operator">=</span> <span class="token number">5</span>
+<h3><span id="比较a和b的最大值">比较a和b的最大值</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">a <span class="token operator">=</span> <span class="token number">5</span>
 b <span class="token operator">=</span> <span class="token number">15</span>
 c <span class="token operator">=</span> <span class="token punctuation">[</span>b<span class="token punctuation">,</span>a<span class="token punctuation">]</span><span class="token punctuation">[</span>a<span class="token operator">></span>b<span class="token punctuation">]</span>
 <span class="token keyword">print</span> c
 <span class="token operator">>></span><span class="token operator">></span> <span class="token number">15</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3><span id="随机获取数抽取列表">随机获取数，抽取列表</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> random
+<h3><span id="随机获取数抽取列表">随机获取数，抽取列表</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> random
 
 <span class="token comment"># 获取一个0.0 - 1.0的浮点数</span>
 random<span class="token punctuation">.</span>random<span class="token punctuation">(</span><span class="token punctuation">)</span>

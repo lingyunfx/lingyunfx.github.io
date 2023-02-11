@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1253,16 +1271,54 @@ var _hmt = _hmt || [];
 	<blockquote>
 <p>本节列出来rez在某些情况下产生的环境变量，以及你可以设置的影响rez操作的环境变量。</p>
 </blockquote>
-<h1><span id="context环境变量">Context环境变量</span></h1><p>这些是rez在解析环境中产生的环境变量。</p>
-<p><code>REZ_RXT_FILE</code> ： 当前context的文件路径 ( rxt 文件)。<br><code>REZ_USED</code> ：用于解析这个环境的rez安装路径。<br><code>REZ_USED_IMPLICIT_PACKAGES</code> ： 用于解析环境的隐含包列表。<br><code>REZ_USED_PACKAGES_PATH</code> ： 用于解析环境的软件包搜索路径。<br><code>REZ_USED_RESOLVE</code> ： 已解析的软件包列表，例如 “platform-linux utils-1.2.3”。<br><code>REZ_USED_EPH_RESOLVE</code> ： 已解析的临时包的列表，例如”.foo.cli-1 .debugging-0”。<br><code>REZ_USED_REQUEST</code> ： 环境的包请求，以字符串表示，例如 “maya-2017 maya_utils-1.3+”。不包括隐含包。<br><code>REZ_USED_REQUESTED_TIMESTAMP</code> ： 这个已解析环境的时间，由用户使用<code>rez-env -time</code>标志明确设置，否则为零。<br><code>REZ_USED_TIMESTAMP</code> ：这个环境被解析的时间；或者为<code>REZ_USED_REQUESTED_TIMESTAMP</code>的值，如果不为零。<br><code>REZ_USED_VERSION</code> ： 用于解析这个环境的rez版本。<br><code>REZ_SHELL_INIT_TIMESTAMP</code> ： 当前shell被实例化的时间。<br><code>REZ_SHELL_INTERACTIVE</code> ： 如果shell是交互式的，则为’1’，否则为’0’(即当指定命令时，如<code>rez-env foo -- mycommand</code>)。</p>
+<h1><span id="context环境变量">Context环境变量</span></h1>
+<p>这些是rez在解析环境中产生的环境变量。</p>
+<p><code>REZ_RXT_FILE</code> ： 当前context的文件路径 ( rxt 文件)。<br>
+<code>REZ_USED</code> ：用于解析这个环境的rez安装路径。<br>
+<code>REZ_USED_IMPLICIT_PACKAGES</code> ： 用于解析环境的隐含包列表。<br>
+<code>REZ_USED_PACKAGES_PATH</code> ： 用于解析环境的软件包搜索路径。<br>
+<code>REZ_USED_RESOLVE</code> ： 已解析的软件包列表，例如 “platform-linux utils-1.2.3”。<br>
+<code>REZ_USED_EPH_RESOLVE</code> ： 已解析的临时包的列表，例如&quot;.foo.cli-1 .debugging-0&quot;。<br>
+<code>REZ_USED_REQUEST</code> ： 环境的包请求，以字符串表示，例如 “maya-2017 maya_utils-1.3+”。不包括隐含包。<br>
+<code>REZ_USED_REQUESTED_TIMESTAMP</code> ： 这个已解析环境的时间，由用户使用<code>rez-env -time</code>标志明确设置，否则为零。<br>
+<code>REZ_USED_TIMESTAMP</code> ：这个环境被解析的时间；或者为<code>REZ_USED_REQUESTED_TIMESTAMP</code>的值，如果不为零。<br>
+<code>REZ_USED_VERSION</code> ： 用于解析这个环境的rez版本。<br>
+<code>REZ_SHELL_INIT_TIMESTAMP</code> ： 当前shell被实例化的时间。<br>
+<code>REZ_SHELL_INTERACTIVE</code> ： 如果shell是交互式的，则为’1’，否则为’0’(即当指定命令时，如<code>rez-env foo -- mycommand</code>)。</p>
 <p>每个程序包都会生成以下变量。（PKG代表包的大写名称）</p>
-<p><code>REZ_(PKG)_*BASE</code>：包安装的基本目录，例如 “/packages/utils/1.0.0”。<br><code>REZ_PKG)_ROOT</code>：包安装的根目录，例如 “/packages/utils/1.0.0/python-2.7”。<br><code>REZ_(PKG)_VERSION</code>：软件包的版本。<br><code>REZ_(PKG)_MAJOR_VERSION</code>：<em>软件包的主要版本，或为空。<br><code>REZ_(PKG)_MINOR_VERSION</code>：</em>软件包的次要版本，或为空。<br><code>REZ_(PKG)_PATCH_VERSION</code>：软件包的补丁版本，或为空。</p>
+<p><code>REZ_(PKG)_*BASE</code>：包安装的基本目录，例如 “/packages/utils/1.0.0”。<br>
+<code>REZ_PKG)_ROOT</code>：包安装的根目录，例如 “/packages/utils/1.0.0/python-2.7”。<br>
+<code>REZ_(PKG)_VERSION</code>：软件包的版本。<br>
+<code>REZ_(PKG)_MAJOR_VERSION</code>：*软件包的主要版本，或为空。<br>
+<code>REZ_(PKG)_MINOR_VERSION</code>：*软件包的次要版本，或为空。<br>
+<code>REZ_(PKG)_PATCH_VERSION</code>：软件包的补丁版本，或为空。</p>
 <p>对于每个临时包的请求，都会生成以下变量。</p>
-<p>（下面变量中的”PKG)”是大写的包名，其中的点用下划线代替，并去掉最前的点符号。）</p>
+<p>（下面变量中的&quot;PKG)&quot;是大写的包名，其中的点用下划线代替，并去掉最前的点符号。）</p>
 <p><code>REZ_EPH_(PKG)_REQUEST</code>：已解析的临时包请求。</p>
-<h1><span id="构建时环境变量">构建时环境变量</span></h1><p><code>REZ_BUILD_ENV</code>：始终存在于编译过程中，值为1。<br><code>REZ_BUILD_INSTALL</code>：如果正在进行安装(无论是rez-build -i还是rez-release)，其值为1，否则为0。<br><code>REZ_BUILD_INSTALL_PATH</code> ：如果正在进行安装，则安装路径为1，否则为0。<br><code>REZ_BUILD_PATH</code> ：构建输出的路径。<br><code>REZ_BUILD_PROJECT_DESCRIPTION</code> ：正在构建的包描述属性。<br><code>REZ_BUILD_PROJECT_FILE</code> ：正在构建的软件包的文件路径 (通常是package文件)。<br><code>REZ_BUILD_PROJECT_NAME</code> ：正在构建的软件包的名称。<br><code>REZ_BUILD_PROJECT_VERSION</code> ：正在构建的软件包的版本。<br><code>REZ_BUILD_REQUIRES</code>：联编需求的空间分隔列表，来自当前包的 requires、build_requires 和 private_build_requires 属性，包括当前变量的需求。<br><code>REZ_BUILD_REQUIRES_UNVERSIONED</code> ：相当于REZ_BUILD_REQUIRES的未版本列表。<br><code>REZ_BUILD_SOURCE_PATH：</code>包含package文件的路径。<br><code>REZ_BUILD_THREAD_COUNT</code>： 用于构建的线程数。<br><code>REZ_BUILD_TYPE</code> ：local或central;之一。如果正在进行发布，则值为central。<br><code>REZ_BUILD_VARIANT_INDEX</code>：当前正在构建的变体的索引。对于非变体包，这个值是 “0”。<br><code>REZ_BUILD_VARIANT_REQUIRES</code> ：当前变体的运行时需求的空间分隔的列表。</p>
-<p>（不包括在<code>REZ_BUILD_REQUIRES</code>中找到的通用需求。对于非变体构建，这是一个空字符串。）<br><code>REZ_BUILD_VARIANT_SUBPATH</code> ：包含当前变体的子目录。对于非变体构建，这是一个空字符串。</p>
-<h1><span id="运行时环境变量">运行时环境变量</span></h1><p><code>REZ_(CONFIG_ENTRY)</code> ：任何给定的rez config条目 (参见rezconfig.py文件)。为了方便起见，你可以用一个环境变量覆盖这个设置。这里，(CONFIG_ENTRY)是设置名称的大写字母。例如，通常用这种方式覆盖的设置是 packages_path，其对应的变量是 REZ_PACKAGES_PATH。<br><code>REZ_(CONFIG_ENTRY)_JSON</code> ：和前面的env-var一样，只是格式是JSON字符串。这意味着一些更复杂的设置可以被覆盖，而这些设置在非JSON情况下是不支持的（package_filter就是一个例子）。<br><code>EDITOR</code> ：在 Linux 和 OSX 系统上，如果 rez 需要使用编辑器，这将设置默认的编辑器（一个例子是在 release 时，如果 prompt_release_message 配置设置为 true）。<br><code>REZ_KEEP_TMPDIRS</code>：如果设置为非空字符串，这将防止rez清理任何临时目录。为了调试的目的。<br><code>REZ_SIGUSR1_ACTION</code>：如果你把它设置为print_stack，当发送USR1信号时，rez会把当前的stacktrace打印到stdout。这是为调试目的而设置的。</p>
+<h1><span id="构建时环境变量">构建时环境变量</span></h1>
+<p><code>REZ_BUILD_ENV</code>：始终存在于编译过程中，值为1。<br>
+<code>REZ_BUILD_INSTALL</code>：如果正在进行安装(无论是rez-build -i还是rez-release)，其值为1，否则为0。<br>
+<code>REZ_BUILD_INSTALL_PATH</code> ：如果正在进行安装，则安装路径为1，否则为0。<br>
+<code>REZ_BUILD_PATH</code> ：构建输出的路径。<br>
+<code>REZ_BUILD_PROJECT_DESCRIPTION</code> ：正在构建的包描述属性。<br>
+<code>REZ_BUILD_PROJECT_FILE</code> ：正在构建的软件包的文件路径 (通常是package文件)。<br>
+<code>REZ_BUILD_PROJECT_NAME</code> ：正在构建的软件包的名称。<br>
+<code>REZ_BUILD_PROJECT_VERSION</code> ：正在构建的软件包的版本。<br>
+<code>REZ_BUILD_REQUIRES</code>：联编需求的空间分隔列表，来自当前包的 requires、build_requires 和 private_build_requires 属性，包括当前变量的需求。<br>
+<code>REZ_BUILD_REQUIRES_UNVERSIONED</code> ：相当于REZ_BUILD_REQUIRES的未版本列表。<br>
+<code>REZ_BUILD_SOURCE_PATH：</code>包含package文件的路径。<br>
+<code>REZ_BUILD_THREAD_COUNT</code>： 用于构建的线程数。<br>
+<code>REZ_BUILD_TYPE</code> ：local或central;之一。如果正在进行发布，则值为central。<br>
+<code>REZ_BUILD_VARIANT_INDEX</code>：当前正在构建的变体的索引。对于非变体包，这个值是 “0”。<br>
+<code>REZ_BUILD_VARIANT_REQUIRES</code> ：当前变体的运行时需求的空间分隔的列表。</p>
+<p>（不包括在<code>REZ_BUILD_REQUIRES</code>中找到的通用需求。对于非变体构建，这是一个空字符串。）<br>
+<code>REZ_BUILD_VARIANT_SUBPATH</code> ：包含当前变体的子目录。对于非变体构建，这是一个空字符串。</p>
+<h1><span id="运行时环境变量">运行时环境变量</span></h1>
+<p><code>REZ_(CONFIG_ENTRY)</code> ：任何给定的rez config条目 (参见rezconfig.py文件)。为了方便起见，你可以用一个环境变量覆盖这个设置。这里，(CONFIG_ENTRY)是设置名称的大写字母。例如，通常用这种方式覆盖的设置是 packages_path，其对应的变量是 REZ_PACKAGES_PATH。<br>
+<code>REZ_(CONFIG_ENTRY)_JSON</code> ：和前面的env-var一样，只是格式是JSON字符串。这意味着一些更复杂的设置可以被覆盖，而这些设置在非JSON情况下是不支持的（package_filter就是一个例子）。<br>
+<code>EDITOR</code> ：在 Linux 和 OSX 系统上，如果 rez 需要使用编辑器，这将设置默认的编辑器（一个例子是在 release 时，如果 prompt_release_message 配置设置为 true）。<br>
+<code>REZ_KEEP_TMPDIRS</code>：如果设置为非空字符串，这将防止rez清理任何临时目录。为了调试的目的。<br>
+<code>REZ_SIGUSR1_ACTION</code>：如果你把它设置为print_stack，当发送USR1信号时，rez会把当前的stacktrace打印到stdout。这是为调试目的而设置的。</p>
 
 </div>
 

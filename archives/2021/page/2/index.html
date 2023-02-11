@@ -241,6 +241,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -769,6 +778,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1214,8 +1232,13 @@ var _hmt = _hmt || [];
 					在不同跟踪软件之间的2D点转换工具
 				</h2>
 				<div class="index-brief">
-					前言看过之前电影视效制作中的Matchmove这篇文章的朋友应该知道，跟踪最基本的步骤就是为匹配物或场景添加二维跟踪点。
-在进行摄像机反求的时候，可能单一软件的解算效果不是很理想，通常我们切换到另一个软件进行尝试解算。(比如对于变焦镜头来说，SynthEyes的变焦解算会稍好于3DEqualizer
+					前言
+
+看过之前电影视效制作中的Matchmove这篇文章的朋友应该知道，
+跟踪最基本的步骤就是为匹配物或场景添加二维跟踪点。
+在进行摄像机反求的时候，可能单一软件的解算效果不是很理想，
+通常我们切换到另一个软件进行尝试解算。
+(比如对于变焦镜头来说，SynthEyes的变焦解算会稍好于3DEqua
 					...
 				</div>
 			</a>
@@ -1241,14 +1264,15 @@ var _hmt = _hmt || [];
 					Mac的一些问题备忘
 				</h2>
 				<div class="index-brief">
-					来自未知开发者sudo xattr -rd com.apple.quarantine sesinetd
-
-你没有权限打开应用程序brew install upx
+					来自未知开发者
+sudo xattr -rd com.apple.quarantine sesinetd
+你没有权限打开应用程序
+brew install upx
 
 # 这里以xf-adsk软件来举例
 # 把xf-adsk放到桌面，右键包内容进入到MacOS
 
-sudo upx -d &#x2F;Us
+sudo upx -d &#x2F;U
 					...
 				</div>
 			</a>
@@ -1274,11 +1298,15 @@ sudo upx -d &#x2F;Us
 					在Maya中进行Flipping Camera
 				</h2>
 				<div class="index-brief">
-					前言视效制作中，在完成Camera Tracking后，可能会被告知：“素材进行了翻转处理”。然后丢给你一个镜像后的素材，并要求你重新进行Tracking。
+					前言
+视效制作中，在完成Camera Tracking后，可能会被告知：“素材进行了翻转处理”。然后丢给你一个镜像后的素材，并要求你重新进行Tracking。
 翻转素材一般有两种情况：
 
 基于x轴镜像
-基于y轴镜像对于这样的镜头，不用重新再做一遍Tracking，只需要在Maya里进行一些处理就可以了
+
+基于y轴镜像
+
+对于这样的镜头，不用重新再做一遍Tracking，只需要在Maya里进行一些处理
 					...
 				</div>
 			</a>
@@ -1315,14 +1343,19 @@ sudo upx -d &#x2F;Us
 				</h2>
 				<div class="index-brief">
 					1.打开骨骼，打开Retarget Manager面板
+
 2.添加目标源
+
 3.添加Rig模板
-4.一一对应骨骼如果有不确定骨骼，宁愿不要添加。(例如没有root骨骼的话，点后面的x去掉)
+
+4.一一对应骨骼
+如果有不确定骨骼，宁愿不要添加。
+(例如没有root骨骼的话，点后面的x去掉)
 
 如果有手指的骨骼，点击Show Advanced，指定更多细节骨骼
 
 调整完成后，点击Save。
-5.导航到需要
+5.
 					...
 				</div>
 			</a>
@@ -1358,12 +1391,13 @@ sudo upx -d &#x2F;Us
 					Minconda使用
 				</h2>
 				<div class="index-brief">
-					安装在官网 https://docs.conda.io/en/latest/miniconda.html#macosx-installers 下载：
+					安装
+在官网 https://docs.conda.io/en/latest/miniconda.html#macosx-installers 下载：
 
 在终端里（会安装到当前目录）：
 bash Miniconda2-latest-MacOSX-x86_64.sh
 
-# 需新建Terminal Ses
+# 需新建Terminal Se
 					...
 				</div>
 			</a>
@@ -1400,13 +1434,14 @@ bash Miniconda2-latest-MacOSX-x86_64.sh
 				</h2>
 				<div class="index-brief">
 					下面的内容在py3.8测试ok，有些是3.5或者3.7之后才开放的特性
-语句变成函数print语句在python3里变成了print()函数。  
+语句变成函数
+print语句在python3里变成了print()函数。
 # python2
 print 'hello pig!'
 
 # python3
 print('hello pig')
-print('1', '2', '
+print('1', '2', '3
 					...
 				</div>
 			</a>
@@ -1442,13 +1477,14 @@ print('1', '2', '
 					面向对象进阶
 				</h2>
 				<div class="index-brief">
-					公共属性使用id()可以查看，公共属性的地址是一样的。
-Dog.d_type = &#39;藏獒&#39; 一旦更改，其他的实例对应属性也会随之更改。
+					公共属性
+使用id()可以查看，公共属性的地址是一样的。
+Dog.d_type = '藏獒' 一旦更改，其他的实例对应属性也会随之更改。
 class Dog:
 	d_type = '京巴' # 公共属性， 类属性， 类变量
 
 	def say_hi(self):
-		print('he
+		print('hello, i 
 					...
 				</div>
 			</a>
@@ -1484,14 +1520,15 @@ class Dog:
 					网络通信
 				</h2>
 				<div class="index-brief">
-					互联网协议按照功能的不同分为七层。
+					互联网协议
+按照功能的不同分为七层。
 OSI七层协议：应，表，会，传，网，数，物。
 其中应表会可以归为应用层。
 
 应用层：应用程序。http，ftp协议
 传输层：tcp/udp协议。端口来标识运行中的一款应用程序。 以太网头|IP头|tcp头|数据
 网络层：IP协议，用于寻找子网。
-数据链路层：Eth
+数据链路层：Et
 					...
 				</div>
 			</a>
@@ -1527,14 +1564,15 @@ OSI七层协议：应，表，会，传，网，数，物。
 					并发编程
 				</h2>
 				<div class="index-brief">
-					开启子进程的两种方式方式一：
+					开启子进程的两种方式
+方式一：
 import time
 from multiprocessing import Process
 
 def task(name):
     print('&#123;0&#125; is running'.format(name))
     time.sleep(3)
- 
+
 					...
 				</div>
 			</a>
@@ -1571,13 +1609,14 @@ def task(name):
 				</h2>
 				<div class="index-brief">
 					概览
+
 re.compile 生成一个匹配器实例，用来匹配
 re.match 从字符最前端开始匹配
 re.search 从字符中搜索出第一个匹配结果
 re.findall 从字符中找出所有匹配结果
 re.sub 查询替换字符，返回替换结果
 re.subn 查询替换字符，返回替换结果和替换次数
-re.s
+re.
 					...
 				</div>
 			</a>

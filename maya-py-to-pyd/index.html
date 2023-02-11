@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,17 +1268,23 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab382e8ebc6.png" width="50%" height="50%" alt align="center"></left>  </p>
-<h3><span id="关于将py文件编译为pyd">关于将py文件编译为pyd</span></h3><p>当你想把一个python脚本分享出去，又不想暴露源码的时候，可以将py文件编译成pyd或pyc文件。</p>
-<p>pyd格式是D语言(C/C++综合进化版本)生成的二进制文件，实际也会是dll文件。<br>该文件不可以被反编译，只能被反汇编。</p>
-<p>而pyc文件，虽然也是py编译后的格式，但是pyc非常容易被反编译，基本上可以说编译了个寂寞。  </p>
-<p>我之前用过<strong>angelic47</strong>大佬写的<a target="_blank" rel="noopener" href="https://pyprotect.angelic47.com/">pyprotect</a>，这是个第三方python加密混淆工具，编译后的pyc代码也具有很高的反编译难度。(其实我自身更偏向于pyc文件，不用像pyd一样太考虑解释器版本和系统平台)</p>
-<p>不过后来pyprotect工具无法使用了，这也是我开始使用pyd格式进行编译的原因。<br>废话到这里，下面开始说下整个编译过程。(这里以Maya2018为例)</p>
-<h3><span id="1找到msc版本和对应vs版本">1.找到MSC版本和对应VS版本</span></h3><p>msc是微软的C编译器，安装对应的VS版本会带有。</p>
+	<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab382e8ebc6.png" width="50%" height="50%" alt align="center"></left></p>
+<h3><span id="关于将py文件编译为pyd">关于将py文件编译为pyd</span></h3>
+<p>当你想把一个python脚本分享出去，又不想暴露源码的时候，可以将py文件编译成pyd或pyc文件。</p>
+<p>pyd格式是D语言(C/C++综合进化版本)生成的二进制文件，实际也会是dll文件。<br>
+该文件不可以被反编译，只能被反汇编。</p>
+<p>而pyc文件，虽然也是py编译后的格式，但是pyc非常容易被反编译，基本上可以说编译了个寂寞。</p>
+<p>我之前用过<strong>angelic47</strong>大佬写的<a target="_blank" rel="noopener" href="https://pyprotect.angelic47.com">pyprotect</a>，这是个第三方python加密混淆工具，编译后的pyc代码也具有很高的反编译难度。(其实我自身更偏向于pyc文件，不用像pyd一样太考虑解释器版本和系统平台)</p>
+<p>不过后来pyprotect工具无法使用了，这也是我开始使用pyd格式进行编译的原因。<br>
+废话到这里，下面开始说下整个编译过程。(这里以Maya2018为例)</p>
+<h3><span id="1找到msc版本和对应vs版本">1.找到MSC版本和对应VS版本</span></h3>
+<p>msc是微软的C编译器，安装对应的VS版本会带有。</p>
 <p>如何查看MSC版本，这里有两种方式：</p>
 <p>使用cmd命令行工具，打开<code>C:\Program Files\Autodesk\Maya2018\bin\mayapy.exe</code></p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38322af6d.jpg" alt="maya-py-to-pyd-p2.jpg"><br>或者在Maya的script editor里:</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38340d8e1.jpg" alt="maya-py-to-pyd-p5.jpg"><br>可以看到，Maya2018使用的是<code>MSC v.1900</code>版本，通过下表来找到对应的VS版本。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38322af6d.jpg" alt="maya-py-to-pyd-p2.jpg"><br>
+或者在Maya的script editor里:</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38340d8e1.jpg" alt="maya-py-to-pyd-p5.jpg"><br>
+可以看到，Maya2018使用的是<code>MSC v.1900</code>版本，通过下表来找到对应的VS版本。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">MSC v.1000 -&gt; Visual C++ 4.x        
 MSC v.1100 -&gt; Visual C++ 5          
 MSC v.1200 -&gt; Visual C++ 6          
@@ -1279,22 +1303,28 @@ MSC v.1913 -&gt; Visual C++ 2017 (15.6)
 MSC v.1914 -&gt; Visual C++ 2017 (15.7)
 MSC v.1915 -&gt; Visual C++ 2017 (15.8)
 MSC v.1916 -&gt; Visual C++ 2017 (15.9)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>对应的版本是Visual C++ 2015，在<a target="_blank" rel="noopener" href="https://visualstudio.microsoft.com/zh-hans/vs/older-downloads/">官网</a>上进行下载安装。<br>也可以到<a target="_blank" rel="noopener" href="https://msdn.itellyou.cn/">https://msdn.itellyou.cn/</a>进行下载。<br>(推荐后者，微软官网的下载体验巨差)</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3831f1613.jpg" alt="maya-py-to-pyd-p3.jpg"><br>下载完成后安装，记得勾选</p>
+<p>对应的版本是Visual C++ 2015，在<a target="_blank" rel="noopener" href="https://visualstudio.microsoft.com/zh-hans/vs/older-downloads/">官网</a>上进行下载安装。<br>
+也可以到<a target="_blank" rel="noopener" href="https://msdn.itellyou.cn/">https://msdn.itellyou.cn/</a>进行下载。<br>
+(推荐后者，微软官网的下载体验巨差)</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3831f1613.jpg" alt="maya-py-to-pyd-p3.jpg"><br>
+下载完成后安装，记得勾选</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab382fba1ff.png" alt="maya-py-to-pyd-p4.png"></p>
-<h3><span id="2安装cython">2.安装Cython</span></h3><p>刚刚安装的是编译时所需的依赖，而我们要使用Cython将py文件编译成pyd。  </p>
-<p>去<a target="_blank" rel="noopener" href="https://github.com/cython/cython">https://github.com/cython/cython</a>下载源代码进行编译安装，或者到我的网盘<a target="_blank" rel="noopener" href="http://s.lingyunfx.com/f/f79425f96f1a460a810d/?dl=1">分享链接</a>进行下载。<br>下载完解压后，先放一边。</p>
+<h3><span id="2安装cython">2.安装Cython</span></h3>
+<p>刚刚安装的是编译时所需的依赖，而我们要使用Cython将py文件编译成pyd。</p>
+<p>去<a target="_blank" rel="noopener" href="https://github.com/cython/cython">https://github.com/cython/cython</a>下载源代码进行编译安装，或者到我的网盘<a target="_blank" rel="noopener" href="http://s.lingyunfx.com/f/f79425f96f1a460a810d/?dl=1">分享链接</a>进行下载。<br>
+下载完解压后，先放一边。</p>
 <p>在此之前需要在<code>C:\Program Files\Autodesk\Maya2018\Python</code>下新建两个文件，<code>include</code>和<code>libs </code>。</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3830ec1d4.png" alt="maya-py-to-pyd-p6.png"></p>
 <ul>
 <li>拷贝<code>C:\Program Files\Autodesk\Maya2018\lib</code>里的<code>python27.lib</code>文件到<code>C:\Program Files\Autodesk\Maya2018\Python\libs</code></li>
 <li>拷贝<code>C:\Program Files\Autodesk\Maya2018\include\python2.7</code>里的所有文件到<code>C:\Program Files\Autodesk\Maya2018\Python\include</code></li>
 </ul>
-<p>然后用管理员模式打开cmd命令行工具，<code>cd</code>定位到刚刚解压的cython文件夹下。<br>运行:</p>
+<p>然后用管理员模式打开cmd命令行工具，<code>cd</code>定位到刚刚解压的cython文件夹下。<br>
+运行:</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">&quot;C:\Program Files\Autodesk\Maya2018\bin\mayapy.exe&quot;  setup.py install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>安装完成后就可以开始编译代码了。</p>
-<h3><span id="3编译成pyd文件">3.编译成pyd文件</span></h3><p>在你的代码中，写一个<code>setup.py</code>文件。</p>
+<h3><span id="3编译成pyd文件">3.编译成pyd文件</span></h3>
+<p>在你的代码中，写一个<code>setup.py</code>文件。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># coding=utf-8</span>
 <span class="token comment">#!/usr/bin/python2</span>
 
@@ -1317,7 +1347,6 @@ extensions <span class="token operator">=</span> <span class="token punctuation"
 setup<span class="token punctuation">(</span>
     ext_modules<span class="token operator">=</span>cythonize<span class="token punctuation">(</span>extensions<span class="token punctuation">)</span>
 <span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>打开cmd命令行工具，<code>cd</code>到你的代码文件夹，运行:</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">&quot;C:&#x2F;Program Files&#x2F;Autodesk&#x2F;Maya2018&#x2F;bin&#x2F;mayapy.exe&quot; setup.py build_ext --inplace<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 

@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,7 +1268,8 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h2><span id="开启子进程的两种方式">开启子进程的两种方式</span></h2><p>方式一：</p>
+	<h2><span id="开启子进程的两种方式">开启子进程的两种方式</span></h2>
+<p>方式一：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> time
 <span class="token keyword">from</span> multiprocessing <span class="token keyword">import</span> Process
 
@@ -1263,7 +1282,6 @@ var _hmt = _hmt || [];
     p <span class="token operator">=</span> Process<span class="token punctuation">(</span>target<span class="token operator">=</span>task<span class="token punctuation">,</span> args<span class="token operator">=</span><span class="token punctuation">(</span><span class="token string">'process001'</span><span class="token punctuation">,</span> <span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 向操作系统发送一个信号</span>
     p<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'here first'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>方式二：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> time
 <span class="token keyword">from</span> multiprocessing <span class="token keyword">import</span> Process
@@ -1283,8 +1301,8 @@ var _hmt = _hmt || [];
     p <span class="token operator">=</span> MyProcess<span class="token punctuation">(</span><span class="token string">'process001'</span><span class="token punctuation">)</span>
     p<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'here first'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="查看进程pid和ppid">查看进程pid和ppid</span></h2><ul>
+<h2><span id="查看进程pid和ppid">查看进程pid和ppid</span></h2>
+<ul>
 <li>pid为当前进程id</li>
 <li>ppid为父进程id</li>
 </ul>
@@ -1302,8 +1320,8 @@ var _hmt = _hmt || [];
     p <span class="token operator">=</span> Process<span class="token punctuation">(</span>target<span class="token operator">=</span>task<span class="token punctuation">,</span><span class="token punctuation">)</span>  <span class="token comment"># 向操作系统发送一个信号</span>
     p<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'here first'</span><span class="token punctuation">,</span> os<span class="token punctuation">.</span>getpid<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="process对象的其它属性方法">Process对象的其它属性方法</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># join方法。先执行完子进程，最后执行主进程</span>
+<h2><span id="process对象的其它属性方法">Process对象的其它属性方法</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># join方法。先执行完子进程，最后执行主进程</span>
 p<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
 p<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># 程序p执行完后再执行后面一行</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'main process run'</span><span class="token punctuation">)</span>
@@ -1319,8 +1337,8 @@ p<span class="token punctuation">.</span>terminate<span class="token punctuation
 
 <span class="token comment"># 进程名字</span>
 p<span class="token punctuation">.</span>name<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="使用多进程实现并发连接">使用多进程实现并发连接</span></h2><p>弊端是没有限制连接数量。</p>
+<h2><span id="使用多进程实现并发连接">使用多进程实现并发连接</span></h2>
+<p>弊端是没有限制连接数量。</p>
 <p><strong>服务端</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> socket
 <span class="token keyword">from</span> multiprocessing <span class="token keyword">import</span> Process
@@ -1349,7 +1367,6 @@ p<span class="token punctuation">.</span>name<span aria-hidden="true" class="lin
 
 <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
     server<span class="token punctuation">(</span><span class="token string">'127.0.0.1'</span><span class="token punctuation">,</span> <span class="token number">8080</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><strong>客户端</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> socket
 
@@ -1363,8 +1380,8 @@ client<span class="token punctuation">.</span>connect<span class="token punctuat
     client<span class="token punctuation">.</span>send<span class="token punctuation">(</span>msg<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     data <span class="token operator">=</span> client<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="守护进程">守护进程</span></h2><p>当主进程运行结束后，子进程也跟着结束。</p>
+<h2><span id="守护进程">守护进程</span></h2>
+<p>当主进程运行结束后，子进程也跟着结束。</p>
 <p>（运行下面的代码可以发现，task的进程还没有开始就被杀掉了。</p>
 <pre><code>因为主进程打印完`here first`就已经结束了，子进程也跟着一起结束）
 </code></pre>
@@ -1381,8 +1398,8 @@ client<span class="token punctuation">.</span>connect<span class="token punctuat
     p<span class="token punctuation">.</span>daemon <span class="token operator">=</span> <span class="token boolean">True</span> <span class="token comment"># 添加这个参数</span>
     p<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'here first'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="互斥锁">互斥锁</span></h2><p>在一个父进程创建多个子进程的时候，为了保证子进程的运行顺序先后。</p>
+<h2><span id="互斥锁">互斥锁</span></h2>
+<p>在一个父进程创建多个子进程的时候，为了保证子进程的运行顺序先后。</p>
 <p>（这样效率会慢，但保证秩序）</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> multiprocessing <span class="token keyword">import</span> Process<span class="token punctuation">,</span> Lock
 <span class="token keyword">import</span> time
@@ -1401,9 +1418,9 @@ client<span class="token punctuation">.</span>connect<span class="token punctuat
     <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
         p <span class="token operator">=</span> Process<span class="token punctuation">(</span>target<span class="token operator">=</span>task<span class="token punctuation">,</span> args<span class="token operator">=</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">,</span> mutex<span class="token punctuation">)</span><span class="token punctuation">)</span>
         p<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>比如一个抢票程序，就会用到互斥锁。多个进程访问的是同一块数据（票的余数）。</p>
-<h2><span id="队列的使用太tm实用了">队列的使用（太tm实用了）</span></h2><p>放内存里放数据。</p>
+<h2><span id="队列的使用太tm实用了">队列的使用（太tm实用了）</span></h2>
+<p>放内存里放数据。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> multiprocessing <span class="token keyword">import</span> Queue
 
 q <span class="token operator">=</span> Queue<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>  <span class="token comment"># 限制了数据的数量，只能往内存里放三个数据</span>
@@ -1420,8 +1437,8 @@ q<span class="token punctuation">.</span>put<span class="token punctuation">(</s
 q<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token punctuation">)</span>
 q<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token punctuation">)</span>
 q<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="生产者消费者模型">生产者消费者模型</span></h3><p>生产者生产包子，放到queue队列容器中。</p>
+<h3><span id="生产者消费者模型">生产者消费者模型</span></h3>
+<p>生产者生产包子，放到queue队列容器中。</p>
 <p>消费者往容器里取包子，互不影响。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># coding=utf-8</span>
 
@@ -1458,8 +1475,8 @@ q<span class="token punctuation">.</span>get<span class="token punctuation">(</s
     q<span class="token punctuation">.</span>put<span class="token punctuation">(</span><span class="token boolean">None</span><span class="token punctuation">)</span>  <span class="token comment"># 给予结束信号</span>
 
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'主程序启动...'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>总结：<br><strong>1.程序中有两种角色</strong></p>
+<p>总结：<br>
+<strong>1.程序中有两种角色</strong></p>
 <p>一类负责生产数据</p>
 <p>一类负责处理数据</p>
 <p><strong>2.引入生产者消费者模型为了解决</strong></p>
@@ -1468,14 +1485,16 @@ q<span class="token punctuation">.</span>get<span class="token punctuation">(</s
 <p><strong>3.如何实现</strong></p>
 <p>生产者←→队列←→消费者</p>
 <p>基于网络通信的消息队列：<code>Rabbitmq</code></p>
-<h2><span id="什么是线程">什么是线程</span></h2><p>把操作系统比作一家公司，进程比作公司里的各个部门，而线程则是部门里的员工。</p>
+<h2><span id="什么是线程">什么是线程</span></h2>
+<p>把操作系统比作一家公司，进程比作公司里的各个部门，而线程则是部门里的员工。</p>
 <ul>
 <li>每个进程至少需要一个线程（一个部门至少需要一个人）</li>
 <li>同一进程内的线程共享资源</li>
 <li>开启进程比开启线程的开销大</li>
 </ul>
 <p>对于需要实现并发，且要共享数据的时候，就要用到<strong>多线程</strong>。</p>
-<h2><span id="如何开启线程">如何开启线程</span></h2><p>1.直接使用<code>threading</code>模块</p>
+<h2><span id="如何开启线程">如何开启线程</span></h2>
+<p>1.直接使用<code>threading</code>模块</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> time
 <span class="token keyword">from</span> threading <span class="token keyword">import</span> Thread
 
@@ -1488,7 +1507,6 @@ q<span class="token punctuation">.</span>get<span class="token punctuation">(</s
     t1 <span class="token operator">=</span> Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>task<span class="token punctuation">,</span> args<span class="token operator">=</span><span class="token punctuation">(</span><span class="token string">'eat'</span><span class="token punctuation">,</span> <span class="token punctuation">)</span><span class="token punctuation">)</span>
     t1<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'main task'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>2.继承类的方式</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> time
 <span class="token keyword">from</span> threading <span class="token keyword">import</span> Thread
@@ -1508,8 +1526,8 @@ q<span class="token punctuation">.</span>get<span class="token punctuation">(</s
     t1 <span class="token operator">=</span> MyThread<span class="token punctuation">(</span><span class="token string">'eat'</span><span class="token punctuation">)</span>
     t1<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'main task'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="thread对象的属性方法">Thread对象的属性方法</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 建议还是使用import threading</span>
+<h2><span id="thread对象的属性方法">Thread对象的属性方法</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 建议还是使用import threading</span>
 <span class="token keyword">from</span> threading <span class="token keyword">import</span> Thread<span class="token punctuation">,</span> currentThread<span class="token punctuation">,</span> active_count<span class="token punctuation">,</span> <span class="token builtin">enumerate</span>
 
 <span class="token comment"># 查看当前线程名称 方法一</span>
@@ -1534,8 +1552,8 @@ t<span class="token punctuation">.</span>join<span class="token punctuation">(</
 
 <span class="token comment"># 以列表的方式查看当前进程的所有线程</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">enumerate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="守护线程">守护线程</span></h2><p>和守护进程同理。当主线程运行结束后，子线程也会被强制结束掉。</p>
+<h2><span id="守护线程">守护线程</span></h2>
+<p>和守护进程同理。当主线程运行结束后，子线程也会被强制结束掉。</p>
 <p><strong>例子一</strong>：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> time
 <span class="token keyword">from</span> threading <span class="token keyword">import</span> Thread
@@ -1552,7 +1570,6 @@ t<span class="token punctuation">.</span>join<span class="token punctuation">(</
 
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'main task'</span><span class="token punctuation">)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span>is_alive<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><strong>例子二</strong>：</p>
 <p>这里和守护进程的区别是，主线程会等到没有设置<code>daemon</code>的子线程结束后，才会结束。</p>
 <p>（aaa is over 没有被打印出来）</p>

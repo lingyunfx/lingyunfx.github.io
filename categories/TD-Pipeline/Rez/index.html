@@ -241,6 +241,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -769,6 +778,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1214,8 +1232,12 @@ var _hmt = _hmt || [];
 					Rez介绍（使用篇）
 				</h2>
 				<div class="index-brief">
-					前言这篇文章讲下rez的使用，根据最近所得谈谈自己的理解。开始之前补充一些rez工具的背景和特性。  
-rez最开始是Dr.D Studio于2011年用python写的依赖解算器，于2012年开源。之后的V2版本几乎重写，变成一个完整的API。具有跨平台，支持多种shell环境，基于python的
+					前言
+这篇文章讲下rez的使用，根据最近所得谈谈自己的理解。
+开始之前补充一些rez工具的背景和特性。
+rez最开始是Dr.D Studio于2011年用python写的依赖解算器，于2012年开源。
+之后的V2版本几乎重写，变成一个完整的API。
+具有跨平台，支持多种shell环境，基于pytho
 					...
 				</div>
 			</a>
@@ -1251,9 +1273,15 @@ rez最开始是Dr.D Studio于2011年用python写的依赖解算器，于2012年�
 					00 Rez中文文档
 				</h2>
 				<div class="index-brief">
-					这是一份Rez中文文档，供大家学习讨论。作者能力有限，翻译也许有不当的地方，如果发现问题还望指出，感激不尽。原项目地址：https://github.com/nerdvegas/rez
-入门主页 (Home)
-介绍安装 (Installation)入门 (Getting Started)基础概念 (
+					这是一份Rez中文文档，供大家学习讨论。
+作者能力有限，翻译也许有不当的地方，如果发现问题还望指出，感激不尽。
+原项目地址：https://github.com/nerdvegas/rez
+入门
+主页 (Home)
+介绍
+安装 (Installation)
+入门 (Getting Started)
+
 					...
 				</div>
 			</a>
@@ -1292,8 +1320,11 @@ rez最开始是Dr.D Studio于2011年用python写的依赖解算器，于2012年�
 					
 本节列出来rez在某些情况下产生的环境变量，以及你可以设置的影响rez操作的环境变量。
 
-Context环境变量这些是rez在解析环境中产生的环境变量。
-REZ_RXT_FILE ： 当前context的文件路径 ( rxt 文件)。REZ_USED ：用于解析这个环境的rez安装路径。REZ_U
+Context环境变量
+这些是rez在解析环境中产生的环境变量。
+REZ_RXT_FILE ： 当前context的文件路径 ( rxt 文件)。
+REZ_USED ：用于解析这个环境的rez安装路径。
+RE
 					...
 				</div>
 			</a>
@@ -1329,9 +1360,11 @@ REZ_RXT_FILE ： 当前context的文件路径 ( rxt 文件)。REZ_USED ：用于
 					15 Package Caching
 				</h2>
 				<div class="index-brief">
-					概述软件包缓存（Package Caching）是一个将包复制到本地磁盘加快运行环境的功能。
+					概述
+软件包缓存（Package Caching）是一个将包复制到本地磁盘加快运行环境的功能。
 比如你发布的包通常是在共享服务器上，那么运行python进程时，就会从共享存储上获取所有源码。缓存的意义在于将这些内容复制到本地，节省访问网络的时间成本。
-启用缓存软件包缓存功能不是默认启用的。要启用它，需
+启用缓存
+软件包缓存功能不是默认启用的。要启用它
 					...
 				</div>
 			</a>
@@ -1367,11 +1400,13 @@ REZ_RXT_FILE ： 当前context的文件路径 ( rxt 文件)。REZ_USED ：用于
 					14 Copying Packages
 				</h2>
 				<div class="index-brief">
-					概述包可以从一个库复制到另一个库，就像这样。使用命令：
+					概述
+包可以从一个库复制到另一个库，就像这样。
+使用命令：
 ]$ rez-cp --dest-path /svr/packages2 my_pkg-1.2.3
 使用API：
 >>> from rez.package_copy import copy_package
->>> from rez.packag
+>>> from rez.pack
 					...
 				</div>
 			</a>
@@ -1407,15 +1442,17 @@ REZ_RXT_FILE ： 当前context的文件路径 ( rxt 文件)。REZ_USED ：用于
 					13 Building Packages
 				</h2>
 				<div class="index-brief">
-					概述rez包可以使用rez-build工具来构建和本地安装。这个工具有以下操作：
+					概述
+rez包可以使用rez-build工具来构建和本地安装。这个工具有以下操作：
 
 遍历一个包的变体
 构建环境
 在此环境中运行构建系统
 
-每一个构建都来自构建的目录路径。（通常是构建的子目录或构建下的变体特定子目录）例如一个包含两个基本python变体的程序包：
+每一个构建都来自构建的目录路径。（通常是构建的子目录或构建下的变体特定子目录）
+例如一个包含两个基本python变体的程序包：
 +- package.py
-+- C
++-
 					...
 				</div>
 			</a>
@@ -1451,11 +1488,12 @@ REZ_RXT_FILE ： 当前context的文件路径 ( rxt 文件)。REZ_USED ：用于
 					12 Suites
 				</h2>
 				<div class="index-brief">
-					概述假设你希望为你的用户提供一些不同的工具，尽管这些工具需要在不同的环境中运行。
+					概述
+假设你希望为你的用户提供一些不同的工具，尽管这些工具需要在不同的环境中运行。
 例如你希望工作室的艺术家能够从命令行运行maya和nuke，而不需要考虑它们的环境。
 为了达到这样的需求，你会创建两个context：maya.rxt和nuke.rxt。
 首先运行maya：
-]$ rez-env --
+]$ rez-env -
 					...
 				</div>
 			</a>
@@ -1491,8 +1529,10 @@ REZ_RXT_FILE ： 当前context的文件路径 ( rxt 文件)。REZ_USED ：用于
 					11 Bundles
 				</h2>
 				<div class="index-brief">
-					概述Bundle是一个包含context文件和程序包仓库的目录。  
-context中的所有包都在存储库中，这使得bundle是可移动和独立的。通过命令创建一个bundle：
+					概述
+Bundle是一个包含context文件和程序包仓库的目录。
+context中的所有包都在存储库中，这使得bundle是可移动和独立的。
+通过命令创建一个bundle：
 ]$ rez-env foo -o foo.rxt
 ]$ rez-bundle foo.rxt ./mybundle
 
@@ -1532,13 +1572,16 @@ context中的所有包都在存储库中，这使得bundle是可移动和独立�
 					10 Contexts
 				</h2>
 				<div class="index-brief">
-					概述当使用rez-env创建解析环境时，实际上是创建了一个称为context的东西。一个context存储的信息包括：
+					概述
+当使用rez-env创建解析环境时，实际上是创建了一个称为context的东西。
+一个context存储的信息包括：
 
 初始程序包请求列表
 被选择的变体列表
 一个直观显示解析的图表
 
-context不存储解析到的程序包副本，而是为每个包存储一种句柄，它提供了足够的信息来知道从哪里获取完整的包定义和
+context不存储解析到的程序包副本，而是为每个包存储一种句柄，
+它提供了足够的信息来知道从哪里获取完整的包
 					...
 				</div>
 			</a>
@@ -1574,10 +1617,14 @@ context不存储解析到的程序包副本，而是为每个包存储一种句�
 					09 Ephemeral Packages
 				</h2>
 				<div class="index-brief">
-					概述于2.71.0版本中引入。
-临时包（Ephemeral Packages）是对不存在的包的请求。包名称以.开头，和其它的软件包请求类似，可以作为变体列表的一部分来请求，或者直接用rez-env命令进行请求。下面是一个例子：
+					概述
+于2.71.0版本中引入。
+临时包（Ephemeral Packages）是对不存在的包的请求。
+包名称以.开头，和其它的软件包请求类似，可以作为变体列表的一部分来请求，
+或者直接用rez-env命令进行请求。
+下面是一个例子：
 ]$ rez-env .foo-1
-You are now in a r
+You are now in
 					...
 				</div>
 			</a>

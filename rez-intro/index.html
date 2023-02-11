@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,8 +1268,12 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h1><span id="前言">前言</span></h1><p>这篇文章讲下rez的使用，根据最近所得谈谈自己的理解。<br>开始之前补充一些rez工具的背景和特性。  </p>
-<p>rez最开始是Dr.D Studio于2011年用python写的依赖解算器，于2012年开源。<br>之后的V2版本几乎重写，变成一个完整的API。<br>具有跨平台，支持多种shell环境，基于python的包格式定义等特性。</p>
+	<h1><span id="前言">前言</span></h1>
+<p>这篇文章讲下rez的使用，根据最近所得谈谈自己的理解。<br>
+开始之前补充一些rez工具的背景和特性。</p>
+<p>rez最开始是Dr.D Studio于2011年用python写的依赖解算器，于2012年开源。<br>
+之后的V2版本几乎重写，变成一个完整的API。<br>
+具有跨平台，支持多种shell环境，基于python的包格式定义等特性。</p>
 <p>它是针对视效工作室流程开发的工具：</p>
 <ul>
 <li>在项目中，配置不同版本的dcc软件，插件以及环境（并且可以灵活动态的进行增减）</li>
@@ -1261,17 +1283,23 @@ var _hmt = _hmt || [];
 <li>Pipeline不受到迁移操作系统等事件的影响</li>
 <li>尽量减少开发人员对制作的时间占用</li>
 </ul>
-<p>以上资料来自Open Source Day中关于rez的一期：<br><a target="_blank" rel="noopener" href="https://youtu.be/y5VSPeeqJbM">https://youtu.be/y5VSPeeqJbM</a></p>
-<h1><span id="配置">配置</span></h1><p>rez是跨平台的，为了方便这里用macOS进行演示。<br>（类UNIX系统命令行操作友好一些）</p>
-<p>安装的部分就跳过了，开始基本的配置。<br>默认配置文件的位置是rez安装目录下<code>rezconfig.py</code>文件。<br>为了能够进行统一设置，这个配置文件最好也是在服务器上，所以首先更改rez配置文件路径。<br>官方推荐的方式是设置<code>REZ_CONFIG_FILE</code>环境变量指向配置文件路径。  </p>
+<p>以上资料来自Open Source Day中关于rez的一期：<br>
+<a target="_blank" rel="noopener" href="https://youtu.be/y5VSPeeqJbM">https://youtu.be/y5VSPeeqJbM</a></p>
+<h1><span id="配置">配置</span></h1>
+<p>rez是跨平台的，为了方便这里用macOS进行演示。<br>
+（类UNIX系统命令行操作友好一些）</p>
+<p>安装的部分就跳过了，开始基本的配置。<br>
+默认配置文件的位置是rez安装目录下<code>rezconfig.py</code>文件。<br>
+为了能够进行统一设置，这个配置文件最好也是在服务器上，所以首先更改rez配置文件路径。<br>
+官方推荐的方式是设置<code>REZ_CONFIG_FILE</code>环境变量指向配置文件路径。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 写入环境变量</span>
 ehco <span class="token string">"export REZ_CONFIG_FILE=<span class="token variable"><span class="token variable">`</span>/Library/smb_server/rezconfig.py<span class="token variable">`</span></span>"</span><span class="token operator">>></span>.bash_profile
 <span class="token builtin class-name">source</span> .bash_profile
 
 <span class="token comment"># 验证是否返回了正确的路径</span>
 <span class="token builtin class-name">echo</span> <span class="token variable">$REZ_CONFIG_FILE</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>然后我们要将包存储库放在共享的服务器上，以便于任何一台PC机都可以访问它。<br>下面是对<code>rezconfig.py</code>文件的修改：</p>
+<p>然后我们要将包存储库放在共享的服务器上，以便于任何一台PC机都可以访问它。<br>
+下面是对<code>rezconfig.py</code>文件的修改：</p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json">packages_path = <span class="token punctuation">[</span>
     <span class="token string">"~/packages"</span><span class="token punctuation">,</span>           # locally installed pkgs<span class="token punctuation">,</span> not yet deployed
     <span class="token string">"~/.rez/packages/int"</span><span class="token punctuation">,</span>  # internally developed pkgs<span class="token punctuation">,</span> deployed
@@ -1281,16 +1309,22 @@ ehco <span class="token string">"export REZ_CONFIG_FILE=<span class="token varia
     <span class="token string">"/Library/smb_server/third-lib"</span><span class="token punctuation">,</span>
     <span class="token string">"/Library/smb_server/tools"</span><span class="token punctuation">,</span>
 <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>对比默认的配置，这里在列表后面添加了四个路径，<br>分别存放DCC软件包，DCC插件包，第三方库，和自定义工具包。  </p>
+<p>对比默认的配置，这里在列表后面添加了四个路径，<br>
+分别存放DCC软件包，DCC插件包，第三方库，和自定义工具包。</p>
 <p>设置完成后执行<code>rez-config packages_path</code>查看是否配置已经更新。</p>
-<h1><span id="使用">使用</span></h1><p>使用<code>rez-env &#123;package name&#125;</code>进行环境构建。<br>它的工作原理是，从包存储库搜索需要的包，<br>从这些包的定义文件<code>package.py</code>中解析依赖，<br>然后生成一个sh文件并构建环境。所以在<strong>使用前必须配置好所需的包与定义</strong>。</p>
-<p>一个基本的包层级结构如下：  </p>
+<h1><span id="使用">使用</span></h1>
+<p>使用<code>rez-env &#123;package name&#125;</code>进行环境构建。<br>
+它的工作原理是，从包存储库搜索需要的包，<br>
+从这些包的定义文件<code>package.py</code>中解析依赖，<br>
+然后生成一个sh文件并构建环境。所以在<strong>使用前必须配置好所需的包与定义</strong>。</p>
+<p>一个基本的包层级结构如下：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">&#123;</span>Your Repository Path<span class="token punctuation">&#125;</span>
   - <span class="token punctuation">&#123;</span>package Name<span class="token punctuation">&#125;</span>
     - <span class="token punctuation">&#123;</span>Version<span class="token punctuation">&#125;</span>
       - package.py<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="软件包定义">软件包定义</span></h2><p>先来创建一个maya软件包，用package.py文件定义它。<br><code>/Library/smb_server/dcc/maya/2018/package.py</code></p>
+<h2><span id="软件包定义">软件包定义</span></h2>
+<p>先来创建一个maya软件包，用package.py文件定义它。<br>
+<code>/Library/smb_server/dcc/maya/2018/package.py</code></p>
 <p>写入内容：</p>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">name &#x3D; &quot;maya&quot;
 
@@ -1300,10 +1334,14 @@ def commands():
     env.MAYA_DISABLE_CLIC_IPM &#x3D; 1
     env.MAYA_UI_LANGUAGE &#x3D; &#39;en_US&#39;
     alias(&quot;maya2018&quot;, r&quot;&#x2F;Applications&#x2F;Autodesk&#x2F;maya2018&#x2F;Maya.app&#x2F;Contents&#x2F;MacOS&#x2F;Maya&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>这里定义了包的名称，版本，设置了几个环境变量，并为maya程序声明了一个别名。<br>回到终端，输入<code>rez-env maya</code>，这个时候就有了一个最简单的maya环境。  </p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d418e803.gif" alt="rez-intro-p1.gif"><br>对于DCC软件包大多使用引用的方式，不会真的将程序放在存储仓库中。<br>(同上述例子一样，只用在对应的包中定义一个package.py文件)</p>
-<p>对于插件和一些脚本工具，可以直接放在仓库中。  </p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d41489fa.png" alt="rez-intro-p2.png"><br>package定义文件可以是这样：  </p>
+<p>这里定义了包的名称，版本，设置了几个环境变量，并为maya程序声明了一个别名。<br>
+回到终端，输入<code>rez-env maya</code>，这个时候就有了一个最简单的maya环境。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d418e803.gif" alt="rez-intro-p1.gif"><br>
+对于DCC软件包大多使用引用的方式，不会真的将程序放在存储仓库中。<br>
+(同上述例子一样，只用在对应的包中定义一个package.py文件)</p>
+<p>对于插件和一些脚本工具，可以直接放在仓库中。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d41489fa.png" alt="rez-intro-p2.png"><br>
+package定义文件可以是这样：</p>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">name &#x3D; &#39;mtoa&#39;
 
 version &#x3D; &#39;4.1.0&#39;
@@ -1321,11 +1359,16 @@ def commands():
     if &#39;houdini&#39; in request:
         env.PATH.append(&quot;&#123;this.root&#125;&#x2F;houdini&#x2F;scripts&#x2F;bin&quot;)
         env.HOUDINI_PATH.append(&quot;&#123;this.root&#125;&#x2F;houdini&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>这里用requires参数限制了dcc软件版本的有效范围，<br>使用weak reference符号<code>~</code>，为了不对没有请求的包进行搜索。  </p>
-<p>比如使用<code>rez-env maya-2018 mtoa</code>构建环境时，这里没有对houdini请求，rez则不会去搜索它。<br>（如果不使用weak reference符，在请求mtoa时，requires列表中的所有包都会被代入环境）<br><strong>commands</strong>的部分为其添加环境变量，<code>&#123;this.root&#125;</code>代表这个包的当前目录。  </p>
-<p>对于一些python第三方库，可以通过<code>rez-pip</code>直接进行安装(自动生成package.py文件)。<br>比如需要一个PyQt5，并将它安装到指定的目录的话，可以执行：<br><code>rez pip -p /Library/smb_server/third-lib --python-version python-2.7 -i PyQt5</code></p>
-<p>或者直接拷贝第三方模块到路径下，同样用package.py定义这个包。<br>这里以shotgun_api为例：  </p>
+<p>这里用requires参数限制了dcc软件版本的有效范围，<br>
+使用weak reference符号<code>~</code>，为了不对没有请求的包进行搜索。</p>
+<p>比如使用<code>rez-env maya-2018 mtoa</code>构建环境时，这里没有对houdini请求，rez则不会去搜索它。<br>
+（如果不使用weak reference符，在请求mtoa时，requires列表中的所有包都会被代入环境）<br>
+<strong>commands</strong>的部分为其添加环境变量，<code>&#123;this.root&#125;</code>代表这个包的当前目录。</p>
+<p>对于一些python第三方库，可以通过<code>rez-pip</code>直接进行安装(自动生成package.py文件)。<br>
+比如需要一个PyQt5，并将它安装到指定的目录的话，可以执行：<br>
+<code>rez pip -p /Library/smb_server/third-lib --python-version python-2.7 -i PyQt5</code></p>
+<p>或者直接拷贝第三方模块到路径下，同样用package.py定义这个包。<br>
+这里以shotgun_api为例：</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d4147be2.png" alt="rez-intro-p3.png"></p>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">name &#x3D; &#39;shotgun api&#39;
 
@@ -1337,11 +1380,11 @@ requires &#x3D; [
 
 def commands():
     env.PYTHONPATH.append(&quot;&#123;root&#125;&#x2F;python&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>定义好后，在终端中输入命令测试看看<code>rez-env shotgun_api maya</code>  </p>
+<p>定义好后，在终端中输入命令测试看看<code>rez-env shotgun_api maya</code></p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d42a3eca.gif" alt="rez-intro-p4.gif"></p>
-<h2><span id="包的灵活运用">包的灵活运用</span></h2><p>可以将包理解为一块积木，要怎么组合和运用完全取决于你自己的需要。  </p>
-<p>举一个例子，比如在一个名为TST的项目中，有这样的要求：  </p>
+<h2><span id="包的灵活运用">包的灵活运用</span></h2>
+<p>可以将包理解为一块积木，要怎么组合和运用完全取决于你自己的需要。</p>
+<p>举一个例子，比如在一个名为TST的项目中，有这样的要求：</p>
 <ul>
 <li>Maya2018</li>
 <li>插件mGear要求版本大于2.0</li>
@@ -1351,12 +1394,13 @@ def commands():
 <li>Nuke12.1v2</li>
 <li>Cryptomatte 1.2.8</li>
 </ul>
-<p>构建它的环境命令可能会变得很长：  </p>
+<p>构建它的环境命令可能会变得很长：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">rez-env maya-2018 mGear-2+ mtoa-4.1.0 xgen my_maya_tools nuke12.1.2 cryptomatte-1.2.8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>如果再加上例如其它houdini，katana等软件需求，每次输入这么长一串命令会很繁琐。<br>避免这样繁琐的方法很多，这里为了说明包的灵活性，我们将一个项目比作一个包。  </p>
-<p>新建一个目录为<code>/Library/smb_server/show</code>，添加到package_path配置中。  </p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d41c08a4.png" alt="rez-intro-p5.png"><br>定义的文件内容如下：</p>
+<p>如果再加上例如其它houdini，katana等软件需求，每次输入这么长一串命令会很繁琐。<br>
+避免这样繁琐的方法很多，这里为了说明包的灵活性，我们将一个项目比作一个包。</p>
+<p>新建一个目录为<code>/Library/smb_server/show</code>，添加到package_path配置中。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d41c08a4.png" alt="rez-intro-p5.png"><br>
+定义的文件内容如下：</p>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">name &#x3D; &#39;TST&#39;
 
 version &#x3D; &#39;1.0&#39;
@@ -1370,20 +1414,36 @@ requires &#x3D; [
     &quot;nuke-12.1.2&quot;,
     &quot;cryptomatte-1.2.8&quot;
 ]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>这样就可以直接执行<code>rez-env TST</code>构建这样一个项目的环境需求了。<br>如果之后因为一些原因，要更换为redshift渲染器，只需要新建一个1.1的版本，修改requires参数即可。  </p>
-<p><code>rez-env TST</code>命令不指定包版本的情况，默认是获取最新版本。<br>如果要回溯到上一个版本的话：<code>rez-env TST-1</code>。</p>
+<p>这样就可以直接执行<code>rez-env TST</code>构建这样一个项目的环境需求了。<br>
+如果之后因为一些原因，要更换为redshift渲染器，只需要新建一个1.1的版本，修改requires参数即可。</p>
+<p><code>rez-env TST</code>命令不指定包版本的情况，默认是获取最新版本。<br>
+如果要回溯到上一个版本的话：<code>rez-env TST-1</code>。</p>
 <blockquote>
-<p>在实际生产中，我们通常会先本地测试，再发布测试版本，通过测试后发布一个正式版本。<br>这些步骤可以参考<code>rez-test</code>，<code>rez-build</code>，<code>rez-release</code>（作者暂时没有太去深究整个流程）</p>
+<p>在实际生产中，我们通常会先本地测试，再发布测试版本，通过测试后发布一个正式版本。<br>
+这些步骤可以参考<code>rez-test</code>，<code>rez-build</code>，<code>rez-release</code>（作者暂时没有太去深究整个流程）</p>
 </blockquote>
-<h1><span id="一些扩展">一些扩展</span></h1><p>这些扩展就简单说明一下，因篇幅有限（码字码累了），<br>具体的概念和使用可以参照文档。  </p>
-<h2><span id="context">context</span></h2><p>rez支持将目标环境写入一个文件中，比如：<br><code>rez-env maya xgen --output test.rxt</code><br>然后通过读取文件的方式，构建环境：<br><code>rez-env --input test.rxt</code></p>
-<h2><span id="bundle">bundle</span></h2><p>也可以将rxt文件和它所需要的软件包进行打包。<br><code>rez-bundle test.rxt mybundle</code><br>打包后可以看到，软件包和rxt文件被放在了同一个目录下：<br>（这使得bundle是可移动和独立的）  </p>
+<h1><span id="一些扩展">一些扩展</span></h1>
+<p>这些扩展就简单说明一下，因篇幅有限（码字码累了），<br>
+具体的概念和使用可以参照文档。</p>
+<h2><span id="context">context</span></h2>
+<p>rez支持将目标环境写入一个文件中，比如：<br>
+<code>rez-env maya xgen --output test.rxt</code><br>
+然后通过读取文件的方式，构建环境：<br>
+<code>rez-env --input test.rxt</code></p>
+<h2><span id="bundle">bundle</span></h2>
+<p>也可以将rxt文件和它所需要的软件包进行打包。<br>
+<code>rez-bundle test.rxt mybundle</code><br>
+打包后可以看到，软件包和rxt文件被放在了同一个目录下：<br>
+（这使得bundle是可移动和独立的）</p>
 <img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d41d3f61.png" width="26%" height="26%" alt align="center/">
-
 <p>执行<code>rez-env -i mybundle/context.rxt </code>进行构建环境。</p>
-<h2><span id="variants">variants</span></h2><p>这是一个非常有用的概念，这里用Arnold插件来举例。<br>Arnold插件支持Maya和Houdini，且跨平台，在Mac，Linux，Windows系统下都可以使用。<br>这样的话同一个版本的Arnold，会根据不同的系统平台和不同的软件产生多个分支(如下图)：<br><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d41474c2.png" width="45%" height="45%" alt align="center/"></p>
-<p>当我们请求<code>rez-env maya Arnold</code>的时候，为了能让rez找到符合当前系统平台的分支，<br>就需要在定义文件中定义variants。</p>
+<h2><span id="variants">variants</span></h2>
+<p>这是一个非常有用的概念，这里用Arnold插件来举例。<br>
+Arnold插件支持Maya和Houdini，且跨平台，在Mac，Linux，Windows系统下都可以使用。<br>
+这样的话同一个版本的Arnold，会根据不同的系统平台和不同的软件产生多个分支(如下图)：<br>
+<img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d41474c2.png" width="45%" height="45%" alt align="center/"></p>
+<p>当我们请求<code>rez-env maya Arnold</code>的时候，为了能让rez找到符合当前系统平台的分支，<br>
+就需要在定义文件中定义variants。</p>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">name &#x3D; &quot;Arnold&quot;
 
 version &#x3D; &quot;1.0&quot;
@@ -1401,12 +1461,11 @@ variants &#x3D; [
 
 def commands():
     env.PATH.append(&quot;&#123;root&#125;&#x2F;bin&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>验证它试试：  </p>
+<p>验证它试试：</p>
 <pre class="line-numbers language-none"><code class="language-none">&gt;&gt;&gt; rez-env maya Arnold -- echo &#39;$REZ_ARNOLD_ROOT&#39;
 &#x2F;Library&#x2F;smb_server&#x2F;plug-ins&#x2F;Arnold&#x2F;v1.0&#x2F;platform-osx&#x2F;maya<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h2><span id="api">API</span></h2><p>上述的所有操作都可以通过python api来实现。  </p>
+<h2><span id="api">API</span></h2>
+<p>上述的所有操作都可以通过python api来实现。</p>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">import subprocess
 from rez.resolved_context import ResolvedContext
 
@@ -1417,7 +1476,10 @@ out, err &#x3D; p.communicate()
 print out
 &gt;&gt;&gt; &#39;&#x2F;software&#x2F;ext&#x2F;houdini&#x2F;12.5.562&#x2F;bin&#x2F;hescape&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>可以用python写一个交互UI，让制作人员能更直观的进行操作。</p>
-<h1><span id="总结">总结</span></h1><p>对rez的使用介绍差不多就到这里，自己也是刚接触不久。<br>这篇文章是自己对rez的一些理解，要真正投入到生产环境中，<br>最好还是多阅读官方文档。  </p>
+<h1><span id="总结">总结</span></h1>
+<p>对rez的使用介绍差不多就到这里，自己也是刚接触不久。<br>
+这篇文章是自己对rez的一些理解，要真正投入到生产环境中，<br>
+最好还是多阅读官方文档。</p>
 <p>文章如果对你有帮助，可以关注一下这个公众号：</p>
 <center><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36f1d52b8.jpg" width="30%" height="30%" alt align="center"></center>
 
@@ -1427,9 +1489,9 @@ print out
     <div class="post-guide">
         <div class="item left">
             
-              <a href="/shell_learn/">
+              <a href="/gitlab_install/">
                   <i class="fa fa-angle-left" aria-hidden="true"></i>
-                  Shell脚本学习
+                  Gitlab在Centos上搭建
               </a>
             
         </div>

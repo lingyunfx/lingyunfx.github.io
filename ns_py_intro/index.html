@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,7 +1268,8 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h3><span id="获取项目">获取项目</span></h3><p>关于preject类的用法，在下面的链接查看</p>
+	<h3><span id="获取项目">获取项目</span></h3>
+<p>关于preject类的用法，在下面的链接查看</p>
 <p><a target="_blank" rel="noopener" href="https://learn.foundry.com/hiero/developers/11.1/HieroPythonDevGuide/api/api_core.html#hiero.core.Project">https://learn.foundry.com/hiero/developers/11.1/HieroPythonDevGuide/api/api_core.html#hiero.core.Project</a></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> hiero<span class="token punctuation">.</span>core <span class="token keyword">as</span> hc
 all_projects <span class="token operator">=</span> hc<span class="token punctuation">.</span>projects<span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -1262,8 +1281,8 @@ all_projects <span class="token operator">=</span> hc<span class="token punctuat
 <span class="token comment"># 获取指定名称的项目</span>
 name <span class="token operator">=</span> <span class="token string">'test_project'</span>
 p <span class="token operator">=</span> hc<span class="token punctuation">.</span>project<span class="token punctuation">(</span>name<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="创建clip放到对应的sequence或者bin">创建Clip,放到对应的Sequence或者Bin</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> hiero<span class="token punctuation">.</span>core <span class="token keyword">as</span> hc
+<h3><span id="创建clip放到对应的sequence或者bin">创建Clip,放到对应的Sequence或者Bin</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> hiero<span class="token punctuation">.</span>core <span class="token keyword">as</span> hc
 file_path <span class="token operator">=</span> <span class="token string">r'D:\demo\shot001\shot001_v001.1001.exr'</span>
 
 <span class="token comment"># 创建MediaSource对象</span>
@@ -1280,25 +1299,25 @@ bin_item <span class="token operator">=</span> hc<span class="token punctuation"
 p <span class="token operator">=</span> hc<span class="token punctuation">.</span>project<span class="token punctuation">(</span><span class="token string">'test_project'</span><span class="token punctuation">)</span>
 bin1 <span class="token operator">=</span> p<span class="token punctuation">.</span>bins<span class="token punctuation">(</span><span class="token string">'Bin 1'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
 bin1<span class="token punctuation">.</span>addItem<span class="token punctuation">(</span>bin_item<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>关于Clip，MediaSource，binItem对象的方法：</p>
 <p><a target="_blank" rel="noopener" href="https://learn.foundry.com/hiero/developers/11.1/HieroPythonDevGuide/api/api_core.html#hiero.core.Clip">https://learn.foundry.com/hiero/developers/11.1/HieroPythonDevGuide/api/api_core.html#hiero.core.Clip</a></p>
 <p><a target="_blank" rel="noopener" href="https://learn.foundry.com/hiero/developers/11.1/HieroPythonDevGuide/api/api_core.html#hiero.core.MediaSource">https://learn.foundry.com/hiero/developers/11.1/HieroPythonDevGuide/api/api_core.html#hiero.core.MediaSource</a></p>
 <p><a target="_blank" rel="noopener" href="https://learn.foundry.com/hiero/developers/11.1/HieroPythonDevGuide/api/api_core.html#hiero.core.BinItem">https://learn.foundry.com/hiero/developers/11.1/HieroPythonDevGuide/api/api_core.html#hiero.core.BinItem</a></p>
-<h3><span id="获取mediasource对象的路径">获取MediaSource对象的路径</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> hiero<span class="token punctuation">.</span>core <span class="token keyword">as</span> hc
+<h3><span id="获取mediasource对象的路径">获取MediaSource对象的路径</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> hiero<span class="token punctuation">.</span>core <span class="token keyword">as</span> hc
 
 file_path <span class="token operator">=</span> <span class="token string">r'D:\demo\shot001\shot001_v001.1001.exr'</span>
 m <span class="token operator">=</span> hc<span class="token punctuation">.</span>MediaSource<span class="token punctuation">(</span>file_path<span class="token punctuation">)</span>
 m_infos <span class="token operator">=</span> m<span class="token punctuation">.</span>fileinfos<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span> m_infos<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>filename<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="在项目顶层文件夹创建bin">在项目顶层文件夹创建Bin</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> hiero<span class="token punctuation">.</span>core <span class="token keyword">as</span> hc
+<h3><span id="在项目顶层文件夹创建bin">在项目顶层文件夹创建Bin</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> hiero<span class="token punctuation">.</span>core <span class="token keyword">as</span> hc
 
 p <span class="token operator">=</span> hc<span class="token punctuation">.</span>project<span class="token punctuation">(</span><span class="token string">'test_project'</span><span class="token punctuation">)</span>
 bin1 <span class="token operator">=</span> hc<span class="token punctuation">.</span>Bin<span class="token punctuation">(</span><span class="token string">'test'</span><span class="token punctuation">)</span>
 p<span class="token punctuation">.</span>clipsBin<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>addItem<span class="token punctuation">(</span>bin1<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="将clip放置到时间线">将clip放置到时间线</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token triple-quoted-string string">"""
+<h3><span id="将clip放置到时间线">将clip放置到时间线</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token triple-quoted-string string">"""
 设置源文件出入点
 TrackItem.setSourceIn()
 TrackItem.setSourceOut()
@@ -1331,8 +1350,8 @@ t<span class="token punctuation">.</span>setTimelineIn<span class="token punctua
 t<span class="token punctuation">.</span>setTimelineOut<span class="token punctuation">(</span><span class="token number">22</span><span class="token punctuation">)</span>
 vt<span class="token punctuation">.</span>addItem<span class="token punctuation">(</span>t<span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="添加在时间线右键触发事件">添加在时间线右键触发事件</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> hiero<span class="token punctuation">.</span>core <span class="token keyword">as</span> hc
+<h3><span id="添加在时间线右键触发事件">添加在时间线右键触发事件</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> hiero<span class="token punctuation">.</span>core <span class="token keyword">as</span> hc
 
 <span class="token keyword">def</span> <span class="token function">add_print</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">:</span>
     event<span class="token punctuation">.</span>menu<span class="token punctuation">.</span>addAction<span class="token punctuation">(</span><span class="token string">'print selected'</span><span class="token punctuation">)</span>
@@ -1340,8 +1359,8 @@ vt<span class="token punctuation">.</span>addItem<span class="token punctuation"
     <span class="token keyword">print</span> selection
 
 hc<span class="token punctuation">.</span>events<span class="token punctuation">.</span>registerInterest<span class="token punctuation">(</span><span class="token string">"kShowContextMenu/kTimeline"</span><span class="token punctuation">,</span> add_print<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="获取选中的clip对象">获取选中的clip对象</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> hiero<span class="token punctuation">.</span>core <span class="token keyword">import</span> TrackItem
+<h3><span id="获取选中的clip对象">获取选中的clip对象</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> hiero<span class="token punctuation">.</span>core <span class="token keyword">import</span> TrackItem
 
 <span class="token comment"># 获取激活的sequence对象</span>
 seq <span class="token operator">=</span> hiero<span class="token punctuation">.</span>ui<span class="token punctuation">.</span>activeSequence<span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -1351,8 +1370,8 @@ te <span class="token operator">=</span> hiero<span class="token punctuation">.<
 
 <span class="token comment"># 得到所有选择的clip items</span>
 <span class="token keyword">print</span> te<span class="token punctuation">.</span>selection<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="直接在sequence添加clip">直接在sequence添加clip</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> hiero<span class="token punctuation">.</span>core <span class="token keyword">as</span> hc
+<h3><span id="直接在sequence添加clip">直接在sequence添加clip</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> hiero<span class="token punctuation">.</span>core <span class="token keyword">as</span> hc
 
 file_path <span class="token operator">=</span> <span class="token string">r'D:\demo\shot006\BEN_0230_V001.1001.exr'</span>
 
@@ -1365,8 +1384,8 @@ s <span class="token operator">=</span> p<span class="token punctuation">.</span
 m <span class="token operator">=</span> hc<span class="token punctuation">.</span>MediaSource<span class="token punctuation">(</span>file_path<span class="token punctuation">)</span>
 c <span class="token operator">=</span> hc<span class="token punctuation">.</span>Clip<span class="token punctuation">(</span>m<span class="token punctuation">)</span>
 s<span class="token punctuation">.</span>addClip<span class="token punctuation">(</span>c<span class="token punctuation">,</span> time<span class="token operator">=</span><span class="token number">1001</span><span class="token punctuation">)</span> <span class="token comment"># time这里为起始时间</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="获取clip的matadata信息">获取clip的matadata信息</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">c<span class="token punctuation">.</span>metadata<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value<span class="token punctuation">(</span><span class="token string">'foundry.timeline.duration'</span><span class="token punctuation">)</span>
+<h3><span id="获取clip的matadata信息">获取clip的matadata信息</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">c<span class="token punctuation">.</span>metadata<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value<span class="token punctuation">(</span><span class="token string">'foundry.timeline.duration'</span><span class="token punctuation">)</span>
 
 <span class="token triple-quoted-string string">"""
 hasKey, keys, setValue, value

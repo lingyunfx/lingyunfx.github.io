@@ -241,6 +241,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -769,6 +778,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1214,17 +1232,20 @@ var _hmt = _hmt || [];
 					Docker 常用命令
 				</h2>
 				<div class="index-brief">
-					# 下载nginx镜像
+					镜像
+搜索镜像
+docker search nginx
+这里会列出官方和非官方的镜像列表
+
+拉取/下载镜像
+# 直接拉取
 docker pull nginx
+
+# 拉取最新版本
 docker pull nginx:latest
 
-# 查看本地有哪些镜像
-docker images
-
-# 删除镜像
-docker image rm &lt;id>
-
-# 运行镜像 -d为后台运行 -p指定内外端口映射(外面机器端口：里面
+# 拉取指定版本镜像
+docker pull nginx:1.15.8
 					...
 				</div>
 			</a>

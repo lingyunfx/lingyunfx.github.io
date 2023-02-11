@@ -241,6 +241,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -769,6 +778,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1209,6 +1227,113 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
+			<a href="/py_common_cod/">
+				<h2 class="index-title">
+					代码段记录
+				</h2>
+				<div class="index-brief">
+					读取和写入json文件
+# 写
+with open(json_path, 'w') as f:
+    json.dump(self.items, f)
+
+# 读
+with open(json_path) as f:
+    items = json.load(f)
+读取和写入csv文件
+# 读
+w
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-11-06</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Python/">Python</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Python/查询/">查询</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/py_dict/">
+				<h2 class="index-title">
+					Python字典方法
+				</h2>
+				<div class="index-brief">
+					
+
+
+方法
+描述
+
+
+
+
+cmp(dict1, dict2)
+比较两个字典元素。
+
+
+len(dict)
+计算字典元素个数，即键的总数。
+
+
+str(dict)
+输出字典可打印的字符串表示。
+
+
+type(variable)
+返回输入的变量类型，如果变量是字典就返回字典类型。
+
+
+dict.clea
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-11-06</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Python/">Python</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Python/查询/">查询</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/py_list/">
 				<h2 class="index-title">
 					Python列表方法
@@ -1219,6 +1344,7 @@ var _hmt = _hmt || [];
 
 方法
 描述
+
 
 
 
@@ -1243,7 +1369,7 @@ list(seq)
 
 
 list.append(obj)
-在列表末尾添加
+在列表末尾添
 					...
 				</div>
 			</a>
@@ -1287,6 +1413,7 @@ list.append(obj)
 
 
 
+
 string.capitalize()
 把字符串的第一个字符大写
 
@@ -1296,7 +1423,7 @@ string.center(width)
 
 
 string.count(str, beg=0, end=len(string))
-返回 s
+返回 
 					...
 				</div>
 			</a>
@@ -1333,10 +1460,15 @@ string.count(str, beg=0, end=len(string))
 				</h2>
 				<div class="index-brief">
 					QLineEdit
-生成控件widget = QLineEdit()
-设置输入框文字widget.setText(&#39;some text&#39;)
-设置提示文字widget.setPlaceholderText(&#39;some text&#39;)
-设置输入框为只读widget.setR
+
+生成控件
+widget = QLineEdit()
+设置输入框文字
+widget.setText('some text')
+设置提示文字
+widget.setPlaceholderText('some text')
+设置输入框为只读
+widget.setReadOnly(Tru
 					...
 				</div>
 			</a>
@@ -1372,9 +1504,10 @@ string.count(str, beg=0, end=len(string))
 					Shotgun常用代码段
 				</h2>
 				<div class="index-brief">
-					用api key获取sg对象sg = shotgun_api3.Shotgun("https://piedpiper.shotgunstudio.com",
+					用api key获取sg对象
+sg = shotgun_api3.Shotgun("https://piedpiper.shotgunstudio.com",
                           script_name="compress",
-                     
+                    
 					...
 				</div>
 			</a>
@@ -1410,47 +1543,18 @@ string.count(str, beg=0, end=len(string))
 					Shotgun可控制的Entity
 				</h2>
 				<div class="index-brief">
-					
+					Entity Name | 对应中文名
 
-
-Entity Name
-对应中文名
-
-
-
-ActionMenuItem
-动作菜单
-
-
-ApiUser
-脚本
-
-
-Asset
-资产
-
-
-Attachment
-附件
-
-
-Booking
-人员规划
-
-
-Camera
-摄像机
-
-
-ClientUser
-客户
-
-
-Composition
-合成
-
-
-Cut
+| -
+ActionMenuItem | 动作菜单
+ApiUser |	脚本
+Asset |	资产
+Attachment |	附件
+Booking |	人员规划
+Camera |	摄像机
+ClientUser |	客户
+Composition |	合成
+Cu
 					...
 				</div>
 			</a>
@@ -1488,10 +1592,11 @@ Cut
 				<div class="index-brief">
 					参考来源：https://developer.shotgunsoftware.com/python-api/reference.html
 创建一个镜头
+
 Shotgun.create(entity_type, data, return_fields=None)
 
 >>> data = &#123;
- 
+
 					...
 				</div>
 			</a>
@@ -1527,7 +1632,8 @@ Shotgun.create(entity_type, data, return_fields=None)
 					Unreal Python代码段
 				</h2>
 				<div class="index-brief">
-					列出所有Assets以及类型import unreal
+					列出所有Assets以及类型
+import unreal
 
 workingPath = "/Game/"
 
@@ -1535,7 +1641,7 @@ workingPath = "/Game/"
 class GetEditorAssetLibrary(unreal.EditorAssetLibrary):
     pass
 
-editorAssetLib
+editorAssetLi
 					...
 				</div>
 			</a>
@@ -1571,95 +1677,14 @@ editorAssetLib
 					Nuke的Call Back使用
 				</h2>
 				<div class="index-brief">
-					callback的应用添加在创建节点时，执行的callback
+					callback的应用
+添加在创建节点时，执行的callback
 def test():
 	print "this is test"
 
 nuke.addOnCreate(test, nodeClass='Blur')
-
 执行上述代码，在创建一个Blur节点的时候，就可以看到调用里test函数。
 如果需
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-11-05</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/">DCC</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Nuke/">Nuke</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/nk_custom_knob/">
-				<h2 class="index-title">
-					Nuke自定义Knob操作
-				</h2>
-				<div class="index-brief">
-					节点里添加自定义knob# 可以用这样的方法，查看knob类型
-print nuke.selectedNode()["size"]
->>> Result: &lt;WH_Knob object at xxxx>
-
-# 给节点添加一个knob
-node = nuke.selectedNode()
-kn
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-11-05</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/">DCC</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Nuke/">Nuke</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/nk_gizmo_make/">
-				<h2 class="index-title">
-					Nuke Gizmo制作
-				</h2>
-				<div class="index-brief">
-					gizmo制作在nuke中选中一些节点，按ctrl+g打包组，一个gizmo节点就做好了。
-ctrl+回车键，进入组。
-两种方法进行组和组内节点的关联：1.在gizmo组节点上右键Manage User Knobs，再点击pick找到组内节点的属性添加进来。
-2.在gizmo组上添加一个knob (
 					...
 				</div>
 			</a>
@@ -1692,7 +1717,7 @@ ctrl+回车键，进入组。
 	
 	<div id="index-paginator">
 		
-			<a class="extend prev" rel="prev" href="/archives/page/3/">&lt;</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/9/">9</a><a class="extend next" rel="next" href="/archives/page/5/">&gt;</a>
+			<a class="extend prev" rel="prev" href="/archives/page/3/">&lt;</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/10/">10</a><a class="extend next" rel="next" href="/archives/page/5/">&gt;</a>
 		
 	</div>
 </div>

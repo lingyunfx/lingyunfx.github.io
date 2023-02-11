@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,25 +1268,28 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h2><span id="通用命令">通用命令</span></h2><h3><span id="查看文件大小">查看文件大小</span></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">du</span> -h /usr/src/xxx.tar<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3><span id="杀死进程">杀死进程</span></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">killall</span> nginx
+	<h2><span id="通用命令">通用命令</span></h2>
+<h3><span id="查看文件大小">查看文件大小</span></h3>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">du</span> -h /usr/src/xxx.tar<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3><span id="杀死进程">杀死进程</span></h3>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">killall</span> nginx
 
 <span class="token comment"># 安装</span>
 yum <span class="token function">install</span> psmisc
 
 <span class="token comment"># 在不知道包名称的情况下搜索</span>
 yum search <span class="token function">killall</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="ssh连接">ssh连接</span></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ssh</span> root@192.168.12.100<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3><span id="添加用户">添加用户</span></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">useradd</span> www<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3><span id="持续输出用于日志">持续输出(用于日志)</span></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">tailf access.log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3><span id="上传文件到远程主机">上传文件到远程主机</span></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">scp</span> a.jpg index.html root@192.168.10.41:/var/www/html<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2><span id="网络相关">网络相关</span></h2><h3><span id="常用操作">常用操作</span></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看ip</span>
+<h3><span id="ssh连接">ssh连接</span></h3>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ssh</span> root@192.168.12.100<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3><span id="添加用户">添加用户</span></h3>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">useradd</span> www<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3><span id="持续输出用于日志">持续输出(用于日志)</span></h3>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">tailf access.log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3><span id="上传文件到远程主机">上传文件到远程主机</span></h3>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">scp</span> a.jpg index.html root@192.168.10.41:/var/www/html<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2><span id="网络相关">网络相关</span></h2>
+<h3><span id="常用操作">常用操作</span></h3>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看ip</span>
 <span class="token function">cat</span> /etc/hosts
 
 <span class="token comment"># DNS配置 文件</span>
@@ -1276,8 +1297,8 @@ yum search <span class="token function">killall</span><span aria-hidden="true" c
 
 <span class="token comment"># 每个网络接口的配置文件</span>
 /etc/sysconfig/network-script/ifcfg-<span class="token operator">&lt;</span>interface-name<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="设置静态ip">设置静态ip</span></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 修改 /etc/sysconfig/network-script/ifcfg-&lt;interface-name></span>
+<h3><span id="设置静态ip">设置静态ip</span></h3>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 修改 /etc/sysconfig/network-script/ifcfg-&lt;interface-name></span>
 <span class="token comment"># 字符串用引号</span>
 <span class="token assign-left variable">BOOTPROTO</span><span class="token operator">=</span><span class="token string">"static"</span>
 <span class="token assign-left variable">ONBOOT</span><span class="token operator">=</span><span class="token string">"yes"</span>
@@ -1294,14 +1315,14 @@ yum search <span class="token function">killall</span><span aria-hidden="true" c
 nameserver <span class="token number">114.114</span>.114.114
 nameserver <span class="token number">8.8</span>.8.8
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="添加删除一个子网卡">添加/删除一个子网卡</span></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 添加</span>
+<h3><span id="添加删除一个子网卡">添加/删除一个子网卡</span></h3>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 添加</span>
 <span class="token function">ifconfig</span> ens33:1 <span class="token number">192.168</span>.10.52/24 up
 
 <span class="token comment"># 删除</span>
 <span class="token function">ifconfig</span> ens33:1 down<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="network-is-unreachable">Network is unreachable</span></h3><p><a target="_blank" rel="noopener" href="https://dev.twsiyuan.com/2018/02/linux-network-unreachable.html">https://dev.twsiyuan.com/2018/02/linux-network-unreachable.html</a></p>
+<h3><span id="network-is-unreachable">Network is unreachable</span></h3>
+<p><a target="_blank" rel="noopener" href="https://dev.twsiyuan.com/2018/02/linux-network-unreachable.html">https://dev.twsiyuan.com/2018/02/linux-network-unreachable.html</a></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token punctuation">[</span>root@localhost <span class="token operator">~</span><span class="token punctuation">]</span>$ ifup ens33
 Connection successfully activated <span class="token punctuation">(</span>D<span class="token operator">-</span>Bus active path<span class="token punctuation">:</span> <span class="token operator">/</span>org<span class="token operator">/</span>freedesktop<span class="token operator">/</span>NetworkManager<span class="token operator">/</span>ActiveConnection<span class="token operator">/</span><span class="token number">4</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </div>

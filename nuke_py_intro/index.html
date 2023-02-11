@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,11 +1268,14 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h1><span id="nuke开发相关的文档">Nuke开发相关的文档</span></h1><p>Nuke官方的一个技术支持论坛：<a target="_blank" rel="noopener" href="https://support.foundry.com/hc/zh-cn">https://support.foundry.com/hc/zh-cn</a></p>
+	<h1><span id="nuke开发相关的文档">Nuke开发相关的文档</span></h1>
+<p>Nuke官方的一个技术支持论坛：<a target="_blank" rel="noopener" href="https://support.foundry.com/hc/zh-cn">https://support.foundry.com/hc/zh-cn</a></p>
 <p>Python开发文档：<a target="_blank" rel="noopener" href="https://learn.foundry.com/nuke/developers/11.2/pythondevguide/">https://learn.foundry.com/nuke/developers/11.2/pythondevguide/</a></p>
 <p>Python API文档：<a target="_blank" rel="noopener" href="https://learn.foundry.com/nuke/developers/11.2/pythonreference/">https://learn.foundry.com/nuke/developers/11.2/pythonreference/</a></p>
 <p>Nuke TCL教程：<a target="_blank" rel="noopener" href="https://www.yiibai.com/tcl">https://www.yiibai.com/tcl</a></p>
-<h1><span id="节点操作">节点操作</span></h1><h3><span id="获取节点">获取节点</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 已知节点的名称，使用toNode函数获取，返回一个节点对象。</span>
+<h1><span id="节点操作">节点操作</span></h1>
+<h3><span id="获取节点">获取节点</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 已知节点的名称，使用toNode函数获取，返回一个节点对象。</span>
 nuke<span class="token punctuation">.</span>toNode<span class="token punctuation">(</span><span class="token string">'Text1'</span><span class="token punctuation">)</span>
 
 <span class="token comment"># 获取当前选择的单个节点，返回一个节点对象。</span>
@@ -1268,15 +1289,17 @@ all_nodes <span class="token operator">=</span> nuke<span class="token punctuati
 
 <span class="token comment"># 获取工程所有指定类型的节点</span>
 all_dot_nodes <span class="token operator">=</span> nuke<span class="token punctuation">.</span>allNodes<span class="token punctuation">(</span><span class="token string">"Dot"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>这里我们选择的是Text类型的节点，为何这里返回的是Text2。<br>是因为Nuke经过多年的发展，少部分的节点分为第一代和第二代。<br>在新版本中，默认我们创建的是第二代节点。</p>
-<h3><span id="root相关操作">root相关操作</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 获取nuke文件路径</span>
+<p>这里我们选择的是Text类型的节点，为何这里返回的是Text2。<br>
+是因为Nuke经过多年的发展，少部分的节点分为第一代和第二代。<br>
+在新版本中，默认我们创建的是第二代节点。</p>
+<h3><span id="root相关操作">root相关操作</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 获取nuke文件路径</span>
 nuke<span class="token punctuation">.</span>root<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>name<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 <span class="token comment"># 获取项目设置的起始帧</span>
 nuke<span class="token punctuation">.</span>root<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>firstFrame<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="获取或设置节点某个属性">获取或设置节点某个属性</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">
+<h3><span id="获取或设置节点某个属性">获取或设置节点某个属性</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">
 <span class="token comment"># 获取cliptype的值</span>
 t <span class="token operator">=</span> nuke<span class="token punctuation">.</span>toNode<span class="token punctuation">(</span><span class="token string">'Text1'</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span> t<span class="token punctuation">[</span><span class="token string">'cliptype'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value<span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -1287,8 +1310,8 @@ t<span class="token punctuation">[</span><span class="token string">'cliptype'</
 
 <span class="token comment"># 因为这个值是一个下拉菜单，所以可以传index参数</span>
 t<span class="token punctuation">[</span><span class="token string">'cliptype'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>setValue<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="创建一个节点">创建一个节点</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 这种方式适合nuke界面打开的时候，代码执行后会跳转到节点的属性编辑窗。</span>
+<h3><span id="创建一个节点">创建一个节点</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 这种方式适合nuke界面打开的时候，代码执行后会跳转到节点的属性编辑窗。</span>
 nuke<span class="token punctuation">.</span>createNode<span class="token punctuation">(</span><span class="token string">'Write'</span><span class="token punctuation">)</span> 
 
 <span class="token comment"># 这种方法适合没有打开nuke，在后台的一些操作。</span>
@@ -1299,15 +1322,15 @@ nuke<span class="token punctuation">.</span>createNode<span class="token punctua
 
 <span class="token comment"># 创建节点的时候，设置节点属性</span>
 nuke<span class="token punctuation">.</span>nodes<span class="token punctuation">.</span>Dot<span class="token punctuation">(</span>xpos<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">,</span> ypos<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="删除节点">删除节点</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 删除节点</span>
+<h3><span id="删除节点">删除节点</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 删除节点</span>
 nuke<span class="token punctuation">.</span>delete<span class="token punctuation">(</span>node<span class="token punctuation">)</span>
 
 <span class="token comment"># 删除工程中，所有dot节点</span>
 <span class="token keyword">for</span> i <span class="token keyword">in</span> nuke<span class="token punctuation">.</span>allNodes<span class="token punctuation">(</span><span class="token string">"Dot"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
   nuke<span class="token punctuation">.</span>delete<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="连接一个节点">连接一个节点</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">t <span class="token operator">=</span> nuke<span class="token punctuation">.</span>toNode<span class="token punctuation">(</span><span class="token string">'Text1'</span><span class="token punctuation">)</span>
+<h3><span id="连接一个节点">连接一个节点</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">t <span class="token operator">=</span> nuke<span class="token punctuation">.</span>toNode<span class="token punctuation">(</span><span class="token string">'Text1'</span><span class="token punctuation">)</span>
 w <span class="token operator">=</span> nuke<span class="token punctuation">.</span>toNode<span class="token punctuation">(</span><span class="token string">'Write1'</span><span class="token punctuation">)</span>
 
 <span class="token comment"># setInput的第一个参数是输入编号</span>
@@ -1317,16 +1340,16 @@ w<span class="token punctuation">.</span>setInput<span class="token punctuation"
 <span class="token comment"># 得到节点的input关系</span>
 w<span class="token punctuation">.</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
 <span class="token operator">>></span><span class="token operator">></span> Result<span class="token punctuation">:</span> <span class="token operator">&lt;</span>Text1 at <span class="token number">0x000000001073FF30</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="渲染一个write节点">渲染一个Write节点</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 参数分别是Write节点名，渲染起始帧，渲染结束帧，步长。</span>
+<h3><span id="渲染一个write节点">渲染一个Write节点</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 参数分别是Write节点名，渲染起始帧，渲染结束帧，步长。</span>
 
 nuke<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">'Write1'</span><span class="token punctuation">,</span> <span class="token number">1001</span><span class="token punctuation">,</span> <span class="token number">1010</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="使一个节点被选择">使一个节点被选择</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 使一个节点被选择状态</span>
+<h3><span id="使一个节点被选择">使一个节点被选择</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 使一个节点被选择状态</span>
 node <span class="token operator">=</span> nuke<span class="token punctuation">.</span>toNode<span class="token punctuation">(</span><span class="token string">"Grade1"</span><span class="token punctuation">)</span>
 node<span class="token punctuation">.</span>setSelected<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="获取设置节点坐标位置">获取，设置节点坐标位置</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">node <span class="token operator">=</span> nuke<span class="token punctuation">.</span>toNode<span class="token punctuation">(</span><span class="token string">"Grade1"</span><span class="token punctuation">)</span>
+<h3><span id="获取设置节点坐标位置">获取，设置节点坐标位置</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">node <span class="token operator">=</span> nuke<span class="token punctuation">.</span>toNode<span class="token punctuation">(</span><span class="token string">"Grade1"</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span> node<span class="token punctuation">.</span>xpos<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span> node<span class="token punctuation">.</span>ypos<span class="token punctuation">(</span><span class="token punctuation">)</span>
 

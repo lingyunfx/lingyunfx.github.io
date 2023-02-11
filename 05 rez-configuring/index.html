@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,33 +1268,46 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h1><span id="概述">概述</span></h1><p>Rez具有大量可配置的设置。可以在<a target="_blank" rel="noopener" href="https://github.com/nerdvegas/rez/blob/master/src/rez/rezconfig.py">这里</a>找到设置的默认值和每个设置的释义。<br>最终的设置通过以下方式确定：</p>
+	<h1><span id="概述">概述</span></h1>
+<p>Rez具有大量可配置的设置。可以在<a target="_blank" rel="noopener" href="https://github.com/nerdvegas/rez/blob/master/src/rez/rezconfig.py">这里</a>找到设置的默认值和每个设置的释义。<br>
+最终的设置通过以下方式确定：</p>
 <ul>
-<li><p>首先在Rez安装文件中的<code>rezconfig.py</code>读取设置</p>
+<li>
+<p>首先在Rez安装文件中的<code>rezconfig.py</code>读取设置</p>
 </li>
-<li><p>如果<code>REZ_CONFIG_FILE</code>环境变量指向另一个文件，则设置被覆盖（变量也可以是一个文件夹路径，从而读取多个配置文件）</p>
+<li>
+<p>如果<code>REZ_CONFIG_FILE</code>环境变量指向另一个文件，则设置被覆盖（变量也可以是一个文件夹路径，从而读取多个配置文件）</p>
 </li>
-<li><p>如果<code>$HOME/.rezconfig</code>中存在该设置，则进一步覆盖前面的设置</p>
+<li>
+<p>如果<code>$HOME/.rezconfig</code>中存在该设置，则进一步覆盖前面的设置</p>
 </li>
-<li><p>如果存在环境变量<code>REZ_XXX</code>，则该设置再次被覆盖。这里的”XXX”是设置键的大写版本，<br>比如<code>image_viewer</code>将会被<code>REZ_IMAGE_VIEWER</code>覆盖。</p>
+<li>
+<p>如果存在环境变量<code>REZ_XXX</code>，则该设置再次被覆盖。这里的&quot;XXX&quot;是设置键的大写版本，<br>
+比如<code>image_viewer</code>将会被<code>REZ_IMAGE_VIEWER</code>覆盖。</p>
 </li>
-<li><p>一种特殊情况，仅在软件包生成或发布期间才生效。在这种情况下，<br>如果程序包定义文件包含<code>config</code>部分，则会覆盖之前所有设置。</p>
+<li>
+<p>一种特殊情况，仅在软件包生成或发布期间才生效。在这种情况下，<br>
+如果程序包定义文件包含<code>config</code>部分，则会覆盖之前所有设置。</p>
 </li>
 </ul>
 <p>在一个文件中定义rez设置是常见的选择，然后为所有的用户更改环境变量<code>REZ_CONFIG_FILE</code>以指向这个文件。</p>
 <p><strong>Notes</strong>：无需在文件中设定所有的设置，只用修改所需的即可，其它没有设置的值则会从默认设置中获取。</p>
-<h1><span id="合并规则">合并规则</span></h1><p>当存在多个配置源时，这些设置会合并在一起。<br>（一个配置文件不会替代前一个配置文件，而是通过值覆盖的方式）</p>
+<h1><span id="合并规则">合并规则</span></h1>
+<p>当存在多个配置源时，这些设置会合并在一起。<br>
+（一个配置文件不会替代前一个配置文件，而是通过值覆盖的方式）</p>
 <p>遵循下面的规则：</p>
 <ul>
 <li>字典会递归合并在一起</li>
 <li>非字典会覆盖之前的值</li>
 </ul>
-<p>也可以添加基于列表的设置。<br>比如下面的命令，将会追加到先前配置定义的release_hooks设置值中：<br><code>release_hooks = ModifyList(append=[&quot;custom_release_notify&quot;])</code></p>
-<h1><span id="程序包设置覆盖">程序包设置覆盖</span></h1><p>程序包本身可以覆盖配置设置，这里用下面示例说明：</p>
+<p>也可以添加基于列表的设置。<br>
+比如下面的命令，将会追加到先前配置定义的release_hooks设置值中：<br>
+<code>release_hooks = ModifyList(append=[&quot;custom_release_notify&quot;])</code></p>
+<h1><span id="程序包设置覆盖">程序包设置覆盖</span></h1>
+<p>程序包本身可以覆盖配置设置，这里用下面示例说明：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># in package.py</span>
 <span class="token keyword">with</span> scope<span class="token punctuation">(</span><span class="token string">"config"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> c<span class="token punctuation">:</span>
     c<span class="token punctuation">.</span>release_packages_path <span class="token operator">=</span> <span class="token string">"/svr/packages/internal"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>这里的包设置将覆盖默认的发布路径，比如让内部开发的包和外部开发的包发布到不同的位置。</p>
 <p>这些配置仅适用于构建和发布程序包的时候。包括：</p>
 <ul>
@@ -1285,7 +1316,8 @@ var _hmt = _hmt || [];
 <li>package_definition_python_path</li>
 <li>package_filter</li>
 </ul>
-<h1><span id="支持的字符引用">支持的字符引用</span></h1><p>在所有配置文件中，支持下面的字符：</p>
+<h1><span id="支持的字符引用">支持的字符引用</span></h1>
+<p>在所有配置文件中，支持下面的字符：</p>
 <ul>
 <li>任何环境变量的引用，格式为${HOME}</li>
 <li>系统对象的任何属性，例如{system.platform}</li>
@@ -1297,32 +1329,33 @@ var _hmt = _hmt || [];
 <li>os: 操作系统（eg “Ubuntu-12.04”）</li>
 <li>user: 当前用户的用户名</li>
 <li>home: 当前用户的主目录</li>
-<li>fqdn: 完整域名（eg “somescr.somestudio.com”）</li>
+<li>fqdn: 完整域名（eg “<a target="_blank" rel="noopener" href="http://somescr.somestudio.com">somescr.somestudio.com</a>”）</li>
 <li>hostname: 主机名（eg “somesvr”）</li>
-<li>domain: 域名（eg “somestudio.com”）</li>
+<li>domain: 域名（eg “<a target="_blank" rel="noopener" href="http://somestudio.com">somestudio.com</a>”）</li>
 <li>rez_version: rez的版本（eg “2.0.1”）</li>
 </ul>
-<h1><span id="延迟加载">延迟加载</span></h1><p>可以将配置设置存储在单独的文件中，仅在引用该设置的时候才会加载该设置。</p>
+<h1><span id="延迟加载">延迟加载</span></h1>
+<p>可以将配置设置存储在单独的文件中，仅在引用该设置的时候才会加载该设置。</p>
 <p>如果有个较大值的设置修改，不想影响污染到主配置文件，这个方法就比较适用。</p>
 <p>支持YAML和JSON格式：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># in rezconfig</span>
 default_relocatable_per_package <span class="token operator">=</span> DelayLoad<span class="token punctuation">(</span><span class="token string">'/svr/configs/rez_relocs.yaml'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h1><span id="命令行工具">命令行工具</span></h1><p>你可以用<code>rez-config</code>命令行工具查看当前配置的设置。</p>
+<h1><span id="命令行工具">命令行工具</span></h1>
+<p>你可以用<code>rez-config</code>命令行工具查看当前配置的设置。</p>
 <p>如果不带参数将显示所有设置，带参数的话如下：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-config packages_path
 - /home/sclaus/packages
 - /home/sclaus/.rez/packages/int
 - /home/sclaus/.rez/packages/ext<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>下面是如何使用自己的配置文件覆盖设置的一些示例</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ <span class="token builtin class-name">echo</span> <span class="token string">'packages_path = ["~/packages", "/packages"]'</span> <span class="token operator">></span> myrezconfig.py
 <span class="token punctuation">]</span>$ <span class="token builtin class-name">export</span> <span class="token assign-left variable">REZ_CONFIG_FILE</span><span class="token operator">=</span><span class="token variable">$&#123;<span class="token environment constant">PWD</span>&#125;</span>/myrezconfig.py
 <span class="token punctuation">]</span>$ rez-config packages_path
 - /home/sclaus/packages
 - /packages<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1><span id="配置设置">配置设置</span></h1><p><a target="_blank" rel="noopener" href="https://github.com/nerdvegas/rez/wiki/Configuring-Rez">Rez配置参数列表</a><br>这里是一个按字母排序的设置列表，在页面的Configuration Settings部分，这里就不翻译了（太长了）。</p>
+<h1><span id="配置设置">配置设置</span></h1>
+<p><a target="_blank" rel="noopener" href="https://github.com/nerdvegas/rez/wiki/Configuring-Rez">Rez配置参数列表</a><br>
+这里是一个按字母排序的设置列表，在页面的Configuration Settings部分，这里就不翻译了（太长了）。</p>
 
 </div>
 

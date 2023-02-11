@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1239,12 +1257,13 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h2><span id="什么是aswf基金会">什么是ASWF基金会</span></h2><p>ASWF全称为The Academy Software Foundation，于2018年8月由美国电影艺术与科学学院（AMPAS）成立。  </p>
-<p>其目的是为了提高对内容创作行业开源软件库的贡献（数量与质量），创造一个健康的开源社区。  </p>
+	<h2><span id="什么是aswf基金会">什么是ASWF基金会</span></h2>
+<p>ASWF全称为The Academy Software Foundation，于2018年8月由美国电影艺术与科学学院（AMPAS）成立。</p>
+<p>其目的是为了提高对内容创作行业开源软件库的贡献（数量与质量），创造一个健康的开源社区。</p>
 <blockquote>
 <p>关于AMPAS：是美国一个致力于促进电影艺术发展的非营利性专业组织，总部位于美国加州的比佛利山。</p>
 </blockquote>
-<p>加入ASWF的开源项目有：  </p>
+<p>加入ASWF的开源项目有：</p>
 <ul>
 <li>OpenVDB</li>
 <li>OpenColorIO</li>
@@ -1257,51 +1276,101 @@ var _hmt = _hmt || [];
 <li>RAW to ACES Utility</li>
 <li>Rez</li>
 </ul>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab33006bd01.jpg" alt="ASWF-intro-p1.jpg"><br>其中<code>ADOPTED PROJECTS</code>为已经成熟且被行业标准认可的项目。<br>而<code>INCUBATION PROJECTS</code>如译名一样，处于孵化成长的阶段。<br>下面对这些项目进行简单介绍。</p>
-<h2><span id="openvdb">OpenVDB</span></h2><p>一个C++库，包含一个分层数据结构和一些工具。<br>用于有效地处理稀疏的、时间变化的、三维网格上离散的体积数据。（如云雾，火焰，烟尘等等）  </p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab33006bd01.jpg" alt="ASWF-intro-p1.jpg"><br>
+其中<code>ADOPTED PROJECTS</code>为已经成熟且被行业标准认可的项目。<br>
+而<code>INCUBATION PROJECTS</code>如译名一样，处于孵化成长的阶段。<br>
+下面对这些项目进行简单介绍。</p>
+<h2><span id="openvdb">OpenVDB</span></h2>
+<p>一个C++库，包含一个分层数据结构和一些工具。<br>
+用于有效地处理稀疏的、时间变化的、三维网格上离散的体积数据。（如云雾，火焰，烟尘等等）</p>
 <p>OpenVDB最初由<code>梦工厂</code>开发，并于2015年获得奥斯卡技术成就奖，是第一个加入ASWF的项目。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab32fdbef04.jpg" alt="ASWF-intro-p6.jpg"><br>体积数据存储在名为<code>vdb</code>格式的文件中，你可以理解它为装着体积的alembic。<br>感兴趣可以从这个网站免费下载一些的vdb文件进行一些测试：<br><a target="_blank" rel="noopener" href="https://jangafx.com/software/embergen/download/free-vdb-animations/">https://jangafx.com/software/embergen/download/free-vdb-animations/</a></p>
-<p>vdb格式支持大多主流的三维软件，如Houdini, RenderMan, Arnold, RealFlow。<br>OpenVDB所包含的一套工具，还可以对vdb数据进行转换，过滤，合成，形态学运算等。<br>并且提供了Python API，可对vdb进行一些基础操作。</p>
-<p>官方网站：<a target="_blank" rel="noopener" href="https://www.openvdb.org/">https://www.openvdb.org/</a><br>开源地址：<a target="_blank" rel="noopener" href="https://github.com/AcademySoftwareFoundation/openvdb">https://github.com/AcademySoftwareFoundation/openvdb</a></p>
-<h2><span id="opencolorioocio">OpenColorIO（OCIO）</span></h2><p>一个面向电影制作、视觉特效和三维动画领域的色彩空间管理方案。   </p>
-<p>在数字时代，色彩管理是非常繁琐的一件事。<br>从摄像机原始画面，到CG合成素材，再到各个环节部门，使用一套统一的色彩标准管理至关重要。<br>于是OpenColorIO应运而生。它提供了简单的，跨应用的色彩管理支持，兼容色彩编码规范(ACES)。</p>
-<p>项目最初由索尼影业旗下的动画公司<code>Imageworks</code>于2003年开发，<br>2019年2月8日被ASWF收纳为其第二个托管项目。</p>
-<p>大多DCC软件都支持ocio配置。<br>以Nuke为例，你可以选择内置的或加载一个格式为<code>.ocio</code>的配置文件，<br>并在下拉列表中选择要访问的色彩空间。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab32fcaf2a7.png" alt="ASWF-intro-p2.png">  </p>
-<p>官方网站：<a target="_blank" rel="noopener" href="https://opencolorio.org/">https://opencolorio.org/</a><br>开源地址：<a target="_blank" rel="noopener" href="https://github.com/AcademySoftwareFoundation/OpenColorIO">https://github.com/AcademySoftwareFoundation/OpenColorIO</a>  </p>
-<h2><span id="openexr">OpenEXR</span></h2><p>是一种开放标准的高动态范围图像格式，可存储比常规的8位和10位图像格式更高的动态范围和颜色精度。<br>支持16位浮点数、32位浮点数和32位整数的像素颜色值。</p>
-<p>OpenEXR的多级分辨率和任意数据通道存储使其非常适合用于合成，<br>它能把高光（specular）、漫射（diffuse）、阴影、Alpha通道、RGB、法线等数据存储于一个文件里。  </p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab32fdbef04.jpg" alt="ASWF-intro-p6.jpg"><br>
+体积数据存储在名为<code>vdb</code>格式的文件中，你可以理解它为装着体积的alembic。<br>
+感兴趣可以从这个网站免费下载一些的vdb文件进行一些测试：<br>
+<a target="_blank" rel="noopener" href="https://jangafx.com/software/embergen/download/free-vdb-animations/">https://jangafx.com/software/embergen/download/free-vdb-animations/</a></p>
+<p>vdb格式支持大多主流的三维软件，如Houdini, RenderMan, Arnold, RealFlow。<br>
+OpenVDB所包含的一套工具，还可以对vdb数据进行转换，过滤，合成，形态学运算等。<br>
+并且提供了Python API，可对vdb进行一些基础操作。</p>
+<p>官方网站：<a target="_blank" rel="noopener" href="https://www.openvdb.org/">https://www.openvdb.org/</a><br>
+开源地址：<a target="_blank" rel="noopener" href="https://github.com/AcademySoftwareFoundation/openvdb">https://github.com/AcademySoftwareFoundation/openvdb</a></p>
+<h2><span id="opencolorioocio">OpenColorIO（OCIO）</span></h2>
+<p>一个面向电影制作、视觉特效和三维动画领域的色彩空间管理方案。</p>
+<p>在数字时代，色彩管理是非常繁琐的一件事。<br>
+从摄像机原始画面，到CG合成素材，再到各个环节部门，使用一套统一的色彩标准管理至关重要。<br>
+于是OpenColorIO应运而生。它提供了简单的，跨应用的色彩管理支持，兼容色彩编码规范(ACES)。</p>
+<p>项目最初由索尼影业旗下的动画公司<code>Imageworks</code>于2003年开发，<br>
+2019年2月8日被ASWF收纳为其第二个托管项目。</p>
+<p>大多DCC软件都支持ocio配置。<br>
+以Nuke为例，你可以选择内置的或加载一个格式为<code>.ocio</code>的配置文件，<br>
+并在下拉列表中选择要访问的色彩空间。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab32fcaf2a7.png" alt="ASWF-intro-p2.png"></p>
+<p>官方网站：<a target="_blank" rel="noopener" href="https://opencolorio.org/">https://opencolorio.org/</a><br>
+开源地址：<a target="_blank" rel="noopener" href="https://github.com/AcademySoftwareFoundation/OpenColorIO">https://github.com/AcademySoftwareFoundation/OpenColorIO</a></p>
+<h2><span id="openexr">OpenEXR</span></h2>
+<p>是一种开放标准的高动态范围图像格式，可存储比常规的8位和10位图像格式更高的动态范围和颜色精度。<br>
+支持16位浮点数、32位浮点数和32位整数的像素颜色值。</p>
+<p>OpenEXR的多级分辨率和任意数据通道存储使其非常适合用于合成，<br>
+它能把高光（specular）、漫射（diffuse）、阴影、Alpha通道、RGB、法线等数据存储于一个文件里。</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab32fd561c3.png" alt="ASWF-intro-p4.png"></p>
-<p>该项目由由工业光魔于2000年开发，2003年公开发布。<br>2019年加入ASWF，成为基金会第三个加入的托管项目。<br>现如今，OpenEXR已成为影视制作中图像格式交换的标准。</p>
-<p>官方网站：<a target="_blank" rel="noopener" href="https://www.openexr.com/">https://www.openexr.com/</a><br>开源地址：<a target="_blank" rel="noopener" href="https://github.com/AcademySoftwareFoundation/openexr">https://github.com/AcademySoftwareFoundation/openexr</a></p>
-<h2><span id="opencue">OpenCue</span></h2><p>一个开源的渲染管理系统。<br>它可以灵活的将特定的作业任务分配给多个跨本地和云端机器。<br>（也就是咱们常说的渲染农场）</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab33025a07f.jpg" alt="ASWF-intro-p5.jpg"><br>项目由<code>Google Cloud</code>和<code>Sony Pictures Imageworks</code>合作开发。2019年加入ASWF，成为基金会第四个托管项目。</p>
+<p>该项目由由工业光魔于2000年开发，2003年公开发布。<br>
+2019年加入ASWF，成为基金会第三个加入的托管项目。<br>
+现如今，OpenEXR已成为影视制作中图像格式交换的标准。</p>
+<p>官方网站：<a target="_blank" rel="noopener" href="https://www.openexr.com/">https://www.openexr.com/</a><br>
+开源地址：<a target="_blank" rel="noopener" href="https://github.com/AcademySoftwareFoundation/openexr">https://github.com/AcademySoftwareFoundation/openexr</a></p>
+<h2><span id="opencue">OpenCue</span></h2>
+<p>一个开源的渲染管理系统。<br>
+它可以灵活的将特定的作业任务分配给多个跨本地和云端机器。<br>
+（也就是咱们常说的渲染农场）</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab33025a07f.jpg" alt="ASWF-intro-p5.jpg"><br>
+项目由<code>Google Cloud</code>和<code>Sony Pictures Imageworks</code>合作开发。2019年加入ASWF，成为基金会第四个托管项目。</p>
 <p>同样它也提供了Python API，功能包括调度队列，对多设施、本地、云和混合部署的支持，以及支持大量并发机器的高度可扩展架构。</p>
-<p>官方网站：<a target="_blank" rel="noopener" href="https://www.opencue.io/">https://www.opencue.io/</a><br>开源地址：<a target="_blank" rel="noopener" href="https://github.com/AcademySoftwareFoundation/OpenCue">https://github.com/AcademySoftwareFoundation/OpenCue</a></p>
-<h2><span id="opentimelineio">OpenTimelineIO</span></h2><p>一种用于编辑时间线信息的开源交换格式。<br>（包含剪辑的顺序和长度以及对外部媒体的引用信息）  </p>
-<p>提供的Python API可以对其剪辑、计时、轨道、转场、标记和元数据进行操作。<br>并支持许多现有文件格式的转换，例如<code>Final Cut Pro XML</code>、<code>AAF</code>、<code>CMX 3600 EDL</code>等。</p>
+<p>官方网站：<a target="_blank" rel="noopener" href="https://www.opencue.io/">https://www.opencue.io/</a><br>
+开源地址：<a target="_blank" rel="noopener" href="https://github.com/AcademySoftwareFoundation/OpenCue">https://github.com/AcademySoftwareFoundation/OpenCue</a></p>
+<h2><span id="opentimelineio">OpenTimelineIO</span></h2>
+<p>一种用于编辑时间线信息的开源交换格式。<br>
+（包含剪辑的顺序和长度以及对外部媒体的引用信息）</p>
+<p>提供的Python API可以对其剪辑、计时、轨道、转场、标记和元数据进行操作。<br>
+并支持许多现有文件格式的转换，例如<code>Final Cut Pro XML</code>、<code>AAF</code>、<code>CMX 3600 EDL</code>等。</p>
 <p>下图为OTIO时间线查看工具<code>OTIOView</code>：</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab32fe551fc.png" alt="ASWF-intro-p10.png"><br>项目由皮克斯动画工作室创建，2019年加入ASWF，是基金会第五个托管项目。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab32fe551fc.png" alt="ASWF-intro-p10.png"><br>
+项目由皮克斯动画工作室创建，2019年加入ASWF，是基金会第五个托管项目。</p>
 <p>开源地址：<a target="_blank" rel="noopener" href="https://github.com/PixarAnimationStudios/OpenTimelineIO">https://github.com/PixarAnimationStudios/OpenTimelineIO</a></p>
-<h2><span id="open-shading-language">Open Shading Language</span></h2><p>一种小而丰富的开放式着色语言 (OSL) ，用于高级渲染器和其他应用程序中的可编程着色，<br>非常适合描述材质、灯光、置换和图案生成。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab330124167.jpg" alt="ASWF-intro-p8.jpg"><br>OSL最初由<code>Sony Pictures Imageworks</code>开发，用于其故事片动画和视觉效果的内部渲染器。<br>在2010年作为开源发布，2017年获得奥斯卡科学技术奖，2020年4月加入ASWF，成为基金会托管的第六个项目。</p>
+<h2><span id="open-shading-language">Open Shading Language</span></h2>
+<p>一种小而丰富的开放式着色语言 (OSL) ，用于高级渲染器和其他应用程序中的可编程着色，<br>
+非常适合描述材质、灯光、置换和图案生成。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab330124167.jpg" alt="ASWF-intro-p8.jpg"><br>
+OSL最初由<code>Sony Pictures Imageworks</code>开发，用于其故事片动画和视觉效果的内部渲染器。<br>
+在2010年作为开源发布，2017年获得奥斯卡科学技术奖，2020年4月加入ASWF，成为基金会托管的第六个项目。</p>
 <p>开源地址：<a target="_blank" rel="noopener" href="https://github.com/AcademySoftwareFoundation/OpenShadingLanguage">https://github.com/AcademySoftwareFoundation/OpenShadingLanguage</a></p>
-<h2><span id="materialx">MaterialX</span></h2><p>一种关于材质的开放标准，用于描述计算机图形模型外观所需的数据值和关系：<br>包括阴影网络、图案和纹理、复杂的嵌套材质和几何分配。</p>
-<p>这种描述文件的格式为mtlx，它是可以跨软件，或跨渲染器使用。<br>（需安装对应DCC软件插件）  </p>
-<p>这里提供一个MaterialsX库链接：<br><a target="_blank" rel="noopener" href="https://matlib.gpuopen.com/main/materials/all">https://matlib.gpuopen.com/main/materials/all</a></p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3301d9f28.jpg" alt="ASWF-intro-p9.jpg"><br>MaterialX于2012年在工业光魔推出，2017年发布开源，2021年成为ASWF的第七个托管项目。</p>
-<p>官方网站：<a target="_blank" rel="noopener" href="https://www.materialx.org/">https://www.materialx.org/</a><br>开源地址：<a target="_blank" rel="noopener" href="https://github.com/AcademySoftwareFoundation/MaterialX">https://github.com/AcademySoftwareFoundation/MaterialX</a></p>
-<h2><span id="digital-production-example-library">Digital Production Example Library</span></h2><p>一个数字资产的范例库，用作于教学目的。  </p>
+<h2><span id="materialx">MaterialX</span></h2>
+<p>一种关于材质的开放标准，用于描述计算机图形模型外观所需的数据值和关系：<br>
+包括阴影网络、图案和纹理、复杂的嵌套材质和几何分配。</p>
+<p>这种描述文件的格式为mtlx，它是可以跨软件，或跨渲染器使用。<br>
+（需安装对应DCC软件插件）</p>
+<p>这里提供一个MaterialsX库链接：<br>
+<a target="_blank" rel="noopener" href="https://matlib.gpuopen.com/main/materials/all">https://matlib.gpuopen.com/main/materials/all</a></p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3301d9f28.jpg" alt="ASWF-intro-p9.jpg"><br>
+MaterialX于2012年在工业光魔推出，2017年发布开源，2021年成为ASWF的第七个托管项目。</p>
+<p>官方网站：<a target="_blank" rel="noopener" href="https://www.materialx.org/">https://www.materialx.org/</a><br>
+开源地址：<a target="_blank" rel="noopener" href="https://github.com/AcademySoftwareFoundation/MaterialX">https://github.com/AcademySoftwareFoundation/MaterialX</a></p>
+<h2><span id="digital-production-example-library">Digital Production Example Library</span></h2>
+<p>一个数字资产的范例库，用作于教学目的。</p>
 <p>下图为一些公开的资产表：</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab32ff2e794.jpg" alt="ASWF-intro-p7.jpg"><br>（此条目在网上找到的资料很少，就介绍到这）</p>
-<h2><span id="raw-to-aces-utility">RAW to ACES Utility</span></h2><p>一个软件包，可将数码相机的RAW文件转换为ACES容器文件。    </p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab32ff2e794.jpg" alt="ASWF-intro-p7.jpg"><br>
+（此条目在网上找到的资料很少，就介绍到这）</p>
+<h2><span id="raw-to-aces-utility">RAW to ACES Utility</span></h2>
+<p>一个软件包，可将数码相机的RAW文件转换为ACES容器文件。</p>
 <p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/AcademySoftwareFoundation/rawtoaces">https://github.com/AcademySoftwareFoundation/rawtoaces</a></p>
-<h2><span id="rez">Rez</span></h2><p>一个开源、跨平台的包管理器，它可以给程序配置独立的环境。<br>所有的程序包都安装在一个中央统一位置，每个独立环境只是引用了这些包。</p>
-<p>Rez最初由<code>Allan Johns</code>于2010年作为<code>Dr.D Studios</code>的内部解决方案开发，<br>2012年开源，2022年2月加入ASWF，现为基金会最新加入的托管项目。</p>
+<h2><span id="rez">Rez</span></h2>
+<p>一个开源、跨平台的包管理器，它可以给程序配置独立的环境。<br>
+所有的程序包都安装在一个中央统一位置，每个独立环境只是引用了这些包。</p>
+<p>Rez最初由<code>Allan Johns</code>于2010年作为<code>Dr.D Studios</code>的内部解决方案开发，<br>
+2012年开源，2022年2月加入ASWF，现为基金会最新加入的托管项目。</p>
 <p>开源地址：<a target="_blank" rel="noopener" href="https://github.com/nerdvegas/rez/wiki">https://github.com/nerdvegas/rez/wiki</a></p>
-<p>这里就不过多介绍了，之前公众号写过关于Rez：<br><a href="https://lingyunfx.com/00%20rez-wiki-cn/">https://lingyunfx.com/00%20rez-wiki-cn/</a></p>
+<p>这里就不过多介绍了，之前公众号写过关于Rez：<br>
+<a href="https://lingyunfx.com/00%20rez-wiki-cn/">https://lingyunfx.com/00 rez-wiki-cn/</a></p>
 <hr>
-<p>觉得文章还不错，可以关注这个公众号thx！  </p>
+<p>觉得文章还不错，可以关注这个公众号thx！</p>
 <center><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36f1d52b8.jpg" width="30%" height="30%" alt align="center"></center>
 
 </div>

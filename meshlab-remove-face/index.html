@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1240,16 +1258,32 @@ var _hmt = _hmt || [];
 
 <div id="article-content">
 	<blockquote>
-<p>在项目制作中，我们时常会拿到模型面数非常大的<strong>扫描模型</strong>。<br>模型导入到软件里会<strong>非常的吃内存</strong>，有时候这种扫描模型只是用作<strong>位置参照</strong>。<br>使用<strong>MeshLab为模型减面</strong>，既不会改变太多模型，也不会让模型加大电脑的计算量。  </p>
+<p>在项目制作中，我们时常会拿到模型面数非常大的<strong>扫描模型</strong>。<br>
+模型导入到软件里会<strong>非常的吃内存</strong>，有时候这种扫描模型只是用作<strong>位置参照</strong>。<br>
+使用<strong>MeshLab为模型减面</strong>，既不会改变太多模型，也不会让模型加大电脑的计算量。</p>
 </blockquote>
-<p>在网上随便找了一个模型(手头没有扫描模型)。  </p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab391c7c047.png" alt="meshlab-remove-face-p1.png"><br>导入到maya里，可以看到这里的面数为161652，<br>其实这个面数不算多，一般大场景的扫描模型会比这个多上十倍百倍。<br>这里就拿这个模型作为范例:  </p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab391c8804c.png" alt="meshlab-remove-face-p2.png"><br>打开MeshLab软件(如未安装，可从<a target="_blank" rel="noopener" href="http://www.meshlab.net/">官网</a>下载)，导入模型。  </p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab391ca74a1.png" alt="meshlab-remove-face-p3.png"><br><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab391cc1ed0.png" alt="meshlab-remove-face-p4.png"><br>可以从上图下方的信息栏看到模型的一些相关信息。<br>如模型的面数323304(可能是我从maya里导出obj的原因，与之前maya显示的面数不一样)。<br>然后执行命令：<br><strong><code>Filters - Remeshing, Simplification and Reconstruction - Simplification: Quadric Edge Collapse Decimation</code></strong></p>
-<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab391cec94d.png" width="80%" height="80%" alt align="center"></left>  </p>
-<p>弹出的对话框中，修改Percentage reduction参数，想让模型的面数越少这个值就越小。<br>通常数值范围在 0.99 ~ 0.1， 减面后的面数会约等于当前模型面数乘以这个参数值。<br>这里以推荐参数0.1为例，点击Apply。   </p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab391d70660.png" alt="meshlab-remove-face-p6.png"><br>完成后，就得到了减面过后的模型了。<br>这里看它的面数为32.330刚好为之前的十分之一。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab391da7424.png" alt="meshlab-remove-face-p7.png"><br>最后导出模型即可。  </p>
+<p>在网上随便找了一个模型(手头没有扫描模型)。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab391c7c047.png" alt="meshlab-remove-face-p1.png"><br>
+导入到maya里，可以看到这里的面数为161652，<br>
+其实这个面数不算多，一般大场景的扫描模型会比这个多上十倍百倍。<br>
+这里就拿这个模型作为范例:</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab391c8804c.png" alt="meshlab-remove-face-p2.png"><br>
+打开MeshLab软件(如未安装，可从<a target="_blank" rel="noopener" href="http://www.meshlab.net/">官网</a>下载)，导入模型。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab391ca74a1.png" alt="meshlab-remove-face-p3.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab391cc1ed0.png" alt="meshlab-remove-face-p4.png"><br>
+可以从上图下方的信息栏看到模型的一些相关信息。<br>
+如模型的面数323304(可能是我从maya里导出obj的原因，与之前maya显示的面数不一样)。<br>
+然后执行命令：<br>
+<strong><code>Filters - Remeshing, Simplification and Reconstruction - Simplification: Quadric Edge Collapse Decimation</code></strong></p>
+<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab391cec94d.png" width="80%" height="80%" alt align="center"></left></p>
+<p>弹出的对话框中，修改Percentage reduction参数，想让模型的面数越少这个值就越小。<br>
+通常数值范围在 0.99 ~ 0.1， 减面后的面数会约等于当前模型面数乘以这个参数值。<br>
+这里以推荐参数0.1为例，点击Apply。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab391d70660.png" alt="meshlab-remove-face-p6.png"><br>
+完成后，就得到了减面过后的模型了。<br>
+这里看它的面数为32.330刚好为之前的十分之一。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab391da7424.png" alt="meshlab-remove-face-p7.png"><br>
+最后导出模型即可。</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab391dba660.png" alt="meshlab-remove-face-p8.png"></p>
 <center>(完)
 </center>

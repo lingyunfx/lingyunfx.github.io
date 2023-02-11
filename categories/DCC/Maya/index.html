@@ -241,6 +241,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -769,6 +778,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1218,7 +1236,8 @@ var _hmt = _hmt || [];
 minq是一个在maya场景中快速物体对象查询的库
 
 仓库地址：https://github.com/theodox/minq
-minq简单介绍这个项目是为了减少Maya中每次对物体查询时，用到命令比如ls()，listRelatives()和listHistory()的频次。意在直接了当的获取所
+minq简单介绍
+这个项目是为了减少Maya中每次对物体查询时，用到命令比如ls()，listRelatives()和listHistory()的频次。意在直接了当的获取
 					...
 				</div>
 			</a>
@@ -1254,9 +1273,13 @@ minq简单介绍这个项目是为了减少Maya中每次对物体查询时，用
 					maya command代码段
 				</h2>
 				<div class="index-brief">
-					动画相关获取物体有多少个关键帧cmds.keyframe(name, q=True, keyframeCount=True)
-获取物体第一个动画帧帧数cmds.findKeyframe(name, which=&#39;first&#39;)
-获取物体最后一个动画帧帧数cmds.findKeyfra
+					动画相关
+获取物体有多少个关键帧
+cmds.keyframe(name, q=True, keyframeCount=True)
+获取物体第一个动画帧帧数
+cmds.findKeyframe(name, which='first')
+获取物体最后一个动画帧帧数
+cmds.findKeyframe(n
 					...
 				</div>
 			</a>
@@ -1292,7 +1315,8 @@ minq简单介绍这个项目是为了减少Maya中每次对物体查询时，用
 					Maya环境变量表
 				</h2>
 				<div class="index-brief">
-					收集一些常用的Maya环境变量，方便用的时候查。有关PATH的变量，Mac OS X中使用:分隔，Windows和Linux中使用;分隔。
+					收集一些常用的Maya环境变量，方便用的时候查。
+有关PATH的变量，Mac OS X中使用:分隔，Windows和Linux中使用;分隔。
 
 
 
@@ -1301,11 +1325,12 @@ Description
 
 
 
-MAYA_IGNORE_DIALOGS    
+
+MAYA_IGNORE_DIALOGS	
 打开maya场景禁止弹出警告框
 
 
-MAYA_DISABL
+MAYA_DISABLE
 					...
 				</div>
 			</a>
@@ -1341,9 +1366,11 @@ MAYA_DISABL
 					将Maya的python代码编译成pyd
 				</h2>
 				<div class="index-brief">
-					  
-关于将py文件编译为pyd当你想把一个python脚本分享出去，又不想暴露源码的时候，可以将py文件编译成pyd或pyc文件。
-pyd格式是D语言(C/C++综合进化版本)生成的二进制文件，实际也会是dll文件。该文件不可以被反编译，只能被反汇编。
+					
+关于将py文件编译为pyd
+当你想把一个python脚本分享出去，又不想暴露源码的时候，可以将py文件编译成pyd或pyc文件。
+pyd格式是D语言(C/C++综合进化版本)生成的二进制文件，实际也会是dll文件。
+该文件不可以被反编译，只能被反汇编。
 而pyc文件，虽然也是py编译后的格式，但是
 					...
 				</div>
@@ -1380,11 +1407,15 @@ pyd格式是D语言(C/C++综合进化版本)生成的二进制文件，实际也
 					Maya的效率使用和技巧（二）
 				</h2>
 				<div class="index-brief">
-					8.快速选择集Maya的Create Quick Set可以创建快速选择集。比如一个动画师在制作手部动画，需要每次对手上的十多个控制器一起key帧。这里就可以创建快速选择集。  
-首先选择好手指上需要的控制器。  
-  
-菜单栏 Create - Sets - Quick Select Set  
+					8.快速选择集
+Maya的Create Quick Set可以创建快速选择集。
+比如一个动画师在制作手部动画，需要每次对手上的十多个控制器一起key帧。
+这里就可以创建快速选择集。
+首先选择好手指上需要的控制器。
 
+菜单栏 Create - Sets - Quick Select Set
+
+给这个S
 					...
 				</div>
 			</a>
@@ -1420,9 +1451,13 @@ pyd格式是D语言(C/C++综合进化版本)生成的二进制文件，实际也
 					Maya的效率使用和技巧（一）
 				</h2>
 				<div class="index-brief">
-					前言收集了一些Maya使用效率的技巧。大致来源于一些博客，视频教程和平时使用的经验。
-1.清理优化场景文件有时候我们拿到一个文件，明明场景里只有一个人物rig动画。但是当我们对它进行调整，或是打开保存文件的时候，会异常的慢。这有可能是场景中存在了很多未被使用的材质或动画曲线等一系列垃圾节点。  
-这
+					前言
+收集了一些Maya使用效率的技巧。
+大致来源于一些博客，视频教程和平时使用的经验。
+1.清理优化场景文件
+有时候我们拿到一个文件，明明场景里只有一个人物rig动画。
+但是当我们对它进行调整，或是打开保存文件的时候，会异常的慢。
+这有可能是场景中存在了很多未被使用的材质或动画曲线等一系列垃圾节点
 					...
 				</div>
 			</a>
@@ -1458,11 +1493,15 @@ pyd格式是D语言(C/C++综合进化版本)生成的二进制文件，实际也
 					在Maya中进行Flipping Camera
 				</h2>
 				<div class="index-brief">
-					前言视效制作中，在完成Camera Tracking后，可能会被告知：“素材进行了翻转处理”。然后丢给你一个镜像后的素材，并要求你重新进行Tracking。
+					前言
+视效制作中，在完成Camera Tracking后，可能会被告知：“素材进行了翻转处理”。然后丢给你一个镜像后的素材，并要求你重新进行Tracking。
 翻转素材一般有两种情况：
 
 基于x轴镜像
-基于y轴镜像对于这样的镜头，不用重新再做一遍Tracking，只需要在Maya里进行一些处理就可以了
+
+基于y轴镜像
+
+对于这样的镜头，不用重新再做一遍Tracking，只需要在Maya里进行一些处理
 					...
 				</div>
 			</a>
@@ -1499,6 +1538,7 @@ pyd格式是D语言(C/C++综合进化版本)生成的二进制文件，实际也
 				</h2>
 				<div class="index-brief">
 					1.检查模型
+
 身体模型的中线，是否在网格中线（前视图检查）
 头部模型的中线，大致在网格中线附近（右视图检查）
 脚最底的面是否贴近地面（右视图检查）
@@ -1507,7 +1547,8 @@ pyd格式是D语言(C/C++综合进化版本)生成的二进制文件，实际也
 模型的正面是否朝向Z轴
 
 2.整理模型
-层级结构：一般头
+
+层级结构：一
 					...
 				</div>
 			</a>
@@ -1554,17 +1595,26 @@ pyd格式是D语言(C/C++综合进化版本)生成的二进制文件，实际也
 				</h2>
 				<div class="index-brief">
 					创建骨骼时设置缩放比例等同
+
 按住d键单独调整骨骼
-创建骨骼的轴向设置如果勾选，则是世界坐标轴
+
+创建骨骼的轴向设置
+如果勾选，则是世界坐标轴
 
 显示轴向
-调整轴向方向需要maya版本2018update2以上
 
-创建ik控制如果要创建rk手柄，在创建设置选择
+
+调整轴向方向
+需要maya版本2018update2以上
+
+创建ik控制
+
+如果要创建rk手柄，在创建设置选择
+
+
 用这个属性值来控制旋转
-绑定蒙皮先选择root骨骼，再选择模型。
-
-查看每个点的权重值
+绑定蒙皮
+先选择root骨骼，再选择模型。
 
 					...
 				</div>
@@ -1612,10 +1662,15 @@ pyd格式是D语言(C/C++综合进化版本)生成的二进制文件，实际也
 				</h2>
 				<div class="index-brief">
 					
-这个系列主要是收集一些Maya中遇到的疑难杂症，有自己工作中遇到的，有从网上或者博客中看到记录的。总之当作一个备忘录。
+这个系列主要是收集一些Maya中遇到的疑难杂症，
+有自己工作中遇到的，有从网上或者博客中看到记录的。
+总之当作一个备忘录。
 
-1.打开软件崩溃双击打开软件，出现一个下面这样的弹窗，Maya就崩溃退出了。  
-出现这样的情况通常重置用户预设文件夹即可解决：...\Documents\maya\&lt;版
+1.打开软件崩溃
+双击打开软件，出现一个下面这样的弹窗，Maya就崩溃退出了。
+
+出现这样的情况通常重置用户预设文件夹即可解决：
+...\Documents\maya\&l
 					...
 				</div>
 			</a>

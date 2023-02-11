@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,7 +1268,8 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h1><span id="安装">安装</span></h1><p>在官网 <a target="_blank" rel="noopener" href="https://docs.conda.io/en/latest/miniconda.html#macosx-installers">https://docs.conda.io/en/latest/miniconda.html#macosx-installers</a> 下载：</p>
+	<h1><span id="安装">安装</span></h1>
+<p>在官网 <a target="_blank" rel="noopener" href="https://docs.conda.io/en/latest/miniconda.html#macosx-installers">https://docs.conda.io/en/latest/miniconda.html#macosx-installers</a> 下载：</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a10d6b9e.png" alt="miniconda-use-p1.png"></p>
 <p>在终端里（会安装到当前目录）：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">bash</span> Miniconda2-latest-MacOSX-x86_64.sh
@@ -1258,11 +1277,12 @@ var _hmt = _hmt || [];
 <span class="token comment"># 需新建Terminal Session或手动加载环境变量来使得conda生效</span>
 <span class="token comment"># 手动加载</span>
 <span class="token builtin class-name">source</span> ~/.bash_profie<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1><span id="常用命令">常用命令</span></h1><h3><span id="创建虚拟环境">创建虚拟环境</span></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 这里djangocms为环境名称</span>
+<h1><span id="常用命令">常用命令</span></h1>
+<h3><span id="创建虚拟环境">创建虚拟环境</span></h3>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 这里djangocms为环境名称</span>
 conda create -n env_name <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token number">2.7</span> -y<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h3><span id="激活以及退出虚拟环境">激活以及退出虚拟环境</span></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 激活</span>
+<h3><span id="激活以及退出虚拟环境">激活以及退出虚拟环境</span></h3>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 激活</span>
 conda activate env_name
 
 <span class="token comment"># 查看环境下所有pip包</span>
@@ -1270,12 +1290,12 @@ pip freeze
 
 <span class="token comment"># 退出</span>
 conda deactivate<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="列出所有存在的环境">列出所有存在的环境</span></h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda-env list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2><span id="删除一个已有环境">删除一个已有环境</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">conda remove <span class="token operator">-</span><span class="token operator">-</span>name env_name <span class="token operator">-</span><span class="token operator">-</span><span class="token builtin">all</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2><span id="包管理">包管理</span></h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看当前环境下已安装的包</span>
+<h2><span id="列出所有存在的环境">列出所有存在的环境</span></h2>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda-env list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2><span id="删除一个已有环境">删除一个已有环境</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">conda remove <span class="token operator">-</span><span class="token operator">-</span>name env_name <span class="token operator">-</span><span class="token operator">-</span><span class="token builtin">all</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2><span id="包管理">包管理</span></h2>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看当前环境下已安装的包</span>
 conda list
 
 <span class="token comment"># 查看某个指定环境的已安装包</span>

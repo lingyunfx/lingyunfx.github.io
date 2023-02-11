@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1261,7 +1279,8 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h2><span id="1检查模型">1.检查模型</span></h2><ul>
+	<h2><span id="1检查模型">1.检查模型</span></h2>
+<ul>
 <li>身体模型的中线，是否在网格中线（前视图检查）</li>
 <li>头部模型的中线，大致在网格中线附近（右视图检查）</li>
 <li>脚最底的面是否贴近地面（右视图检查）</li>
@@ -1269,17 +1288,23 @@ var _hmt = _hmt || [];
 <li>除大拇指的四根手指，在一个水平面（从正视图看）</li>
 <li>模型的正面是否朝向Z轴</li>
 </ul>
-<h2><span id="2整理模型">2.整理模型</span></h2><ul>
+<h2><span id="2整理模型">2.整理模型</span></h2>
+<ul>
 <li>层级结构：一般头部一个Group，身体一个Group。</li>
 <li>删除未使用的材质球。</li>
 <li>选择所有模型：居中，冻结，删除历史。</li>
 </ul>
-<h2><span id="3导入骨骼模板调整根骨骼">3.导入骨骼模板，调整根骨骼</span></h2><p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742fc2c09.png" alt="1.png"><br>选择大环缩放骨骼，将根骨骼的位置缩放到臀部中心。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7424c0fcb.png" alt="2.png"><br>调整骨骼显示大小，开启FitMode，实时更新骨骼朝向（x轴永远朝向子骨骼）</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742489e72.png" alt="3.png"><br>切换到右视图，将根骨骼调整到臀部中心。</p>
+<h2><span id="3导入骨骼模板调整根骨骼">3.导入骨骼模板，调整根骨骼</span></h2>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742fc2c09.png" alt="1.png"><br>
+选择大环缩放骨骼，将根骨骼的位置缩放到臀部中心。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7424c0fcb.png" alt="2.png"><br>
+调整骨骼显示大小，开启FitMode，实时更新骨骼朝向（x轴永远朝向子骨骼）</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742489e72.png" alt="3.png"><br>
+切换到右视图，将根骨骼调整到臀部中心。</p>
 <p>然后切换到前视图，进行微调。</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7424de5d5.png" alt="4.png"></p>
-<h2><span id="4调整腿部骨骼">4.调整腿部骨骼</span></h2><ul>
+<h2><span id="4调整腿部骨骼">4.调整腿部骨骼</span></h2>
+<ul>
 <li>大腿骨骼：位移XYZ，旋转YZ</li>
 <li>小腿骨骼：位移XY，旋转Z</li>
 <li>脚踝骨骼：位移XY，旋转X</li>
@@ -1289,22 +1314,32 @@ var _hmt = _hmt || [];
 </ul>
 <hr>
 <p>切换到前视图</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742508ab1.png" alt="5.png"><br>切换到右视图，移动到大腿中心</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742551c84.png" alt="6.png"><br>切换到前视图，旋转Y轴，将小腿骨骼和脚踝骨骼移动模型中间。（如果不能两者，优先脚踝骨骼在中间）</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa74256a319.png" alt="7.png"><br>切换到右视图，调整小腿骨骼（膝盖位置）</p>
-<p><strong>注意：</strong>调整小腿和脚踝骨骼的时候，不能移动Z轴。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa74257d2df.png" alt="8.png"><br>继续在右视图调整脚踝骨骼</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742638d57.png" alt="9.png"><br>切换到透视图，旋转脚掌的朝向。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7426380f1.png" alt="10.png"><br><strong>注意：如果在旋转脚踝骨骼后，还需要继续改变脚踝骨骼的位置。</strong></p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742508ab1.png" alt="5.png"><br>
+切换到右视图，移动到大腿中心</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742551c84.png" alt="6.png"><br>
+切换到前视图，旋转Y轴，将小腿骨骼和脚踝骨骼移动模型中间。（如果不能两者，优先脚踝骨骼在中间）</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa74256a319.png" alt="7.png"><br>
+切换到右视图，调整小腿骨骼（膝盖位置）</p>
+<p>**注意：**调整小腿和脚踝骨骼的时候，不能移动Z轴。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa74257d2df.png" alt="8.png"><br>
+继续在右视图调整脚踝骨骼</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742638d57.png" alt="9.png"><br>
+切换到透视图，旋转脚掌的朝向。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7426380f1.png" alt="10.png"><br>
+<strong>注意：如果在旋转脚踝骨骼后，还需要继续改变脚踝骨骼的位置。</strong></p>
 <p><strong>需要将被冻结转移的数值归零，再进行位置调整。</strong></p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742632b17.png" alt="11.png"><br>这么做的目的是为了让脚踝骨骼Y轴朝向正前方。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7426e07f5.png" alt="12.png"><br>最后就是脚部骨骼调整</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742632b17.png" alt="11.png"><br>
+这么做的目的是为了让脚踝骨骼Y轴朝向正前方。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7426e07f5.png" alt="12.png"><br>
+最后就是脚部骨骼调整</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742697eb4.png" alt="13.png"></p>
 <blockquote>
 <p>时刻检查极向量是否朝着正前方</p>
 </blockquote>
-<h2><span id="5胸部骨骼调整">5.胸部骨骼调整</span></h2><p>胸部骨骼放在胸上，腹部骨骼需要在root骨骼和胸部骨骼中间部分。</p>
-<h2><span id="6手臂骨骼调整">6.手臂骨骼调整</span></h2><ul>
+<h2><span id="5胸部骨骼调整">5.胸部骨骼调整</span></h2>
+<p>胸部骨骼放在胸上，腹部骨骼需要在root骨骼和胸部骨骼中间部分。</p>
+<h2><span id="6手臂骨骼调整">6.手臂骨骼调整</span></h2>
+<ul>
 <li>大臂骨骼：位移XYZ，旋转YZ</li>
 <li>小臂骨骼：位移XY，旋转Z</li>
 <li>手腕骨骼：位移XY，旋转XYZ</li>
@@ -1315,17 +1350,26 @@ var _hmt = _hmt || [];
 <hr>
 <p>调整肩部骨骼（前视图）</p>
 <p>调整完位置后，旋转与肩部平行。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa74276709f.png" alt="14.png"><br>调整大臂骨骼位置后，旋转它的Y轴，使小臂骨骼和手腕骨骼居中（这个时候可以一边移动手腕的骨骼的位置到手腕，一边旋转大臂骨骼进行调整）</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa74279ab2d.png" alt="15.png"><br>最后调整手腕和手指的骨骼</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa74276709f.png" alt="14.png"><br>
+调整大臂骨骼位置后，旋转它的Y轴，使小臂骨骼和手腕骨骼居中（这个时候可以一边移动手腕的骨骼的位置到手腕，一边旋转大臂骨骼进行调整）</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa74279ab2d.png" alt="15.png"><br>
+最后调整手腕和手指的骨骼</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7427c8ab5.png" alt="16.png"></p>
-<h2><span id="7头部骨骼调整">7.头部骨骼调整</span></h2><p>调整脖子骨骼</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7428941fc.png" alt="17.png"><br>调整头部的骨骼，大概在耳垂的位置</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7428ab8d8.png" alt="18.png"><br>调整头部子骨骼在头发之上，垂直于头部骨骼</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742917f07.png" alt="19.png"><br>调整下颚骨，移动到耳朵中间的位置，再旋转Z轴，让其子骨骼在下巴的位置。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa74298e89b.png" alt="20.png"><br>调整眼部骨骼，首先单独显示骨骼和眼球，并勾选显示眼球中心点。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7428c8667.png" alt="21.png"><br>再使用V健吸附，调整骨骼到中心：</p>
+<h2><span id="7头部骨骼调整">7.头部骨骼调整</span></h2>
+<p>调整脖子骨骼</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7428941fc.png" alt="17.png"><br>
+调整头部的骨骼，大概在耳垂的位置</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7428ab8d8.png" alt="18.png"><br>
+调整头部子骨骼在头发之上，垂直于头部骨骼</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742917f07.png" alt="19.png"><br>
+调整下颚骨，移动到耳朵中间的位置，再旋转Z轴，让其子骨骼在下巴的位置。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa74298e89b.png" alt="20.png"><br>
+调整眼部骨骼，首先单独显示骨骼和眼球，并勾选显示眼球中心点。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7428c8667.png" alt="21.png"><br>
+再使用V健吸附，调整骨骼到中心：</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7429c97cc.png" alt="22.png"></p>
-<h2><span id="8设置骨骼数量添加属性">8.设置骨骼数量，添加属性</span></h2><ul>
+<h2><span id="8设置骨骼数量添加属性">8.设置骨骼数量，添加属性</span></h2>
+<ul>
 <li>根骨骼</li>
 </ul>
 <p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7429daa8d.png" alt="23.png"></p>
@@ -1345,28 +1389,42 @@ var _hmt = _hmt || [];
 <li>显示次级控制器（选择大腿，小腿，大臂，小臂）</li>
 </ul>
 <p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742a83739.png" alt="27.png"></p>
-<h2><span id="9创建控制器蒙皮">9.创建控制器，蒙皮</span></h2><p><strong>创建控制器</strong></p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742ac1845.png" alt="28.png"><br><strong>蒙皮</strong></p>
+<h2><span id="9创建控制器蒙皮">9.创建控制器，蒙皮</span></h2>
+<p><strong>创建控制器</strong></p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742ac1845.png" alt="28.png"><br>
+<strong>蒙皮</strong></p>
 <p>点击这个工具选择所有的骨骼</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742ae39fb.png" alt="29.png"><br>然后加选身体模型，打开蒙皮选项面板</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742ae4668.png" alt="30.png"><br>头部骨骼蒙皮（隐藏身体模型方便选择）</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742bd8d79.png" alt="31.png"><br><strong>调整控制器形状大小</strong></p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742ae39fb.png" alt="29.png"><br>
+然后加选身体模型，打开蒙皮选项面板</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742ae4668.png" alt="30.png"><br>
+头部骨骼蒙皮（隐藏身体模型方便选择）</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742bd8d79.png" alt="31.png"><br>
+<strong>调整控制器形状大小</strong></p>
 <p>两种方式：</p>
 <ul>
 <li>选择点直接调整</li>
 <li>选择控制器，进行中心缩放（使用工具）</li>
 </ul>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742b1de14.png" alt="32.png"><br>调整完后，使用镜像工具。</p>
-<h2><span id="10绘制权重">10.绘制权重</span></h2><p>1.把所有权重给根骨骼</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742b1de14.png" alt="32.png"><br>
+调整完后，使用镜像工具。</p>
+<h2><span id="10绘制权重">10.绘制权重</span></h2>
+<p>1.把所有权重给根骨骼</p>
 <p>2.腹部骨骼</p>
 <p>3.胸部骨骼</p>
 <p>4.大腿骨骼（一层一层往下，小腿，脚踝，脚趾）</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742bb2d70.png" alt="33.png"><br>左脚刷完后，可以复制左边的权重到右边。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742b4cfb4.png" alt="34.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742bcd3a4.png" alt="35.png"><br>5.平滑胸部，腹部，大腿和大腿子骨骼权重</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742bcda3d.png" alt="36.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742c663ff.png" alt="37.png"><br>6.胸部和肩膀骨骼</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742bb2d70.png" alt="33.png"><br>
+左脚刷完后，可以复制左边的权重到右边。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742b4cfb4.png" alt="34.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742bcd3a4.png" alt="35.png"><br>
+5.平滑胸部，腹部，大腿和大腿子骨骼权重</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742bcda3d.png" alt="36.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742c663ff.png" alt="37.png"><br>
+6.胸部和肩膀骨骼</p>
 <p>然后是肩膀和大臂骨骼，一层层往下调整，直到手腕骨骼。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742d69d91.png" alt="38.png"><br>7.胸部和脖子骨骼</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742d4e610.png" alt="39.png"><br>8.子骨骼绘制</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742d69d91.png" alt="38.png"><br>
+7.胸部和脖子骨骼</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742d4e610.png" alt="39.png"><br>
+8.子骨骼绘制</p>
 <p>根骨骼 - 跟子骨骼</p>
 <p>腹部骨骼 - 腹部子骨骼</p>
 <p>大臂 - 大臂子骨骼</p>
@@ -1379,25 +1437,37 @@ var _hmt = _hmt || [];
 <p>先选择身体模型，运行mel命令：</p>
 <p><code>select skinCluster -q -inf</code></p>
 <p>然后加选衣服，进行蒙皮</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742cf2944.png" alt="40.png"><br>然后先选择身体，在选择衣服，进行权重复制</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742d04072.png" alt="41.png"><br>裤子的操作和衣服一样。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742cf2944.png" alt="40.png"><br>
+然后先选择身体，在选择衣服，进行权重复制</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742d04072.png" alt="41.png"><br>
+裤子的操作和衣服一样。</p>
 <p>11.对于头发的蒙皮</p>
 <p>选择脖子骨骼和它所有子骨骼，然后加选头发</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742da89ac.png" alt="42.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742e3c718.png" alt="43.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742deb14b.png" alt="44.png"></p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742da89ac.png" alt="42.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742e3c718.png" alt="43.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742deb14b.png" alt="44.png"></p>
 <hr>
 <p>12.鞋子的权重复制</p>
 <p>首先还是先选择身体模型，运行mel脚本，选择所有身体和骨骼。</p>
 <p>然后加算两双鞋子，执行Bind Skin。</p>
 <p>再选择脚的点，再选择鞋子的点，执行复制权重。</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742ec3e66.png" alt="45.png"></p>
-<h2><span id="11使用blendshape进行修形">11.使用blendshape进行修形</span></h2><p>比如肩部旋转，无法用权重很好的控制，就需要对它进行形状修正。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742e948c0.png" alt="46.png"><br>使用工具，把肩膀部分平滑</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742e93fa9.png" alt="47.png"><br>复制一份袖子的形态给左边，然后选择被复制出来的target，进行翻转</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742e53857.png" alt="48.png"><br>使用驱动关键帧</p>
+<h2><span id="11使用blendshape进行修形">11.使用blendshape进行修形</span></h2>
+<p>比如肩部旋转，无法用权重很好的控制，就需要对它进行形状修正。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742e948c0.png" alt="46.png"><br>
+使用工具，把肩膀部分平滑</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742e93fa9.png" alt="47.png"><br>
+复制一份袖子的形态给左边，然后选择被复制出来的target，进行翻转</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742e53857.png" alt="48.png"><br>
+使用驱动关键帧</p>
 <p>（注意不到选择到了IK，可以隐藏MotionSystem方便选择）</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742f4be36.png" alt="49.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742f1e491.png" alt="50.png"><br>最后记得把驱动关键帧曲线打平</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742f6b912.png" alt="51.png"><br><strong>或者使用adv的修形骨骼进行修形</strong></p>
-<h2><span id="12绑定后检查">12.绑定后检查</span></h2><ul>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742f4be36.png" alt="49.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742f1e491.png" alt="50.png"><br>
+最后记得把驱动关键帧曲线打平</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa742f6b912.png" alt="51.png"><br>
+<strong>或者使用adv的修形骨骼进行修形</strong></p>
+<h2><span id="12绑定后检查">12.绑定后检查</span></h2>
+<ul>
 <li>设置控制器颜色</li>
 <li>整理层级结构，并使其无法被选中</li>
 </ul>

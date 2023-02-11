@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1261,35 +1279,56 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h2><span id="迁移项目1">迁移项目#1</span></h2><p>迁移或者打包项目的时候，这两个文件夹可以删除掉。</p>
+	<h2><span id="迁移项目1">迁移项目#1</span></h2>
+<p>迁移或者打包项目的时候，这两个文件夹可以删除掉。</p>
 <p>一个是自动保存的文件，一个是缓存文件。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c0eccb72.png" alt="1.png"><br>注意：在迁移项目后最好进行双备份，因为如果高版本的引擎打开低版本引擎的项目保存后，</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c0eccb72.png" alt="1.png"><br>
+注意：在迁移项目后最好进行双备份，因为如果高版本的引擎打开低版本引擎的项目保存后，</p>
 <p>低版本就无法再打开高版本保存后的项目文件。</p>
-<h2><span id="迁移项目2">迁移项目#2</span></h2><p>选择要迁移的包，鼠标右键选择Migrate</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c0edf81b.png" alt="2.png"><br>然后选择目标文件夹，一定要是Content目录下</p>
+<h2><span id="迁移项目2">迁移项目#2</span></h2>
+<p>选择要迁移的包，鼠标右键选择Migrate</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c0edf81b.png" alt="2.png"><br>
+然后选择目标文件夹，一定要是Content目录下</p>
 <p>文件夹只能一个一个迁移，而资源可以多选进行迁移</p>
 <p>这里多选资源，鼠标右键</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c0f50fa9.png" alt="3.png"></p>
-<h2><span id="合并bsp到静态网格">合并BSP到静态网格</span></h2><p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c0f9912b.png" alt="4.png"></p>
-<h2><span id="静态网格体添加碰撞">静态网格体添加碰撞</span></h2><p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c1007a0c.png" alt="5.png"></p>
-<h2><span id="合并静态网格模型">合并静态网格模型</span></h2><p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c10ac0a6.png" alt="6.png"></p>
-<h2><span id="用灰度图生成地形">用灰度图生成地形</span></h2><p>如果下载的是jpg，需要在ps里修改模式为灰度，通道位数为16通道</p>
+<h2><span id="合并bsp到静态网格">合并BSP到静态网格</span></h2>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c0f9912b.png" alt="4.png"></p>
+<h2><span id="静态网格体添加碰撞">静态网格体添加碰撞</span></h2>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c1007a0c.png" alt="5.png"></p>
+<h2><span id="合并静态网格模型">合并静态网格模型</span></h2>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c10ac0a6.png" alt="6.png"></p>
+<h2><span id="用灰度图生成地形">用灰度图生成地形</span></h2>
+<p>如果下载的是jpg，需要在ps里修改模式为灰度，通道位数为16通道</p>
 <p>（暂时虚拟引擎只支持16位）</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c116318a.png" alt="7.png"><br>然后导出png或者raw，在ue4里进行创建导入</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c116318a.png" alt="7.png"><br>
+然后导出png或者raw，在ue4里进行创建导入</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c1121acf.png" alt="8.png"></p>
-<h2><span id="为植被添加碰撞">为植被添加碰撞</span></h2><p>双击mesh进入物体编辑模式</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c1193888.png" alt="9.png"><br>打开Convex Decompostiton</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c0c7d25d.png" alt="10.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c1051851.png" alt="11.png"><br>修改碰撞模式为</p>
+<h2><span id="为植被添加碰撞">为植被添加碰撞</span></h2>
+<p>双击mesh进入物体编辑模式</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c1193888.png" alt="9.png"><br>
+打开Convex Decompostiton</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c0c7d25d.png" alt="10.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c1051851.png" alt="11.png"><br>
+修改碰撞模式为</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c0c7af51.png" alt="12.png"></p>
-<h2><span id="蓝图自动门">蓝图：自动门</span></h2><p>1.给门添加碰撞</p>
+<h2><span id="蓝图自动门">蓝图：自动门</span></h2>
+<p>1.给门添加碰撞</p>
 <p>2.添加盒体触发器</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c0d3376c.png" alt="13.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c0f983ea.png" alt="14.png"><br>3.修改门为可移动</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c0d3874f.png" alt="15.png"><br>4.选中盒体触发器，打开关卡蓝图，右键添加两个事件</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c0d3376c.png" alt="13.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c0f983ea.png" alt="14.png"><br>
+3.修改门为可移动</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c0d3874f.png" alt="15.png"><br>
+4.选中盒体触发器，打开关卡蓝图，右键添加两个事件</p>
 <p>（进入盒子事件，离开盒子事件）</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c0c8442e.png" alt="16.png"><br>5.选择门，再次进入蓝图关卡，为门添加引用</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c0d5f867.png" alt="17.png"><br>6.蓝图</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c0d7bb51.png" alt="18.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c0de547c.png" alt="19.png"></p>
-<h2><span id="按键触发开门">按键触发开门</span></h2><p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c0e366a0.png" alt="20.png"></p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c0c8442e.png" alt="16.png"><br>
+5.选择门，再次进入蓝图关卡，为门添加引用</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c0d5f867.png" alt="17.png"><br>
+6.蓝图</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c0d7bb51.png" alt="18.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c0de547c.png" alt="19.png"></p>
+<h2><span id="按键触发开门">按键触发开门</span></h2>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fb0c0e366a0.png" alt="20.png"></p>
 
 </div>
 

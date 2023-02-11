@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,7 +1268,8 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h2><span id="列出所有assets以及类型">列出所有Assets以及类型</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> unreal
+	<h2><span id="列出所有assets以及类型">列出所有Assets以及类型</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> unreal
 
 workingPath <span class="token operator">=</span> <span class="token string">"/Game/"</span>
 
@@ -1277,14 +1296,14 @@ selectedAssetPath <span class="token operator">=</span> workingPath
 type:
 LevelSequence, Material, StaticMesh, SkeletalMesh, AnimSequence, Skeleton, PhysicsAsset
 """</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="输出log">输出log</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> unreal
+<h2><span id="输出log">输出log</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> unreal
 
 unreal<span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token string">'基本'</span><span class="token punctuation">)</span>
 unreal<span class="token punctuation">.</span>log_warning<span class="token punctuation">(</span><span class="token string">'警告'</span><span class="token punctuation">)</span>
 unreal<span class="token punctuation">.</span>log_error<span class="token punctuation">(</span><span class="token string">'报错'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="列出所有选择的资产">列出所有选择的资产</span></h2><p><strong>概念</strong>：在Content Browser里的是Assets，在场景中的是Actor</p>
+<h2><span id="列出所有选择的资产">列出所有选择的资产</span></h2>
+<p><strong>概念</strong>：在Content Browser里的是Assets，在场景中的是Actor</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> unreal
 
 <span class="token decorator annotation punctuation">@unreal<span class="token punctuation">.</span>uclass</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -1300,10 +1319,10 @@ selectedAssets <span class="token operator">=</span> MyEditorUtility<span class=
     unreal<span class="token punctuation">.</span>log<span class="token punctuation">(</span>asset<span class="token punctuation">.</span>get_path_name<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 获取该资产的路径</span>
     unreal<span class="token punctuation">.</span>log<span class="token punctuation">(</span>asset<span class="token punctuation">.</span>get_class<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>     <span class="token comment"># 获取该资产的类名</span>
     unreal<span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token string">'--'</span><span class="token operator">*</span><span class="token number">20</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>更多关于ObjectBase的方法可以参考：</p>
 <p><a target="_blank" rel="noopener" href="https://docs.unrealengine.com/4.27/en-US/PythonAPI/class/_ObjectBase.html">https://docs.unrealengine.com/4.27/en-US/PythonAPI/class/_ObjectBase.html</a></p>
-<h2><span id="列出所有选择的actor">列出所有选择的Actor</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> unreal
+<h2><span id="列出所有选择的actor">列出所有选择的Actor</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> unreal
 
 <span class="token decorator annotation punctuation">@unreal<span class="token punctuation">.</span>uclass</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">class</span> <span class="token class-name">MyEditorUtility</span><span class="token punctuation">(</span>unreal<span class="token punctuation">.</span>GlobalEditorUtilityBase<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -1321,10 +1340,10 @@ selectedActors <span class="token operator">=</span> MyEditorUtility<span class=
         unreal<span class="token punctuation">.</span>log_warning<span class="token punctuation">(</span><span class="token string">">>>> Do Remove"</span><span class="token punctuation">)</span>
 
     unreal<span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token string">"--"</span><span class="token operator">*</span><span class="token number">20</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>更多关于Actor的方法可以参考：</p>
 <p><a target="_blank" rel="noopener" href="https://docs.unrealengine.com/4.27/en-US/PythonAPI/class/Actor.html#unreal.Actor">https://docs.unrealengine.com/4.27/en-US/PythonAPI/class/Actor.html#unreal.Actor</a></p>
-<h2><span id="创建蓝图">创建蓝图</span></h2><p><strong>Factory 工厂</strong>：如果需要创建一个蓝图，就要找到蓝图工厂，如果要创建一个动画就要创建动画工厂。</p>
+<h2><span id="创建蓝图">创建蓝图</span></h2>
+<p><strong>Factory 工厂</strong>：如果需要创建一个蓝图，就要找到蓝图工厂，如果要创建一个动画就要创建动画工厂。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> unreal
 
 blueprintName <span class="token operator">=</span> <span class="token string">"MyEpicBPActorClass"</span>  <span class="token comment"># 定义蓝图的名称</span>
@@ -1339,8 +1358,8 @@ myFancyNewAssetFile <span class="token operator">=</span> assetTools<span class=
 
 <span class="token comment"># 保存创建的结果</span>
 unreal<span class="token punctuation">.</span>EditorAssetLibrary<span class="token punctuation">.</span>save_loaded_asset<span class="token punctuation">(</span>myFancyNewAssetFile<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="创建进度条任务">创建进度条任务</span></h2><p>当一些任务执行时间较长，程序长时间处于“卡死”的状态，可以使用进度条来告知用户程序并没有崩溃。</p>
+<h2><span id="创建进度条任务">创建进度条任务</span></h2>
+<p>当一些任务执行时间较长，程序长时间处于“卡死”的状态，可以使用进度条来告知用户程序并没有崩溃。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> unreal
 
 totalFrames <span class="token operator">=</span> <span class="token number">500000</span>
@@ -1353,10 +1372,10 @@ textDisplay <span class="token operator">=</span> <span class="token string">"Th
             <span class="token keyword">break</span>
         unreal<span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token string">"running running"</span><span class="token punctuation">)</span>
         ST<span class="token punctuation">.</span>enter_progress_frame<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>参考：</p>
 <p><a target="_blank" rel="noopener" href="https://docs.unrealengine.com/4.27/en-US/PythonAPI/class/ScopedSlowTask.html">https://docs.unrealengine.com/4.27/en-US/PythonAPI/class/ScopedSlowTask.html</a></p>
-<h2><span id="创建多个蓝图案例结合">创建多个蓝图（案例结合）</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> unreal
+<h2><span id="创建多个蓝图案例结合">创建多个蓝图（案例结合）</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> unreal
 
 totalRequiredBlueprints <span class="token operator">=</span> <span class="token number">70</span>
 newAssetName <span class="token operator">=</span> <span class="token string">"BP_pythonMade_%d"</span>
@@ -1377,8 +1396,8 @@ assetTools <span class="token operator">=</span> unreal<span class="token punctu
         unreal<span class="token punctuation">.</span>EditorAssetLibrary<span class="token punctuation">.</span>save_loaded_asset<span class="token punctuation">(</span>newAsset<span class="token punctuation">)</span>
         unreal<span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token string">"Just created an asset BP_PythonMade_%d via PYTHON API"</span> <span class="token operator">%</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span>
         ST<span class="token punctuation">.</span>enter_progress_frame<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="将选中的actor放到level中">将选中的Actor放到Level中</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> unreal
+<h2><span id="将选中的actor放到level中">将选中的Actor放到Level中</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> unreal
 
 actorsCount <span class="token operator">=</span> <span class="token number">50</span>
 slowTaskDisplayText <span class="token operator">=</span> <span class="token string">"Spawning actors in the level...."</span>
@@ -1398,8 +1417,8 @@ selectedAssets <span class="token operator">=</span> MyEditorUtility<span class=
         unreal<span class="token punctuation">.</span>EditorLevelLibrary<span class="token punctuation">.</span>spawn_actor_from_object<span class="token punctuation">(</span>selectedAssets<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> unreal<span class="token punctuation">.</span>Vector<span class="token punctuation">(</span><span class="token number">1.0</span><span class="token operator">+</span>x<span class="token operator">*</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token operator">+</span>x<span class="token operator">*</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">30.0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> unreal<span class="token punctuation">.</span>Rotator<span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">10.0</span><span class="token operator">*</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span>
         unreal<span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token string">"Just added an actor to the level!"</span><span class="token punctuation">)</span>
         ST<span class="token punctuation">.</span>enter_progress_frame<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="在程序主菜单下添加自定义菜单">在程序主菜单下添加自定义菜单</span></h2><p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d9418a58.png" alt="unreal-add-custom-menus-p1.png"></p>
+<h2><span id="在程序主菜单下添加自定义菜单">在程序主菜单下添加自定义菜单</span></h2>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d9418a58.png" alt="unreal-add-custom-menus-p1.png"></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> unreal
 
 <span class="token comment"># Get the main menu class</span>
@@ -1417,8 +1436,8 @@ tool_tip <span class="token operator">=</span> <span class="token string">'This 
 <span class="token comment"># Add and refresh</span>
 menu<span class="token punctuation">.</span>add_sub_menu<span class="token punctuation">(</span>owner<span class="token punctuation">,</span> section_name<span class="token punctuation">,</span> name<span class="token punctuation">,</span> label<span class="token punctuation">,</span> tool_tip<span class="token punctuation">)</span>
 menus<span class="token punctuation">.</span>refresh_all_widgets<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="为菜单添加按钮">为菜单添加按钮</span></h2><p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d9456f70.png" alt="unreal-add-custom-menus-p2.png"></p>
+<h2><span id="为菜单添加按钮">为菜单添加按钮</span></h2>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d9456f70.png" alt="unreal-add-custom-menus-p2.png"></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> unreal
 
 <span class="token comment"># Get the menu class</span>
@@ -1438,12 +1457,12 @@ entry<span class="token punctuation">.</span>set_string_command<span class="toke
 section_name <span class="token operator">=</span> <span class="token string">''</span>
 menu<span class="token punctuation">.</span>add_menu_entry<span class="token punctuation">(</span>section_name<span class="token punctuation">,</span> entry<span class="token punctuation">)</span>
 menus<span class="token punctuation">.</span>refresh_all_widgets<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><strong>section_name</strong> 这个参数后面会说到它，其实是一个定位的作用。</p>
 <p>关于add_sub_menu和add_menu_entry的参数，可以查看官方文档：</p>
 <p><a target="_blank" rel="noopener" href="https://docs.unrealengine.com/en-US/PythonAPI/class/ToolMenu.html">https://docs.unrealengine.com/en-US/PythonAPI/class/ToolMenu.html</a></p>
 <p>（吐槽一下简陋的官方文档，就给了个参数名）</p>
-<h2><span id="添加工具架按钮">添加工具架按钮</span></h2><p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d94edada.png" alt="unreal-add-custom-menus-p3.png"></p>
+<h2><span id="添加工具架按钮">添加工具架按钮</span></h2>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d94edada.png" alt="unreal-add-custom-menus-p3.png"></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> unreal
 
 <span class="token comment"># Get the menu class</span>
@@ -1463,12 +1482,14 @@ entry<span class="token punctuation">.</span>set_string_command<span class="toke
 section_name <span class="token operator">=</span> <span class="token string">'Settings'</span>
 menu<span class="token punctuation">.</span>add_menu_entry<span class="token punctuation">(</span>section_name<span class="token punctuation">,</span> entry<span class="token punctuation">)</span>
 menus<span class="token punctuation">.</span>refresh_all_widgets<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>这里就可以看到<strong>section_name</strong>参数的意义，它会将按钮放置在Settings集的最后。<br>如果想把按钮放在其它地方，就得先知道控件的名称。<br>如何知道这些控件的名字，在这里开启：</p>
+<p>这里就可以看到<strong>section_name</strong>参数的意义，它会将按钮放置在Settings集的最后。<br>
+如果想把按钮放在其它地方，就得先知道控件的名称。<br>
+如何知道这些控件的名字，在这里开启：</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d9478496.png" alt="unreal-add-custom-menus-p4.png"></p>
 <p>开启后重启Unreal就可以看到，如下图所示：</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d94d24e9.png" alt="unreal-add-custom-menus-p5.png"></p>
-<h2><span id="右键菜单扩展">右键菜单扩展</span></h2><p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d9560156.png" alt="unreal-add-custom-menus-p6.png"></p>
+<h2><span id="右键菜单扩展">右键菜单扩展</span></h2>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d9560156.png" alt="unreal-add-custom-menus-p6.png"></p>
 <p>这里想把按钮放到Source Control类别下，所以需要去查看控件名。</p>
 <p>通过上面的方法可以看到，名称为：PathContextSourceControl</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d9561bc9.png" alt="unreal-add-custom-menus-p7.png"></p>
@@ -1488,7 +1509,6 @@ entry<span class="token punctuation">.</span>set_label<span class="token punctua
 typ <span class="token operator">=</span> unreal<span class="token punctuation">.</span>ToolMenuStringCommandType<span class="token punctuation">.</span>PYTHON
 entry<span class="token punctuation">.</span>set_string_command<span class="token punctuation">(</span>typ<span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> <span class="token string">'print "entry test"'</span><span class="token punctuation">)</span>
 menu<span class="token punctuation">.</span>add_menu_entry<span class="token punctuation">(</span><span class="token string">'PathContextSourceControl'</span><span class="token punctuation">,</span> entry<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>右键菜单是点击的时候实时刷新的，所以这里不需要再调用refresh_all_widgets()</p>
 
 </div>

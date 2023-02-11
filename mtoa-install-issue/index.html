@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,31 +1268,62 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h1><span id="前言">前言</span></h1><p>今天在安装新版本Arnold 4.1.0 for maya后，<br>打开maya发现一堆报错，其中还有不少乱码字符。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a10d7e25.png" alt="mtoa-install-issue-p1.png"><br>一看就知道是Arnold配置失败了，果不其然打开Plug-in Manager，<br>Maya直接就崩掉了。  </p>
-<p>好奇这一堆乱码是怎么来的，安装的路径也没有中文字符啊。<br>接下来就开始一步步排查。<br>(节省时间的话可以直接看最后总结)</p>
-<h1><span id="尝试解决">尝试解决</span></h1><p>遇到奇怪的问题，第一个就想到的是重新安装。(把官方的安装文档又仔细看了一遍)<br>官方安装文档：<br><a target="_blank" rel="noopener" href="https://docs.arnoldrenderer.com/display/A5AFMUG/Installing+Arnold+for+Maya+on+Windows">https://docs.arnoldrenderer.com/display/A5AFMUG/Installing+Arnold+for+Maya+on+Windows</a></p>
+	<h1><span id="前言">前言</span></h1>
+<p>今天在安装新版本Arnold 4.1.0 for maya后，<br>
+打开maya发现一堆报错，其中还有不少乱码字符。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a10d7e25.png" alt="mtoa-install-issue-p1.png"><br>
+一看就知道是Arnold配置失败了，果不其然打开Plug-in Manager，<br>
+Maya直接就崩掉了。</p>
+<p>好奇这一堆乱码是怎么来的，安装的路径也没有中文字符啊。<br>
+接下来就开始一步步排查。<br>
+(节省时间的话可以直接看最后总结)</p>
+<h1><span id="尝试解决">尝试解决</span></h1>
+<p>遇到奇怪的问题，第一个就想到的是重新安装。(把官方的安装文档又仔细看了一遍)<br>
+官方安装文档：<br>
+<a target="_blank" rel="noopener" href="https://docs.arnoldrenderer.com/display/A5AFMUG/Installing+Arnold+for+Maya+on+Windows">https://docs.arnoldrenderer.com/display/A5AFMUG/Installing+Arnold+for+Maya+on+Windows</a></p>
 <p>因为我需要将插件安装到网络路径上，所以是用的手动安装。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a1189249.png" alt="mtoa-install-issue-p2.png"><br>安装的步骤很简单，在点击安装程序后，取消勾选Configure MatoA for Maya。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a10bf1fd.png" alt="mtoa-install-issue-p3.png"><br>安装的路径输入的是网络路径，比如 \server\arnold\mtoa\2017</p>
-<p>然后在安装后去修改\server\arnold\mtoa\2017路径下的 mtoa.mod 文件。<br>修改为如下所示 (其实安装后，这里它会自动修改为安装时候输入的路径)</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a1189249.png" alt="mtoa-install-issue-p2.png"><br>
+安装的步骤很简单，在点击安装程序后，取消勾选Configure MatoA for Maya。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a10bf1fd.png" alt="mtoa-install-issue-p3.png"><br>
+安装的路径输入的是网络路径，比如 \server\arnold\mtoa\2017</p>
+<p>然后在安装后去修改\server\arnold\mtoa\2017路径下的 mtoa.mod 文件。<br>
+修改为如下所示 (其实安装后，这里它会自动修改为安装时候输入的路径)</p>
 <pre class="line-numbers language-none"><code class="language-none">+ mtoa any \\server\arnold\mtoa\2017
 PATH +:&#x3D; bin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>然后将这个路径<code>\\server\arnold\mtoa\2017</code>加入到<br><strong>MAYA_MODULE_PATH</strong>和<strong>MAYA_RENDER_DESC_PATH</strong>环境变量中。</p>
-<p><strong>MAYA_MODULE_PATH</strong>是为了让maya能找到该插件的mod文件的位置。<br><strong>MAYA_RENDER_DESC_PATH</strong>是为了maya在使用arnold批量渲染的时候，<br>能找到arnoldRenderer.xml 这个文件。</p>
-<p>安装完成后打开maya，发现问题依然存在。<br>报错的信息里出现了一些奇怪的乱码。<br>于是我查看了下maya里的PYTHONPATH。</p>
+<p>然后将这个路径<code>\\server\arnold\mtoa\2017</code>加入到<br>
+<strong>MAYA_MODULE_PATH</strong>和<strong>MAYA_RENDER_DESC_PATH</strong>环境变量中。</p>
+<p><strong>MAYA_MODULE_PATH</strong>是为了让maya能找到该插件的mod文件的位置。<br>
+<strong>MAYA_RENDER_DESC_PATH</strong>是为了maya在使用arnold批量渲染的时候，<br>
+能找到arnoldRenderer.xml 这个文件。</p>
+<p>安装完成后打开maya，发现问题依然存在。<br>
+报错的信息里出现了一些奇怪的乱码。<br>
+于是我查看了下maya里的PYTHONPATH。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os
 <span class="token keyword">for</span> i <span class="token keyword">in</span> os<span class="token punctuation">.</span>environ<span class="token punctuation">[</span><span class="token string">'PYTHONPATH'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">';'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
   <span class="token keyword">print</span> i<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>结果发现环境路径全被奇怪的乱码破坏了。<br>怪不得一打开Plug-in Manager软件就直接崩掉。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a11a78f8.png" alt="mtoa-install-issue-p4.png"><br>最早怀疑配置文件里路径反斜杆的原因，导致出现乱码，<br>于是把<code>\</code>替换成<code>/</code>，结果依旧。</p>
-<p><strong>后来尝试不使用网络直接在本地安装，结果是正常可以使用的。</strong><br>本地安装不用手动去设置上述的两个环境变量，<br>所以<strong>问题应该是出在环境变量的设置中</strong>。</p>
+<p>结果发现环境路径全被奇怪的乱码破坏了。<br>
+怪不得一打开Plug-in Manager软件就直接崩掉。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a11a78f8.png" alt="mtoa-install-issue-p4.png"><br>
+最早怀疑配置文件里路径反斜杆的原因，导致出现乱码，<br>
+于是把<code>\</code>替换成<code>/</code>，结果依旧。</p>
+<p><strong>后来尝试不使用网络直接在本地安装，结果是正常可以使用的。</strong><br>
+本地安装不用手动去设置上述的两个环境变量，<br>
+所以<strong>问题应该是出在环境变量的设置中</strong>。</p>
 <p>在排查的过程中Google翻到一篇帖子，帖子的提问者也遇到了同样的问题。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a115aeea.png" alt="mtoa-install-issue-p5.png"><br>回答里说<strong>MAYA_MODULE_PATH</strong>里的路径中，不能存在exe等二进制的文件。<br>所以问题现在就比较清晰了，可以看到Arnold的插件目录下，<br>有两个exe文件和mod文件在同一个路径。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a11e844a.jpg" alt="mtoa-install-issue-p6.jpg"><br>于是我在这个目录中新建了一个文件夹，名为<code>mod</code>,<br>并将mtoa.mod文件拷贝到<code>mod</code>文件夹中，将其单独隔离起来。<br>然后设置<strong>MAYA_MODULE_PATH</strong>环境变量为这个<code>mod</code>文件夹。<br>果然到这里问题就迎刃而解了。</p>
-<h1><span id="总结">总结</span></h1><p>在设置环境变量的时候，变量<strong>MAYA_MODULE_PATH</strong>目录下不能存在二进制文件。<br>maya奇怪的机制会去搜索给予路径下所有文件，并进行读取。<br>(按理说应该只过滤 *.mod格式的文件)<br>最好的解决方法是把所有的mod文件放在统一位置进行隔离配置。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a115aeea.png" alt="mtoa-install-issue-p5.png"><br>
+回答里说<strong>MAYA_MODULE_PATH</strong>里的路径中，不能存在exe等二进制的文件。<br>
+所以问题现在就比较清晰了，可以看到Arnold的插件目录下，<br>
+有两个exe文件和mod文件在同一个路径。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a11e844a.jpg" alt="mtoa-install-issue-p6.jpg"><br>
+于是我在这个目录中新建了一个文件夹，名为<code>mod</code>,<br>
+并将mtoa.mod文件拷贝到<code>mod</code>文件夹中，将其单独隔离起来。<br>
+然后设置<strong>MAYA_MODULE_PATH</strong>环境变量为这个<code>mod</code>文件夹。<br>
+果然到这里问题就迎刃而解了。</p>
+<h1><span id="总结">总结</span></h1>
+<p>在设置环境变量的时候，变量<strong>MAYA_MODULE_PATH</strong>目录下不能存在二进制文件。<br>
+maya奇怪的机制会去搜索给予路径下所有文件，并进行读取。<br>
+(按理说应该只过滤 *.mod格式的文件)<br>
+最好的解决方法是把所有的mod文件放在统一位置进行隔离配置。</p>
 
 </div>
 

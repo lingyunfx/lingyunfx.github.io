@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,23 +1268,32 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h1><span id="概述">概述</span></h1><p>程序包定义文件（package.py）通常定义命令的部分。<br>这是一个例子，用于确定如何配置环境和软件包的Python函数：</p>
+	<h1><span id="概述">概述</span></h1>
+<p>程序包定义文件（<a target="_blank" rel="noopener" href="http://package.py">package.py</a>）通常定义命令的部分。<br>
+这是一个例子，用于确定如何配置环境和软件包的Python函数：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">commands</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
   env<span class="token punctuation">.</span>PYTHONPATH<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">"&#123;root&#125;/python"</span><span class="token punctuation">)</span>
   env<span class="token punctuation">.</span>PATH<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">"&#123;root&#125;/bin"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>这是一个典型例子，程序包将其路径添加到PYTHONPATH，并将其工具添加到PATH。<br><code>&#123;root&#125;</code> 字符串代表软件包的安装目录。</p>
-<p>配置rez环境后，解析列表中的每个软件包都将其命令部分解释并转换为shell代码。<br>（bash或其它，这取决于系统平台。）shell代码是源代码，用于配置环境。<br>在已配置的环境中，变量<code>REZ_CONTEXT_FILE</code>指向此shell代码文件，</p>
+<p>这是一个典型例子，程序包将其路径添加到PYTHONPATH，并将其工具添加到PATH。<br>
+<code>&#123;root&#125;</code> 字符串代表软件包的安装目录。</p>
+<p>配置rez环境后，解析列表中的每个软件包都将其命令部分解释并转换为shell代码。<br>
+（bash或其它，这取决于系统平台。）shell代码是源代码，用于配置环境。<br>
+在已配置的环境中，变量<code>REZ_CONTEXT_FILE</code>指向此shell代码文件，</p>
 <p>然后命令<code>rez-context-interper</code>会对其进行打印输出。</p>
-<p>在commands函数中使用的python API称为rex（rez执行语言）。<br>你可以使用此API执行一些常见操作，包括设置环境变量。</p>
+<p>在commands函数中使用的python API称为rex（rez执行语言）。<br>
+你可以使用此API执行一些常见操作，包括设置环境变量。</p>
 <p><strong>注意</strong>：如果需要导入任何python模块在命令部分中使用，则import语句必须在该函数中。</p>
-<h1><span id="执行顺序">执行顺序</span></h1><p>包的commands执行顺序取决于两个因素，请求包的顺序和包之间的依赖关系。</p>
+<h1><span id="执行顺序">执行顺序</span></h1>
+<p>包的commands执行顺序取决于两个因素，请求包的顺序和包之间的依赖关系。</p>
 <ul>
 <li>如果程序包B之前请求了程序包A，则A的命令在B之前解释执行</li>
 <li>除非程序包A需要（取决于）程序包B，在这种情况下，程序包B将优先解释执行</li>
 </ul>
-<p>比如一个名为”maya_anim_tool”的包，肉眼可见的它是一个maya插件，它依赖于maya。<br>因此，将优先解释执行maya的命令，这是因为maya插件可能取决于maya设置的某些环境变量。<br>maya会初始化MAYA_PLUG_IN_PATH变量，然后”maya_anim_tool”会添加到这里面。</p>
-<p>一个例子：<br><code>rez-env maya_anim_tool-1.3+ PyYAML-3.10 maya-2015</code></p>
+<p>比如一个名为&quot;maya_anim_tool&quot;的包，肉眼可见的它是一个maya插件，它依赖于maya。<br>
+因此，将优先解释执行maya的命令，这是因为maya插件可能取决于maya设置的某些环境变量。<br>
+maya会初始化MAYA_PLUG_IN_PATH变量，然后&quot;maya_anim_tool&quot;会添加到这里面。</p>
+<p>一个例子：<br>
+<code>rez-env maya_anim_tool-1.3+ PyYAML-3.10 maya-2015</code></p>
 <p>假设PyYAML依赖于python，而maya_anim_tool依赖于maya，则命令的执行顺序为：</p>
 <ul>
 <li>maya</li>
@@ -1274,42 +1301,57 @@ var _hmt = _hmt || [];
 <li>python</li>
 <li>PyYAML</li>
 </ul>
-<h1><span id="添加环境变量">添加环境变量</span></h1><p>对于类PATH的环境变量，可以添加到此变量前面，或后面。<br>比如向后添加：<br><code>env.PATH.append(&quot;&#123;root&#125;/bin&quot;)</code></p>
-<p>不过，对于任何给定变量的第一个append/prepend操作实际上会覆盖该变量。<br>因为考虑到了”PYTHONPATH”在系统级别上已经配置了一些PATH变量。  </p>
-<p>例如，PyQt在系统变量的”PYTHONPATH”上，同时又使用rez-env设置了不同版本的PyQt，<br>那么在已配置版本的环境中导入它，仍然会不正确的导入系统版本。</p>
-<p><strong>Tips</strong>：<br>PATH比较特殊，它不是简单的覆盖，因为这样会丢失一些重要的系统路径，比如无法使用<code>ls</code>或<code>cd</code>等命令。<br>通常这种情况下，在解释完所有命令后，系统路径将附加回PATH。</p>
+<h1><span id="添加环境变量">添加环境变量</span></h1>
+<p>对于类PATH的环境变量，可以添加到此变量前面，或后面。<br>
+比如向后添加：<br>
+<code>env.PATH.append(&quot;&#123;root&#125;/bin&quot;)</code></p>
+<p>不过，对于任何给定变量的第一个append/prepend操作实际上会覆盖该变量。<br>
+因为考虑到了&quot;PYTHONPATH&quot;在系统级别上已经配置了一些PATH变量。</p>
+<p>例如，PyQt在系统变量的&quot;PYTHONPATH&quot;上，同时又使用rez-env设置了不同版本的PyQt，<br>
+那么在已配置版本的环境中导入它，仍然会不正确的导入系统版本。</p>
+<p><strong>Tips</strong>：<br>
+PATH比较特殊，它不是简单的覆盖，因为这样会丢失一些重要的系统路径，比如无法使用<code>ls</code>或<code>cd</code>等命令。<br>
+通常这种情况下，在解释完所有命令后，系统路径将附加回PATH。</p>
 <p>rez将来的新特性可以为变量指定各种模式，例如一种模式会将原始（pre-rez）值附加回结果值。</p>
-<h1><span id="支持的字符引用">支持的字符引用</span></h1><h2><span id="可引用的对象字符">可引用的对象字符</span></h2><p>commands部分可用的任何对象都可以作为字符引用，该字符会传递给rex函数，例如：</p>
+<h1><span id="支持的字符引用">支持的字符引用</span></h1>
+<h2><span id="可引用的对象字符">可引用的对象字符</span></h2>
+<p>commands部分可用的任何对象都可以作为字符引用，该字符会传递给rex函数，例如：</p>
 <p><code>appendenv(&quot;PATH&quot;, &quot;&#123;root&#125;/bin&quot;)</code></p>
-<p>在这里”{root}”将解释为root的值，root的值是软件包的安装路径（也可以使用”this.root”）。</p>
+<p>在这里&quot;{root}“将解释为root的值，root的值是软件包的安装路径（也可以使用&quot;this.root”）。</p>
 <p>它的代码和下述是同样的意思，只是下述的代码更冗长：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os<span class="token punctuation">.</span>path
 appendenv<span class="token punctuation">(</span><span class="token string">"PATH"</span><span class="token punctuation">,</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>root<span class="token punctuation">,</span> <span class="token string">"bin"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>通过env对象还支持下面这种写法：</p>
 <p><code>env.FOO_LIC = &quot;&#123;this.root&#125;/lic&quot;</code></p>
-<h2><span id="环境变量引用字符">环境变量引用字符</span></h2><p>支持语法是$FOO和${FOO}。</p>
-<h2><span id="literal函数">Literal函数</span></h2><p>你可以使用<code>literal</code>函数，来将对象或环境变量的特殊字符注释掉。比如：</p>
+<h2><span id="环境变量引用字符">环境变量引用字符</span></h2>
+<p>支持语法是$FOO和${FOO}。</p>
+<h2><span id="literal函数">Literal函数</span></h2>
+<p>你可以使用<code>literal</code>函数，来将对象或环境变量的特殊字符注释掉。比如：</p>
 <p><code>env.TEST = literal(&quot;this &#123;root&#125; will not expand&quot;)</code></p>
 <p>它还有个扩展功能是，类似格式化字符的用法，将字符和变量组合起来：</p>
 <p><code>env.DESC = literal(&quot;the value of &#123;root&#125; is&quot;).expandable(&quot;&#123;root&#125;&quot;)</code></p>
-<h2><span id="expandvars函数">expandvars函数</span></h2><p>字符引用通常只在将字符传递给rex函数或env对象的时候发生。</p>
-<p>例如一个简单的语句”var = {root}/bin”，这里的”{root}”就不会被解释成安装包路径。</p>
+<h2><span id="expandvars函数">expandvars函数</span></h2>
+<p>字符引用通常只在将字符传递给rex函数或env对象的时候发生。</p>
+<p>例如一个简单的语句&quot;var = {root}/bin&quot;，这里的&quot;{root}&quot;就不会被解释成安装包路径。</p>
 <p>但是可以使用<code>expandvars</code>函数来启用字符引用：</p>
 <p><code>var = expandvars(&quot;&#123;root&#125;/bin&quot;)</code></p>
-<h1><span id="预载和后置命令">预载和后置命令</span></h1><p>我们可以为程序包设置pre_commands或post_commands。</p>
+<h1><span id="预载和后置命令">预载和后置命令</span></h1>
+<p>我们可以为程序包设置pre_commands或post_commands。</p>
 <p>执行顺序为：</p>
 <ul>
 <li>所有软件包的pre_commands以标准顺序执行</li>
 <li>然后执行所有包的commands</li>
 <li>最后执行所有包的post_commands</li>
 </ul>
-<h1><span id="预构建命令">预构建命令</span></h1><p>在构建一个软件包的时候是不会执行commands的，原因是软件包不在其自身的构建环境中。</p>
+<h1><span id="预构建命令">预构建命令</span></h1>
+<p>在构建一个软件包的时候是不会执行commands的，原因是软件包不在其自身的构建环境中。</p>
 <p>但是有时候需要在构建的时候运行命令，例如将一些环境变量传递到构建系统。</p>
 <p><code>pre_build_commands</code>函数就可以实现。</p>
-<h1><span id="预测试命令">预测试命令</span></h1><p>在运行包测试的环境中执行一些额外的配置很有用。</p>
+<h1><span id="预测试命令">预测试命令</span></h1>
+<p>在运行包测试的环境中执行一些额外的配置很有用。</p>
 <p>可以定义<code>pre_test_commands</code>函数来执行此操作。</p>
-<h1><span id="一个例子">一个例子</span></h1><p>这是一个包定义的示例，其中的commands部分非常冗长：</p>
+<h1><span id="一个例子">一个例子</span></h1>
+<p>这是一个包定义的示例，其中的commands部分非常冗长：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">name <span class="token operator">=</span> <span class="token string">"foo"</span>
 
 version <span class="token operator">=</span> <span class="token string">"1.0.0"</span>
@@ -1346,79 +1388,97 @@ requires <span class="token operator">=</span> <span class="token punctuation">[
 
     <span class="token comment"># license file per major version</span>
     env<span class="token punctuation">.</span>FOO_LIC <span class="token operator">=</span> <span class="token string">"/lic/foo_&#123;this.version.major&#125;.lic"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1><span id="可使用的对象">可使用的对象</span></h1><p>commands函数中（包括pre_commands和post_commands）可以使用各种对象和函数。<br>例如，env是类似dict对象，表示目标环境中构造的所有环境变量。<br>以下是可用对象和功能：</p>
-<h2><span id="aliasfunction">alias（Function)</span></h2><p>创建一个命令别名。</p>
+<h1><span id="可使用的对象">可使用的对象</span></h1>
+<p>commands函数中（包括pre_commands和post_commands）可以使用各种对象和函数。<br>
+例如，env是类似dict对象，表示目标环境中构造的所有环境变量。<br>
+以下是可用对象和功能：</p>
+<h2><span id="aliasfunction">alias（Function)</span></h2>
+<p>创建一个命令别名。</p>
 <p><code>alias(&quot;nukex&quot;, &quot;Nuke -x&quot;)</code></p>
-<h2><span id="basestring">base（String）</span></h2><p><strong>this.base</strong>: 与this.root类似，但不包含变量的子路径（如果有的话）。</p>
-<h2><span id="builddict-like-object">build（Dict-like object）</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> build<span class="token punctuation">.</span>install<span class="token punctuation">:</span>
+<h2><span id="basestring">base（String）</span></h2>
+<p><strong>this.base</strong>: 与this.root类似，但不包含变量的子路径（如果有的话）。</p>
+<h2><span id="builddict-like-object">build（Dict-like object）</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> build<span class="token punctuation">.</span>install<span class="token punctuation">:</span>
 	info<span class="token punctuation">(</span><span class="token string">"An installation is taking place"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>这个对象只能在”pre_build_commands”函数中使用。有以下字段：</p>
+<p>这个对象只能在&quot;pre_build_commands&quot;函数中使用。有以下字段：</p>
 <ul>
-<li><strong>build.build_type</strong>：参数可以是”local”或”central”，表示发布软件包在本地或是中央存储库。</li>
+<li><strong>build.build_type</strong>：参数可以是&quot;local&quot;或&quot;central&quot;，表示发布软件包在本地或是中央存储库。</li>
 <li><strong>build.install</strong>： 如果安装在进行中返回True，否则返回False。</li>
 <li><strong>build.build_path</strong>：构建目录的路径（不是安装路径）。通常位于要构建软件包的./build子目录中的某个位置。</li>
 <li><strong>build.install_path</strong>：安装目录的路径。注意即使没有进行安装也会进行设置。（不要检查这个变量来检测是否正在安装）。</li>
 </ul>
-<h2><span id="buildingboolean">building（Boolean）</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> building<span class="token punctuation">:</span>
+<h2><span id="buildingboolean">building（Boolean）</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> building<span class="token punctuation">:</span>
     env<span class="token punctuation">.</span>FOO_INCLUDE_PATH <span class="token operator">=</span> <span class="token string">"&#123;root&#125;/include"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>如果正在进行构建（通常用rez-build工具完成），则此布尔变量为True，否则为False。<br>常见的用法是，一个包会使用这个判断来设置环境变量，这些变量只在构建过程中生效。<br>比如上述的例子。</p>
-<h2><span id="commandfunction">command（Function）</span></h2><p><code>command(&quot;rm -rf ~/.foo_plugin&quot;)</code></p>
-<p>运行任意的shell命令。注意不能用这个函数来获取返回值，因为命令并没有运行。<br>只要在包被解释并转换为shell语言之后才会执行它们的命令。<br>如果有需要的话，尽可能在Python中执行简单的操作（例如文件操作等）。<br>它可以立即生效，且跨平台使用。如下：</p>
+<p>如果正在进行构建（通常用rez-build工具完成），则此布尔变量为True，否则为False。<br>
+常见的用法是，一个包会使用这个判断来设置环境变量，这些变量只在构建过程中生效。<br>
+比如上述的例子。</p>
+<h2><span id="commandfunction">command（Function）</span></h2>
+<p><code>command(&quot;rm -rf ~/.foo_plugin&quot;)</code></p>
+<p>运行任意的shell命令。注意不能用这个函数来获取返回值，因为命令并没有运行。<br>
+只要在包被解释并转换为shell语言之后才会执行它们的命令。<br>
+如果有需要的话，尽可能在Python中执行简单的操作（例如文件操作等）。<br>
+它可以立即生效，且跨平台使用。如下：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">commands</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">import</span> shutil
     <span class="token keyword">import</span> os<span class="token punctuation">.</span>path
     path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>expanduser<span class="token punctuation">(</span><span class="token string">"~/.foo_plugin"</span><span class="token punctuation">)</span>
     <span class="token keyword">if</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">:</span>
         shutil<span class="token punctuation">.</span>rmtree<span class="token punctuation">(</span>path<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="commentfunction">comment（Function）</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> <span class="token string">"nuke"</span> <span class="token keyword">in</span> resolve<span class="token punctuation">:</span>
+<h2><span id="commentfunction">comment（Function）</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> <span class="token string">"nuke"</span> <span class="token keyword">in</span> resolve<span class="token punctuation">:</span>
     comment<span class="token punctuation">(</span><span class="token string">"note: taking over 'nuke' binary!"</span><span class="token punctuation">)</span>
     alias<span class="token punctuation">(</span><span class="token string">"nuke"</span><span class="token punctuation">,</span> <span class="token string">"foo_nuke_replacer"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>在转换后的shell脚本代码中创建注释行。当用户使用命令<code>rez-context —interpret</code>或查看环境变量”REZ_CONTEXT_FILE”所引用的文件时，可以看到这个注释行。</p>
-<h2><span id="definedfunction">defined（Function）</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> defined<span class="token punctuation">(</span><span class="token string">"REZ_MAYA_VERSION"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<p>在转换后的shell脚本代码中创建注释行。当用户使用命令<code>rez-context —interpret</code>或查看环境变量&quot;REZ_CONTEXT_FILE&quot;所引用的文件时，可以看到这个注释行。</p>
+<h2><span id="definedfunction">defined（Function）</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> defined<span class="token punctuation">(</span><span class="token string">"REZ_MAYA_VERSION"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     env<span class="token punctuation">.</span>FOO_MAYA <span class="token operator">=</span> <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>这个布尔函数将返回是否设置了这个环境变量。</p>
-<h2><span id="envdict-like-object">env（Dict-like object）</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">env<span class="token punctuation">.</span>FOO_DEBUG <span class="token operator">=</span> <span class="token number">1</span>
+<h2><span id="envdict-like-object">env（Dict-like object）</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">env<span class="token punctuation">.</span>FOO_DEBUG <span class="token operator">=</span> <span class="token number">1</span>
 env<span class="token punctuation">[</span><span class="token string">"BAH_LICENSE"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"/lic/bah.lic"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>env对象表示所配置的环境变量字典。需要注意的是，这和python的os.environ返回的字典不一样。<br>env只表示正在配置的环境，如果之前的程序通过env对象设置了变量，则只能在env中看到变量，<br>os.environ是看不到的，因为os.environ并不会随之更新。</p>
+<p>env对象表示所配置的环境变量字典。需要注意的是，这和python的os.environ返回的字典不一样。<br>
+env只表示正在配置的环境，如果之前的程序通过env对象设置了变量，则只能在env中看到变量，<br>
+os.environ是看不到的，因为os.environ并不会随之更新。</p>
 <p>env对象还提供以下功能：</p>
 <ul>
-<li><p>env.append（Function）<br><code>env.PATH.append(&quot;&#123;root&#125;/bin&quot;)</code><br>将值附加到环境变量中。默认它使用os.pathsep分隔符，<br>但是也可以配置”env_var_separators”覆盖它。</p>
+<li>
+<p>env.append（Function）<br>
+<code>env.PATH.append(&quot;&#123;root&#125;/bin&quot;)</code><br>
+将值附加到环境变量中。默认它使用os.pathsep分隔符，<br>
+但是也可以配置&quot;env_var_separators&quot;覆盖它。</p>
 </li>
-<li><p>env.prepend（Function）<br><code>env.PYTHONPATH.prepend(&quot;&#123;root&#125;/python&quot;)</code><br>同上，只是将变量加到最前面。</p>
+<li>
+<p>env.prepend（Function）<br>
+<code>env.PYTHONPATH.prepend(&quot;&#123;root&#125;/python&quot;)</code><br>
+同上，只是将变量加到最前面。</p>
 </li>
 </ul>
-<h2><span id="ephemeralsdict-like-object">ephemerals（Dict-like object）</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> <span class="token string">"foo.cli"</span> <span class="token keyword">in</span> ephemerals<span class="token punctuation">:</span>
+<h2><span id="ephemeralsdict-like-object">ephemerals（Dict-like object）</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> <span class="token string">"foo.cli"</span> <span class="token keyword">in</span> ephemerals<span class="token punctuation">:</span>
     info<span class="token punctuation">(</span><span class="token string">"Foo cli option is being specified!"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>代表已解析完成环境中的临时字典。字典里每一项都是一个字符串（例如fooc.li-1），使用get_range来测试intersects函数（一个布尔函数，如果给定对象的版本在给定版本范围内，则返回True），下面是一个用法示例：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> intersects<span class="token punctuation">(</span>ephemerals<span class="token punctuation">.</span>get_range<span class="token punctuation">(</span><span class="token string">"foo.cli"</span><span class="token punctuation">,</span> <span class="token string">"1"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"1"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     info<span class="token punctuation">(</span><span class="token string">"Enabling foo cli tools"</span><span class="token punctuation">)</span>
     env<span class="token punctuation">.</span>PATH<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">"&#123;root&#125;/bin"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="errorfunction">error（Function）</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> <span class="token string">"PyQt"</span> <span class="token keyword">in</span> resolve<span class="token punctuation">:</span>
+<h2><span id="errorfunction">error（Function）</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> <span class="token string">"PyQt"</span> <span class="token keyword">in</span> resolve<span class="token punctuation">:</span>
     error<span class="token punctuation">(</span><span class="token string">"The floob package has problems running in combo with PyQt"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>打印一个标准错误，只有打印作用，不会阻止环境构建（要阻止使用stop命令）。</p>
-<h2><span id="getenvfunction">getenv（Function）</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> getenv<span class="token punctuation">(</span><span class="token string">"REZ_MAYA_VERSION"</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"2016.sp1"</span><span class="token punctuation">:</span>
+<h2><span id="getenvfunction">getenv（Function）</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> getenv<span class="token punctuation">(</span><span class="token string">"REZ_MAYA_VERSION"</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"2016.sp1"</span><span class="token punctuation">:</span>
     <span class="token keyword">pass</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>获取环境变量的值，如果变量不存在，触发”RexUndefinedVariableError”。</p>
-<h2><span id="implicitdict-like-object">implicit（Dict-like object）</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> <span class="token string">"platform"</span> <span class="token keyword">in</span> implicits<span class="token punctuation">:</span>
+<p>获取环境变量的值，如果变量不存在，触发&quot;RexUndefinedVariableError&quot;。</p>
+<h2><span id="implicitdict-like-object">implicit（Dict-like object）</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> <span class="token string">"platform"</span> <span class="token keyword">in</span> implicits<span class="token punctuation">:</span>
     <span class="token keyword">pass</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>类似于request对象（request表示程序包请求列表组成的字典），不同的是它仅包含由implicit_packages配置定义的包请求。</p>
-<h2><span id="infofunction">info（Function）</span></h2><p><code>info(&quot;floob version is %s&quot; % resolve.floob.version)</code></p>
+<h2><span id="infofunction">info（Function）</span></h2>
+<p><code>info(&quot;floob version is %s&quot; % resolve.floob.version)</code></p>
 <p>打印一个标准输出。</p>
-<h2><span id="intersectsfunction">intersects（Function）</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> intersects<span class="token punctuation">(</span>resolve<span class="token punctuation">.</span>maya<span class="token punctuation">,</span> <span class="token string">"2019+"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<h2><span id="intersectsfunction">intersects（Function）</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> intersects<span class="token punctuation">(</span>resolve<span class="token punctuation">.</span>maya<span class="token punctuation">,</span> <span class="token string">"2019+"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     info<span class="token punctuation">(</span><span class="token string">"Maya 2019 or greater is present"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>一个布尔函数，如果给定对象的版本在给定的版本范围内，则返回True。</p>
 <p>可查询的有效对象包括：</p>
 <ul>
@@ -1426,65 +1486,79 @@ env<span class="token punctuation">[</span><span class="token string">"BAH_LICEN
 <li>一个包请求，eg <code>request.foo</code></li>
 <li>一个已解析包的版本，eg <code>resolve.maya.version</code></li>
 <li>一个已解析的ephemeral，eg <code>ephemerals.foo</code></li>
-<li>一个版本范围对象，eg <code>ephemerals.get_range(&#39;foo.cli&#39;, &#39;1&#39;)</code></li>
+<li>一个版本范围对象，eg <code>ephemerals.get_range('foo.cli', '1')</code></li>
 </ul>
-<p>注意：不要这样做<code>if intersects(ephemerals.get(&quot;foo.cli&quot;, &quot;0&quot;), &quot;1&quot;): ...</code><br>如果不存在”foo.cli”，这将把返回的默认值0与范围1进行比较，它会返回True。</p>
-<p>在测试临时对象的交集时，请使用get_range：<br><code>if intersects(ephemerals.get_range(&quot;foo.cli&quot;, &quot;0&quot;), &quot;1&quot;): ...</code></p>
-<h2><span id="literalfunction">literal（Function）</span></h2><p>将特殊字符注释掉（使其失效）。<br><code>env.FOO = literal(&quot;this &#123;root&#125; will not expand&quot;)</code>  </p>
-<p>也可以像这样将文字和可扩展字符链接起来：<br><code>env.FOO = literal(&quot;the value of &#123;root&#125; is&quot;).expandable(&quot;&#123;root&#125;&quot;)</code></p>
-<h2><span id="requestdict-like-object">request（Dict-like object）</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> <span class="token string">"maya"</span> <span class="token keyword">in</span> request<span class="token punctuation">:</span>
+<p>注意：不要这样做<code>if intersects(ephemerals.get(&quot;foo.cli&quot;, &quot;0&quot;), &quot;1&quot;): ...</code><br>
+如果不存在&quot;foo.cli&quot;，这将把返回的默认值0与范围1进行比较，它会返回True。</p>
+<p>在测试临时对象的交集时，请使用get_range：<br>
+<code>if intersects(ephemerals.get_range(&quot;foo.cli&quot;, &quot;0&quot;), &quot;1&quot;): ...</code></p>
+<h2><span id="literalfunction">literal（Function）</span></h2>
+<p>将特殊字符注释掉（使其失效）。<br>
+<code>env.FOO = literal(&quot;this &#123;root&#125; will not expand&quot;)</code></p>
+<p>也可以像这样将文字和可扩展字符链接起来：<br>
+<code>env.FOO = literal(&quot;the value of &#123;root&#125; is&quot;).expandable(&quot;&#123;root&#125;&quot;)</code></p>
+<h2><span id="requestdict-like-object">request（Dict-like object）</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> <span class="token string">"maya"</span> <span class="token keyword">in</span> request<span class="token punctuation">:</span>
     info<span class="token punctuation">(</span><span class="token string">"maya was asked for!"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>表示包请求列表的字典，以包的名称为键，比如下面这条命令。</p>
 <pre class="line-numbers language-none"><code class="language-none">]$ rez-env maya-2015 maya_utils-1.2+&lt;2 !corelib-1.4.4<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>会生成如下的对象：</p>
 <pre class="line-numbers language-none"><code class="language-none">&#123;
     &quot;maya&quot;: &quot;maya-2015&quot;,
     &quot;maya_utils&quot;: &quot;maya_utils-1.2+&lt;2&quot;,
     &quot;corelib&quot;: &quot;!corelib-1.4.4&quot;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>使用get_range函数来测试intersects函数：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> intersects<span class="token punctuation">(</span>request<span class="token punctuation">.</span>get_range<span class="token punctuation">(</span><span class="token string">"maya"</span><span class="token punctuation">,</span> <span class="token string">"0"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"2019"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     info<span class="token punctuation">(</span><span class="token string">"maya 2019.* was asked for!"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h2><span id="resolvedict-like-object">resolve（Dict-like object）</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> <span class="token string">"maya"</span> <span class="token keyword">in</span> resolve<span class="token punctuation">:</span>
+<h2><span id="resolvedict-like-object">resolve（Dict-like object）</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> <span class="token string">"maya"</span> <span class="token keyword">in</span> resolve<span class="token punctuation">:</span>
     info<span class="token punctuation">(</span><span class="token string">"Maya version is %s"</span><span class="token punctuation">,</span> resolve<span class="token punctuation">.</span>maya<span class="token punctuation">.</span>version<span class="token punctuation">)</span>
     <span class="token comment"># ..or resolve["maya"].version</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>表示已解析环境中的包列表字典。每个键为包的名称，值为包对象。</p>
-<h2><span id="rootstring">root（String）</span></h2><p><code>this.root</code><br>包的安装目录，如果程序包包含变量，则此路径包含变量的子路径。</p>
-<h2><span id="setenvfunction">setenv（Function）</span></h2><p><code>setenv(&quot;FOO_PLUGIN_PATH&quot;, &quot;&#123;root&#125;/plugins&quot;)</code><br>将环境变量设置为给定的值。相当于<code>env.FOO = &quot;BAH&quot;</code></p>
-<h2><span id="sourcefunction">source（Function）</span></h2><p><code>source(&quot;&#123;root&#125;/scripts/init.sh&quot;)</code><br>执行一个shell脚本。类似于commands，此函数不会有返回值。</p>
-<h2><span id="stopfunction">stop（Function）</span></h2><p><code>stop(&quot;The value should be %s&quot;, expected_value)</code><br>引发异常并阻止继续解析。当检测到无法配置有效环境的错误时，使用它。</p>
-<h2><span id="systemsystem-object">system（System object）</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> system<span class="token punctuation">.</span>platform <span class="token operator">==</span> <span class="token string">"windows"</span><span class="token punctuation">:</span>
+<h2><span id="rootstring">root（String）</span></h2>
+<p><code>this.root</code><br>
+包的安装目录，如果程序包包含变量，则此路径包含变量的子路径。</p>
+<h2><span id="setenvfunction">setenv（Function）</span></h2>
+<p><code>setenv(&quot;FOO_PLUGIN_PATH&quot;, &quot;&#123;root&#125;/plugins&quot;)</code><br>
+将环境变量设置为给定的值。相当于<code>env.FOO = &quot;BAH&quot;</code></p>
+<h2><span id="sourcefunction">source（Function）</span></h2>
+<p><code>source(&quot;&#123;root&#125;/scripts/init.sh&quot;)</code><br>
+执行一个shell脚本。类似于commands，此函数不会有返回值。</p>
+<h2><span id="stopfunction">stop（Function）</span></h2>
+<p><code>stop(&quot;The value should be %s&quot;, expected_value)</code><br>
+引发异常并阻止继续解析。当检测到无法配置有效环境的错误时，使用它。</p>
+<h2><span id="systemsystem-object">system（System object）</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> system<span class="token punctuation">.</span>platform <span class="token operator">==</span> <span class="token string">"windows"</span><span class="token punctuation">:</span>
     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>该对象提供系统信息，比如当前平台，架构或操作系统。<br>查看这个文件可以获取更多信息：<a target="_blank" rel="noopener" href="https://github.com/nerdvegas/rez/blob/master/src/rez/system.py">https://github.com/nerdvegas/rez/blob/master/src/rez/system.py</a></p>
-<h2><span id="testdict-like-object">test（Dict-like object）</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> test<span class="token punctuation">.</span>name <span class="token operator">==</span> <span class="token string">"unit"</span><span class="token punctuation">:</span>
+<p>该对象提供系统信息，比如当前平台，架构或操作系统。<br>
+查看这个文件可以获取更多信息：<a target="_blank" rel="noopener" href="https://github.com/nerdvegas/rez/blob/master/src/rez/system.py">https://github.com/nerdvegas/rez/blob/master/src/rez/system.py</a></p>
+<h2><span id="testdict-like-object">test（Dict-like object）</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> test<span class="token punctuation">.</span>name <span class="token operator">==</span> <span class="token string">"unit"</span><span class="token punctuation">:</span>
     info<span class="token punctuation">(</span><span class="token string">"My unit test is about to run yay"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>这个对象仅在”pre_test_commands”函数中生效。具有以下的字段：</p>
+<p>这个对象仅在&quot;pre_test_commands&quot;函数中生效。具有以下的字段：</p>
 <ul>
-<li>test.name：将要运行的测试名称。</li>
+<li><a target="_blank" rel="noopener" href="http://test.name">test.name</a>：将要运行的测试名称。</li>
 </ul>
-<h2><span id="thispackage-object">this（Package object）</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os<span class="token punctuation">.</span>path
+<h2><span id="thispackage-object">this（Package object）</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os<span class="token punctuation">.</span>path
 env<span class="token punctuation">.</span>PATH<span class="token punctuation">.</span>append<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>this<span class="token punctuation">.</span>root<span class="token punctuation">,</span> <span class="token string">"bin"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>表示当前包，下面是一些常用的命令：</p>
 <ul>
 <li>this.base：类似this.root，返回包路径，不包含子路径。</li>
-<li>this.name：包的名字，比如”houdini”。</li>
+<li><a target="_blank" rel="noopener" href="http://this.name">this.name</a>：包的名字，比如&quot;houdini&quot;。</li>
 <li>this.root：包的安装路径，包含子路径。</li>
 <li>this.version：返回版本对象，可以作为一个字符串使用，也可以访问版本中特定标识（如主要版本号等），演示代码：<code>env.FOO_MAJOR = this.version.major # or, this.version[0]</code></li>
 </ul>
-<h2><span id="undefinedfunction">undefined（Function）</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> undefined<span class="token punctuation">(</span><span class="token string">"REZ_MAYA_VERSION"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<h2><span id="undefinedfunction">undefined（Function）</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> undefined<span class="token punctuation">(</span><span class="token string">"REZ_MAYA_VERSION"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     info<span class="token punctuation">(</span><span class="token string">"maya is not present"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>一个布尔函数，环境变量如果没有被定义则返回True，与defined刚好相反。</p>
-<h2><span id="unsetenvfunction">unsetenv（Function）</span></h2><p><code>unsetenv(&quot;FOO_LIC_SERVER&quot;)</code><br>删除指定的环境变量，如果没有这个环境变量，则该函数不执行任何操作。</p>
-<h2><span id="versionversion-object">version（Version object）</span></h2><p>版本对象。可以见上述的this.version。</p>
+<h2><span id="unsetenvfunction">unsetenv（Function）</span></h2>
+<p><code>unsetenv(&quot;FOO_LIC_SERVER&quot;)</code><br>
+删除指定的环境变量，如果没有这个环境变量，则该函数不执行任何操作。</p>
+<h2><span id="versionversion-object">version（Version object）</span></h2>
+<p>版本对象。可以见上述的this.version。</p>
 
 </div>
 

@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,7 +1268,8 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h2><span id="centos-7安装">CentOS 7安装</span></h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 下载rpm包</span>
+	<h2><span id="centos-7安装">CentOS 7安装</span></h2>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 下载rpm包</span>
 <span class="token function">sudo</span> yum <span class="token function">install</span> -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm  
 
 <span class="token comment"># 安装 PostgreSQL:</span>
@@ -1260,12 +1279,13 @@ var _hmt = _hmt || [];
 <span class="token function">sudo</span> /usr/pgsql-14/bin/postgresql-14-setup initdb  
 <span class="token function">sudo</span> systemctl <span class="token builtin class-name">enable</span> postgresql-14  
 <span class="token function">sudo</span> systemctl start postgresql-14<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="数据库实例">数据库实例</span></h2><p>一个数据库实例对应一个目录，包含相同配置文件和监听端口。</p>
+<h2><span id="数据库实例">数据库实例</span></h2>
+<p>一个数据库实例对应一个目录，包含相同配置文件和监听端口。</p>
 <p>使用<code>initdb</code>会创建一个默认的数据库实例</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> /usr/pgsql-14/bin/postgresql-14-setup initdb <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>位置：<code>\var\lib\pgsql\14\data</code></p>
-<h2><span id="修改postgres账户密码">修改postgres账户密码</span></h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 进入postgres账户</span>
+<h2><span id="修改postgres账户密码">修改postgres账户密码</span></h2>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 进入postgres账户</span>
 <span class="token function">su</span> postgres
 
 <span class="token comment"># 进入psql交互界面</span>
@@ -1276,25 +1296,26 @@ ALTER <span class="token environment constant">USER</span> postgres WITH PASSWOR
 
 <span class="token comment"># 退出</span>
 <span class="token builtin class-name">exit</span> or q<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="开启远程访问">开启远程访问</span></h2><h3><span id="1-开放端口">1. 开放端口</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> firewall-cmd --add-port<span class="token operator">=</span><span class="token number">5432</span>/tcp --permanent
+<h2><span id="开启远程访问">开启远程访问</span></h2>
+<h3><span id="1-开放端口">1. 开放端口</span></h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> firewall-cmd --add-port<span class="token operator">=</span><span class="token number">5432</span>/tcp --permanent
 <span class="token function">sudo</span> firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h3><span id="2改ip绑定">2.改IP绑定</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 修改配置文件</span>
+<h3><span id="2改ip绑定">2.改IP绑定</span></h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 修改配置文件</span>
 <span class="token function">vi</span> /var/lib/pgsql/14/data/postgresql.conf
 
 <span class="token comment"># 将监听地址修改为*</span>
 <span class="token comment"># 默认listen_addresses配置是注释掉的</span>
 <span class="token comment"># 所以可以直接在配置文件开头加入该行</span>
 <span class="token assign-left variable">listen_addresses</span><span class="token operator">=</span><span class="token string">'*'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="3允许所有ip访问">3.允许所有IP访问</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 修改配置文件</span>
+<h3><span id="3允许所有ip访问">3.允许所有IP访问</span></h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 修改配置文件</span>
 <span class="token function">vi</span> /var/lib/pgsql/14/data/pg_hba.conf
 
 <span class="token comment"># 在尾部加入</span>
 <span class="token function">host</span>  all  all <span class="token number">0.0</span>.0.0/0 md5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="4重启postgresql服务">4.重启PostgreSQL服务</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 重启PostgreSQL服务</span>
+<h3><span id="4重启postgresql服务">4.重启PostgreSQL服务</span></h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 重启PostgreSQL服务</span>
 <span class="token function">sudo</span> systemctl restart postgresql-12<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </div>
 

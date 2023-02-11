@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,18 +1268,24 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<p>下载Source code，然后打开终端进入rez-2.75.0目录中：<br><code>python ./install.py</code></p>
-<p>默认会安装到 /opt/rez 中，如果需要安装到其它位置，<br>使用<code>install.py -h</code>查看如何安装。</p>
+	<p>下载Source code，然后打开终端进入rez-2.75.0目录中：<br>
+<code>python ./install.py</code></p>
+<p>默认会安装到 /opt/rez 中，如果需要安装到其它位置，<br>
+使用<code>install.py -h</code>查看如何安装。</p>
 <p>安装成功提示：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">SUCCESS<span class="token operator">!</span> To activate Rez, <span class="token function">add</span> the following path to <span class="token environment constant">$PATH</span><span class="token builtin class-name">:</span>
 /opt/rez/bin/rez
 
 You may also want to <span class="token builtin class-name">source</span> the completion script <span class="token punctuation">(</span>for <span class="token function">bash</span><span class="token punctuation">)</span>:
 <span class="token builtin class-name">source</span> /opt/rez/completion/complete.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>然后添加环境变量，将<code>/opt/rez/bin/rez</code> 添加到$PATH。<br>对于linux系统，可以运行这个脚本使命令能自动补全：<br><code>source /opt/rez/completion/complete.sh</code></p>
-<p>文档中也提到可以用pip进行安装：<br><code>pip install rez</code></p>
-<p>不过这样的安装方式并不能很好的用在生产环境中，因为rez并不只是一个普通的python包。<br>使用install脚本安装是推荐的方法，它可以保证rez独立运行，<br>以保护它免受python行为的环境变量等影响。</p>
+<p>然后添加环境变量，将<code>/opt/rez/bin/rez</code> 添加到$PATH。<br>
+对于linux系统，可以运行这个脚本使命令能自动补全：<br>
+<code>source /opt/rez/completion/complete.sh</code></p>
+<p>文档中也提到可以用pip进行安装：<br>
+<code>pip install rez</code></p>
+<p>不过这样的安装方式并不能很好的用在生产环境中，因为rez并不只是一个普通的python包。<br>
+使用install脚本安装是推荐的方法，它可以保证rez独立运行，<br>
+以保护它免受python行为的环境变量等影响。</p>
 
 </div>
 

@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,17 +1268,24 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h3><span id="callback的应用">callback的应用</span></h3><p>添加在创建节点时，执行的callback</p>
+	<h3><span id="callback的应用">callback的应用</span></h3>
+<p>添加在创建节点时，执行的callback</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
 	<span class="token keyword">print</span> <span class="token string">"this is test"</span>
 
 nuke<span class="token punctuation">.</span>addOnCreate<span class="token punctuation">(</span>test<span class="token punctuation">,</span> nodeClass<span class="token operator">=</span><span class="token string">'Blur'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>执行上述代码，在创建一个Blur节点的时候，就可以看到调用里test函数。</p>
-<p>如果需要传参，可以参照：<br><code>nuke.addOnCreate(callable, args=(), kwargs=&#123;&#125;, nodeClass=&#39;&#39;)</code></p>
-<p>如果要删除callback，使用：<br><code>nuke.removeOnCreate(test, nodeClass=&#39;Blur&#39;)</code></p>
-<p>还有一个方法是:<br><code>nuke.addOnUserCreate()</code><br>和addOnCreate雷同，区别在于<br>前者是节点在被创建时调用(包括加载脚本，粘贴等等)，<br>后者只有在用户使用GUI的时候调用，粘贴或者打开工程是无效的。</p>
-<p><strong>两个例子</strong><br>创建节点时，随机生成颜色的功能。</p>
+<p>如果需要传参，可以参照：<br>
+<code>nuke.addOnCreate(callable, args=(), kwargs=&#123;&#125;, nodeClass='')</code></p>
+<p>如果要删除callback，使用：<br>
+<code>nuke.removeOnCreate(test, nodeClass='Blur')</code></p>
+<p>还有一个方法是:<br>
+<code>nuke.addOnUserCreate()</code><br>
+和addOnCreate雷同，区别在于<br>
+前者是节点在被创建时调用(包括加载脚本，粘贴等等)，<br>
+后者只有在用户使用GUI的时候调用，粘贴或者打开工程是无效的。</p>
+<p><strong>两个例子</strong><br>
+创建节点时，随机生成颜色的功能。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> random
 
 <span class="token keyword">def</span> <span class="token function">randomColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -1273,58 +1298,59 @@ nuke<span class="token punctuation">.</span>addOnCreate<span class="token punctu
 <span class="token comment"># 没有指定class的时候，默认给所有节点添加callback</span>
 nuke<span class="token punctuation">.</span>addOnCreate<span class="token punctuation">(</span>randomColor<span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>创建FrameHold节点后，帧数自动设置为当前帧。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">setFrame</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
   nuke<span class="token punctuation">.</span>thisNode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">"first_frame"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>setValue<span class="token punctuation">(</span>nuke<span class="token punctuation">.</span>frame<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 nuke<span class="token punctuation">.</span>addOnUserCreate<span class="token punctuation">(</span>setFrame<span class="token punctuation">,</span> nodeClass<span class="token operator">=</span><span class="token string">"FrameHold"</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="callback-类型">callback 类型</span></h3><table>
+<h3><span id="callback-类型">callback 类型</span></h3>
+<table>
 <thead>
 <tr>
-<th align="center">Knob</th>
+<th style="text-align:center">Knob</th>
 <th>使用</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">onCreate</td>
+<tbody>
+<tr>
+<td style="text-align:center">onCreate</td>
 <td>节点创建时</td>
 </tr>
 <tr>
-<td align="center">onUserCreate</td>
+<td style="text-align:center">onUserCreate</td>
 <td>用户创建节点时</td>
 </tr>
 <tr>
-<td align="center">onScriptLoad</td>
+<td style="text-align:center">onScriptLoad</td>
 <td>工程文件加载时</td>
 </tr>
 <tr>
-<td align="center">onScriptSave</td>
+<td style="text-align:center">onScriptSave</td>
 <td>工程文件保存时</td>
 </tr>
 <tr>
-<td align="center">beforeRender</td>
+<td style="text-align:center">beforeRender</td>
 <td>渲染前执行</td>
 </tr>
 <tr>
-<td align="center">afterRender</td>
+<td style="text-align:center">afterRender</td>
 <td>渲染后执行</td>
 </tr>
 <tr>
-<td align="center">beforeFrameRender</td>
+<td style="text-align:center">beforeFrameRender</td>
 <td>每一帧的渲染前</td>
 </tr>
 <tr>
-<td align="center">afterFrameRender</td>
+<td style="text-align:center">afterFrameRender</td>
 <td>每一帧的渲染后</td>
 </tr>
 <tr>
-<td align="center">knobChanged</td>
+<td style="text-align:center">knobChanged</td>
 <td>knob被改动后</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p><strong>两个例子</strong></p>
 <p>1.输出前创建文件夹</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">createWriteDir</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -1337,7 +1363,6 @@ nuke<span class="token punctuation">.</span>addOnUserCreate<span class="token pu
 
 nuke<span class="token punctuation">.</span>addBeforeRender<span class="token punctuation">(</span>createWriteDir<span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>2.使用knobChanged关联属性</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">gangGammaGainSliders</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
   n <span class="token operator">=</span> nuke<span class="token punctuation">.</span>thisNode<span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -1349,14 +1374,12 @@ nuke<span class="token punctuation">.</span>addBeforeRender<span class="token pu
 
 nuke<span class="token punctuation">.</span>addKnobChanged<span class="token punctuation">(</span>gangGammaGainSliders<span class="token punctuation">,</span> nodeClass<span class="token operator">=</span><span class="token string">"ColorCorrect"</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>也可以直接修改knobChanged的值</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">nuke<span class="token punctuation">.</span>selectedNode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">"knobChanged"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>setValue<span class="token punctuation">(</span><span class="token triple-quoted-string string">'''
 print "test"
 print 1
 '''</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><strong>重要：</strong> 查看knobChanged的值</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span> nuke<span class="token punctuation">.</span>selectedNode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">"knobChanged"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>

@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,7 +1268,8 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h2><span id="数据库操作">数据库操作</span></h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment"># 创建数据库</span>
+	<h2><span id="数据库操作">数据库操作</span></h2>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment"># 创建数据库</span>
 <span class="token keyword">CREATE</span> <span class="token keyword">DATABASE</span> dbname<span class="token punctuation">;</span>
 
 <span class="token comment"># 列出数据库 list</span>
@@ -1261,8 +1280,9 @@ var _hmt = _hmt || [];
 
 <span class="token comment"># 删除数据库</span>
 <span class="token keyword">DROP</span> <span class="token keyword">DATABASE</span> <span class="token punctuation">[</span><span class="token keyword">IF</span> <span class="token keyword">EXISTS</span><span class="token punctuation">]</span> &#123;database_name&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="表操作">表操作</span></h2><h3><span id="创建表">创建表</span></h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment"># 方法一：使用关键字创建</span>
+<h2><span id="表操作">表操作</span></h2>
+<h3><span id="创建表">创建表</span></h3>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment"># 方法一：使用关键字创建</span>
 <span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> COMPANY<span class="token punctuation">(</span>
    ID <span class="token keyword">INT</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span>     <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment"># 4字节整数类型， 主键， 不能为空</span>
    NAME           <span class="token keyword">TEXT</span>    <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>  <span class="token comment"># 文本类型，不能为空</span>
@@ -1276,32 +1296,36 @@ var _hmt = _hmt || [];
 <span class="token comment"># 方法二：将上述内容写在一个文件中，通过sql文件来创建</span>
 vi db<span class="token punctuation">.</span><span class="token keyword">sql</span>
 \i db<span class="token punctuation">.</span><span class="token keyword">sql</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>常用类型</p>
 <ul>
-<li>数值型<ul>
+<li>数值型
+<ul>
 <li><code>integer</code>  4字节整数类型（范围 2147483648 到 +2147483647）</li>
 <li><code>real</code>        4字节浮点数类型（6 位十进制数字精度）</li>
 <li><code>serial</code>      自增整数类型</li>
 </ul>
 </li>
-<li>文字型<ul>
+<li>文字型
+<ul>
 <li><code>char</code>        字符串类型（缺点：会自动用空格填充到字节限制）</li>
 <li><code>varchar</code>   字符串类型</li>
 <li><code>text</code>         文本类型</li>
 </ul>
 </li>
-<li>布尔型<ul>
+<li>布尔型
+<ul>
 <li><code>boolean</code>   布尔类型（作逻辑删除，数据库不做实际删除）</li>
 </ul>
 </li>
-<li>日期型<ul>
+<li>日期型
+<ul>
 <li><code>date</code>             日期类型</li>
 <li><code>time</code>             时间类型</li>
 <li><code>timestamp</code>   日期类型 + 时间类型</li>
 </ul>
 </li>
-<li>特殊类型<ul>
+<li>特殊类型
+<ul>
 <li><code>Array</code>            数组类型</li>
 <li><code>inet</code>               ip地址</li>
 <li><code>json</code>              json格式</li>
@@ -1310,22 +1334,22 @@ vi db<span class="token punctuation">.</span><span class="token keyword">sql</sp
 </li>
 </ul>
 <p>官方文档关于数据类型：<a target="_blank" rel="noopener" href="https://www.postgresql.org/docs/current/datatype.html">https://www.postgresql.org/docs/current/datatype.html</a></p>
-<h3><span id="查看表">查看表</span></h3><p>这里的查看表并不是查看表的数据，而是查看表的字段和字段详细信息</p>
+<h3><span id="查看表">查看表</span></h3>
+<p>这里的查看表并不是查看表的数据，而是查看表的字段和字段详细信息</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment"># 查看当前数据库表list</span>
 \dt 
 
 <span class="token comment"># 常看指定表</span>
 \d &#123;post_name&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="删除表">删除表</span></h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> &#123;table_name&#125;<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3><span id="添加表约束">添加表约束</span></h3><p>为表的字段添加约束条件</p>
+<h3><span id="删除表">删除表</span></h3>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> &#123;table_name&#125;<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3><span id="添加表约束">添加表约束</span></h3>
+<p>为表的字段添加约束条件</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">not null:     不能为空
 unique：      在所有数据中值必须唯一
 check：       自定义一个check函数
 default：     字段默认值
 primary key： 标识表的主键（一般为id）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>一个添加表的范例（包含一些限制条件和默认值），后续的案例都会用到这个表。</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">table</span> users <span class="token punctuation">(</span>
 	id <span class="token keyword">serial</span> <span class="token keyword">primary</span> <span class="token keyword">key</span> <span class="token keyword">unique</span><span class="token punctuation">,</span>              <span class="token comment"># 设置id字段为主键，且不可重复</span>
@@ -1337,12 +1361,11 @@ primary key： 标识表的主键（一般为id）<span aria-hidden="true" class
 	is_del <span class="token keyword">boolean</span> <span class="token keyword">default</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span>              <span class="token comment"># 设置字段默认值为false</span>
 	created_date <span class="token keyword">timestamp</span> <span class="token keyword">default</span> <span class="token string">'now'</span>       <span class="token comment"># 设置字段默认值为 &#123;当前时间&#125;</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="添加条目-inisert">添加条目 INISERT</span></h3><p>添加条目到表中</p>
+<h3><span id="添加条目-inisert">添加条目 INISERT</span></h3>
+<p>添加条目到表中</p>
 <p>语法</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> TABLE_NAME <span class="token punctuation">(</span>column1<span class="token punctuation">,</span> column2<span class="token punctuation">,</span> column3<span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>columnN<span class="token punctuation">)</span>
 <span class="token keyword">VALUES</span> <span class="token punctuation">(</span>value1<span class="token punctuation">,</span> value2<span class="token punctuation">,</span> value3<span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>valueN<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>示例</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment"># 逐条插入</span>
 <span class="token keyword">insert</span> <span class="token keyword">into</span> users <span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token keyword">values</span> <span class="token punctuation">(</span><span class="token string">'liyc'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1359,8 +1382,8 @@ primary key： 标识表的主键（一般为id）<span aria-hidden="true" class
 
 <span class="token comment"># 查看表条目</span>
 <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="查看条目-select">查看条目 SELECT</span></h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment"># 查看所有</span>
+<h3><span id="查看条目-select">查看条目 SELECT</span></h3>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment"># 查看所有</span>
 <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users<span class="token punctuation">;</span>
 
 <span class="token comment"># 查看指定字段</span>
@@ -1368,8 +1391,8 @@ primary key： 标识表的主键（一般为id）<span aria-hidden="true" class
 
 <span class="token comment"># 切换显示方式，横向/纵向</span>
 \x<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="过滤条件-where">过滤条件 WHERE</span></h3><p>select，update，delete语句都可以使用where语句过滤条件</p>
+<h3><span id="过滤条件-where">过滤条件 WHERE</span></h3>
+<p>select，update，delete语句都可以使用where语句过滤条件</p>
 <p>示例</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">where</span> age <span class="token operator">></span> <span class="token number">20</span><span class="token punctuation">;</span>                 <span class="token comment"># age 字段大于20</span>
 <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">where</span> age <span class="token operator">&lt;</span> <span class="token number">30</span><span class="token punctuation">;</span>                 <span class="token comment"># age 字段小于30</span>
@@ -1378,8 +1401,8 @@ primary key： 标识表的主键（一般为id）<span aria-hidden="true" class
 <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">where</span> department <span class="token operator">!=</span> <span class="token string">'ple'</span><span class="token punctuation">;</span>      <span class="token comment"># department 字段不等于ple</span>
 <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">where</span> name <span class="token operator">like</span> <span class="token string">'zhang%'</span><span class="token punctuation">;</span>       <span class="token comment"># 以zhang开头</span>
 <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">where</span> name <span class="token operator">like</span> <span class="token string">'zhang_'</span><span class="token punctuation">;</span>       <span class="token comment"># 以zhang开头，后面仅一个字符</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="过滤后条目操作">过滤后条目操作</span></h3><p>使用select语句过滤数据后，再对数据进行更多选项操作（如排序，随机抽选）</p>
+<h3><span id="过滤后条目操作">过滤后条目操作</span></h3>
+<p>使用select语句过滤数据后，再对数据进行更多选项操作（如排序，随机抽选）</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment"># order 排序  asc升序  desc降序</span>
 <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">order</span> <span class="token keyword">by</span> age <span class="token keyword">asc</span><span class="token punctuation">;</span>
 <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">order</span> <span class="token keyword">by</span> age <span class="token keyword">desc</span><span class="token punctuation">;</span>
@@ -1395,8 +1418,8 @@ primary key： 标识表的主键（一般为id）<span aria-hidden="true" class
 <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">order</span> <span class="token keyword">by</span> age <span class="token keyword">desc</span> <span class="token keyword">limit</span> <span class="token number">3</span> <span class="token keyword">offset</span> <span class="token number">1</span><span class="token punctuation">;</span>
 <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">order</span> <span class="token keyword">by</span> age <span class="token keyword">desc</span> <span class="token keyword">limit</span> <span class="token number">3</span> <span class="token keyword">offset</span> <span class="token number">2</span><span class="token punctuation">;</span>
 <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">order</span> <span class="token keyword">by</span> age <span class="token keyword">desc</span> <span class="token keyword">limit</span> <span class="token number">3</span> <span class="token keyword">offset</span> <span class="token number">3</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="过滤后条目计算">过滤后条目计算</span></h3><ul>
+<h3><span id="过滤后条目计算">过滤后条目计算</span></h3>
+<ul>
 <li><code>distinct</code> 去重</li>
 <li><code>sum</code>  加计算</li>
 <li><code>max/ min</code> 找最大/最小</li>
@@ -1421,8 +1444,8 @@ primary key： 标识表的主键（一般为id）<span aria-hidden="true" class
 
 <span class="token comment"># 以department来分组，组内salary的最大值如果不大于5000，过滤掉</span>
 <span class="token keyword">select</span> department<span class="token punctuation">,</span> <span class="token function">max</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span> <span class="token keyword">from</span> users <span class="token keyword">group</span> <span class="token keyword">by</span> department <span class="token keyword">having</span> <span class="token function">max</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">5000</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="常用函数">常用函数</span></h3><ul>
+<h3><span id="常用函数">常用函数</span></h3>
+<ul>
 <li><code>length</code> 长度</li>
 <li><code>concat</code> 连接字符串</li>
 <li><code>alias</code> 别名</li>
@@ -1455,15 +1478,14 @@ primary key： 标识表的主键（一般为id）<span aria-hidden="true" class
 
 <span class="token comment"># 随机对表排序，抽出前三个值</span>
 <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> users <span class="token keyword">order</span> <span class="token keyword">by</span> random<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">limit</span> <span class="token number">3</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="表条目更新和删除">表条目更新和删除</span></h3><ul>
+<h3><span id="表条目更新和删除">表条目更新和删除</span></h3>
+<ul>
 <li><code>update</code> 更新</li>
 <li><code>delete</code> 删除</li>
 </ul>
 <p>语法：</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">update</span> <span class="token punctuation">[</span><span class="token keyword">table</span><span class="token punctuation">]</span> <span class="token keyword">set</span> <span class="token punctuation">[</span>field<span class="token operator">=</span>newvalue<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span> <span class="token keyword">where</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 <span class="token keyword">delete</span> <span class="token keyword">from</span> <span class="token punctuation">[</span><span class="token keyword">table</span><span class="token punctuation">]</span> <span class="token keyword">where</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>示例：</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment"># 更新name=liyc的信息</span>
 <span class="token keyword">update</span> users <span class="token keyword">set</span> age <span class="token operator">=</span> <span class="token number">18</span><span class="token punctuation">,</span> salary<span class="token operator">=</span><span class="token number">1950.2</span><span class="token punctuation">,</span> department<span class="token operator">=</span><span class="token string">'lay'</span> <span class="token keyword">where</span> name <span class="token operator">=</span> <span class="token string">'liyc'</span><span class="token punctuation">;</span>
@@ -1476,8 +1498,8 @@ primary key： 标识表的主键（一般为id）<span aria-hidden="true" class
 
 <span class="token comment"># 删除年龄大于50的user</span>
 <span class="token keyword">delete</span> <span class="token keyword">from</span> users <span class="token keyword">where</span> age <span class="token operator">></span> <span class="token number">50</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="变更表结构">变更表结构</span></h3><ul>
+<h3><span id="变更表结构">变更表结构</span></h3>
+<ul>
 <li><code>alter</code> 增删或修改字段</li>
 <li><code>create index</code> 创建索引</li>
 <li><code>drop index</code> 删除索引</li>
@@ -1500,8 +1522,8 @@ primary key： 标识表的主键（一般为id）<span aria-hidden="true" class
 
 <span class="token comment"># 删除索引</span>
 <span class="token keyword">drop</span> <span class="token keyword">index</span> name_index<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="操作多个表">操作多个表</span></h3><p>对多个表的数据进行组合，关联查询</p>
+<h3><span id="操作多个表">操作多个表</span></h3>
+<p>对多个表的数据进行组合，关联查询</p>
 <p>为方便示例先新建一个表，并添加一些数据：</p>
 <p>（这个数据是用户的提交描述）</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">table</span> notes <span class="token punctuation">(</span>
@@ -1521,7 +1543,6 @@ primary key： 标识表的主键（一般为id）<span aria-hidden="true" class
 <span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token string">'修改test文件，并提交'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
 <span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token string">'提交了modu_rig文件v005'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
 <span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token string">'整理文件'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>示例：</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment"># users表的name，和notes表的content根据user_id关联，然后取出</span>
 <span class="token keyword">select</span> users<span class="token punctuation">.</span>name<span class="token punctuation">,</span> notes<span class="token punctuation">.</span>content <span class="token keyword">from</span> users<span class="token punctuation">,</span> notes <span class="token keyword">where</span> users<span class="token punctuation">.</span>id <span class="token operator">=</span> notes<span class="token punctuation">.</span>user_id<span class="token punctuation">;</span>
@@ -1531,8 +1552,8 @@ primary key： 标识表的主键（一般为id）<span aria-hidden="true" class
 
 <span class="token comment"># 只提出user_id=1的notes</span>
 <span class="token keyword">select</span> u<span class="token punctuation">.</span><span class="token string">"中文名"</span><span class="token punctuation">,</span> n<span class="token punctuation">.</span>content <span class="token keyword">from</span> users <span class="token keyword">as</span> u<span class="token punctuation">,</span> notes <span class="token keyword">as</span> n <span class="token keyword">where</span> u<span class="token punctuation">.</span>id <span class="token operator">=</span> n<span class="token punctuation">.</span>user_id <span class="token operator">and</span> u<span class="token punctuation">.</span>id<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="视图">视图</span></h2><ul>
+<h2><span id="视图">视图</span></h2>
+<ul>
 <li>create view</li>
 <li>drop view</li>
 </ul>
@@ -1553,8 +1574,8 @@ primary key： 标识表的主键（一般为id）<span aria-hidden="true" class
 
 <span class="token comment"># 删除视图</span>
 <span class="token keyword">drop</span> <span class="token keyword">view</span> zhangly_notes<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="事务">事务</span></h2><ul>
+<h2><span id="事务">事务</span></h2>
+<ul>
 <li><code>begin</code>       开始事务</li>
 <li><code>commit</code>     提交事务</li>
 <li><code>rollback</code>   回滚事务</li>
@@ -1579,9 +1600,8 @@ primary key： 标识表的主键（一般为id）<span aria-hidden="true" class
 <span class="token keyword">update</span> users <span class="token keyword">set</span> department <span class="token operator">=</span> <span class="token string">'ani'</span> <span class="token keyword">where</span> name <span class="token operator">=</span> <span class="token string">'yanyan'</span><span class="token punctuation">;</span>
 <span class="token keyword">update</span> users <span class="token keyword">set</span> department <span class="token operator">=</span> <span class="token string">'cfx'</span> <span class="token keyword">where</span> name <span class="token operator">=</span> <span class="token string">'liyc'</span><span class="token punctuation">;</span>
 <span class="token keyword">rollback</span><span class="token punctuation">;</span> <span class="token comment">//回滚到事务开始，也就是删除上述的预更新</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h2><span id="备份和恢复">备份和恢复</span></h2><ul>
+<h2><span id="备份和恢复">备份和恢复</span></h2>
+<ul>
 <li><code>pg_dump</code> 备份单个数据库</li>
 <li><code>pg_dumpall</code> 备份所有数据库</li>
 <li><code>pg_restore</code> 恢复数据库</li>
@@ -1602,8 +1622,8 @@ psql -f /tmp/mydb.bak mydb
 <span class="token comment"># 对于tar压缩格式</span>
 pg_restore /tmp/mydb.tar -d mydb
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="用户操作">用户操作</span></h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment"># 创建用户</span>
+<h2><span id="用户操作">用户操作</span></h2>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment"># 创建用户</span>
 <span class="token keyword">create</span> <span class="token keyword">user</span> test <span class="token keyword">with</span> password <span class="token string">'test'</span><span class="token punctuation">;</span>
 
 <span class="token comment"># 删除用户，删除之前要释放所有权限</span>
@@ -1614,16 +1634,18 @@ pg_restore /tmp/mydb.tar -d mydb
 
 <span class="token comment"># 查看用户表</span>
 <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> pg_user<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="配置文件">配置文件</span></h2><p>配置文件路径：<code>C:\Program Files\PostgreSQL\14\data\postgresql.conf</code><br>和<code>C:\Program Files\PostgreSQL\14\data\pg_hba.conf</code></p>
-<h2><span id="权限">权限</span></h2><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment"># 使用管理员账户进入数据库进行给予</span>
+<h2><span id="配置文件">配置文件</span></h2>
+<p>配置文件路径：<code>C:\Program Files\PostgreSQL\14\data\postgresql.conf</code><br>
+和<code>C:\Program Files\PostgreSQL\14\data\pg_hba.conf</code></p>
+<h2><span id="权限">权限</span></h2>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment"># 使用管理员账户进入数据库进行给予</span>
 \c mydb<span class="token punctuation">;</span>
 <span class="token keyword">grant</span> <span class="token keyword">all</span> <span class="token keyword">privileges</span> <span class="token keyword">on</span> <span class="token keyword">all</span> <span class="token keyword">tables</span> <span class="token operator">in</span> <span class="token keyword">schema</span> <span class="token keyword">public</span> <span class="token keyword">to</span> test<span class="token punctuation">;</span>
 
 <span class="token comment"># 删除权限</span>
 <span class="token keyword">revoke</span> <span class="token keyword">all</span> <span class="token keyword">privileges</span> <span class="token keyword">on</span> <span class="token keyword">all</span> <span class="token keyword">tables</span> <span class="token operator">in</span> <span class="token keyword">schema</span> <span class="token keyword">public</span> <span class="token keyword">from</span> test<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="角色管理">角色管理</span></h2><p>角色和用户的不同是，角色不带有登录属性。</p>
+<h2><span id="角色管理">角色管理</span></h2>
+<p>角色和用户的不同是，角色不带有登录属性。</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment"># 创建一个角色</span>
 <span class="token keyword">create</span> role &#123;name&#125;<span class="token punctuation">;</span>
 

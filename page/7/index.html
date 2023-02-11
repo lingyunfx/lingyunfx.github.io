@@ -241,6 +241,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -769,6 +778,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1209,20 +1227,104 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
+			<a href="/15%20rez-package-caching/">
+				<h2 class="index-title">
+					15 Package Caching
+				</h2>
+				<div class="index-brief">
+					概述
+软件包缓存（Package Caching）是一个将包复制到本地磁盘加快运行环境的功能。
+比如你发布的包通常是在共享服务器上，那么运行python进程时，就会从共享存储上获取所有源码。缓存的意义在于将这些内容复制到本地，节省访问网络的时间成本。
+启用缓存
+软件包缓存功能不是默认启用的。要启用它
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-03-15</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/14%20rez-copying-package/">
+				<h2 class="index-title">
+					14 Copying Packages
+				</h2>
+				<div class="index-brief">
+					概述
+包可以从一个库复制到另一个库，就像这样。
+使用命令：
+]$ rez-cp --dest-path /svr/packages2 my_pkg-1.2.3
+使用API：
+>>> from rez.package_copy import copy_package
+>>> from rez.pack
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-03-15</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/13%20rez-building-package/">
 				<h2 class="index-title">
 					13 Building Packages
 				</h2>
 				<div class="index-brief">
-					概述rez包可以使用rez-build工具来构建和本地安装。这个工具有以下操作：
+					概述
+rez包可以使用rez-build工具来构建和本地安装。这个工具有以下操作：
 
 遍历一个包的变体
 构建环境
 在此环境中运行构建系统
 
-每一个构建都来自构建的目录路径。（通常是构建的子目录或构建下的变体特定子目录）例如一个包含两个基本python变体的程序包：
+每一个构建都来自构建的目录路径。（通常是构建的子目录或构建下的变体特定子目录）
+例如一个包含两个基本python变体的程序包：
 +- package.py
-+- C
++-
 					...
 				</div>
 			</a>
@@ -1258,11 +1360,12 @@ var _hmt = _hmt || [];
 					12 Suites
 				</h2>
 				<div class="index-brief">
-					概述假设你希望为你的用户提供一些不同的工具，尽管这些工具需要在不同的环境中运行。
+					概述
+假设你希望为你的用户提供一些不同的工具，尽管这些工具需要在不同的环境中运行。
 例如你希望工作室的艺术家能够从命令行运行maya和nuke，而不需要考虑它们的环境。
 为了达到这样的需求，你会创建两个context：maya.rxt和nuke.rxt。
 首先运行maya：
-]$ rez-env --
+]$ rez-env -
 					...
 				</div>
 			</a>
@@ -1298,8 +1401,10 @@ var _hmt = _hmt || [];
 					11 Bundles
 				</h2>
 				<div class="index-brief">
-					概述Bundle是一个包含context文件和程序包仓库的目录。  
-context中的所有包都在存储库中，这使得bundle是可移动和独立的。通过命令创建一个bundle：
+					概述
+Bundle是一个包含context文件和程序包仓库的目录。
+context中的所有包都在存储库中，这使得bundle是可移动和独立的。
+通过命令创建一个bundle：
 ]$ rez-env foo -o foo.rxt
 ]$ rez-bundle foo.rxt ./mybundle
 
@@ -1339,13 +1444,16 @@ context中的所有包都在存储库中，这使得bundle是可移动和独立�
 					10 Contexts
 				</h2>
 				<div class="index-brief">
-					概述当使用rez-env创建解析环境时，实际上是创建了一个称为context的东西。一个context存储的信息包括：
+					概述
+当使用rez-env创建解析环境时，实际上是创建了一个称为context的东西。
+一个context存储的信息包括：
 
 初始程序包请求列表
 被选择的变体列表
 一个直观显示解析的图表
 
-context不存储解析到的程序包副本，而是为每个包存储一种句柄，它提供了足够的信息来知道从哪里获取完整的包定义和
+context不存储解析到的程序包副本，而是为每个包存储一种句柄，
+它提供了足够的信息来知道从哪里获取完整的包
 					...
 				</div>
 			</a>
@@ -1381,10 +1489,14 @@ context不存储解析到的程序包副本，而是为每个包存储一种句�
 					09 Ephemeral Packages
 				</h2>
 				<div class="index-brief">
-					概述于2.71.0版本中引入。
-临时包（Ephemeral Packages）是对不存在的包的请求。包名称以.开头，和其它的软件包请求类似，可以作为变体列表的一部分来请求，或者直接用rez-env命令进行请求。下面是一个例子：
+					概述
+于2.71.0版本中引入。
+临时包（Ephemeral Packages）是对不存在的包的请求。
+包名称以.开头，和其它的软件包请求类似，可以作为变体列表的一部分来请求，
+或者直接用rez-env命令进行请求。
+下面是一个例子：
 ]$ rez-env .foo-1
-You are now in a r
+You are now in
 					...
 				</div>
 			</a>
@@ -1420,9 +1532,12 @@ You are now in a r
 					08 Variants
 				</h2>
 				<div class="index-brief">
-					概述rez的包可以包含不同的变体（variant），可以把它看作同一个包版本的不同变种。每个变体都有一个或多个相对于当前包不同的依赖关系。
+					概述
+rez的包可以包含不同的变体（variant），可以把它看作同一个包版本的不同变种。
+每个变体都有一个或多个相对于当前包不同的依赖关系。
 假定一个场景来说明变体的使用：
-有一个maya插件my_maya_plugin，公司有两个maya版本分别为2016-sp2和2017。如果你的插件已经编译，而
+有一个maya插件my_maya_plugin，公司有两个maya版本分别为2016-sp2和2017。
+如果你的插件已经编
 					...
 				</div>
 			</a>
@@ -1458,9 +1573,11 @@ You are now in a r
 					07 Package Definition Guide
 				</h2>
 				<div class="index-brief">
-					概述软件包的定义来自文件（package.py），位于每个包安装的根目录下。比如包的存储位置为/packages/inhouse，则包”foo-1.0.0”的定义文件路径是：/packages/inhouse/foo/1.0.0/package.py
-这里是一个定义文件的例子：
-name = 'se
+					概述
+软件包的定义来自文件（package.py），位于每个包安装的根目录下。
+比如包的存储位置为/packages/inhouse，则包&quot;foo-1.0.0&quot;的定义文件路径是：
+/packages/inhouse/foo/1.0.0/package.py
+这里是一个定义文件的例
 					...
 				</div>
 			</a>
@@ -1496,90 +1613,12 @@ name = 'se
 					06 Package Commands
 				</h2>
 				<div class="index-brief">
-					概述程序包定义文件（package.py）通常定义命令的部分。这是一个例子，用于确定如何配置环境和软件包的Python函数：
+					概述
+程序包定义文件（package.py）通常定义命令的部分。
+这是一个例子，用于确定如何配置环境和软件包的Python函数：
 def commands():
   env.PYTHONPATH.append("&#123;root&#125;/python")
-  env.PATH.append("&
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-03-15</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/05%20rez-configuring/">
-				<h2 class="index-title">
-					05 Configuring Rez
-				</h2>
-				<div class="index-brief">
-					概述Rez具有大量可配置的设置。可以在这里找到设置的默认值和每个设置的释义。最终的设置通过以下方式确定：
-
-首先在Rez安装文件中的rezconfig.py读取设置
-
-如果REZ_CONFIG_FILE环境变量指向另一个文件，则设置被覆盖（变量也可以是一个文件夹路径，从而读取多个配置文件）
-
-如果$
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-03-15</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/01%20rez-home/">
-				<h2 class="index-title">
-					01 Home
-				</h2>
-				<div class="index-brief">
-					什么是RezRez是一个跨平台程序包管理器，它可以给程序配置独立的环境。与其它程序包环境管理不同的是，所有的程序包的安装都在一个中央统一的位置，每个独立环境只是引用了这些包。所以它的环境配置是轻量级的，尽管有几百个包，通常也只需要几秒就可以进行配置。
-
-基本原理Rez获取一个包的请求列表，然后构建目
+  env.PATH.append(
 					...
 				</div>
 			</a>
@@ -1612,7 +1651,7 @@ def commands():
 	
 	<div id="index-paginator">
 		
-			<a class="extend prev" rel="prev" href="/page/6/">&lt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/8/">&gt;</a>
+			<a class="extend prev" rel="prev" href="/page/6/">&lt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/8/">&gt;</a>
 		
 	</div>
 </div>

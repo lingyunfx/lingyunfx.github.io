@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,7 +1268,8 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h3><span id="节点动画操作">节点动画操作</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 设置为可key帧状态</span>
+	<h3><span id="节点动画操作">节点动画操作</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 设置为可key帧状态</span>
 node <span class="token operator">=</span> nuke<span class="token punctuation">.</span>toNode<span class="token punctuation">(</span><span class="token string">"Blur1"</span><span class="token punctuation">)</span>
 knob <span class="token operator">=</span> node<span class="token punctuation">[</span><span class="token string">"size"</span><span class="token punctuation">]</span>
 knob<span class="token punctuation">.</span>setAnimated<span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -1288,8 +1307,8 @@ nuke<span class="token punctuation">.</span>toNode<span class="token punctuation
   i<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
   knob<span class="token punctuation">.</span>deleteAnimation<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="表达式操作">表达式操作</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 属性是否存在表达式</span>
+<h3><span id="表达式操作">表达式操作</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 属性是否存在表达式</span>
 knob2 <span class="token operator">=</span> nuke<span class="token punctuation">.</span>toNode<span class="token punctuation">(</span><span class="token string">"Blur2"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">"size"</span><span class="token punctuation">]</span>
 <span class="token keyword">print</span> knob2<span class="token punctuation">.</span>hasExpression<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
@@ -1297,8 +1316,8 @@ knob2 <span class="token operator">=</span> nuke<span class="token punctuation">
 <span class="token keyword">for</span> i <span class="token keyword">in</span> knob2<span class="token punctuation">.</span>animations<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
   knob2<span class="token punctuation">.</span>deleteAnimation<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="将表达式烘培成关键帧">将表达式烘培成关键帧</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">node <span class="token operator">=</span> nuke<span class="token punctuation">.</span>selectedNode<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<h3><span id="将表达式烘培成关键帧">将表达式烘培成关键帧</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">node <span class="token operator">=</span> nuke<span class="token punctuation">.</span>selectedNode<span class="token punctuation">(</span><span class="token punctuation">)</span>
 first <span class="token operator">=</span> <span class="token number">1</span>
 last <span class="token operator">=</span> <span class="token number">100</span>
 

@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,14 +1268,18 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h1><span id="概述">概述</span></h1><p>当使用<code>rez-env</code>创建解析环境时，实际上是创建了一个称为context的东西。<br>一个context存储的信息包括：</p>
+	<h1><span id="概述">概述</span></h1>
+<p>当使用<code>rez-env</code>创建解析环境时，实际上是创建了一个称为context的东西。<br>
+一个context存储的信息包括：</p>
 <ul>
 <li>初始程序包请求列表</li>
 <li>被选择的变体列表</li>
 <li>一个直观显示解析的图表</li>
 </ul>
-<p>context不存储解析到的程序包副本，而是为每个包存储一种句柄，<br>它提供了足够的信息来知道从哪里获取完整的包定义和内容。</p>
-<p>context本身非常小，以json格式存储在一个rxt文件中。<br>当你使用rez-env时，它实际在磁盘上创建了一个临时的context文件，直到shell退出时这个文件就会被删除。</p>
+<p>context不存储解析到的程序包副本，而是为每个包存储一种句柄，<br>
+它提供了足够的信息来知道从哪里获取完整的包定义和内容。</p>
+<p>context本身非常小，以json格式存储在一个rxt文件中。<br>
+当你使用rez-env时，它实际在磁盘上创建了一个临时的context文件，直到shell退出时这个文件就会被删除。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-env foo bah
 
 You are now <span class="token keyword">in</span> a rez-configured environment.
@@ -1276,10 +1298,9 @@ bah-4     /packages/inhouse/bah/4
 
 <span class="token operator">></span> <span class="token punctuation">]</span>$ <span class="token builtin class-name">echo</span> <span class="token variable">$REZ_RXT_FILE</span>
 /tmp/rez_context_0tMS4U/context.rxt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1><span id="解析存储">解析存储</span></h1><p>可以使用<code>rez-env —output</code>将解析后的context直接写入文件。</p>
+<h1><span id="解析存储">解析存储</span></h1>
+<p>可以使用<code>rez-env —output</code>将解析后的context直接写入文件。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">]</span>$ rez-env foo bah --output test.rxt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>之后你可以这样读取context文件，重新构建同样的环境。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-env --input test.rxt
 
@@ -1298,10 +1319,14 @@ foo-1.2   /packages/inhouse/foo/1.2
 bah-4     /packages/inhouse/bah/4
 
 <span class="token operator">></span> <span class="token punctuation">]</span>$ █<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>context并不存储配置环境的副本（比如导出的环境变量等）。context只存储为了配置环境而需要的程序包解析列表。<br>当使用<code>rez-env —input</code>加载一个环境时，每个包的command部分都会被解释一遍。</p>
-<p>你可以把包的command看作配置环境时的脚本片段。通过创建一个context，你就创建了一个脚本片段列表，<br>当这些片段连续运行时，就产生了目标环境。</p>
-<h1><span id="rez-context工具">rez-context工具</span></h1><p><code>rez-context</code>可以检查context文件。当已经在一个解析后的shell中，运行这个命令会进行检查。<br>除非在参数后明确指定了要检查哪一个context文件，默认都是检查当前环境。<br>这个例子就是指定context文件检查：</p>
+<p>context并不存储配置环境的副本（比如导出的环境变量等）。context只存储为了配置环境而需要的程序包解析列表。<br>
+当使用<code>rez-env —input</code>加载一个环境时，每个包的command部分都会被解释一遍。</p>
+<p>你可以把包的command看作配置环境时的脚本片段。通过创建一个context，你就创建了一个脚本片段列表，<br>
+当这些片段连续运行时，就产生了目标环境。</p>
+<h1><span id="rez-context工具">rez-context工具</span></h1>
+<p><code>rez-context</code>可以检查context文件。当已经在一个解析后的shell中，运行这个命令会进行检查。<br>
+除非在参数后明确指定了要检查哪一个context文件，默认都是检查当前环境。<br>
+这个例子就是指定context文件检查：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-context test.rxt
 
 resolved by ajohns@14jun01.methodstudios.com, on Wed Oct <span class="token number">22</span> <span class="token number">12</span>:44:00 <span class="token number">2014</span>,

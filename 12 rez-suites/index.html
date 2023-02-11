@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,33 +1268,30 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h1><span id="概述">概述</span></h1><p>假设你希望为你的用户提供一些不同的工具，尽管这些工具需要在不同的环境中运行。</p>
+	<h1><span id="概述">概述</span></h1>
+<p>假设你希望为你的用户提供一些不同的工具，尽管这些工具需要在不同的环境中运行。</p>
 <p>例如你希望工作室的艺术家能够从命令行运行maya和nuke，而不需要考虑它们的环境。</p>
 <p>为了达到这样的需求，你会创建两个context：maya.rxt和nuke.rxt。</p>
 <p>首先运行maya：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-env --input maya.rxt -- maya<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>然后你可以将这个命令包装在一个脚本中，而这个脚本被称为maya：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token shebang important">#!/bin/bash</span>
 rez-env --input maya.rxt -- maya <span class="token variable">$*</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>现在，你把它放在$PATH里，并对nuke也是同样的做法。</p>
-<p>那么这个是你的用户就可以从输入maya这个命令来运行这些应用程序，而不需要直到这背后发生来什么。<br>简而言之，这就是suites的意义，可以理解为包装，包含一组context以及运行工具的脚本。</p>
-<h1><span id="rez-suite命令">rez-suite命令</span></h1><p>同样还是上述的例子，这里使用rez-suite工具来完成。</p>
+<p>那么这个是你的用户就可以从输入maya这个命令来运行这些应用程序，而不需要直到这背后发生来什么。<br>
+简而言之，这就是suites的意义，可以理解为包装，包含一组context以及运行工具的脚本。</p>
+<h1><span id="rez-suite命令">rez-suite命令</span></h1>
+<p>同样还是上述的例子，这里使用rez-suite工具来完成。</p>
 <p>首先我们创建一个suite，命令将在当前工作目录下创建一个名为mysuite的文件夹。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-suite --create mysuite<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>现在我们需要向我们的suite添加context，首先创建context：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-env maya-2016.2 --output maya.rxt
 <span class="token punctuation">]</span>$ rez-env nuke --output nuke.rxt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>然后将这些context添加到suite里：（注意 <em>—context</em> 的参数只需要给予其名称）</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-suite --add maya.rxt --context maya mysuite
 <span class="token punctuation">]</span>$ rez-suite --add nuke.rxt --context nuke mysuite<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>现在suite已经创建完成，下面将它添加到$PATH中：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ <span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">pwd</span><span class="token variable">)</span></span>/mysuite/bin:<span class="token environment constant">$PATH</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>现在你可以看到它了：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ <span class="token function">which</span> maya
 ./mysuite/bin/maya
@@ -1284,23 +1299,25 @@ rez-env --input maya.rxt -- maya <span class="token variable">$*</span><span ari
 <span class="token punctuation">]</span>$ <span class="token function">ls</span> ./mysuite/bin
 maya
 nuke<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1><span id="suite工具">Suite工具</span></h1><p>Suite中context的工具由包的tools属性决定：</p>
+<h1><span id="suite工具">Suite工具</span></h1>
+<p>Suite中context的工具由包的tools属性决定：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># in maya package.py</span>
 tools <span class="token operator">=</span> <span class="token punctuation">[</span>
     <span class="token string">"maya"</span><span class="token punctuation">,</span>
     <span class="token string">"mayapy"</span><span class="token punctuation">,</span>
     <span class="token string">"fcheck"</span>
 <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>所有这些工具都在suite中使用（你可以使用 rez-suite —hide来隐藏某个项）。<br>只有在context请求中列出的包，且不是弱请求或有冲突的请求，工具才会暴露有效。</p>
-<p>而作为依赖关系拉进来的包则不会暴露。如果你需要控制一个不在请求中的软件包版本，<br>不用添加它的命令行工具，只需要将其添加到请求列表的弱引用。</p>
-<h2><span id="工具别名">工具别名</span></h2><p>工具可以使用别名，比如这里将一个新版本的maya添加到suite中。</p>
+<p>所有这些工具都在suite中使用（你可以使用 rez-suite —hide来隐藏某个项）。<br>
+只有在context请求中列出的包，且不是弱请求或有冲突的请求，工具才会暴露有效。</p>
+<p>而作为依赖关系拉进来的包则不会暴露。如果你需要控制一个不在请求中的软件包版本，<br>
+不用添加它的命令行工具，只需要将其添加到请求列表的弱引用。</p>
+<h2><span id="工具别名">工具别名</span></h2>
+<p>工具可以使用别名，比如这里将一个新版本的maya添加到suite中。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">]</span>$ rez-env maya-2017 --output maya2017.rxt
 <span class="token punctuation">]</span>$ rez-suite --add maya2017.rxt --context maya2017 mysuite
 <span class="token punctuation">]</span>$ rez-suite --suffix _beta --context maya2017 mysuite<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="控制参数">控制参数</span></h2><p>当使用suite里的工具时，所有参数都会按预期传递给底层工具。不过例外是，rez提供了一组控制参数，这些参数以+/++为前缀。这些是可感知套件参数。你可以使用+h/++help来获取它们：</p>
+<h2><span id="控制参数">控制参数</span></h2>
+<p>当使用suite里的工具时，所有参数都会按预期传递给底层工具。不过例外是，rez提供了一组控制参数，这些参数以+/++为前缀。这些是可感知套件参数。你可以使用+h/++help来获取它们：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ maya ++help
 usage: maya <span class="token punctuation">[</span>+h<span class="token punctuation">]</span> <span class="token punctuation">[</span>+a<span class="token punctuation">]</span> <span class="token punctuation">[</span>+i<span class="token punctuation">]</span> <span class="token punctuation">[</span>+p <span class="token punctuation">[</span>PKG <span class="token punctuation">[</span>PKG <span class="token punctuation">..</span>.<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>++versions<span class="token punctuation">]</span>
             <span class="token punctuation">[</span>++command COMMAND <span class="token punctuation">[</span>ARG <span class="token punctuation">..</span>.<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>++stdin<span class="token punctuation">]</span> <span class="token punctuation">[</span>++strict<span class="token punctuation">]</span> <span class="token punctuation">[</span>++nl<span class="token punctuation">]</span>
@@ -1326,14 +1343,12 @@ optional arguments:
   ++verbose             verbose mode, repeat for more verbosity
   ++quiet               hide welcome message when entering interactive mode
   ++no-rez-args         pass all args to the tool, even if they start with '</span>+'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>例如，查看suite中maya工具的相关信息：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ maya ++about
 Tool:     maya
 Path:     ./mysuite/bin/maya
 Suite:    ./mysuite
 Context:  ./mysuite/contexts/maya2016.rxt <span class="token punctuation">(</span><span class="token string">'maya2016'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><strong>提示</strong>：如果目标工具也使用+作为自己的参数，那么可以使用rez对其前缀字符修改。</p>
 <p>参考 <code>rez-suite —prefix-char</code>选项。</p>
 

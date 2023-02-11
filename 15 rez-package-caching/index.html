@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,13 +1268,16 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h1><span id="概述">概述</span></h1><p>软件包缓存（Package Caching）是一个将包复制到本地磁盘加快运行环境的功能。</p>
+	<h1><span id="概述">概述</span></h1>
+<p>软件包缓存（Package Caching）是一个将包复制到本地磁盘加快运行环境的功能。</p>
 <p>比如你发布的包通常是在共享服务器上，那么运行python进程时，就会从共享存储上获取所有源码。缓存的意义在于将这些内容复制到本地，节省访问网络的时间成本。</p>
-<h1><span id="启用缓存">启用缓存</span></h1><p>软件包缓存功能不是默认启用的。要启用它，需要配置<code>cache_packages_path</code>来指定缓存的路径。</p>
-<p>你也可以细致的控制哪些包是需要被缓存的，只需要在它的定义文件（package.py）设置<code>cachable = True</code> 。我们需要单独控制哪些包是可以被缓存的，因为某些编译后的包无法支持重定向（即缓存到本地会丢失作用）。</p>
+<h1><span id="启用缓存">启用缓存</span></h1>
+<p>软件包缓存功能不是默认启用的。要启用它，需要配置<code>cache_packages_path</code>来指定缓存的路径。</p>
+<p>你也可以细致的控制哪些包是需要被缓存的，只需要在它的定义文件（<a target="_blank" rel="noopener" href="http://package.py">package.py</a>）设置<code>cachable = True</code> 。我们需要单独控制哪些包是可以被缓存的，因为某些编译后的包无法支持重定向（即缓存到本地会丢失作用）。</p>
 <p>还有一些配置会在包没有设置<code>cachable=True</code>的情况下缓存包。比如<code>dedefault_cachable</code>，<code>default_cachable_per_package</code> 和<code>default_cachable_per_repository</code>。</p>
 <p><strong>Notes</strong>：你也可以使用<code>rez-env --no-pkg-caching</code>来禁用包缓存。</p>
-<h1><span id="验证">验证</span></h1><p>当你解析一个环境后，可以通过<code>rez-context</code>输出的右侧栏中看到缓存标签，查看哪些变体已经被缓存。如下所示：</p>
+<h1><span id="验证">验证</span></h1>
+<p>当你解析一个环境后，可以通过<code>rez-context</code>输出的右侧栏中看到缓存标签，查看哪些变体已经被缓存。如下所示：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-env Flask
 
 You are now <span class="token keyword">in</span> a rez-configured environment.
@@ -1277,16 +1298,17 @@ click-7.1.2         /home/ajohns/package_cache/click/7.1.2/0da2/a               
 itsdangerous-1.1.0  /home/ajohns/package_cache/itsdangerous/1.1.0/b23f/a                              <span class="token punctuation">(</span>cached<span class="token punctuation">)</span>
 platform-linux      /home/ajohns/package_cache/platform/linux/9d4d/a                                  <span class="token punctuation">(</span>cached<span class="token punctuation">)</span>
 python-3.7.4        /home/ajohns/package_cache/python/3.7.4/ce1c/a<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>对于引用，缓存的包也会将其原始的位置存储到一个环境变量中：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ <span class="token builtin class-name">echo</span> <span class="token variable">$REZ_FLASK_ORIG_ROOT</span>
 /svr/packages/Flask/1.1.2/88a70aca30cb79a278872594adf043dc6c40af99<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h1><span id="工作原理">工作原理</span></h1><p>包缓存实际上缓存的是变体，而不是整个包。当你执行环境解析的时候，或者source一些存在的context时，所需的变体会被异步复制到本地磁盘（如果它们是可缓存的），在一个单独的进程中，进程名为<code>rez-pkg-cache</code>。</p>
+<h1><span id="工作原理">工作原理</span></h1>
+<p>包缓存实际上缓存的是变体，而不是整个包。当你执行环境解析的时候，或者source一些存在的context时，所需的变体会被异步复制到本地磁盘（如果它们是可缓存的），在一个单独的进程中，进程名为<code>rez-pkg-cache</code>。</p>
 <p>这意味着在第一次解析时，不一定会用到缓存的变体（因为进程还在持续运行中，完成缓存需要时间，这是一个缓慢的过程）。</p>
 <p>注意，包缓存不是一个包仓库，它只是一个变体存储，结构上可以将任何仓库中的变体存储到一个共享缓存中。</p>
 <p>被缓存的变体是不可变的，没法检查变体是否有发生变化。所以你不应该在包仓库中使用缓存，因为包可能会覆盖。正因如此，本地包的缓存默认是被禁用的。（参考<a target="_blank" rel="noopener" href="https://github.com/nerdvegas/rez/wiki/Configuring-Rez#package_cache_local">package_cache_local</a>）</p>
-<h1><span id="命令行">命令行</span></h1><h2><span id="检验">检验</span></h2><p>使用<code>rez-pkg-cache</code>来查看缓存的状态，并进行预加载和删除操作。</p>
+<h1><span id="命令行">命令行</span></h1>
+<h2><span id="检验">检验</span></h2>
+<p>使用<code>rez-pkg-cache</code>来查看缓存的状态，并进行预加载和删除操作。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-pkg-cache
 Package cache at /home/ajohns/package_cache:
 
@@ -1301,7 +1323,6 @@ cached   itsdangerous-1.1.0  /svr/packages/itsdangerous/1.1.0/package.py<span cl
 cached   platform-linux      /svr/packages/platform/linux/package.py<span class="token punctuation">[</span><span class="token punctuation">]</span>       /home/ajohns/package_cache/platform/linux/9d4d/a
 copying  python-3.7.4        /svr/packages/python/3.7.4/package.py<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>        /home/ajohns/package_cache/python/3.7.4/ce1c/a
 stalled  MarkupSafe-1.1.1    /svr/packages/MarkupSafe/1.1.1/package.py<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>    /home/ajohns/package_cache/MarkupSafe/1.1.1/724c/a<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>每个变体都被存储在一个目录中，这个目录是该变体唯一的标识符。</p>
 <p>软件包缓存是具有线程和多进程的，并在必要时使用文件锁来控制访问。</p>
 <p>缓存的变体在任何时候都有其中之一的状态：</p>
@@ -1310,15 +1331,16 @@ stalled  MarkupSafe-1.1.1    /svr/packages/MarkupSafe/1.1.1/package.py<span clas
 <li>cached：该变体已经被缓存，可以使用。</li>
 <li>stalled：变体在复制中出现来点问题，缓存中只存在部分副本。</li>
 </ul>
-<h2><span id="日志">日志</span></h2><p>缓存操作存储在缓存目录下的日志文件中：</p>
+<h2><span id="日志">日志</span></h2>
+<p>缓存操作存储在缓存目录下的日志文件中：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-pkg-cache --logs
 rez-pkg-cache <span class="token number">2020</span>-05-23 <span class="token number">16</span>:17:45,194 PID-29827 INFO Started daemon
 rez-pkg-cache <span class="token number">2020</span>-05-23 <span class="token number">16</span>:17:45,201 PID-29827 INFO Started caching of variant /home/ajohns/packages/Werkzeug/1.0.1/package.py<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">..</span>.
 rez-pkg-cache <span class="token number">2020</span>-05-23 <span class="token number">16</span>:17:45,404 PID-29827 INFO Cached variant to /home/ajohns/package_cache/Werkzeug/1.0.1/fe76/a <span class="token keyword">in</span> <span class="token number">0.202576</span> seconds
 rez-pkg-cache <span class="token number">2020</span>-05-23 <span class="token number">16</span>:17:45,404 PID-29827 INFO Started caching of variant /home/ajohns/packages/python/3.7.4/package.py<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">..</span>.
 rez-pkg-cache <span class="token number">2020</span>-05-23 <span class="token number">16</span>:17:46,006 PID-29827 INFO Cached variant to /home/ajohns/package_cache/python/3.7.4/ce1c/a <span class="token keyword">in</span> <span class="token number">0.602037</span> seconds<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="清理缓存">清理缓存</span></h2><p>清理缓存是指删除停滞的或者不再使用的变体。由于我们无法知道一个变体是否在使用，所以有一个可配置的<code>package_cache_max_variant_days</code>设置，它将删除超过X天没有被使用的变体。</p>
+<h2><span id="清理缓存">清理缓存</span></h2>
+<p>清理缓存是指删除停滞的或者不再使用的变体。由于我们无法知道一个变体是否在使用，所以有一个可配置的<code>package_cache_max_variant_days</code>设置，它将删除超过X天没有被使用的变体。</p>
 <p>你也可以使用<code>rez-pkg-cache -r</code>来手动删除缓存中的变体。需主要这样的操作只是使缓存不可用，但它仍然存储在磁盘上。执行<code>rez-pkg-cache --clean</code>来真正意义上从磁盘删除缓存。</p>
 <p>你可以使用package_cache_clean_limit 设置，在每次更新缓存时，异步的执行一些清理工作。如果你不想使用这个设置，建议你设置一个cron或其它形式的定时器来定期运行<code>rez-pkg-cache --clean</code>，否则你的缓存将越积越多。</p>
 <p>最后请注意，处于停滞状态的缓存不会尝试重新缓存，直到它被清理或移除操作。</p>

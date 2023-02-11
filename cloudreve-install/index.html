@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,17 +1268,25 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h2><span id="前言">前言</span></h2><p>对于网盘来说现在最普及的就是百度云盘，不过很不喜欢百度盘的一点是：<br>分享一个文件给朋友，对方必须使用百度云客户端才可以下载，而且百度云对于资源会进行审核。</p>
-<p>这个时候就希望一个网盘能实现：<br>1.发送给对方分享链接<br>2.对方点击链接，直接下载<br>（且下载速度不受限，文件内容不被监管）</p>
-<p>这就需要搭建一个私有的个人网盘，并满足上述的需求。<br>于是Cloudreve诞生了。</p>
-<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36d317e31.png" width="80%" height="80%" alt align="center"></left>  </p>
-<p>私有网盘的优势是，所有文件都在自己的服务器上，更安全可靠，自由度更高。<br>那么搭建个人网盘的条件是什么？</p>
+	<h2><span id="前言">前言</span></h2>
+<p>对于网盘来说现在最普及的就是百度云盘，不过很不喜欢百度盘的一点是：<br>
+分享一个文件给朋友，对方必须使用百度云客户端才可以下载，而且百度云对于资源会进行审核。</p>
+<p>这个时候就希望一个网盘能实现：<br>
+1.发送给对方分享链接<br>
+2.对方点击链接，直接下载<br>
+（且下载速度不受限，文件内容不被监管）</p>
+<p>这就需要搭建一个私有的个人网盘，并满足上述的需求。<br>
+于是Cloudreve诞生了。</p>
+<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36d317e31.png" width="80%" height="80%" alt align="center"></left></p>
+<p>私有网盘的优势是，所有文件都在自己的服务器上，更安全可靠，自由度更高。<br>
+那么搭建个人网盘的条件是什么？</p>
 <ul>
 <li>一点linux基础</li>
 <li>一台云主机</li>
 </ul>
 <p>下面就为大家介绍cloudreve，并讲解如何搭建cloudreve服务。</p>
-<h2><span id="cloudreve介绍">Cloudreve介绍</span></h2><p>Cloudreve是一个开源的网盘系统，它具有如下特性：</p>
+<h2><span id="cloudreve介绍">Cloudreve介绍</span></h2>
+<p>Cloudreve是一个开源的网盘系统，它具有如下特性：</p>
 <ul>
 <li>网页端直接上传/下载。</li>
 <li>支持离线下载</li>
@@ -1271,21 +1297,37 @@ var _hmt = _hmt || [];
 <li>等等等…</li>
 </ul>
 <p><strong>cloudreve的主页</strong></p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36d317a9f.png" alt="cloudreve-install-p2.png"><br><strong>后台配置页面</strong></p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36d3a4515.png" alt="cloudreve-install-p3.png"><br>更多了解可以访问它的github主页：<br><a target="_blank" rel="noopener" href="https://github.com/cloudreve/Cloudreve">https://github.com/cloudreve/Cloudreve</a></p>
-<p><strong>支持WebDAV</strong><br>除了上传分享文件外，笔者最常用的就是将cloudreve网盘挂载成一个网络驱动器。  </p>
-<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36d40e468.png" width="80%" height="80%" alt align="center"></left>  </p>
-<p>首先为朋友的电脑挂上这个网络驱动器（因为cloudreve支持WebDAV）。<br>每次要分享文件的时候，只需要将文件拷贝进去。  </p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36f02b96d.gif" alt="cloudreve-install-p5.gif"><br>对方就可以在他的电脑上打开这个盘，拿走文件。</p>
-<h2><span id="搭建cloudreve">搭建Cloudreve</span></h2><p>搭建这样的一个网盘，肯定需要一台云服务器。<br>（其实就是一台配有公网ip的电脑主机）</p>
-<p>笔者是在腾讯云租的<strong>lightroom轻量应用服务器</strong>。<br>其它的如阿里云，华为云，国外的一些云服务器厂商也都ok。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36efc9cb2.png" alt="cloudreve-install-p6.png"><br>这里我选用的是香港地区，CentOS8.0系统。<br>一个最便宜的资费套餐。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36d36d5e9.png" alt="cloudreve-install-p7.png"><br>进入控制台，找到公网ip，并重置一下密码。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36d317a9f.png" alt="cloudreve-install-p2.png"><br>
+<strong>后台配置页面</strong></p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36d3a4515.png" alt="cloudreve-install-p3.png"><br>
+更多了解可以访问它的github主页：<br>
+<a target="_blank" rel="noopener" href="https://github.com/cloudreve/Cloudreve">https://github.com/cloudreve/Cloudreve</a></p>
+<p><strong>支持WebDAV</strong><br>
+除了上传分享文件外，笔者最常用的就是将cloudreve网盘挂载成一个网络驱动器。</p>
+<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36d40e468.png" width="80%" height="80%" alt align="center"></left></p>
+<p>首先为朋友的电脑挂上这个网络驱动器（因为cloudreve支持WebDAV）。<br>
+每次要分享文件的时候，只需要将文件拷贝进去。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36f02b96d.gif" alt="cloudreve-install-p5.gif"><br>
+对方就可以在他的电脑上打开这个盘，拿走文件。</p>
+<h2><span id="搭建cloudreve">搭建Cloudreve</span></h2>
+<p>搭建这样的一个网盘，肯定需要一台云服务器。<br>
+（其实就是一台配有公网ip的电脑主机）</p>
+<p>笔者是在腾讯云租的<strong>lightroom轻量应用服务器</strong>。<br>
+其它的如阿里云，华为云，国外的一些云服务器厂商也都ok。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36efc9cb2.png" alt="cloudreve-install-p6.png"><br>
+这里我选用的是香港地区，CentOS8.0系统。<br>
+一个最便宜的资费套餐。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36d36d5e9.png" alt="cloudreve-install-p7.png"><br>
+进入控制台，找到公网ip，并重置一下密码。</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36d3ebcaf.png" alt="cloudreve-install-p8.png"></p>
-<p>我使用的是MobaXterm这款软件进行ssh连接（贼好用）。<br>然后就开始命令行环节了。</p>
-<h3><span id="准备cloudreve程序">准备cloudreve程序</span></h3><p>从这里找到最新的版本：<br><a target="_blank" rel="noopener" href="https://github.com/cloudreve/Cloudreve/releases">https://github.com/cloudreve/Cloudreve/releases</a></p>
+<p>我使用的是MobaXterm这款软件进行ssh连接（贼好用）。<br>
+然后就开始命令行环节了。</p>
+<h3><span id="准备cloudreve程序">准备cloudreve程序</span></h3>
+<p>从这里找到最新的版本：<br>
+<a target="_blank" rel="noopener" href="https://github.com/cloudreve/Cloudreve/releases">https://github.com/cloudreve/Cloudreve/releases</a></p>
 <p>我用的是CentOS，x86架构，所以这里选择amd64版本。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36d46c3d5.png" alt="cloudreve-install-p9.png"><br>鼠标右键复制链接地址。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36d46c3d5.png" alt="cloudreve-install-p9.png"><br>
+鼠标右键复制链接地址。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 下载cloudreve主程序，wget后面是刚刚复制的地址</span>
 <span class="token function">wget</span> https://github.com/cloudreve/Cloudreve/releases/download/3.3.1/cloudreve_3.3.1_linux_amd64.tar.gz
 
@@ -1297,8 +1339,8 @@ var _hmt = _hmt || [];
 
 <span class="token comment"># 给予可执行权限</span>
 <span class="token function">chmod</span> <span class="token number">755</span> /usr/bin/cloudreve<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="安装配置mysql">安装配置mysql</span></h3><p>默认情况下，Cloudreve会使用内置的SQLite数据库。笔者建议使用mysql。</p>
+<h3><span id="安装配置mysql">安装配置mysql</span></h3>
+<p>默认情况下，Cloudreve会使用内置的SQLite数据库。笔者建议使用mysql。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装mysql</span>
 yum <span class="token function">install</span> mysql-server
 
@@ -1325,10 +1367,9 @@ FLUSH PRIVILEGES<span class="token punctuation">;</span>
 
 <span class="token comment"># 重启mysql服务</span>
 systemctl restart mysqld.service<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>mysql默认运行在3306端口，我们需要将它配置给cloudreve。<br>新建一个文件：</p>
+<p>mysql默认运行在3306端口，我们需要将它配置给cloudreve。<br>
+新建一个文件：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /etc/cloudreve.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>写入下面的内容：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>Database<span class="token punctuation">]</span>
 <span class="token punctuation">;</span> 数据库类型，目前支持 sqlite <span class="token operator">|</span> mysql
@@ -1351,20 +1392,28 @@ Name <span class="token operator">=</span> mysql
 
 <span class="token punctuation">;</span> 数据表前缀
 TablePrefix <span class="token operator">=</span> <span class="token builtin class-name">cd</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="进行测试">进行测试</span></h3><p>这个时候cloudreve服务就已经配置好了。<br>输入下面的命令启动它：</p>
+<h3><span id="进行测试">进行测试</span></h3>
+<p>这个时候cloudreve服务就已经配置好了。<br>
+输入下面的命令启动它：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 用刚刚创建的配置文件启动</span>
 cloudreve -c /etc/cloudreve.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>可以看到终端里输出的信息，初始的账户和密码。  </p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36efefdb9.png" alt="cloudreve-install-p10.png"><br>它运行在5212端口，打开浏览器，输入你的服务器”公网ip:5212”，回车。<br>输入刚刚显示的账户和密码就可以登陆了：</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36efca15f.png" alt="cloudreve-install-p11.png"><br>然后我们需要为它加上一个域名和https，还有aria2（用作离线下载）。</p>
-<h3><span id="域名解析">域名解析</span></h3><p>我是在namecheap购买的域名和解析，<br>添加一条A记录输入你的公网ip即可。</p>
+<p>可以看到终端里输出的信息，初始的账户和密码。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36efefdb9.png" alt="cloudreve-install-p10.png"><br>
+它运行在5212端口，打开浏览器，输入你的服务器&quot;公网ip:5212&quot;，回车。<br>
+输入刚刚显示的账户和密码就可以登陆了：</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36efca15f.png" alt="cloudreve-install-p11.png"><br>
+然后我们需要为它加上一个域名和https，还有aria2（用作离线下载）。</p>
+<h3><span id="域名解析">域名解析</span></h3>
+<p>我是在namecheap购买的域名和解析，<br>
+添加一条A记录输入你的公网ip即可。</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36f056cc7.png" alt="cloudreve-install-p12.png"></p>
-<h3><span id="配置ssl">配置ssl</span></h3><blockquote>
-<p>网站没有一个小锁是不好看的  </p>
+<h3><span id="配置ssl">配置ssl</span></h3>
+<blockquote>
+<p>网站没有一个小锁是不好看的</p>
 </blockquote>
-<p>有了ssl证书，网站才会是https协议。<br>我使用的是acme来申请的证书。<br>首先从安装nginx开始：</p>
+<p>有了ssl证书，网站才会是https协议。<br>
+我使用的是acme来申请的证书。<br>
+首先从安装nginx开始：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装nginx</span>
 yum <span class="token function">install</span> nginx
 
@@ -1379,15 +1428,15 @@ yum <span class="token function">install</span> netcat
 <span class="token comment"># 生成证书（在这一步前一定要完成域名解析）</span>
 <span class="token builtin class-name">cd</span> .acme.sh/
 ./acme.sh --issue -d cloud.lingyunfx.com --standalone -k ec-256<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>这里可以看到终端输出的证书和密钥位置：<br>（记下来！）</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36f0d8941.png" alt="cloudreve-install-p13.png"><br>配置nginx：</p>
+<p>这里可以看到终端输出的证书和密钥位置：<br>
+（记下来！）</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36f0d8941.png" alt="cloudreve-install-p13.png"><br>
+配置nginx：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 在此之前新建一个目录</span>
 <span class="token function">mkdir</span> -p /www/log/
 
 <span class="token comment"># 新建一个配置文件</span>
 <span class="token function">vim</span> /etc/nginx/conf.d/default.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>内容如下（有四个地方需要根据自己的情况进行替换）</p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json">server
 <span class="token punctuation">&#123;</span>
@@ -1430,22 +1479,19 @@ location ~ ^/(\.user.ini|\.htaccess|\.git|\.svn|\.project|LICENSE|README.md)
 access_log  /www/log/access.log;
 error_log  /www/log/error.log;
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>完成后启动nginx。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemctl start nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>再次启动cloudreve服务进行验证。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cloudreve -c /etc/cloudreve.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>现在可以看到网站上有美丽的小锁了。</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36f0a2a90.png" alt="cloudreve-install-p14.png"></p>
-<h3><span id="配置aria2">配置aria2</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 安装</span>
+<h3><span id="配置aria2">配置aria2</span></h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 安装</span>
 yum <span class="token function">install</span> aria2
 
 <span class="token comment"># 新建一个配置文件</span>
 <span class="token function">mkdir</span> /etc/aria2
 <span class="token function">vim</span> /etc/aria2/aria2.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>写入下面内容：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#是否启用RPC服务，请设置为true</span>
 enable-rpc<span class="token operator">=</span>true
@@ -1455,11 +1501,9 @@ rpc-listen-port<span class="token operator">=</span><span class="token number">6
 
 <span class="token comment">#设置PRC服务的密钥，在接下来的步骤中会用到</span>
 rpc-secret<span class="token operator">=</span>my_password<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>里面rpc-secret后面是你对接aria2的密码，自己改一个。</p>
 <p>然后建立并配置aria2服务。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">vim</span> /usr/lib/systemd/system/aria2.service<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>写入</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>Unit<span class="token punctuation">]</span>
 <span class="token assign-left variable">Description</span><span class="token operator">=</span>aria2c
@@ -1471,22 +1515,21 @@ rpc-secret<span class="token operator">=</span>my_password<span aria-hidden="tru
 
 <span class="token punctuation">[</span>Install<span class="token punctuation">]</span>
 <span class="token assign-left variable">WantedBy</span><span class="token operator">=</span>multi-user.target<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>重载daemon，启动服务。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemctl daemon-reload
 systemctl <span class="token builtin class-name">enable</span> aria2
 systemctl start aria2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>最后需要cloudreve网页端配置aria2。<br>首先启动cloudreve程序。</p>
+<p>最后需要cloudreve网页端配置aria2。<br>
+首先启动cloudreve程序。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cloudreve -c /etc/cloudreve.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>登录后在网站右上角进入管理面板</p>
-<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36f13f0d2.png" width="50%" height="50%" alt align="center"></left>  </p>
-<p>进行如下设置。<br>可以参考官方的wiki：<a target="_blank" rel="noopener" href="https://docs.cloudreve.org/use/aria2">https://docs.cloudreve.org/use/aria2</a></p>
-<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36f1a0c5c.png" width="75%" height="75%" alt align="center"></left>  </p>
+<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36f13f0d2.png" width="50%" height="50%" alt align="center"></left></p>
+<p>进行如下设置。<br>
+可以参考官方的wiki：<a target="_blank" rel="noopener" href="https://docs.cloudreve.org/use/aria2">https://docs.cloudreve.org/use/aria2</a></p>
+<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36f1a0c5c.png" width="75%" height="75%" alt align="center"></left></p>
 <p>到了这里离线下载的功能就配置好了。</p>
-<h3><span id="配置cloudreve开机启动">配置cloudreve开机启动</span></h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">vim</span> /usr/lib/systemd/system/cloudreve.service<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<h3><span id="配置cloudreve开机启动">配置cloudreve开机启动</span></h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">vim</span> /usr/lib/systemd/system/cloudreve.service<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>写入：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>Unit<span class="token punctuation">]</span>
 <span class="token assign-left variable">Description</span><span class="token operator">=</span>Cloudreve
@@ -1506,7 +1549,6 @@ systemctl start aria2<span aria-hidden="true" class="line-numbers-rows"><span></
 
 <span class="token punctuation">[</span>Install<span class="token punctuation">]</span>
 <span class="token assign-left variable">WantedBy</span><span class="token operator">=</span>multi-user.target<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>然后更新并启动服务</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 更新配置</span>
 systemctl daemon-reload
@@ -1516,15 +1558,18 @@ systemctl start cloudreve
 
 <span class="token comment"># 设置开机启动</span>
 systemctl <span class="token builtin class-name">enable</span> cloudreve<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>到这里就完成了！</p>
-<h2><span id="挂载网络驱动器">挂载网络驱动器</span></h2><p>最后说一下怎么把网盘挂载成一个网络驱动器。</p>
-<p>我用的是一个叫raidrive的软件进行辅助挂载。windows自身也可以直接进行挂载，<br>不过这个软件有本地缓存的帮助，访问会流畅很多。</p>
-<p>下载地址：<br><a target="_blank" rel="noopener" href="https://www.raidrive.com/download">https://www.raidrive.com/download</a></p>
-<p>下载后双击安装，这里进行配置即可  </p>
-<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36f172c2d.png" width="70%" height="70%" alt align="center"></left>  </p>
+<h2><span id="挂载网络驱动器">挂载网络驱动器</span></h2>
+<p>最后说一下怎么把网盘挂载成一个网络驱动器。</p>
+<p>我用的是一个叫raidrive的软件进行辅助挂载。windows自身也可以直接进行挂载，<br>
+不过这个软件有本地缓存的帮助，访问会流畅很多。</p>
+<p>下载地址：<br>
+<a target="_blank" rel="noopener" href="https://www.raidrive.com/download">https://www.raidrive.com/download</a></p>
+<p>下载后双击安装，这里进行配置即可</p>
+<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36f172c2d.png" width="70%" height="70%" alt align="center"></left></p>
 <p>账户密码在这个页面获取</p>
-<h2><span id><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36f191be1.png" alt="cloudreve-install-p18.png"></span></h2><p>这篇文章差不多就到这里，觉得还不错可以关注下这个公众号，thx！  </p>
+<h2><span id><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36f191be1.png" alt="cloudreve-install-p18.png"></span></h2>
+<p>这篇文章差不多就到这里，觉得还不错可以关注下这个公众号，thx！</p>
 <center><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36f1d52b8.jpg" width="30%" height="30%" alt align="center"></center>
 
 </div>
@@ -1541,8 +1586,8 @@ systemctl <span class="token builtin class-name">enable</span> cloudreve<span ar
         </div>
         <div class="item right">
             
-              <a href="/git_command/">
-                Git 常用命令
+              <a href="/docker_command/">
+                Docker 常用命令
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
               </a>
             

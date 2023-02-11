@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1253,15 +1271,16 @@ var _hmt = _hmt || [];
 	<blockquote>
 <p>这里是以CentOS 7为例</p>
 </blockquote>
-<h2><span id="系统配置目录">系统配置目录</span></h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/usr/lib/firewalld/
+<h2><span id="系统配置目录">系统配置目录</span></h2>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/usr/lib/firewalld/
 /usr/lib/firewalld/services
 /usr/lib/firewalld/zones<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="用户配置目录">用户配置目录</span></h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/etc/firewalld/
+<h2><span id="用户配置目录">用户配置目录</span></h2>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/etc/firewalld/
 /etc/firewalld/services
 /etc/firewalld/zones<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="firewall常用命令">firewall常用命令</span></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 启动 停止 重启 状态</span>
+<h3><span id="firewall常用命令">firewall常用命令</span></h3>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 启动 停止 重启 状态</span>
 systemctl start firewalld / <span class="token function">service</span> firewalld start
 systemctl stop firewalld / <span class="token function">service</span> firewalld stop
 systemctl restart firewalld / <span class="token function">service</span> firewalld restart
@@ -1273,8 +1292,8 @@ systemctl disable firewalld
 
 <span class="token comment"># 查看防火墙规则</span>
 firewall-cmd --list-all<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="修改配置文件来开放外部访问3306端口">修改配置文件来开放外部访问3306端口</span></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;</span>?xml <span class="token assign-left variable">version</span><span class="token operator">=</span><span class="token string">"1.0"</span> <span class="token assign-left variable">encoding</span><span class="token operator">=</span><span class="token string">"utf-8"</span>?<span class="token operator">></span>
+<h3><span id="修改配置文件来开放外部访问3306端口">修改配置文件来开放外部访问3306端口</span></h3>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;</span>?xml <span class="token assign-left variable">version</span><span class="token operator">=</span><span class="token string">"1.0"</span> <span class="token assign-left variable">encoding</span><span class="token operator">=</span><span class="token string">"utf-8"</span>?<span class="token operator">></span>
 <span class="token operator">&lt;</span>zone<span class="token operator">></span>
   <span class="token operator">&lt;</span>short<span class="token operator">></span>Public<span class="token operator">&lt;</span>/short<span class="token operator">></span>
   <span class="token operator">&lt;</span>description<span class="token operator">></span>For use <span class="token keyword">in</span> public areas. You <span class="token keyword">do</span> not trust the other computers on networks to not harm your computer. Only selected incoming connections are accepted.<span class="token operator">&lt;</span>/description<span class="token operator">></span>
@@ -1282,7 +1301,6 @@ firewall-cmd --list-all<span aria-hidden="true" class="line-numbers-rows"><span>
   <span class="token operator">&lt;</span>service <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">"ssh"</span>/<span class="token operator">></span>
   <span class="token operator">&lt;</span>port <span class="token assign-left variable">protocol</span><span class="token operator">=</span><span class="token string">"tcp"</span> <span class="token assign-left variable">port</span><span class="token operator">=</span><span class="token string">"3306"</span>/<span class="token operator">></span> <span class="token comment"># 添加这一行</span>
 <span class="token operator">&lt;</span>/zone<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>也可以通过命令行来实现</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">3306</span>/tcp --permanent
 firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">80</span>/tcp --permanent

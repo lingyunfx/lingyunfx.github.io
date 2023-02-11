@@ -241,6 +241,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -769,6 +778,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1209,16 +1227,51 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
+			<a href="/tracks-2d-tools/">
+				<h2 class="index-title">
+					在不同跟踪软件之间的2D点转换工具
+				</h2>
+				<div class="index-brief">
+					前言
+
+看过之前电影视效制作中的Matchmove这篇文章的朋友应该知道，
+跟踪最基本的步骤就是为匹配物或场景添加二维跟踪点。
+在进行摄像机反求的时候，可能单一软件的解算效果不是很理想，
+通常我们切换到另一个软件进行尝试解算。
+(比如对于变焦镜头来说，SynthEyes的变焦解算会稍好于3DEqua
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-12-10</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Article/">Article</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/meshlab-remove-face/">
 				<h2 class="index-title">
 					使用MeshLab为模型减面
 				</h2>
 				<div class="index-brief">
 					
-在项目制作中，我们时常会拿到模型面数非常大的扫描模型。模型导入到软件里会非常的吃内存，有时候这种扫描模型只是用作位置参照。使用MeshLab为模型减面，既不会改变太多模型，也不会让模型加大电脑的计算量。  
+在项目制作中，我们时常会拿到模型面数非常大的扫描模型。
+模型导入到软件里会非常的吃内存，有时候这种扫描模型只是用作位置参照。
+使用MeshLab为模型减面，既不会改变太多模型，也不会让模型加大电脑的计算量。
 
-在网上随便找了一个模型(手头没有扫描模型)。  
-导入到maya里，可以看到这里的面数为
+在网上随便找了一个模型(手头没有扫描模型)。
+
+导入到maya里，可以看到这里的面数为1
 					...
 				</div>
 			</a>
@@ -1244,8 +1297,12 @@ var _hmt = _hmt || [];
 					UE4和Maya的数据通信
 				</h2>
 				<div class="index-brief">
-					前言因为出色的实时渲染，快速的可见效果。在如今的电影视效制作中，渐渐有了Unreal的身影。  
-不过Unreal在动画部分，却不像它的渲染这么出彩。动画制作还是由我们的老牌软件Maya来负责，然后再将动画通过abc,fbx等格式输出到Unreal进行预览。  
+					前言
+因为出色的实时渲染，快速的可见效果。
+在如今的电影视效制作中，渐渐有了Unreal的身影。
+不过Unreal在动画部分，却不像它的渲染这么出彩。
+动画制作还是由我们的老牌软件Maya来负责，
+然后再将动画通过abc,fbx等格式输出到Unreal进行预览。
 在这样“分离”的情况下，可能会遇到动
 					...
 				</div>
@@ -1275,7 +1332,9 @@ var _hmt = _hmt || [];
 					原文参考：
 https://www.youtube.com/watch?v=GjCo4p7DNPM&amp;ab_channel=AidenWilson
 1.禁用Oculus VR插件
-2.更改Play设置，勾选Viewport Get HMDControl允许用户在视口中播放模式下使用头戴式显示器
+
+2.更改Play设置，勾选Viewport Get HMDControl
+允许用户在视口中播放模式下使用头戴式显
 					...
 				</div>
 			</a>

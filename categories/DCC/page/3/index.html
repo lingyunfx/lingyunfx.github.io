@@ -241,6 +241,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -769,6 +778,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1215,17 +1233,26 @@ var _hmt = _hmt || [];
 				</h2>
 				<div class="index-brief">
 					创建骨骼时设置缩放比例等同
+
 按住d键单独调整骨骼
-创建骨骼的轴向设置如果勾选，则是世界坐标轴
+
+创建骨骼的轴向设置
+如果勾选，则是世界坐标轴
 
 显示轴向
-调整轴向方向需要maya版本2018update2以上
 
-创建ik控制如果要创建rk手柄，在创建设置选择
+
+调整轴向方向
+需要maya版本2018update2以上
+
+创建ik控制
+
+如果要创建rk手柄，在创建设置选择
+
+
 用这个属性值来控制旋转
-绑定蒙皮先选择root骨骼，再选择模型。
-
-查看每个点的权重值
+绑定蒙皮
+先选择root骨骼，再选择模型。
 
 					...
 				</div>
@@ -1272,16 +1299,17 @@ var _hmt = _hmt || [];
 					代码参考
 				</h2>
 				<div class="index-brief">
-					获取选择的节点nodes = hou.selectedNodes()
+					获取选择的节点
+nodes = hou.selectedNodes()
 print nodes
 
-
-创建一个节点# 创建一个geo节点在obj层级下
+创建一个节点
+# 创建一个geo节点在obj层级下
 node = hou.node('/obj')
 c = node.createNode('geo')
 
 # 或者
-hou.node("obj").cre
+hou.node("obj").cr
 					...
 				</div>
 			</a>
@@ -1317,8 +1345,9 @@ hou.node("obj").cre
 					Houdini Tips
 				</h2>
 				<div class="index-brief">
-					开发环境C:\Program Files\Side Effects Software\Houdini 18.5.351\houdini\python2.7libs
-C:\Program Files\Side Effects Software\Houdini 18.5.351\python27\lib
+					开发环境
+C:\Program Files\Side Effects Software\Houdini 18.5.351\houdini\python2.7libs
+C:\Program Files\Side Effects Software\Houdini 18.5.351\python27\li
 					...
 				</div>
 			</a>
@@ -1354,13 +1383,16 @@ C:\Program Files\Side Effects Software\Houdini 18.5.351\python27\lib
 					1.界面及视图操作技巧
 				</h2>
 				<div class="index-brief">
-					视图布局还原布局的配置文件位置：
+					视图布局还原
+
+布局的配置文件位置：
 C:\Users\lingyun\Documents\houdini18.0\desktop
 Houdini预设配置文件：
 C:\Users\lingyun\Documents\houdini18.0
 GUI设置
+
 快捷键为 Ctrl + ,
-可以设置图标大小，时间滑
+可以设置图标大小，
 					...
 				</div>
 			</a>
@@ -1409,12 +1441,13 @@ GUI设置
 					
 在不同的network层级下，Tab菜单的内容不一样。
 
-快捷键Ctrl+B，最大化当前视窗。
+快捷键
+Ctrl+B，最大化当前视窗。
 选择节点按R，节点在Scene View视图中的显示开关。
 I / Enter 进入元素级别
 U 退出到物体级别
 按住alt键，鼠标左键拖动复制节点 / 或者ctrl+C ctrl+V
-L 自动排列所有
+L 自动排列所
 					...
 				</div>
 			</a>
@@ -1461,11 +1494,15 @@ L 自动排列所有
 				</h2>
 				<div class="index-brief">
 					复制并进行位移操作，效果如下：
+
 属性面板的一些释义：
+
 这里可以利用copynum的属性，达到一些效果，比如改变num值大于5的猪头模型颜色。（添加一个color节点）
 
-Copy to Point节点按照参考模型的点分布，进行复制。（效果如下）
-这里有一个制作魔方的示例。（这里用到了pointsfr
+Copy to Point节点
+按照参考模型的点分布，进行复制。（效果如下）
+
+这里有一个制作魔方的示例。（这里用到了poin
 					...
 				</div>
 			</a>
@@ -1512,10 +1549,15 @@ Copy to Point节点按照参考模型的点分布，进行复制。（效果如�
 				</h2>
 				<div class="index-brief">
 					
-这个系列主要是收集一些Maya中遇到的疑难杂症，有自己工作中遇到的，有从网上或者博客中看到记录的。总之当作一个备忘录。
+这个系列主要是收集一些Maya中遇到的疑难杂症，
+有自己工作中遇到的，有从网上或者博客中看到记录的。
+总之当作一个备忘录。
 
-1.打开软件崩溃双击打开软件，出现一个下面这样的弹窗，Maya就崩溃退出了。  
-出现这样的情况通常重置用户预设文件夹即可解决：...\Documents\maya\&lt;版
+1.打开软件崩溃
+双击打开软件，出现一个下面这样的弹窗，Maya就崩溃退出了。
+
+出现这样的情况通常重置用户预设文件夹即可解决：
+...\Documents\maya\&l
 					...
 				</div>
 			</a>
@@ -1551,9 +1593,14 @@ Copy to Point节点按照参考模型的点分布，进行复制。（效果如�
 					安装Arnold后环境变量被破坏
 				</h2>
 				<div class="index-brief">
-					前言今天在安装新版本Arnold 4.1.0 for maya后，打开maya发现一堆报错，其中还有不少乱码字符。
-一看就知道是Arnold配置失败了，果不其然打开Plug-in Manager，Maya直接就崩掉了。  
-好奇这一堆乱码是怎么来的，安装的路径也没有中文字符啊。接下来就开始一步步排查
+					前言
+今天在安装新版本Arnold 4.1.0 for maya后，
+打开maya发现一堆报错，其中还有不少乱码字符。
+
+一看就知道是Arnold配置失败了，果不其然打开Plug-in Manager，
+Maya直接就崩掉了。
+好奇这一堆乱码是怎么来的，安装的路径也没有中文字符啊。
+接下来就开始一步
 					...
 				</div>
 			</a>
@@ -1589,11 +1636,15 @@ Copy to Point节点按照参考模型的点分布，进行复制。（效果如�
 					使用LensDistortion节点输出STMap
 				</h2>
 				<div class="index-brief">
-					前言通常在电影的前期拍摄中，Onset人员会拍摄摄像机不同焦段的畸变网格，因为在后期制作中，没有Distortion map会让摄像机反求变得困难得多。
+					前言
+通常在电影的前期拍摄中，Onset人员会拍摄摄像机不同焦段的畸变网格，
+因为在后期制作中，没有Distortion map会让摄像机反求变得困难得多。
 最左为枕形畸变，最右为桶形畸变。
 
 通常我们会对一个棋盘格板进行拍摄，类似下图这样的。
-拍摄完会得到一张畸变网格，下面我们使用nuke对其进行矫正
+
+
+拍摄完会得到一张畸变网格，下面我们使用nuke对其
 					...
 				</div>
 			</a>

@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,27 +1268,37 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h1><span id="前言">前言</span></h1><p>国庆在家容易想些有的没的，<br>想着万一以后自己开了一个小型视效工作室，<br>该用什么来进行跟踪管理项目进度。</p>
-<p>首先是想到的当然是诸如Shotgun, FTrack, CGTeamWork等这些项目管理平台。<br>但是价格上则让人却步，比如Shotgun收费标准是每人每月30刀。</p>
-<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab37aa70a66.jpg" width="70%" height="70%" alt align="center"></left>  </p>
-<p>这对于小型低成本工作室，也算是一笔不小的开销。<br>抱着能省则省的态度，在网上找到了<strong>开源免费</strong>的项目管理平台CGWire</p>
-<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab37ab119c8.jpg" width="80%" height="80%" alt align="center"></left>  </p>
-<h1><span id="cgwire介绍">CGWire介绍</span></h1><p>文字不如视频直观，下面是官方的视频介绍，<br>可以说是麻雀虽小，该有的功能都有。</p>
+	<h1><span id="前言">前言</span></h1>
+<p>国庆在家容易想些有的没的，<br>
+想着万一以后自己开了一个小型视效工作室，<br>
+该用什么来进行跟踪管理项目进度。</p>
+<p>首先是想到的当然是诸如Shotgun, FTrack, CGTeamWork等这些项目管理平台。<br>
+但是价格上则让人却步，比如Shotgun收费标准是每人每月30刀。</p>
+<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab37aa70a66.jpg" width="70%" height="70%" alt align="center"></left></p>
+<p>这对于小型低成本工作室，也算是一笔不小的开销。<br>
+抱着能省则省的态度，在网上找到了<strong>开源免费</strong>的项目管理平台CGWire</p>
+<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab37ab119c8.jpg" width="80%" height="80%" alt align="center"></left></p>
+<h1><span id="cgwire介绍">CGWire介绍</span></h1>
+<p>文字不如视频直观，下面是官方的视频介绍，<br>
+可以说是麻雀虽小，该有的功能都有。</p>
 <p><a target="_blank" rel="noopener" href="https://youtu.be/EH3RbmHykrE">https://youtu.be/EH3RbmHykrE</a></p>
-<h1><span id="cgwire搭建">CGWire搭建</span></h1><p>接下来就是无趣的代码部分了。<br>我这里使用的是Ubuntu 16.04版本进行的测试。<br>来源：<a target="_blank" rel="noopener" href="https://zou.cg-wire.com/#deploying-kitsu">https://zou.cg-wire.com/#deploying-kitsu</a></p>
-<h2><span id="安装软件依赖">安装软件依赖</span></h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> update
+<h1><span id="cgwire搭建">CGWire搭建</span></h1>
+<p>接下来就是无趣的代码部分了。<br>
+我这里使用的是Ubuntu 16.04版本进行的测试。<br>
+来源：<a target="_blank" rel="noopener" href="https://zou.cg-wire.com/#deploying-kitsu">https://zou.cg-wire.com/#deploying-kitsu</a></p>
+<h2><span id="安装软件依赖">安装软件依赖</span></h2>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> update
 <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> postgresql postgresql-client postgresql-server-dev-all
 <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> redis-server
 <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> python3 python3-pip
 <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> <span class="token function">git</span>
 <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> nginx
 <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> ffmpeg<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="获取资源">获取资源</span></h2><p>创建一个zou用户</p>
+<h2><span id="获取资源">获取资源</span></h2>
+<p>创建一个zou用户</p>
 <pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">sudo useradd --home &#x2F;opt&#x2F;zou zou
 mkdir &#x2F;opt&#x2F;zou
 chown zou: &#x2F;opt&#x2F;zou<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>安装zou和其依赖</p>
 <pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">sudo pip3 install virtualenv
 cd &#x2F;opt&#x2F;zou
@@ -1278,20 +1306,16 @@ sudo virtualenv zouenv
 . zouenv&#x2F;bin&#x2F;activate
 sudo zouenv&#x2F;bin&#x2F;pip3 install zou
 sudo chown -R zou:www-data .<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>创建存储预览的文件夹</p>
 <pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">sudo mkdir &#x2F;opt&#x2F;zou&#x2F;previews
 sudo chown -R zou:www-data &#x2F;opt&#x2F;zou<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>创建临时存储目录</p>
 <pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">sudo mkdir &#x2F;opt&#x2F;zou&#x2F;tmp
 sudo chown -R zou:www-data &#x2F;opt&#x2F;zou&#x2F;tmp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-
-<h2><span id="安装postgres数据库">安装Postgres数据库</span></h2><p>在postgres中创建Zou数据库</p>
+<h2><span id="安装postgres数据库">安装Postgres数据库</span></h2>
+<p>在postgres中创建Zou数据库</p>
 <pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">sudo su -l postgres
 psql -c &#39;create database zoudb;&#39; -U postgres<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>为postgres用户设置密码</p>
 <pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell"># 输入命令
 psql
@@ -1307,37 +1331,37 @@ Enter it again:
 
 # 设置完成密码，退出交互模式
 \q<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>如果不想使用交互式创建密码，可以用下面的方式。<br>如果已经创建了密码，跳过此步骤。</p>
+<p>如果不想使用交互式创建密码，可以用下面的方式。<br>
+如果已经创建了密码，跳过此步骤。</p>
 <pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">psql -U postgres -d postgres -c &quot;alter user postgres with password &#39;mysecretpassword&#39;;&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>最后，创建数据库表。<br>这里需注意已经退出了psql交互模式，并在zou虚拟环境下。</p>
+<p>最后，创建数据库表。<br>
+这里需注意已经退出了psql交互模式，并在zou虚拟环境下。</p>
 <pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell"># Run it in your bash console.
 DB_PASSWORD&#x3D;yourdbpassword zou init-db<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h2><span id="准备键值存储">准备键值存储</span></h2><pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">vim &#x2F;etc&#x2F;sysctl.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2><span id="准备键值存储">准备键值存储</span></h2>
+<pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">vim &#x2F;etc&#x2F;sysctl.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>在这个文件末尾添加一行：</p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json">vm.overcommit_memory = <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2><span id="配置gunicorn">配置Gunicorn</span></h2><p>需要通过Gunicorn运行该应用程序，<br>Gunicorn是将zou作为守护程序运行的WSGI服务器。</p>
+<h2><span id="配置gunicorn">配置Gunicorn</span></h2>
+<p>需要通过Gunicorn运行该应用程序，<br>
+Gunicorn是将zou作为守护程序运行的WSGI服务器。</p>
 <p>创建配置文件夹</p>
 <pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">sudo mkdir &#x2F;etc&#x2F;zou<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>创建Gunicorn配置文件<br>路径： /etc/zou/gunicorn.conf</p>
+<p>创建Gunicorn配置文件<br>
+路径： /etc/zou/gunicorn.conf</p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json">accesslog = <span class="token string">"/opt/zou/logs/gunicorn_access.log"</span>
 errorlog = <span class="token string">"/opt/zou/logs/gunicorn_error.log"</span>
 workers = <span class="token number">3</span>
 worker_class = <span class="token string">"gevent"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>创建日志文件夹</p>
 <pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">sudo mkdir &#x2F;opt&#x2F;zou&#x2F;logs
 sudo chown zou: &#x2F;opt&#x2F;zou&#x2F;logs<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>创建进程守护的配置文件<br>路径: /etc/systemd/system/zou.service</p>
-<p>这里需要修改DB_PASSWORD和SECRET_KEY。<br>数据库的密码是之前设置的，而SECRET_KEY可以用pwgen来随机生成。</p>
+<p>创建进程守护的配置文件<br>
+路径: /etc/systemd/system/zou.service</p>
+<p>这里需要修改DB_PASSWORD和SECRET_KEY。<br>
+数据库的密码是之前设置的，而SECRET_KEY可以用pwgen来随机生成。</p>
 <pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">apt-get install pwgen
 pwgen 16<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>生成后可以复制其中一个给到SECRET_KEY</p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">[</span>Unit<span class="token punctuation">]</span>
 Description=Gunicorn instance to serve the Zou API
@@ -1357,14 +1381,14 @@ ExecStart=/opt/zou/zouenv/bin/gunicorn  -c /etc/zou/gunicorn.conf -b <span class
 
 <span class="token punctuation">[</span>Install<span class="token punctuation">]</span>
 WantedBy=multi-user.target<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>创建事件流API服务器配置<br>路径: /etc/zou/gunicorn-events.conf</p>
+<p>创建事件流API服务器配置<br>
+路径: /etc/zou/gunicorn-events.conf</p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json">accesslog = <span class="token string">"/opt/zou/logs/gunicorn_events_access.log"</span>
 errorlog = <span class="token string">"/opt/zou/logs/gunicorn_events_error.log"</span>
 workers = <span class="token number">1</span>
 worker_class = <span class="token string">"geventwebsocket.gunicorn.workers.GeventWebSocketWorker"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>通过Systemd来守护事件流API服务进程<br>路径: /etc/systemd/system/zou-events.service</p>
+<p>通过Systemd来守护事件流API服务进程<br>
+路径: /etc/systemd/system/zou-events.service</p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">[</span>Unit<span class="token punctuation">]</span>
 Description=Gunicorn instance to serve the Zou Events API
 After=network.target
@@ -1379,8 +1403,8 @@ ExecStart=/opt/zou/zouenv/bin/gunicorn -c /etc/zou/gunicorn-events.conf -b <span
 
 <span class="token punctuation">[</span>Install<span class="token punctuation">]</span>
 WantedBy=multi-user.target<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="配置nginx">配置Nginx</span></h2><p>配置文件路径: /etc/nginx/sites-available/zou</p>
+<h2><span id="配置nginx">配置Nginx</span></h2>
+<p>配置文件路径: /etc/nginx/sites-available/zou</p>
 <pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">server &#123;
     listen 80;
     server_name server_domain_or_IP;
@@ -1405,7 +1429,6 @@ WantedBy=multi-user.target<span aria-hidden="true" class="line-numbers-rows"><sp
         proxy_pass http:&#x2F;&#x2F;localhost:5001;
     &#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>启用nginx</p>
 <pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell"># 删除默认配置
 sudo rm &#x2F;etc&#x2F;nginx&#x2F;sites-enabled&#x2F;default
@@ -1417,27 +1440,24 @@ sudo ln -s &#x2F;etc&#x2F;nginx&#x2F;sites-available&#x2F;zou &#x2F;etc&#x2F;ngi
 sudo service zou start
 sudo service zou-events start
 sudo service nginx restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="更新所有包">更新所有包</span></h2><p>更新zou软件包</p>
+<h2><span id="更新所有包">更新所有包</span></h2>
+<p>更新zou软件包</p>
 <pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">cd &#x2F;opt&#x2F;zou
 . zouenv&#x2F;bin&#x2F;activate
 sudo zouenv&#x2F;bin&#x2F;pip3 install --upgrade zou<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>更新数据路架构</p>
 <pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell"># 这里输入数据库的密码
 DB_PASSWORD&#x3D;yourdbpassword zou upgrade-db<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>重启zou服务</p>
 <pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">sudo chown -R zou:www-data .
 sudo service zou restart
 sudo service zou-events restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="部署kitsu">部署Kitsu</span></h2><pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">cd &#x2F;opt&#x2F;
+<h2><span id="部署kitsu">部署Kitsu</span></h2>
+<pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">cd &#x2F;opt&#x2F;
 sudo git clone -b build https:&#x2F;&#x2F;github.com&#x2F;cgwire&#x2F;kitsu
 cd kitsu
 sudo git checkout build
 sudo chown -R zou:www-data &#x2F;opt&#x2F;kitsu<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>部署完成后需要更新nginx的配置</p>
 <pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">server &#123;
     listen 80;
@@ -1465,11 +1485,12 @@ sudo chown -R zou:www-data &#x2F;opt&#x2F;kitsu<span aria-hidden="true" class="l
 
     &#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>重启nginx服务</p>
 <pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">sudo service nginx restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>到这一步就可以访问自己的ip或者域名来使用cgwire了。<br>当然，在此之前需要一个管理员账户来登陆cgwire。</p>
-<h2><span id="创建cgwire管理员账户">创建cgwire管理员账户</span></h2><pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell"># 首先进入zou环境
+<p>到这一步就可以访问自己的ip或者域名来使用cgwire了。<br>
+当然，在此之前需要一个管理员账户来登陆cgwire。</p>
+<h2><span id="创建cgwire管理员账户">创建cgwire管理员账户</span></h2>
+<pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell"># 首先进入zou环境
 cd &#x2F;opt&#x2F;zou
 . zouenv&#x2F;bin&#x2F;activate
 
@@ -1478,8 +1499,8 @@ DB_PASSWORD&#x3D;yourdbpassword zou create_admin adminemail@yourstudio.com
 
 # 初始化数据
 DB_PASSWORD&#x3D;yourdbpassword zou init-data<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>账户创建完成后，默认密码为default，第一次登陆后会强制让你修改密码。<br>最后请尽情的enjoy it。</p>
+<p>账户创建完成后，默认密码为default，第一次登陆后会强制让你修改密码。<br>
+最后请尽情的enjoy it。</p>
 <center>（完）
 </center>
 </div>

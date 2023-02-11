@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,9 +1268,13 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h1><span id="概述">概述</span></h1><p>rez的包可以包含不同的变体（variant），可以把它看作同一个包版本的不同变种。<br>每个变体都有一个或多个相对于当前包不同的依赖关系。</p>
+	<h1><span id="概述">概述</span></h1>
+<p>rez的包可以包含不同的变体（variant），可以把它看作同一个包版本的不同变种。<br>
+每个变体都有一个或多个相对于当前包不同的依赖关系。</p>
 <p>假定一个场景来说明变体的使用：</p>
-<p>有一个maya插件my_maya_plugin，公司有两个maya版本分别为2016-sp2和2017。<br>如果你的插件已经编译，而你需要在每个不同的maya版本中构建它。（即使源代码是相同的）<br>这个时候就可以使用变体来创建插件版本，像这样来定义插件的package文件：</p>
+<p>有一个maya插件my_maya_plugin，公司有两个maya版本分别为2016-sp2和2017。<br>
+如果你的插件已经编译，而你需要在每个不同的maya版本中构建它。（即使源代码是相同的）<br>
+这个时候就可以使用变体来创建插件版本，像这样来定义插件的package文件：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">name <span class="token operator">=</span> <span class="token string">"my_maya_plugin"</span>
 
 version <span class="token operator">=</span> <span class="token string">"1.0.0"</span>
@@ -1265,77 +1287,89 @@ variants <span class="token operator">=</span> <span class="token punctuation">[
     <span class="token punctuation">[</span><span class="token string">"maya-2016.sp2"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
     <span class="token punctuation">[</span><span class="token string">"maya-2017"</span><span class="token punctuation">]</span>
 <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>当构建这个插件的时候，会根据当前maya版本选择相应的变体。（在给定的配置环境中，只会使用包的一种变体）<br>每个变体条目都有一个依赖列表，与requires列表里的没有什么不同。<br>第一个变体需要openexr-2.2和maya-2016sp2，第二个变体需要openexr-2.2和maya-2017。</p>
-<h1><span id="结构">结构</span></h1><p>程序包变体存储在程序包符合变体要求的子目录下。例如刚刚示例中的my_maya_plugin软件包：</p>
+<p>当构建这个插件的时候，会根据当前maya版本选择相应的变体。（在给定的配置环境中，只会使用包的一种变体）<br>
+每个变体条目都有一个依赖列表，与requires列表里的没有什么不同。<br>
+第一个变体需要openexr-2.2和maya-2016sp2，第二个变体需要openexr-2.2和maya-2017。</p>
+<h1><span id="结构">结构</span></h1>
+<p>程序包变体存储在程序包符合变体要求的子目录下。例如刚刚示例中的my_maya_plugin软件包：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">/rez/packages/my_maya_plugin/1.0.0/maya-2016.sp2/<span class="token operator">&lt;</span>PAYLOAD<span class="token operator">></span>
                                   /maya-2017/<span class="token operator">&lt;</span>PAYLOAD<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>下图展示了一个包含各种变体的包：</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d427a1c8.png" alt="rez-variants-p1.png"><br>包的根目录是它当前变体的根目录（当前环境配置使用的那个）</p>
-<h1><span id="哈希">哈希</span></h1><p>如上所示变体路径有两个问题：</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3d427a1c8.png" alt="rez-variants-p1.png"><br>
+包的根目录是它当前变体的根目录（当前环境配置使用的那个）</p>
+<h1><span id="哈希">哈希</span></h1>
+<p>如上所示变体路径有两个问题：</p>
 <ul>
 <li>如果需求有很多，则变体安装路径会很长</li>
-<li>如果一些变体的需求里包含类似<code>!</code>和 <code>&lt;</code> 的字符，它们可能会导致系统构建的泄漏问题。<br>对于不同的系统平台来说，可能不是有效的文件系统路径</li>
+<li>如果一些变体的需求里包含类似<code>!</code>和 <code>&lt;</code> 的字符，它们可能会导致系统构建的泄漏问题。<br>
+对于不同的系统平台来说，可能不是有效的文件系统路径</li>
 </ul>
 <p>你可以通过哈希命名来避免这些问题，将变体的路径设置为其需求的哈希值。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">/rez/packages/my_maya_plugin/1.0.0/83e0c415db1b602f9d59cee028da6ac785e9bacc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>这里可以通过变体的短链接来访问相同的路径，需要在已解析的环境中使用。</p>
 <p>短链接是指向每个变体的符号链接，默认是<code>_v</code>。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">/rez/packages/my_maya_plugin/1.0.0/_v/a<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>必须为包的定义设置中启用哈希变体：<br><code>hashed_variants = True</code></p>
-<h1><span id="不同系统平台的变体">不同系统平台的变体</span></h1><p>在软件包定义中看到针对不同系统平台，架构而配置的变体并不少见。如下：</p>
+<p>必须为包的定义设置中启用哈希变体：<br>
+<code>hashed_variants = True</code></p>
+<h1><span id="不同系统平台的变体">不同系统平台的变体</span></h1>
+<p>在软件包定义中看到针对不同系统平台，架构而配置的变体并不少见。如下：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># in package.py</span>
 variants <span class="token operator">=</span> <span class="token punctuation">[</span>
     <span class="token punctuation">[</span><span class="token string">"platform-linux"</span><span class="token punctuation">,</span> <span class="token string">"arch-x86_64"</span><span class="token punctuation">,</span> <span class="token string">"os-Ubuntu-12.04"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
     <span class="token punctuation">[</span><span class="token string">"platform-linux"</span><span class="token punctuation">,</span> <span class="token string">"arch-x86_64"</span><span class="token punctuation">,</span> <span class="token string">"os-Ubuntu-16.04"</span><span class="token punctuation">]</span>
 <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>这表明了可以针对多个系统平台创建。</p>
-<h1><span id="单一变体">单一变体</span></h1><p>通常我们只会看到一种变体的程序包，因为：</p>
+<h1><span id="单一变体">单一变体</span></h1>
+<p>通常我们只会看到一种变体的程序包，因为：</p>
 <ul>
 <li>比如一个编译过的python包，暂时只支持python2.7，这个时候就只存在一种变体。不过可以在以后编译包更新了在添加变体，从而不需要迁移到新版本。</li>
 <li>安装路径。人们希望可以从安装包路径中看到一些相关信息，譬如平台，架构，操作系统等。通过将这些依赖项放到变体中，使它们出现在程序包的安装路径中。</li>
 </ul>
-<h1><span id="变体的选择">变体的选择</span></h1><p>如之前所说的，rez会根据解析的环境自动选择正确的变体。例如：</p>
+<h1><span id="变体的选择">变体的选择</span></h1>
+<p>如之前所说的，rez会根据解析的环境自动选择正确的变体。例如：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-env my_maya_plugin maya-2017 -- <span class="token builtin class-name">echo</span> <span class="token string">'$REZ_MY_MAYA_PLUGIN_ROOT'</span>
 /rez/packages/my_maya_plugin/1.0.0/maya-2017
 <span class="token punctuation">]</span>$ rez-env my_maya_plugin maya-2016 -- <span class="token builtin class-name">echo</span> <span class="token string">'$REZ_MY_MAYA_PLUGIN_ROOT'</span>
 /rez/packages/my_maya_plugin/1.0.0/maya-2016.sp2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>如果两种变体给定的请求都有效且满足，如下操作（这里maya不在请求中）：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-env my_maya_plugin -- <span class="token builtin class-name">echo</span> <span class="token string">'$REZ_MY_MAYA_PLUGIN_ROOT'</span>
 /rez/packages/my_maya_plugin/1.0.0/maya-2017<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>my_maya_plugin的任何一种变体都可以满足要求，因为我们没有指定实际需要哪个版本的maya。<br>默认情况下，rez会选择更高的程序包版本，这也是为什么上述例子中选择了maya-2017的原因。</p>
-<p>如果给定选择，则优先选择给定的变体。如果没有则优先选择列表中前面列出的变体，<br>看下面这个例子：</p>
+<p>my_maya_plugin的任何一种变体都可以满足要求，因为我们没有指定实际需要哪个版本的maya。<br>
+默认情况下，rez会选择更高的程序包版本，这也是为什么上述例子中选择了maya-2017的原因。</p>
+<p>如果给定选择，则优先选择给定的变体。如果没有则优先选择列表中前面列出的变体，<br>
+看下面这个例子：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">name <span class="token operator">=</span> <span class="token string">"foo"</span>
 
 variants <span class="token operator">=</span> <span class="token punctuation">[</span>
     <span class="token punctuation">[</span><span class="token string">"python-2.6"</span><span class="token punctuation">,</span> <span class="token string">"maya-2017"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
     <span class="token punctuation">[</span><span class="token string">"python-2.7"</span><span class="token punctuation">,</span> <span class="token string">"maya-2016"</span><span class="token punctuation">]</span>
 <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>如果运行<code>rez-env foo</code> ，它将选择第二种变体，因为这个时候python具有优先级（变体中列出的第一个包），<br>且第二个变体的python版本更高。</p>
-<p>但如果运行<code>rez-env foo maya</code>这个命令的话，将得到第一个变体，因为在命令中把优先级给了maya，<br>第一个变体的maya版本更高。</p>
-<p>rez的配置设置”variant_select_mode”影响选择方式。刚刚描述的是”version_priority”的方式，<br>还有另外一种方式”intersection_priority”，这种模式下，请求中包数量最多的变体是优先，然后再是版本。</p>
-<h2><span id="排他性">排他性</span></h2><p>在上述的例子中，变体都是相互排斥的，例如不能在同一个环境拥有python-2.6和python-2.7。<br>所以当我们请求”foo python-2.6”的时候，可以确定得到的是哪个变体。<br>然而，变体并不总会相互排斥，比如下面这个例子：</p>
+<p>如果运行<code>rez-env foo</code> ，它将选择第二种变体，因为这个时候python具有优先级（变体中列出的第一个包），<br>
+且第二个变体的python版本更高。</p>
+<p>但如果运行<code>rez-env foo maya</code>这个命令的话，将得到第一个变体，因为在命令中把优先级给了maya，<br>
+第一个变体的maya版本更高。</p>
+<p>rez的配置设置&quot;variant_select_mode&quot;影响选择方式。刚刚描述的是&quot;version_priority&quot;的方式，<br>
+还有另外一种方式&quot;intersection_priority&quot;，这种模式下，请求中包数量最多的变体是优先，然后再是版本。</p>
+<h2><span id="排他性">排他性</span></h2>
+<p>在上述的例子中，变体都是相互排斥的，例如不能在同一个环境拥有python-2.6和python-2.7。<br>
+所以当我们请求&quot;foo python-2.6&quot;的时候，可以确定得到的是哪个变体。<br>
+然而，变体并不总会相互排斥，比如下面这个例子：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">name <span class="token operator">=</span> <span class="token string">"geocache"</span>
 
 variants <span class="token operator">=</span> <span class="token punctuation">[</span>
     <span class="token punctuation">[</span><span class="token string">"maya-2016"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
     <span class="token punctuation">[</span><span class="token string">"houdini-14"</span><span class="token punctuation">]</span>
 <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>如果我们运行<code>rez-env geocache</code>，我们会得到哪一个变体？这里肯定不能直接用版本进行比较，<br>那如果我们这样进行选择<code>rez-env geocache maya</code>，也许会得到第一个变体？</p>
-<p>这里的关键字”maya”是选择偏好，但因为变体不是互斥的，所以我们不能保证上述的解决方案是确定的。<br>再看下面这个例子：</p>
+<p>如果我们运行<code>rez-env geocache</code>，我们会得到哪一个变体？这里肯定不能直接用版本进行比较，<br>
+那如果我们这样进行选择<code>rez-env geocache maya</code>，也许会得到第一个变体？</p>
+<p>这里的关键字&quot;maya&quot;是选择偏好，但因为变体不是互斥的，所以我们不能保证上述的解决方案是确定的。<br>
+再看下面这个例子：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-env geocache maya animtools-1.4<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>我们请求geocache时，期望获得maya-2016的变体。但animtools需要maya-2017该怎么办？<br>这将导致rez无法选择geocache中的第一个变体maya，而去选择第二个houdini，这是错误的。</p>
+<p>我们请求geocache时，期望获得maya-2016的变体。但animtools需要maya-2017该怎么办？<br>
+这将导致rez无法选择geocache中的第一个变体maya，而去选择第二个houdini，这是错误的。</p>
 <p><strong>Notes</strong>：rez计划添加一个新的包请求语法，能够显式的选择包变体，避免这样的歧义。</p>
-<h1><span id="为什么使用变体">为什么使用变体</span></h1><p>变体是rez中的一种强大的机制。</p>
+<h1><span id="为什么使用变体">为什么使用变体</span></h1>
+<p>变体是rez中的一种强大的机制。</p>
 <p>它们避免了为支持不同的依赖关系而维护大量独立包的繁琐需求。</p>
 
 </div>

@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,21 +1268,23 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h1><span id="概述">概述</span></h1><p>rez包可以使用rez-build工具来构建和本地安装。这个工具有以下操作：</p>
+	<h1><span id="概述">概述</span></h1>
+<p>rez包可以使用rez-build工具来构建和本地安装。这个工具有以下操作：</p>
 <ul>
 <li>遍历一个包的变体</li>
 <li>构建环境</li>
 <li>在此环境中运行构建系统</li>
 </ul>
-<p>每一个构建都来自构建的目录路径。（通常是构建的子目录或构建下的变体特定子目录）<br>例如一个包含两个基本python变体的程序包：</p>
+<p>每一个构建都来自构建的目录路径。（通常是构建的子目录或构建下的变体特定子目录）<br>
+例如一个包含两个基本python变体的程序包：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">+- package.py
 +- CMakeLists.txt <span class="token punctuation">(</span>or other build <span class="token function">file</span><span class="token punctuation">)</span>
 +-build
   +-python-2.6  <span class="token comment"># build dir for python-2.6 variant</span>
   +-python-2.7  <span class="token comment"># build dir for python-2.6 variant</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>在构建过程中，当前目录被视为构建路径。</p>
-<h1><span id="构建环境">构建环境</span></h1><p>构建环境是一个rez解析环境，它的需求列表是这样构造的：</p>
+<h1><span id="构建环境">构建环境</span></h1>
+<p>构建环境是一个rez解析环境，它的需求列表是这样构造的：</p>
 <ul>
 <li>首先使用程序包require列表</li>
 <li>然后添加程序包的build_require列表。其它包的build_requires也会被使用</li>
@@ -1273,55 +1293,62 @@ var _hmt = _hmt || [];
 </ul>
 <p>构建时会创建一系列环境变量（REZ_BUILD_开头），在<a href="https://lingyunfx.com/2021/03/15/rez-environment-variables/">这里</a>可以看到构建时产生的环境变量。</p>
 <p>在这个环境中会为每个变量调用构建系统。</p>
-<h1><span id="构建时依赖">构建时依赖</span></h1><p>有时候一个包只需要依赖另一个包来构建它的代码，或者生成文档。<br>以文档为例，一个C++项目可能需要使用doxygen来构建它的文档，<br>而一旦文档被生成，就不再需要doxygen了。</p>
-<p>这可以通过package.py的build_requires或private_build_requires来实现，<br>在这两个参数下的依赖包都只用于构建时，是过渡性的依赖列表。</p>
+<h1><span id="构建时依赖">构建时依赖</span></h1>
+<p>有时候一个包只需要依赖另一个包来构建它的代码，或者生成文档。<br>
+以文档为例，一个C++项目可能需要使用doxygen来构建它的文档，<br>
+而一旦文档被生成，就不再需要doxygen了。</p>
+<p>这可以通过package.py的build_requires或private_build_requires来实现，<br>
+在这两个参数下的依赖包都只用于构建时，是过渡性的依赖列表。</p>
 <p>一些private_build_requires使用包括：</p>
 <ul>
 <li>文档的生成器，如doxygen或sphinx</li>
 <li>构建工具，如一个名为pyqt_cmake_utils的包，它提供了将ui文件转换为py的cmake宏</li>
 <li>静态链接库（因为库在构建时已经链接好了，所以运行时就不需要这个包了）</li>
 </ul>
-<h1><span id="包的通信">包的通信</span></h1><p>比如有两个C++包，maya_utils和著名的boost库。maya_utils如何找到boost的头文件，或库文件？<br>简单的回答是，这取决于你。Rez其实并不是一个构建系统，它支持各种构建系统，它可以配置构建环境，但构建本身的细节部分是留给使用者的。</p>
-<p>话虽如此，rez支持cmake有一段时间了，而且rez自带大量的实用代码来管理cmake构建。<br>当配置rez环境时，每个包的命令部分都会配置环境。当发生构建时，一个特殊的变量building被设置为True。你的包会使用这个变量来向未构建的包传达构建信息。</p>
+<h1><span id="包的通信">包的通信</span></h1>
+<p>比如有两个C++包，maya_utils和著名的boost库。maya_utils如何找到boost的头文件，或库文件？<br>
+简单的回答是，这取决于你。Rez其实并不是一个构建系统，它支持各种构建系统，它可以配置构建环境，但构建本身的细节部分是留给使用者的。</p>
+<p>话虽如此，rez支持cmake有一段时间了，而且rez自带大量的实用代码来管理cmake构建。<br>
+当配置rez环境时，每个包的命令部分都会配置环境。当发生构建时，一个特殊的变量building被设置为True。你的包会使用这个变量来向未构建的包传达构建信息。</p>
 <p>举个例子，我们的boost包命令看起来也许是这样的：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">commands</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">if</span> building<span class="token punctuation">:</span>
         <span class="token comment"># there is a 'FindBoost.cmake' file in this dir..</span>
         env<span class="token punctuation">.</span>CMAKE_MODULE_PATH<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">"&#123;root&#125;/cmake"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>一个简单的FindBoost.cmake文件可能是这样：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">set<span class="token punctuation">(</span>Boost_INCLUDE_DIRS <span class="token variable">$ENV</span><span class="token punctuation">&#123;</span>REZ_BOOST_ROOT<span class="token punctuation">&#125;</span>/include<span class="token punctuation">)</span>
 set<span class="token punctuation">(</span>Boost_LIBRARY_DIRS <span class="token variable">$ENV</span><span class="token punctuation">&#123;</span>REZ_BOOST_ROOT<span class="token punctuation">&#125;</span>/lib<span class="token punctuation">)</span>
 set<span class="token punctuation">(</span>Boost_LIBRARIES boost-python<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>然后，我们的maya_utils包可能有一个CMakeLists.txt文件（cmake的构建脚本），其中包含：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">find_package<span class="token punctuation">(</span>Boost<span class="token punctuation">)</span>
 include_directories<span class="token punctuation">(</span><span class="token variable">$&#123;Boost_INCLUDE_DIRS&#125;</span><span class="token punctuation">)</span>
 link_directories<span class="token punctuation">(</span><span class="token variable">$&#123;Boost_LIBRARY_DIRS&#125;</span><span class="token punctuation">)</span>
 target_link_libraries<span class="token punctuation">(</span>maya_utils <span class="token variable">$&#123;Boost_LIBRARIES&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>find_package cmake宏会搜索CMAKE_MODULE_PATH环境变量中列出的路径，并寻找一个名为FindXXX.cmake的文件，其中XXX是包的名称（在本例中为Boost），然后将其包含在内。</p>
-<h1><span id="构建系统">构建系统</span></h1><p>Rez支持多种构建系统，新的构建系统可以作为插件添加。当调用构建时，会自动检测并选择构建系统。例如如果在程序包根目录发现来CMakeLists.txt文件，就会使用cmake构建系统。</p>
-<h2><span id="参数传递">参数传递</span></h2><p>有两种方法可以将参数传递给构建系统。</p>
-<p>其一，一些编译系统插件会直接向<code>rez-build</code>命令添加额外选项。例如在一个基于CMake的程序包中，<br>又运行了<code>rez-build -h</code>命令，你会看到cmake的特定参数列表，比如 <code>—build-target</code>。</p>
+<h1><span id="构建系统">构建系统</span></h1>
+<p>Rez支持多种构建系统，新的构建系统可以作为插件添加。当调用构建时，会自动检测并选择构建系统。例如如果在程序包根目录发现来CMakeLists.txt文件，就会使用cmake构建系统。</p>
+<h2><span id="参数传递">参数传递</span></h2>
+<p>有两种方法可以将参数传递给构建系统。</p>
+<p>其一，一些编译系统插件会直接向<code>rez-build</code>命令添加额外选项。例如在一个基于CMake的程序包中，<br>
+又运行了<code>rez-build -h</code>命令，你会看到cmake的特定参数列表，比如 <code>—build-target</code>。</p>
 <p>其二，你可以直接向编译系统传递参数，使用<code>rez-build —build-args</code>命令。</p>
-<p>例如，这里在cmake中明确定义一个变量：<br><code>]$ rez-build -- -DMYVAR=YES</code></p>
-<h2><span id="自定义构建">自定义构建</span></h2><p>除了从构建文件中检查构建系统外，程序包还可以使用build_command属性明确指定构建命令。</p>
+<p>例如，这里在cmake中明确定义一个变量：<br>
+<code>]$ rez-build -- -DMYVAR=YES</code></p>
+<h2><span id="自定义构建">自定义构建</span></h2>
+<p>除了从构建文件中检查构建系统外，程序包还可以使用build_command属性明确指定构建命令。</p>
 <p>在package.py文件中定义：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">name <span class="token operator">=</span> <span class="token string">"nuke_utils"</span>
 
 version <span class="token operator">=</span> <span class="token string">"1.2.3"</span>
 
 build_command <span class="token operator">=</span> <span class="token string">"bash &#123;root&#125;/build.sh &#123;install&#125;"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>当在这个包运行rez-build时，给定的build.sh脚本将用bash执行。</p>
-<p>{root}字符为软件包根目录，如果又安装，{install}字符串将展开为”install”，否则为空。</p>
+<p>{root}字符为软件包根目录，如果又安装，{install}字符串将展开为&quot;install&quot;，否则为空。</p>
 <p>构建过程中的当前工作目录被设置为构建路径，而不是包的根目录。因此通常会使用{root}字符串来引用包根目录下的构建脚本。</p>
 <p><strong>传递参数</strong></p>
 <p>你可以直接为你的编译脚本添加参数到rez-build命令中，通过在程序包根目录创建一个parse_build_args.py文件，如下：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># in parse_build_args.py</span>
 parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">"--foo"</span><span class="token punctuation">,</span> action<span class="token operator">=</span><span class="token string">"store_true"</span><span class="token punctuation">,</span> <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">"do some foo"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>现在，如果你在这个软件包上运行<code>rez-build -h</code>会看到列出的选项：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ rez-build -h
 usage: rez build <span class="token punctuation">[</span>-h<span class="token punctuation">]</span> <span class="token punctuation">[</span>-c<span class="token punctuation">]</span> <span class="token punctuation">[</span>-i<span class="token punctuation">]</span> <span class="token punctuation">[</span>-p <span class="token environment constant">PATH</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>--fail-graph<span class="token punctuation">]</span> <span class="token punctuation">[</span>-s<span class="token punctuation">]</span> <span class="token punctuation">[</span>--view-pre<span class="token punctuation">]</span>
@@ -1333,9 +1360,9 @@ Build a package from source.
 optional arguments:
   <span class="token punctuation">..</span>.
   --foo                 <span class="token keyword">do</span> some foo<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>添加的参数会被存储到环境变量中，这样你的编译脚本就可以访问它们。</p>
-<p>它们的前缀是<code>__PARSE_ARF_</code> ；在上面的例子中，变量<code>__PARSE_ARG_FOO</code>被设置。<br>布尔由0/1表示，而列表则用空格分隔，必要时使用引号。</p>
+<p>它们的前缀是<code>__PARSE_ARF_</code> ；在上面的例子中，变量<code>__PARSE_ARG_FOO</code>被设置。<br>
+布尔由0/1表示，而列表则用空格分隔，必要时使用引号。</p>
 <p><strong>一个实例</strong></p>
 <p>以下是一个非常简单的C++例子，展示来如何使用自定义构建命令，通过make进行构建和安装。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># in package.py</span>
@@ -1349,15 +1376,16 @@ hai<span class="token punctuation">:</span> $<span class="token punctuation">&#1
 install<span class="token punctuation">:</span> hai
     mkdir <span class="token operator">-</span>p $<span class="token punctuation">&#123;</span>REZ_BUILD_INSTALL_PATH<span class="token punctuation">&#125;</span><span class="token operator">/</span><span class="token builtin">bin</span>
 		p $<span class="token operator">&lt;</span> $<span class="token punctuation">&#123;</span>REZ_BUILD_INSTALL_PATH<span class="token punctuation">&#125;</span><span class="token operator">/</span><span class="token builtin">bin</span><span class="token operator">/</span>hai<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1><span id="本地包安装">本地包安装</span></h1><p>在你做了一些代码修改之后，想要测试它们。你可以通过本地安装程序包，然后用<code>rez-env</code>解析环境来测试程序包，大概是这样：</p>
+<h1><span id="本地包安装">本地包安装</span></h1>
+<p>在你做了一些代码修改之后，想要测试它们。你可以通过本地安装程序包，然后用<code>rez-env</code>解析环境来测试程序包，大概是这样：</p>
 <ul>
 <li>进行代码修改</li>
 <li>运行<code>rez-build —install</code> 安装为本地包</li>
 <li>在一个单独的shell里运行rez-env mypackage。这将启用你的本地软件包，以及程序包需求</li>
 <li>测试软件包</li>
 </ul>
-<p>本地安装会将程序包构建并安装到本地仓库中，通常是~/package目录。这个目录被列在包搜索路径的开头，所以当你解析一个环境进行测试时，本地安装的包会被首先选中。你的包通常会被安装到 ~/packages/packagename/version，例如 ~/packages/maya_utils/1.0.5。如果你有变体，它们会被安装到这个安装路径的子目录中。<br>（可以参考文章：<a href="https://lingyunfx.com/2021/03/15/rez-variants">变体 (Variants)</a>的结构部分）</p>
+<p>本地安装会将程序包构建并安装到本地仓库中，通常是~/package目录。这个目录被列在包搜索路径的开头，所以当你解析一个环境进行测试时，本地安装的包会被首先选中。你的包通常会被安装到 ~/packages/packagename/version，例如 ~/packages/maya_utils/1.0.5。如果你有变体，它们会被安装到这个安装路径的子目录中。<br>
+（可以参考文章：<a href="https://lingyunfx.com/2021/03/15/rez-variants">变体 (Variants)</a>的结构部分）</p>
 <p>你不需要每次安装后都运行<code>rez-env</code>。如果你的程序包没有改变，你可以继续使用现有测试环境。</p>
 <p>可以通过检查rez-env执行后的输出，来确保你已经pick了你的本地包。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-env sequence
@@ -1378,7 +1406,6 @@ os-Ubuntu-16.04  /sw/packages/os/Ubuntu-16.04
 platform-linux   /sw/packages/platform/linux
 python-2.7.12    /sw/packages/python/2.7.12
 sequence-2.1.2   /home/ajohns/packages/sequence/2.1.2  <span class="token punctuation">(</span>local<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><strong>注意</strong>：这里的sequence包是本地安装，括号里local表示。</p>
 
 </div>

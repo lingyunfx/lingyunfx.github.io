@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,27 +1268,27 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h1><span id="概述">概述</span></h1><p>Bundle是一个包含context文件和程序包仓库的目录。  </p>
-<p>context中的所有包都在存储库中，这使得bundle是可移动和独立的。<br>通过命令创建一个bundle：</p>
+	<h1><span id="概述">概述</span></h1>
+<p>Bundle是一个包含context文件和程序包仓库的目录。</p>
+<p>context中的所有包都在存储库中，这使得bundle是可移动和独立的。<br>
+通过命令创建一个bundle：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-env foo -o foo.rxt
 <span class="token punctuation">]</span>$ rez-bundle foo.rxt ./mybundle
 
 <span class="token comment"># example of running a command from the bundled context</span>
 <span class="token punctuation">]</span>$ rez-env -i ./mybundle/context.rxt -- foo-tool<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>通过API创建bundle：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> rez<span class="token punctuation">.</span>bundle_context <span class="token keyword">import</span> bundle_context
 <span class="token keyword">from</span> rez<span class="token punctuation">.</span>resolved_context <span class="token keyword">import</span> ResolvedContext
 
 c <span class="token operator">=</span> ResolvedContext<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"python-3+"</span><span class="token punctuation">,</span> <span class="token string">"foo-1.2+&lt;2"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 bundle_context<span class="token punctuation">(</span>c<span class="token punctuation">,</span> <span class="token string">"./mybundle"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1><span id="结构">结构</span></h1><p>一个bundle的层级结构：</p>
+<h1><span id="结构">结构</span></h1>
+<p>一个bundle的层级结构：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">..</span>./mybundle/
        ./context.rxt
        ./packages/
            <span class="token operator">&lt;</span>standard package repo structure<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>在rxt文件中包的引用是相对的，这使得bundle可以被重新定位。</p>
 
 </div>

@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,7 +1268,8 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h2><span id="互联网协议">互联网协议</span></h2><p>按照功能的不同分为七层。</p>
+	<h2><span id="互联网协议">互联网协议</span></h2>
+<p>按照功能的不同分为七层。</p>
 <p>OSI七层协议：应，表，会，传，网，数，物。</p>
 <p>其中<strong>应表会</strong>可以归为<strong>应用层</strong>。</p>
 <ul>
@@ -1264,9 +1283,11 @@ var _hmt = _hmt || [];
 <p>通过握手确认建立临时管道。</p>
 <p>udp协议不需要通道，不会等待对方确认是否收到。</p>
 <p>效率比tcp协议高，但是不可靠。（只负责丢）</p>
-<h2><span id="socket层">socket层</span></h2><p>在应用层和传输层(tcp/udp)之间的中间软件抽象层，它是一组接口。</p>
+<h2><span id="socket层">socket层</span></h2>
+<p>在应用层和传输层(tcp/udp)之间的中间软件抽象层，它是一组接口。</p>
 <p>socket为套接字编程。</p>
-<h2><span id="一个简单的服务端和客户端">一个简单的服务端和客户端</span></h2><p><strong>服务端</strong></p>
+<h2><span id="一个简单的服务端和客户端">一个简单的服务端和客户端</span></h2>
+<p><strong>服务端</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">iimport socket
 
 <span class="token comment"># 创建一个套间字对象。 (socket.AF_INET 套间字类型    socket.SOCK_STREAM 是tcp传输协议)</span>
@@ -1291,7 +1312,6 @@ conn<span class="token punctuation">.</span>send<span class="token punctuation">
 <span class="token comment"># 关闭连接和关闭服务</span>
 conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 phone<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><strong>客户端</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">iimport socket
 
@@ -1306,8 +1326,8 @@ phone<span class="token punctuation">.</span>send<span class="token punctuation"
 data <span class="token operator">=</span> phone<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
 phone<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="改进客户端和服务端实现循环通信">改进客户端和服务端，实现循环通信</span></h2><p><strong>服务端</strong></p>
+<h2><span id="改进客户端和服务端实现循环通信">改进客户端和服务端，实现循环通信</span></h2>
+<p><strong>服务端</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> socket
 
 phone <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span>socket<span class="token punctuation">.</span>AF_INET<span class="token punctuation">,</span> socket<span class="token punctuation">.</span>SOCK_STREAM<span class="token punctuation">)</span>
@@ -1333,7 +1353,6 @@ phone<span class="token punctuation">.</span>listen<span class="token punctuatio
     conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 phone<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><strong>客户端</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> socket
 
@@ -1350,8 +1369,8 @@ phone<span class="token punctuation">.</span>connect<span class="token punctuati
     <span class="token keyword">print</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 phone<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="实现类似ssh的效果远程执行命令">实现类似ssh的效果（远程执行命令）</span></h2><p><strong>服务端</strong></p>
+<h2><span id="实现类似ssh的效果远程执行命令">实现类似ssh的效果（远程执行命令）</span></h2>
+<p><strong>服务端</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> socket
 <span class="token keyword">import</span> subprocess
 
@@ -1384,7 +1403,6 @@ phone<span class="token punctuation">.</span>listen<span class="token punctuatio
     conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 phone<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><strong>客户端</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> socket
 
@@ -1401,15 +1419,16 @@ phone<span class="token punctuation">.</span>connect<span class="token punctuati
     <span class="token keyword">print</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 phone<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>这里会留下一个问题，每次接受限制了1024个字节，会产生了粘包现象。</p>
-<h2><span id="粘包现象">粘包现象</span></h2><p>TCP粘包是指发送方发送的若干包数据到接收方接收时粘成一包，从接收缓冲区看，后一包数据的头紧接着前一包数据的尾。</p>
+<h2><span id="粘包现象">粘包现象</span></h2>
+<p>TCP粘包是指发送方发送的若干包数据到接收方接收时粘成一包，从接收缓冲区看，后一包数据的头紧接着前一包数据的尾。</p>
 <p><strong>底层原理</strong></p>
 <p>1.不管是recv还是send都不是直接接受对方的消息，而是操作自己的操作系统。</p>
 <p>（所以recv没法超过自己内存的大小）</p>
 <p>2.tcp协议会对间隔短的多个包进行优化合并</p>
 <p>3.recv和send方法，可以一直调用，直到内存里的值被取完</p>
-<h2><span id="解决粘包现象">解决粘包现象</span></h2><p>一种方法：先把数据的长度发送给客户端，再发送真实数据。</p>
+<h2><span id="解决粘包现象">解决粘包现象</span></h2>
+<p>一种方法：先把数据的长度发送给客户端，再发送真实数据。</p>
 <p><strong>服务端</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> socket
 <span class="token keyword">import</span> struct
@@ -1454,7 +1473,6 @@ phone<span class="token punctuation">.</span>listen<span class="token punctuatio
     conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 phone<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><strong>客户端</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> socket
 <span class="token keyword">import</span> struct
@@ -1484,12 +1502,10 @@ phone<span class="token punctuation">.</span>connect<span class="token punctuati
 
 phone<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>上述的方法有个弊端是，<code>pack</code>方法打包不能超过<code>2147483647</code>。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 可以使用长整数类型，不过也是有限制的</span>
 res <span class="token operator">=</span> struct<span class="token punctuation">.</span>pack<span class="token punctuation">(</span><span class="token string">'l'</span><span class="token punctuation">,</span> <span class="token number">10000000000000</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 返回8字节</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>另一个解决办法：</p>
 <p>1.先发送报头长度</p>
 <p>2.再发送报头的数据</p>
@@ -1546,7 +1562,6 @@ phone<span class="token punctuation">.</span>listen<span class="token punctuatio
     conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 phone<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><strong>客户端</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> json
 <span class="token keyword">import</span> socket
@@ -1585,9 +1600,8 @@ phone<span class="token punctuation">.</span>connect<span class="token punctuati
     <span class="token keyword">print</span><span class="token punctuation">(</span>recv_data<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 phone<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h2><span id="文件传输功能">文件传输功能</span></h2><p><strong>服务端</strong></p>
+<h2><span id="文件传输功能">文件传输功能</span></h2>
+<p><strong>服务端</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> json
 <span class="token keyword">import</span> os
 <span class="token keyword">import</span> socket
@@ -1639,7 +1653,6 @@ phone<span class="token punctuation">.</span>listen<span class="token punctuatio
     conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 phone<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><strong>客户端</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> json
 <span class="token keyword">import</span> socket
@@ -1679,8 +1692,8 @@ phone<span class="token punctuation">.</span>connect<span class="token punctuati
             recv_size <span class="token operator">+=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>line<span class="token punctuation">)</span>
 
 phone<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="udp协议实现">udp协议实现</span></h2><p>比如查询操作就适合udp协议，效率快，不需要双方进行握手确认，且不会产生粘包现象。</p>
+<h2><span id="udp协议实现">udp协议实现</span></h2>
+<p>比如查询操作就适合udp协议，效率快，不需要双方进行握手确认，且不会产生粘包现象。</p>
 <p>（虽然不会粘包，但是数据超出限制则会丢失）</p>
 <p><strong>服务端</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> socket
@@ -1691,7 +1704,6 @@ server<span class="token punctuation">.</span>bind<span class="token punctuation
 <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
     data<span class="token punctuation">,</span> client_addr <span class="token operator">=</span> server<span class="token punctuation">.</span>recvfrom<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span>
     server<span class="token punctuation">.</span>sendto<span class="token punctuation">(</span>data<span class="token punctuation">.</span>upper<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> client_addr<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><strong>客户端</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> socket
 

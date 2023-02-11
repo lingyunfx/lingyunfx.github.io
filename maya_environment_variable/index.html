@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,103 +1268,106 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<p>收集一些常用的Maya环境变量，方便用的时候查。<br>有关PATH的变量，Mac OS X中使用<code>:</code>分隔，Windows和Linux中使用<code>;</code>分隔。</p>
+	<p>收集一些常用的Maya环境变量，方便用的时候查。<br>
+有关PATH的变量，Mac OS X中使用<code>:</code>分隔，Windows和Linux中使用<code>;</code>分隔。</p>
 <table>
 <thead>
 <tr>
-<th align="left">Variable</th>
+<th style="text-align:left">Variable</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left"><code>MAYA_IGNORE_DIALOGS    </code></td>
+<tbody>
+<tr>
+<td style="text-align:left"><code>MAYA_IGNORE_DIALOGS	</code></td>
 <td>打开maya场景禁止弹出警告框</td>
 </tr>
 <tr>
-<td align="left"><code>MAYA_DISABLE_CLIC_IPM</code></td>
+<td style="text-align:left"><code>MAYA_DISABLE_CLIC_IPM</code></td>
 <td>禁用Cloud登陆</td>
 </tr>
 <tr>
-<td align="left"><code>MAYA_DISABLE_CIP</code></td>
+<td style="text-align:left"><code>MAYA_DISABLE_CIP</code></td>
 <td>禁用CIP（客户参与计划）</td>
 </tr>
 <tr>
-<td align="left"><code>MAYA_DISABLE_CER</code></td>
+<td style="text-align:left"><code>MAYA_DISABLE_CER</code></td>
 <td>禁用CER（客户错误报告）</td>
 </tr>
 <tr>
-<td align="left"><code>MAYA_NO_CONSOLE_WINDOW</code></td>
+<td style="text-align:left"><code>MAYA_NO_CONSOLE_WINDOW</code></td>
 <td>隐藏启动时的控制台窗口</td>
 </tr>
 <tr>
-<td align="left"><code>MAYA_CMD_FILE_OUTPUT</code></td>
+<td style="text-align:left"><code>MAYA_CMD_FILE_OUTPUT</code></td>
 <td>在启动时启用cmdFileOutput命令，使脚本辑器中的内容自动输出到指定文件</td>
 </tr>
 <tr>
-<td align="left"><code>MAYA_MODULE_PATH</code></td>
+<td style="text-align:left"><code>MAYA_MODULE_PATH</code></td>
 <td>定义maya模块的搜索路径（*.mod ）</td>
 </tr>
 <tr>
-<td align="left"><code>MAYA_PLUG_IN_PATH</code></td>
+<td style="text-align:left"><code>MAYA_PLUG_IN_PATH</code></td>
 <td>定义maya插件搜索路径（*.py *.mll *.so *.bundle ）</td>
 </tr>
 <tr>
-<td align="left"><code>MAYA_SCRIPT_PATH</code></td>
+<td style="text-align:left"><code>MAYA_SCRIPT_PATH</code></td>
 <td>定义mel脚本搜索路径（*.mel ）</td>
 </tr>
 <tr>
-<td align="left"><code>MAYA_PRESET_PATH</code></td>
+<td style="text-align:left"><code>MAYA_PRESET_PATH</code></td>
 <td>定义预设路径</td>
 </tr>
 <tr>
-<td align="left"><code>MAYA_SHELF_PATH</code></td>
+<td style="text-align:left"><code>MAYA_SHELF_PATH</code></td>
 <td>工具架目录（*.mel）</td>
 </tr>
 <tr>
-<td align="left"><code>MAYA_MOVIE_DIR</code></td>
+<td style="text-align:left"><code>MAYA_MOVIE_DIR</code></td>
 <td>存储movie文件的目录（默认为$MAYA_LOCATION/movies）</td>
 </tr>
 <tr>
-<td align="left"><code>MAYA_PROJECT</code></td>
+<td style="text-align:left"><code>MAYA_PROJECT</code></td>
 <td>maya项目目录</td>
 </tr>
 <tr>
-<td align="left"><code>MAYA_DEBUG_ENABLE_CRASH_REPORTING</code></td>
+<td style="text-align:left"><code>MAYA_DEBUG_ENABLE_CRASH_REPORTING</code></td>
 <td>maya崩溃时写入日志 MayaCrashLog[yymmdd.hhmm].log</td>
 </tr>
 <tr>
-<td align="left"><code>MAYA_UI_LANGUAGE</code></td>
+<td style="text-align:left"><code>MAYA_UI_LANGUAGE</code></td>
 <td>UI语言（zh_CN，en_US，ja_JP）</td>
 </tr>
 <tr>
-<td align="left"><code>MAYA_USE_MALLOC</code></td>
-<td>如果在加载大型场景时maya遇到问题而意外关闭，尝试将此环境变量设置为1。不过，如果设置此环境变量，则在选择”文件 &gt; 新建”(File &gt; New)时Maya不会释放使用的内存；只在退出maya时释放。</td>
+<td style="text-align:left"><code>MAYA_USE_MALLOC</code></td>
+<td>如果在加载大型场景时maya遇到问题而意外关闭，尝试将此环境变量设置为1。不过，如果设置此环境变量，则在选择&quot;文件 &gt; 新建&quot;(File &gt; New)时Maya不会释放使用的内存；只在退出maya时释放。</td>
 </tr>
 <tr>
-<td align="left"><code>MAYA_ENABLE_LEGACY_RENDER_LAYERS</code></td>
+<td style="text-align:left"><code>MAYA_ENABLE_LEGACY_RENDER_LAYERS</code></td>
 <td>mayas是否使用render layer(1) 或新版的render setup(0)</td>
 </tr>
 <tr>
-<td align="left"><code>MAYA_VP2_USE_GPU_MAX_TARGET_SIZE</code></td>
+<td style="text-align:left"><code>MAYA_VP2_USE_GPU_MAX_TARGET_SIZE</code></td>
 <td>允许Viewport2.0 渲染大于4K</td>
 </tr>
 <tr>
-<td align="left"><code>PYTHONPATH</code></td>
+<td style="text-align:left"><code>PYTHONPATH</code></td>
 <td>定义python文件搜索路径</td>
 </tr>
 <tr>
-<td align="left"><code>TMPDIR/Temp</code></td>
+<td style="text-align:left"><code>TMPDIR/Temp</code></td>
 <td>指定Maya用于各种临时文件的目录</td>
 </tr>
 <tr>
-<td align="left"><code>XBMLANGPATH</code></td>
+<td style="text-align:left"><code>XBMLANGPATH</code></td>
 <td>定义图标文件位置</td>
 </tr>
 <tr>
-<td align="left"><code>MAYA_FORCE_REF_READ</code></td>
+<td style="text-align:left"><code>MAYA_FORCE_REF_READ</code></td>
 <td>这个环境变量可以让多个相同的引用文件，不使用同一个内存空间</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>更多的看<a target="_blank" rel="noopener" href="https://knowledge.autodesk.com/zh-hans/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2018/CHS/Maya-EnvVar/files/GUID-228CCA33-4AFE-4380-8C3D-18D23F7EAC72-htm.html">官方文档</a>。</p>
 
 </div>

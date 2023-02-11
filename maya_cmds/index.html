@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,51 +1268,66 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h2><span id="动画相关">动画相关</span></h2><h3><span id="获取物体有多少个关键帧">获取物体有多少个关键帧</span></h3><p><code>cmds.keyframe(name, q=True, keyframeCount=True)</code></p>
-<h3><span id="获取物体第一个动画帧帧数">获取物体第一个动画帧帧数</span></h3><p><code>cmds.findKeyframe(name, which=&#39;first&#39;)</code></p>
-<h3><span id="获取物体最后一个动画帧帧数">获取物体最后一个动画帧帧数</span></h3><p><code>cmds.findKeyframe(name, which=&#39;last&#39;)</code></p>
-<h3><span id="修复乱轴曲线">修复乱轴曲线</span></h3><p><code>cmds.filterCurve(name_list)</code></p>
-<h3><span id="复制粘贴单个指定属性动画">复制粘贴单个指定属性动画</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 这里是复制摄像机焦距动画</span>
+	<h2><span id="动画相关">动画相关</span></h2>
+<h3><span id="获取物体有多少个关键帧">获取物体有多少个关键帧</span></h3>
+<p><code>cmds.keyframe(name, q=True, keyframeCount=True)</code></p>
+<h3><span id="获取物体第一个动画帧帧数">获取物体第一个动画帧帧数</span></h3>
+<p><code>cmds.findKeyframe(name, which='first')</code></p>
+<h3><span id="获取物体最后一个动画帧帧数">获取物体最后一个动画帧帧数</span></h3>
+<p><code>cmds.findKeyframe(name, which='last')</code></p>
+<h3><span id="修复乱轴曲线">修复乱轴曲线</span></h3>
+<p><code>cmds.filterCurve(name_list)</code></p>
+<h3><span id="复制粘贴单个指定属性动画">复制粘贴单个指定属性动画</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 这里是复制摄像机焦距动画</span>
 cmds<span class="token punctuation">.</span>copyKey<span class="token punctuation">(</span>cam<span class="token punctuation">,</span> at<span class="token operator">=</span><span class="token string">'fl'</span><span class="token punctuation">)</span>
 cmds<span class="token punctuation">.</span>pasteKey<span class="token punctuation">(</span>dup_cam<span class="token punctuation">,</span> at<span class="token operator">=</span><span class="token string">'fl'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="显示层">显示层</span></h2><h3><span id="设置显示层的颜色">设置显示层的颜色</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">cmds<span class="token punctuation">.</span>setAttr<span class="token punctuation">(</span>layerName<span class="token operator">+</span><span class="token string">'.color'</span><span class="token punctuation">,</span> index<span class="token punctuation">)</span>
+<h2><span id="显示层">显示层</span></h2>
+<h3><span id="设置显示层的颜色">设置显示层的颜色</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">cmds<span class="token punctuation">.</span>setAttr<span class="token punctuation">(</span>layerName<span class="token operator">+</span><span class="token string">'.color'</span><span class="token punctuation">,</span> index<span class="token punctuation">)</span>
 cmds<span class="token punctuation">.</span>setAttr<span class="token punctuation">(</span>dag<span class="token operator">+</span><span class="token string">'.overrideEnabled'</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
 cmds<span class="token punctuation">.</span>setAttr<span class="token punctuation">(</span>dag<span class="token operator">+</span><span class="token string">'.overrideColor'</span><span class="token punctuation">,</span> index<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="列出跟物体连接的显示层">列出跟物体连接的显示层</span></h3><p><code>cmds.listConnections(dag, s=True, t=&#39;displayLayer&#39;)</code></p>
-<h2><span id="物体对象">物体对象</span></h2><h3><span id="求不规则物体的长宽高">求不规则物体的长宽高</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">box <span class="token operator">=</span> cmds<span class="token punctuation">.</span>exactWorldBoundingBox<span class="token punctuation">(</span>cmds<span class="token punctuation">.</span>ls<span class="token punctuation">(</span>sl<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<h3><span id="列出跟物体连接的显示层">列出跟物体连接的显示层</span></h3>
+<p><code>cmds.listConnections(dag, s=True, t='displayLayer')</code></p>
+<h2><span id="物体对象">物体对象</span></h2>
+<h3><span id="求不规则物体的长宽高">求不规则物体的长宽高</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">box <span class="token operator">=</span> cmds<span class="token punctuation">.</span>exactWorldBoundingBox<span class="token punctuation">(</span>cmds<span class="token punctuation">.</span>ls<span class="token punctuation">(</span>sl<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 width_x <span class="token operator">=</span> box<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">-</span> box<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
 height_y <span class="token operator">=</span> box<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token operator">-</span> box<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
 depth_z <span class="token operator">=</span> box<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token operator">-</span> box<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="创建一条曲线">创建一条曲线</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 需提供一个点位置列表</span>
+<h3><span id="创建一条曲线">创建一条曲线</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 需提供一个点位置列表</span>
 position <span class="token operator">=</span> cmds<span class="token punctuation">.</span>xform<span class="token punctuation">(</span>obj<span class="token punctuation">,</span> q<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> t<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> worldSpace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
 cmds<span class="token punctuation">.</span>curve<span class="token punctuation">(</span>p<span class="token operator">=</span>position<span class="token punctuation">,</span> d<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="求曲线长度">求曲线长度</span></h3><p><code>cmds.arclen(curve)</code></p>
-<h3><span id="根据两条曲线创建模型">根据两条曲线创建模型</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">cmds<span class="token punctuation">.</span>nurbsToPolygonsPref<span class="token punctuation">(</span>f<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span>
+<h3><span id="求曲线长度">求曲线长度</span></h3>
+<p><code>cmds.arclen(curve)</code></p>
+<h3><span id="根据两条曲线创建模型">根据两条曲线创建模型</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">cmds<span class="token punctuation">.</span>nurbsToPolygonsPref<span class="token punctuation">(</span>f<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span>
 cmds<span class="token punctuation">.</span>loft<span class="token punctuation">(</span>curve1<span class="token punctuation">,</span> curve2<span class="token punctuation">,</span> ch<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> d<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> po<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> rsn<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> name<span class="token operator">=</span>name<span class="token operator">+</span><span class="token string">'_path'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h3><span id="获取物体属性列表">获取物体属性列表</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">cmds<span class="token punctuation">.</span>findKeyframe<span class="token punctuation">(</span>obj<span class="token punctuation">,</span> curve<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+<h3><span id="获取物体属性列表">获取物体属性列表</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">cmds<span class="token punctuation">.</span>findKeyframe<span class="token punctuation">(</span>obj<span class="token punctuation">,</span> curve<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
 cmds<span class="token punctuation">.</span>listAttr<span class="token punctuation">(</span>obj<span class="token punctuation">,</span> k<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> u<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h3><span id="获取选中模型点的位置">获取选中模型点的位置</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">sel_vtx <span class="token operator">=</span> cmds<span class="token punctuation">.</span>ls<span class="token punctuation">(</span>sl<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+<h3><span id="获取选中模型点的位置">获取选中模型点的位置</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">sel_vtx <span class="token operator">=</span> cmds<span class="token punctuation">.</span>ls<span class="token punctuation">(</span>sl<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
 vtx_position <span class="token operator">=</span> cmds<span class="token punctuation">.</span>pointPosition<span class="token punctuation">(</span>sel_vtx<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h3><span id="获取group下所有mesh类型">获取Group下所有mesh类型</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">maya<span class="token punctuation">.</span>cmds<span class="token punctuation">.</span>listRelatives<span class="token punctuation">(</span>cmds<span class="token punctuation">.</span>ls<span class="token punctuation">(</span>sl<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<h3><span id="获取group下所有mesh类型">获取Group下所有mesh类型</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">maya<span class="token punctuation">.</span>cmds<span class="token punctuation">.</span>listRelatives<span class="token punctuation">(</span>cmds<span class="token punctuation">.</span>ls<span class="token punctuation">(</span>sl<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
 												allDescendents<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
 												noIntermediate<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
 												fullPath<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
 												<span class="token builtin">type</span><span class="token operator">=</span><span class="token string">"mesh"</span><span class="token punctuation">,</span>
 												path<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="视图">视图</span></h2><h3><span id="获取拍屏激活的视图名">获取拍屏激活的视图名</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">cmds<span class="token punctuation">.</span>playblast<span class="token punctuation">(</span>activeEditor<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+<h2><span id="视图">视图</span></h2>
+<h3><span id="获取拍屏激活的视图名">获取拍屏激活的视图名</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">cmds<span class="token punctuation">.</span>playblast<span class="token punctuation">(</span>activeEditor<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
 cmds<span class="token punctuation">.</span>playblast<span class="token punctuation">(</span>activeEditor<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'|'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token comment"># 得到实际名称</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h2><span id="命名空间">命名空间</span></h2><h3><span id="获取命名空间列表">获取命名空间列表</span></h3><p><code>namespace_list = cmds.namespaceInfo(recurse=True, listOnlyNamespace=True)</code></p>
-<h3><span id="删除指定的命名空间">删除指定的命名空间</span></h3><p><code>cmds.namespace(moveNamespace=(&#39;:&#39; + namespace_list[-1], &#39;:&#39;), force=True)</code></p>
-<h2><span id="摄像机">摄像机</span></h2><h3><span id="为摄像机添加素材">为摄像机添加素材</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 1.得到摄像机的名字和形状节点</span>
+<h2><span id="命名空间">命名空间</span></h2>
+<h3><span id="获取命名空间列表">获取命名空间列表</span></h3>
+<p><code>namespace_list = cmds.namespaceInfo(recurse=True, listOnlyNamespace=True)</code></p>
+<h3><span id="删除指定的命名空间">删除指定的命名空间</span></h3>
+<p><code>cmds.namespace(moveNamespace=(':' + namespace_list[-1], ':'), force=True)</code></p>
+<h2><span id="摄像机">摄像机</span></h2>
+<h3><span id="为摄像机添加素材">为摄像机添加素材</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 1.得到摄像机的名字和形状节点</span>
 cam <span class="token operator">=</span> cmds<span class="token punctuation">.</span>ls<span class="token punctuation">(</span>sl<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  camShape <span class="token operator">=</span> listRelatives<span class="token punctuation">(</span>cam<span class="token punctuation">,</span> s<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
 
 <span class="token comment"># 2.得到指定物所有连接节点的列表</span>
@@ -1313,8 +1346,8 @@ cmds<span class="token punctuation">.</span>imagePlane<span class="token punctua
 <span class="token comment"># 5.素材指定给摄像机, 开启素材帧序列动画</span>
 cmds<span class="token punctuation">.</span>setAttr<span class="token punctuation">(</span>imp<span class="token operator">+</span> <span class="token string">'.imageName'</span><span class="token punctuation">,</span> image_seq<span class="token punctuation">,</span> tyoe<span class="token operator">=</span><span class="token string">'string'</span><span class="token punctuation">)</span>
 cmds<span class="token punctuation">.</span>setAttr<span class="token punctuation">(</span>imp <span class="token operator">+</span> <span class="token string">'.useFrameExtension'</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="摄像机额外属性设置">摄像机额外属性设置</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">cmds<span class="token punctuation">.</span>setAttr<span class="token punctuation">(</span>imp<span class="token operator">+</span><span class="token string">'.lockedToCamera'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<h3><span id="摄像机额外属性设置">摄像机额外属性设置</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">cmds<span class="token punctuation">.</span>setAttr<span class="token punctuation">(</span>imp<span class="token operator">+</span><span class="token string">'.lockedToCamera'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
 cmds<span class="token punctuation">.</span>setAttr<span class="token punctuation">(</span>imp<span class="token operator">+</span><span class="token string">'.sizeX'</span><span class="token punctuation">,</span> cmds<span class="token punctuation">.</span>getAttr<span class="token punctuation">(</span>camShape<span class="token operator">+</span><span class="token string">'.horizontalFilmAperture'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 cmds<span class="token punctuation">.</span>setAttr<span class="token punctuation">(</span>imp<span class="token operator">+</span><span class="token string">'.sizeY'</span><span class="token punctuation">,</span> cmds<span class="token punctuation">.</span>getAttr<span class="token punctuation">(</span>camShape<span class="token operator">+</span><span class="token string">'.verticalFilmAperture'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 cmds<span class="token punctuation">.</span>setAttr<span class="token punctuation">(</span>imp<span class="token operator">+</span><span class="token string">'.width'</span><span class="token punctuation">,</span> cmds<span class="token punctuation">.</span>getAttr<span class="token punctuation">(</span>camShape<span class="token operator">+</span><span class="token string">'.orthographicWidth'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -1324,24 +1357,26 @@ cmds<span class="token punctuation">.</span>setAttr<span class="token punctuatio
 cmds<span class="token punctuation">.</span>setAttr<span class="token punctuation">(</span>imp<span class="token operator">+</span><span class="token string">'.displayMode'</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
 cmds<span class="token punctuation">.</span>setAttr<span class="token punctuation">(</span>imp<span class="token operator">+</span><span class="token string">'.frameCache'</span><span class="token punctuation">,</span> seq_time<span class="token operator">+</span><span class="token number">50</span><span class="token punctuation">)</span>
 cmds<span class="token punctuation">.</span>setAttr<span class="token punctuation">(</span>imp<span class="token operator">+</span><span class="token string">'.fit'</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="为摄像机创建地平线">为摄像机创建地平线</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">horizon <span class="token operator">=</span> cmds<span class="token punctuation">.</span>circle<span class="token punctuation">(</span>normal<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">'horizon_curve1'</span><span class="token punctuation">,</span> constructionHistory<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+<h3><span id="为摄像机创建地平线">为摄像机创建地平线</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">horizon <span class="token operator">=</span> cmds<span class="token punctuation">.</span>circle<span class="token punctuation">(</span>normal<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">'horizon_curve1'</span><span class="token punctuation">,</span> constructionHistory<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
 cmds<span class="token punctuation">.</span>pointConstraint<span class="token punctuation">(</span>cam<span class="token punctuation">,</span> horizon<span class="token punctuation">)</span>
 cmds<span class="token punctuation">.</span>addAttr<span class="token punctuation">(</span>horizon<span class="token punctuation">,</span> longName<span class="token operator">=</span><span class="token string">'camera'</span><span class="token punctuation">,</span> attributeType<span class="token operator">=</span><span class="token string">'message'</span><span class="token punctuation">)</span>
 cmds<span class="token punctuation">.</span>setAttr<span class="token punctuation">(</span>horizon <span class="token operator">+</span> <span class="token string">'.overrideEnabled'</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
 cmds<span class="token punctuation">.</span>setAttr<span class="token punctuation">(</span>horizon <span class="token operator">+</span> <span class="token string">'.overrideColor'</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span>
 cmds<span class="token punctuation">.</span>connectAttr<span class="token punctuation">(</span>cam <span class="token operator">+</span> <span class="token string">'.message'</span><span class="token punctuation">,</span> horizon <span class="token operator">+</span> <span class="token string">'.camera'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="操作">操作</span></h2><h3><span id="记录撤销操作还原">记录撤销操作还原</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">cmds<span class="token punctuation">.</span>undoInfo<span class="token punctuation">(</span>openChunk<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+<h2><span id="操作">操作</span></h2>
+<h3><span id="记录撤销操作还原">记录撤销操作还原</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">cmds<span class="token punctuation">.</span>undoInfo<span class="token punctuation">(</span>openChunk<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
 cmds<span class="token punctuation">.</span>undoInfo<span class="token punctuation">(</span>closeChunk<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h2><span id="窗口">窗口</span></h2><h3><span id="打印出maya中所有窗口名称和类型">打印出maya中所有窗口名称和类型</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> PySide2 <span class="token keyword">import</span> QtWidgets
+<h2><span id="窗口">窗口</span></h2>
+<h3><span id="打印出maya中所有窗口名称和类型">打印出maya中所有窗口名称和类型</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> PySide2 <span class="token keyword">import</span> QtWidgets
 
 all_ui <span class="token operator">=</span> <span class="token punctuation">&#123;</span>w<span class="token punctuation">.</span>objectName<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> w <span class="token keyword">for</span> w <span class="token keyword">in</span> QtWidgets<span class="token punctuation">.</span>QApplication<span class="token punctuation">.</span>allWidgets<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span>
 <span class="token keyword">for</span> k<span class="token punctuation">,</span>v <span class="token keyword">in</span> all_ui<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">print</span> k<span class="token punctuation">,</span> v<span class="token punctuation">.</span>__class__<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="给maya添加一个全局按钮">给Maya添加一个全局按钮</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> maya<span class="token punctuation">.</span>OpenMayaUI <span class="token keyword">as</span> omUI
+<h3><span id="给maya添加一个全局按钮">给Maya添加一个全局按钮</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> maya<span class="token punctuation">.</span>OpenMayaUI <span class="token keyword">as</span> omUI
 <span class="token keyword">from</span> PySide2 <span class="token keyword">import</span> QtCore<span class="token punctuation">,</span> QtGui<span class="token punctuation">,</span> QtWidgets
 <span class="token keyword">import</span> shiboken2<span class="token punctuation">,</span>time
 <span class="token keyword">from</span> functools <span class="token keyword">import</span> partial
@@ -1369,8 +1404,8 @@ all_ui <span class="token operator">=</span> <span class="token punctuation">&#1
     aa <span class="token operator">=</span> Project_Display<span class="token punctuation">(</span><span class="token punctuation">)</span>
     aa<span class="token punctuation">.</span>myShow<span class="token punctuation">(</span><span class="token punctuation">)</span>
 main<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="pyside2-例子">PySide2 例子</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> maya<span class="token punctuation">.</span>cmds <span class="token keyword">as</span> cmds
+<h3><span id="pyside2-例子">PySide2 例子</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> maya<span class="token punctuation">.</span>cmds <span class="token keyword">as</span> cmds
 <span class="token keyword">from</span> PySide2 <span class="token keyword">import</span> QtWidgets <span class="token keyword">as</span> QtGui
 <span class="token keyword">from</span> shiboken2 <span class="token keyword">import</span> wrapInstance
 <span class="token keyword">import</span> maya<span class="token punctuation">.</span>OpenMayaUI <span class="token keyword">as</span> omui
@@ -1405,11 +1440,12 @@ mayaWindow<span class="token punctuation">.</span>setWindowOpacity<span class="t
 
     dialog <span class="token operator">=</span> MyDialog<span class="token punctuation">(</span>parent<span class="token operator">=</span>mayaWindow<span class="token punctuation">)</span>
     dialog<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="环境和配置">环境和配置</span></h2><h3><span id="获取maya预设路径">获取maya预设路径</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os
+<h2><span id="环境和配置">环境和配置</span></h2>
+<h3><span id="获取maya预设路径">获取maya预设路径</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os
 _dir <span class="token operator">=</span> os<span class="token punctuation">.</span>environ<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'MAYA_APP_DIR'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h3><span id="阿诺德渲染设置">阿诺德渲染设置</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">mc<span class="token punctuation">.</span>setAttr<span class="token punctuation">(</span><span class="token string">'defaultRenderGlobals.currentRenderer'</span><span class="token punctuation">,</span> <span class="token string">'arnold'</span><span class="token punctuation">,</span> typ<span class="token operator">=</span><span class="token string">'string'</span><span class="token punctuation">)</span>
+<h3><span id="阿诺德渲染设置">阿诺德渲染设置</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">mc<span class="token punctuation">.</span>setAttr<span class="token punctuation">(</span><span class="token string">'defaultRenderGlobals.currentRenderer'</span><span class="token punctuation">,</span> <span class="token string">'arnold'</span><span class="token punctuation">,</span> typ<span class="token operator">=</span><span class="token string">'string'</span><span class="token punctuation">)</span>
 mtoa<span class="token punctuation">.</span>core<span class="token punctuation">.</span>createOption<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 mc<span class="token punctuation">.</span>setAttr<span class="token punctuation">(</span><span class="token string">'defaultArnoldRenderOptions.AASamples'</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>

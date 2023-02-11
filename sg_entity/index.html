@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,246 +1268,68 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<table>
-<thead>
-<tr>
-<th>Entity Name</th>
-<th>对应中文名</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>ActionMenuItem</td>
-<td>动作菜单</td>
-</tr>
-<tr>
-<td>ApiUser</td>
-<td>脚本</td>
-</tr>
-<tr>
-<td>Asset</td>
-<td>资产</td>
-</tr>
-<tr>
-<td>Attachment</td>
-<td>附件</td>
-</tr>
-<tr>
-<td>Booking</td>
-<td>人员规划</td>
-</tr>
-<tr>
-<td>Camera</td>
-<td>摄像机</td>
-</tr>
-<tr>
-<td>ClientUser</td>
-<td>客户</td>
-</tr>
-<tr>
-<td>Composition</td>
-<td>合成</td>
-</tr>
-<tr>
-<td>Cut</td>
-<td>剪辑镜头</td>
-</tr>
-<tr>
-<td>CutItem</td>
-<td>剪辑镜头项</td>
-</tr>
-<tr>
-<td>Delivery</td>
-<td>分发</td>
-</tr>
-<tr>
-<td>Department</td>
-<td>部门</td>
-</tr>
-<tr>
-<td>Episode</td>
-<td>季</td>
-</tr>
-<tr>
-<td>EventLogEntry</td>
-<td>事件日志</td>
-</tr>
-<tr>
-<td>FilesystemLocation</td>
-<td>文件系统位置</td>
-</tr>
-<tr>
-<td>Group</td>
-<td>组</td>
-</tr>
-<tr>
-<td>HumanUser</td>
-<td>人员</td>
-</tr>
-<tr>
-<td>Icon</td>
-<td>图标</td>
-</tr>
-<tr>
-<td>Level</td>
-<td>关卡</td>
-</tr>
-<tr>
-<td>LocalStorage</td>
-<td>本地存储</td>
-</tr>
-<tr>
-<td>MocapPass</td>
-<td>动作捕捉过程</td>
-</tr>
-<tr>
-<td>MocapSetup</td>
-<td>动作捕捉设置</td>
-</tr>
-<tr>
-<td>MocapTake</td>
-<td>动作捕捉条目</td>
-</tr>
-<tr>
-<td>MocapTakeRange</td>
-<td>动作捕捉条目范围</td>
-</tr>
-<tr>
-<td>Note</td>
-<td>反馈，记录</td>
-</tr>
-<tr>
-<td>Page</td>
-<td>页面</td>
-</tr>
-<tr>
-<td>PageHit</td>
-<td>页面点击</td>
-</tr>
-<tr>
-<td>PageSetting</td>
-<td>页面设置</td>
-</tr>
-<tr>
-<td>Performer</td>
-<td>演员</td>
-</tr>
-<tr>
-<td>PermissionRuleSet</td>
-<td>权限组设置</td>
-</tr>
-<tr>
-<td>Phase</td>
-<td>项目时间表</td>
-</tr>
-<tr>
-<td>PhysicalAsset</td>
-<td>实拍道具</td>
-</tr>
-<tr>
-<td>PipelineConfiguration</td>
-<td>工作流工序配置</td>
-</tr>
-<tr>
-<td>Playlist</td>
-<td>播放表单</td>
-</tr>
-<tr>
-<td>PlaylistShare</td>
-<td>共享的播放表单</td>
-</tr>
-<tr>
-<td>Project</td>
-<td>项目</td>
-</tr>
-<tr>
-<td>PublishedFile</td>
-<td>已发布文件</td>
-</tr>
-<tr>
-<td>PublishedFileDependency</td>
-<td>已发布文件依存关系</td>
-</tr>
-<tr>
-<td>PublishedFileType</td>
-<td>已发布文件类型</td>
-</tr>
-<tr>
-<td>Release</td>
-<td>软件发布版本</td>
-</tr>
-<tr>
-<td>Reply</td>
-<td>回复</td>
-</tr>
-<tr>
-<td>Revision</td>
-<td>修正版本</td>
-</tr>
-<tr>
-<td>Routine</td>
-<td>运动捕捉例程</td>
-</tr>
-<tr>
-<td>RvLicense</td>
-<td>RV许可证</td>
-</tr>
-<tr>
-<td>Scene</td>
-<td>场</td>
-</tr>
-<tr>
-<td>Sequence</td>
-<td>本</td>
-</tr>
-<tr>
-<td>ShootDay</td>
-<td>拍摄日期</td>
-</tr>
-<tr>
-<td>Shot</td>
-<td>镜头</td>
-</tr>
-<tr>
-<td>Software</td>
-<td>DCC软件</td>
-</tr>
-<tr>
-<td>Status</td>
-<td>状态</td>
-</tr>
-<tr>
-<td>Step</td>
-<td>工作流工序</td>
-</tr>
-<tr>
-<td>Tag</td>
-<td>标签</td>
-</tr>
-<tr>
-<td>Task</td>
-<td>任务</td>
-</tr>
-<tr>
-<td>TaskDependency</td>
-<td>任务依存关系</td>
-</tr>
-<tr>
-<td>TaskTemplate</td>
-<td>任务模版</td>
-</tr>
-<tr>
-<td>Ticket</td>
-<td>软件开发工单</td>
-</tr>
-<tr>
-<td>TimeLog</td>
-<td>工时记录</td>
-</tr>
-<tr>
-<td>Version</td>
-<td>版本</td>
-</tr>
-</tbody></table>
+	<p>Entity Name | 对应中文名</p>
+<ul>
+<li>| -<br>
+ActionMenuItem | 动作菜单<br>
+ApiUser |	脚本<br>
+Asset |	资产<br>
+Attachment |	附件<br>
+Booking |	人员规划<br>
+Camera |	摄像机<br>
+ClientUser |	客户<br>
+Composition |	合成<br>
+Cut |	剪辑镜头<br>
+CutItem |	剪辑镜头项<br>
+Delivery |	分发<br>
+Department |	部门<br>
+Episode |	季<br>
+EventLogEntry |	事件日志<br>
+FilesystemLocation |	文件系统位置<br>
+Group |	组<br>
+HumanUser |	人员<br>
+Icon |	图标<br>
+Level |	关卡<br>
+LocalStorage |	本地存储<br>
+MocapPass |	动作捕捉过程<br>
+MocapSetup |	动作捕捉设置<br>
+MocapTake |	动作捕捉条目<br>
+MocapTakeRange |	动作捕捉条目范围<br>
+Note |	反馈，记录<br>
+Page |	页面<br>
+PageHit |	页面点击<br>
+PageSetting |	页面设置<br>
+Performer |	演员<br>
+PermissionRuleSet |	权限组设置<br>
+Phase |	项目时间表<br>
+PhysicalAsset |	实拍道具<br>
+PipelineConfiguration |	工作流工序配置<br>
+Playlist |	播放表单<br>
+PlaylistShare |	共享的播放表单<br>
+Project |	项目<br>
+PublishedFile |	已发布文件<br>
+PublishedFileDependency |	已发布文件依存关系<br>
+PublishedFileType |	已发布文件类型<br>
+Release |	软件发布版本<br>
+Reply |	回复<br>
+Revision |	修正版本<br>
+Routine |	运动捕捉例程<br>
+RvLicense |	RV许可证<br>
+Scene |	场<br>
+Sequence |	本<br>
+ShootDay |	拍摄日期<br>
+Shot |	镜头<br>
+Software |	DCC软件<br>
+Status |	状态<br>
+Step |	工作流工序<br>
+Tag |	标签<br>
+Task |	任务<br>
+TaskDependency |	任务依存关系<br>
+TaskTemplate |	任务模版<br>
+Ticket |	软件开发工单<br>
+TimeLog |	工时记录<br>
+Version |	版本</li>
+</ul>
 
 </div>
 

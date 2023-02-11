@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,7 +1268,8 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h1><span id="概览">概览</span></h1><ul>
+	<h1><span id="概览">概览</span></h1>
+<ul>
 <li><code>re.compile</code> 生成一个匹配器实例，用来匹配</li>
 <li><code>re.match</code> 从字符最前端开始匹配</li>
 <li><code>re.search</code> 从字符中搜索出第一个匹配结果</li>
@@ -1259,8 +1278,9 @@ var _hmt = _hmt || [];
 <li><code>re.subn</code> 查询替换字符，返回替换结果和替换次数</li>
 <li><code>re.split</code> 根据规则切分字符串</li>
 </ul>
-<h2><span id="rematch案例">re.match案例</span></h2><p>re.match返回的是一个<strong>实例对象</strong>，调用它的方法找到结果。</p>
-<p>假设我们需要匹配开头为”Ch_”的字符</p>
+<h2><span id="rematch案例">re.match案例</span></h2>
+<p>re.match返回的是一个<strong>实例对象</strong>，调用它的方法找到结果。</p>
+<p>假设我们需要匹配开头为&quot;Ch_&quot;的字符</p>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">import re
 
 # 匹配成功返回一个实例对象
@@ -1270,23 +1290,20 @@ print re.match(&#39;Ch_&#39;, &#39;Ch_dog_v001&#39;)
 # 如果匹配失败，是没有返回值的
 print re.match(&#39;Ch_&#39;, &#39;aCh_dog_v001&#39;)
 &gt;&gt;&gt; None<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>group方法：用于获得一个或多个分组匹配的字符串</p>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">res &#x3D; re.match(&#39;Ch_&#39;, &#39;Ch_dog_v001&#39;)
 print res.group()
 &gt;&gt;&gt; Ch_<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>pos方法：找到匹配字符的index位置（好像这个方法永远都是返回0吧？）</p>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">res &#x3D; re.match(&#39;Ch_&#39;, &#39;Ch_dog_v001&#39;)
 print res.pos
 &gt;&gt;&gt; 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>注意re.match是<strong>从字符串前端开始匹配</strong>，如下情况需要<strong>匹配的字符在字符串中间</strong>，就会返回空值。</p>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">res &#x3D; re.match(&#39;Ch_&#39;, &#39;HCH_Ch_dog_v001&#39;)
 print res
 &gt;&gt;&gt; None<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="research案例">re.search案例</span></h2><p>search方法则是从字符串中搜索出第一个匹配的结果</p>
+<h2><span id="research案例">re.search案例</span></h2>
+<p>search方法则是从字符串中搜索出第一个匹配的结果</p>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">res &#x3D; re.match(&#39;Ch_&#39;, &#39;HAH_Ch_dog_v001&#39;)
 
 # 这里返回了实例，说明匹配成功
@@ -1304,9 +1321,11 @@ print res.start()
 print res.end()
 &gt;&gt;&gt; 7<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
-<h2><span id="模糊匹配">模糊匹配</span></h2><p><strong>上面讲的是精确搜索，下面开始讲解模糊搜索。</strong></p>
+<h2><span id="模糊匹配">模糊匹配</span></h2>
+<p><strong>上面讲的是精确搜索，下面开始讲解模糊搜索。</strong></p>
 <ul>
-<li><p>使用<code>[]</code>找到中括号里的任意一个字母匹配。</p>
+<li>使用<code>[]</code>找到中括号里的任意一个字母匹配。</li>
+</ul>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">res &#x3D; re.search(&#39;d[aoes]g&#39;, &#39;dog dag deg dsg&#39;)
 
 print res
@@ -1315,20 +1334,28 @@ print res
 print res.group()
 &gt;&gt;&gt; dog<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>或者<code>[a-zA-Z0-9]</code>这样匹配所有的小写和大写字母与数字。</p>
-</li>
-<li><p>使用转义字符模糊搜索<br><code>\d</code> 匹配数字(0-9)<br><code>\w</code> 匹配字母，数字和下划线 (a-z A-Z 0-9 _)<br><code>\s</code> 匹配空格<br><code>\n</code> 匹配换行的地方<br><code>.</code>  匹配任何一个字符</p>
-</li>
+<ul>
+<li>使用转义字符模糊搜索<br>
+<code>\d</code> 匹配数字(0-9)<br>
+<code>\w</code> 匹配字母，数字和下划线 (a-z A-Z 0-9 _)<br>
+<code>\s</code> 匹配空格<br>
+<code>\n</code> 匹配换行的地方<br>
+<code>.</code>  匹配任何一个字符</li>
 </ul>
-<p> 将<strong>转移字符大写</strong>，则是<strong>相反的效果</strong>，意思是匹配除去本义匹配的字符。<br> <code>\D</code> 匹配除数字外的字符<br> <code>\S</code> 匹配除空格外的字符<br> 以此类推…</p>
+<p>将<strong>转移字符大写</strong>，则是<strong>相反的效果</strong>，意思是匹配除去本义匹配的字符。<br>
+<code>\D</code> 匹配除数字外的字符<br>
+<code>\S</code> 匹配除空格外的字符<br>
+以此类推…</p>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">res &#x3D; re.search(&#39;a\dt&#39;, &#39;a6t&#39;)
 print res.group(), res.start(), res.end()
 
 &gt;&gt;&gt; a6t 0 3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <ul>
 <li>匹配次数</li>
 </ul>
-<p><code>?</code> 表示匹配0-1次<br><code>+</code> 表示匹配1-无数次<br><code>*</code> 表示匹配0-无数次</p>
+<p><code>?</code> 表示匹配0-1次<br>
+<code>+</code> 表示匹配1-无数次<br>
+<code>*</code> 表示匹配0-无数次</p>
 <p>课堂小案例：</p>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python"># 字符a和t之间有一个数字匹配成功
 res &#x3D; re.search(&#39;a\d?t&#39;, &#39;a6t&#39;)
@@ -1365,12 +1392,19 @@ print res.group(), res.start(), res.end()
 res &#x3D; re.search(&#39;a&#123;3,9&#125;?&#39;, &#39;aabaaaaaaaaaaaaaaab&#39;)
 print res.group(), res.start(), res.end()
 &gt;&gt;&gt; aaa 3 6<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><code>?</code>号通常用于大区间匹配限制。<br><code>+?</code>: 在匹配1到无数次时，取最小数量。<br><code>*?</code>: 在匹配0到无数次时，取最小数量。<br><code>&#123;m,n&#125;</code>: 在匹配m到n次时，取最小数量。</p>
+<p><code>?</code>号通常用于大区间匹配限制。<br>
+<code>+?</code>: 在匹配1到无数次时，取最小数量。<br>
+<code>*?</code>: 在匹配0到无数次时，取最小数量。<br>
+<code>&#123;m,n&#125;</code>: 在匹配m到n次时，取最小数量。</p>
 <ul>
 <li>特殊符号</li>
 </ul>
-<p><code>^</code>: 表示匹配字符串开头。<br><code>$</code>: 表示匹配字符串结尾。<br><code>|</code>: 表示或，把正则表达式分为两段判断匹配。<br><code>()</code>: 表示编组，括号里面的表达式作为一个整体逻辑。<br><code>[^ABC]</code>: 匹配除去括号内字符以外的字符。<br><code>\</code>: 转义符，给一些特殊符号去除符号作用。</p>
+<p><code>^</code>: 表示匹配字符串开头。<br>
+<code>$</code>: 表示匹配字符串结尾。<br>
+<code>|</code>: 表示或，把正则表达式分为两段判断匹配。<br>
+<code>()</code>: 表示编组，括号里面的表达式作为一个整体逻辑。<br>
+<code>[^ABC]</code>: 匹配除去括号内字符以外的字符。<br>
+<code>\</code>: 转义符，给一些特殊符号去除符号作用。</p>
 <p>课堂小案例：</p>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python"># 匹配开头，这和match方法一样了。
 res &#x3D; re.search(&#39;^zhangly&#39;, &#39;zhanglyoooohhhh&#39;)
@@ -1402,9 +1436,13 @@ print res
 列表中元组的第一个元素，是满足整个匹配条件的字符。
 第二个元素是里层括号&#39;(aaa|bbb)&#39;满足条件的字符。
 &#39;&#39;&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <ul>
-<li>逻辑判断<br><code>(?=abc)</code>: 判断字符后面包含abc<br><code>(?!abv)</code>: 判断字符后面不包含abc<br><code>(?&lt;abc)</code>: 判断字符前面包含abc<br><code>(?&lt;!abc)</code>: 判断字符前面不包含abc<br><code>(?#...)</code>: 注释</li>
+<li>逻辑判断<br>
+<code>(?=abc)</code>: 判断字符后面包含abc<br>
+<code>(?!abv)</code>: 判断字符后面不包含abc<br>
+<code>(?&lt;abc)</code>: 判断字符前面包含abc<br>
+<code>(?&lt;!abc)</code>: 判断字符前面不包含abc<br>
+<code>(?#...)</code>: 注释</li>
 </ul>
 <p>课堂小案例：</p>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python"># 比如只返回匹配.jpg前面的字符
@@ -1421,9 +1459,10 @@ print res.group()
 res &#x3D; re.search(&#39;(?&lt;&#x3D;num)\d+&#39;, &#39;123456num7890&#39;)
 print res.group()
 &gt;&gt;&gt; 7890<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>课程推荐的一个检查正则表达式网站：<br><a target="_blank" rel="noopener" href="https://regex101.com/">https://regex101.com/</a></p>
-<p>这里的博客介绍也很详细，可以当作参考：<br><a target="_blank" rel="noopener" href="http://funhacks.net/2016/12/27/regular_expression/">http://funhacks.net/2016/12/27/regular_expression/</a></p>
+<p>课程推荐的一个检查正则表达式网站：<br>
+<a target="_blank" rel="noopener" href="https://regex101.com/">https://regex101.com/</a></p>
+<p>这里的博客介绍也很详细，可以当作参考：<br>
+<a target="_blank" rel="noopener" href="http://funhacks.net/2016/12/27/regular_expression/">http://funhacks.net/2016/12/27/regular_expression/</a></p>
 
 </div>
 

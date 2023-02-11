@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,20 +1268,39 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h1><span id="前言">前言</span></h1><p>通常在电影的前期拍摄中，Onset人员会拍摄摄像机不同焦段的畸变网格，<br>因为在后期制作中，没有Distortion map会让摄像机反求变得困难得多。</p>
+	<h1><span id="前言">前言</span></h1>
+<p>通常在电影的前期拍摄中，Onset人员会拍摄摄像机不同焦段的畸变网格，<br>
+因为在后期制作中，没有Distortion map会让摄像机反求变得困难得多。</p>
 <p>最左为枕形畸变，最右为桶形畸变。</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a16d5ea9.jpg" alt="nuke-trn-lens-distort-p1.jpg"></p>
 <p>通常我们会对一个棋盘格板进行拍摄，类似下图这样的。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a174755a.jpg" alt="nuke-trn-lens-distort-p2.jpg"><br><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a1788752.jpg" alt="nuke-trn-lens-distort-p3.jpg"><br>拍摄完会得到一张畸变网格，下面我们使用nuke对其进行矫正畸变，并输出stmap。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a174755a.jpg" alt="nuke-trn-lens-distort-p2.jpg"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a1788752.jpg" alt="nuke-trn-lens-distort-p3.jpg"><br>
+拍摄完会得到一张畸变网格，下面我们使用nuke对其进行矫正畸变，并输出stmap。</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a192f735.jpg" alt="nuke-trn-lens-distort-p4.jpg"></p>
-<h1><span id="矫正畸变">矫正畸变</span></h1><p>1.导入畸变网格图，添加LensDistortion节点。<br>这里使用的nuke版本为11.1v3。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a16e7150.jpg" alt="nuke-trn-lens-distort-p5.jpg"><br>2.点击Detect按钮，自动采集棋盘格信息。<br>可以看到黄线覆盖黑白格交界处。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a18c355e.jpg" alt="nuke-trn-lens-distort-p6.jpg"><br>3.手动调整没有识别准确的点，位置错误的点也可以delete删掉。如图所示：</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a1d15bb9.gif" alt="nuke-trn-lens-distort-p7.gif"><br>4.调整完成后，点击Solve进行解算。<br>可以看到所有黄线变成了绿色，这个时候畸变就矫正完成了。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a186a036.jpg" alt="nuke-trn-lens-distort-p8.jpg"><br><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a195824e.jpg" alt="nuke-trn-lens-distort-p9.jpg"><br>5.这里将通道改为forward，就可以看到图片变成了一张stmap。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a19468f9.jpg" alt="nuke-trn-lens-distort-p10.jpg"><br>6.添加stmap节点，将stamp的input连向LensDistortion，<br>src的input连向原始素材。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a190c10b.jpg" alt="nuke-trn-lens-distort-p11.jpg"><br>7.修改Stmap的节点，UV channels为forward。<br>最后就可以输出矫正完畸变的素材到跟踪软件里开始制作了。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a196062c.jpg" alt="nuke-trn-lens-distort-p12.jpg"><br>参考来源：<br><a target="_blank" rel="noopener" href="https://youtu.be/LsoaGOd-NB4">https://youtu.be/LsoaGOd-NB4</a></p>
+<h1><span id="矫正畸变">矫正畸变</span></h1>
+<p>1.导入畸变网格图，添加LensDistortion节点。<br>
+这里使用的nuke版本为11.1v3。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a16e7150.jpg" alt="nuke-trn-lens-distort-p5.jpg"><br>
+2.点击Detect按钮，自动采集棋盘格信息。<br>
+可以看到黄线覆盖黑白格交界处。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a18c355e.jpg" alt="nuke-trn-lens-distort-p6.jpg"><br>
+3.手动调整没有识别准确的点，位置错误的点也可以delete删掉。如图所示：</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a1d15bb9.gif" alt="nuke-trn-lens-distort-p7.gif"><br>
+4.调整完成后，点击Solve进行解算。<br>
+可以看到所有黄线变成了绿色，这个时候畸变就矫正完成了。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a186a036.jpg" alt="nuke-trn-lens-distort-p8.jpg"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a195824e.jpg" alt="nuke-trn-lens-distort-p9.jpg"><br>
+5.这里将通道改为forward，就可以看到图片变成了一张stmap。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a19468f9.jpg" alt="nuke-trn-lens-distort-p10.jpg"><br>
+6.添加stmap节点，将stamp的input连向LensDistortion，<br>
+src的input连向原始素材。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a190c10b.jpg" alt="nuke-trn-lens-distort-p11.jpg"><br>
+7.修改Stmap的节点，UV channels为forward。<br>
+最后就可以输出矫正完畸变的素材到跟踪软件里开始制作了。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3a196062c.jpg" alt="nuke-trn-lens-distort-p12.jpg"><br>
+参考来源：<br>
+<a target="_blank" rel="noopener" href="https://youtu.be/LsoaGOd-NB4">https://youtu.be/LsoaGOd-NB4</a></p>
 <p>如果想了解一些关于Onset的知识：<a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv2328144">纯干货！跟组需要做哪些工作</a></p>
 
 </div>

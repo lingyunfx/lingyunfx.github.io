@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1254,7 +1272,8 @@ var _hmt = _hmt || [];
 <p>minq是一个在maya场景中快速物体对象查询的库</p>
 </blockquote>
 <p>仓库地址：<a target="_blank" rel="noopener" href="https://github.com/theodox/minq">https://github.com/theodox/minq</a></p>
-<h2><span id="minq简单介绍">minq简单介绍</span></h2><p>这个项目是为了减少Maya中每次对物体查询时，用到命令比如<code>ls()</code>，<code>listRelatives()</code>和<code>listHistory()</code>的频次。意在直接了当的获取所需的物体对象。</p>
+<h2><span id="minq简单介绍">minq简单介绍</span></h2>
+<p>这个项目是为了减少Maya中每次对物体查询时，用到命令比如<code>ls()</code>，<code>listRelatives()</code>和<code>listHistory()</code>的频次。意在直接了当的获取所需的物体对象。</p>
 <p>举个例子，比如我们想找到场景中角色的IK手柄，你需要：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">iks <span class="token operator">=</span> cmds<span class="token punctuation">.</span>ls<span class="token punctuation">(</span><span class="token builtin">type</span> <span class="token operator">=</span> <span class="token string">'ikHandle'</span><span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
 <span class="token keyword">for</span> ik <span class="token keyword">in</span> iks<span class="token punctuation">:</span>
@@ -1263,15 +1282,14 @@ var _hmt = _hmt || [];
         <span class="token keyword">if</span> p<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">"|"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
             <span class="token keyword">return</span> p
 <span class="token keyword">return</span> <span class="token boolean">None</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>对于一个简单的需求，这显然会产生很多的代码。<br>而且不同的命令返回的结果格式不一样，比如<code>ls()</code>返回一个列表，你需要在后面加上<code>[]</code>。<br>如果你想要返回完整的物体路径，使用<code>ls()</code>还需要添加<code>long</code>参数，使用<code>listRelatives()</code>则要使用<code>fullPath</code>参数。</p>
-<p><strong>minq</strong>是一个简化查询过程的这么一个库，例：  </p>
+<p>对于一个简单的需求，这显然会产生很多的代码。<br>
+而且不同的命令返回的结果格式不一样，比如<code>ls()</code>返回一个列表，你需要在后面加上<code>[]</code>。<br>
+如果你想要返回完整的物体路径，使用<code>ls()</code>还需要添加<code>long</code>参数，使用<code>listRelatives()</code>则要使用<code>fullPath</code>参数。</p>
+<p><strong>minq</strong>是一个简化查询过程的这么一个库，例：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">q <span class="token operator">=</span> Scene<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'top'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>它将返回一个<code>minq.Stream</code>对象。不过它不是最终的查询结果，你需要调用<code>.execute()</code>函数来将它转换成列表：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span> q<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token comment"># [u'|top']</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>你也可以直接进行迭代：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">q <span class="token operator">=</span> Scene<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'top'</span><span class="token punctuation">,</span> <span class="token string">'front'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 <span class="token keyword">for</span> item <span class="token keyword">in</span> q<span class="token punctuation">:</span>
@@ -1279,14 +1297,12 @@ var _hmt = _hmt || [];
 
 <span class="token comment"># u'|top'</span>
 <span class="token comment"># u'|front'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>通常也可以直接把它们变成一个元组或列表：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token builtin">tuple</span><span class="token punctuation">(</span>Cameras<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment"># Result: (u'frontShape', u'perspShape', u'sideShape', u'topShape')</span>
 
 <span class="token builtin">list</span><span class="token punctuation">(</span>Scene<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>only<span class="token punctuation">(</span><span class="token string">'polyCreator'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment"># Result: [u'polyCube1', u'polyCube2', u'polyCube3', u'polyUnite1']</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>当然也可以使用一些关键字，如<code>in</code>，<code>any</code>和<code>all</code> :</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token string">u'|top'</span> <span class="token keyword">in</span> Cameras<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token comment"># True</span>
@@ -1296,12 +1312,11 @@ var _hmt = _hmt || [];
 
 <span class="token builtin">any</span><span class="token punctuation">(</span>Meshes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>like<span class="token punctuation">(</span><span class="token string">'cube'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment"># True</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="关联式查询">关联式查询</span></h2><p>在minq中，<code>minq.Stream</code>对象可以使用一些表达式进行关联式查询，下面是一些例子：</p>
+<h2><span id="关联式查询">关联式查询</span></h2>
+<p>在minq中，<code>minq.Stream</code>对象可以使用一些表达式进行关联式查询，下面是一些例子：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">Meshes<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># 获取所有polyMesh节点</span>
 Meshes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span>Parents<span class="token punctuation">)</span> <span class="token comment"># 获取polyMesh节点的父级</span>
 Meshes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span>Parents<span class="token punctuation">)</span><span class="token punctuation">.</span>like<span class="token punctuation">(</span><span class="token string">'wall'</span><span class="token punctuation">)</span> <span class="token comment"># 获取polyMesh节点的父级中，名字包含'wall'的对象</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>通常我们要实现上述的需求，可能要用到这样的代码：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">results <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
 meshes <span class="token operator">=</span> cmds<span class="token punctuation">.</span>ls<span class="token punctuation">(</span><span class="token builtin">type</span><span class="token operator">=</span><span class="token string">'mesh'</span><span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
@@ -1311,7 +1326,6 @@ meshes <span class="token operator">=</span> cmds<span class="token punctuation"
         <span class="token keyword">if</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span><span class="token string">'wall'</span><span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">:</span>
             results<span class="token punctuation">.</span>append<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
 <span class="token keyword">return</span> results<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>和普通的查询一样，关联式查询也可以使用<code>execute()</code>函数，或直接进行迭代：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">cubes <span class="token operator">=</span> Meshes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span>Parents<span class="token punctuation">)</span><span class="token punctuation">.</span>like<span class="token punctuation">(</span><span class="token string">'cube'</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span> cubes<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -1319,24 +1333,25 @@ meshes <span class="token operator">=</span> cmds<span class="token punctuation"
 cmds<span class="token punctuation">.</span>polyCube<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span> cubes<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token comment"># [u'pCube1', u'pCube2']</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>再次声明，minq的查询结果不是一个列表，而是一个可迭代的对象。<br>通常我们看到查询链中的最后一个关键字决定了查询结果：</p>
+<p>再次声明，minq的查询结果不是一个列表，而是一个可迭代的对象。<br>
+通常我们看到查询链中的最后一个关键字决定了查询结果：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">Selected<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>only<span class="token punctuation">(</span>Transforms<span class="token punctuation">)</span>
 <span class="token comment"># 这里的Transforms决定了结果</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>刚刚的代码可以返回所有选择的Transforms节点。我们也可以使用<code>append()</code>方法将其它的对象加入进去：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">Selected<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>only<span class="token punctuation">(</span>Transforms<span class="token punctuation">)</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>AllChildren<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>对于更复杂的查询组合，你还可以使用集合操作。<br>比如当我们想用一个或多个已知名称的对象开始查询，<code>using()</code>函数会用你提供的名称来创建<code>Stream</code>对象。</p>
+<p>对于更复杂的查询组合，你还可以使用集合操作。<br>
+比如当我们想用一个或多个已知名称的对象开始查询，<code>using()</code>函数会用你提供的名称来创建<code>Stream</code>对象。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">using<span class="token punctuation">(</span><span class="token string">"character_root"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span>AllChidren<span class="token punctuation">)</span><span class="token punctuation">.</span>only<span class="token punctuation">(</span>IKHandles<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>这将会返回在character_root下的所有ik手柄。<code>using()</code>函数可以放入多个名称。</p>
-<h2><span id="过滤">过滤</span></h2><p>绝大多数的查询都会通过过滤的方式来缩减实际需要的结果。在minq中主要有以下三种方式：</p>
+<h2><span id="过滤">过滤</span></h2>
+<p>绝大多数的查询都会通过过滤的方式来缩减实际需要的结果。在minq中主要有以下三种方式：</p>
 <ul>
 <li><code>.like()</code></li>
 <li><code>.only()</code></li>
 <li><code>.where()</code></li>
 </ul>
-<h3><span id="like">.like()</span></h3><p>这个方法是一个正则表达式过滤器，默认返回<strong>包含</strong>传入字符的对象，不区分大小写。  </p>
+<h3><span id="like">.like()</span></h3>
+<p>这个方法是一个正则表达式过滤器，默认返回<strong>包含</strong>传入字符的对象，不区分大小写。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span> Cameras<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token comment"># Stream([u'frontShape', u'perspShape', u'sideShape', u'topShape'])</span>
 
@@ -1348,26 +1363,25 @@ cmds<span class="token punctuation">.</span>polyCube<span class="token punctuati
 <p>其次，<code>like()</code>也可以使用完整的表达式。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span> Joints<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>like<span class="token punctuation">(</span><span class="token string">'Left(hand|foot)$'</span><span class="token punctuation">)</span>
 <span class="token comment"># Result: Stream([u'Character1_LeftFoot', u'Character1_LeftHand'])</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h3><span id="only">.only()</span></h3><p>这个方法是过滤<code>Stream</code>对象的结果类型。<br>常见的用法是这样：</p>
+<h3><span id="only">.only()</span></h3>
+<p>这个方法是过滤<code>Stream</code>对象的结果类型。<br>
+常见的用法是这样：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">some_stream<span class="token punctuation">.</span>only<span class="token punctuation">(</span><span class="token string">'camera'</span><span class="token punctuation">,</span><span class="token string">'light'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>这将会从某个<code>Stream</code>中过滤出摄像机和灯光的对象。<br>minq为我们设置好了许多类型相关的关键字，所以还有种写法是：</p>
+<p>这将会从某个<code>Stream</code>中过滤出摄像机和灯光的对象。<br>
+minq为我们设置好了许多类型相关的关键字，所以还有种写法是：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">some_stream<span class="token punctuation">.</span>only<span class="token punctuation">(</span>Meshes<span class="token punctuation">,</span> Cameras<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p><code>only()</code>还可以使用参数来指定命名空间进行查询：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">Transforms<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>only<span class="token punctuation">(</span>namespace <span class="token operator">=</span> <span class="token string">'test'</span><span class="token punctuation">)</span>
 <span class="token comment"># Stream(['|test:pCube1',  '|nested:test:pCube1'])</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>使用冒号<code>:</code>来精确的匹配命名空间：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">ransforms<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>only<span class="token punctuation">(</span>namespace<span class="token operator">=</span><span class="token string">':test'</span><span class="token punctuation">)</span>
 <span class="token comment"># Stream(['|test:pCube1'])  # 'nested:test is' excluded</span>
 Transforms<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>only<span class="token punctuation">(</span>namespace<span class="token operator">=</span><span class="token string">':nested:test'</span><span class="token punctuation">)</span>
 <span class="token comment"># Stream(['|nested:test:pCube1'])  # 'test' is excluded</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>命名空间也可以与过滤类型进行组合：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">DagNodes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>only<span class="token punctuation">(</span><span class="token string">'skinClusters'</span><span class="token punctuation">,</span> namespace<span class="token operator">=</span><span class="token string">"export"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3><span id="where">.where()</span></h3><p>这个方法是可以添加一个函数对每个物体对象进行过滤。  </p>
+<h3><span id="where">.where()</span></h3>
+<p>这个方法是可以添加一个函数对每个物体对象进行过滤。</p>
 <p>比如下面的一个情况：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># get all the meshes whose translateX is larger than 50</span>
 result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
@@ -1375,34 +1389,32 @@ result <span class="token operator">=</span> <span class="token punctuation">[</
     parent <span class="token operator">=</span> cmds<span class="token punctuation">.</span>listRelatives<span class="token punctuation">(</span>item<span class="token punctuation">,</span> p<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
         <span class="token keyword">if</span> cmds<span class="token punctuation">.</span>getAttr<span class="token punctuation">(</span>parent <span class="token operator">+</span> <span class="token string">".tx"</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">50</span><span class="token punctuation">:</span>
             result<span class="token punctuation">.</span>add<span class="token punctuation">(</span>parent<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><code>.where()</code>接受一个函数作为参数，它会将左边所有Steam里的元素作为参数，过滤出结果返回为True的对象。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">tx_over_fifty <span class="token operator">=</span> <span class="token keyword">lambda</span> p<span class="token punctuation">:</span> cmds<span class="token punctuation">.</span>getAttr<span class="token punctuation">(</span>p <span class="token operator">+</span> <span class="token string">".tx"</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">50</span>
 Meshes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span>Parents<span class="token punctuation">)</span><span class="token punctuation">.</span>where<span class="token punctuation">(</span>tx_over_fifty<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>它还可以简单的写作：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">Meshes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>where<span class="token punctuation">(</span>item<span class="token punctuation">.</span>tx <span class="token operator">></span> <span class="token number">50</span><span class="token punctuation">)</span> <span class="token comment"># item是minq的特殊类，代表左侧Steam中每个元素</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>你也可以利用<code>.where()</code>的特性，找到所有被连接的节点：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">Scene<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>where<span class="token punctuation">(</span>cmds<span class="token punctuation">.</span>listConnections<span class="token punctuation">)</span>
 <span class="token comment"># cmds.listConnections返回一个列表，包含传入物体所有连接的节点。如果没有则为[]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>特殊类<code>item</code>还可以简单的对父级，子级，关联关系，历史进行查询。<br>比如<code>item.has()</code>方法：</p>
+<p>特殊类<code>item</code>还可以简单的对父级，子级，关联关系，历史进行查询。<br>
+比如<code>item.has()</code>方法：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 找到所有含有子级的Transforms节点</span>
 has_kids <span class="token operator">=</span> Transforms<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>where<span class="token punctuation">(</span>item<span class="token punctuation">.</span>has<span class="token punctuation">(</span>Children<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 <span class="token comment"># 找到所有没有连接的节点</span>
 no_connections <span class="token operator">=</span> DagNodes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>where_not<span class="token punctuation">(</span>item<span class="token punctuation">.</span>has<span class="token punctuation">(</span>Connections<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>与之相似的还有<code>item.has_attr()</code>方法，判断每个元素是否存在某个属性。  </p>
+<p>与之相似的还有<code>item.has_attr()</code>方法，判断每个元素是否存在某个属性。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">has_tx <span class="token operator">=</span> Transforms<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>where<span class="token punctuation">(</span>item<span class="token punctuation">.</span>has_attr<span class="token punctuation">(</span><span class="token string">'tx'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3><span id="having">.having()</span></h3><p><code>.having()</code>方法同样是判断某个属性是否存在。<br>比如找到所有带有”exportable”属性的Transforms节点:</p>
+<h3><span id="having">.having()</span></h3>
+<p><code>.having()</code>方法同样是判断某个属性是否存在。<br>
+比如找到所有带有&quot;exportable&quot;属性的Transforms节点:</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">export_set <span class="token operator">=</span>  Transforms<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>having<span class="token punctuation">(</span><span class="token string">'exportable'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <blockquote>
 <p>相较于<code>.has_attr()</code>，<code>.having()</code>的效率会快一些。</p>
 </blockquote>
-<h2><span id="扩展">扩展</span></h2><p>使用minq得到一个列表后，可以使用<code>.get()</code>对结果进行转换。  </p>
+<h2><span id="扩展">扩展</span></h2>
+<p>使用minq得到一个列表后，可以使用<code>.get()</code>对结果进行转换。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 将结果转换为其transform节点</span>
 camera_transforms <span class="token operator">=</span> Cameras<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span>Parents<span class="token punctuation">)</span>
 <span class="token comment"># Result: Stream([u'|front', u'|persp', u'|side', u'|top']) #</span>
@@ -1417,11 +1429,9 @@ skinned_meshes <span class="token operator">=</span> Scene<span class="token pun
 <p>还有一些<code>.get()</code>无法获取到物体的名称，比如：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">mesh_translates <span class="token operator">=</span> Meshes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span>Parents<span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span>Attribute<span class="token punctuation">,</span> <span class="token string">'t'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span>Values<span class="token punctuation">)</span>
 <span class="token comment"># Result: Stream([(0,0,0), (10,0,0), (0,20.2123, 11)]) #</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>你可以使用<code>foreach()</code>对<strong>Stream</strong>结果里每个结果执行一个自定义的函数操作：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span> Cameras<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>short<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>foreach<span class="token punctuation">(</span><span class="token keyword">lambda</span> p<span class="token punctuation">:</span> p<span class="token punctuation">.</span>upper<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment"># Stream([u'FRONTSHAPE', u'PERSPSHAPE', u'SIDESHAPE', u'TOPSHAPE'])</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p><code>foreach()</code>也可以用作复杂过滤的转换：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">connected_shaders</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     sgs <span class="token operator">=</span> cmds<span class="token punctuation">.</span>listConnections<span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token string">'shadingEngine'</span><span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
@@ -1429,8 +1439,9 @@ skinned_meshes <span class="token operator">=</span> Scene<span class="token pun
 
 <span class="token keyword">print</span> Meshes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>foreach<span class="token punctuation">(</span>connected_shaders<span class="token punctuation">)</span>
 <span class="token comment"># Result: Stream([(u'lambert1',), (u'blinn1',), (u'lambert1', u'phong1')]) #</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="制表显示">制表显示</span></h2><p>minq支持对结果进行制表显示，需要用到<code>.join()</code>方法。<br>下面的例子制表显示所有模型和对应的材质。</p>
+<h2><span id="制表显示">制表显示</span></h2>
+<p>minq支持对结果进行制表显示，需要用到<code>.join()</code>方法。<br>
+下面的例子制表显示所有模型和对应的材质。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">mesh_stream <span class="token operator">=</span> Meshes<span class="token punctuation">(</span><span class="token punctuation">)</span>
 shader_stream <span class="token operator">=</span> mesh_stream<span class="token punctuation">.</span>foreach<span class="token punctuation">(</span>connected_shaders<span class="token punctuation">)</span>
 table <span class="token operator">=</span> mesh_stream<span class="token punctuation">.</span>join<span class="token punctuation">(</span>shaders <span class="token operator">=</span> shader_stream<span class="token punctuation">)</span>
@@ -1440,21 +1451,20 @@ table <span class="token operator">=</span> mesh_stream<span class="token punctu
 <span class="token comment"># dataRow(index=u'|pCube1|pCubeShape1', shaders=(u'lambert1',))</span>
 <span class="token comment"># dataRow(index=u'|pPyramid1|pPyramidShape1', shaders=(u'blinn1',))</span>
 <span class="token comment"># dataRow(index=u'|pSphere1|pSphereShape1', shaders=(u'lambert1', u'phong1'))</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>从上述输出的结果来看，返回的列表里的元素是具名元组。所以我们也可以将它转换成字典：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">meshes<span class="token punctuation">,</span> shaders <span class="token operator">=</span> Meshes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
 m <span class="token operator">=</span> meshes<span class="token punctuation">.</span>join<span class="token punctuation">(</span>shaders<span class="token operator">=</span> shaders<span class="token punctuation">.</span>foreach<span class="token punctuation">(</span>connected_shaders<span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token builtin">dict</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span>
 <span class="token comment"># &#123;u'|pCube1|pCubeShape1': (u'lambert1',), u'|pPyramid1|pPyramidShape1': (u'blinn1',), u'|pSphere1|pSphereShape1': (u'lambert1', u'phong1')&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>上面的例子没有进行过优化，<code>mesh_stream</code>和<code>shader_stream</code>会重复的执行<code>Meshes()</code>查询。在对性能有要求的情况下，可以使用<code>.split()</code>函数将<strong>Stream</strong>结果复制分成两份。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">meshes<span class="token punctuation">,</span> shaders <span class="token operator">=</span> Meshes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
 m <span class="token operator">=</span> meshes<span class="token punctuation">.</span>join<span class="token punctuation">(</span>shaders<span class="token operator">=</span> shaders<span class="token punctuation">.</span>foreach<span class="token punctuation">(</span>connected_shaders<span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token builtin">dict</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span>
 
 <span class="token comment"># &#123;u'|pCube1|pCubeShape1': (u'lambert1',), u'|pPyramid1|pPyramidShape1': (u'blinn1',), u'|pSphere1|pSphereShape1': (u'lambert1', u'phong1')&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="打组">打组</span></h2><p>时常会将<strong>Stream</strong>的结果根据需要进行打组分类。<br>比如根据面数对模型分类：</p>
+<h2><span id="打组">打组</span></h2>
+<p>时常会将<strong>Stream</strong>的结果根据需要进行打组分类。<br>
+比如根据面数对模型分类：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">poly_category</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">:</span>
     count <span class="token operator">=</span> cmds<span class="token punctuation">.</span>polyEvaluate<span class="token punctuation">(</span>obj<span class="token punctuation">,</span> v<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
     <span class="token keyword">if</span> count <span class="token operator">></span> <span class="token number">512</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token string">'high'</span>
@@ -1468,7 +1478,9 @@ m <span class="token operator">=</span> meshes<span class="token punctuation">.<
 <span class="token comment"># med : [u'|pSphere1|pSphereShape1', u'|pSphere2|pSphereShape2']</span>
 <span class="token comment"># low : [u'|pCube1|pCubeShape1']</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>对于<strong>Stream</strong>结果中包含<code>dataRows</code>元素的，你可以使用行列数进行分类，而不要使用分组函数。</p>
-<h2><span id="集合的操作">集合的操作</span></h2><p>查询可以像集合一样操作。<br>比如对两个结果相加：</p>
+<h2><span id="集合的操作">集合的操作</span></h2>
+<p>查询可以像集合一样操作。<br>
+比如对两个结果相加：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">cube_parents  <span class="token operator">=</span> nodes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>of_type<span class="token punctuation">(</span><span class="token string">'polyCube'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>parents
 red_lights <span class="token operator">=</span> lights<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>where<span class="token punctuation">(</span>item<span class="token punctuation">.</span>colorR <span class="token operator">></span> <span class="token number">.5</span><span class="token punctuation">)</span><span class="token punctuation">.</span>where<span class="token punctuation">(</span>item<span class="token punctuation">.</span>colorG <span class="token operator">&lt;</span> <span class="token number">.5</span><span class="token punctuation">)</span>
 
@@ -1478,8 +1490,7 @@ combined <span class="token operator">=</span> cube_parents <span class="token o
 
 <span class="token comment"># |pCube1</span>
 <span class="token comment"># |ambientLight1|ambientLightShape1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>同样，你需要使用<code>.execute()</code>将其转换成列表。  </p>
+<p>同样，你需要使用<code>.execute()</code>将其转换成列表。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">q <span class="token operator">=</span> Cameras<span class="token punctuation">(</span><span class="token punctuation">)</span>                                   <span class="token comment"># all cameras</span>
 o <span class="token operator">=</span> Cameras<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>where<span class="token punctuation">(</span>item<span class="token punctuation">.</span>orthographic <span class="token operator">==</span> <span class="token boolean">True</span><span class="token punctuation">)</span>  <span class="token comment"># only ortho cameras</span>
 
@@ -1497,7 +1508,6 @@ o <span class="token operator">=</span> Cameras<span class="token punctuation">(
 
 <span class="token punctuation">(</span>q <span class="token operator">^</span> o<span class="token punctuation">)</span><span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># XOR : Items not in both sets</span>
 <span class="token comment"># Result: (u'|persp|perspShape',) #</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <center>(完)
 </center>
 </div>

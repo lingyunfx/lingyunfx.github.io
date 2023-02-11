@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,37 +1268,76 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h2><span id="tcl-帮助文档">TCL 帮助文档</span></h2><p><a target="_blank" rel="noopener" href="http://www.nukepedia.com/reference/Tcl/">http://www.nukepedia.com/reference/Tcl/</a></p>
-<h1><span id="basic表达式">basic表达式</span></h1><p><code>pi</code>: 圆周率pi<br><code>x, y</code>: x和y的坐标<br><code>width, height</code>: 长和宽<br><code>frame</code>: 当前帧<br><code>first_frame, last_frame</code>: 工程的第一帧，和最后一帧</p>
-<p><code>?:</code> 判断表达式，例子 <code>frame&lt;50?1:0</code>, 当帧数为50的时候，<br>值为1，否则为0。  </p>
+	<h2><span id="tcl-帮助文档">TCL 帮助文档</span></h2>
+<p><a target="_blank" rel="noopener" href="http://www.nukepedia.com/reference/Tcl/">http://www.nukepedia.com/reference/Tcl/</a></p>
+<h1><span id="basic表达式">basic表达式</span></h1>
+<p><code>pi</code>: 圆周率pi<br>
+<code>x, y</code>: x和y的坐标<br>
+<code>width, height</code>: 长和宽<br>
+<code>frame</code>: 当前帧<br>
+<code>first_frame, last_frame</code>: 工程的第一帧，和最后一帧</p>
+<p><code>?:</code> 判断表达式，例子 <code>frame&lt;50?1:0</code>, 当帧数为50的时候，<br>
+值为1，否则为0。</p>
 <p>它也可以进行多层嵌套：<code>frame&lt;50?(frame&gt;25?0.5:1):0</code></p>
-<h1><span id="math">math</span></h1><p><code>sqrt(a)</code> 开根号</p>
+<h1><span id="math">math</span></h1>
+<p><code>sqrt(a)</code> 开根号</p>
 <p><code>hypot(a, b)</code> 先把a和b平方结果相加，再开根号</p>
 <p><code>pow(a, b)</code> 幂函数，返回a的b次方<code>a</code></p>
 <p><code>bs(a)</code> 取绝对值</p>
 <p><code>min(a, b), max(a, b)</code> 返回参数的最小，最大值</p>
-<p><code>clamp(a, x, y)</code> 将a的值限制在x和y之间<br>if a&lt;x, a==x;if a&gt;y, a==y<br>如果不传参，x和y的默认值为0和1。</p>
+<p><code>clamp(a, x, y)</code> 将a的值限制在x和y之间<br>
+if a&lt;x, a==x;if a&gt;y, a==y<br>
+如果不传参，x和y的默认值为0和1。</p>
 <p><strong>取整</strong></p>
 <p><code>int(a)</code> 直接去小数点取整</p>
 <p><code>ceil(a)</code> 向上取整</p>
 <p><code>floor(a)</code> 向下取整</p>
 <p><strong>角度弧度计算</strong></p>
-<p><code>degrees(pi)</code> 返回180 (公式为：180 * 弧度 / pi)<br><code>radians(180)</code> 返回3.14159</p>
+<p><code>degrees(pi)</code> 返回180 (公式为：180 * 弧度 / pi)<br>
+<code>radians(180)</code> 返回3.14159</p>
 <p><code>sin cos tan asin acos atan</code> 三角函数</p>
 <p><code>noise random</code> 噪波和随机函数</p>
-<p><strong>curve 关键帧</strong><br>默认的给动画key了关键帧，右键打开表达式，都会显示一个curve的函数</p>
-<p>可以对其进行修改(修改后，<strong>虚线为之前的</strong>，<strong>实线为修改后的</strong>)：<code>curve(1)</code> 将所有关键帧都改为第一帧的数值<br><code>curve(frame)</code> 没有任何更改，曲线为每一帧本身的数值<br><code>curve(frame+10)</code> 向前偏移10帧<br><code>curve(frame+TimeOffset2.time_offset)</code> 关联节点”TimeOffset2”的time_offset参数</p>
-<p><strong>一个例子</strong>: transform节点位移的时候指针始终指向位移的方向。<br><code>degrees(atan(translate.y.derivative/translate.x.derivative))</code></p>
-<p><strong>判断像素是否正常</strong><br>有时候会遇到rgb的数值，为inf或者为nan<br>为素材添加一个Expression节点(这里的例子是红通道为inf，绿通道为nan)<br><code>isinf(r)?0:r</code> <code>isnan(r)?0:g</code></p>
-<p><strong>input</strong><br>一个节点的input端口<br>可以用在继承节点input端口的某个属性<br><code>input0.white</code> (这里是创建了两个Grade节点为例子)</p>
-<p><strong>topnode</strong><br>一套节点的最上一个节点<br><code>[topnode].boxsize</code> (这里继承的是一个CheckerBoard节点的boxsize参数)</p>
-<p><strong>parent</strong><br>父节点，比如将两个节点打包，整个包就是被打包节点的父节点。<br>用法：<br>可以在group上添加一个knob，比如名为test_a<br>然后在group里选择一个节点属性，添加表达式<br><code>parent.test_a</code></p>
-<p><strong>value</strong><br>返回指定参数的值<br>比如创建一个Blur节点<br>在节点Node标签，Label里写<br><code>[value size]</code></p>
+<p><strong>curve 关键帧</strong><br>
+默认的给动画key了关键帧，右键打开表达式，都会显示一个curve的函数</p>
+<p>可以对其进行修改(修改后，<strong>虚线为之前的</strong>，<strong>实线为修改后的</strong>)：<code>curve(1)</code> 将所有关键帧都改为第一帧的数值<br>
+<code>curve(frame)</code> 没有任何更改，曲线为每一帧本身的数值<br>
+<code>curve(frame+10)</code> 向前偏移10帧<br>
+<code>curve(frame+TimeOffset2.time_offset)</code> 关联节点&quot;TimeOffset2&quot;的time_offset参数</p>
+<p><strong>一个例子</strong>: transform节点位移的时候指针始终指向位移的方向。<br>
+<code>degrees(atan(translate.y.derivative/translate.x.derivative))</code></p>
+<p><strong>判断像素是否正常</strong><br>
+有时候会遇到rgb的数值，为inf或者为nan<br>
+为素材添加一个Expression节点(这里的例子是红通道为inf，绿通道为nan)<br>
+<code>isinf(r)?0:r</code> <code>isnan(r)?0:g</code></p>
+<p><strong>input</strong><br>
+一个节点的input端口<br>
+可以用在继承节点input端口的某个属性<br>
+<code>input0.white</code> (这里是创建了两个Grade节点为例子)</p>
+<p><strong>topnode</strong><br>
+一套节点的最上一个节点<br>
+<code>[topnode].boxsize</code> (这里继承的是一个CheckerBoard节点的boxsize参数)</p>
+<p><strong>parent</strong><br>
+父节点，比如将两个节点打包，整个包就是被打包节点的父节点。<br>
+用法：<br>
+可以在group上添加一个knob，比如名为test_a<br>
+然后在group里选择一个节点属性，添加表达式<br>
+<code>parent.test_a</code></p>
+<p><strong>value</strong><br>
+返回指定参数的值<br>
+比如创建一个Blur节点<br>
+在节点Node标签，Label里写<br>
+<code>[value size]</code></p>
 <p>或者使用<code>[python int(5.0)]</code> (这里显示的是python运行这行代码的输出结果)</p>
-<p><strong>inrange(a, x, y)</strong><br>数值a是否在x到y的范围内，<br>如果a在x到y的范围内，返回1<br>反之，则返回0.</p>
-<p>这里的一个例子是，后台渲染的时候，开启defocus节点，<br>当nuke以Gui打开的时候，禁用defocus节点。</p>
-<p>这里会用到nuke的一个变量，$gui<br>当nuke以窗口打开的时候 $gui 为1，以后台打开则为0</p>
-<p>在defocus节点的disable属性添加一个表达式<br><code>$gui</code></p>
+<p><strong>inrange(a, x, y)</strong><br>
+数值a是否在x到y的范围内，<br>
+如果a在x到y的范围内，返回1<br>
+反之，则返回0.</p>
+<p>这里的一个例子是，后台渲染的时候，开启defocus节点，<br>
+当nuke以Gui打开的时候，禁用defocus节点。</p>
+<p>这里会用到nuke的一个变量，$gui<br>
+当nuke以窗口打开的时候 $gui 为1，以后台打开则为0</p>
+<p>在defocus节点的disable属性添加一个表达式<br>
+<code>$gui</code></p>
 
 </div>
 

@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,7 +1268,9 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h1><span id="概述">概述</span></h1><p>包可以从一个库复制到另一个库，就像这样。<br>使用命令：</p>
+	<h1><span id="概述">概述</span></h1>
+<p>包可以从一个库复制到另一个库，就像这样。<br>
+使用命令：</p>
 <p><code>]$ rez-cp --dest-path /svr/packages2 my_pkg-1.2.3</code></p>
 <p>使用API：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token operator">>></span><span class="token operator">></span> from rez.package_copy <span class="token function">import</span> copy_package
@@ -1272,13 +1292,15 @@ Package<span class="token punctuation">(</span>FileSystemPackageResource<span cl
     <span class="token punctuation">]</span>,
     <span class="token string">'skipped'</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>复制包实际上每次只复制一个变体，当然也可以指定复制包的某些变体，而不是整个包。<br>API调用的返回值显示了被复制的变量copied中的二元组分别列出了源和目标。</p>
+<p>复制包实际上每次只复制一个变体，当然也可以指定复制包的某些变体，而不是整个包。<br>
+API调用的返回值显示了被复制的变量copied中的二元组分别列出了源和目标。</p>
 <p><strong>注意</strong>：不要直接复制包目录，应当使用<code>rez-cp</code>。直接复制可能会导致resolve缓存问题。</p>
-<h1><span id="启用">启用</span></h1><p>复制包功能是默认启用的，如果你想指定哪些可以被重定位，哪些不可重定位。</p>
+<h1><span id="启用">启用</span></h1>
+<p>复制包功能是默认启用的，如果你想指定哪些可以被重定位，哪些不可重定位。</p>
 <p>可以通过包定义文件中设置<code>relocatable=False</code>来标记包为不可重定位。</p>
 <p>还有些配置会影响，可以参考default_relocatable，default_relocatable_per_package 和 default_relocatable_per_repository。</p>
-<p>试图复制一个不可重定位的包会引发一个<code>PackageCopyError</code>。<br>请注意，<code>-force</code>选项会覆盖这一点，使用时风险自负。</p>
+<p>试图复制一个不可重定位的包会引发一个<code>PackageCopyError</code>。<br>
+请注意，<code>-force</code>选项会覆盖这一点，使用时风险自负。</p>
 
 </div>
 

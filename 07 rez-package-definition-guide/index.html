@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,7 +1268,10 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h1><span id="概述">概述</span></h1><p>软件包的定义来自文件（package.py），位于每个包安装的根目录下。<br>比如包的存储位置为<code>/packages/inhouse</code>，则包”foo-1.0.0”的定义文件路径是：<br><code>/packages/inhouse/foo/1.0.0/package.py</code></p>
+	<h1><span id="概述">概述</span></h1>
+<p>软件包的定义来自文件（<a target="_blank" rel="noopener" href="http://package.py">package.py</a>），位于每个包安装的根目录下。<br>
+比如包的存储位置为<code>/packages/inhouse</code>，则包&quot;foo-1.0.0&quot;的定义文件路径是：<br>
+<code>/packages/inhouse/foo/1.0.0/package.py</code></p>
 <p>这里是一个定义文件的例子：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">name <span class="token operator">=</span> <span class="token string">'sequence'</span>
 
@@ -1275,23 +1296,30 @@ requires <span class="token operator">=</span> <span class="token punctuation">[
     env<span class="token punctuation">.</span>PYTHONPATH<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">"&#123;root&#125;/python"</span><span class="token punctuation">)</span>
 
 uuid <span class="token operator">=</span> <span class="token string">'6c43d533-92bb-4f8b-b812-7020bf54d3f1'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1><span id="软件包属性">软件包属性</span></h1><p>包定义文件中的每一个变量都会成为已构建或已安装的软件包的属性。<br>所以你可以在包中添加任何自定义属性，不过有些属性并作为包的属性添加，<br>比如下面这个：</p>
+<h1><span id="软件包属性">软件包属性</span></h1>
+<p>包定义文件中的每一个变量都会成为已构建或已安装的软件包的属性。<br>
+所以你可以在包中添加任何自定义属性，不过有些属性并作为包的属性添加，<br>
+比如下面这个：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> sys
 
 description <span class="token operator">=</span> <span class="token string">"This package was built on %s"</span> <span class="token operator">%</span> sys<span class="token punctuation">.</span>platform<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>因为我们并不想让sys成为一个包属性，这会和python标准模块冲突。<br>所以不会成为包属性的包括：</p>
+<p>因为我们并不想让sys成为一个包属性，这会和python标准模块冲突。<br>
+所以不会成为包属性的包括：</p>
 <ul>
 <li>python 模块</li>
 <li>函数，不包括预/后绑定函数，不包含命令和相关函数</li>
 <li>任何前面有双下划线的变量</li>
 <li>任何作为构建时软件属性的变量</li>
 </ul>
-<h1><span id="包属性作为函数">包属性作为函数</span></h1><p>包属性可以包装成函数，函数的返回值为属性值。</p>
-<p>有两种类型的属性函数：<br><strong>预绑定函数</strong>(early binding function)和<strong>后绑定函数</strong>(late binding function)。<br>它们分别使用装饰器<code>@early</code>和<code>@late</code>来装饰。</p>
+<h1><span id="包属性作为函数">包属性作为函数</span></h1>
+<p>包属性可以包装成函数，函数的返回值为属性值。</p>
+<p>有两种类型的属性函数：<br>
+<strong>预绑定函数</strong>(early binding function)和<strong>后绑定函数</strong>(late binding function)。<br>
+它们分别使用装饰器<code>@early</code>和<code>@late</code>来装饰。</p>
 <p>包定义的commands函数是例外，它们是后期绑定，但与标准的函数属性不同，不能用上述的装饰器来装饰。</p>
-<h2><span id="预绑定函数">预绑定函数</span></h2><p>预绑定函数使用<code>@early</code>装饰器，它们在构建时执行，任何包属性都可以作为预绑定函数来实现。<br>这是一个authors属性的示例，该函数返回包的git项目的贡献者：</p>
+<h2><span id="预绑定函数">预绑定函数</span></h2>
+<p>预绑定函数使用<code>@early</code>装饰器，它们在构建时执行，任何包属性都可以作为预绑定函数来实现。<br>
+这是一个authors属性的示例，该函数返回包的git项目的贡献者：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token decorator annotation punctuation">@early</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">def</span> <span class="token function">authors</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">import</span> subprocess
@@ -1299,20 +1327,17 @@ description <span class="token operator">=</span> <span class="token string">"Th
                          shell<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> stdout<span class="token operator">=</span>subprocess<span class="token punctuation">.</span>PIPE<span class="token punctuation">)</span>
     out<span class="token punctuation">,</span> _ <span class="token operator">=</span> p<span class="token punctuation">.</span>communicate<span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">return</span> out<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>预绑定函数还可以访问其它软件包的属性：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token decorator annotation punctuation">@early</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">def</span> <span class="token function">description</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token comment"># a not very useful description</span>
     <span class="token keyword">return</span> <span class="token string">"%s version %s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>this<span class="token punctuation">.</span>name<span class="token punctuation">,</span> this<span class="token punctuation">.</span>version<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><strong>注意</strong>：不要在预绑定函数中使用其它预绑定函数或后绑定函数的属性，否则会报错。</p>
 <p>预绑定函数很方便的一点是，你可以使用任意的函数来替代，像这样：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">_description</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">return</span> <span class="token string">"%s version %s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>this<span class="token punctuation">.</span>name<span class="token punctuation">,</span> this<span class="token punctuation">.</span>version<span class="token punctuation">)</span>
 
 description <span class="token operator">=</span> _description<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><strong>可用对象：</strong></p>
 <ul>
 <li>building：返回值为布尔，如果正在构建返回True</li>
@@ -1320,16 +1345,19 @@ description <span class="token operator">=</span> _description<span class="token
 <li>build_variant_requires：当前构建的软件包的子集，是PackageRequest对象的列表，只有当building为True才有效。</li>
 <li>this：当前包。</li>
 </ul>
-<p><strong>注意：</strong>预绑定函数实际上会在构建过程中执行多次，在构建期间进行一次，然后对每个变体进行一次。这是为了让预绑定函数可以根据比如build_variant_index等variant来更改它们的返回值。</p>
-<p>比如你希望requires字段仅在运行时返回某个软件包（软件包构建的时候不需要返回那个软件包）。<br>可以这样写：</p>
+<p>**注意：**预绑定函数实际上会在构建过程中执行多次，在构建期间进行一次，然后对每个变体进行一次。这是为了让预绑定函数可以根据比如build_variant_index等variant来更改它们的返回值。</p>
+<p>比如你希望requires字段仅在运行时返回某个软件包（软件包构建的时候不需要返回那个软件包）。<br>
+可以这样写：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token decorator annotation punctuation">@early</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">def</span> <span class="token function">requires</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">if</span> building<span class="token punctuation">:</span>
         <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token string">"python-2"</span><span class="token punctuation">]</span>
     <span class="token keyword">else</span><span class="token punctuation">:</span>
         <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token string">"runtimeonly-1.2"</span><span class="token punctuation">,</span> <span class="token string">"python-2"</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="后绑定函数">后绑定函数</span></h2><p>后绑定函数作为函数保留在已安装的软件包定义中，<br>并且在第一次调用的时候才进行求值（然后会将返回值进行缓存）。<br>允许的属性有：</p>
+<h2><span id="后绑定函数">后绑定函数</span></h2>
+<p>后绑定函数作为函数保留在已安装的软件包定义中，<br>
+并且在第一次调用的时候才进行求值（然后会将返回值进行缓存）。<br>
+允许的属性有：</p>
 <ul>
 <li>requires</li>
 <li>build_requires</li>
@@ -1352,9 +1380,12 @@ description <span class="token operator">=</span> _description<span class="token
         result <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"delete-all"</span><span class="token punctuation">,</span> <span class="token string">"mod-things"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 
     <span class="token keyword">return</span> <span class="token builtin">list</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><strong>注意</strong>：后绑定函数使用到的模块必须在函数内进行导入，而不是package.py文件顶部。<br>还有一点是，比如函数只是为了返回bin目录的一个路径，最好是将它写作为一个预绑定函数，<br>这样对性能来说更节省。</p>
-<p>但如果有一个环境变量”_USER_ROLE”是在构建时未知的，则适用于写作后绑定函数。<br>有时候我们会通过预绑定函数来存储一个属性来减少运行时的成本，再到后绑定函数中直接读取这个属性，<br>比如下面这个示例：</p>
+<p><strong>注意</strong>：后绑定函数使用到的模块必须在函数内进行导入，而不是package.py文件顶部。<br>
+还有一点是，比如函数只是为了返回bin目录的一个路径，最好是将它写作为一个预绑定函数，<br>
+这样对性能来说更节省。</p>
+<p>但如果有一个环境变量&quot;_USER_ROLE&quot;是在构建时未知的，则适用于写作后绑定函数。<br>
+有时候我们会通过预绑定函数来存储一个属性来减少运行时的成本，再到后绑定函数中直接读取这个属性，<br>
+比如下面这个示例：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token decorator annotation punctuation">@late</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">def</span> <span class="token function">tools</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">import</span> os
@@ -1370,10 +1401,10 @@ description <span class="token operator">=</span> _description<span class="token
 <span class="token keyword">def</span> <span class="token function">_tools</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">import</span> os
     <span class="token keyword">return</span> os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span><span class="token string">"./bin"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>注意在上述的代码中，_tools函数使用的一个相对路径，因为预绑定函数在进行构建求值时，该软件包是处于尚未安装的状态，所以诸如<code>this.root</code>之类的属性是不存在的。</p>
 <p><strong>in_context 函数</strong></p>
-<p>当后绑定函数求值时，将存在一个布尔函数in_context，如果软件包在解析后的环境中，返回True。<br>比如，仅使用rez API遍历软件包（如rez-search工具），则这些程序不属于解析后环境。</p>
+<p>当后绑定函数求值时，将存在一个布尔函数in_context，如果软件包在解析后的环境中，返回True。<br>
+比如，仅使用rez API遍历软件包（如rez-search工具），则这些程序不属于解析后环境。</p>
 <p>但如果创建一个ResolvedContext对象（如rez-env工具所做的）并遍历其已解析的软件包，则它们属于in_context。下面同样是一个示例：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token decorator annotation punctuation">@late</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">def</span> <span class="token function">tools</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -1383,7 +1414,6 @@ description <span class="token operator">=</span> _description<span class="token
         result<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">"maya-edit"</span><span class="token punctuation">)</span>
 
     <span class="token keyword">return</span> result<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>这里检查request对象，查看是否当前环境请求了maya软件。如果是，将maya-edit工具加入列表。</p>
 <p><strong>有效对象</strong></p>
 <p>如果in_context返回True，下面是一些可用对象：</p>
@@ -1417,20 +1447,21 @@ variants <span class="token operator">=</span> <span class="token punctuation">[
         <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token string">"maya_2017_build_utils"</span><span class="token punctuation">]</span>
     <span class="token keyword">else</span><span class="token punctuation">:</span>
         <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token string">"maya_2018_build_utils"</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>这里对this.is_package检查，实际上如果运行下面的命令，this的字段是一个包实例，并没有索引：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token punctuation">]</span>$ rez<span class="token operator">-</span>search maya_thing <span class="token operator">-</span><span class="token operator">-</span><span class="token builtin">type</span> package <span class="token operator">-</span><span class="token operator">-</span><span class="token builtin">format</span> <span class="token string">'&#123;build_requires&#125;'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>在这种情况下，this.is_package和this.index的返回值都为False，但是仍然可以用else返回一些值。</p>
-<h1><span id="跨软件包共享">跨软件包共享</span></h1><p>跨包定义函数的属性是可以共享的，但是根据函数是预先绑定还是后绑定，机制上有些不同。</p>
+<h1><span id="跨软件包共享">跨软件包共享</span></h1>
+<p>跨包定义函数的属性是可以共享的，但是根据函数是预先绑定还是后绑定，机制上有些不同。</p>
 <p>这是为了避免已经安装的软件包依赖于随时可能更改的外部代码。但是依赖于外部代码的构建是没有问题的。</p>
-<h2><span id="在构建期间共享">在构建期间共享</span></h2><p>函数在package.py文件中构建的功能包括：</p>
+<h2><span id="在构建期间共享">在构建期间共享</span></h2>
+<p>函数在package.py文件中构建的功能包括：</p>
 <ul>
 <li>预处理功能</li>
 <li>任何使用<code>@early</code>装饰器实现为功能的包属性</li>
 </ul>
 <p>你可以使用<code>package_definition_build_python_paths</code>配置通用的共享属性。</p>
-<h2><span id="在已经安装的程序之间共享">在已经安装的程序之间共享</span></h2><p>包括：</p>
+<h2><span id="在已经安装的程序之间共享">在已经安装的程序之间共享</span></h2>
+<p>包括：</p>
 <ul>
 <li>各种<code>commands</code>函数属性</li>
 <li>任何使用<code>@late</code>装饰器装饰的函数属性</li>
@@ -1441,20 +1472,21 @@ variants <span class="token operator">=</span> <span class="token punctuation">[
 <span class="token decorator annotation punctuation">@include</span><span class="token punctuation">(</span><span class="token string">"utils"</span><span class="token punctuation">)</span>
 <span class="token keyword">def</span> <span class="token function">commands</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     utils<span class="token punctuation">.</span>set_common_env_vars<span class="token punctuation">(</span>this<span class="token punctuation">,</span> env<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1><span id="requires扩展">requires扩展</span></h1><p>通常软件包在构建时，可能比运行时需要更多的依赖项兼容。</p>
+<h1><span id="requires扩展">requires扩展</span></h1>
+<p>通常软件包在构建时，可能比运行时需要更多的依赖项兼容。</p>
 <p>例如，一个C++包可以针对任何版本的boost-1进行构建，但是有时需要链接到它针对的特定小版本，比如boost-1.55。你可以使用通配符号在requires属性（或任何相关属性比如build_requires）中这样去描述它：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">requires <span class="token operator">=</span> <span class="token punctuation">[</span>
     <span class="token string">"boost-1.*"</span>
 <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>你也可以将requires作为一个预绑定函数来实现刚刚的需求，结合rez包的expand_requires函数：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token decorator annotation punctuation">@early</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">def</span> <span class="token function">requires</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">from</span> rez<span class="token punctuation">.</span>package_py_utils <span class="token keyword">import</span> expand_requires
     <span class="token keyword">return</span> expand_requires<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"boost-1.*"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1><span id="软件包预处理">软件包预处理</span></h1><p>你可以在全局或者在package.py文件中定义预处理功能。在构建软件包之前，<br>可以使用它来验证软件包，甚至修改某些属性。要设置这个功能，参考：<br><a target="_blank" rel="noopener" href="https://github.com/nerdvegas/rez/wiki/Configuring-Rez#package_preprocess_function">package_preprocess_function</a>配置设置。</p>
+<h1><span id="软件包预处理">软件包预处理</span></h1>
+<p>你可以在全局或者在package.py文件中定义预处理功能。在构建软件包之前，<br>
+可以使用它来验证软件包，甚至修改某些属性。要设置这个功能，参考：<br>
+<a target="_blank" rel="noopener" href="https://github.com/nerdvegas/rez/wiki/Configuring-Rez#package_preprocess_function">package_preprocess_function</a>配置设置。</p>
 <p>看下面这个预处理示例：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">preprocess</span><span class="token punctuation">(</span>package<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">from</span> rez<span class="token punctuation">.</span>package_py_utils <span class="token keyword">import</span> InvalidPackageError
@@ -1466,15 +1498,17 @@ variants <span class="token operator">=</span> <span class="token punctuation">[
     <span class="token keyword">if</span> <span class="token keyword">not</span> package<span class="token punctuation">.</span>authors<span class="token punctuation">:</span>
         <span class="token keyword">from</span> preprocess_utils <span class="token keyword">import</span> get_git_committers
         data<span class="token punctuation">[</span><span class="token string">"authors"</span><span class="token punctuation">]</span> <span class="token operator">=</span> get_git_committers<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>上面的预处理程序会根据正则来检查软件包名称，并将包的authors属性设置为git_committers的返回值<br>（当包没有给予这个属性的时候）。如果软件包名称没有通过检查，需要停止构建，<br>必须在代码中引发一个”InvalidPackageError”的错误。</p>
-<p><strong>Tips</strong>：要查看package.py的预处理内容，可以在其根目录运行命令：<br><code>rez-build --view-pre</code> 将会打印一个标准输出。</p>
-<h2><span id="在预处理中覆盖配置设置">在预处理中覆盖配置设置</span></h2><p>比如在预处理中，覆盖软件包发布路径设置：</p>
+<p>上面的预处理程序会根据正则来检查软件包名称，并将包的authors属性设置为git_committers的返回值<br>
+（当包没有给予这个属性的时候）。如果软件包名称没有通过检查，需要停止构建，<br>
+必须在代码中引发一个&quot;InvalidPackageError&quot;的错误。</p>
+<p><strong>Tips</strong>：要查看package.py的预处理内容，可以在其根目录运行命令：<br>
+<code>rez-build --view-pre</code> 将会打印一个标准输出。</p>
+<h2><span id="在预处理中覆盖配置设置">在预处理中覆盖配置设置</span></h2>
+<p>比如在预处理中，覆盖软件包发布路径设置：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># in package.py</span>
 <span class="token keyword">with</span> scope<span class="token punctuation">(</span><span class="token string">"config"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> c<span class="token punctuation">:</span>
     c<span class="token punctuation">.</span>release_packages_path <span class="token operator">=</span> <span class="token string">"/software/packages/external"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>假设一个场景，我们希望将第三方包安装到特定的路径，并且将这些包的属性”external”为True，我们可以在全局预处理函数中这样设置：</p>
+<p>假设一个场景，我们希望将第三方包安装到特定的路径，并且将这些包的属性&quot;external&quot;为True，我们可以在全局预处理函数中这样设置：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">preprocess</span><span class="token punctuation">(</span>package<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">if</span> <span class="token keyword">not</span> data<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"external"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">return</span>
@@ -1487,8 +1521,10 @@ variants <span class="token operator">=</span> <span class="token punctuation">[
 
     data<span class="token punctuation">[</span><span class="token string">"config"</span><span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token string">"config"</span><span class="token punctuation">]</span> <span class="token keyword">or</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
     data<span class="token punctuation">[</span><span class="token string">"config"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"release_packages_path"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"/software/packages/external"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1><span id="软件包范例">软件包范例</span></h1><p>下面是一个软件包定义文件，演示了几个特性。<br>这是个python软件包，该软件包不会实际安装python，而是检测现有系统的python安装，<br>并将其绑定到rez软件包中。（结合上述的知识来阅读它吧）</p>
+<h1><span id="软件包范例">软件包范例</span></h1>
+<p>下面是一个软件包定义文件，演示了几个特性。<br>
+这是个python软件包，该软件包不会实际安装python，而是检测现有系统的python安装，<br>
+并将其绑定到rez软件包中。（结合上述的知识来阅读它吧）</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">name <span class="token operator">=</span> <span class="token string">"python"</span>
 
 <span class="token decorator annotation punctuation">@early</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -1559,21 +1595,23 @@ uuid <span class="token operator">=</span> <span class="token string">"recipes.p
         <span class="token string">"import sys; print(sys.version.split()[0])"</span><span class="token punctuation">)</span>
 
 __version <span class="token operator">=</span> _version<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1><span id="软件包标准属性">软件包标准属性</span></h1><h2><span id="authorslist-of-string">authors（List of string）</span></h2><p><code>authors = [&quot;jchrist&quot;, &quot;sclaus&quot;]</code></p>
+<h1><span id="软件包标准属性">软件包标准属性</span></h1>
+<h2><span id="authorslist-of-string">authors（List of string）</span></h2>
+<p><code>authors = [&quot;jchrist&quot;, &quot;sclaus&quot;]</code></p>
 <p>软件包的作者，顺序从主要贡献者开始。</p>
-<h2><span id="build_requireslist-of-string">build_requires（List of string）</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">build_requires <span class="token operator">=</span> <span class="token punctuation">[</span>
+<h2><span id="build_requireslist-of-string">build_requires（List of string）</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">build_requires <span class="token operator">=</span> <span class="token punctuation">[</span>
     <span class="token string">"cmake-2.8"</span><span class="token punctuation">,</span>
     <span class="token string">"doxygen"</span>
 <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>与require相同，只是这些依赖项只包含在构建期间（通常配合rez-build调用）</p>
-<h2><span id="cachableboolean">cachable（Boolean）</span></h2><p><code>cachable = True</code></p>
-<p>在启用包缓存时，是否可以缓存包。如果没有提供此参数，则由全局配置的”default_cachable”和相关的”default_cachable_*”设置中获取。</p>
-<h2><span id="commandsfunction">commands（Function）</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">commands</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<h2><span id="cachableboolean">cachable（Boolean）</span></h2>
+<p><code>cachable = True</code></p>
+<p>在启用包缓存时，是否可以缓存包。如果没有提供此参数，则由全局配置的&quot;default_cachable&quot;和相关的&quot;default_cachable_*&quot;设置中获取。</p>
+<h2><span id="commandsfunction">commands（Function）</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">commands</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     env<span class="token punctuation">.</span>PYTHONPATH<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">"&#123;root&#125;/python"</span><span class="token punctuation">)</span>
     env<span class="token punctuation">.</span>PATH<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">"&#123;root&#125;/bin"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>一个python代码块，告诉rez如何使用这个包更新环境。比如：</p>
 <ul>
 <li>设置，取消，前置或附加环境变量</li>
@@ -1581,39 +1619,56 @@ __version <span class="token operator">=</span> _version<span class="token punct
 <li>执行脚本</li>
 <li>打印信息</li>
 </ul>
-<h2><span id="config">config</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">with</span> scope<span class="token punctuation">(</span><span class="token string">"config"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<h2><span id="config">config</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">with</span> scope<span class="token punctuation">(</span><span class="token string">"config"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     release_packages_path <span class="token operator">=</span> <span class="token string">"/software/packages/apps"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>软件包可以使用它来覆盖rez配置设置。只在某些情况下有效，比如我们希望将包发布到一个与默认目录不同的路径。</p>
-<h2><span id="descriptionstring">description（String）</span></h2><p><code>description = &quot;Library for communicating with the dead.&quot;</code><br>对软件包的总体描述。不要用它描述关于包的特定版本和细节，只应该提到包的一般特性。</p>
-<h2><span id="has_pluginsboolean">has_plugins（Boolean）</span></h2><p><code>has_plugins = True</code><br>标识这个包是有插件的。</p>
-<h2><span id="hashed_variantsboolean">hashed_variants（Boolean）</span></h2><p><code>hashed_variants = True</code><br>标识软件包根据variants内容的哈希值将variants安装到子目录中。</p>
-<h2><span id="helpstring-or-list-of-string">help（String or List of string）</span></h2><p><code>help = &quot;https://github.com/nerdvegas/rez/wiki&quot;</code><br>软件包的帮助url页面，如果是包含空格的字符，则是要运行的命令。<br>如果是一个列表，代表帮助条目，可以使用SECTION参数指定要查看的条目。</p>
-<h2><span id="namestringmandatory">name（String，mandatory）</span></h2><p><code>name = &quot;maya_utils&quot;</code><br>包的名称。允许使用字母数字和下划线，名称区分大小写。</p>
-<h2><span id="plugin_forstring">plugin_for（String）</span></h2><p><code>plugin_for = &quot;maya&quot;</code><br>表明这个包是另一个包的插件。如上例子，这是一个maya插件。</p>
-<h2><span id="post_commandsfunction">post_commands（Function）</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">post_commands</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<h2><span id="descriptionstring">description（String）</span></h2>
+<p><code>description = &quot;Library for communicating with the dead.&quot;</code><br>
+对软件包的总体描述。不要用它描述关于包的特定版本和细节，只应该提到包的一般特性。</p>
+<h2><span id="has_pluginsboolean">has_plugins（Boolean）</span></h2>
+<p><code>has_plugins = True</code><br>
+标识这个包是有插件的。</p>
+<h2><span id="hashed_variantsboolean">hashed_variants（Boolean）</span></h2>
+<p><code>hashed_variants = True</code><br>
+标识软件包根据variants内容的哈希值将variants安装到子目录中。</p>
+<h2><span id="helpstring-or-list-of-string">help（String or List of string）</span></h2>
+<p><code>help = &quot;https://github.com/nerdvegas/rez/wiki&quot;</code><br>
+软件包的帮助url页面，如果是包含空格的字符，则是要运行的命令。<br>
+如果是一个列表，代表帮助条目，可以使用SECTION参数指定要查看的条目。</p>
+<h2><span id="namestringmandatory">name（String，mandatory）</span></h2>
+<p><code>name = &quot;maya_utils&quot;</code><br>
+包的名称。允许使用字母数字和下划线，名称区分大小写。</p>
+<h2><span id="plugin_forstring">plugin_for（String）</span></h2>
+<p><code>plugin_for = &quot;maya&quot;</code><br>
+表明这个包是另一个包的插件。如上例子，这是一个maya插件。</p>
+<h2><span id="post_commandsfunction">post_commands（Function）</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">post_commands</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     env<span class="token punctuation">.</span>FOO_PLUGIN_PATH<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">"@"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>与pre_commands类似，但在最后运行，而不是在开始阶段。</p>
-<h2><span id="pre_commandsfunction">pre_commands（Function）</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">pre_commands</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<h2><span id="pre_commandsfunction">pre_commands（Function）</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">pre_commands</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">import</span> os<span class="token punctuation">.</span>path
     env<span class="token punctuation">.</span>FOO_PLUGIN_PATH <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>this<span class="token punctuation">.</span>root<span class="token punctuation">,</span> <span class="token string">"plugins"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>和commands一样，执行顺序是pre_commands优先执行，然后是commands，最后是post_commands。</p>
-<h2><span id="pre_test_commandsfunction">pre_test_commands（Function）</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">pre_test_commands</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<h2><span id="pre_test_commandsfunction">pre_test_commands（Function）</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">pre_test_commands</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">if</span> test<span class="token punctuation">.</span>name <span class="token operator">==</span> <span class="token string">"unit"</span><span class="token punctuation">:</span>
         env<span class="token punctuation">.</span>IS_UNIT_TEST <span class="token operator">=</span> <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>和commands类似，但它是在测试中的定义的每个测试之前运行。</p>
-<h2><span id="relocatableboolean">relocatable（Boolean）</span></h2><p><code>relocatable = True</code><br>确定这个包是否可以复制到另一个包存储库。（例如使用rez-cp命令）<br>如果没有提供，则由全局配置”default_relocatable”和相关设置”default_relocatable_*”设置确定。</p>
-<h2><span id="requireslist-of-string">requires（List of string）</span></h2><pre class="line-numbers language-json" data-language="json"><code class="language-json">requires = <span class="token punctuation">[</span>
+<h2><span id="relocatableboolean">relocatable（Boolean）</span></h2>
+<p><code>relocatable = True</code><br>
+确定这个包是否可以复制到另一个包存储库。（例如使用rez-cp命令）<br>
+如果没有提供，则由全局配置&quot;default_relocatable&quot;和相关设置&quot;default_relocatable_*&quot;设置确定。</p>
+<h2><span id="requireslist-of-string">requires（List of string）</span></h2>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json">requires = <span class="token punctuation">[</span>
     <span class="token string">"python-2"</span><span class="token punctuation">,</span>
     <span class="token string">"maya-2016"</span><span class="token punctuation">,</span>
     <span class="token string">"maya_utils-3.4+&lt;4"</span>
 <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>这是包所依赖的其它包列表。</p>
-<h2><span id="testsdict">tests（Dict）</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">tests <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+<h2><span id="testsdict">tests（Dict）</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">tests <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
     <span class="token string">"unit"</span><span class="token punctuation">:</span> <span class="token string">"python -m unittest discover -s &#123;root&#125;/python/tests"</span><span class="token punctuation">,</span>
     <span class="token string">"lint"</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span>
         <span class="token string">"command"</span><span class="token punctuation">:</span> <span class="token string">"pylint mymodule"</span><span class="token punctuation">,</span>
@@ -1629,21 +1684,23 @@ __version <span class="token operator">=</span> _version<span class="token punct
         <span class="token string">"run_on"</span><span class="token punctuation">:</span> <span class="token string">"explicit"</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>定义的这个字典，代表可以使用rez-test工具在软件包运行测试。</p>
 <p>例如在上述带有test属性的包maya_utils上运行linter：</p>
 <pre class="line-numbers language-none"><code class="language-none">]$ rez-test maya_utils lint<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>如果测试条目是一个字符串或一个字符串列表，这将会解释为要运行的命令。<br>字符串扩展任何包属性引用，比如{root}。<br>如果提供了一个嵌套字典，你可以为每个测试指定额外的字段：</p>
+<p>如果测试条目是一个字符串或一个字符串列表，这将会解释为要运行的命令。<br>
+字符串扩展任何包属性引用，比如{root}。<br>
+如果提供了一个嵌套字典，你可以为每个测试指定额外的字段：</p>
 <ul>
 <li><strong>requires</strong>: 要包含在测试运行时env中额外包的依赖</li>
-<li><strong>on_variants</strong>：哪些variants可以在测试里生效<ul>
+<li><strong>on_variants</strong>：哪些variants可以在测试里生效
+<ul>
 <li><strong>True</strong>：所有variants</li>
 <li><strong>False</strong>：只在一个variant上进行测试，即在env被解析时获得的variant（默认值）</li>
-<li><strong>Dict</strong>：选择的variants，可以参考上面的”maya_CI”下”on_variants”的值</li>
+<li><strong>Dict</strong>：选择的variants，可以参考上面的&quot;maya_CI&quot;下&quot;on_variants&quot;的值</li>
 </ul>
 </li>
-<li><strong>run_on</strong>: 什么时候运行这个测试。有效值:<ul>
+<li><strong>run_on</strong>: 什么时候运行这个测试。有效值:
+<ul>
 <li><strong>default</strong>:  在不指定测试参数的情况下运行rez-test</li>
 <li><strong>pre_install</strong>：在安装之前运行（即rez-build -i），并在安装失败后中止安装</li>
 <li><strong>pre_release</strong>：在发布之前运行，失败则中止发布</li>
@@ -1651,29 +1708,37 @@ __version <span class="token operator">=</span> _version<span class="token punct
 </ul>
 </li>
 </ul>
-<h2><span id="toolslist-of-string">tools（List of string）</span></h2><pre class="line-numbers language-json" data-language="json"><code class="language-json">tools = <span class="token punctuation">[</span>
+<h2><span id="toolslist-of-string">tools（List of string）</span></h2>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json">tools = <span class="token punctuation">[</span>
     <span class="token string">"houdini"</span><span class="token punctuation">,</span>
     <span class="token string">"hescape"</span><span class="token punctuation">,</span>
     <span class="token string">"hython"</span>
 <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>软件包提供的工具列表。</p>
-<h2><span id="uuidstring">uuid（String）</span></h2><pre class="line-numbers language-none"><code class="language-none">uuid &#x3D; &quot;489ad32867494baab7e5be3e462473c6&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>一个唯一值，可以用于标识相似名称的两个包。（一旦设置就不要更改它）<br>可以这样去获得一个uuid：</p>
+<h2><span id="uuidstring">uuid（String）</span></h2>
+<pre class="line-numbers language-none"><code class="language-none">uuid &#x3D; &quot;489ad32867494baab7e5be3e462473c6&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>一个唯一值，可以用于标识相似名称的两个包。（一旦设置就不要更改它）<br>
+可以这样去获得一个uuid：</p>
 <pre class="line-numbers language-none"><code class="language-none">]$ python -c &#39;import uuid; print(uuid.uuid4().hex)&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2><span id="variantslist-of-list-of-string">variants（List of list of string）</span></h2><pre class="line-numbers language-json" data-language="json"><code class="language-json">variants = <span class="token punctuation">[</span>
+<h2><span id="variantslist-of-list-of-string">variants（List of list of string）</span></h2>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json">variants = <span class="token punctuation">[</span>
     <span class="token punctuation">[</span><span class="token string">"maya-2015.3"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
     <span class="token punctuation">[</span><span class="token string">"maya-2016.1"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
     <span class="token punctuation">[</span><span class="token string">"maya-2016.7"</span><span class="token punctuation">]</span>
 <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>一个包可以包含的各种变体，可以看作是同一个包的不同版本变体，具有不同的依赖性。</p>
-<h2><span id="versionstring">version（String）</span></h2><p><code>version = &quot;1.0.0&quot;</code><br>标识这个包的版本。</p>
-<h1><span id="构建包时的属性">构建包时的属性</span></h1><p>这些属性只在包构建的时候生效，一旦安装完成，这些属性就走了。  </p>
-<h2><span id="build_commandstring-or-false">build_command（String or False）</span></h2><p><code>build_command = &quot;bash &#123;root&#125;/build.sh &#123;install&#125;&quot;</code>  </p>
-<p>包的构建命令。如果设置，它将在运行”rez-build”时执行这个构建命令。<br>如果为False，则不需要任何构建步骤（仍然会安装包）。<br>{root}字符同样是可用的字符扩展，代表构建路径根目录。<br>{install}字符为“install”如果安装正在进行，否则为空。<br>可以在build命令中引用的变量有：</p>
+<h2><span id="versionstring">version（String）</span></h2>
+<p><code>version = &quot;1.0.0&quot;</code><br>
+标识这个包的版本。</p>
+<h1><span id="构建包时的属性">构建包时的属性</span></h1>
+<p>这些属性只在包构建的时候生效，一旦安装完成，这些属性就走了。</p>
+<h2><span id="build_commandstring-or-false">build_command（String or False）</span></h2>
+<p><code>build_command = &quot;bash &#123;root&#125;/build.sh &#123;install&#125;&quot;</code></p>
+<p>包的构建命令。如果设置，它将在运行&quot;rez-build&quot;时执行这个构建命令。<br>
+如果为False，则不需要任何构建步骤（仍然会安装包）。<br>
+{root}字符同样是可用的字符扩展，代表构建路径根目录。<br>
+{install}字符为“install”如果安装正在进行，否则为空。<br>
+可以在build命令中引用的变量有：</p>
 <ul>
 <li>root</li>
 <li>install</li>
@@ -1683,21 +1748,29 @@ __version <span class="token operator">=</span> _version<span class="token punct
 <li>variant_index：当前构建variant的索引</li>
 <li>version：当前正在构建包的版本</li>
 </ul>
-<h2><span id="build_systemstring">build_system（String）</span></h2><p><code>build_system = &quot;cmake&quot;</code><br>指定构建这个包所使用的构建系统，如果未设置则在构建时自动检测。<br>或者也可以使用 —build-system option 来指定。  </p>
-<h2><span id="pre_build_commandsfunction">pre_build_commands（Function）</span></h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">pre_build_commands</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<h2><span id="build_systemstring">build_system（String）</span></h2>
+<p><code>build_system = &quot;cmake&quot;</code><br>
+指定构建这个包所使用的构建系统，如果未设置则在构建时自动检测。<br>
+或者也可以使用 —build-system option 来指定。</p>
+<h2><span id="pre_build_commandsfunction">pre_build_commands（Function）</span></h2>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">pre_build_commands</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     env<span class="token punctuation">.</span>FOO_BUILT_BY_REZ <span class="token operator">=</span> <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>与commands类似，不同的是它在构建包之前运行。</p>
-<h2><span id="preprocessfunction">preprocess（Function）</span></h2><p>见本文之前讲到的 “软件包预处理”  </p>
-<h2><span id="private_build_requireslist-of-string">private_build_requires（List of string）</span></h2><pre class="line-numbers language-json" data-language="json"><code class="language-json">private_build_requires = <span class="token punctuation">[</span>
+<h2><span id="preprocessfunction">preprocess（Function）</span></h2>
+<p>见本文之前讲到的 “软件包预处理”</p>
+<h2><span id="private_build_requireslist-of-string">private_build_requires（List of string）</span></h2>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json">private_build_requires = <span class="token punctuation">[</span>
     <span class="token string">"cmake-2.8"</span><span class="token punctuation">,</span>
     <span class="token string">"doxygen"</span>
 <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>与build_requires相同，区别是这些依赖项只有在构建时才包括。</p>
-<h2><span id="requires_rez_versionstring">requires_rez_version（String）</span></h2><p><code>requires_rez_version = &quot;2.10&quot;</code><br>定义了软件包所需的rez最小版本。</p>
-<h1><span id="发布包时的属性">发布包时的属性</span></h1><p>当你的包通过rez-release工具发布时，Rez会创建以下包属性：</p>
-<h2><span id="changelogstring">changelog（String）</span></h2><pre class="line-numbers language-json" data-language="json"><code class="language-json">changelog = \
+<h2><span id="requires_rez_versionstring">requires_rez_version（String）</span></h2>
+<p><code>requires_rez_version = &quot;2.10&quot;</code><br>
+定义了软件包所需的rez最小版本。</p>
+<h1><span id="发布包时的属性">发布包时的属性</span></h1>
+<p>当你的包通过rez-release工具发布时，Rez会创建以下包属性：</p>
+<h2><span id="changelogstring">changelog（String）</span></h2>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json">changelog = \
     <span class="token string">""</span>"
     commit 22abe31541ceebced8d4e209e3f6c44d8d0bea1c
     Author<span class="token operator">:</span> allan johns &lt;nerdvegas at gee mail dot com>
@@ -1705,21 +1778,30 @@ __version <span class="token operator">=</span> _version<span class="token punct
 
         first commit
     <span class="token string">""</span>"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>包含上次发布到现在的所有提交更改日志。这个更新日志的语法取决于版本管理工具，这里是基于git的一个例子。</p>
-<h2><span id="previous_revisiontype-varies">previous_revision（Type varies）</span></h2><p>先前发布的软件包的修订信息。（如果有）</p>
-<h2><span id="previous_versionstring">previous_version（String）</span></h2><p><code>previous_version = &quot;1.0.1&quot;</code><br>先前发布的包的版本(如果有的话)。</p>
-<h2><span id="release_messagestring">release_message（String）</span></h2><p><code>release_message = &quot;Fixed the flickering thingo&quot;</code><br>程序包发布信息。可以通过发布工具<code>rez-release —message option</code>设置，<br>或者在发布时的文本编辑器中输入（后者需要rez配置设置TODO_ADD_THIS）。</p>
-<h2><span id="revisiontype-varies">revision（Type varies）</span></h2><pre class="line-numbers language-json" data-language="json"><code class="language-json">revision = \
+<h2><span id="previous_revisiontype-varies">previous_revision（Type varies）</span></h2>
+<p>先前发布的软件包的修订信息。（如果有）</p>
+<h2><span id="previous_versionstring">previous_version（String）</span></h2>
+<p><code>previous_version = &quot;1.0.1&quot;</code><br>
+先前发布的包的版本(如果有的话)。</p>
+<h2><span id="release_messagestring">release_message（String）</span></h2>
+<p><code>release_message = &quot;Fixed the flickering thingo&quot;</code><br>
+程序包发布信息。可以通过发布工具<code>rez-release —message option</code>设置，<br>
+或者在发布时的文本编辑器中输入（后者需要rez配置设置TODO_ADD_THIS）。</p>
+<h2><span id="revisiontype-varies">revision（Type varies）</span></h2>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json">revision = \
     <span class="token punctuation">&#123;</span>'branch'<span class="token operator">:</span> 'master'<span class="token punctuation">,</span>
      'commit'<span class="token operator">:</span> '22abe31541ceebced8d4e209e3f6c44d8d0bea1c'<span class="token punctuation">,</span>
      'fetch_url'<span class="token operator">:</span> 'git@github.com<span class="token operator">:</span>nerdvegas/dummy.git'<span class="token punctuation">,</span>
      'push_url'<span class="token operator">:</span> 'git@github.com<span class="token operator">:</span>nerdvegas/dummy.git'<span class="token punctuation">,</span>
      'tracking_branch'<span class="token operator">:</span> 'origin/master'<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>有关已发布包源代码修订信息。数据类型由所用的版本控制工具确定，这里是git-based的修订信息。</p>
-<h2><span id="timestampinteger">timestamp（Integer）</span></h2><p><code>timestamp = 1463350552</code><br>包发布的时间。</p>
-<h2><span id="vcsstring">vcs（String）</span></h2><p><code>vcs = &quot;git&quot;</code><br>发布包的版本控制工具的名字。</p>
+<h2><span id="timestampinteger">timestamp（Integer）</span></h2>
+<p><code>timestamp = 1463350552</code><br>
+包发布的时间。</p>
+<h2><span id="vcsstring">vcs（String）</span></h2>
+<p><code>vcs = &quot;git&quot;</code><br>
+发布包的版本控制工具的名字。</p>
 
 </div>
 

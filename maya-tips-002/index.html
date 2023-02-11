@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,37 +1268,77 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h2><span id="8快速选择集">8.快速选择集</span></h2><p>Maya的Create Quick Set可以创建快速选择集。<br>比如一个动画师在制作手部动画，需要每次对手上的十多个控制器一起key帧。<br>这里就可以创建快速选择集。  </p>
-<p>首先选择好手指上需要的控制器。  </p>
-<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38d6a186e.jpg" width="70%" height="70%" alt align="center"></left>  </p>
-<p>菜单栏 Create - Sets - Quick Select Set<br><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38d7778e2.jpg" width="70%" height="70%" alt align="center"></left>  </p>
-<p>给这个Set命名，点击Add to Shelf（将会创建一个按钮在当前的shelf上）。<br><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3919bd0ef.jpg" alt="maya-tips-002-p3.jpg"><br>点击这个按钮就可以快速选择集里面的控制器。<br><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38d63195e.gif" alt="maya-tips-002-p4.gif"></p>
-<h2><span id="9快捷键g-重复上一个操作">9.快捷键G 重复上一个操作</span></h2><p>这是一个很实用的快捷键，假设这样一个场景：<br>需要将多个物体一起约束到同一个locator上，<br>这里不借助脚本的话，只能一个一个选择，<br>每次去点击parent界面按钮。  </p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38d674b43.gif" alt="maya-tips-002-p5.gif"><br>在这样的情况下，就可以使用快捷键g来重复进行上一个操作，<br>如下图所示，选择好约束的目标，按下g。</p>
+	<h2><span id="8快速选择集">8.快速选择集</span></h2>
+<p>Maya的Create Quick Set可以创建快速选择集。<br>
+比如一个动画师在制作手部动画，需要每次对手上的十多个控制器一起key帧。<br>
+这里就可以创建快速选择集。</p>
+<p>首先选择好手指上需要的控制器。</p>
+<p><left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38d6a186e.jpg" width="70%" height="70%" alt align="center"></left></p>
+<p>菜单栏 Create - Sets - Quick Select Set<br>
+<left><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38d7778e2.jpg" width="70%" height="70%" alt align="center"></left></p>
+<p>给这个Set命名，点击Add to Shelf（将会创建一个按钮在当前的shelf上）。<br>
+<img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3919bd0ef.jpg" alt="maya-tips-002-p3.jpg"><br>
+点击这个按钮就可以快速选择集里面的控制器。<br>
+<img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38d63195e.gif" alt="maya-tips-002-p4.gif"></p>
+<h2><span id="9快捷键g-重复上一个操作">9.快捷键G 重复上一个操作</span></h2>
+<p>这是一个很实用的快捷键，假设这样一个场景：<br>
+需要将多个物体一起约束到同一个locator上，<br>
+这里不借助脚本的话，只能一个一个选择，<br>
+每次去点击parent界面按钮。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38d674b43.gif" alt="maya-tips-002-p5.gif"><br>
+在这样的情况下，就可以使用快捷键g来重复进行上一个操作，<br>
+如下图所示，选择好约束的目标，按下g。</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38d68ecbc.gif" alt="maya-tips-002-p6.gif"></p>
-<h2><span id="10撤销一段操作">10.撤销“一段”操作</span></h2><p>crtl+z 可以撤销上一步操作。<br>而在一些特殊情况下，我们可能会需要撤销””一段”操作。<br>如下图所示：</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38d745a11.gif" alt="maya-tips-002-p7.gif"><br>通过上面的演示可以看到：<br>先是给了box细分，再进行了两次挤出。<br>执行undo后，撤销了刚刚的所有操作。</p>
-<p>这里借助了两个命令来实现这个功能。<br>我将它们放到了shelf自定义按钮中。  </p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab391a8c22d.jpg" alt="maya-tips-002-p8.jpg"><br>按钮on的命令  </p>
+<h2><span id="10撤销一段操作">10.撤销“一段”操作</span></h2>
+<p>crtl+z 可以撤销上一步操作。<br>
+而在一些特殊情况下，我们可能会需要撤销&quot;&quot;一段&quot;操作。<br>
+如下图所示：</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38d745a11.gif" alt="maya-tips-002-p7.gif"><br>
+通过上面的演示可以看到：<br>
+先是给了box细分，再进行了两次挤出。<br>
+执行undo后，撤销了刚刚的所有操作。</p>
+<p>这里借助了两个命令来实现这个功能。<br>
+我将它们放到了shelf自定义按钮中。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab391a8c22d.jpg" alt="maya-tips-002-p8.jpg"><br>
+按钮on的命令</p>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">import maya.cmds as cmds
 cmds.undoInfo(openChunk&#x3D;True)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>按钮off的命令  </p>
+<p>按钮off的命令</p>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">cmds.undoInfo(closeChunk&#x3D;True)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>大概的操作步骤是：<br>1.点击按钮on，Maya会创建了一个记录步骤的“区块”。<br>2.对场景进行修改和操作。<br>3.然后在需要将刚刚的所有操作撤销的时候，<br>点击off按钮，再执行undo即可。  </p>
-<p><strong>注意：这个方法需谨慎使用。</strong><br>可能会出现一些问题导致无法撤销的情况。  </p>
-<h2><span id="11备份maya预设">11.备份Maya预设</span></h2><p>Maya在使用时间久了，或者打开了一些奇怪的文件。<br>软件可能抽风出现各种问题，通常解决办法是删除Maya的预设文件夹来重置Maya。<br>预设路径大概如下：<br><code>C:\Users\username\Documents\maya\2018</code>  </p>
-<p>每次重置后会丢失我们的使用习惯，比如自定义的快捷键，自定义的shelf按钮等。<br>所以备份设置好的预设文件，可以在下次删除预设的时候，<br>不需要再重复进行设置。</p>
-<h2><span id="12通过名称快速选择物体">12.通过名称快速选择物体</span></h2><p>在渲染设置的按钮旁边，选择Select by name，</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3919d21df.jpg" alt="maya-tips-002-p9.jpg"><br>然后输入（模糊）名称，按下回车键。  </p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3919bc162.jpg" alt="maya-tips-002-p10.jpg"><br>可以看到匹配名称的物体被选择了。  </p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab391ad1cfe.jpg" alt="maya-tips-002-p11.jpg"><br><strong>注意：</strong> 这里输入的名称是通配形式，即模糊的名称部分用 * 号代替。</p>
-<h2><span id="13大纲视图的过滤操作">13.大纲视图的过滤操作</span></h2><p>通过名称过滤：</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab391b771a1.jpg" alt="maya-tips-002-p12.jpg"><br>通过类型过滤：<br>这里勾上Light  </p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab391b27281.jpg" alt="maya-tips-002-p13.jpg"><br>大纲视图里就只显示灯光类型的物体了。  </p>
+<p>大概的操作步骤是：<br>
+1.点击按钮on，Maya会创建了一个记录步骤的“区块”。<br>
+2.对场景进行修改和操作。<br>
+3.然后在需要将刚刚的所有操作撤销的时候，<br>
+点击off按钮，再执行undo即可。</p>
+<p><strong>注意：这个方法需谨慎使用。</strong><br>
+可能会出现一些问题导致无法撤销的情况。</p>
+<h2><span id="11备份maya预设">11.备份Maya预设</span></h2>
+<p>Maya在使用时间久了，或者打开了一些奇怪的文件。<br>
+软件可能抽风出现各种问题，通常解决办法是删除Maya的预设文件夹来重置Maya。<br>
+预设路径大概如下：<br>
+<code>C:\Users\username\Documents\maya\2018</code></p>
+<p>每次重置后会丢失我们的使用习惯，比如自定义的快捷键，自定义的shelf按钮等。<br>
+所以备份设置好的预设文件，可以在下次删除预设的时候，<br>
+不需要再重复进行设置。</p>
+<h2><span id="12通过名称快速选择物体">12.通过名称快速选择物体</span></h2>
+<p>在渲染设置的按钮旁边，选择Select by name，</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3919d21df.jpg" alt="maya-tips-002-p9.jpg"><br>
+然后输入（模糊）名称，按下回车键。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3919bc162.jpg" alt="maya-tips-002-p10.jpg"><br>
+可以看到匹配名称的物体被选择了。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab391ad1cfe.jpg" alt="maya-tips-002-p11.jpg"><br>
+<strong>注意：</strong> 这里输入的名称是通配形式，即模糊的名称部分用 * 号代替。</p>
+<h2><span id="13大纲视图的过滤操作">13.大纲视图的过滤操作</span></h2>
+<p>通过名称过滤：</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab391b771a1.jpg" alt="maya-tips-002-p12.jpg"><br>
+通过类型过滤：<br>
+这里勾上Light</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab391b27281.jpg" alt="maya-tips-002-p13.jpg"><br>
+大纲视图里就只显示灯光类型的物体了。</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab391c3e79c.jpg" alt="maya-tips-002-p14.jpg"></p>
-<h2><span id="总结">总结</span></h2><p>大概心里能想到的提升效率的操作就这些了。（作者能力有限哈哈）<br>如果觉得文章还不错，可以分享或者关注这个公众号。  </p>
+<h2><span id="总结">总结</span></h2>
+<p>大概心里能想到的提升效率的操作就这些了。（作者能力有限哈哈）<br>
+如果觉得文章还不错，可以分享或者关注这个公众号。</p>
 <center><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36f1d52b8.jpg" width="30%" height="30%" alt align="center"></center>
 
 </div>

@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,8 +1268,12 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h1><span id="概述">概述</span></h1><p>于2.71.0版本中引入。</p>
-<p>临时包（Ephemeral Packages）是对不存在的包的请求。<br>包名称以<code>.</code>开头，和其它的软件包请求类似，可以作为变体列表的一部分来请求，<br>或者直接用<code>rez-env</code>命令进行请求。<br>下面是一个例子：</p>
+	<h1><span id="概述">概述</span></h1>
+<p>于2.71.0版本中引入。</p>
+<p>临时包（Ephemeral Packages）是对不存在的包的请求。<br>
+包名称以<code>.</code>开头，和其它的软件包请求类似，可以作为变体列表的一部分来请求，<br>
+或者直接用<code>rez-env</code>命令进行请求。<br>
+下面是一个例子：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-env .foo-1
 You are now <span class="token keyword">in</span> a rez-configured environment.
 
@@ -1265,8 +1287,8 @@ requested packages:
 
 resolved packages:
 .foo-1    <span class="token punctuation">(</span>ephemeral<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>在解析过程中，临时包会其它软件包一样工作，但是它不会和实际软件包相关联，<br>也不会运行执行任何配置。一个版本范围交集的例子：</p>
+<p>在解析过程中，临时包会其它软件包一样工作，但是它不会和实际软件包相关联，<br>
+也不会运行执行任何配置。一个版本范围交集的例子：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-env .foo-1 <span class="token string">'.foo-1.5+'</span>
 
 You are now <span class="token keyword">in</span> a rez-configured environment.
@@ -1282,16 +1304,16 @@ requested packages:
 
 resolved packages:
 .foo-1.5+<span class="token operator">&lt;</span>1_    <span class="token punctuation">(</span>ephemeral<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>一个会引发冲突的例子：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-env .foo-1 .foo-2
 The context failed to resolve:
 The following package conflicts occurred: <span class="token punctuation">(</span>.foo-1 <span class="token operator">&lt;</span>--<span class="token operator">!</span>--<span class="token operator">></span> .foo-2<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h1><span id="环境变量">环境变量</span></h1><p>临时软件包不会以实际软件包的方式运行，但会设置一些环境变量：</p>
+<h1><span id="环境变量">环境变量</span></h1>
+<p>临时软件包不会以实际软件包的方式运行，但会设置一些环境变量：</p>
 <ul>
 <li>REZ_USED_EPH_RESOLVE：列出所有解析的临时请求</li>
-<li>REZ_EPH_(PKG)_REQUEST：标记已经解析完成的临时包。PKG为临时包名称，以大写形式表示，<br>其中的点符号由下划线代替，并删除来名称最前面的<code>.</code></li>
+<li>REZ_EPH_(PKG)_REQUEST：标记已经解析完成的临时包。PKG为临时包名称，以大写形式表示，<br>
+其中的点符号由下划线代替，并删除来名称最前面的<code>.</code></li>
 </ul>
 <p>以下例子：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-env python .foo-1 .bah-2
@@ -1300,25 +1322,27 @@ The following package conflicts occurred: <span class="token punctuation">(</spa
 <span class="token number">1</span>
 <span class="token punctuation">]</span>$ <span class="token builtin class-name">echo</span> <span class="token variable">$REZ_USED_EPH_RESOLVE</span>
 .foo-1 .bah-2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1><span id="自检">自检</span></h1><p>为了使软件包检查运行时存在的临时包，提供了一个<code>ephemerals</code>对象，类似于<code>resolve</code>对象。</p>
+<h1><span id="自检">自检</span></h1>
+<p>为了使软件包检查运行时存在的临时包，提供了一个<code>ephemerals</code>对象，类似于<code>resolve</code>对象。</p>
 <p>通常使用<code>intersects</code>函数进行检查，如：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># in package.py</span>
 <span class="token keyword">def</span> <span class="token function">commands</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">if</span> intersects<span class="token punctuation">(</span>ephemerals<span class="token punctuation">.</span>get_range<span class="token punctuation">(</span><span class="token string">'enable_tracking'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
         env<span class="token punctuation">.</span>TRACKING_ENABLED <span class="token operator">=</span> <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>在这个例子里，如果解析中出现了.enable_tracking-1（或.enable_tracking-1.2+）这样的临时包，<br>那么环境变量TRACKING_ENABLED则被标记为1。</p>
+<p>在这个例子里，如果解析中出现了.enable_tracking-1（或.enable_tracking-1.2+）这样的临时包，<br>
+那么环境变量TRACKING_ENABLED则被标记为1。</p>
 <p><strong>注意</strong>：implied的包不会包含在ephemerals对象中。</p>
-<p>由于ephemerals对象是一个类似dict的对象，所以它有一个get函数。如果key存在，该函数返回一个完整字符串，<br>因此使用get时，给予的默认值也应该是一个完整的字符串，而不是<code>0</code>这样的版本范围字符串。</p>
-<h1><span id="临时包示例">临时包示例</span></h1><p>为什么我们会需要用到临时包？下面有两个示例：</p>
-<h2><span id="向包传递信息">向包传递信息</span></h2><p>临时包可以作为一种包的选择，或在解析中将信息传递给软件包的一种方式。如下：</p>
+<p>由于ephemerals对象是一个类似dict的对象，所以它有一个get函数。如果key存在，该函数返回一个完整字符串，<br>
+因此使用get时，给予的默认值也应该是一个完整的字符串，而不是<code>0</code>这样的版本范围字符串。</p>
+<h1><span id="临时包示例">临时包示例</span></h1>
+<p>为什么我们会需要用到临时包？下面有两个示例：</p>
+<h2><span id="向包传递信息">向包传递信息</span></h2>
+<p>临时包可以作为一种包的选择，或在解析中将信息传递给软件包的一种方式。如下：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">name <span class="token operator">=</span> <span class="token string">'bah'</span>
 
 <span class="token keyword">def</span> <span class="token function">commands</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">if</span> intersects<span class="token punctuation">(</span>ephemerals<span class="token punctuation">.</span>get_range<span class="token punctuation">(</span><span class="token string">'bah.cli'</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
         env<span class="token punctuation">.</span>PATH<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">'&#123;root&#125;/bin'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>当检查到临时包bah.cli在运行时存在，bah包将不执行它自身的command。</p>
 <p>临时包可以是任何东西，因此你可以决定将它们用作全局包选项。</p>
 <p>下面的这个示例，引用了一个充当全局白名单的cli临时包：</p>
@@ -1327,9 +1351,9 @@ The following package conflicts occurred: <span class="token punctuation">(</spa
 <span class="token keyword">def</span> <span class="token function">commands</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">if</span> intersects<span class="token punctuation">(</span>ephemerals<span class="token punctuation">.</span>get_range<span class="token punctuation">(</span><span class="token string">'cli'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'bah'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
         env<span class="token punctuation">.</span>PATH<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">'&#123;root&#125;/bin'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>这里，如果没有在命令中指定.cli，则将激活所有cli包。否则它将作为一个白名单。</p>
-<h2><span id="表示抽象包">表示抽象包</span></h2><p>有时一个包需要某种形式的抽象对象或功能，而不是一个实际的包。</p>
+<h2><span id="表示抽象包">表示抽象包</span></h2>
+<p>有时一个包需要某种形式的抽象对象或功能，而不是一个实际的包。</p>
 <p>例如你的软件包需要GPU在主机上存在，为此需要进行设置，让所有带有GPU主机上的<code>implicits</code>列表包含<code>.gpu-1</code>临时包。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">name <span class="token operator">=</span> <span class="token string">'pixxelator'</span>
 

@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1239,23 +1257,55 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h1><span id="前言">前言</span></h1><p>因为出色的实时渲染，快速的可见效果。<br>在如今的电影视效制作中，渐渐有了Unreal的身影。  </p>
-<p>不过Unreal在动画部分，却不像它的渲染这么出彩。<br><strong>动画制作还是由我们的老牌软件Maya来负责</strong>，<br>然后再将动画通过abc,fbx等格式输出到Unreal进行预览。  </p>
-<p>在这样“分离”的情况下，可能会遇到动画的反复修改，<br>重复的导出导入，没法很好的运用到Unreal的优势。<br>为了能够<strong>所见即所得</strong>，让Maya和Unreal之间的数据通信。<br>所以它们就诞生了: Live Link, Mirror, MUTools。</p>
+	<h1><span id="前言">前言</span></h1>
+<p>因为出色的实时渲染，快速的可见效果。<br>
+在如今的电影视效制作中，渐渐有了Unreal的身影。</p>
+<p>不过Unreal在动画部分，却不像它的渲染这么出彩。<br>
+<strong>动画制作还是由我们的老牌软件Maya来负责</strong>，<br>
+然后再将动画通过abc,fbx等格式输出到Unreal进行预览。</p>
+<p>在这样“分离”的情况下，可能会遇到动画的反复修改，<br>
+重复的导出导入，没法很好的运用到Unreal的优势。<br>
+为了能够<strong>所见即所得</strong>，让Maya和Unreal之间的数据通信。<br>
+所以它们就诞生了: Live Link, Mirror, MUTools。</p>
 <p>下面将为大家介绍这几款插件，以及它们的区别，和各自的优势。</p>
-<h1><span id="live-link">Live Link</span></h1><p>Live Link是Unreal官方插件，内置在虚幻引擎中。<br>在Setting - Plugin中开启即可。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab382c73d58.jpg" alt="maya-link-unreal-p1.jpg"><br>它可以在两个软件里导入同一个文件(目前只支持fbx)，<br><strong>然后在Maya中制作动画，Unreal会实时更新制作的动画效果。</strong></p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab382d279d3.gif" alt="maya-link-unreal-p2.gif"><br><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab382dea3c5.gif" alt="maya-link-unreal-p3.gif"><br>Live Link是Maya到Unreal的单向输出，<br>在Unreal里的操作不会对Maya里的动画和模型有任何影响。<br>如果想了解更多以及如何使用，可以查看官方文档：<br><a target="_blank" rel="noopener" href="https://docs.unrealengine.com/zh-CN/Engine/Animation/LiveLinkPlugin/ConnectingUnrealEngine4toMayawithLiveLink/index.html">https://docs.unrealengine.com/zh-CN/Engine/Animation/LiveLinkPlugin/ConnectingUnrealEngine4toMayawithLiveLink/index.html</a></p>
-<h1><span id="mirror">Mirror</span></h1><p>Mirror是由国内团队开发的插件，<br>它的作用是将Unreal场景渲染的效果实时传递到Maya里。</p>
-<p>和它的名字一样，传入的效果只是一个镜像，<br>在Maya里是不会载入任何Unreal的模型物体。<br>和Live Link相比，它是由Unreal到Maya的单向输出，<br>当然这个输出只是一个镜像，软件本身互不影响。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab382f3c4ba.gif" alt="maya-link-unreal-p4.gif"><br>我们可以直接在这样的“镜像”场景中，导入模型开始动画制作。<br>在Maya里就可以实时看到动画在场景中的表现。  </p>
-<p>同时，它也可以在Maya进行拍屏预览，这对于制作previz是非常友好了。<br>等动画效果满意后，再导出到Unreal里进行渲染。</p>
+<h1><span id="live-link">Live Link</span></h1>
+<p>Live Link是Unreal官方插件，内置在虚幻引擎中。<br>
+在Setting - Plugin中开启即可。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab382c73d58.jpg" alt="maya-link-unreal-p1.jpg"><br>
+它可以在两个软件里导入同一个文件(目前只支持fbx)，<br>
+<strong>然后在Maya中制作动画，Unreal会实时更新制作的动画效果。</strong></p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab382d279d3.gif" alt="maya-link-unreal-p2.gif"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab382dea3c5.gif" alt="maya-link-unreal-p3.gif"><br>
+Live Link是Maya到Unreal的单向输出，<br>
+在Unreal里的操作不会对Maya里的动画和模型有任何影响。<br>
+如果想了解更多以及如何使用，可以查看官方文档：<br>
+<a target="_blank" rel="noopener" href="https://docs.unrealengine.com/zh-CN/Engine/Animation/LiveLinkPlugin/ConnectingUnrealEngine4toMayawithLiveLink/index.html">https://docs.unrealengine.com/zh-CN/Engine/Animation/LiveLinkPlugin/ConnectingUnrealEngine4toMayawithLiveLink/index.html</a></p>
+<h1><span id="mirror">Mirror</span></h1>
+<p>Mirror是由国内团队开发的插件，<br>
+它的作用是将Unreal场景渲染的效果实时传递到Maya里。</p>
+<p>和它的名字一样，传入的效果只是一个镜像，<br>
+在Maya里是不会载入任何Unreal的模型物体。<br>
+和Live Link相比，它是由Unreal到Maya的单向输出，<br>
+当然这个输出只是一个镜像，软件本身互不影响。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab382f3c4ba.gif" alt="maya-link-unreal-p4.gif"><br>
+我们可以直接在这样的“镜像”场景中，导入模型开始动画制作。<br>
+在Maya里就可以实时看到动画在场景中的表现。</p>
+<p>同时，它也可以在Maya进行拍屏预览，这对于制作previz是非常友好了。<br>
+等动画效果满意后，再导出到Unreal里进行渲染。</p>
 <p>官方网站：<a target="_blank" rel="noopener" href="http://mirror.virtueal.cn/">http://mirror.virtueal.cn/</a></p>
-<h1><span id="mutools">MUTools</span></h1><p>MUTools是由<strong>达瓦科技</strong>的R&amp;D部门研发的插件，<br>它可以直接在Unreal里“打开”Maya的ma文件，无需导出fbx或者abc等中间文件，实现数据传递。</p>
-<p>这个“打开”是通过插件里的一个蓝图实现，它可以和一个ma文件进行链接，<br>并列出ma文件中所有模型，然后将所需的物体加载到Unreal中。  </p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab382d43617.jpg" alt="maya-link-unreal-p5.jpg"><br>这省去了中间导入导出的过程，在Maya里修改动画后，保存文件。<br>返回到Unreal，再进行一次ma文件的load，即可在Unreal里完成动画的更新。<br>当然，它也可以支持Maya时间轴和Sequencer同步。  </p>
-<p>更多的功能可以看这个介绍视频：<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ct4y1Y7qP">https://www.bilibili.com/video/BV1ct4y1Y7qP</a></p>
-<h1><span id="总结">总结</span></h1><p><strong>Live Link</strong></p>
+<h1><span id="mutools">MUTools</span></h1>
+<p>MUTools是由<strong>达瓦科技</strong>的R&amp;D部门研发的插件，<br>
+它可以直接在Unreal里“打开”Maya的ma文件，无需导出fbx或者abc等中间文件，实现数据传递。</p>
+<p>这个“打开”是通过插件里的一个蓝图实现，它可以和一个ma文件进行链接，<br>
+并列出ma文件中所有模型，然后将所需的物体加载到Unreal中。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab382d43617.jpg" alt="maya-link-unreal-p5.jpg"><br>
+这省去了中间导入导出的过程，在Maya里修改动画后，保存文件。<br>
+返回到Unreal，再进行一次ma文件的load，即可在Unreal里完成动画的更新。<br>
+当然，它也可以支持Maya时间轴和Sequencer同步。</p>
+<p>更多的功能可以看这个介绍视频：<br>
+<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ct4y1Y7qP">https://www.bilibili.com/video/BV1ct4y1Y7qP</a></p>
+<h1><span id="总结">总结</span></h1>
+<p><strong>Live Link</strong></p>
 <ul>
 <li>从Maya到Unreal单向输出</li>
 <li>官方插件，比较好的兼容性</li>

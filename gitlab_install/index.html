@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1259,25 +1277,25 @@ var _hmt = _hmt || [];
 <li>2个CPU内核</li>
 <li>5GB以上的存储空间</li>
 </ul>
-<h2><span id="开始安装">开始安装</span></h2><h3><span id="安装依赖">安装依赖</span></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh <span class="token operator">|</span> <span class="token function">sudo</span> <span class="token function">bash</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3><span id="安装gitlab软件包">安装gitlab软件包</span></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token function">install</span> gitlab-ce<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3><span id="开启防火墙">开启防火墙</span></h3><p>需要开启“80”和“443”端口。<br>我这边租用的是腾讯云主机，防火墙策略在前端进行配置，所以跳过这一步。</p>
+<h2><span id="开始安装">开始安装</span></h2>
+<h3><span id="安装依赖">安装依赖</span></h3>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh <span class="token operator">|</span> <span class="token function">sudo</span> <span class="token function">bash</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3><span id="安装gitlab软件包">安装gitlab软件包</span></h3>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token function">install</span> gitlab-ce<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3><span id="开启防火墙">开启防火墙</span></h3>
+<p>需要开启“80”和“443”端口。<br>
+我这边租用的是腾讯云主机，防火墙策略在前端进行配置，所以跳过这一步。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> firewall-cmd --permanent --zone<span class="token operator">=</span>public --add-service<span class="token operator">=</span>http
 <span class="token function">sudo</span> firewall-cmd --permanent --zone<span class="token operator">=</span>public --add-service<span class="token operator">=</span>https
 <span class="token function">sudo</span> firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="配置gitlab">配置gitlab</span></h3><p>打开配置文件</p>
+<h3><span id="配置gitlab">配置gitlab</span></h3>
+<p>打开配置文件</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /etc/gitlab/gitlab.rb<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>先要配置你的url（在此之前完成域名解析）</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">external_url <span class="token string">'https://gitlab.lingyunfx.com'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>再配置ssl证书（将会自动生成一个免费的证书）</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">letsencrypt<span class="token punctuation">[</span><span class="token string">'enable'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span>
 letsencrypt<span class="token punctuation">[</span><span class="token string">'contact_emails'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'admin@example.com'</span><span class="token punctuation">]</span> <span class="token comment"># This should be an array of email addresses to add as contacts</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>这里配置邮箱</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_enable'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span>
 gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_address'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"smtp.88.com"</span>
@@ -1291,18 +1309,16 @@ gitlab_rails<span class="token punctuation">[</span><span class="token string">'
 
 gitlab_rails<span class="token punctuation">[</span><span class="token string">'gitlab_email_from'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'lingyunfx@88.com'</span>
 gitlab_rails<span class="token punctuation">[</span><span class="token string">'gitlab_email_reply_to'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'lingyunfx@88.com'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>当配置完成后，运行下面命令，让gitlab根据配置进行重新部署</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> gitlab-ctl reconfigure<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>这个时候就可以在浏览器打开链接访问gitlab了。</p>
 <hr>
 <p>如果修改配置，跟随下面的操作：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /etc/gitlab/gitlab.rb   <span class="token comment"># 修改配置文件</span>
 <span class="token function">sudo</span> gitlab-ctl reconfigure <span class="token comment"># 重新部署服务</span>
 gitlab-ctl start            <span class="token comment"># 启动服务</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="常用命令">常用命令</span></h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">gitlab-ctl start    <span class="token comment"># 启动所有 gitlab 组件；</span>
+<h2><span id="常用命令">常用命令</span></h2>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">gitlab-ctl start    <span class="token comment"># 启动所有 gitlab 组件；</span>
 gitlab-ctl stop        <span class="token comment"># 停止所有 gitlab 组件；</span>
 gitlab-ctl restart        <span class="token comment"># 重启所有 gitlab 组件；</span>
 gitlab-ctl status        <span class="token comment"># 查看服务状态；</span>
@@ -1325,8 +1341,8 @@ gitlab-ctl <span class="token function">tail</span> nginx/gitlab_access.log<span
         </div>
         <div class="item right">
             
-              <a href="/docker_command/">
-                Docker 常用命令
+              <a href="/rez-intro/">
+                Rez介绍（使用篇）
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
               </a>
             

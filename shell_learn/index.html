@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,12 +1268,14 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h2><span id="注释">注释</span></h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 单行注释</span>
+	<h2><span id="注释">注释</span></h2>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 单行注释</span>
 :<span class="token operator">></span> 多行注释<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h2><span id="变量">变量</span></h2><p>局部变量：在脚本中定义，只在shell实例中生效</p>
+<h2><span id="变量">变量</span></h2>
+<p>局部变量：在脚本中定义，只在shell实例中生效</p>
 <p>环境变量：也就是当前环境变量</p>
-<h2><span id="变量操作">变量操作</span></h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建变量（等号两边不能有空格）</span>
+<h2><span id="变量操作">变量操作</span></h2>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建变量（等号两边不能有空格）</span>
 <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">"test"</span>
 
 <span class="token comment"># 创建局部变量（只在函数体中使用）</span>
@@ -1271,8 +1291,8 @@ var _hmt = _hmt || [];
 
 <span class="token comment"># 删除变量</span>
 <span class="token builtin class-name">unset</span> name<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="字符串变量">字符串变量</span></h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 单引号（保持原字符输出，不支持转义，格式化，单引号中不能出现单独单引号）</span>
+<h2><span id="字符串变量">字符串变量</span></h2>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 单引号（保持原字符输出，不支持转义，格式化，单引号中不能出现单独单引号）</span>
 <span class="token assign-left variable">var</span><span class="token operator">=</span><span class="token string">'test'</span>
 
 <span class="token comment"># 双引号（可以转义）</span>
@@ -1286,8 +1306,8 @@ var _hmt = _hmt || [];
 <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">"this is my name"</span>
 <span class="token builtin class-name">echo</span> <span class="token variable">$&#123;name<span class="token operator">:</span>1<span class="token operator">:</span>4&#125;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="数组">数组</span></h2><p>bash只支持一维数组，不支持多维。</p>
+<h2><span id="数组">数组</span></h2>
+<p>bash只支持一维数组，不支持多维。</p>
 <p>定义数组用<strong>小括号</strong>作边界，<strong>空格</strong>分离。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 定义数组</span>
 <span class="token assign-left variable">array_name</span><span class="token operator">=</span><span class="token punctuation">(</span>zhangly zhoujl chenyifa<span class="token punctuation">)</span>
@@ -1303,8 +1323,8 @@ array_name<span class="token punctuation">[</span><span class="token number">2</
 
 <span class="token comment"># 获取数组元素个数</span>
 <span class="token builtin class-name">echo</span> <span class="token variable">$&#123;<span class="token operator">#</span>array_name<span class="token punctuation">[</span>@<span class="token punctuation">]</span>&#125;</span> 或者 <span class="token builtin class-name">echo</span> <span class="token variable">$&#123;<span class="token operator">#</span>array_name&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="参数传递">参数传递</span></h2><p>获取参数值。</p>
+<h2><span id="参数传递">参数传递</span></h2>
+<p>获取参数值。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token variable">$0</span> <span class="token comment">#固定的，代表执行的文件名</span>
 <span class="token variable">$1</span> <span class="token comment">#代表传入的第1个参数</span>
 <span class="token variable">$n</span> <span class="token comment">#代表传入的第n个参数</span>
@@ -1315,12 +1335,11 @@ array_name<span class="token punctuation">[</span><span class="token number">2</
 <span class="token variable">$$</span> <span class="token comment">#脚本运行的当前进程号</span>
 <span class="token variable">$!</span> <span class="token comment">#后台运行的最后一个进程的ID</span>
 <span class="token variable">$?</span> <span class="token comment">#显示最后命令的退出状态。0表示没有错误，其他的任何值表示有错误。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="算数运算">算数运算</span></h2><p><code>+</code>, <code>-</code>, <code>*</code>, <code>\</code> 四个运算符，其中乘号必须加<code>\</code>进行转义。</p>
+<h2><span id="算数运算">算数运算</span></h2>
+<p><code>+</code>, <code>-</code>, <code>*</code>, <code>\</code> 四个运算符，其中乘号必须加<code>\</code>进行转义。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">val</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">expr</span> <span class="token number">2</span> + <span class="token number">2</span><span class="token variable">`</span></span>
 <span class="token assign-left variable">val</span><span class="token operator">=</span>$<span class="token punctuation">[</span><span class="token number">2</span>+2<span class="token punctuation">]</span>
 <span class="token assign-left variable">val</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$((</span><span class="token number">2</span><span class="token operator">+</span><span class="token number">2</span><span class="token variable">))</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p><strong>数字关系运算符</strong></p>
 <p>只支持数字，不支持字符串。</p>
 <p>下面假定变量a为10，变量b为20。</p>
@@ -1331,19 +1350,16 @@ array_name<span class="token punctuation">[</span><span class="token number">2</
 -lt: 检测左边的数是否小于右边的，如果是，则返回true。<span class="token punctuation">[</span> <span class="token variable">$a</span> -lt <span class="token variable">$b</span> <span class="token punctuation">]</span>
 -ge: 检测左边的数是否大于等于右边，如果是，则返回true。 <span class="token punctuation">[</span> <span class="token variable">$a</span> -ge <span class="token variable">$b</span> <span class="token punctuation">]</span>
 -le: 检测左边的数是否小于等于右边，如果是，则返回true。 <span class="token punctuation">[</span> <span class="token variable">$a</span> -le <span class="token variable">$b</span> <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><strong>字符串运算符</strong></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">=</span>: 检测两个字符串是否相等，相等返回true。 <span class="token punctuation">[</span> <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token variable">$b</span> <span class="token punctuation">]</span>
 <span class="token operator">!=</span>: 检测两个字符串是否相等，不想等返回true。 <span class="token punctuation">[</span> <span class="token variable">$a</span> <span class="token operator">!=</span> <span class="token variable">$b</span> <span class="token punctuation">]</span>
 -z: 检测字符串长度是否为0，为0返回true。 <span class="token punctuation">[</span> -z <span class="token variable">$a</span> <span class="token punctuation">]</span>
 -n: 检测字符串长度是否为0，不为0返回true。
 $: 检测字符串是否为空，不为空返回true。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><strong>布尔运算符</strong></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">!</span>: 非运算，返回相反的布尔值。             <span class="token punctuation">[</span><span class="token operator">!</span>false<span class="token punctuation">]</span>
 -o: 或运算，有一个表达式为true则返回true。 <span class="token punctuation">[</span><span class="token variable">$a</span> -lt <span class="token number">20</span> -o <span class="token variable">$b</span> -gt <span class="token number">100</span><span class="token punctuation">]</span>
 -a: 与运算，所有表达式都为true则返回true。 <span class="token punctuation">[</span><span class="token variable">$a</span> -lt <span class="token number">20</span> -a <span class="token variable">$b</span> -gt <span class="token number">100</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p><strong>逻辑运算符</strong></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&amp;&amp;</span><span class="token builtin class-name">:</span> 逻辑<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </div>
@@ -1360,8 +1376,8 @@ $: 检测字符串是否为空，不为空返回true。<span aria-hidden="true" 
         </div>
         <div class="item right">
             
-              <a href="/rez-intro/">
-                Rez介绍（使用篇）
+              <a href="/git_command/">
+                Git 常用命令
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
               </a>
             

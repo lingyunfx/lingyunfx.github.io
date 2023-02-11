@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1247,25 +1265,44 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h1><span id="废话在前">废话在前</span></h1><p>从外包收回来文件，maya里reference路径都是他们本机的路径，要打开文件每次要手动重新指认，资产一旦多起来就很麻烦。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3838f060f.jpg" alt="maya-replace-ref-tool-p1.jpg"><br>后来找朋友要了一个批量替换reference的工具，但是有一些问题，比如：</p>
+	<h1><span id="废话在前">废话在前</span></h1>
+<p>从外包收回来文件，maya里reference路径都是他们本机的路径，要打开文件每次要手动重新指认，资产一旦多起来就很麻烦。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3838f060f.jpg" alt="maya-replace-ref-tool-p1.jpg"><br>
+后来找朋友要了一个批量替换reference的工具，但是有一些问题，比如：</p>
 <ul>
 <li>一次只能替换一个路径</li>
 <li>无法预先知道文件里使用的ref路径是什么</li>
 </ul>
-<p>当时有40多个文件，4个不同的rig资产路径。<br>于是我就用那个工具把40多个文件替换了4次。<br>替换完发现，都没有替换成功。（因为我是手动复制粘贴的路径到工具中，\斜杠的方向不对）</p>
-<p>基于上述的惨痛经历，决定自己写一个好了。<br>工具长这样：</p>
+<p>当时有40多个文件，4个不同的rig资产路径。<br>
+于是我就用那个工具把40多个文件替换了4次。<br>
+替换完发现，都没有替换成功。（因为我是手动复制粘贴的路径到工具中，\斜杠的方向不对）</p>
+<p>基于上述的惨痛经历，决定自己写一个好了。<br>
+工具长这样：</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab383900034.jpg" alt="maya-replace-ref-tool-p2.jpg"></p>
-<h1><span id="工具使用">工具使用</span></h1><h2><span id="1扫描文件">1.扫描文件</span></h2><p>输入路径，工具会对文件夹下每个ma文件进行扫描，然后得知这些文件使用了哪些reference。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38355a7ac.gif" alt="maya-replace-ref-tool-p3.gif"><br>扫描结果：</p>
+<h1><span id="工具使用">工具使用</span></h1>
+<h2><span id="1扫描文件">1.扫描文件</span></h2>
+<p>输入路径，工具会对文件夹下每个ma文件进行扫描，然后得知这些文件使用了哪些reference。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38355a7ac.gif" alt="maya-replace-ref-tool-p3.gif"><br>
+扫描结果：</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3839d84ea.jpg" alt="maya-replace-ref-tool-p4.jpg"></p>
-<h2><span id="2路径预替换">2.路径预替换</span></h2><p><strong>注意</strong>：预替换操作是将需要替换的路径信息给到工具，并不是实际执行路径替换。<br>双击需要替换的路径，在对话框里输入新的路径即可。<br>（可以看到新路径前会用*号来标识）</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38369285d.gif" alt="maya-replace-ref-tool-p5.gif"><br>在替换路径的时候，有一个Match Naming的勾选项。<br>作用是匹配文件名，一次替换多条reference路径。</p>
+<h2><span id="2路径预替换">2.路径预替换</span></h2>
+<p><strong>注意</strong>：预替换操作是将需要替换的路径信息给到工具，并不是实际执行路径替换。<br>
+双击需要替换的路径，在对话框里输入新的路径即可。<br>
+（可以看到新路径前会用*号来标识）</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38369285d.gif" alt="maya-replace-ref-tool-p5.gif"><br>
+在替换路径的时候，有一个Match Naming的勾选项。<br>
+作用是匹配文件名，一次替换多条reference路径。</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3839ecde2.jpg" alt="maya-replace-ref-tool-p6.jpg"><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3839eed86.jpg" alt="maya-replace-ref-tool-p7.jpg"></p>
-<h2><span id="3执行替换操作">3.执行替换操作</span></h2><p>点击Replace执行操作，看到Scan done的提示就说明替换完成了。<br><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38382ca10.gif" alt="maya-replace-ref-tool-p8.gif"></p>
-<h2><span id="4附加说明">4.附加说明</span></h2><p><strong>show old path</strong>：勾选显示原来的reference路径。<br><strong>reset</strong>：是将所有替换的路径恢复初始状态</p>
-<p>工具的运行原理是：以文本打开ma文件，直接替换里面的路径，然后再保存。<br>（所以最好在操作之前进行文件备份）</p>
-<h1><span id="获取工具">获取工具</span></h1><p>公众号后台发送<strong>ref</strong>自动回复工具链接。</p>
+<h2><span id="3执行替换操作">3.执行替换操作</span></h2>
+<p>点击Replace执行操作，看到Scan done的提示就说明替换完成了。<br>
+<img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab38382ca10.gif" alt="maya-replace-ref-tool-p8.gif"></p>
+<h2><span id="4附加说明">4.附加说明</span></h2>
+<p><strong>show old path</strong>：勾选显示原来的reference路径。<br>
+<strong>reset</strong>：是将所有替换的路径恢复初始状态</p>
+<p>工具的运行原理是：以文本打开ma文件，直接替换里面的路径，然后再保存。<br>
+（所以最好在操作之前进行文件备份）</p>
+<h1><span id="获取工具">获取工具</span></h1>
+<p>公众号后台发送<strong>ref</strong>自动回复工具链接。</p>
 <p>这篇文章就到这里，如果觉得有所帮助，可以关注一下这个公众号，thx！</p>
 <center><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36f1d52b8.jpg" width="30%" height="30%" alt align="center"></center>
 

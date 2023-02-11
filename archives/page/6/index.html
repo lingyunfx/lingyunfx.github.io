@@ -241,6 +241,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -769,6 +778,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1209,21 +1227,19 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
-			<a href="/gitlab_install/">
+			<a href="/cloudreve-install/">
 				<h2 class="index-title">
-					Gitlab在Centos上搭建
+					搭建Cloudreve私有云盘
 				</h2>
 				<div class="index-brief">
-					
-这里安装的是GitLab社区版（CE），使用的是Centos7系统。
-
-对主机的性能要求：
-
-至少4GB内存
-2个CPU内核
-5GB以上的存储空间
-
-开始安装安装依赖curl https://packages.gitlab.com/install/repositories/gitlab/gitla
+					前言
+对于网盘来说现在最普及的就是百度云盘，不过很不喜欢百度盘的一点是：
+分享一个文件给朋友，对方必须使用百度云客户端才可以下载，而且百度云对于资源会进行审核。
+这个时候就希望一个网盘能实现：
+1.发送给对方分享链接
+2.对方点击链接，直接下载
+（且下载速度不受限，文件内容不被监管）
+这就需要搭建一
 					...
 				</div>
 			</a>
@@ -1244,7 +1260,7 @@ var _hmt = _hmt || [];
                                 
                                     <span>
                                         <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Geek/Gitlab/">Gitlab</a>
+                                        <a href="/categories/Geek/Cloudreve/">Cloudreve</a>
 										
                                     </span>
                                 
@@ -1259,17 +1275,20 @@ var _hmt = _hmt || [];
 					Docker 常用命令
 				</h2>
 				<div class="index-brief">
-					# 下载nginx镜像
+					镜像
+搜索镜像
+docker search nginx
+这里会列出官方和非官方的镜像列表
+
+拉取/下载镜像
+# 直接拉取
 docker pull nginx
+
+# 拉取最新版本
 docker pull nginx:latest
 
-# 查看本地有哪些镜像
-docker images
-
-# 删除镜像
-docker image rm &lt;id>
-
-# 运行镜像 -d为后台运行 -p指定内外端口映射(外面机器端口：里面
+# 拉取指定版本镜像
+docker pull nginx:1.15.8
 					...
 				</div>
 			</a>
@@ -1308,13 +1327,14 @@ docker image rm &lt;id>
 					
 这里是以CentOS 7为例
 
-系统配置目录/usr/lib/firewalld/
+系统配置目录
+/usr/lib/firewalld/
 /usr/lib/firewalld/services
 /usr/lib/firewalld/zones
-
-用户配置目录/etc/firewalld/
+用户配置目录
+/etc/firewalld/
 /etc/firewalld/services
-/etc/fi
+/etc/f
 					...
 				</div>
 			</a>
@@ -1350,19 +1370,21 @@ docker image rm &lt;id>
 					Linux 常用命令
 				</h2>
 				<div class="index-brief">
-					通用命令查看文件大小du -h /usr/src/xxx.tar
-
-杀死进程killall nginx
+					通用命令
+查看文件大小
+du -h /usr/src/xxx.tar
+杀死进程
+killall nginx
 
 # 安装
 yum install psmisc
 
 # 在不知道包名称的情况下搜索
 yum search killall
+ssh连接
+ssh root@192.168.12.100
+添加用户
 
-ssh连接ssh root@192.168.12.100
-
-添加用户us
 					...
 				</div>
 			</a>
@@ -1398,19 +1420,21 @@ ssh连接ssh root@192.168.12.100
 					Shell脚本学习
 				</h2>
 				<div class="index-brief">
-					注释# 单行注释
+					注释
+# 单行注释
 :> 多行注释
-
-变量局部变量：在脚本中定义，只在shell实例中生效
+变量
+局部变量：在脚本中定义，只在shell实例中生效
 环境变量：也就是当前环境变量
-变量操作# 创建变量（等号两边不能有空格）
+变量操作
+# 创建变量（等号两边不能有空格）
 name="test"
 
 # 创建局部变量（只在函数体中使用）
 local name="test"
 
 # 使用变量
-echo $name
+echo $na
 					...
 				</div>
 			</a>
@@ -1441,13 +1465,106 @@ echo $name
 		</div>	
 	
 		<div class="index-li">
+			<a href="/git_command/">
+				<h2 class="index-title">
+					Git 常用命令
+				</h2>
+				<div class="index-brief">
+					设置自己的用户和名称
+git config --global user.email "lingyunfx@88.com"
+git config --global user.name "lingyunfx"
+查看历史版本
+git log
+查看当前版本和之前一个版本的差异
+git diff &lt;ha
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-05-17</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Geek/">Geek</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Geek/Gitlab/">Gitlab</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/gitlab_install/">
+				<h2 class="index-title">
+					Gitlab在Centos上搭建
+				</h2>
+				<div class="index-brief">
+					
+这里安装的是GitLab社区版（CE），使用的是Centos7系统。
+
+对主机的性能要求：
+
+至少4GB内存
+2个CPU内核
+5GB以上的存储空间
+
+开始安装
+安装依赖
+curl https://packages.gitlab.com/install/repositories/gitlab/git
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-05-17</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Geek/">Geek</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Geek/Gitlab/">Gitlab</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/rez-intro/">
 				<h2 class="index-title">
 					Rez介绍（使用篇）
 				</h2>
 				<div class="index-brief">
-					前言这篇文章讲下rez的使用，根据最近所得谈谈自己的理解。开始之前补充一些rez工具的背景和特性。  
-rez最开始是Dr.D Studio于2011年用python写的依赖解算器，于2012年开源。之后的V2版本几乎重写，变成一个完整的API。具有跨平台，支持多种shell环境，基于python的
+					前言
+这篇文章讲下rez的使用，根据最近所得谈谈自己的理解。
+开始之前补充一些rez工具的背景和特性。
+rez最开始是Dr.D Studio于2011年用python写的依赖解算器，于2012年开源。
+之后的V2版本几乎重写，变成一个完整的API。
+具有跨平台，支持多种shell环境，基于pytho
 					...
 				</div>
 			</a>
@@ -1483,9 +1600,15 @@ rez最开始是Dr.D Studio于2011年用python写的依赖解算器，于2012年�
 					00 Rez中文文档
 				</h2>
 				<div class="index-brief">
-					这是一份Rez中文文档，供大家学习讨论。作者能力有限，翻译也许有不当的地方，如果发现问题还望指出，感激不尽。原项目地址：https://github.com/nerdvegas/rez
-入门主页 (Home)
-介绍安装 (Installation)入门 (Getting Started)基础概念 (
+					这是一份Rez中文文档，供大家学习讨论。
+作者能力有限，翻译也许有不当的地方，如果发现问题还望指出，感激不尽。
+原项目地址：https://github.com/nerdvegas/rez
+入门
+主页 (Home)
+介绍
+安装 (Installation)
+入门 (Getting Started)
+
 					...
 				</div>
 			</a>
@@ -1524,86 +1647,11 @@ rez最开始是Dr.D Studio于2011年用python写的依赖解算器，于2012年�
 					
 本节列出来rez在某些情况下产生的环境变量，以及你可以设置的影响rez操作的环境变量。
 
-Context环境变量这些是rez在解析环境中产生的环境变量。
-REZ_RXT_FILE ： 当前context的文件路径 ( rxt 文件)。REZ_USED ：用于解析这个环境的rez安装路径。REZ_U
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-03-15</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/15%20rez-package-caching/">
-				<h2 class="index-title">
-					15 Package Caching
-				</h2>
-				<div class="index-brief">
-					概述软件包缓存（Package Caching）是一个将包复制到本地磁盘加快运行环境的功能。
-比如你发布的包通常是在共享服务器上，那么运行python进程时，就会从共享存储上获取所有源码。缓存的意义在于将这些内容复制到本地，节省访问网络的时间成本。
-启用缓存软件包缓存功能不是默认启用的。要启用它，需
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-03-15</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/14%20rez-copying-package/">
-				<h2 class="index-title">
-					14 Copying Packages
-				</h2>
-				<div class="index-brief">
-					概述包可以从一个库复制到另一个库，就像这样。使用命令：
-]$ rez-cp --dest-path /svr/packages2 my_pkg-1.2.3
-使用API：
->>> from rez.package_copy import copy_package
->>> from rez.packag
+Context环境变量
+这些是rez在解析环境中产生的环境变量。
+REZ_RXT_FILE ： 当前context的文件路径 ( rxt 文件)。
+REZ_USED ：用于解析这个环境的rez安装路径。
+RE
 					...
 				</div>
 			</a>
@@ -1636,7 +1684,7 @@ REZ_RXT_FILE ： 当前context的文件路径 ( rxt 文件)。REZ_USED ：用于
 	
 	<div id="index-paginator">
 		
-			<a class="extend prev" rel="prev" href="/archives/page/5/">&lt;</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/archives/page/7/">7</a><a class="page-number" href="/archives/page/8/">8</a><a class="page-number" href="/archives/page/9/">9</a><a class="extend next" rel="next" href="/archives/page/7/">&gt;</a>
+			<a class="extend prev" rel="prev" href="/archives/page/5/">&lt;</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/archives/page/7/">7</a><a class="page-number" href="/archives/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/10/">10</a><a class="extend next" rel="next" href="/archives/page/7/">&gt;</a>
 		
 	</div>
 </div>

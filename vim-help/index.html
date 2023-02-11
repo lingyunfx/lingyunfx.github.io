@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1251,217 +1269,244 @@ var _hmt = _hmt || [];
 
 <div id="article-content">
 	<blockquote>
-<p>为了自己忘记的时候方便查询，整理了vim使用的快捷键。  </p>
+<p>为了自己忘记的时候方便查询，整理了vim使用的快捷键。</p>
 </blockquote>
-<p>vim分为三种模式：普通模式， 编辑模式， 命令模式。  </p>
-<h3><span id="普通模式">普通模式</span></h3><table>
+<p>vim分为三种模式：普通模式， 编辑模式， 命令模式。</p>
+<h3><span id="普通模式">普通模式</span></h3>
+<table>
 <thead>
 <tr>
-<th align="center">热键</th>
-<th align="center">描述</th>
+<th style="text-align:center">热键</th>
+<th style="text-align:center">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">a</td>
-<td align="center">光标后插入</td>
+<tbody>
+<tr>
+<td style="text-align:center">a</td>
+<td style="text-align:center">光标后插入</td>
 </tr>
 <tr>
-<td align="center">i</td>
-<td align="center">光标线插入</td>
+<td style="text-align:center">i</td>
+<td style="text-align:center">光标线插入</td>
 </tr>
 <tr>
-<td align="center">s</td>
-<td align="center">替换光标所在位置字符</td>
+<td style="text-align:center">s</td>
+<td style="text-align:center">替换光标所在位置字符</td>
 </tr>
 <tr>
-<td align="center">o</td>
-<td align="center">光标进入下一行插入</td>
+<td style="text-align:center">o</td>
+<td style="text-align:center">光标进入下一行插入</td>
 </tr>
 <tr>
-<td align="center">A</td>
-<td align="center">光标所在整句后插入</td>
+<td style="text-align:center">A</td>
+<td style="text-align:center">光标所在整句后插入</td>
 </tr>
 <tr>
-<td align="center">O</td>
-<td align="center">光标进入上一行插入</td>
+<td style="text-align:center">O</td>
+<td style="text-align:center">光标进入上一行插入</td>
 </tr>
 <tr>
-<td align="center">G</td>
-<td align="center">到最后一行</td>
+<td style="text-align:center">G</td>
+<td style="text-align:center">到最后一行</td>
 </tr>
 <tr>
-<td align="center">gg</td>
-<td align="center">到第一行</td>
+<td style="text-align:center">gg</td>
+<td style="text-align:center">到第一行</td>
 </tr>
 <tr>
-<td align="center">ctrl+f</td>
-<td align="center">到下一页</td>
+<td style="text-align:center">ctrl+f</td>
+<td style="text-align:center">到下一页</td>
 </tr>
 <tr>
-<td align="center">ctrl+b</td>
-<td align="center">到上一页</td>
+<td style="text-align:center">ctrl+b</td>
+<td style="text-align:center">到上一页</td>
 </tr>
 <tr>
-<td align="center">数字+G</td>
-<td align="center">跳到指定数字行</td>
+<td style="text-align:center">数字+G</td>
+<td style="text-align:center">跳到指定数字行</td>
 </tr>
 <tr>
-<td align="center">数字+%</td>
-<td align="center">跳到指定百分比位置</td>
+<td style="text-align:center">数字+%</td>
+<td style="text-align:center">跳到指定百分比位置</td>
 </tr>
 <tr>
-<td align="center">／str</td>
-<td align="center">搜索指定字符,n:继续查找下一个,N:查找上一个</td>
+<td style="text-align:center">／str</td>
+<td style="text-align:center">搜索指定字符,n:继续查找下一个,N:查找上一个</td>
 </tr>
 <tr>
-<td align="center">yy</td>
-<td align="center">复制一行  （yy后加数字，复制指定数字行）</td>
+<td style="text-align:center">yy</td>
+<td style="text-align:center">复制一行  （yy后加数字，复制指定数字行）</td>
 </tr>
 <tr>
-<td align="center">p</td>
-<td align="center">粘贴光标所在行 下一行</td>
+<td style="text-align:center">p</td>
+<td style="text-align:center">粘贴光标所在行 下一行</td>
 </tr>
 <tr>
-<td align="center">shift+p</td>
-<td align="center">粘贴光标所在行 上一行</td>
+<td style="text-align:center">shift+p</td>
+<td style="text-align:center">粘贴光标所在行 上一行</td>
 </tr>
 <tr>
-<td align="center">r</td>
-<td align="center">替换光标下的字符</td>
+<td style="text-align:center">r</td>
+<td style="text-align:center">替换光标下的字符</td>
 </tr>
 <tr>
-<td align="center">x</td>
-<td align="center">删除光标下字符</td>
+<td style="text-align:center">x</td>
+<td style="text-align:center">删除光标下字符</td>
 </tr>
 <tr>
-<td align="center">d d</td>
-<td align="center">删除一行</td>
+<td style="text-align:center">d d</td>
+<td style="text-align:center">删除一行</td>
 </tr>
 <tr>
-<td align="center">D</td>
-<td align="center">本行光标所在后面的部分删除</td>
+<td style="text-align:center">D</td>
+<td style="text-align:center">本行光标所在后面的部分删除</td>
 </tr>
 <tr>
-<td align="center">d w</td>
-<td align="center">删除一个单词</td>
+<td style="text-align:center">d w</td>
+<td style="text-align:center">删除一个单词</td>
 </tr>
 <tr>
-<td align="center">U</td>
-<td align="center">把选择的单词变为大写</td>
+<td style="text-align:center">U</td>
+<td style="text-align:center">把选择的单词变为大写</td>
 </tr>
 <tr>
-<td align="center">g Uw</td>
-<td align="center">把光标下的单词变为大写</td>
+<td style="text-align:center">g Uw</td>
+<td style="text-align:center">把光标下的单词变为大写</td>
 </tr>
 <tr>
-<td align="center">g uw</td>
-<td align="center">把光标下的单词变为小写</td>
+<td style="text-align:center">g uw</td>
+<td style="text-align:center">把光标下的单词变为小写</td>
 </tr>
 <tr>
-<td align="center">shift+8</td>
-<td align="center">查找光标下的单词  n下一个 N上一个</td>
+<td style="text-align:center">shift+8</td>
+<td style="text-align:center">查找光标下的单词  n下一个 N上一个</td>
 </tr>
 <tr>
-<td align="center">／ str[ab]</td>
-<td align="center">模式匹配 可匹配到 stra  strb</td>
+<td style="text-align:center">／ str[ab]</td>
+<td style="text-align:center">模式匹配 可匹配到 stra  strb</td>
 </tr>
-</tbody></table>
-<h5><span id="比较特殊的v键">比较特殊的v键：</span></h5><p><strong>v</strong>：视觉范围选择<br><strong>ctrl+v</strong>： 矩形范围选择<br>配合<strong>d</strong>键删除区域<br>配合<strong>y</strong>键复制区域<br><strong>shift+i</strong>： 在视觉选择模式下，多行插入。  </p>
-<h3><span id="命令模式">命令模式</span></h3><table>
+</tbody>
+</table>
+<h5><span id="比较特殊的v键">比较特殊的v键：</span></h5>
+<p><strong>v</strong>：视觉范围选择<br>
+<strong>ctrl+v</strong>： 矩形范围选择<br>
+配合<strong>d</strong>键删除区域<br>
+配合<strong>y</strong>键复制区域<br>
+<strong>shift+i</strong>： 在视觉选择模式下，多行插入。</p>
+<h3><span id="命令模式">命令模式</span></h3>
+<table>
 <thead>
 <tr>
-<th align="center">热键</th>
-<th align="center">描述</th>
+<th style="text-align:center">热键</th>
+<th style="text-align:center">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">set nu</td>
-<td align="center">显示行号</td>
+<tbody>
+<tr>
+<td style="text-align:center">set nu</td>
+<td style="text-align:center">显示行号</td>
 </tr>
 <tr>
-<td align="center">set nonu</td>
-<td align="center">不显示行号</td>
+<td style="text-align:center">set nonu</td>
+<td style="text-align:center">不显示行号</td>
 </tr>
 <tr>
-<td align="center">w</td>
-<td align="center">保存文件</td>
+<td style="text-align:center">w</td>
+<td style="text-align:center">保存文件</td>
 </tr>
 <tr>
-<td align="center">q</td>
-<td align="center">退出文件</td>
+<td style="text-align:center">q</td>
+<td style="text-align:center">退出文件</td>
 </tr>
 <tr>
-<td align="center">wq</td>
-<td align="center">保存并退出</td>
+<td style="text-align:center">wq</td>
+<td style="text-align:center">保存并退出</td>
 </tr>
-</tbody></table>
-<h3><span id="分屏和标签页">分屏和标签页</span></h3><table>
+</tbody>
+</table>
+<h3><span id="分屏和标签页">分屏和标签页</span></h3>
+<table>
 <thead>
 <tr>
-<th align="center">热键</th>
-<th align="center">描述</th>
+<th style="text-align:center">热键</th>
+<th style="text-align:center">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">:split</td>
-<td align="center">水平方向切割出一个窗口</td>
+<tbody>
+<tr>
+<td style="text-align:center">:split</td>
+<td style="text-align:center">水平方向切割出一个窗口</td>
 </tr>
 <tr>
-<td align="center">:vsplit</td>
-<td align="center">垂直方向切割出一个窗口</td>
+<td style="text-align:center">:vsplit</td>
+<td style="text-align:center">垂直方向切割出一个窗口</td>
 </tr>
 <tr>
-<td align="center">ctrl+w</td>
-<td align="center">切换窗口，h到左边窗口，j到下方窗口，k到上方窗口，l到右边窗口</td>
+<td style="text-align:center">ctrl+w</td>
+<td style="text-align:center">切换窗口，h到左边窗口，j到下方窗口，k到上方窗口，l到右边窗口</td>
 </tr>
 <tr>
-<td align="center">:tabnew</td>
-<td align="center">新建一个标签页</td>
+<td style="text-align:center">:tabnew</td>
+<td style="text-align:center">新建一个标签页</td>
 </tr>
 <tr>
-<td align="center">:tabfirst</td>
-<td align="center">跳到首个标签页</td>
+<td style="text-align:center">:tabfirst</td>
+<td style="text-align:center">跳到首个标签页</td>
 </tr>
 <tr>
-<td align="center">:tablast</td>
-<td align="center">跳到末尾标签页</td>
+<td style="text-align:center">:tablast</td>
+<td style="text-align:center">跳到末尾标签页</td>
 </tr>
 <tr>
-<td align="center">:e 文件名</td>
-<td align="center">在新的标签页打开文件</td>
+<td style="text-align:center">:e 文件名</td>
+<td style="text-align:center">在新的标签页打开文件</td>
 </tr>
 <tr>
-<td align="center">ctrl+&lt;PgUp/PgDn&gt;</td>
-<td align="center">标签页的切换</td>
+<td style="text-align:center">ctrl+&lt;PgUp/PgDn&gt;</td>
+<td style="text-align:center">标签页的切换</td>
 </tr>
-</tbody></table>
-<h3><span id="粘贴模式和代码缩进">粘贴模式和代码缩进</span></h3><table>
+</tbody>
+</table>
+<h3><span id="粘贴模式和代码缩进">粘贴模式和代码缩进</span></h3>
+<table>
 <thead>
 <tr>
-<th align="center">热键</th>
-<th align="center">描述</th>
+<th style="text-align:center">热键</th>
+<th style="text-align:center">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">:set paste</td>
-<td align="center">进入粘贴模式</td>
+<tbody>
+<tr>
+<td style="text-align:center">:set paste</td>
+<td style="text-align:center">进入粘贴模式</td>
 </tr>
 <tr>
-<td align="center">:set nopaste</td>
-<td align="center">退出粘贴模式</td>
+<td style="text-align:center">:set nopaste</td>
+<td style="text-align:center">退出粘贴模式</td>
 </tr>
 <tr>
-<td align="center">&gt;</td>
-<td align="center">增加缩进</td>
+<td style="text-align:center">&gt;</td>
+<td style="text-align:center">增加缩进</td>
 </tr>
 <tr>
-<td align="center">&lt;</td>
-<td align="center">减少缩进</td>
+<td style="text-align:center">&lt;</td>
+<td style="text-align:center">减少缩进</td>
 </tr>
-</tbody></table>
-<h3><span id="寄存器">寄存器</span></h3><p>vim提供了26个剪切板，对应26个字母。<br>例:<code>ap</code>,<code>bp</code>,粘贴，<br><code>ay</code>,<code>by</code>复制。  </p>
-<h3><span id="宏录制">宏录制</span></h3><p>vim提供了26个宏。<br>录制命令:<code>q</code>开始录制， <code>a</code>定义宏名， <code>q</code>结束录制。<br>执行宏<code>@a</code>, 多次执行(这里举例3次)<code>3@a</code>。  </p>
-<h3><span id="标记">标记</span></h3><p>同样是26个标记点。<br><strong>m(mark)a</strong>： 创建标记a<br><strong>‘a</strong>: 定位到标记点a (前面是单引号)<br><strong>:delmarks a</strong>： 删除标记a</p>
+</tbody>
+</table>
+<h3><span id="寄存器">寄存器</span></h3>
+<p>vim提供了26个剪切板，对应26个字母。<br>
+例:<code>ap</code>,<code>bp</code>,粘贴，<br>
+<code>ay</code>,<code>by</code>复制。</p>
+<h3><span id="宏录制">宏录制</span></h3>
+<p>vim提供了26个宏。<br>
+录制命令:<code>q</code>开始录制， <code>a</code>定义宏名， <code>q</code>结束录制。<br>
+执行宏<code>@a</code>, 多次执行(这里举例3次)<code>3@a</code>。</p>
+<h3><span id="标记">标记</span></h3>
+<p>同样是26个标记点。<br>
+<strong>m(mark)a</strong>： 创建标记a<br>
+<strong>'a</strong>: 定位到标记点a (前面是单引号)<br>
+<strong>:delmarks a</strong>： 删除标记a</p>
 
 </div>
 

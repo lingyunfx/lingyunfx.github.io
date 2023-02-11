@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,13 +1268,24 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h3><span id="gizmo制作">gizmo制作</span></h3><p>在nuke中选中一些节点，按ctrl+g<strong>打包组</strong>，一个gizmo节点就做好了。</p>
+	<h3><span id="gizmo制作">gizmo制作</span></h3>
+<p>在nuke中选中一些节点，按ctrl+g<strong>打包组</strong>，一个gizmo节点就做好了。</p>
 <p>ctrl+回车键，<strong>进入组</strong>。</p>
-<p><strong>两种方法进行组和组内节点的关联</strong>：<br>1.在gizmo组节点上右键Manage User Knobs，再点击pick<br>找到组内节点的属性添加进来。</p>
-<p>2.在gizmo组上添加一个knob (例: Floating Point Slider)，real_name名为size<br>再进入组内，在比如Blur节点上，给size属性右键添加表达式<br><code>parent.size</code></p>
-<p>关联组内的switch节点,添加一个下拉框的knob名为switch：<br>在switch节点上添加表达式 <code>parent.switch</code></p>
-<p>关联组内一个节点的激活状态，添加一个checkbox knob，名为premulut<br>在组内找到节点的disable属性，添加表达式：<br><code>1-parent.premulut</code></p>
-<h3><span id="两个例子">两个例子</span></h3><p>给这个gizmo节点添加knobChangedScript，<br>实现激活名为test勾选框的时候，test_value属性变为可控。<br>Add - Python Custom</p>
+<p><strong>两种方法进行组和组内节点的关联</strong>：<br>
+1.在gizmo组节点上右键Manage User Knobs，再点击pick<br>
+找到组内节点的属性添加进来。</p>
+<p>2.在gizmo组上添加一个knob (例: Floating Point Slider)，real_name名为size<br>
+再进入组内，在比如Blur节点上，给size属性右键添加表达式<br>
+<code>parent.size</code></p>
+<p>关联组内的switch节点,添加一个下拉框的knob名为switch：<br>
+在switch节点上添加表达式 <code>parent.switch</code></p>
+<p>关联组内一个节点的激活状态，添加一个checkbox knob，名为premulut<br>
+在组内找到节点的disable属性，添加表达式：<br>
+<code>1-parent.premulut</code></p>
+<h3><span id="两个例子">两个例子</span></h3>
+<p>给这个gizmo节点添加knobChangedScript，<br>
+实现激活名为test勾选框的时候，test_value属性变为可控。<br>
+Add - Python Custom</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">nuke<span class="token punctuation">.</span>thisNode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">"knobChanged"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>setValue<span class="token punctuation">(</span><span class="token triple-quoted-string string">'''
 tn = nuke.thisNode()
 tk = nuke.thisKnob()
@@ -1267,8 +1296,8 @@ if tk.name() == "test":
     tn.knob("test_value").setenabled(False)
 '''</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>让gizmo节点实现一个功能，每添加一个输入端，则添加一个额外的输入端。<br>同样写在Python Custom</p>
+<p>让gizmo节点实现一个功能，每添加一个输入端，则添加一个额外的输入端。<br>
+同样写在Python Custom</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">nuke<span class="token punctuation">.</span>thisNode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>knob<span class="token punctuation">(</span><span class="token string">"knobChanged"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>setValue<span class="token punctuation">(</span><span class="token triple-quoted-string string">'''
 tn = nuke.thisNode()
 tk = nuke.thisKnob()

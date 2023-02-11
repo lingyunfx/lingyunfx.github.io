@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,7 +1268,11 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h1><span id="概述">概述</span></h1><p>Rez管理软件包的过程：<br>首先从rez请求一个软件包列表，rez会对包进行解析。<br>如果解析没有成功，则系统会给出相关信息提示。<br>当请求的软件包版本发生冲突的时候，Rez也会给出提示。  </p>
+	<h1><span id="概述">概述</span></h1>
+<p>Rez管理软件包的过程：<br>
+首先从rez请求一个软件包列表，rez会对包进行解析。<br>
+如果解析没有成功，则系统会给出相关信息提示。<br>
+当请求的软件包版本发生冲突的时候，Rez也会给出提示。</p>
 <ul>
 <li>“…the latest version of houdini”</li>
 <li>“…maya-2009.1”</li>
@@ -1259,8 +1281,12 @@ var _hmt = _hmt || [];
 <li>“…the latest houdini which works with boost-1.37.0”</li>
 <li>“…PyQt-2.2 or greater, but less than PyQt-4.5.3”</li>
 </ul>
-<p>在本文许多示例中，我们会使用<a target="_blank" rel="noopener" href="https://github.com/nerdvegas/rez/wiki/Command-Line-Tools#rez-env">rez-env</a>命令行工具。<br>该工具获取软件包请求列表，并创建结果配置环境。<br><code>exit</code>命令即可退出环境。</p>
-<h1><span id="版本">版本</span></h1><p>Rez对版本号格式的支持：<br>数字，字母，和下划线的任意组合，并用点或破折号分隔。</p>
+<p>在本文许多示例中，我们会使用<a target="_blank" rel="noopener" href="https://github.com/nerdvegas/rez/wiki/Command-Line-Tools#rez-env">rez-env</a>命令行工具。<br>
+该工具获取软件包请求列表，并创建结果配置环境。<br>
+<code>exit</code>命令即可退出环境。</p>
+<h1><span id="版本">版本</span></h1>
+<p>Rez对版本号格式的支持：<br>
+数字，字母，和下划线的任意组合，并用点或破折号分隔。</p>
 <p>有效的格式：</p>
 <ul>
 <li>1</li>
@@ -1269,7 +1295,8 @@ var _hmt = _hmt || [];
 <li>4.rc1</li>
 <li>10a-5</li>
 </ul>
-<p>版本号遵循严格排序方式，区别大小写。<br>下划线为最小字符，后跟字母，再后跟数字。</p>
+<p>版本号遵循严格排序方式，区别大小写。<br>
+下划线为最小字符，后跟字母，再后跟数字。</p>
 <ul>
 <li>在所有字符之前添加下划线</li>
 <li>字母需要在数字之前</li>
@@ -1281,66 +1308,75 @@ var _hmt = _hmt || [];
 <table>
 <thead>
 <tr>
-<th align="center">smaller token</th>
-<th align="center">larger token</th>
+<th style="text-align:center">smaller token</th>
+<th style="text-align:center">larger token</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">0</td>
-<td align="center">1</td>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
 </tr>
 <tr>
-<td align="center">a</td>
-<td align="center">b</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
 </tr>
 <tr>
-<td align="center">a</td>
-<td align="center">A</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">A</td>
 </tr>
 <tr>
-<td align="center">a</td>
-<td align="center">3</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">3</td>
 </tr>
 <tr>
-<td align="center">_5</td>
-<td align="center">2</td>
+<td style="text-align:center">_5</td>
+<td style="text-align:center">2</td>
 </tr>
 <tr>
-<td align="center">ham</td>
-<td align="center">hamster</td>
+<td style="text-align:center">ham</td>
+<td style="text-align:center">hamster</td>
 </tr>
 <tr>
-<td align="center">alpha</td>
-<td align="center">beta</td>
+<td style="text-align:center">alpha</td>
+<td style="text-align:center">beta</td>
 </tr>
 <tr>
-<td align="center">alpha</td>
-<td align="center">bob</td>
+<td style="text-align:center">alpha</td>
+<td style="text-align:center">bob</td>
 </tr>
 <tr>
-<td align="center">02</td>
-<td align="center">2</td>
+<td style="text-align:center">02</td>
+<td style="text-align:center">2</td>
 </tr>
 <tr>
-<td align="center">002</td>
-<td align="center">02</td>
+<td style="text-align:center">002</td>
+<td style="text-align:center">02</td>
 </tr>
 <tr>
-<td align="center">13</td>
-<td align="center">043</td>
+<td style="text-align:center">13</td>
+<td style="text-align:center">043</td>
 </tr>
 <tr>
-<td align="center">3</td>
-<td align="center">3a</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">3a</td>
 </tr>
 <tr>
-<td align="center">beta3</td>
-<td align="center">3beta</td>
+<td style="text-align:center">beta3</td>
+<td style="text-align:center">3beta</td>
 </tr>
-</tbody></table>
-<p>在进行版本比较的时候，分隔符（通常是<code>.</code>或者<code>-</code>符号）都会被忽略。<br>因此版本”1.0.0”和”1-0.0”是等同的。<br>如果两个版本通过数字对比相同，比如”1.0.0”和”1.0”，<br>则字符长度更长的版本被判断为更高版本。</p>
-<p><strong>注意</strong>：在进行版本对比中，rez版本号中字母并没有特殊意义，<br>比如”alpha”和”beta”。所以我们更多的鼓励使用数字来标记版本。</p>
-<h1><span id="软件包">软件包</span></h1><p>定义软件包的文件为<code>package.py</code> ，它描述了软件包所有的信息。<br>rez可以通过它管理任何类型的包，无论是Python程序包，<br>已编译的程序包，还是仅构建代码或者配置数据。</p>
+</tbody>
+</table>
+<p>在进行版本比较的时候，分隔符（通常是<code>.</code>或者<code>-</code>符号）都会被忽略。<br>
+因此版本&quot;1.0.0&quot;和&quot;1-0.0&quot;是等同的。<br>
+如果两个版本通过数字对比相同，比如&quot;1.0.0&quot;和&quot;1.0&quot;，<br>
+则字符长度更长的版本被判断为更高版本。</p>
+<p><strong>注意</strong>：在进行版本对比中，rez版本号中字母并没有特殊意义，<br>
+比如&quot;alpha&quot;和&quot;beta&quot;。所以我们更多的鼓励使用数字来标记版本。</p>
+<h1><span id="软件包">软件包</span></h1>
+<p>定义软件包的文件为<code>package.py</code> ，它描述了软件包所有的信息。<br>
+rez可以通过它管理任何类型的包，无论是Python程序包，<br>
+已编译的程序包，还是仅构建代码或者配置数据。</p>
 <p>下面一个package文件的范例：</p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json">name = <span class="token string">"foo"</span>
 
@@ -1360,12 +1396,12 @@ tools = <span class="token punctuation">[</span>
 def commands()<span class="token operator">:</span>
   env.PYTHONPATH.append(<span class="token string">"&#123;root&#125;/python"</span>)
   env.PATH.append(<span class="token string">"&#123;root&#125;/bin"</span>)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <ul>
 <li>requires部分定义了软件包的要求。</li>
 <li>command部分描述该程序包添加到环境中所执行的一些操作（如为环境添加变量）。</li>
 </ul>
-<h2><span id="软件包存储库">软件包存储库</span></h2><p>软件包存储在磁盘中，位置在$PATH/package。看起来像这样：</p>
+<h2><span id="软件包存储库">软件包存储库</span></h2>
+<p>软件包存储在磁盘中，位置在$PATH/package。看起来像这样：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">/packages/inhouse/foo/1.1
                      /1.2
                      /1.3
@@ -1380,28 +1416,32 @@ def commands()<span class="token operator">:</span>
 /packages/inhouse/foo/1.1/package.py
                          /python/<span class="token operator">&lt;</span>PYTHON FILES<span class="token operator">></span>
                          /bin/<span class="token operator">&lt;</span>EXECUTABLES<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>可以从上述层级结构中看到，<code>package.py</code>文件始终在该程序包的版本目录下。</p>
 <p>Rez仅要求<code>package.py</code> 文件位于软件包安装根目录下，包的其余部分取决与软件自己的构建。</p>
-<h1><span id="软件包搜索路径">软件包搜索路径</span></h1><p>Rez搜索路径查找软件包的方式和python使用PYTHONPATH查找python模块的方式几乎一样。</p>
+<h1><span id="软件包搜索路径">软件包搜索路径</span></h1>
+<p>Rez搜索路径查找软件包的方式和python使用PYTHONPATH查找python模块的方式几乎一样。</p>
 <p>可以使用rez-config命令来返回搜索路径的列表：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-config packages_path
 - /home/ajohns/packages
 - /packages/inhouse
 - /packages/vendor<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>如果同一个软件包出现在搜索路径重复出现，会优先使用创建时间较早的那一个。  </p>
-<p>上述的搜索路径配置是一个经典设计：顺序从本地路径到服务器中央存储路径。<br>将其放在搜索路径的开头，可以方便开发人员优先用本地路径进行软件包的测试。</p>
+<p>如果同一个软件包出现在搜索路径重复出现，会优先使用创建时间较早的那一个。</p>
+<p>上述的搜索路径配置是一个经典设计：顺序从本地路径到服务器中央存储路径。<br>
+将其放在搜索路径的开头，可以方便开发人员优先用本地路径进行软件包的测试。</p>
 <p>一种常见的修改软件包路径的方法是设置<code>REZ_PACKAGES_PATH</code>环境变量。</p>
-<h1><span id="软件包命令">软件包命令</span></h1><p>软件包定义的命令确定如何配置环境以使用它。</p>
+<h1><span id="软件包命令">软件包命令</span></h1>
+<p>软件包定义的命令确定如何配置环境以使用它。</p>
 <p>这是一个python函数，注意如果使用了任何导入操作，则必须在此函数的主体内。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">commands</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
   env<span class="token punctuation">.</span>PYTHONPATH<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">"&#123;root&#125;/python"</span><span class="token punctuation">)</span>
   env<span class="token punctuation">.</span>PATH<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">"&#123;root&#125;/bin"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>这是一个常用的配置示例，将软件包的源路径添加到PYTHONPATH，将其工具添加到PATH中。</p>
 <p>关于包命令更多信息见：<a target="_blank" rel="noopener" href="https://github.com/nerdvegas/rez/wiki/Package-Commands">Package Commands</a></p>
-<h1><span id="软件包请求">软件包请求</span></h1><p>软件包对版本的请求使用一个特殊的语法，可以在package文件的require部分去定义，<br>也可以如rez-env之类的工具，创建配置环境的时候直接定义软件包请求。</p>
-<p>举个例子，创建一个环境，包含python2.6或更高版本，以及my_py_utils5.4或更高版本，且版本不能大于6。<br><code>rez-env &#39;python-2.6+&#39; &#39;my_py_utils-5.4+&lt;6&#39;</code></p>
+<h1><span id="软件包请求">软件包请求</span></h1>
+<p>软件包对版本的请求使用一个特殊的语法，可以在package文件的require部分去定义，<br>
+也可以如rez-env之类的工具，创建配置环境的时候直接定义软件包请求。</p>
+<p>举个例子，创建一个环境，包含python2.6或更高版本，以及my_py_utils5.4或更高版本，且版本不能大于6。<br>
+<code>rez-env 'python-2.6+' 'my_py_utils-5.4+&lt;6'</code></p>
 <p>这里有一些使用的示例：</p>
 <table>
 <thead>
@@ -1411,7 +1451,8 @@ def commands()<span class="token operator">:</span>
 <th>example versions within request</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>foo</td>
 <td>Any version of foo.</td>
 <td>foo-1, foo-0.4, foo-5.0, foo-2.0.alpha</td>
@@ -1446,30 +1487,43 @@ def commands()<span class="token operator">:</span>
 <td>OR’d requests</td>
 <td>foo-1.3.0, foo-6.0.0</td>
 </tr>
-</tbody></table>
-<h2><span id="conflict运算符">Conflict运算符</span></h2><p><code>!</code>符号用于指定不希望出现的版本（用于定义软件包之间的不兼容性），命令：<br><code>rez-env maya_utils &#39;!maya-2015.6&#39;</code></p>
-<p>这指定您需要任何版本的maya_utils，但不接受2015.6（包括2015.6.1等）之内的任何版本的maya。  </p>
-<h2><span id="weak-reference运算符">Weak reference运算符</span></h2><p><code>～</code>符号，它将强制软件包在指定范围内，但实际上并不需要这个软件包。<br><code>rez-env foo &#39;~nuke-9.rc2&#39;</code></p>
+</tbody>
+</table>
+<h2><span id="conflict运算符">Conflict运算符</span></h2>
+<p><code>!</code>符号用于指定不希望出现的版本（用于定义软件包之间的不兼容性），命令：<br>
+<code>rez-env maya_utils '!maya-2015.6'</code></p>
+<p>这指定您需要任何版本的maya_utils，但不接受2015.6（包括2015.6.1等）之内的任何版本的maya。</p>
+<h2><span id="weak-reference运算符">Weak reference运算符</span></h2>
+<p><code>～</code>符号，它将强制软件包在指定范围内，但实际上并不需要这个软件包。<br>
+<code>rez-env foo '~nuke-9.rc2'</code></p>
 <p>这个请求也许会或者不会拉入nuke软件包，但是如果存在nuke的话，它的版本必须是9.rc2内。</p>
-<p>弱引用在某些情况下有用，比如nuke和maya之类的软件都自带自己的python版本。<br>它们的软件对python没有要求。但是经常在程序外部使用python库的话，</p>
+<p>弱引用在某些情况下有用，比如nuke和maya之类的软件都自带自己的python版本。<br>
+它们的软件对python没有要求。但是经常在程序外部使用python库的话，</p>
 <p>为了确保python版本是兼容的，应用程序会为其相关的python版本定义一个若引用，类似这样：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># in maya's package.py</span>
 requires <span class="token operator">=</span> <span class="token punctuation">[</span>
   <span class="token string">"~python-2.7.3"</span>
 <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>这里的示例表示，当环境中存在maya时，所有使用python的软件包都将使用与maya兼容的版本。</p>
-<h1><span id="隐式软件包">隐式软件包</span></h1><p>这个翻译不知道对不对，原文为<code>Implicit package</code>。<br>它是一个包请求列表，列表里的每个包会自动添加到每一个Rez请求中。<br>（例如当使用rez-env时，类似一个默认值的设定）</p>
+<h1><span id="隐式软件包">隐式软件包</span></h1>
+<p>这个翻译不知道对不对，原文为<code>Implicit package</code>。<br>
+它是一个包请求列表，列表里的每个包会自动添加到每一个Rez请求中。<br>
+（例如当使用rez-env时，类似一个默认值的设定）</p>
 <p>它们由rez配置<code>implicit_packages</code>设置，下面是默认值：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">implicit_packages <span class="token operator">=</span> <span class="token punctuation">[</span>
     <span class="token string">"~platform==&#123;system.platform&#125;"</span><span class="token punctuation">,</span>
     <span class="token string">"~arch==&#123;system.arch&#125;"</span><span class="token punctuation">,</span>
     <span class="token string">"~os==&#123;system.os&#125;"</span><span class="token punctuation">,</span>
 <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>rez默认将当前系统的平台，架构，操作系统打包。<br>这确保了有任何对上述信息有依赖时，能够更好的进行匹配。<br>当进入一个环境时，可以看到输出信息会打印出这些implicit包。</p>
-<h1><span id="解析依赖">解析依赖</span></h1><p>Rez包含一个求解算法，算法接受一个程序请求列表，然后解析成一个满足程序包请求的最终列表。<br>例子：</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3c3746afe.png" alt="rez-basic-concepts-p1.png"><br>这里有三个软件包：foo，bah和eek，其中foo和bah都对eek有依赖性。<br>比如软件包bah-4有个定义文件如下：</p>
+<p>rez默认将当前系统的平台，架构，操作系统打包。<br>
+这确保了有任何对上述信息有依赖时，能够更好的进行匹配。<br>
+当进入一个环境时，可以看到输出信息会打印出这些implicit包。</p>
+<h1><span id="解析依赖">解析依赖</span></h1>
+<p>Rez包含一个求解算法，算法接受一个程序请求列表，然后解析成一个满足程序包请求的最终列表。<br>
+例子：</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3c3746afe.png" alt="rez-basic-concepts-p1.png"><br>
+这里有三个软件包：foo，bah和eek，其中foo和bah都对eek有依赖性。<br>
+比如软件包bah-4有个定义文件如下：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">name <span class="token operator">=</span> <span class="token string">"bah"</span>
 
 version <span class="token operator">=</span> <span class="token string">"4"</span>
@@ -1477,10 +1531,14 @@ version <span class="token operator">=</span> <span class="token string">"4"</sp
 requires <span class="token operator">=</span> <span class="token punctuation">[</span>
   <span class="token string">"eek-2.6"</span>
 <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>而这个时候foo也会请求eek包，假设我们对foo包要求是“任何版本”，<br>这个时候解析返回的结果会是：（foo1.2，bah-4，eek2.6），<strong>Rez会提供不会导致冲突的最新版本</strong>。</p>
-<p>有时候你的请求无法实现，大致是因为请求（foo1.3，bah-4）导致的。<br>在这样的情况下解析会失败，Rez会告诉你有关的冲突。</p>
-<h1><span id="环境解析">环境解析</span></h1><p>用户使用命令行工具<code>rez-env</code>解析并创建环境。<br>（也可以通过API完成，实际上rez中所有功能都可以在python中完成）<br>当你执行命令后，shell中的环境就被改变了，下面是一个示例：</p>
+<p>而这个时候foo也会请求eek包，假设我们对foo包要求是“任何版本”，<br>
+这个时候解析返回的结果会是：（foo1.2，bah-4，eek2.6），<strong>Rez会提供不会导致冲突的最新版本</strong>。</p>
+<p>有时候你的请求无法实现，大致是因为请求（foo1.3，bah-4）导致的。<br>
+在这样的情况下解析会失败，Rez会告诉你有关的冲突。</p>
+<h1><span id="环境解析">环境解析</span></h1>
+<p>用户使用命令行工具<code>rez-env</code>解析并创建环境。<br>
+（也可以通过API完成，实际上rez中所有功能都可以在python中完成）<br>
+当你执行命令后，shell中的环境就被改变了，下面是一个示例：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">]</span>$ rez-env foo bah
 
 You are now <span class="token keyword">in</span> a rez-configured environment.
@@ -1498,9 +1556,10 @@ foo-1.2   /packages/inhouse/foo/1.2
 bah-4     /packages/inhouse/bah/4
 
 <span class="token operator">></span> <span class="token punctuation">]</span>$ █<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>输出的信息可以看到原始的请求和匹配的解析包。<br>注意<code>&gt;</code>字符是一个提示，告诉你已经在rez解析的环境中。</p>
-<h1><span id="小结">小结</span></h1><p>这里给一个新的（更接近生产环境需求的）示例，假设我们需要：</p>
+<p>输出的信息可以看到原始的请求和匹配的解析包。<br>
+注意<code>&gt;</code>字符是一个提示，告诉你已经在rez解析的环境中。</p>
+<h1><span id="小结">小结</span></h1>
+<p>这里给一个新的（更接近生产环境需求的）示例，假设我们需要：</p>
 <ul>
 <li>maya-2014.sp2</li>
 <li>nuke-8.0v3</li>
@@ -1509,9 +1568,13 @@ bah-4     /packages/inhouse/bah/4
 <li>基础库lib的三个版本</li>
 </ul>
 <p>下图显示了运行命令<code>rez-env mplugin-1.3.0</code>时，发生的情况。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3c3777d2d.png" alt="rez-basic-concepts-p2.png"><br>如上图所示，Rez接受用户的请求，并解析依赖。</p>
-<p>Rez Dependency Solver从软件存储库中读取软件包，以完成解析。<br>这个时候返回了一个最终软件包列表。</p>
-<p>每个软件包命令是串联在一起的，rez会将它“打包”成一个目标Shell语言（图片中为bash）。<br>然后rez会创建一个sub-shell，并在环境中获取翻译后的命令代码，从而创建最终配置的环境。<br>软件包命令的执行顺序取决于软件包的依赖性以及请求软件包的顺序。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3c3777d2d.png" alt="rez-basic-concepts-p2.png"><br>
+如上图所示，Rez接受用户的请求，并解析依赖。</p>
+<p>Rez Dependency Solver从软件存储库中读取软件包，以完成解析。<br>
+这个时候返回了一个最终软件包列表。</p>
+<p>每个软件包命令是串联在一起的，rez会将它“打包”成一个目标Shell语言（图片中为bash）。<br>
+然后rez会创建一个sub-shell，并在环境中获取翻译后的命令代码，从而创建最终配置的环境。<br>
+软件包命令的执行顺序取决于软件包的依赖性以及请求软件包的顺序。</p>
 
 </div>
 

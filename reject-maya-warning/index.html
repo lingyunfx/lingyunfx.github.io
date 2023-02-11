@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1247,20 +1265,47 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3c33ecb4b.png" alt="reject-maya-warning-p1.png"><br>关于“你的文件贼健康”算是一个过时的话题了，不过发现身边的朋友很多还是不知道怎么处理，<br>或还在使用一些比较繁琐的处理方式：  </p>
-<p>1.比如每次打开文件之前用文本编辑器搜索关键字<br>2.打开文件时取消勾选Execute script nodes<br>3.将userSetup文件改为只读<br>等等…</p>
-<p>这里推荐一个最简单的处理方式，也就是安装一个Maya插件： <code>sceneCallback</code><br>使用插件后，<strong>当打开带有“贼健康”的文件时，Maya会弹出提示，并选择直接删除它。</strong><br>(如下图所示)</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3c345e17b.gif" alt="reject-maya-warning-p2.gif"><br>有了这个插件后，我们不需要关心文件是否被感染，<br>不需要在打开文件前做预先检查和其他操作，正常打开文件即可。<br>插件会帮助我们拦截“贼健康”，并删除它。</p>
-<p>这个插件是甜菜大大写的，插件的github开源地址：<br><a target="_blank" rel="noopener" href="https://github.com/cundesi/maya_utils">https://github.com/cundesi/maya_utils</a><br>（如果好用可以给它点一个Star）</p>
-<p>也可以关注一下他的这篇文章：<br><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/TW_YqDBvrlGuafHqyGEnhw">https://mp.weixin.qq.com/s/TW_YqDBvrlGuafHqyGEnhw</a></p>
-<h3><span id="下面是插件整个安装过程">下面是插件整个安装过程</span></h3><p><strong>1.下载插件</strong><br>去github地址下载它<br><a target="_blank" rel="noopener" href="https://github.com/cundesi/maya_utils">https://github.com/cundesi/maya_utils</a></p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3c34a129e.jpg" alt="reject-maya-warning-p3.jpg"><br><strong>2.安装插件。</strong><br>将modules文件夹里的<code>sceneCallback</code>文件夹和<code>sceneCallback.mod</code>文件放到下图的目录中：<br>如果没有<code>modules</code>这个目录，那直接把整个<code>modules</code>文件夹拷贝过去吧。<br>（这个目录即是我的文档里的maya目录）</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3c33e9a58.png" alt="reject-maya-warning-p4.png"><br><strong>3.清理本地的残留文件。</strong><br>检查下面的路径，如果存在下述的几个文件删除它们。<br>（如果你是在公司，询问一下公司TD是否可以删除<code>userSetup.py</code>）</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3c33e8a5b.png" alt="reject-maya-warning-p5.png"><br><strong>4.打开maya，加载插件。</strong></p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3c342f900.png" alt="reject-maya-warning-p6.png"><br>勾上sceneCallback。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3c3476433.png" alt="reject-maya-warning-p7.png"><br>这个时候最好进行一次正常关闭Maya（以免Maya崩溃，没有保存Plugins的勾选）<br>下次打开Maya并打开受感染的文件后，插件就会发挥它的作用：拦截并删除“贼健康”提示。</p>
+	<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3c33ecb4b.png" alt="reject-maya-warning-p1.png"><br>
+关于“你的文件贼健康”算是一个过时的话题了，不过发现身边的朋友很多还是不知道怎么处理，<br>
+或还在使用一些比较繁琐的处理方式：</p>
+<p>1.比如每次打开文件之前用文本编辑器搜索关键字<br>
+2.打开文件时取消勾选Execute script nodes<br>
+3.将userSetup文件改为只读<br>
+等等…</p>
+<p>这里推荐一个最简单的处理方式，也就是安装一个Maya插件： <code>sceneCallback</code><br>
+使用插件后，<strong>当打开带有“贼健康”的文件时，Maya会弹出提示，并选择直接删除它。</strong><br>
+(如下图所示)</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3c345e17b.gif" alt="reject-maya-warning-p2.gif"><br>
+有了这个插件后，我们不需要关心文件是否被感染，<br>
+不需要在打开文件前做预先检查和其他操作，正常打开文件即可。<br>
+插件会帮助我们拦截“贼健康”，并删除它。</p>
+<p>这个插件是甜菜大大写的，插件的github开源地址：<br>
+<a target="_blank" rel="noopener" href="https://github.com/cundesi/maya_utils">https://github.com/cundesi/maya_utils</a><br>
+（如果好用可以给它点一个Star）</p>
+<p>也可以关注一下他的这篇文章：<br>
+<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/TW_YqDBvrlGuafHqyGEnhw">https://mp.weixin.qq.com/s/TW_YqDBvrlGuafHqyGEnhw</a></p>
+<h3><span id="下面是插件整个安装过程">下面是插件整个安装过程</span></h3>
+<p><strong>1.下载插件</strong><br>
+去github地址下载它<br>
+<a target="_blank" rel="noopener" href="https://github.com/cundesi/maya_utils">https://github.com/cundesi/maya_utils</a></p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3c34a129e.jpg" alt="reject-maya-warning-p3.jpg"><br>
+<strong>2.安装插件。</strong><br>
+将modules文件夹里的<code>sceneCallback</code>文件夹和<code>sceneCallback.mod</code>文件放到下图的目录中：<br>
+如果没有<code>modules</code>这个目录，那直接把整个<code>modules</code>文件夹拷贝过去吧。<br>
+（这个目录即是我的文档里的maya目录）</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3c33e9a58.png" alt="reject-maya-warning-p4.png"><br>
+<strong>3.清理本地的残留文件。</strong><br>
+检查下面的路径，如果存在下述的几个文件删除它们。<br>
+（如果你是在公司，询问一下公司TD是否可以删除<code>userSetup.py</code>）</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3c33e8a5b.png" alt="reject-maya-warning-p5.png"><br>
+<strong>4.打开maya，加载插件。</strong></p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3c342f900.png" alt="reject-maya-warning-p6.png"><br>
+勾上sceneCallback。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab3c3476433.png" alt="reject-maya-warning-p7.png"><br>
+这个时候最好进行一次正常关闭Maya（以免Maya崩溃，没有保存Plugins的勾选）<br>
+下次打开Maya并打开受感染的文件后，插件就会发挥它的作用：拦截并删除“贼健康”提示。</p>
 <hr>
-<p>这篇文章就到这里，觉得还不错可以关注下这个公众号，也感谢各位老板打赏，thx！  </p>
+<p>这篇文章就到这里，觉得还不错可以关注下这个公众号，也感谢各位老板打赏，thx！</p>
 <center><img src="https://imgurl.vfxhub.net/i/2022/06/16/62ab36f1d52b8.jpg" width="30%" height="30%" alt align="center"></center>
 
 </div>

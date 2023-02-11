@@ -241,6 +241,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -769,6 +778,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1214,9 +1232,12 @@ var _hmt = _hmt || [];
 					08 Variants
 				</h2>
 				<div class="index-brief">
-					概述rez的包可以包含不同的变体（variant），可以把它看作同一个包版本的不同变种。每个变体都有一个或多个相对于当前包不同的依赖关系。
+					概述
+rez的包可以包含不同的变体（variant），可以把它看作同一个包版本的不同变种。
+每个变体都有一个或多个相对于当前包不同的依赖关系。
 假定一个场景来说明变体的使用：
-有一个maya插件my_maya_plugin，公司有两个maya版本分别为2016-sp2和2017。如果你的插件已经编译，而
+有一个maya插件my_maya_plugin，公司有两个maya版本分别为2016-sp2和2017。
+如果你的插件已经编
 					...
 				</div>
 			</a>
@@ -1252,9 +1273,11 @@ var _hmt = _hmt || [];
 					07 Package Definition Guide
 				</h2>
 				<div class="index-brief">
-					概述软件包的定义来自文件（package.py），位于每个包安装的根目录下。比如包的存储位置为/packages/inhouse，则包”foo-1.0.0”的定义文件路径是：/packages/inhouse/foo/1.0.0/package.py
-这里是一个定义文件的例子：
-name = 'se
+					概述
+软件包的定义来自文件（package.py），位于每个包安装的根目录下。
+比如包的存储位置为/packages/inhouse，则包&quot;foo-1.0.0&quot;的定义文件路径是：
+/packages/inhouse/foo/1.0.0/package.py
+这里是一个定义文件的例
 					...
 				</div>
 			</a>
@@ -1290,10 +1313,12 @@ name = 'se
 					06 Package Commands
 				</h2>
 				<div class="index-brief">
-					概述程序包定义文件（package.py）通常定义命令的部分。这是一个例子，用于确定如何配置环境和软件包的Python函数：
+					概述
+程序包定义文件（package.py）通常定义命令的部分。
+这是一个例子，用于确定如何配置环境和软件包的Python函数：
 def commands():
   env.PYTHONPATH.append("&#123;root&#125;/python")
-  env.PATH.append("&
+  env.PATH.append(
 					...
 				</div>
 			</a>
@@ -1329,13 +1354,16 @@ def commands():
 					05 Configuring Rez
 				</h2>
 				<div class="index-brief">
-					概述Rez具有大量可配置的设置。可以在这里找到设置的默认值和每个设置的释义。最终的设置通过以下方式确定：
+					概述
+Rez具有大量可配置的设置。可以在这里找到设置的默认值和每个设置的释义。
+最终的设置通过以下方式确定：
+
 
 首先在Rez安装文件中的rezconfig.py读取设置
 
+
 如果REZ_CONFIG_FILE环境变量指向另一个文件，则设置被覆盖（变量也可以是一个文件夹路径，从而读取多个配置文件）
 
-如果$
 					...
 				</div>
 			</a>
@@ -1371,9 +1399,15 @@ def commands():
 					01 Home
 				</h2>
 				<div class="index-brief">
-					什么是RezRez是一个跨平台程序包管理器，它可以给程序配置独立的环境。与其它程序包环境管理不同的是，所有的程序包的安装都在一个中央统一的位置，每个独立环境只是引用了这些包。所以它的环境配置是轻量级的，尽管有几百个包，通常也只需要几秒就可以进行配置。
+					什么是Rez
+Rez是一个跨平台程序包管理器，它可以给程序配置独立的环境。
+与其它程序包环境管理不同的是，所有的程序包的安装都在一个中央统一的位置，
+每个独立环境只是引用了这些包。所以它的环境配置是轻量级的，
+尽管有几百个包，通常也只需要几秒就可以进行配置。
 
-基本原理Rez获取一个包的请求列表，然后构建目
+
+基本原理
+Rez获取一个包的请求列表
 					...
 				</div>
 			</a>
@@ -1409,10 +1443,12 @@ def commands():
 					02 Installation
 				</h2>
 				<div class="index-brief">
-					下载Source code，然后打开终端进入rez-2.75.0目录中：python ./install.py
-默认会安装到 /opt/rez 中，如果需要安装到其它位置，使用install.py -h查看如何安装。
+					下载Source code，然后打开终端进入rez-2.75.0目录中：
+python ./install.py
+默认会安装到 /opt/rez 中，如果需要安装到其它位置，
+使用install.py -h查看如何安装。
 安装成功提示：
-SUCCESS! To activate Rez, add the
+SUCCESS! To activate Rez, add t
 					...
 				</div>
 			</a>
@@ -1448,11 +1484,15 @@ SUCCESS! To activate Rez, add the
 					04 Basic Concepts
 				</h2>
 				<div class="index-brief">
-					概述Rez管理软件包的过程：首先从rez请求一个软件包列表，rez会对包进行解析。如果解析没有成功，则系统会给出相关信息提示。当请求的软件包版本发生冲突的时候，Rez也会给出提示。  
+					概述
+Rez管理软件包的过程：
+首先从rez请求一个软件包列表，rez会对包进行解析。
+如果解析没有成功，则系统会给出相关信息提示。
+当请求的软件包版本发生冲突的时候，Rez也会给出提示。
 
 “…the latest version of houdini”
 “…maya-2009.1”
-“…the la
+“…the 
 					...
 				</div>
 			</a>
@@ -1488,9 +1528,11 @@ SUCCESS! To activate Rez, add the
 					03 Getting Started
 				</h2>
 				<div class="index-brief">
-					基本软件包安装完成后，需要创建一些基本的Rez软件包。使用rez-bind工具进行创建，这些软件包会引用系统上已经安装的软件。（—quickstart是以标准创建）
+					基本软件包
+安装完成后，需要创建一些基本的Rez软件包。使用rez-bind工具进行创建，
+这些软件包会引用系统上已经安装的软件。（—quickstart是以标准创建）
 ]$ rez-bind --quickstart
-Binding platform into /home/ajohns/package
+Binding platform into /home/ajohns/packa
 					...
 				</div>
 			</a>
@@ -1526,16 +1568,17 @@ Binding platform into /home/ajohns/package
 					代码参考
 				</h2>
 				<div class="index-brief">
-					获取选择的节点nodes = hou.selectedNodes()
+					获取选择的节点
+nodes = hou.selectedNodes()
 print nodes
 
-
-创建一个节点# 创建一个geo节点在obj层级下
+创建一个节点
+# 创建一个geo节点在obj层级下
 node = hou.node('/obj')
 c = node.createNode('geo')
 
 # 或者
-hou.node("obj").cre
+hou.node("obj").cr
 					...
 				</div>
 			</a>
@@ -1571,8 +1614,9 @@ hou.node("obj").cre
 					Houdini Tips
 				</h2>
 				<div class="index-brief">
-					开发环境C:\Program Files\Side Effects Software\Houdini 18.5.351\houdini\python2.7libs
-C:\Program Files\Side Effects Software\Houdini 18.5.351\python27\lib
+					开发环境
+C:\Program Files\Side Effects Software\Houdini 18.5.351\houdini\python2.7libs
+C:\Program Files\Side Effects Software\Houdini 18.5.351\python27\li
 					...
 				</div>
 			</a>

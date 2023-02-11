@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1262,71 +1280,141 @@ var _hmt = _hmt || [];
 
 <div id="article-content">
 	<p>复制并进行位移操作，效果如下：</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70965939a.png" alt="1.png"><br>属性面板的一些释义：</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709bada61.png" alt="2.png"><br>这里可以利用copynum的属性，达到一些效果，比如改变num值大于5的猪头模型颜色。（添加一个color节点）</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70965939a.png" alt="1.png"><br>
+属性面板的一些释义：</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709bada61.png" alt="2.png"><br>
+这里可以利用copynum的属性，达到一些效果，比如改变num值大于5的猪头模型颜色。（添加一个color节点）</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709c47dd3.png" alt="3.png"></p>
-<h1><span id="copy-to-point节点">Copy to Point节点</span></h1><p>按照参考模型的点分布，进行复制。（效果如下）</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709cb5e32.png" alt="4.png"><br>这里有一个制作魔方的示例。（这里用到了pointsfromvolume）</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709d647db.png" alt="5.png"><br>参数设置：</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709cc860f.png" alt="6.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709cc8eee.png" alt="7.png"><br>这里有一个猪头破碎效果的示例，这里只放一个节点截图：</p>
+<h1><span id="copy-to-point节点">Copy to Point节点</span></h1>
+<p>按照参考模型的点分布，进行复制。（效果如下）</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709cb5e32.png" alt="4.png"><br>
+这里有一个制作魔方的示例。（这里用到了pointsfromvolume）</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709d647db.png" alt="5.png"><br>
+参数设置：</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709cc860f.png" alt="6.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709cc8eee.png" alt="7.png"><br>
+这里有一个猪头破碎效果的示例，这里只放一个节点截图：</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709e023af.png" alt="8.png"></p>
-<h1><span id="copy-stamp节点">Copy Stamp节点</span></h1><p>可以不需要参考，进行类似于copy to transform的复制操作。</p>
+<h1><span id="copy-stamp节点">Copy Stamp节点</span></h1>
+<p>可以不需要参考，进行类似于copy to transform的复制操作。</p>
 <p>区别于copy to transform节点，在使用参考时，需勾选Use Template Attributes</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709d6a6f1.png" alt="9.png"><br>它也可以自定义一些变量给上游其它节点使用。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709d6a6f1.png" alt="9.png"><br>
+它也可以自定义一些变量给上游其它节点使用。</p>
 <p>（大多节点里的变量都是本地变量，如NCY，CY，可以点击问号查看帮助）</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709d807ec.png" alt="10.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709e4ed72.png" alt="11.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709e96afd.png" alt="12.png"></p>
-<h1><span id="houdini-18-copy新特性">Houdini 18 Copy新特性</span></h1><p>在18以前的版本，对多个 物体进行copy的方法。需要借用copy stamp节点来实现，如下图：</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709f4d61f.png" alt="13.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709ee3230.png" alt="14.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709f4be98.png" alt="15.png"><br>在houdini18的版本中，可以直接使用copypoint节点进行复制。如图所示：</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709fccfba.png" alt="16.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709f60ae4.png" alt="17.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709f98d34.png" alt="18.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a091fdc.png" alt="19.png"></p>
-<h1><span id="scatter节点">Scatter节点</span></h1><p>按模型表面生成点，下图为一些基本参数注释：</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a080474.png" alt="20.png"><br>下面一个实例将绘制的图像用point来表示：</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709d807ec.png" alt="10.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709e4ed72.png" alt="11.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709e96afd.png" alt="12.png"></p>
+<h1><span id="houdini-18-copy新特性">Houdini 18 Copy新特性</span></h1>
+<p>在18以前的版本，对多个 物体进行copy的方法。需要借用copy stamp节点来实现，如下图：</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709f4d61f.png" alt="13.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709ee3230.png" alt="14.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709f4be98.png" alt="15.png"><br>
+在houdini18的版本中，可以直接使用copypoint节点进行复制。如图所示：</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709fccfba.png" alt="16.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709f60ae4.png" alt="17.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709f98d34.png" alt="18.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a091fdc.png" alt="19.png"></p>
+<h1><span id="scatter节点">Scatter节点</span></h1>
+<p>按模型表面生成点，下图为一些基本参数注释：</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a080474.png" alt="20.png"><br>
+下面一个实例将绘制的图像用point来表示：</p>
 <p>这里需要用到一个attribpaint节点，点击回车键进入绘画模式，点击Esc退出。</p>
 <p>鼠标左键绘画，中键擦除。</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a118ae3.png" alt="21.png"></p>
-<h1><span id="font节点">Font节点</span></h1><p>文字节点。</p>
+<h1><span id="font节点">Font节点</span></h1>
+<p>文字节点。</p>
 <p>下面是一个数字随机颜色的实例：</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a192e49.png" alt="22.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a190ba3.png" alt="23.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a18febc.png" alt="24.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a1956c2.png" alt="25.png"><br>文字间隔变色实例：</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a192e49.png" alt="22.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a190ba3.png" alt="23.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a18febc.png" alt="24.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a1956c2.png" alt="25.png"><br>
+文字间隔变色实例：</p>
 <p>给font勾选AddTextAttributes</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a24ec54.png" alt="26.png"></p>
-<h1><span id="polyextrude节点">PolyExtrude节点</span></h1><p>用于挤出，下面为一些基本参数。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a2cae4b.png" alt="27.png"><br>一个实例，用一个网格挤出时随机长度，和随机颜色。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a334007.png" alt="28.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a2aa523.png" alt="29.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a2ac44c.png" alt="30.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a33667e.png" alt="31.png"></p>
-<h1><span id="sweep节点">Sweep节点</span></h1><p>类似于放样的效果，可以给一个曲线按照曲线进行放样。</p>
+<h1><span id="polyextrude节点">PolyExtrude节点</span></h1>
+<p>用于挤出，下面为一些基本参数。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a2cae4b.png" alt="27.png"><br>
+一个实例，用一个网格挤出时随机长度，和随机颜色。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a334007.png" alt="28.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a2aa523.png" alt="29.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a2ac44c.png" alt="30.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a33667e.png" alt="31.png"></p>
+<h1><span id="sweep节点">Sweep节点</span></h1>
+<p>类似于放样的效果，可以给一个曲线按照曲线进行放样。</p>
 <p>这里是一个制作软管的实例：</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a3dc0d7.png" alt="32.png"><br>一些参数注释：</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a37b516.png" alt="33.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a449029.png" alt="34.png"><br>这个节点也可以不通过截面端进行输出，这里是一个镂空字的实例：</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a4b0c71.png" alt="35.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a4475f0.png" alt="36.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a44b93f.png" alt="37.png"></p>
-<h1><span id="group节点">Group节点</span></h1><p>给一堆物体，或一些指定的元素进行打组，方便单独对其进行操作。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a3dc0d7.png" alt="32.png"><br>
+一些参数注释：</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a37b516.png" alt="33.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a449029.png" alt="34.png"><br>
+这个节点也可以不通过截面端进行输出，这里是一个镂空字的实例：</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a4b0c71.png" alt="35.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a4475f0.png" alt="36.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a44b93f.png" alt="37.png"></p>
+<h1><span id="group节点">Group节点</span></h1>
+<p>给一堆物体，或一些指定的元素进行打组，方便单独对其进行操作。</p>
 <p>下面一个例子是创建一个grid，单独选择几个面，进行打组挤出。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a505233.png" alt="38.png"><br>在相机视图用选择工具选择了需要打组的面，然后按Tab键创建group。（Base Group后的小三角图标可以进行加选减选，回车键确定，ESC退出）</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a508766.png" alt="39.png"><br>一些参数释义：</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a505233.png" alt="38.png"><br>
+在相机视图用选择工具选择了需要打组的面，然后按Tab键创建group。（Base Group后的小三角图标可以进行加选减选，回车键确定，ESC退出）</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a508766.png" alt="39.png"><br>
+一些参数释义：</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a51cf1d.png" alt="40.png"></p>
-<h1><span id="group-by-range节点">Group by Range节点</span></h1><p>按Id范围来进行选择。</p>
+<h1><span id="group-by-range节点">Group by Range节点</span></h1>
+<p>按Id范围来进行选择。</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a564e8c.png" alt="41.png"></p>
-<h1><span id="group-expression节点">Group Expression节点</span></h1><p>用表达式来控制group的选择</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a5da08c.png" alt="42.png"><br>这里是一个马赛克字体的示例（效果如下）：</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a63860f.png" alt="43.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a6075c6.png" alt="44.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a638139.png" alt="45.png"></p>
-<h1><span id="for-each-number节点">For-each Number节点</span></h1><p>类似于for循环，重复执行一个（节点）操作。</p>
+<h1><span id="group-expression节点">Group Expression节点</span></h1>
+<p>用表达式来控制group的选择</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a5da08c.png" alt="42.png"><br>
+这里是一个马赛克字体的示例（效果如下）：</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a63860f.png" alt="43.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a6075c6.png" alt="44.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a638139.png" alt="45.png"></p>
+<h1><span id="for-each-number节点">For-each Number节点</span></h1>
+<p>类似于for循环，重复执行一个（节点）操作。</p>
 <p>这里的示例是用foreach结合grid和挤出做一个金字塔的效果。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a6cb339.png" alt="46.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a6e1b16.png" alt="47.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a708e2c.png" alt="48.png"><br><strong>（这里的polyextrude记得勾选front group，输出挤出的面id给下游节点）</strong></p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7094a0720.png" alt="49.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7094dde82.png" alt="50.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7094e1f8b.png" alt="51.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7094e1863.png" alt="52.png"></p>
-<h1><span id="for-each-primitive节点">For-each Primitive节点</span></h1><p>基于primitive进行循环操作。（模型里有多少个面就重复执行多少次）</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a6cb339.png" alt="46.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a6e1b16.png" alt="47.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a708e2c.png" alt="48.png"><br>
+<strong>（这里的polyextrude记得勾选front group，输出挤出的面id给下游节点）</strong></p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7094a0720.png" alt="49.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7094dde82.png" alt="50.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7094e1f8b.png" alt="51.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7094e1863.png" alt="52.png"></p>
+<h1><span id="for-each-primitive节点">For-each Primitive节点</span></h1>
+<p>基于primitive进行循环操作。（模型里有多少个面就重复执行多少次）</p>
 <p>随机挤出的实例：</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709759d16.png" alt="53.png"></p>
-<h1><span id="for-each-connected-piece节点">For-each Connected Piece节点</span></h1><p>区别于前两个节点，它的for循环影响的是class级别。</p>
+<h1><span id="for-each-connected-piece节点">For-each Connected Piece节点</span></h1>
+<p>区别于前两个节点，它的for循环影响的是class级别。</p>
 <p>一个给文字随机位置的实例：</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709839311.png" alt="54.png"></p>
-<h1><span id="sort-节点">Sort 节点</span></h1><p>给元素排序用，顺序或乱序。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7098c4444.png" alt="55.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709944732.png" alt="56.png"><br>制作一个时钟格效果，使用sort对点进行排序。达到下图效果</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7099c5c29.png" alt="57.png"><br>完整节点图及最后效果：</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709a05d16.png" alt="58.png"><br>参数截图：</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7099c8792.png" alt="59.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709981cc1.png" alt="60.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709a5f6e3.png" alt="61.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709a9bdb6.png" alt="62.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709ab0da1.png" alt="63.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709b00753.png" alt="64.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709b471e5.png" alt="65.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709b93d1b.png" alt="66.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709b79ef4.png" alt="67.png"></p>
-<h1><span id="resample-节点">Resample 节点</span></h1><p>重采样节点。</p>
+<h1><span id="sort-节点">Sort 节点</span></h1>
+<p>给元素排序用，顺序或乱序。</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7098c4444.png" alt="55.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709944732.png" alt="56.png"><br>
+制作一个时钟格效果，使用sort对点进行排序。达到下图效果</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7099c5c29.png" alt="57.png"><br>
+完整节点图及最后效果：</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709a05d16.png" alt="58.png"><br>
+参数截图：</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa7099c8792.png" alt="59.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709981cc1.png" alt="60.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709a5f6e3.png" alt="61.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709a9bdb6.png" alt="62.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709ab0da1.png" alt="63.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709b00753.png" alt="64.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709b471e5.png" alt="65.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709b93d1b.png" alt="66.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa709b79ef4.png" alt="67.png"></p>
+<h1><span id="resample-节点">Resample 节点</span></h1>
+<p>重采样节点。</p>
 <p>画一根曲线进行重采样，对比图。</p>
-<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a7974b1.png" alt="68.png"><br><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a79aabf.png" alt="69.png"></p>
-<h1><span id="facet-节点">Facet 节点</span></h1><p>将面分离</p>
+<p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a7974b1.png" alt="68.png"><br>
+<img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a79aabf.png" alt="69.png"></p>
+<h1><span id="facet-节点">Facet 节点</span></h1>
+<p>将面分离</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a9030ae.png" alt="70.png"></p>
-<h1><span id="distancefromgeometry-节点">DistanceFromGeometry 节点</span></h1><p>求物体距离的节点，可以用作两个模型接触面处理。</p>
+<h1><span id="distancefromgeometry-节点">DistanceFromGeometry 节点</span></h1>
+<p>求物体距离的节点，可以用作两个模型接触面处理。</p>
 <p><img src="https://imgurl.vfxhub.net/i/2022/08/16/62fa70a938f38.png" alt="71.png"></p>
 
 </div>

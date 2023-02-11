@@ -243,6 +243,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -771,6 +780,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1250,7 +1268,8 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h3><span id="节点里添加自定义knob">节点里添加自定义knob</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 可以用这样的方法，查看knob类型</span>
+	<h3><span id="节点里添加自定义knob">节点里添加自定义knob</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 可以用这样的方法，查看knob类型</span>
 <span class="token keyword">print</span> nuke<span class="token punctuation">.</span>selectedNode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">"size"</span><span class="token punctuation">]</span>
 <span class="token operator">>></span><span class="token operator">></span> Result<span class="token punctuation">:</span> <span class="token operator">&lt;</span>WH_Knob <span class="token builtin">object</span> at xxxx<span class="token operator">></span>
 
@@ -1258,123 +1277,38 @@ var _hmt = _hmt || [];
 node <span class="token operator">=</span> nuke<span class="token punctuation">.</span>selectedNode<span class="token punctuation">(</span><span class="token punctuation">)</span>
 knob <span class="token operator">=</span> nuke<span class="token punctuation">.</span>Double_Knob<span class="token punctuation">(</span><span class="token string">"real_name"</span><span class="token punctuation">,</span> <span class="token string">"label name"</span><span class="token punctuation">)</span>
 node<span class="token punctuation">.</span>addKnob<span class="token punctuation">(</span>knob<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3><span id="对knob的一些操作">对knob的一些操作</span></h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 对knob进行隐藏操作</span>
+<h3><span id="对knob的一些操作">对knob的一些操作</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 对knob进行隐藏操作</span>
 node<span class="token punctuation">[</span><span class="token string">"Double_Knob"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>setVisible<span class="token punctuation">(</span><span class="token boolean">False</span><span class="token punctuation">)</span>
 
 <span class="token comment"># 使一个knob不可编辑</span>
 node<span class="token punctuation">[</span><span class="token string">"Double_Knob"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>setEnabled<span class="token punctuation">(</span><span class="token boolean">False</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2><span id="自定义knob概览">自定义Knob概览</span></h2><table>
-<thead>
-<tr>
-<th>Knob</th>
-<th>使用</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Array_Knob</td>
-<td>Array_Knob(name, label, int)</td>
-<td>矢量</td>
-</tr>
-<tr>
-<td>Color_Knob</td>
-<td>Color_Knob(name, label)</td>
-<td>RGB</td>
-</tr>
-<tr>
-<td>AColor_Knob</td>
-<td>AColor_Knob(name, label)</td>
-<td>RGBA</td>
-</tr>
-<tr>
-<td>Eyedropper_Knob</td>
-<td>Eyedropper_Knob(name, label)</td>
-<td>取色</td>
-</tr>
-<tr>
-<td>BBox_Knob</td>
-<td>BBox_Knob(name, label)</td>
-<td>边界框</td>
-</tr>
-<tr>
-<td>Enumeration_Knob</td>
-<td>Enumeration_Knob(name, label, list)</td>
-<td>下拉框</td>
-</tr>
-<tr>
-<td>Bitmask_Knob</td>
-<td>Bitmask_Knob(name, label, list)</td>
-<td>多选</td>
-</tr>
-<tr>
-<td>Radio_Knob</td>
-<td>Radio_Knob(name, label, list)</td>
-<td>单选</td>
-</tr>
-<tr>
-<td>ColorChip_Knob</td>
-<td>ColorChip_Knob(name, label)</td>
-<td>取色</td>
-</tr>
-<tr>
-<td>Boolean_Knob</td>
-<td>Boolean_Knob(name, label)</td>
-<td>选择</td>
-</tr>
-<tr>
-<td>Double_Knob</td>
-<td>Double_Knob(name, label)</td>
-<td>小数</td>
-</tr>
-<tr>
-<td>Int_Knob</td>
-<td>Int_Knob(name, label)</td>
-<td>整数</td>
-</tr>
-<tr>
-<td>Keyer_Knob</td>
-<td>Keyer_Knob(name, label)</td>
-<td>Keyer</td>
-</tr>
-<tr>
-<td>Channel_Knob</td>
-<td>Channel_Knob(name, label)</td>
-<td>通道</td>
-</tr>
-<tr>
-<td>EvalString_Knob</td>
-<td>EvalString_Knob(name, label)</td>
-<td>文本</td>
-</tr>
-<tr>
-<td>File_Knob</td>
-<td>File_Knob(name, label)</td>
-<td>文件</td>
-</tr>
-<tr>
-<td>PyScript_Knob</td>
-<td>PyScript_Knob(name, label, str)</td>
-<td>按钮</td>
-</tr>
-<tr>
-<td>Font_Knob</td>
-<td>Font_Knob(name, label)</td>
-<td>字体</td>
-</tr>
-<tr>
-<td>Format_Knob</td>
-<td>Format_Knob(name, label)</td>
-<td>格式</td>
-</tr>
-<tr>
-<td>Text_Knob</td>
-<td>Text_Knob(name, label)</td>
-<td>分割线</td>
-</tr>
-</tbody></table>
+<h2><span id="自定义knob概览">自定义Knob概览</span></h2>
+<p>Knob | 使用 | 描述</p>
+<ul>
+<li>| - | -<br>
+Array_Knob | Array_Knob(name, label, int) | 矢量<br>
+Color_Knob | Color_Knob(name, label) | RGB<br>
+AColor_Knob | AColor_Knob(name, label) | RGBA<br>
+Eyedropper_Knob | Eyedropper_Knob(name, label) | 取色<br>
+BBox_Knob | BBox_Knob(name, label) | 边界框<br>
+Enumeration_Knob | Enumeration_Knob(name, label, list) | 下拉框<br>
+Bitmask_Knob | Bitmask_Knob(name, label, list) | 多选<br>
+Radio_Knob | Radio_Knob(name, label, list) | 单选<br>
+ColorChip_Knob | ColorChip_Knob(name, label) | 取色<br>
+Boolean_Knob | Boolean_Knob(name, label) | 选择<br>
+Double_Knob | Double_Knob(name, label) | 小数<br>
+Int_Knob | Int_Knob(name, label) | 整数<br>
+Keyer_Knob | Keyer_Knob(name, label) | Keyer<br>
+Channel_Knob | Channel_Knob(name, label) | 通道<br>
+EvalString_Knob | EvalString_Knob(name, label) | 文本<br>
+File_Knob | File_Knob(name, label) | 文件<br>
+PyScript_Knob | PyScript_Knob(name, label, str) | 按钮<br>
+Font_Knob | Font_Knob(name, label) | 字体<br>
+Format_Knob | Format_Knob(name, label) | 格式<br>
+Text_Knob | Text_Knob(name, label) | 分割线</li>
+</ul>
 
 </div>
 

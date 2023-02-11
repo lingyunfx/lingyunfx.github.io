@@ -241,6 +241,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/ue5-compile-fbx/">
+										编译FBX SDK for python3.9
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/whats-matchmoving/">
 										电影视效制作中的Matchmove
 									</a>
@@ -769,6 +778,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/postgres_type/">
+										PostgreSql 数据类型
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -1209,16 +1227,95 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
+			<a href="/maya-issue-vol1/">
+				<h2 class="index-title">
+					Maya疑难杂症备忘录 Vol.1
+				</h2>
+				<div class="index-brief">
+					
+这个系列主要是收集一些Maya中遇到的疑难杂症，
+有自己工作中遇到的，有从网上或者博客中看到记录的。
+总之当作一个备忘录。
+
+1.打开软件崩溃
+双击打开软件，出现一个下面这样的弹窗，Maya就崩溃退出了。
+
+出现这样的情况通常重置用户预设文件夹即可解决：
+...\Documents\maya\&l
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-03-09</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/">DCC</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/Maya/">Maya</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/py2app-used/">
+				<h2 class="index-title">
+					将Python程序打包成App过程和排错
+				</h2>
+				<div class="index-brief">
+					前言
+最近写了一个Python工具，需求是要在Mac笔记本上使用。
+（不依赖于DCC软件，独立运行）
+因为工具依赖了一些第三方库，不可能在每台电脑上对这些库逐一进行安装。
+想到最好的方法是将其打包成一个Mac App，并制作成一个dmg文件。
+这样只需要分享这个映像文件，使用者只需双击安装使用即可。
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-01-29</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/Mac/">Mac</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/nginx_learn/">
 				<h2 class="index-title">
 					Nginx学习笔记
 				</h2>
 				<div class="index-brief">
-					安装下面提供两种安装方式，喜欢折腾的推荐使用第一种。第二种比较简单方便，适合小白（我）。
-源码包安装https://nginx.org/en/download.html
+					安装
+下面提供两种安装方式，喜欢折腾的推荐使用第一种。
+第二种比较简单方便，适合小白（我）。
+源码包安装
+https://nginx.org/en/download.html
 1.下载源码包
 # 源码包一般放在src里
-wget https://nginx.org/download/nginx-1.21.
+wget https://nginx.org/download/nginx-1.
 					...
 				</div>
 			</a>
@@ -1254,7 +1351,8 @@ wget https://nginx.org/download/nginx-1.21.
 					PostgreSql 操作
 				</h2>
 				<div class="index-brief">
-					数据库操作# 创建数据库
+					数据库操作
+# 创建数据库
 CREATE DATABASE dbname;
 
 # 列出数据库 list
@@ -1264,7 +1362,7 @@ CREATE DATABASE dbname;
 \c &#123;database_name&#125;
 
 # 删除数据库
-DROP DATABASE [IF EXISTS] &#123;database_
+DROP DATABASE [IF EXISTS] &#123;database
 					...
 				</div>
 			</a>
@@ -1300,10 +1398,11 @@ DROP DATABASE [IF EXISTS] &#123;database_
 					PostgreSql 安装和配置
 				</h2>
 				<div class="index-brief">
-					CentOS 7安装# 下载rpm包
+					CentOS 7安装
+# 下载rpm包
 sudo yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm  
 
-# 安装 P
+# 安装 
 					...
 				</div>
 			</a>
@@ -1340,14 +1439,16 @@ sudo yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-
 				</h2>
 				<div class="index-brief">
 					
-为了自己忘记的时候方便查询，整理了vim使用的快捷键。  
+为了自己忘记的时候方便查询，整理了vim使用的快捷键。
 
-vim分为三种模式：普通模式， 编辑模式， 命令模式。  
+vim分为三种模式：普通模式， 编辑模式， 命令模式。
 普通模式
+
 
 
 热键
 描述
+
 
 
 
@@ -1372,7 +1473,7 @@ A
 
 
 O
-光标进入上一行
+光标进入上一行插入
 					...
 				</div>
 			</a>
@@ -1409,10 +1510,13 @@ O
 				</h2>
 				<div class="index-brief">
 					
-在项目制作中，我们时常会拿到模型面数非常大的扫描模型。模型导入到软件里会非常的吃内存，有时候这种扫描模型只是用作位置参照。使用MeshLab为模型减面，既不会改变太多模型，也不会让模型加大电脑的计算量。  
+在项目制作中，我们时常会拿到模型面数非常大的扫描模型。
+模型导入到软件里会非常的吃内存，有时候这种扫描模型只是用作位置参照。
+使用MeshLab为模型减面，既不会改变太多模型，也不会让模型加大电脑的计算量。
 
-在网上随便找了一个模型(手头没有扫描模型)。  
-导入到maya里，可以看到这里的面数为
+在网上随便找了一个模型(手头没有扫描模型)。
+
+导入到maya里，可以看到这里的面数为1
 					...
 				</div>
 			</a>
@@ -1438,8 +1542,12 @@ O
 					UE4和Maya的数据通信
 				</h2>
 				<div class="index-brief">
-					前言因为出色的实时渲染，快速的可见效果。在如今的电影视效制作中，渐渐有了Unreal的身影。  
-不过Unreal在动画部分，却不像它的渲染这么出彩。动画制作还是由我们的老牌软件Maya来负责，然后再将动画通过abc,fbx等格式输出到Unreal进行预览。  
+					前言
+因为出色的实时渲染，快速的可见效果。
+在如今的电影视效制作中，渐渐有了Unreal的身影。
+不过Unreal在动画部分，却不像它的渲染这么出彩。
+动画制作还是由我们的老牌软件Maya来负责，
+然后再将动画通过abc,fbx等格式输出到Unreal进行预览。
 在这样“分离”的情况下，可能会遇到动
 					...
 				</div>
@@ -1466,9 +1574,14 @@ O
 					安装Arnold后环境变量被破坏
 				</h2>
 				<div class="index-brief">
-					前言今天在安装新版本Arnold 4.1.0 for maya后，打开maya发现一堆报错，其中还有不少乱码字符。
-一看就知道是Arnold配置失败了，果不其然打开Plug-in Manager，Maya直接就崩掉了。  
-好奇这一堆乱码是怎么来的，安装的路径也没有中文字符啊。接下来就开始一步步排查
+					前言
+今天在安装新版本Arnold 4.1.0 for maya后，
+打开maya发现一堆报错，其中还有不少乱码字符。
+
+一看就知道是Arnold配置失败了，果不其然打开Plug-in Manager，
+Maya直接就崩掉了。
+好奇这一堆乱码是怎么来的，安装的路径也没有中文字符啊。
+接下来就开始一步
 					...
 				</div>
 			</a>
@@ -1504,11 +1617,15 @@ O
 					使用LensDistortion节点输出STMap
 				</h2>
 				<div class="index-brief">
-					前言通常在电影的前期拍摄中，Onset人员会拍摄摄像机不同焦段的畸变网格，因为在后期制作中，没有Distortion map会让摄像机反求变得困难得多。
+					前言
+通常在电影的前期拍摄中，Onset人员会拍摄摄像机不同焦段的畸变网格，
+因为在后期制作中，没有Distortion map会让摄像机反求变得困难得多。
 最左为枕形畸变，最右为桶形畸变。
 
 通常我们会对一个棋盘格板进行拍摄，类似下图这样的。
-拍摄完会得到一张畸变网格，下面我们使用nuke对其进行矫正
+
+
+拍摄完会得到一张畸变网格，下面我们使用nuke对其
 					...
 				</div>
 			</a>
@@ -1538,78 +1655,10 @@ O
                 </div>
 		</div>	
 	
-		<div class="index-li">
-			<a href="/cgwire-install/">
-				<h2 class="index-title">
-					搭建CGWire
-				</h2>
-				<div class="index-brief">
-					前言国庆在家容易想些有的没的，想着万一以后自己开了一个小型视效工作室，该用什么来进行跟踪管理项目进度。
-首先是想到的当然是诸如Shotgun, FTrack, CGTeamWork等这些项目管理平台。但是价格上则让人却步，比如Shotgun收费标准是每人每月30刀。
-  
-这对于小型低成本工作室，也
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2020-11-05</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/CGWire/">CGWire</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/tracker_connect_camera/">
-				<h2 class="index-title">
-					Vive Tracker控制Camera
-				</h2>
-				<div class="index-brief">
-					原文参考：
-https://www.youtube.com/watch?v=GjCo4p7DNPM&amp;ab_channel=AidenWilson
-1.禁用Oculus VR插件
-2.更改Play设置，勾选Viewport Get HMDControl允许用户在视口中播放模式下使用头戴式显示器
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2020-10-19</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Article/">Article</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
 	
 	<div id="index-paginator">
 		
-			<a class="extend prev" rel="prev" href="/archives/page/8/">&lt;</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/7/">7</a><a class="page-number" href="/archives/page/8/">8</a><span class="page-number current">9</span>
+			<a class="extend prev" rel="prev" href="/archives/page/8/">&lt;</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/7/">7</a><a class="page-number" href="/archives/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/archives/page/10/">10</a><a class="extend next" rel="next" href="/archives/page/10/">&gt;</a>
 		
 	</div>
 </div>
