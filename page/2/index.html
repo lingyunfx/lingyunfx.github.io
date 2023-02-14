@@ -205,6 +205,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/mmv-tools-help/">
+										Matchmover Tools 帮助文档
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/notion-intro/">
 										使用Notion建立个人Wiki
 									</a>
@@ -1227,6 +1236,51 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
+			<a href="/nk_node_animation/">
+				<h2 class="index-title">
+					Nuke节点动画操作
+				</h2>
+				<div class="index-brief">
+					节点动画操作
+# 设置为可key帧状态
+node = nuke.toNode("Blur1")
+knob = node["size"]
+knob.setAnimated()
+
+# 给指定帧数key帧，第一个参数是数值，第二个参数是帧数
+knob.setValueAt(55, 10)
+
+# 比如siz
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2022-01-08</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/">DCC</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/DCC/Nuke/">Nuke</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/maya-py-to-pyd/">
 				<h2 class="index-title">
 					将Maya的python代码编译成pyd
@@ -1532,37 +1586,6 @@ Maya的Create Quick Set可以创建快速选择集。
 其实变速的原理和实现并不是特别复杂，不过繁复的数值计算需要借助脚本来实现。
 然后借着节假日的最后一天，写了这个变速工具。
 这
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-12-11</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Article/">Article</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/metahuman-intro/">
-				<h2 class="index-title">
-					MetaHumans Creator初体验
-				</h2>
-				<div class="index-brief">
-					介绍
-MetaHumans Creator是虚幻引擎用来创建cg角色的工具。
-如同官方介绍的一样，它能够在几分钟创造出一个照片级的数字角色。
-创建的cg角色包含完整的骨骼，以及毛发和服装。
-可以将它导入到Maya，Blender，Unreal等软件进行动画制作和渲染。
-（下图为MetaHuman的面
 					...
 				</div>
 			</a>

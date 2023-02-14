@@ -205,6 +205,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/mmv-tools-help/">
+										Matchmover Tools 帮助文档
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/notion-intro/">
 										使用Notion建立个人Wiki
 									</a>
@@ -1227,6 +1236,49 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
+			<a href="/16%20rez-environment-variables/">
+				<h2 class="index-title">
+					16 Environment Variables
+				</h2>
+				<div class="index-brief">
+					
+本节列出来rez在某些情况下产生的环境变量，以及你可以设置的影响rez操作的环境变量。
+
+Context环境变量
+这些是rez在解析环境中产生的环境变量。
+REZ_RXT_FILE ： 当前context的文件路径 ( rxt 文件)。
+REZ_USED ：用于解析这个环境的rez安装路径。
+RE
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2021-03-15</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/15%20rez-package-caching/">
 				<h2 class="index-title">
 					15 Package Caching
@@ -1578,47 +1630,6 @@ rez的包可以包含不同的变体（variant），可以把它看作同一个�
 比如包的存储位置为/packages/inhouse，则包&quot;foo-1.0.0&quot;的定义文件路径是：
 /packages/inhouse/foo/1.0.0/package.py
 这里是一个定义文件的例
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2021-03-15</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/">TD Pipeline</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/TD-Pipeline/Rez/">Rez</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/06%20rez-package-commands/">
-				<h2 class="index-title">
-					06 Package Commands
-				</h2>
-				<div class="index-brief">
-					概述
-程序包定义文件（package.py）通常定义命令的部分。
-这是一个例子，用于确定如何配置环境和软件包的Python函数：
-def commands():
-  env.PYTHONPATH.append("&#123;root&#125;/python")
-  env.PATH.append(
 					...
 				</div>
 			</a>
