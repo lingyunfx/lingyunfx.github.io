@@ -1245,179 +1245,25 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
-			<a href="/learn-minq/">
+			<a href="/unreal-python-02/">
 				<h2 class="index-title">
-					maya第三方库minq学习
+					UE开发的一点心得经验（二）
 				</h2>
 				<div class="index-brief">
-					
-minq是一个在maya场景中快速物体对象查询的库
+					前言
+上期讲了怎么用Python去导入fbx或abc，怎么去找到并修改一个对象的属性等等。
+这期是一些关于Sequencer的操作技巧。
+大致内容有:
 
-仓库地址：https://github.com/theodox/minq
-minq简单介绍
-这个项目是为了减少Maya中每次对物体查询时，用到命令比如ls()，listRelatives()和listHistory()的频次。意在直接了当的获取
+如何创建 level sequencer
+如何在 level sequencer 中导入摄像机fbx
+如何在 level sequencer 添加
 					...
 				</div>
 			</a>
                 <div class="article-meta">
-				    <span>2022-01-10</span>
+				    <span>2023-06-19</span>
                     
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/">DCC</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Maya/">Maya</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/maya_cmds/">
-				<h2 class="index-title">
-					maya command代码段
-				</h2>
-				<div class="index-brief">
-					动画相关
-获取物体有多少个关键帧
-cmds.keyframe(name, q=True, keyframeCount=True)
-获取物体第一个动画帧帧数
-cmds.findKeyframe(name, which='first')
-获取物体最后一个动画帧帧数
-cmds.findKeyframe(n
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2022-01-09</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/">DCC</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Maya/">Maya</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/maya_environment_variable/">
-				<h2 class="index-title">
-					Maya环境变量表
-				</h2>
-				<div class="index-brief">
-					收集一些常用的Maya环境变量，方便用的时候查。
-有关PATH的变量，Mac OS X中使用:分隔，Windows和Linux中使用;分隔。
-
-
-
-Variable
-Description
-
-
-
-
-MAYA_IGNORE_DIALOGS	
-打开maya场景禁止弹出警告框
-
-
-MAYA_DISABLE
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2022-01-09</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/">DCC</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Maya/">Maya</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/nk_node_animation/">
-				<h2 class="index-title">
-					Nuke节点动画操作
-				</h2>
-				<div class="index-brief">
-					节点动画操作
-# 设置为可key帧状态
-node = nuke.toNode("Blur1")
-knob = node["size"]
-knob.setAnimated()
-
-# 给指定帧数key帧，第一个参数是数值，第二个参数是帧数
-knob.setValueAt(55, 10)
-
-# 比如siz
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2022-01-08</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/">DCC</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/DCC/Nuke/">Nuke</a>
-										
-                                    </span>
-                                
                             
                     
                 </div>
