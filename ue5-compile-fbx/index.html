@@ -9,7 +9,7 @@
 	
 	<title>
 	
-		编译FBX SDK for python3.9 | 
+		编译FBX SDK for Python3.9 | 
 	 
 	凌云的个人博客
 	</title>
@@ -253,7 +253,7 @@ var _hmt = _hmt || [];
 							<ul>
 								<li class="file active">
 									<a href="/ue5-compile-fbx/">
-										编译FBX SDK for python3.9
+										编译FBX SDK for Python3.9
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -1245,7 +1245,7 @@ var _hmt = _hmt || [];
 	<!-- 引入正文 -->
 	<div id="content">
 		<h1 id="article-title">
-	编译FBX SDK for python3.9
+	编译FBX SDK for Python3.9
 </h1>
 <div class="article-meta">
 	
@@ -1275,10 +1275,12 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h3><span id="前言">前言</span></h3>
-<p>因为公司有个需求是要在UE5中处理fbx数据，要用到fbx sdk。<br>
-可是UE5的python版本是3.9，网上没有找到对应版本，就自己编译一个了。<br>
-这里记录一下过程。（文章尾巴有编译好的自取）</p>
+	<h2><span id="前言">前言</span></h2>
+<p>公司有个需求是要在UE5中处理fbx数据，要用到fbx sdk。<br>
+可是UE5的python版本是3.9，网上没有找到对应的，就自己编译了一个。<br>
+这里记录一下过程。<br>
+（文章尾巴有编译好的自取）</p>
+<h2><span id="编译过程">编译过程</span></h2>
 <h3><span id="准备">准备</span></h3>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.autodesk.com/developer-network/platform-technologies/fbx-sdk-2020-2-1">FBX SDK 2020.2.1 VS2019</a></li>
@@ -1316,10 +1318,75 @@ python build<span class="token punctuation">.</span>py prepare<span aria-hidden=
 <p><img src="https://imgurl.vfxhub.net/i/2022/08/24/6305d8bd34f07.png" alt="1661327591215.png"></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 进入到 D:\fbx_sdk\2020.2\bindings 目录</span>
 C<span class="token punctuation">:</span>\Users\zhanglingyun\Miniconda3\envs\fbxsdk_ue5\python<span class="token punctuation">.</span>exe PythonBindings<span class="token punctuation">.</span>py Python3_x64 buildsip<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>这样就完成了。<br>
-最后分享个编译好的链接<br>
-<a target="_blank" rel="noopener" href="http://s.lingyunfx.com/d/305152ca5c734e2cadd4/">http://s.lingyunfx.com/d/305152ca5c734e2cadd4/</a></p>
+<p>这样就完成了。</p>
+<h2><span id="一些fbx-sdk代码段">一些fbx sdk代码段</span></h2>
+<h3><span id="遍历节点">遍历节点</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> fbx  
+<span class="token keyword">import</span> FbxCommon  
+  
+output_file <span class="token operator">=</span> <span class="token string">r'D:\test\test1.fbx'</span>
+manager<span class="token punctuation">,</span> scene <span class="token operator">=</span> FbxCommon<span class="token punctuation">.</span>InitializeSdkObjects<span class="token punctuation">(</span><span class="token punctuation">)</span>
+result <span class="token operator">=</span> FbxCommon<span class="token punctuation">.</span>LoadScene<span class="token punctuation">(</span>manager<span class="token punctuation">,</span> scene<span class="token punctuation">,</span> output_file<span class="token punctuation">)</span>
+nodes <span class="token operator">=</span> scene<span class="token punctuation">.</span>GetRootNode<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>scene<span class="token punctuation">.</span>GetNodeCount<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    node <span class="token operator">=</span> scene<span class="token punctuation">.</span>GetNode<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+    mesh <span class="token operator">=</span> node<span class="token punctuation">.</span>GetNodeAttribute<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3><span id="获取模型点线面信息">获取模型点，线，面信息</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 遍历节点</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>scene<span class="token punctuation">.</span>GetNodeCount<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    node <span class="token operator">=</span> scene<span class="token punctuation">.</span>GetNode<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+    mesh <span class="token operator">=</span> node<span class="token punctuation">.</span>GetNodeAttribute<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment"># 过滤mesh类型</span>
+    <span class="token keyword">if</span> mesh <span class="token keyword">and</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>mesh<span class="token punctuation">,</span> fbx<span class="token punctuation">.</span>FbxMesh<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>GetName<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token builtin">len</span><span class="token punctuation">(</span><span class="token builtin">set</span><span class="token punctuation">(</span>mesh<span class="token punctuation">.</span>GetPolygonVertices<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment"># 点数</span>
+        mesh<span class="token punctuation">.</span>GetMeshEdgeCount<span class="token punctuation">(</span><span class="token punctuation">)</span>，             <span class="token comment"># 边数</span>
+        mesh<span class="token punctuation">.</span>GetPolygonCount<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>               <span class="token comment"># 面数</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3><span id="修改名称">修改名称</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 获取名称</span>
+name <span class="token operator">=</span> node<span class="token punctuation">.</span>GetName<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 修改名称</span>
+node<span class="token punctuation">.</span>SetName<span class="token punctuation">(</span>name<span class="token operator">+</span><span class="token string">'_modify'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3><span id="创建locator">创建Locator</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 创建空group</span>
+group_node <span class="token operator">=</span> fbx<span class="token punctuation">.</span>FbxNode<span class="token punctuation">.</span>Create<span class="token punctuation">(</span>manager<span class="token punctuation">,</span> <span class="token string">"Locator01"</span><span class="token punctuation">)</span>  
+<span class="token comment"># 创建Locator</span>
+locator <span class="token operator">=</span> fbx<span class="token punctuation">.</span>FbxNull<span class="token punctuation">.</span>Create<span class="token punctuation">(</span>scene<span class="token punctuation">,</span> <span class="token string">'Locator01'</span><span class="token punctuation">)</span>  
+<span class="token comment"># 将locator放到transform节点下</span>
+group_node<span class="token punctuation">.</span>AddNodeAttribute<span class="token punctuation">(</span>locator<span class="token punctuation">)</span>  
+<span class="token comment"># 获取root节点</span>
+root_node <span class="token operator">=</span> scene<span class="token punctuation">.</span>GetRootNode<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+<span class="token comment"># 加入到root节点中</span>
+root_node<span class="token punctuation">.</span>AddChild<span class="token punctuation">(</span>group_node<span class="token punctuation">)</span>
+
+<span class="token comment"># 或者</span>
+group_node <span class="token operator">=</span> fbx<span class="token punctuation">.</span>FbxNode<span class="token punctuation">.</span>Create<span class="token punctuation">(</span>manager<span class="token punctuation">,</span> <span class="token string">"Locator01"</span><span class="token punctuation">)</span>  
+null_prop <span class="token operator">=</span> fbx<span class="token punctuation">.</span>FbxNull<span class="token punctuation">.</span>Create<span class="token punctuation">(</span>manager<span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span>  
+group_node<span class="token punctuation">.</span>SetNodeAttribute<span class="token punctuation">(</span>null_prop<span class="token punctuation">)</span>  
+root_node <span class="token operator">=</span> scene<span class="token punctuation">.</span>GetRootNode<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3><span id="创建groupsetparent">创建Group，setParent</span></h3>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">file_path <span class="token operator">=</span> <span class="token string">r'D:\test001.fbx'</span>  
+<span class="token comment"># file_path = r'D:\work\ple\test\ad\test3.fbx'  </span>
+manager<span class="token punctuation">,</span> scene <span class="token operator">=</span> FbxCommon<span class="token punctuation">.</span>InitializeSdkObjects<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+result <span class="token operator">=</span> FbxCommon<span class="token punctuation">.</span>LoadScene<span class="token punctuation">(</span>manager<span class="token punctuation">,</span> scene<span class="token punctuation">,</span> file_path<span class="token punctuation">)</span>  
+<span class="token keyword">if</span> <span class="token keyword">not</span> result<span class="token punctuation">:</span>  
+    <span class="token keyword">return</span>  
+group_node <span class="token operator">=</span> fbx<span class="token punctuation">.</span>FbxNode<span class="token punctuation">.</span>Create<span class="token punctuation">(</span>manager<span class="token punctuation">,</span> <span class="token string">"Locator01"</span><span class="token punctuation">)</span>  
+  
+root_node <span class="token operator">=</span> scene<span class="token punctuation">.</span>GetRootNode<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>scene<span class="token punctuation">.</span>GetNodeCount<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>  
+    node <span class="token operator">=</span> scene<span class="token punctuation">.</span>GetNode<span class="token punctuation">(</span>i<span class="token punctuation">)</span>  
+    mesh <span class="token operator">=</span> node<span class="token punctuation">.</span>GetNodeAttribute<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+    <span class="token keyword">if</span> <span class="token keyword">not</span> mesh<span class="token punctuation">:</span>  
+        <span class="token keyword">continue</span>  
+root_node<span class="token punctuation">.</span>AddChild<span class="token punctuation">(</span>group_node<span class="token punctuation">)</span>  
+output_file <span class="token operator">=</span> <span class="token string">r'D:\test2.fbx'</span>  
+FbxCommon<span class="token punctuation">.</span>SaveScene<span class="token punctuation">(</span>manager<span class="token punctuation">,</span> scene<span class="token punctuation">,</span> output_file<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2><span id="结尾分享">结尾分享</span></h2>
+<p>编译好的 <a target="_blank" rel="noopener" href="http://s.lingyunfx.com/d/305152ca5c734e2cadd4/">fbx sdk for python3.9</a></p>
+<center>(完)</center>
 </div>
 
 
