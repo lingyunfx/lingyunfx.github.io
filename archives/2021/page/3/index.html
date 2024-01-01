@@ -223,6 +223,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/premiere-python/">
+										Premiere+Python审片工具开发
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/reject-maya-warning/">
 										关于“你的文件贼健康”的简单处理方式
 									</a>
@@ -1245,22 +1254,19 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
-			<a href="/py_common_cod/">
+			<a href="/py_class_extra/">
 				<h2 class="index-title">
-					代码段记录
+					面向对象进阶
 				</h2>
 				<div class="index-brief">
-					读取和写入json文件
-# 写
-with open(json_path, 'w') as f:
-    json.dump(self.items, f)
+					公共属性
+使用id()可以查看，公共属性的地址是一样的。
+Dog.d_type = '藏獒' 一旦更改，其他的实例对应属性也会随之更改。
+class Dog:
+	d_type = '京巴' # 公共属性， 类属性， 类变量
 
-# 读
-with open(json_path) as f:
-    items = json.load(f)
-读取和写入csv文件
-# 读
-w
+	def say_hi(self):
+		print('hello, i 
 					...
 				</div>
 			</a>
@@ -1281,7 +1287,7 @@ w
                                 
                                     <span>
                                         <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Python/查询/">查询</a>
+                                        <a href="/categories/Python/学习笔记/">学习笔记</a>
 										
                                     </span>
                                 
@@ -1291,37 +1297,20 @@ w
 		</div>	
 	
 		<div class="index-li">
-			<a href="/py_dict/">
+			<a href="/py_process/">
 				<h2 class="index-title">
-					Python字典方法
+					并发编程
 				</h2>
 				<div class="index-brief">
-					
+					开启子进程的两种方式
+方式一：
+import time
+from multiprocessing import Process
 
+def task(name):
+    print('&#123;0&#125; is running'.format(name))
+    time.sleep(3)
 
-方法
-描述
-
-
-
-
-cmp(dict1, dict2)
-比较两个字典元素。
-
-
-len(dict)
-计算字典元素个数，即键的总数。
-
-
-str(dict)
-输出字典可打印的字符串表示。
-
-
-type(variable)
-返回输入的变量类型，如果变量是字典就返回字典类型。
-
-
-dict.clea
 					...
 				</div>
 			</a>
@@ -1342,7 +1331,7 @@ dict.clea
                                 
                                     <span>
                                         <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Python/查询/">查询</a>
+                                        <a href="/categories/Python/学习笔记/">学习笔记</a>
 										
                                     </span>
                                 
@@ -1352,42 +1341,20 @@ dict.clea
 		</div>	
 	
 		<div class="index-li">
-			<a href="/py_list/">
+			<a href="/py_network/">
 				<h2 class="index-title">
-					Python列表方法
+					网络通信
 				</h2>
 				<div class="index-brief">
-					
+					互联网协议
+按照功能的不同分为七层。
+OSI七层协议：应，表，会，传，网，数，物。
+其中应表会可以归为应用层。
 
-
-方法
-描述
-
-
-
-
-cmp(list1, list2)
-比较两个列表的元素
-
-
-len(list)
-列表元素个数
-
-
-max(list)
-返回列表元素最大值
-
-
-min(list)
-返回列表元素最小值
-
-
-list(seq)
-将元组转换为列表
-
-
-list.append(obj)
-在列表末尾添
+应用层：应用程序。http，ftp协议
+传输层：tcp/udp协议。端口来标识运行中的一款应用程序。 以太网头|IP头|tcp头|数据
+网络层：IP协议，用于寻找子网。
+数据链路层：Et
 					...
 				</div>
 			</a>
@@ -1408,7 +1375,7 @@ list.append(obj)
                                 
                                     <span>
                                         <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Python/查询/">查询</a>
+                                        <a href="/categories/Python/学习笔记/">学习笔记</a>
 										
                                     </span>
                                 
@@ -1418,30 +1385,20 @@ list.append(obj)
 		</div>	
 	
 		<div class="index-li">
-			<a href="/py_str/">
+			<a href="/py_re/">
 				<h2 class="index-title">
-					Python字符串方法
+					正则学习
 				</h2>
 				<div class="index-brief">
-					
+					概览
 
-
-方法
-描述
-
-
-
-
-string.capitalize()
-把字符串的第一个字符大写
-
-
-string.center(width)
-返回一个原字符串居中,并使用空格填充至长度 width 的新字符串
-
-
-string.count(str, beg=0, end=len(string))
-返回 
+re.compile 生成一个匹配器实例，用来匹配
+re.match 从字符最前端开始匹配
+re.search 从字符中搜索出第一个匹配结果
+re.findall 从字符中找出所有匹配结果
+re.sub 查询替换字符，返回替换结果
+re.subn 查询替换字符，返回替换结果和替换次数
+re.
 					...
 				</div>
 			</a>
@@ -1462,7 +1419,7 @@ string.count(str, beg=0, end=len(string))
                                 
                                     <span>
                                         <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Python/查询/">查询</a>
+                                        <a href="/categories/Python/学习笔记/">学习笔记</a>
 										
                                     </span>
                                 
@@ -1472,21 +1429,25 @@ string.count(str, beg=0, end=len(string))
 		</div>	
 	
 		<div class="index-li">
-			<a href="/pyqt_widgets/">
+			<a href="/unreal_motion_redirect/">
 				<h2 class="index-title">
-					PyQt常用控件
+					Unreal 动画重定向
 				</h2>
 				<div class="index-brief">
-					QLineEdit
+					1.打开骨骼，打开Retarget Manager面板
 
-生成控件
-widget = QLineEdit()
-设置输入框文字
-widget.setText('some text')
-设置提示文字
-widget.setPlaceholderText('some text')
-设置输入框为只读
-widget.setReadOnly(Tru
+2.添加目标源
+
+3.添加Rig模板
+
+4.一一对应骨骼
+如果有不确定骨骼，宁愿不要添加。
+(例如没有root骨骼的话，点后面的x去掉)
+
+如果有手指的骨骼，点击Show Advanced，指定更多细节骨骼
+
+调整完成后，点击Save。
+5.
 					...
 				</div>
 			</a>
@@ -1497,7 +1458,7 @@ widget.setReadOnly(Tru
                                 
                                     <span>
                                         <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Python/">Python</a>
+                                        <a href="/categories/DCC/">DCC</a>
 										
 											>
 										
@@ -1507,7 +1468,7 @@ widget.setReadOnly(Tru
                                 
                                     <span>
                                         <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Python/查询/">查询</a>
+                                        <a href="/categories/DCC/Unreal/">Unreal</a>
 										
                                     </span>
                                 
